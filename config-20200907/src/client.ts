@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -43,7 +42,29 @@ export class ResourceDirectoryFolderNode extends $tea.Model {
 }
 
 export class ActiveAggregateConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-5772ba41209e007b****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,7 +86,18 @@ export class ActiveAggregateConfigRulesRequest extends $tea.Model {
 }
 
 export class ActiveAggregateConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   operateRuleResult?: ActiveAggregateConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,6 +144,15 @@ export class ActiveAggregateConfigRulesResponse extends $tea.Model {
 }
 
 export class ActiveConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-2da35180a8d1008e****,cr-2da35180a8d1008e****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,7 +172,18 @@ export class ActiveConfigRulesRequest extends $tea.Model {
 }
 
 export class ActiveConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   operateRuleResult?: ActiveConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 61C1A88F-D163-40DF-84A6-F200229F37B2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,8 +230,41 @@ export class ActiveConfigRulesResponse extends $tea.Model {
 }
 
 export class AttachAggregateConfigRuleToCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-75b4626622af00c3****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-0453626622af0020****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-a124626622af00e7****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,7 +288,18 @@ export class AttachAggregateConfigRuleToCompliancePackRequest extends $tea.Model
 }
 
 export class AttachAggregateConfigRuleToCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the operations to add one or more rules.
+   */
   operateRuleResult?: AttachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DE72B7B5-D0EA-15E6-A359-EDECBB9BDFA3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -250,7 +346,29 @@ export class AttachAggregateConfigRuleToCompliancePackResponse extends $tea.Mode
 }
 
 export class AttachConfigRuleToCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-5bb1626622af00bd****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-6cc4626622af00e7****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -272,7 +390,18 @@ export class AttachConfigRuleToCompliancePackRequest extends $tea.Model {
 }
 
 export class AttachConfigRuleToCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the operations to add one or more rules.
+   */
   operateRuleResult?: AttachConfigRuleToCompliancePackResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB12A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -319,8 +448,37 @@ export class AttachConfigRuleToCompliancePackResponse extends $tea.Model {
 }
 
 export class CopyCompliancePacksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the destination account groups into which the compliance packages are replicated. Separate multiple account group IDs with commas (,).
+   * 
+   * > If this parameter is left empty, the compliance packages are replicated to the current account group.
+   * 
+   * @example
+   * ca-c73c626622af00f8****
+   */
   desAggregatorIds?: string;
+  /**
+   * @remarks
+   * The ID of the account group to which the compliance packages belong.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * @example
+   * ca-05e6626622af0050****
+   */
   srcAggregatorId?: string;
+  /**
+   * @remarks
+   * The IDs of the compliance packages. Separate multiple compliance package IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-4c02626622af0050****,cp-47c1626622af0050****
+   */
   srcCompliancePackIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -344,7 +502,24 @@ export class CopyCompliancePacksRequest extends $tea.Model {
 }
 
 export class CopyCompliancePacksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the compliance packages are replicated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   copyRulesResult?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E1E69DE-BDED-581E-B559-0C15690901D0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,8 +566,35 @@ export class CopyCompliancePacksResponse extends $tea.Model {
 }
 
 export class CopyConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the destination account groups into which the rules are replicated. Separate multiple account group IDs with commas (,).
+   * 
+   * > If you leave this parameter empty, the compliance packages are replicated into the same account group.
+   * 
+   * @example
+   * ca-4b4e626622af005d****
+   */
   desAggregatorIds?: string;
+  /**
+   * @remarks
+   * The ID of the account group to which the rules belong.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * @example
+   * ca-24db626622af0060****
+   */
   srcAggregatorId?: string;
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-4b57626622af0065****,cr-47c1626622af0050****
+   */
   srcConfigRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -416,7 +618,24 @@ export class CopyConfigRulesRequest extends $tea.Model {
 }
 
 export class CopyConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the rules are replicated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   copyRulesResult?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7BD81ECF-3194-5A6B-8719-9FC283167AD4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -463,6 +682,15 @@ export class CopyConfigRulesResponse extends $tea.Model {
 }
 
 export class CreateAdvancedSearchFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL statement used to query resources.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SELECT * WHERE ResourceType = \\"ACS::ECS::Instance\\"
+   */
   sql?: string;
   static names(): { [key: string]: string } {
     return {
@@ -482,6 +710,13 @@ export class CreateAdvancedSearchFileRequest extends $tea.Model {
 }
 
 export class CreateAdvancedSearchFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D231366D-E2AD-559E-9C29-58FF7F4B1F5D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -526,7 +761,27 @@ export class CreateAdvancedSearchFileResponse extends $tea.Model {
 }
 
 export class CreateAggregateAdvancedSearchFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-edd3626622af00b3****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The SQL statement used to query resources.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SELECT * WHERE ResourceType = \\"ACS::ECS::Instance\\"
+   */
   sql?: string;
   static names(): { [key: string]: string } {
     return {
@@ -548,6 +803,13 @@ export class CreateAggregateAdvancedSearchFileRequest extends $tea.Model {
 }
 
 export class CreateAggregateAdvancedSearchFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5F290373-2BE6-534B-8724-A33F1116958B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -592,24 +854,140 @@ export class CreateAggregateAdvancedSearchFileResponse extends $tea.Model {
 }
 
 export class CreateAggregateCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-compliance-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template from which you want to create a compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   * 
+   * >  You must configure this parameter or the `TemplateContent` parameter.
+   */
   configRules?: CreateAggregateCompliancePackRequestConfigRules[];
+  /**
+   * @remarks
+   * Specifies whether to enable the rule together with the compliance package. Valid values:
+   * 
+   * *   true: The system enables the rule together with the compliance package.
+   * *   false: The system does not enable the rule together with the compliance package.
+   * 
+   * @example
+   * false
+   */
   defaultEnable?: boolean;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   * 
+   * @example
+   * Test compliance pack descripaiton.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateAggregateCompliancePackRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2 (default): medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateAggregateCompliancePackRequestTagsScope[];
+  /**
+   * @remarks
+   * The information about the template that is used to create the compliance package. You can call the GetAggregateCompliancePack operation to view the details of an existing compliance package. You can also write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html).
+   * 
+   * >  You must configure this parameter or the `TemplateContent` parameter.
+   * 
+   * @example
+   * { "configRuleTemplates": [ { "configRuleName": "condition-rule-example", "scope": { "complianceResourceTypes": [ "ACS::ECS::Instance" ] }, "description": "", "source": { "owner": "CUSTOM_CONFIGURATION", "identifier": "acs-config-configuration", "sourceDetails": [ { "messageType": "ScheduledNotification", "maximumExecutionFrequency": "Twelve_Hours" }, { "messageType": "ConfigurationItemChangeNotification" } ], "conditions": "{\\\\"ComplianceConditions\\\\":\\\\"{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"and\\\\\\\\\\",\\\\\\\\\\"children\\\\\\\\\\":[{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"GreaterOrEquals\\\\\\\\\\",\\\\\\\\\\"featurePath\\\\\\\\\\":\\\\\\\\\\"$.Cpu\\\\\\\\\\",\\\\\\\\\\"featureSource\\\\\\\\\\":\\\\\\\\\\"CONFIGURATION\\\\\\\\\\",\\\\\\\\\\"desired\\\\\\\\\\":\\\\\\\\\\"2\\\\\\\\\\"}]}\\\\"}" }, "inputParameters": {} }, { "configRuleName": "oss-bucket-referer-limit", "scope": { "complianceResourceTypes": [ "ACS::OSS::Bucket" ] }, "description": "If the hotlink protection feature is enabled for the Object Storage Service (OSS) bucket and the Referer is added to a specific whitelist, the evaluation result is compliant.", "source": { "owner": "ALIYUN", "identifier": "oss-bucket-referer-limit", "sourceDetails": [ { "messageType": "ConfigurationItemChangeNotification" } ] }, "inputParameters": { "allowEmptyReferer": "true", "allowReferers": "http://www.aliyun.com" } } ] }
+   */
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -665,24 +1043,140 @@ export class CreateAggregateCompliancePackRequest extends $tea.Model {
 }
 
 export class CreateAggregateCompliancePackShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-compliance-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template from which you want to create a compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   * 
+   * >  You must configure this parameter or the `TemplateContent` parameter.
+   */
   configRulesShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule together with the compliance package. Valid values:
+   * 
+   * *   true: The system enables the rule together with the compliance package.
+   * *   false: The system does not enable the rule together with the compliance package.
+   * 
+   * @example
+   * false
+   */
   defaultEnable?: boolean;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   * 
+   * @example
+   * Test compliance pack descripaiton.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateAggregateCompliancePackShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2 (default): medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateAggregateCompliancePackShrinkRequestTagsScope[];
+  /**
+   * @remarks
+   * The information about the template that is used to create the compliance package. You can call the GetAggregateCompliancePack operation to view the details of an existing compliance package. You can also write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html).
+   * 
+   * >  You must configure this parameter or the `TemplateContent` parameter.
+   * 
+   * @example
+   * { "configRuleTemplates": [ { "configRuleName": "condition-rule-example", "scope": { "complianceResourceTypes": [ "ACS::ECS::Instance" ] }, "description": "", "source": { "owner": "CUSTOM_CONFIGURATION", "identifier": "acs-config-configuration", "sourceDetails": [ { "messageType": "ScheduledNotification", "maximumExecutionFrequency": "Twelve_Hours" }, { "messageType": "ConfigurationItemChangeNotification" } ], "conditions": "{\\\\"ComplianceConditions\\\\":\\\\"{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"and\\\\\\\\\\",\\\\\\\\\\"children\\\\\\\\\\":[{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"GreaterOrEquals\\\\\\\\\\",\\\\\\\\\\"featurePath\\\\\\\\\\":\\\\\\\\\\"$.Cpu\\\\\\\\\\",\\\\\\\\\\"featureSource\\\\\\\\\\":\\\\\\\\\\"CONFIGURATION\\\\\\\\\\",\\\\\\\\\\"desired\\\\\\\\\\":\\\\\\\\\\"2\\\\\\\\\\"}]}\\\\"}" }, "inputParameters": {} }, { "configRuleName": "oss-bucket-referer-limit", "scope": { "complianceResourceTypes": [ "ACS::OSS::Bucket" ] }, "description": "If the hotlink protection feature is enabled for the Object Storage Service (OSS) bucket and the Referer is added to a specific whitelist, the evaluation result is compliant.", "source": { "owner": "ALIYUN", "identifier": "oss-bucket-referer-limit", "sourceDetails": [ { "messageType": "ConfigurationItemChangeNotification" } ] }, "inputParameters": { "allowEmptyReferer": "true", "allowReferers": "http://www.aliyun.com" } } ] }
+   */
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -738,7 +1232,21 @@ export class CreateAggregateCompliancePackShrinkRequest extends $tea.Model {
 }
 
 export class CreateAggregateCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-fc56626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CC0CE5EB-E51E-48EB-B4AB-9A9E131ECC0F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -785,22 +1293,167 @@ export class CreateAggregateCompliancePackResponse extends $tea.Model {
 }
 
 export class CreateAggregateConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource change logs. If you set this parameter to true, Cloud Config delivers resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource change logs.
+   * *   false: Cloud Config does not deliver resource change logs. This is the default value.
+   * 
+   * > This parameter is available for delivery channels of the OSS, SLS, and MNS types.
+   * 
+   * @example
+   * false
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots to OSS, MNS, or Log Service at `04:00Z` and `16:00Z` every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled resource snapshots.
+   * *   false: Cloud Config does not deliver scheduled resource snapshots. This is the default value.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The rule that you want to attach to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If you set the DeliveryChannelType parameter to MNS, take note of the following settings of the lowest risk level and the resource types of the events to which you want to subscribe:
+   * 
+   *     *   The lowest risk level of the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Example:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Example:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * > If you do not configure this parameter, this parameter is left empty.
+   * 
+   * @example
+   * testoss
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The ARN of the delivery destination. Valid values:
+   * 
+   * *   `acs:oss:{RegionId}:{accountId}:{bucketName}` if your delivery destination is an OSS bucket. Example: `acs:oss:cn-shanghai:100931896542****:new-bucket`.
+   * *   `acs:mns:{RegionId}:{accountId}:/topics/{topicName}` if your delivery destination is an MNS topic. Example: `acs:mns:cn-shanghai:100931896542****:/topics/topic1`.
+   * *   `acs:log:{RegionId}:{accountId}:project/{projectName}/logstore/{logstoreName}` if your delivery destination is a Log Service Logstore. Example: `acs:log:cn-shanghai:100931896542****:project/project1/logstore/logstore1`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The time when you want Cloud Config to deliver scheduled resource snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * > When you enable the scheduled resource delivery feature, you can configure this parameter to specify a custom delivery time. If you do not configure this parameter, Cloud Config automatically delivers scheduled resource snapshots at `04:00Z` and `16:00Z` every day.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource non-compliance events. If you set this parameter to true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are considered non-compliant. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource non-compliance events.
+   * *   false: Cloud Config does not deliver resource non-compliance events. This is the default value.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
+   * 
+   * If you do not configure this parameter, Cloud Config delivers only summary data.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type. The upper limit on the storage size of delivery channels of the SLS type is 1 MB, and the maximum storage size of delivery channels of the MNS type is 64 KB.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelCondition: 'DeliveryChannelCondition',
@@ -818,6 +1471,7 @@ export class CreateAggregateConfigDeliveryChannelRequest extends $tea.Model {
     return {
       aggregatorId: 'string',
       clientToken: 'string',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelCondition: 'string',
@@ -837,7 +1491,21 @@ export class CreateAggregateConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class CreateAggregateConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -885,29 +1553,229 @@ export class CreateAggregateConfigDeliveryChannelResponse extends $tea.Model {
 
 export class CreateAggregateConfigRuleRequest extends $tea.Model {
   accountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * This parameter is required.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * 120886317861****
+   */
   excludeAccountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-pWmkqZ****
+   */
   excludeFolderIdsScope?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateAggregateConfigRuleRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-ZtHsRH****
+   */
   folderIdsScope?: string;
+  /**
+   * @remarks
+   * The input parameter of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The interval at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours.
+   * *   TwentyFour_Hours (default): 24 hours.
+   * 
+   * > This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScope?: string[];
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
+   * *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * 
+   * For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * required-tags
+   */
   sourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   ALIYUN: managed rule
+   * *   CUSTOM_FC: custom rule
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
+   * 
+   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * 
+   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateAggregateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -979,29 +1847,229 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
 
 export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
   accountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * This parameter is required.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * 120886317861****
+   */
   excludeAccountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-pWmkqZ****
+   */
   excludeFolderIdsScope?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-ZtHsRH****
+   */
   folderIdsScope?: string;
+  /**
+   * @remarks
+   * The input parameter of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParametersShrink?: string;
+  /**
+   * @remarks
+   * The interval at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours.
+   * *   TwentyFour_Hours (default): 24 hours.
+   * 
+   * > This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScopeShrink?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
+   * *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * 
+   * For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * required-tags
+   */
   sourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   ALIYUN: managed rule
+   * *   CUSTOM_FC: custom rule
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
+   * 
+   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * 
+   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateAggregateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -1072,7 +2140,21 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
 }
 
 export class CreateAggregateConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-4e3d626622af0080****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5895065A-196C-4254-8AD8-14EFC31EEF50
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1119,13 +2201,102 @@ export class CreateAggregateConfigRuleResponse extends $tea.Model {
 }
 
 export class CreateAggregateRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-6b4a626622af0012****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-6b7c626622af00b4****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template is not executed.
+   * *   AUTO_EXECUTION: The remediation template is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MANUAL_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The configuration of the remediation template.
+   * 
+   * For more information about how to obtain the configuration of the remediation template, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html). You can view the `TemplateDefinition` response parameter to obtain the configuration of the remediation template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
+   */
   params?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
+   * *   If you set the `RemediationType` parameter to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant Function Compute resource, such as `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: stands for Operation Orchestration Service and indicates official remediation.
+   * *   FC: stands for Function Compute and indicates custom remediation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The source of remediation template. Valid values:
+   * 
+   * *   ALIYUN (default): official template.
+   * *   CUSTOM: custom template.
+   * *   NONE: none.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1159,7 +2330,21 @@ export class CreateAggregateRemediationRequest extends $tea.Model {
 }
 
 export class CreateAggregateRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1206,11 +2391,73 @@ export class CreateAggregateRemediationResponse extends $tea.Model {
 }
 
 export class CreateAggregatorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the member accounts in the account group. Example:
+   * 
+   *     [{
+   *     	"accountId": 171322098523****,
+   *     	"accountType":"ResourceDirectory",
+   *                     "accountName":"Alice"
+   *     }, {
+   *     	"accountId": 100532098349****,
+   *     	"accountType":"ResourceDirectory",
+   *                     "accountName":"Tom"
+   *     }]
+   * 
+   * >  If `AggregatorType` is set to `RD` or `FOLDER`, this parameter can be left empty, which indicates that all accounts in the resource directory are added to the global account group.
+   * 
+   * **if can be null:**
+   * false
+   */
   aggregatorAccounts?: CreateAggregatorRequestAggregatorAccounts[];
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The type of the account group. Valid values:
+   * 
+   * *   RD: global account group.
+   * *   FOLDER: account group of the folder.
+   * *   CUSTOM (default): custom account group.
+   * 
+   * @example
+   * CUSTOM
+   */
   aggregatorType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aggregator description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`.
+   * 
+   * @example
+   * fd-brHdgv****
+   */
   folderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1240,11 +2487,73 @@ export class CreateAggregatorRequest extends $tea.Model {
 }
 
 export class CreateAggregatorShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the member accounts in the account group. Example:
+   * 
+   *     [{
+   *     	"accountId": 171322098523****,
+   *     	"accountType":"ResourceDirectory",
+   *                     "accountName":"Alice"
+   *     }, {
+   *     	"accountId": 100532098349****,
+   *     	"accountType":"ResourceDirectory",
+   *                     "accountName":"Tom"
+   *     }]
+   * 
+   * >  If `AggregatorType` is set to `RD` or `FOLDER`, this parameter can be left empty, which indicates that all accounts in the resource directory are added to the global account group.
+   * 
+   * **if can be null:**
+   * false
+   */
   aggregatorAccountsShrink?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The type of the account group. Valid values:
+   * 
+   * *   RD: global account group.
+   * *   FOLDER: account group of the folder.
+   * *   CUSTOM (default): custom account group.
+   * 
+   * @example
+   * CUSTOM
+   */
   aggregatorType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Aggregator description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`.
+   * 
+   * @example
+   * fd-brHdgv****
+   */
   folderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1274,7 +2583,21 @@ export class CreateAggregatorShrinkRequest extends $tea.Model {
 }
 
 export class CreateAggregatorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The account group ID.
+   * 
+   * @example
+   * ca-dacf86d8314e00eb****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8195B664-9565-4685-89AC-8B5F04B44B92
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1321,23 +2644,127 @@ export class CreateAggregatorResponse extends $tea.Model {
 }
 
 export class CreateCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the ID of the compliance package.
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package. You must specify either this parameter or TemplateContent.
+   * 
+   * **if can be null:**
+   * false
+   */
   configRules?: CreateCompliancePackRequestConfigRules[];
+  /**
+   * @remarks
+   * Specifies whether to enable the rule together with the compliance package. Valid values:
+   * 
+   * *   true: The system enables the rule together with the compliance package.
+   * *   false: The system does not enable the rule together with the compliance package.
+   * 
+   * @example
+   * false
+   */
   defaultEnable?: boolean;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   * 
+   * @example
+   * Test pack description.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateCompliancePackRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Default value: 2. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateCompliancePackRequestTagsScope[];
+  /**
+   * @remarks
+   * The information about the template that is used to generate the compliance package. You can call an API operation to view the details of an existing compliance package or write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html). You must specify one of ConfigRules and TemplateContent.
+   * 
+   * @example
+   * { "configRuleTemplates": [ { "configRuleName": "condition-rule-example", "scope": { "complianceResourceTypes": [ "ACS::ECS::Instance" ] }, "description": "", "source": { "owner": "CUSTOM_CONFIGURATION", "identifier": "acs-config-configuration", "sourceDetails": [ { "messageType": "ScheduledNotification", "maximumExecutionFrequency": "Twelve_Hours" }, { "messageType": "ConfigurationItemChangeNotification" } ], "conditions": "{\\\\"ComplianceConditions\\\\":\\\\"{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"and\\\\\\\\\\",\\\\\\\\\\"children\\\\\\\\\\":[{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"GreaterOrEquals\\\\\\\\\\",\\\\\\\\\\"featurePath\\\\\\\\\\":\\\\\\\\\\"$.Cpu\\\\\\\\\\",\\\\\\\\\\"featureSource\\\\\\\\\\":\\\\\\\\\\"CONFIGURATION\\\\\\\\\\",\\\\\\\\\\"desired\\\\\\\\\\":\\\\\\\\\\"2\\\\\\\\\\"}]}\\\\"}" }, "inputParameters": {} }, { "configRuleName": "oss-bucket-referer-limit", "scope": { "complianceResourceTypes": [ "ACS::OSS::Bucket" ] }, "description": "If the hotlink protection feature is enabled for the Object Storage Service (OSS) bucket and the Referer is added to a specific whitelist, the evaluation result is compliant.", "source": { "owner": "ALIYUN", "identifier": "oss-bucket-referer-limit", "sourceDetails": [ { "messageType": "ConfigurationItemChangeNotification" } ] }, "inputParameters": { "allowEmptyReferer": "true", "allowReferers": "http://www.aliyun.com" } } ] }
+   */
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1391,23 +2818,127 @@ export class CreateCompliancePackRequest extends $tea.Model {
 }
 
 export class CreateCompliancePackShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the ID of the compliance package.
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package. You must specify either this parameter or TemplateContent.
+   * 
+   * **if can be null:**
+   * false
+   */
   configRulesShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule together with the compliance package. Valid values:
+   * 
+   * *   true: The system enables the rule together with the compliance package.
+   * *   false: The system does not enable the rule together with the compliance package.
+   * 
+   * @example
+   * false
+   */
   defaultEnable?: boolean;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   * 
+   * @example
+   * Test pack description.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateCompliancePackShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Default value: 2. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateCompliancePackShrinkRequestTagsScope[];
+  /**
+   * @remarks
+   * The information about the template that is used to generate the compliance package. You can call an API operation to view the details of an existing compliance package or write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html). You must specify one of ConfigRules and TemplateContent.
+   * 
+   * @example
+   * { "configRuleTemplates": [ { "configRuleName": "condition-rule-example", "scope": { "complianceResourceTypes": [ "ACS::ECS::Instance" ] }, "description": "", "source": { "owner": "CUSTOM_CONFIGURATION", "identifier": "acs-config-configuration", "sourceDetails": [ { "messageType": "ScheduledNotification", "maximumExecutionFrequency": "Twelve_Hours" }, { "messageType": "ConfigurationItemChangeNotification" } ], "conditions": "{\\\\"ComplianceConditions\\\\":\\\\"{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"and\\\\\\\\\\",\\\\\\\\\\"children\\\\\\\\\\":[{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"GreaterOrEquals\\\\\\\\\\",\\\\\\\\\\"featurePath\\\\\\\\\\":\\\\\\\\\\"$.Cpu\\\\\\\\\\",\\\\\\\\\\"featureSource\\\\\\\\\\":\\\\\\\\\\"CONFIGURATION\\\\\\\\\\",\\\\\\\\\\"desired\\\\\\\\\\":\\\\\\\\\\"2\\\\\\\\\\"}]}\\\\"}" }, "inputParameters": {} }, { "configRuleName": "oss-bucket-referer-limit", "scope": { "complianceResourceTypes": [ "ACS::OSS::Bucket" ] }, "description": "If the hotlink protection feature is enabled for the Object Storage Service (OSS) bucket and the Referer is added to a specific whitelist, the evaluation result is compliant.", "source": { "owner": "ALIYUN", "identifier": "oss-bucket-referer-limit", "sourceDetails": [ { "messageType": "ConfigurationItemChangeNotification" } ] }, "inputParameters": { "allowEmptyReferer": "true", "allowReferers": "http://www.aliyun.com" } } ] }
+   */
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1461,7 +2992,21 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
 }
 
 export class CreateCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1508,20 +3053,154 @@ export class CreateCompliancePackResponse extends $tea.Model {
 }
 
 export class CreateConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests.
+   * 
+   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource change logs. If you set this parameter to true, Cloud Config delivers resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource change logs.
+   * *   false (default): Cloud Config does not deliver resource change logs.
+   * 
+   * > This parameter is available for delivery channels of the OSS, SLS, and MNS types.
+   * 
+   * @example
+   * false
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled resource snapshots.
+   * *   false (default): Cloud Config does not deliver scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The rule that you want to attach to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * > If you do not configure this parameter, this parameter is left empty.
+   * 
+   * @example
+   * testoss
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination. Valid values:
+   * 
+   * *   `acs:oss:{RegionId}:{accountId}:{bucketName}` if your delivery destination is an OSS bucket. Example: `acs:oss:cn-shanghai:100931896542****:new-bucket`.
+   * *   `acs:mns:{RegionId}:{accountId}:/topics/{topicName}` if your delivery destination is an MNS topic. Example: `acs:mns:cn-shanghai:100931896542****:/topics/topic1`.
+   * *   `acs:log:{RegionId}:{accountId}:project/{projectName}/logstore/{logstoreName}` if your delivery destination is a Log Service Logstore. Example: `acs:log:cn-shanghai:100931896542****:project/project1/logstore/logstore1`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The time when you want Cloud Config to deliver scheduled resource snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * > When you enable the scheduled resource delivery feature, you can configure this parameter to specify a custom delivery time. If you do not configure this parameter, Cloud Config automatically delivers scheduled resource snapshots at `04:00Z` and `16:00Z` every day.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource non-compliance events. If you set this parameter to true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are considered non-compliant. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource non-compliance events.
+   * *   false (default): Cloud Config does not deliver resource non-compliance events.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
+   * 
+   * If you do not configure this parameter, Cloud Config delivers only summary data.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type. The maximum storage size of delivery channels of the SLS type is 1 MB, and the maximum storage size of delivery channels of the MNS type is 64 KB.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelCondition: 'DeliveryChannelCondition',
@@ -1538,6 +3217,7 @@ export class CreateConfigDeliveryChannelRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelCondition: 'string',
@@ -1557,7 +3237,21 @@ export class CreateConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class CreateConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1604,25 +3298,181 @@ export class CreateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class CreateConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * >  If a rule supports the preceding trigger types, separate the types with a comma (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * >  This parameter applies only to managed rules.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateConfigRuleRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The input parameter of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The intervals at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours.
+   * *   TwentyFour_Hours (default): 24 hours.
+   * 
+   * >  This parameter is required if the ConfigRuleTriggerTypes parameter is set to ScheduledNotification.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * >  This parameter applies only to managed rules.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * >  This parameter applies only to managed rules.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScope?: string[];
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
+   * *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * 
+   * For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * required-tags
+   */
   sourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the rule Valid values:
+   * 
+   * *   ALIYUN: managed rule.
+   * *   CUSTOM_FC: custom rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for `TagKeyScope`. For example, if you set `TagKeyScope` to `ECS,OSS` and set TagKeyLogicScope to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -1683,25 +3533,181 @@ export class CreateConfigRuleRequest extends $tea.Model {
 }
 
 export class CreateConfigRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * >  If a rule supports the preceding trigger types, separate the types with a comma (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * >  This parameter applies only to managed rules.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateConfigRuleShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The input parameter of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParametersShrink?: string;
+  /**
+   * @remarks
+   * The intervals at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours.
+   * *   TwentyFour_Hours (default): 24 hours.
+   * 
+   * >  This parameter is required if the ConfigRuleTriggerTypes parameter is set to ScheduledNotification.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * >  This parameter applies only to managed rules.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * >  This parameter applies only to managed rules.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScopeShrink?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
+   * *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * 
+   * For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * required-tags
+   */
   sourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the rule Valid values:
+   * 
+   * *   ALIYUN: managed rule.
+   * *   CUSTOM_FC: custom rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for `TagKeyScope`. For example, if you set `TagKeyScope` to `ECS,OSS` and set TagKeyLogicScope to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: CreateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -1762,7 +3768,21 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
 }
 
 export class CreateConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-5772ba41209e007b****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1809,16 +3829,142 @@ export class CreateConfigRuleResponse extends $tea.Model {
 }
 
 export class CreateDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests.
+   * 
+   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource change logs to the specified destination. If you set this parameter to true, Cloud Config delivers resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * > This parameter is available for delivery channels of the OSS, SLS, and MNS types.
+   * 
+   * @example
+   * false
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled resource snapshots to the OSS bucket. If the value of this parameter is true, the scheduled resource snapshots are delivered to the specified OSS bucket at 00:00:00 and 12:00:00 on a daily basis. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * > This parameter is applicable only to delivery channels of the OSS type.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The ARN of the role that you want to assign to the delivery channel. Specify the ARN in the following format: `acs:ram::{accountId}:role/aliyunserviceroleforconfig`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ram::100931896542****:role/aliyunserviceroleforconfig
+   */
   deliveryChannelAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The rule that you want to attach to the delivery channel. This parameter is available only for delivery channels of the MNS type.
+   * 
+   * This parameter specifies the lowest risk level and the resource types for the events to which you want to subscribe.
+   * 
+   * *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *     The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   * *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * > If you do not configure this parameter, this parameter is left empty.
+   * 
+   * @example
+   * testoss
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination. Valid values:
+   * 
+   * *   `acs:oss:{RegionId}:{accountId}:{bucketName}` if your delivery destination is an OSS bucket. Example: `acs:oss:cn-shanghai:100931896542****:new-bucket`.
+   * *   `acs:mns:{RegionId}:{accountId}:/topics/{topicName}` if your delivery destination is an MNS topic. Example: `acs:mns:cn-shanghai:100931896542****:/topics/topic1`.
+   * *   `acs:log:{RegionId}:{accountId}:project/{projectName}/logstore/{logstoreName}` if your delivery destination is a Log Service Logstore. Example: `acs:log:cn-shanghai:100931896542****:project/project1/logstore/logstore1`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource non-compliance events. If you set this parameter to true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are considered non-compliant. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
+   * 
+   * If you do not configure this parameter, Cloud Config delivers only summary data.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type. The maximum storage size of delivery channels of the SLS type is 1 MB, and the maximum storage size of delivery channels of the MNS type is 64 KB.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1858,7 +4004,21 @@ export class CreateDeliveryChannelRequest extends $tea.Model {
 }
 
 export class CreateDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1905,12 +4065,93 @@ export class CreateDeliveryChannelResponse extends $tea.Model {
 }
 
 export class CreateRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-8a973ac2e2be00a2****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template is not executed.
+   * *   AUTO_EXECUTION: The remediation template is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MANUAL_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The configuration of the remediation template.
+   * 
+   * For more information about how to obtain the remediation template configuration, see the `TemplateDefinition` response parameter provided in [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
+   * 
+   * **if can be null:**
+   * true
+   */
   params?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
+   * *   If you set the `RemediationType` parameter to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant Function Compute resource, such as `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: Operation Orchestration Service (official remediation)
+   * *   FC: Function Compute (custom remediation)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The source of remediation. Valid values:
+   * 
+   * *   ALIYUN (default): official template.
+   * *   CUSTOM: custom template.
+   * *   NONE: none.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1942,7 +4183,21 @@ export class CreateRemediationRequest extends $tea.Model {
 }
 
 export class CreateRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1989,7 +4244,29 @@ export class CreateRemediationResponse extends $tea.Model {
 }
 
 export class DeactiveAggregateConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-04b3fd170e340007****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-5772ba41209e007b****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2011,7 +4288,18 @@ export class DeactiveAggregateConfigRulesRequest extends $tea.Model {
 }
 
 export class DeactiveAggregateConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the operations that are performed to disable the specified rules.
+   */
   operateRuleResult?: DeactiveAggregateConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2058,6 +4346,17 @@ export class DeactiveAggregateConfigRulesResponse extends $tea.Model {
 }
 
 export class DeactiveConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the rule. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-19a56457e0d90058****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2077,7 +4376,18 @@ export class DeactiveConfigRulesRequest extends $tea.Model {
 }
 
 export class DeactiveConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the operations that are performed to disable the specified rules.
+   */
   operateRuleResult?: DeactiveConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 54FA74D9-45D4-4CA5-9BE1-97F6EA19AF5B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2124,9 +4434,48 @@ export class DeactiveConfigRulesResponse extends $tea.Model {
 }
 
 export class DeleteAggregateCompliancePacksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-04b3fd170e340007****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package. Separate multiple compliance package IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackIds?: string;
+  /**
+   * @remarks
+   * Specifies whether to delete the rules in the compliance package. Valid values:
+   * 
+   * *   true: The rules are deleted.
+   * *   false (default): The rules are not deleted.
+   * 
+   * @example
+   * false
+   */
   deleteRule?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2152,7 +4501,18 @@ export class DeleteAggregateCompliancePacksRequest extends $tea.Model {
 }
 
 export class DeleteAggregateCompliancePacksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the delete operations.
+   */
   operateCompliancePacksResult?: DeleteAggregateCompliancePacksResponseBodyOperateCompliancePacksResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2199,7 +4559,27 @@ export class DeleteAggregateCompliancePacksResponse extends $tea.Model {
 }
 
 export class DeleteAggregateConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-23c6626622af0041****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](https://help.aliyun.com/document_detail/429842.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-38c3013b46c9002c****
+   */
   deliveryChannelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2221,7 +4601,21 @@ export class DeleteAggregateConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class DeleteAggregateConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-38c3013b46c9002c****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FCC2F05C-F672-5665-8102-0020DF66B9B9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2268,7 +4662,29 @@ export class DeleteAggregateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class DeleteAggregateConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-4e3d626622af0080****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2290,7 +4706,18 @@ export class DeleteAggregateConfigRulesRequest extends $tea.Model {
 }
 
 export class DeleteAggregateConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the delete operations.
+   */
   operateRuleResult?: DeleteAggregateConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2337,7 +4764,29 @@ export class DeleteAggregateConfigRulesResponse extends $tea.Model {
 }
 
 export class DeleteAggregateRemediationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-6b4a626622af0012****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a remediation template, see [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2359,7 +4808,18 @@ export class DeleteAggregateRemediationsRequest extends $tea.Model {
 }
 
 export class DeleteAggregateRemediationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the delete operation.
+   */
   remediationDeleteResults?: DeleteAggregateRemediationsResponseBodyRemediationDeleteResults[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4BE28FB1-616A-5586-82E4-F34FB2AF7441
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2406,7 +4866,23 @@ export class DeleteAggregateRemediationsResponse extends $tea.Model {
 }
 
 export class DeleteAggregatorsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group. Separate multiple IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-9190626622af00a9****
+   */
   aggregatorIds?: string;
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2428,7 +4904,18 @@ export class DeleteAggregatorsRequest extends $tea.Model {
 }
 
 export class DeleteAggregatorsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   operateAggregatorsResult?: DeleteAggregatorsResponseBodyOperateAggregatorsResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8195B664-9565-4685-89AC-8B5F04B44B92
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2475,8 +4962,36 @@ export class DeleteAggregatorsResponse extends $tea.Model {
 }
 
 export class DeleteCompliancePacksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package. Separate multiple compliance package IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackIds?: string;
+  /**
+   * @remarks
+   * Specifies whether to delete the rules in the compliance package. Valid values:
+   * 
+   * *   true: The rules are deleted.
+   * *   false (default): The rules are not deleted.
+   * 
+   * @example
+   * false
+   */
   deleteRule?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2500,7 +5015,18 @@ export class DeleteCompliancePacksRequest extends $tea.Model {
 }
 
 export class DeleteCompliancePacksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   operateCompliancePacksResult?: DeleteCompliancePacksResponseBodyOperateCompliancePacksResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2547,6 +5073,17 @@ export class DeleteCompliancePacksResponse extends $tea.Model {
 }
 
 export class DeleteConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of a delivery channel, see [DescribeDeliveryChannels](https://help.aliyun.com/document_detail/429841.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-38c32e87cadb002c****
+   */
   deliveryChannelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2566,7 +5103,21 @@ export class DeleteConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class DeleteConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-38c32e87cadb002c****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 35F1DA37-ECB5-54E9-AC22-0D9111A665AA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2613,6 +5164,17 @@ export class DeleteConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class DeleteConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/609222.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-9908626622af0035****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2632,7 +5194,18 @@ export class DeleteConfigRulesRequest extends $tea.Model {
 }
 
 export class DeleteConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the delete operations.
+   */
   operateRuleResult?: DeleteConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6721BBD3-F2A6-5349-9051-EE0111036D3F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2679,6 +5252,17 @@ export class DeleteConfigRulesResponse extends $tea.Model {
 }
 
 export class DeleteRemediationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a remediation template, see [ListRemediations](https://help.aliyun.com/document_detail/270772.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2698,7 +5282,18 @@ export class DeleteRemediationsRequest extends $tea.Model {
 }
 
 export class DeleteRemediationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   remediationDeleteResults?: DeleteRemediationsResponseBodyRemediationDeleteResults[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4BE28FB1-616A-5586-82E4-F34FB2AF7441
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2745,7 +5340,21 @@ export class DeleteRemediationsResponse extends $tea.Model {
 }
 
 export class DescribeRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-3184626622af003****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The ID of the remediation configuration.
+   * 
+   * @example
+   * crr-f381cf0c1c2f004e****
+   */
   remediationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2767,7 +5376,18 @@ export class DescribeRemediationRequest extends $tea.Model {
 }
 
 export class DescribeRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the remediation configuration.
+   */
   remediation?: DescribeRemediationResponseBodyRemediation;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 79BE07A7-46A5-5D3C-B378-0ACDA979****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2814,8 +5434,41 @@ export class DescribeRemediationResponse extends $tea.Model {
 }
 
 export class DetachAggregateConfigRuleToCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-75b4626622af00c3****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-5bb1626622af00bd****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-a124626622af00e7****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2839,7 +5492,18 @@ export class DetachAggregateConfigRuleToCompliancePackRequest extends $tea.Model
 }
 
 export class DetachAggregateConfigRuleToCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the operations to remove one or more rules.
+   */
   operateRuleResult?: DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB12A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2886,7 +5550,29 @@ export class DetachAggregateConfigRuleToCompliancePackResponse extends $tea.Mode
 }
 
 export class DetachConfigRuleToCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-5bb1626622af00bd****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-6cc4626622af00e7****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2908,7 +5594,18 @@ export class DetachConfigRuleToCompliancePackRequest extends $tea.Model {
 }
 
 export class DetachConfigRuleToCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the operations to remove one or more rules.
+   */
   operateRuleResult?: DetachConfigRuleToCompliancePackResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1AC7AED1-172F-42AE-9C12-295BC2ADB12A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2955,7 +5652,25 @@ export class DetachConfigRuleToCompliancePackResponse extends $tea.Model {
 }
 
 export class EvaluatePreConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the managed rule. Valid values:
+   * 
+   * *   true: enables the managed rule.
+   * *   false: does not enable the managed rule. This is the default value.
+   * 
+   * >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+   * 
+   * @example
+   * false
+   */
   enableManagedRules?: boolean;
+  /**
+   * @remarks
+   * The resources that you want to evaluate.
+   * 
+   * This parameter is required.
+   */
   resourceEvaluateItems?: EvaluatePreConfigRulesRequestResourceEvaluateItems[];
   static names(): { [key: string]: string } {
     return {
@@ -2977,7 +5692,25 @@ export class EvaluatePreConfigRulesRequest extends $tea.Model {
 }
 
 export class EvaluatePreConfigRulesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the managed rule. Valid values:
+   * 
+   * *   true: enables the managed rule.
+   * *   false: does not enable the managed rule. This is the default value.
+   * 
+   * >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+   * 
+   * @example
+   * false
+   */
   enableManagedRules?: boolean;
+  /**
+   * @remarks
+   * The resources that you want to evaluate.
+   * 
+   * This parameter is required.
+   */
   resourceEvaluateItemsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2999,7 +5732,18 @@ export class EvaluatePreConfigRulesShrinkRequest extends $tea.Model {
 }
 
 export class EvaluatePreConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 129ECF1C-7897-1131-BD0F-4B588AC05400
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the compliance evaluation result.
+   */
   resourceEvaluations?: EvaluatePreConfigRulesResponseBodyResourceEvaluations[];
   static names(): { [key: string]: string } {
     return {
@@ -3046,8 +5790,37 @@ export class EvaluatePreConfigRulesResponse extends $tea.Model {
 }
 
 export class GenerateAggregateCompliancePackReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3071,7 +5844,21 @@ export class GenerateAggregateCompliancePackReportRequest extends $tea.Model {
 }
 
 export class GenerateAggregateCompliancePackReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3118,8 +5905,35 @@ export class GenerateAggregateCompliancePackReportResponse extends $tea.Model {
 }
 
 export class GenerateAggregateConfigRulesReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The rule ID. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * @example
+   * cr-25d86457e0d900b5****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3143,8 +5957,29 @@ export class GenerateAggregateConfigRulesReportRequest extends $tea.Model {
 }
 
 export class GenerateAggregateConfigRulesReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance evaluation report.
+   * 
+   * @example
+   * crp-88176457e0d900c9****
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3193,10 +6028,50 @@ export class GenerateAggregateConfigRulesReportResponse extends $tea.Model {
 }
 
 export class GenerateAggregateResourceInventoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of member accounts in the account group. Separate multiple member account IDs with commas (,).
+   * 
+   * @example
+   * 126672004088****
+   */
   accountIds?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a91d626622af0035****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the resources belong. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regions?: string;
+  /**
+   * @remarks
+   * Indicates whether the resource is deleted. Valid values:
+   * 
+   * *   1 (default): The resource is retained.
+   * *   0: The resource is deleted.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource types. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3224,6 +6099,13 @@ export class GenerateAggregateResourceInventoryRequest extends $tea.Model {
 }
 
 export class GenerateAggregateResourceInventoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5111CBA6-6485-57EB-BCDD-85D8BB31E7A7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3268,7 +6150,25 @@ export class GenerateAggregateResourceInventoryResponse extends $tea.Model {
 }
 
 export class GenerateCompliancePackReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3290,7 +6190,21 @@ export class GenerateCompliancePackReportRequest extends $tea.Model {
 }
 
 export class GenerateCompliancePackReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3337,7 +6251,23 @@ export class GenerateCompliancePackReportResponse extends $tea.Model {
 }
 
 export class GenerateConfigRulesReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the rule. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to query the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * @example
+   * cr-25d86457e0d900b5****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3359,7 +6289,21 @@ export class GenerateConfigRulesReportRequest extends $tea.Model {
 }
 
 export class GenerateConfigRulesReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance evaluation report.
+   * 
+   * @example
+   * crp-88176457e0d900c9****
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3406,8 +6350,32 @@ export class GenerateConfigRulesReportResponse extends $tea.Model {
 }
 
 export class GenerateResourceInventoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region IDs of the resources. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regions?: string;
+  /**
+   * @remarks
+   * Indicates whether the resource is deleted. Valid values:
+   * 
+   * *   1 (default): The resource is retained.
+   * *   0: The resource is deleted.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource types. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3431,6 +6399,13 @@ export class GenerateResourceInventoryRequest extends $tea.Model {
 }
 
 export class GenerateResourceInventoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E1225EEA-B5F8-538F-8E37-A943986B6290
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3475,7 +6450,18 @@ export class GenerateResourceInventoryResponse extends $tea.Model {
 }
 
 export class GetAdvancedSearchFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9366FE45-3C83-54FB-8BB1-44176B200706
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the resource file.
+   */
   resourceSearch?: GetAdvancedSearchFileResponseBodyResourceSearch;
   static names(): { [key: string]: string } {
     return {
@@ -3522,7 +6508,29 @@ export class GetAdvancedSearchFileResponse extends $tea.Model {
 }
 
 export class GetAggregateAccountComplianceByPackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-04b3fd170e340007****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3544,7 +6552,18 @@ export class GetAggregateAccountComplianceByPackRequest extends $tea.Model {
 }
 
 export class GetAggregateAccountComplianceByPackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation results of member accounts for which the compliance package takes effect in an account group.
+   */
   accountComplianceResult?: GetAggregateAccountComplianceByPackResponseBodyAccountComplianceResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3591,6 +6610,17 @@ export class GetAggregateAccountComplianceByPackResponse extends $tea.Model {
 }
 
 export class GetAggregateAdvancedSearchFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-4b1b626622af000c****
+   */
   aggregatorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3610,7 +6640,18 @@ export class GetAggregateAdvancedSearchFileRequest extends $tea.Model {
 }
 
 export class GetAggregateAdvancedSearchFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6DB86284-DB7F-5936-B210-3B53D6D41B03
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the resource file.
+   */
   resourceSearch?: GetAggregateAdvancedSearchFileResponseBodyResourceSearch;
   static names(): { [key: string]: string } {
     return {
@@ -3657,7 +6698,29 @@ export class GetAggregateAdvancedSearchFileResponse extends $tea.Model {
 }
 
 export class GetAggregateCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3679,7 +6742,18 @@ export class GetAggregateCompliancePackRequest extends $tea.Model {
 }
 
 export class GetAggregateCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the compliance package.
+   */
   compliancePack?: GetAggregateCompliancePackResponseBodyCompliancePack;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3726,7 +6800,29 @@ export class GetAggregateCompliancePackResponse extends $tea.Model {
 }
 
 export class GetAggregateCompliancePackReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3748,7 +6844,18 @@ export class GetAggregateCompliancePackReportRequest extends $tea.Model {
 }
 
 export class GetAggregateCompliancePackReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation report that is generated based on a compliance package.
+   */
   compliancePackReport?: GetAggregateCompliancePackReportResponseBodyCompliancePackReport;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0D234DAC-1ABD-42E8-9475-BE317857E29B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3795,6 +6902,18 @@ export class GetAggregateCompliancePackReportResponse extends $tea.Model {
 }
 
 export class GetAggregateComplianceSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a91d626622af0035****
+   * 
+   * **if can be null:**
+   * false
+   */
   aggregatorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3814,7 +6933,18 @@ export class GetAggregateComplianceSummaryRequest extends $tea.Model {
 }
 
 export class GetAggregateComplianceSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance statistics.
+   */
   complianceSummary?: GetAggregateComplianceSummaryResponseBodyComplianceSummary;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 929B8360-BD57-54FF-96DB-AD1D9B476769
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3861,7 +6991,29 @@ export class GetAggregateComplianceSummaryResponse extends $tea.Model {
 }
 
 export class GetAggregateConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](https://help.aliyun.com/document_detail/429842.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3883,7 +7035,18 @@ export class GetAggregateConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class GetAggregateConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about a delivery channel.
+   */
   deliveryChannel?: GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DC300244-FCE3-5061-8214-C27ECB668487
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3930,7 +7093,29 @@ export class GetAggregateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class GetAggregateConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-7f00626622af0041****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * You can call the [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html) operation to obtain the rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7f7d626622af0041****
+   */
   configRuleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3952,7 +7137,18 @@ export class GetAggregateConfigRuleRequest extends $tea.Model {
 }
 
 export class GetAggregateConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the rule.
+   */
   configRule?: GetAggregateConfigRuleResponseBodyConfigRule;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 811234F4-C3AB-4D15-B90B-F55016D1B5AA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3999,7 +7195,29 @@ export class GetAggregateConfigRuleResponse extends $tea.Model {
 }
 
 export class GetAggregateConfigRuleComplianceByPackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-04b3fd170e340007****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4021,7 +7239,18 @@ export class GetAggregateConfigRuleComplianceByPackRequest extends $tea.Model {
 }
 
 export class GetAggregateConfigRuleComplianceByPackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation results that are returned by rules in the compliance package.
+   */
   configRuleComplianceResult?: GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C6B0C0A8-3245-48F1-AEAB-BC1A446E99D0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4068,6 +7297,17 @@ export class GetAggregateConfigRuleComplianceByPackResponse extends $tea.Model {
 }
 
 export class GetAggregateConfigRuleSummaryByRiskLevelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-3a58626622af0005****
+   */
   aggregatorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4087,7 +7327,18 @@ export class GetAggregateConfigRuleSummaryByRiskLevelRequest extends $tea.Model 
 }
 
 export class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The summary of compliance evaluation results by rule risk level.
+   */
   configRuleSummaries?: GetAggregateConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSummaries[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A3CDD98C-DE65-46AC-B2D2-04A4A9AB5B73
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4134,7 +7385,25 @@ export class GetAggregateConfigRuleSummaryByRiskLevelResponse extends $tea.Model
 }
 
 export class GetAggregateConfigRulesReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance evaluation report.
+   * 
+   * @example
+   * crp-88176457e0d900c9****
+   */
   reportId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4156,7 +7425,18 @@ export class GetAggregateConfigRulesReportRequest extends $tea.Model {
 }
 
 export class GetAggregateConfigRulesReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation report.
+   */
   configRulesReport?: GetAggregateConfigRulesReportResponseBodyConfigRulesReport;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F0BCC7B2-D0E4-49B0-95D2-6689CFB08D31
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4203,12 +7483,76 @@ export class GetAggregateConfigRulesReportResponse extends $tea.Model {
 }
 
 export class GetAggregateDiscoveredResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5885626622af0008****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * Specifies whether to query the compliance results of the resource. Valid values:
+   * 
+   * *   0 (default): does not query the compliance results of the resource.
+   * *   1: queries the compliance results of the resource.
+   * 
+   * @example
+   * 0
+   */
   complianceOption?: number;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * For more information about how to query the ID of a region in which the resource resides, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4240,7 +7584,18 @@ export class GetAggregateDiscoveredResourceRequest extends $tea.Model {
 }
 
 export class GetAggregateDiscoveredResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the resource.
+   */
   discoveredResourceDetail?: GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E4D71ACE-6B0A-46E0-8352-56952378CC7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4287,10 +7642,56 @@ export class GetAggregateDiscoveredResourceResponse extends $tea.Model {
 }
 
 export class GetAggregateResourceComplianceByConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resources. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as incompliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-d369626622af008e****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources in the account group belong.
+   * 
+   * > You can use either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you use the ResourceAccountId parameter.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4318,7 +7719,18 @@ export class GetAggregateResourceComplianceByConfigRuleRequest extends $tea.Mode
 }
 
 export class GetAggregateResourceComplianceByConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance result.
+   */
   complianceResult?: GetAggregateResourceComplianceByConfigRuleResponseBodyComplianceResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 23306AB1-34E0-468F-BD7B-68D8AEAB754C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4365,7 +7777,29 @@ export class GetAggregateResourceComplianceByConfigRuleResponse extends $tea.Mod
 }
 
 export class GetAggregateResourceComplianceByPackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4387,7 +7821,18 @@ export class GetAggregateResourceComplianceByPackRequest extends $tea.Model {
 }
 
 export class GetAggregateResourceComplianceByPackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation results returned.
+   */
   resourceComplianceResult?: GetAggregateResourceComplianceByPackResponseBodyResourceComplianceResult;
   static names(): { [key: string]: string } {
     return {
@@ -4434,7 +7879,23 @@ export class GetAggregateResourceComplianceByPackResponse extends $tea.Model {
 }
 
 export class GetAggregateResourceComplianceGroupByRegionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-d6c9626622af0052****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * @example
+   * cr-2652626622af005e****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4456,7 +7917,18 @@ export class GetAggregateResourceComplianceGroupByRegionRequest extends $tea.Mod
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   complianceResult?: GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5E3A847A-5D40-54A1-A2CE-77A87823ED07
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4503,7 +7975,23 @@ export class GetAggregateResourceComplianceGroupByRegionResponse extends $tea.Mo
 }
 
 export class GetAggregateResourceComplianceGroupByResourceTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-cdbd626622af0042****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule. Separate multiple rule IDs with commas (,).
+   * 
+   * @example
+   * cr-2541626622af0000****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4525,7 +8013,18 @@ export class GetAggregateResourceComplianceGroupByResourceTypeRequest extends $t
 }
 
 export class GetAggregateResourceComplianceGroupByResourceTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   complianceResult?: GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0CE6AEE1-B3D8-530A-9302-6606B20503BB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4572,15 +8071,99 @@ export class GetAggregateResourceComplianceGroupByResourceTypeResponse extends $
 }
 
 export class GetAggregateResourceComplianceTimelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5885626622af0008****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The default value indicates the time when the GetAggregateResourceConfigurationTimeline operation is called. Unit: milliseconds.
+   * 
+   * @example
+   * 1625821156000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
+   * 
+   * @example
+   * 5OVS5J4I1/UKTkHV5oNs****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where the resource resides.
+   * 
+   * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources in the account group belong.
+   * 
+   * > You can use either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you use the ResourceAccountId parameter.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+   * 
+   * @example
+   * 1623211156000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4618,7 +8201,18 @@ export class GetAggregateResourceComplianceTimelineRequest extends $tea.Model {
 }
 
 export class GetAggregateResourceComplianceTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8D53A78F-1EB8-4264-A554-72F07E34FAE6
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the compliance timeline.
+   */
   resourceComplianceTimeline?: GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimeline;
   static names(): { [key: string]: string } {
     return {
@@ -4665,15 +8259,97 @@ export class GetAggregateResourceComplianceTimelineResponse extends $tea.Model {
 }
 
 export class GetAggregateResourceConfigurationTimelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5885626622af0008****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The default value indicates the time when the GetAggregateResourceConfigurationTimeline operation is called. Unit: milliseconds.
+   * 
+   * @example
+   * 1625821156000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource in the account group belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+   * 
+   * @example
+   * 1623211156000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4711,7 +8387,18 @@ export class GetAggregateResourceConfigurationTimelineRequest extends $tea.Model
 }
 
 export class GetAggregateResourceConfigurationTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ED9CD1B3-286C-4E05-A765-5E1E0B9BC2AB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The configuration timeline of the resource.
+   */
   resourceConfigurationTimeline?: GetAggregateResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline;
   static names(): { [key: string]: string } {
     return {
@@ -4758,10 +8445,49 @@ export class GetAggregateResourceConfigurationTimelineResponse extends $tea.Mode
 }
 
 export class GetAggregateResourceCountsGroupByRegionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a260626622af0005****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the folder in the resource directory. For more information about how to obtain the ID of a folder, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
+   * 
+   * @example
+   * r-BU****
+   */
   folderId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources in the account group belong.
+   * 
+   * > You can use either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you use the ResourceAccountId parameter.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4789,7 +8515,18 @@ export class GetAggregateResourceCountsGroupByRegionRequest extends $tea.Model {
 }
 
 export class GetAggregateResourceCountsGroupByRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region by which statistics are collected.
+   */
   discoveredResourceCountsSummary?: GetAggregateResourceCountsGroupByRegionResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 399BD94C-D20C-4D27-88D4-89E8D75C0595
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4836,10 +8573,49 @@ export class GetAggregateResourceCountsGroupByRegionResponse extends $tea.Model 
 }
 
 export class GetAggregateResourceCountsGroupByResourceTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a260626622af0005****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the folder in the resource directory.
+   * 
+   * For more information about how to obtain the ID of a folder, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
+   * 
+   * @example
+   * r-BU****
+   */
   folderId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources in the account group belong.
+   * 
+   * > You can specify either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you specify the ResourceAccountId parameter.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4867,7 +8643,18 @@ export class GetAggregateResourceCountsGroupByResourceTypeRequest extends $tea.M
 }
 
 export class GetAggregateResourceCountsGroupByResourceTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The resource type by which the statistics are collected.
+   */
   discoveredResourceCountsSummary?: GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 99114B22-1EFF-47DF-B906-1CCE82FF9D60
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4914,6 +8701,17 @@ export class GetAggregateResourceCountsGroupByResourceTypeResponse extends $tea.
 }
 
 export class GetAggregateResourceInventoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a91d626622af0035****
+   */
   aggregatorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4933,7 +8731,18 @@ export class GetAggregateResourceInventoryRequest extends $tea.Model {
 }
 
 export class GetAggregateResourceInventoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1A6D3604-EF1A-5798-A576-2A5FB855493C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the resource inventory.
+   */
   resourceInventory?: GetAggregateResourceInventoryResponseBodyResourceInventory;
   static names(): { [key: string]: string } {
     return {
@@ -4980,6 +8789,15 @@ export class GetAggregateResourceInventoryResponse extends $tea.Model {
 }
 
 export class GetAggregatorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-88ea626622af0055****
+   */
   aggregatorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4999,7 +8817,18 @@ export class GetAggregatorRequest extends $tea.Model {
 }
 
 export class GetAggregatorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the account group.
+   */
   aggregator?: GetAggregatorResponseBodyAggregator;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 733DD93C-2277-4905-AE0C-0BA95C04B8BC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5046,6 +8875,17 @@ export class GetAggregatorResponse extends $tea.Model {
 }
 
 export class GetCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5065,7 +8905,18 @@ export class GetCompliancePackRequest extends $tea.Model {
 }
 
 export class GetCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the compliance package.
+   */
   compliancePack?: GetCompliancePackResponseBodyCompliancePack;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5112,6 +8963,17 @@ export class GetCompliancePackResponse extends $tea.Model {
 }
 
 export class GetCompliancePackReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5131,7 +8993,18 @@ export class GetCompliancePackReportRequest extends $tea.Model {
 }
 
 export class GetCompliancePackReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation report.
+   */
   compliancePackReport?: GetCompliancePackReportResponseBodyCompliancePackReport;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5178,7 +9051,18 @@ export class GetCompliancePackReportResponse extends $tea.Model {
 }
 
 export class GetComplianceSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The summary of compliance statistics.
+   */
   complianceSummary?: GetComplianceSummaryResponseBodyComplianceSummary;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CAEE6F34-DEDC-4BAA-AA8C-946D5D008737
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5225,6 +9109,17 @@ export class GetComplianceSummaryResponse extends $tea.Model {
 }
 
 export class GetConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of a delivery channel, see [DescribeDeliveryChannels](https://help.aliyun.com/document_detail/429841.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5244,7 +9139,18 @@ export class GetConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class GetConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the delivery channel.
+   */
   deliveryChannel?: GetConfigDeliveryChannelResponseBodyDeliveryChannel;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DC300244-FCE3-5061-8214-C27ECB668487
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5291,6 +9197,17 @@ export class GetConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class GetConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7f7d626622af0041****
+   */
   configRuleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5310,7 +9227,18 @@ export class GetConfigRuleRequest extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the rule.
+   */
   configRule?: GetConfigRuleResponseBodyConfigRule;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 811234F4-C3AB-4D15-B90B-F55016D1B5AA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5357,6 +9285,17 @@ export class GetConfigRuleResponse extends $tea.Model {
 }
 
 export class GetConfigRuleComplianceByPackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5376,7 +9315,18 @@ export class GetConfigRuleComplianceByPackRequest extends $tea.Model {
 }
 
 export class GetConfigRuleComplianceByPackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation results returned.
+   */
   configRuleComplianceResult?: GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5423,7 +9373,18 @@ export class GetConfigRuleComplianceByPackResponse extends $tea.Model {
 }
 
 export class GetConfigRuleSummaryByRiskLevelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The summary of compliance evaluation results by rule risk level.
+   */
   configRuleSummaries?: GetConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSummaries[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A3CED98C-DE65-46AC-B2D2-04A4A9AB5B36
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5470,6 +9431,13 @@ export class GetConfigRuleSummaryByRiskLevelResponse extends $tea.Model {
 }
 
 export class GetConfigRulesReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance evaluation report.
+   * 
+   * @example
+   * crp-88176457e0d900c9****
+   */
   reportId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5489,7 +9457,18 @@ export class GetConfigRulesReportRequest extends $tea.Model {
 }
 
 export class GetConfigRulesReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation report.
+   */
   configRulesReport?: GetConfigRulesReportResponseBodyConfigRulesReport;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5536,7 +9515,18 @@ export class GetConfigRulesReportResponse extends $tea.Model {
 }
 
 export class GetConfigurationRecorderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the configuration recorder that monitors resources.
+   */
   configurationRecorder?: GetConfigurationRecorderResponseBodyConfigurationRecorder;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AE43696A-B3AF-5E55-9845-11393127E6D3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5583,9 +9573,50 @@ export class GetConfigurationRecorderResponse extends $tea.Model {
 }
 
 export class GetDiscoveredResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to query the compliance results of the resource. Valid values:
+   * 
+   * *   0 (default): does not query the compliance results of the resource.
+   * *   1: queries the compliance results of the resource.
+   * 
+   * @example
+   * 0
+   */
   complianceOption?: number;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * For more information about how to query the region ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5611,7 +9642,18 @@ export class GetDiscoveredResourceRequest extends $tea.Model {
 }
 
 export class GetDiscoveredResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the resource.
+   */
   discoveredResourceDetail?: GetDiscoveredResourceResponseBodyDiscoveredResourceDetail;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E4D71ACE-6B0A-46E0-8352-56952378CC7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5658,6 +9700,15 @@ export class GetDiscoveredResourceResponse extends $tea.Model {
 }
 
 export class GetDiscoveredResourceCountsGroupByRegionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5677,7 +9728,18 @@ export class GetDiscoveredResourceCountsGroupByRegionRequest extends $tea.Model 
 }
 
 export class GetDiscoveredResourceCountsGroupByRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics on the resources.
+   */
   discoveredResourceCountsSummary?: GetDiscoveredResourceCountsGroupByRegionResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 399BD94C-D20C-4D27-88D4-89E8D75C0595
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5724,6 +9786,13 @@ export class GetDiscoveredResourceCountsGroupByRegionResponse extends $tea.Model
 }
 
 export class GetDiscoveredResourceCountsGroupByResourceTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5743,7 +9812,18 @@ export class GetDiscoveredResourceCountsGroupByResourceTypeRequest extends $tea.
 }
 
 export class GetDiscoveredResourceCountsGroupByResourceTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics on the resources.
+   */
   discoveredResourceCountsSummary?: GetDiscoveredResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC9BD94C-D20C-4D27-88D4-89E8D75C051B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5790,6 +9870,19 @@ export class GetDiscoveredResourceCountsGroupByResourceTypeResponse extends $tea
 }
 
 export class GetIntegratedServiceStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The identity of the cloud service that is integrated with Cloud Config. Valid values:
+   * 
+   * *   eventbridge: EventBridge
+   * *   cms: CloudMonitor
+   * *   bpstudio: Cloud Architect Design Tools
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cadt
+   */
   serviceCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5809,8 +9902,35 @@ export class GetIntegratedServiceStatusRequest extends $tea.Model {
 }
 
 export class GetIntegratedServiceStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the product has been integrated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: resource change event
+   * *   NonCompliantNotification: non-compliance event
+   * 
+   * @example
+   * NonCompliantNotification
+   */
   integratedTypes?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2E396C84-8D50-5F95-97FA-C0367181BA8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5859,6 +9979,17 @@ export class GetIntegratedServiceStatusResponse extends $tea.Model {
 }
 
 export class GetManagedRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * For more information about how to obtain the identifier of a managed rule, see [ListManagedRules](https://help.aliyun.com/document_detail/421144.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdn-domain-https-enabled
+   */
   identifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5878,7 +10009,18 @@ export class GetManagedRuleRequest extends $tea.Model {
 }
 
 export class GetManagedRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the managed rule.
+   */
   managedRule?: GetManagedRuleResponseBodyManagedRule;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7E6DDC09-87C1-5310-A924-3491EAAE6F90
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5925,6 +10067,18 @@ export class GetManagedRuleResponse extends $tea.Model {
 }
 
 export class GetRemediationTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the automatic remediation template.
+   * 
+   * For more information about how to obtain the ID of a remediation template, see [Compliance library](https://help.aliyun.com/document_detail/2337741.html).
+   * 
+   * @example
+   * ACS-ALB-BulkyEnableDeletionProtection
+   * 
+   * **if can be null:**
+   * true
+   */
   templateIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5944,7 +10098,18 @@ export class GetRemediationTemplateRequest extends $tea.Model {
 }
 
 export class GetRemediationTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the automatic remediation template.
+   */
   remediationTemplates?: GetRemediationTemplateResponseBodyRemediationTemplates[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E232FC35-BD40-51E3-B2EB-09416A234939
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5991,7 +10156,30 @@ export class GetRemediationTemplateResponse extends $tea.Model {
 }
 
 export class GetResourceComplianceByConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-d369626622af008e****
+   */
   configRuleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6013,7 +10201,18 @@ export class GetResourceComplianceByConfigRuleRequest extends $tea.Model {
 }
 
 export class GetResourceComplianceByConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation results returned.
+   */
   complianceResult?: GetResourceComplianceByConfigRuleResponseBodyComplianceResult;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 23306AB1-34E0-468F-BD7B-68D8AEAB753d
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6060,6 +10259,17 @@ export class GetResourceComplianceByConfigRuleResponse extends $tea.Model {
 }
 
 export class GetResourceComplianceByPackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6079,7 +10289,18 @@ export class GetResourceComplianceByPackRequest extends $tea.Model {
 }
 
 export class GetResourceComplianceByPackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation results returned.
+   */
   resourceComplianceResult?: GetResourceComplianceByPackResponseBodyResourceComplianceResult;
   static names(): { [key: string]: string } {
     return {
@@ -6126,6 +10347,13 @@ export class GetResourceComplianceByPackResponse extends $tea.Model {
 }
 
 export class GetResourceComplianceGroupByRegionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * @example
+   * cr-2541626622af0000****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6145,7 +10373,18 @@ export class GetResourceComplianceGroupByRegionRequest extends $tea.Model {
 }
 
 export class GetResourceComplianceGroupByRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   complianceResult?: GetResourceComplianceGroupByRegionResponseBodyComplianceResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0FDF8006-34A0-5334-8C79-48F64EAB34F1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6192,6 +10431,13 @@ export class GetResourceComplianceGroupByRegionResponse extends $tea.Model {
 }
 
 export class GetResourceComplianceGroupByResourceTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * @example
+   * cr-a5c6626622af0058****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6211,7 +10457,18 @@ export class GetResourceComplianceGroupByResourceTypeRequest extends $tea.Model 
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   complianceResult?: GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 84610B68-2DD3-5AF0-B68D-E1FA8F051F7D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6258,12 +10515,71 @@ export class GetResourceComplianceGroupByResourceTypeResponse extends $tea.Model
 }
 
 export class GetResourceComplianceTimelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp that specifies the end of the time range to query. The default value is the time when the GetResourceComplianceTimeline operation is called. Unit: milliseconds.
+   * 
+   * @example
+   * 1625821156000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where the resource resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the compliance evaluations in the last 30 days for the specified resource. Unit: milliseconds.
+   * 
+   * @example
+   * 1623211156000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6295,7 +10611,18 @@ export class GetResourceComplianceTimelineRequest extends $tea.Model {
 }
 
 export class GetResourceComplianceTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D53A78F-1EB8-4264-A554-72F07E34FAE6
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the compliance timeline.
+   */
   resourceComplianceTimeline?: GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline;
   static names(): { [key: string]: string } {
     return {
@@ -6342,12 +10669,71 @@ export class GetResourceComplianceTimelineResponse extends $tea.Model {
 }
 
 export class GetResourceConfigurationTimelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The default value indicates the time when the GetResourceConfigurationTimeline operation is called. Unit: milliseconds.
+   * 
+   * @example
+   * 1625821156000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * For more information about how to query the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+   * 
+   * @example
+   * 1623211156000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6379,7 +10765,18 @@ export class GetResourceConfigurationTimelineRequest extends $tea.Model {
 }
 
 export class GetResourceConfigurationTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ED9CD1B3-286C-4E05-A765-5E1E0B9BC2AB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The configuration timeline of the resource.
+   */
   resourceConfigurationTimeline?: GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline;
   static names(): { [key: string]: string } {
     return {
@@ -6426,7 +10823,18 @@ export class GetResourceConfigurationTimelineResponse extends $tea.Model {
 }
 
 export class GetResourceInventoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 89E2F38F-4EE4-545A-BD56-92E007ECFEE9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the resource inventory.
+   */
   resourceInventory?: GetResourceInventoryResponseBodyResourceInventory;
   static names(): { [key: string]: string } {
     return {
@@ -6473,6 +10881,15 @@ export class GetResourceInventoryResponse extends $tea.Model {
 }
 
 export class GetSupportedResourceRelationConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6492,7 +10909,18 @@ export class GetSupportedResourceRelationConfigRequest extends $tea.Model {
 }
 
 export class GetSupportedResourceRelationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 409D022F-394C-5AAB-A74A-2F1DC9F6375E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that contains the relationships.
+   */
   resourceRelationConfigList?: GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList[];
   static names(): { [key: string]: string } {
     return {
@@ -6539,10 +10967,51 @@ export class GetSupportedResourceRelationConfigResponse extends $tea.Model {
 }
 
 export class IgnoreAggregateEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5b6c626622af008f****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The reason why you ignore the resource.
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The resources to be ignored.
+   * 
+   * This parameter is required.
+   */
   resources?: IgnoreAggregateEvaluationResultsRequestResources[];
   static names(): { [key: string]: string } {
     return {
@@ -6570,10 +11039,51 @@ export class IgnoreAggregateEvaluationResultsRequest extends $tea.Model {
 }
 
 export class IgnoreAggregateEvaluationResultsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5b6c626622af008f****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The reason why you ignore the resource.
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The resources to be ignored.
+   * 
+   * This parameter is required.
+   */
   resourcesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6601,6 +11111,13 @@ export class IgnoreAggregateEvaluationResultsShrinkRequest extends $tea.Model {
 }
 
 export class IgnoreAggregateEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0132CBF2-0B0B-59F2-9E84-07B38267BC32
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6645,9 +11162,42 @@ export class IgnoreAggregateEvaluationResultsResponse extends $tea.Model {
 }
 
 export class IgnoreEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The reason why you want to ignore the resource.
+   * 
+   * @example
+   * Test ignore.
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The resources to be ignored.
+   * 
+   * This parameter is required.
+   */
   resources?: IgnoreEvaluationResultsRequestResources[];
   static names(): { [key: string]: string } {
     return {
@@ -6673,9 +11223,42 @@ export class IgnoreEvaluationResultsRequest extends $tea.Model {
 }
 
 export class IgnoreEvaluationResultsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If you leave this parameter empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The reason why you want to ignore the resource.
+   * 
+   * @example
+   * Test ignore.
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The resources to be ignored.
+   * 
+   * This parameter is required.
+   */
   resourcesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6701,6 +11284,13 @@ export class IgnoreEvaluationResultsShrinkRequest extends $tea.Model {
 }
 
 export class IgnoreEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1840CBF2-0B0B-59F2-9E84-07B38267A279
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6745,9 +11335,48 @@ export class IgnoreEvaluationResultsResponse extends $tea.Model {
 }
 
 export class ListAggregateCompliancePacksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The status of the one or more compliance packages to be queried. Valid values:
+   * 
+   * *   ACTIVE: compliance packages that are available for use.
+   * *   CREATING: compliance packages that are being created.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6773,7 +11402,18 @@ export class ListAggregateCompliancePacksRequest extends $tea.Model {
 }
 
 export class ListAggregateCompliancePacksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance packages returned.
+   */
   compliancePacksResult?: ListAggregateCompliancePacksResponseBodyCompliancePacksResult;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B5806142-3090-4F86-A84E-12B3FE52C1C4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6820,7 +11460,25 @@ export class ListAggregateCompliancePacksResponse extends $tea.Model {
 }
 
 export class ListAggregateConfigDeliveryChannelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The IDs of the delivery channels. Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6842,7 +11500,18 @@ export class ListAggregateConfigDeliveryChannelsRequest extends $tea.Model {
 }
 
 export class ListAggregateConfigDeliveryChannelsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the delivery channels.
+   */
   deliveryChannels?: ListAggregateConfigDeliveryChannelsResponseBodyDeliveryChannels[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DC300244-FCE3-5061-8214-C27ECB668487
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6889,16 +11558,103 @@ export class ListAggregateConfigDeliveryChannelsResponse extends $tea.Model {
 }
 
 export class ListAggregateConfigRuleEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-b1e6626622af00cb****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * @example
+   * cp-f1e3326622af00cb****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * @example
+   * cr-888f626622af00ae****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return in a request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regions?: string;
+  /**
+   * @remarks
+   * Member accountId to which the resource to be queried belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aek2cqyzvuj****
+   */
   resourceGroupIds?: string;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resources that you want to evaluate. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6938,7 +11694,18 @@ export class ListAggregateConfigRuleEvaluationResultsRequest extends $tea.Model 
 }
 
 export class ListAggregateConfigRuleEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation results returned.
+   */
   evaluationResults?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResults;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A6662516-D056-4325-B6A7-CD3E89C97C39
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6985,6 +11752,17 @@ export class ListAggregateConfigRuleEvaluationResultsResponse extends $tea.Model
 }
 
 export class ListAggregateConfigRuleEvaluationStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-edd3626622af00b3****
+   */
   aggregatorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7004,7 +11782,18 @@ export class ListAggregateConfigRuleEvaluationStatisticsRequest extends $tea.Mod
 }
 
 export class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics of compliance evaluation results.
+   */
   evaluationResults?: ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9EFA436B-FC6F-513B-9DB8-C96E6CEBE5E0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7051,14 +11840,101 @@ export class ListAggregateConfigRuleEvaluationStatisticsResponse extends $tea.Mo
 }
 
 export class ListAggregateConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   ACTIVE: The rule is being used to monitor resource configurations.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+   * *   INACTIVE: The rule is disabled.
+   * 
+   * @example
+   * ACTIVE
+   */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The keyword that is used for queries.
+   * 
+   * You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
+   * 
+   * @example
+   * ecs
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Pages start from page 1. Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Resource type for the rule to evaluate.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7094,7 +11970,18 @@ export class ListAggregateConfigRulesRequest extends $tea.Model {
 }
 
 export class ListAggregateConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried rules.
+   */
   configRules?: ListAggregateConfigRulesResponseBodyConfigRules;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 22EF8287-2C9A-4F1F-80A6-CEFA7612689D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7141,14 +12028,85 @@ export class ListAggregateConfigRulesResponse extends $tea.Model {
 }
 
 export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-c560626622af0005****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The `token` that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   * 
+   * **if can be null:**
+   * false
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-huhehaote
+   */
   regions?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The status of the resource. Valid values:
+   * 
+   * *   0: The resource is deleted. If a resource is deleted from the desired cloud service, **Deleted** is displayed in the resource list in the Cloud Config console.
+   * *   1 (default): The resource is retained. If a resource is managed as expected, **Active** is displayed in the resource list in the Cloud Config console.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * eni-hp31cqoba96jagtz****
+   */
   resourceId?: string;
+  /**
+   * @deprecated
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::NetworkInterface
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7184,7 +12142,18 @@ export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
 }
 
 export class ListAggregateDiscoveredResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried resources.
+   */
   discoveredResourceProfiles?: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfiles;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7231,11 +12200,64 @@ export class ListAggregateDiscoveredResourcesResponse extends $tea.Model {
 }
 
 export class ListAggregateRemediationExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-edd3626622af00b3****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-2792626622af0c21****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The status of the remediation. Valid values:
+   * 
+   * *   Success
+   * *   Failed
+   * 
+   * @example
+   * Success
+   */
   executionStatus?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 10 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * aVCjqFaSy0Ps6zSMGw09****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the member account in the account group.
+   * 
+   * @example
+   * 126672004088****
+   */
   resourceAccountId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7265,7 +12287,18 @@ export class ListAggregateRemediationExecutionsRequest extends $tea.Model {
 }
 
 export class ListAggregateRemediationExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried remediation records.
+   */
   remediationExecutionData?: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 13E67493-3165-529A-A961-BE9E4B11BA11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7312,7 +12345,29 @@ export class ListAggregateRemediationExecutionsResponse extends $tea.Model {
 }
 
 export class ListAggregateRemediationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-6b4a626622af0012****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-6b7c626622af00b4****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7334,7 +12389,18 @@ export class ListAggregateRemediationsRequest extends $tea.Model {
 }
 
 export class ListAggregateRemediationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that contains remediation templates.
+   */
   remediations?: ListAggregateRemediationsResponseBodyRemediations[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0146963A-20C0-4E75-B93A-7D622B5FD7C8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7381,12 +12447,77 @@ export class ListAggregateRemediationsResponse extends $tea.Model {
 }
 
 export class ListAggregateResourceEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-7f00626622af0041****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where one or more resources that you want to query reside. For example, the value `global` indicates global regions and the value `cn-hangzhou` indicates the China (Hangzhou) region.
+   * 
+   * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * @example
+   * global
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * @example
+   * 23642660635396****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * @example
+   * ACS::RAM::User
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7418,7 +12549,18 @@ export class ListAggregateResourceEvaluationResultsRequest extends $tea.Model {
 }
 
 export class ListAggregateResourceEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation results returned.
+   */
   evaluationResults?: ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25C89DDB-BB79-487D-88C3-4A561F21EFC4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7465,15 +12607,102 @@ export class ListAggregateResourceEvaluationResultsResponse extends $tea.Model {
 }
 
 export class ListAggregateResourceRelationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-856a626622af0033****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 1000.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AcBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The type of the relationship between the resource and the object.
+   * 
+   * Valid values:
+   * 
+   * *   IsContained: The object is included as part of the resource.
+   * *   IsAttachedTo: The object is added to the resource.
+   * *   IsAssociatedIn: The object is associated with the resource.
+   * *   Contains: The object contains the resource.
+   * 
+   * @example
+   * IsAttachedTo
+   */
   relationType?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources in the account group belong.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-j6cajg9yrfoh4sas****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The ID of the resource that is associated with the object.
+   * 
+   * @example
+   * d-j6c8k731qbrc7fxi****
+   */
   targetResourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource that is associated with the object.
+   * 
+   * @example
+   * ACS::ECS::Disk
+   */
   targetResourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7511,7 +12740,18 @@ export class ListAggregateResourceRelationsRequest extends $tea.Model {
 }
 
 export class ListAggregateResourceRelationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7A25F9DE-4C8B-5AD3-A241-FFF5A259E5A1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the relationship.
+   */
   resourceRelations?: ListAggregateResourceRelationsResponseBodyResourceRelations;
   static names(): { [key: string]: string } {
     return {
@@ -7558,7 +12798,25 @@ export class ListAggregateResourceRelationsResponse extends $tea.Model {
 }
 
 export class ListAggregateResourcesByAdvancedSearchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-4b05626622af000c****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The SQL query statement.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\\"business:online\\"
+   */
   sql?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7580,7 +12838,18 @@ export class ListAggregateResourcesByAdvancedSearchRequest extends $tea.Model {
 }
 
 export class ListAggregateResourcesByAdvancedSearchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   queryResults?: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B0DBF868-460F-5E7C-8F76-1ACE2FCCE153
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7627,7 +12896,23 @@ export class ListAggregateResourcesByAdvancedSearchResponse extends $tea.Model {
 }
 
 export class ListAggregatorsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return in a request. Valid values: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * 
+   * @example
+   * TGlzdFJlc291cmNlU2hhcmVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7649,7 +12934,18 @@ export class ListAggregatorsRequest extends $tea.Model {
 }
 
 export class ListAggregatorsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The account groups.
+   */
   aggregatorsResult?: ListAggregatorsResponseBodyAggregatorsResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 20C8526D-12C5-4336-BC72-EBD5D1BA732F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7696,9 +12992,41 @@ export class ListAggregatorsResponse extends $tea.Model {
 }
 
 export class ListCompliancePackTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * @example
+   * ct-d254ff4e06a300cf****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Pages start from page 1. Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The types of the resources evaluated based on the rule. If you configure this parameter, only the rules that include the resource types in the compliance package template are returned.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7724,7 +13052,18 @@ export class ListCompliancePackTemplatesRequest extends $tea.Model {
 }
 
 export class ListCompliancePackTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance package templates returned.
+   */
   compliancePackTemplatesResult?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D67FC82F-25AE-4268-A94C-3348340748F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7771,8 +13110,36 @@ export class ListCompliancePackTemplatesResponse extends $tea.Model {
 }
 
 export class ListCompliancePacksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The status of the compliance package to be queried. Valid values:
+   * 
+   * *   ACTIVE: The compliance package is active.
+   * *   CREATING: The compliance package is being created.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7796,7 +13163,18 @@ export class ListCompliancePacksRequest extends $tea.Model {
 }
 
 export class ListCompliancePacksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance packages returned.
+   */
   compliancePacksResult?: ListCompliancePacksResponseBodyCompliancePacksResult;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7843,6 +13221,13 @@ export class ListCompliancePacksResponse extends $tea.Model {
 }
 
 export class ListConfigDeliveryChannelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel. Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7862,7 +13247,18 @@ export class ListConfigDeliveryChannelsRequest extends $tea.Model {
 }
 
 export class ListConfigDeliveryChannelsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the delivery channels.
+   */
   deliveryChannels?: ListConfigDeliveryChannelsResponseBodyDeliveryChannels[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DC300244-FCE3-5061-8214-C27ECB668487
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7909,13 +13305,82 @@ export class ListConfigDeliveryChannelsResponse extends $tea.Model {
 }
 
 export class ListConfigRuleEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * @example
+   * cp-f1e3326622af00cb****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   * 
+   * **if can be null:**
+   * true
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+   * 
+   * @example
+   * cr-cac56457e0d900d3****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where the resources that you want to evaluate reside. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-shanghai
+   */
   regions?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the resources that you want to evaluate belong. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aek2indxn3g****
+   */
   resourceGroupIds?: string;
+  /**
+   * @remarks
+   * The type of the resources that you want to evaluate. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instane
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7949,7 +13414,18 @@ export class ListConfigRuleEvaluationResultsRequest extends $tea.Model {
 }
 
 export class ListConfigRuleEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation results returned.
+   */
   evaluationResults?: ListConfigRuleEvaluationResultsResponseBodyEvaluationResults;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2A4A33BD-8186-4D60-91B9-42174EED75B5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7996,7 +13472,18 @@ export class ListConfigRuleEvaluationResultsResponse extends $tea.Model {
 }
 
 export class ListConfigRuleEvaluationStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics of compliance evaluation results.
+   */
   evaluationResults?: ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4FF2B787-347E-5299-A196-2C0448DEA341
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8043,13 +13530,89 @@ export class ListConfigRuleEvaluationStatisticsResponse extends $tea.Model {
 }
 
 export class ListConfigRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result of the rule. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   ACTIVE: The rule is enabled.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is being used to evaluate resource configurations.
+   * *   INACTIVE: The rule is disabled.
+   * 
+   * @example
+   * ACTIVE
+   */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The query keyword.
+   * 
+   * You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
+   * 
+   * @example
+   * ecs
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Page numbers start from 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. A minimum of 1 entry can be returned per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the resources to be evaluated based on the rule.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8083,7 +13646,18 @@ export class ListConfigRulesRequest extends $tea.Model {
 }
 
 export class ListConfigRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the rules.
+   */
   configRules?: ListConfigRulesResponseBodyConfigRules;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC3A7E12-72E6-5CC9-A5C1-D8D8919829A7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8130,11 +13704,58 @@ export class ListConfigRulesResponse extends $tea.Model {
 }
 
 export class ListDiscoveredResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request. Valid values: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The `token` that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where the resource resides. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regions?: string;
+  /**
+   * @remarks
+   * The status of the resource. Valid values:
+   * 
+   * *   0: The resource is deleted. If a resource is deleted from the desired cloud service, **Deleted** is displayed in the resource list in the Cloud Config console.
+   * *   1 (default): The resource is retained. If a resource is managed as expected, **Active** is displayed in the resource list in the Cloud Config console.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * eni-hp31cqoba96jagtz****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::NetworkInterface
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8164,7 +13785,18 @@ export class ListDiscoveredResourcesRequest extends $tea.Model {
 }
 
 export class ListDiscoveredResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the resources.
+   */
   discoveredResourceProfiles?: ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8211,7 +13843,18 @@ export class ListDiscoveredResourcesResponse extends $tea.Model {
 }
 
 export class ListIntegratedServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the cloud service that can be integrated.
+   */
   data?: ListIntegratedServiceResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 86DB52A5-0C25-505A-96D5-9BAE1EFA00B9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8258,10 +13901,53 @@ export class ListIntegratedServiceResponse extends $tea.Model {
 }
 
 export class ListManagedRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword of the managed rule.
+   * 
+   * @example
+   * CDN
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Page start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the resources to be evaluated based on the rule.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
+  /**
+   * @remarks
+   * The risk level of the managed rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8289,7 +13975,18 @@ export class ListManagedRulesRequest extends $tea.Model {
 }
 
 export class ListManagedRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The managed rules.
+   */
   managedRules?: ListManagedRulesResponseBodyManagedRules;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B3E605AB-63D5-1EE0-BFA6-0BAC247B0461
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8336,8 +14033,30 @@ export class ListManagedRulesResponse extends $tea.Model {
 }
 
 export class ListPreManagedRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the resource.
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8361,8 +14080,30 @@ export class ListPreManagedRulesRequest extends $tea.Model {
 }
 
 export class ListPreManagedRulesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the resource.
+   */
   resourceTypesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8386,9 +14127,34 @@ export class ListPreManagedRulesShrinkRequest extends $tea.Model {
 }
 
 export class ListPreManagedRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation rules.
+   */
   managedRules?: ListPreManagedRulesResponseBodyManagedRules[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A2A9F1BE-0712-1B26-9899-D82F7DA8476C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8439,9 +14205,42 @@ export class ListPreManagedRulesResponse extends $tea.Model {
 }
 
 export class ListRemediationExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-5392626622af0000****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The status of the remediation. Valid values:
+   * 
+   * *   Success
+   * *   Failed
+   * 
+   * @example
+   * Success
+   */
   executionStatus?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 10 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * aVCjqNaSy0Ps7zSMGu25****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8467,7 +14266,18 @@ export class ListRemediationExecutionsRequest extends $tea.Model {
 }
 
 export class ListRemediationExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried remediation records.
+   */
   remediationExecutionData?: ListRemediationExecutionsResponseBodyRemediationExecutionData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 13E67493-3165-529A-A961-BE9E4B11BA11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8514,9 +14324,42 @@ export class ListRemediationExecutionsResponse extends $tea.Model {
 }
 
 export class ListRemediationTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the managed rule identifier.
+   * 
+   * @example
+   * oss-bucket-public-write-prohibited
+   * 
+   * **if can be null:**
+   * true
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid value: OOS, which stands for Operation Orchestration Service.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8542,10 +14385,42 @@ export class ListRemediationTemplatesRequest extends $tea.Model {
 }
 
 export class ListRemediationTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The queried remediation templates.
+   */
   remediationTemplates?: ListRemediationTemplatesResponseBodyRemediationTemplates[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FC2C4750-7024-499C-A69F-763543D1CBE3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of remediation templates.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8598,8 +14473,31 @@ export class ListRemediationTemplatesResponse extends $tea.Model {
 }
 
 export class ListRemediationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule IDs. Separate multiple rule IDs with commas (,).
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * @example
+   * cr-6b7c626622af00b4****
+   */
   configRuleIds?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 50.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8623,10 +14521,48 @@ export class ListRemediationsRequest extends $tea.Model {
 }
 
 export class ListRemediationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 50.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+   */
   remediations?: ListRemediationsResponseBodyRemediations[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0146963A-20C0-4E75-B93A-7D622B5FD7C8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of remediation settings.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8679,11 +14615,65 @@ export class ListRemediationsResponse extends $tea.Model {
 }
 
 export class ListResourceEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return in a request. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where one or more resources you want to query reside. For example, the value `global` indicates global regions and the value `cn-hangzhou` indicates the China (Hangzhou) region.
+   * 
+   * For more information about how to obtain the ID of the region where a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * @example
+   * global
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * @example
+   * 23642660635396****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to query the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * @example
+   * ACS::RAM::User
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8713,7 +14703,18 @@ export class ListResourceEvaluationResultsRequest extends $tea.Model {
 }
 
 export class ListResourceEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation results returned.
+   */
   evaluationResults?: ListResourceEvaluationResultsResponseBodyEvaluationResults;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25C89DDB-BB79-487D-88C3-4A561F21EFC4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8760,13 +14761,82 @@ export class ListResourceEvaluationResultsResponse extends $tea.Model {
 }
 
 export class ListResourceRelationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 1000.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * C2DjqMYSy0is7zSMGf21****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The type of the relationship between the resource and the object.
+   * 
+   * Valid values:
+   * 
+   * *   IsContained: The object is included as part of the resource.
+   * *   IsAttachedTo: The object is added to the resource.
+   * *   IsAssociatedIn: The object is associated with the resource.
+   * *   Contains: The object contains the resource.
+   * 
+   * @example
+   * IsAttachedTo
+   */
   relationType?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-j6cajg9yrfoh4sas****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The ID of the resource that is associated with the object.
+   * 
+   * @example
+   * d-j6c8k731qbrc7fxi****
+   */
   targetResourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource that is associated with the object.
+   * 
+   * @example
+   * ACS::ECS::Disk
+   */
   targetResourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8800,7 +14870,18 @@ export class ListResourceRelationsRequest extends $tea.Model {
 }
 
 export class ListResourceRelationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6525F8DE-5A8B-5AD3-A241-BBF5A259E5B2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the relationship.
+   */
   resourceRelations?: ListResourceRelationsResponseBodyResourceRelations;
   static names(): { [key: string]: string } {
     return {
@@ -8847,6 +14928,15 @@ export class ListResourceRelationsResponse extends $tea.Model {
 }
 
 export class ListResourcesByAdvancedSearchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL query statement.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\\"business:online\\"
+   */
   sql?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8866,7 +14956,18 @@ export class ListResourcesByAdvancedSearchRequest extends $tea.Model {
 }
 
 export class ListResourcesByAdvancedSearchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The query result.
+   */
   queryResults?: ListResourcesByAdvancedSearchResponseBodyQueryResults;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D241DEBF-67A2-56AF-88CF-57BF78F0A850
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8913,7 +15014,23 @@ export class ListResourcesByAdvancedSearchResponse extends $tea.Model {
 }
 
 export class ListSupportedProductsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
+   * Valid values: 1 to 500. Default value: 200.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * D3AjqMNSy0ls7zBNCf3a****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8935,9 +15052,34 @@ export class ListSupportedProductsRequest extends $tea.Model {
 }
 
 export class ListSupportedProductsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Valid values: 1 to 500.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: string;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * D3AjqMNSy0ls7zBNCf3a****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The cloud services that are supported by Cloud Config.
+   */
   products?: ListSupportedProductsResponseBodyProducts[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 610B0276-ABEE-57DF-9C13-C2324FADA9D7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8988,10 +15130,53 @@ export class ListSupportedProductsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJ****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * You can add tags to up to 50 resources.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   `ACS::Config::Rule`
+   * *   `ACS::Config::AggregateConfigRule`
+   * *   `ACS::Config::Aggregator`
+   * *   `ACS::Config::CompliancePack`
+   * *   `ACS::Config::AggregateCompliancePack`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::Config:rule
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9019,10 +15204,53 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJ****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * You can add tags to up to 50 resources.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   `ACS::Config::Rule`
+   * *   `ACS::Config::AggregateConfigRule`
+   * *   `ACS::Config::Aggregator`
+   * *   `ACS::Config::CompliancePack`
+   * *   `ACS::Config::AggregateCompliancePack`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::Config:rule
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9050,8 +15278,28 @@ export class ListTagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * > If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJ****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AB2E4317-06A6-5745-B7C3-E001E551****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -9100,8 +15348,36 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class PutEvaluationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the delete mode. Valid values:
+   * 
+   * *   true: enables the delete mode
+   * *   false (default): disables the delete mode
+   * 
+   * > This parameter is valid only when you manually trigger or periodically trigger custom rules to evaluate resources. If you enable the delete mode, the evaluation results that are not updated during the current evaluation are automatically deleted.
+   * 
+   * @example
+   * false
+   */
   deleteMode?: boolean;
+  /**
+   * @remarks
+   * The evaluation results.
+   * 
+   * @example
+   * [{"accountId":120886317861****,"annotation":"The flow log is not enabled.","complianceResourceId":"flowlog-o6wdfo1yvgo4i8****","complianceResourceType":"ACS::CEN::Flowlog","complianceRegionId":"cn-shanghai","complianceType":"NON_COMPLIANT","orderingTimestamp":1588907220408}]
+   */
   evaluations?: string;
+  /**
+   * @remarks
+   * The callback token. When Cloud Config triggers a custom rule to evaluate resources, the token information is sent to Function Compute as an input parameter. The token must be specified when you submit the evaluation results.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * =lAUbfkWp7GL9AFoQEIStinqBMc4FC8sHvip/1F1npkWUDNS2GEm6xwL6Zl/fSr0bbkWY+aiCLjTJxnp4H/yp/8p/Q8VCAtqG5uhRii4sfnYRnTPnE****
+   */
   resultToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9125,7 +15401,24 @@ export class PutEvaluationsRequest extends $tea.Model {
 }
 
 export class PutEvaluationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EDB324E2-A202-5FE4-A9BC-31E2C34F78A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the evaluation results of the custom rule are submitted. Valid values:
+   * 
+   * *   true: The evaluation results are submitted.
+   * *   false: The evaluation results fail to be submitted.
+   * 
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9172,8 +15465,34 @@ export class PutEvaluationsResponse extends $tea.Model {
 }
 
 export class RevertAggregateEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5b6c626622af008f****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule in the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The resources that you want to re-evaluate.
+   * 
+   * This parameter is required.
+   */
   resources?: RevertAggregateEvaluationResultsRequestResources[];
   static names(): { [key: string]: string } {
     return {
@@ -9197,8 +15516,34 @@ export class RevertAggregateEvaluationResultsRequest extends $tea.Model {
 }
 
 export class RevertAggregateEvaluationResultsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-5b6c626622af008f****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule in the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The resources that you want to re-evaluate.
+   * 
+   * This parameter is required.
+   */
   resourcesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9222,6 +15567,13 @@ export class RevertAggregateEvaluationResultsShrinkRequest extends $tea.Model {
 }
 
 export class RevertAggregateEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BB11CBF2-0B0B-59F2-9E84-07B38267AD12
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9266,7 +15618,24 @@ export class RevertAggregateEvaluationResultsResponse extends $tea.Model {
 }
 
 export class RevertEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The resources that are to be re-evaluated.
+   * 
+   * This parameter is required.
+   */
   resources?: RevertEvaluationResultsRequestResources[];
   static names(): { [key: string]: string } {
     return {
@@ -9288,7 +15657,24 @@ export class RevertEvaluationResultsRequest extends $tea.Model {
 }
 
 export class RevertEvaluationResultsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-7e72626622af0051****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The resources that are to be re-evaluated.
+   * 
+   * This parameter is required.
+   */
   resourcesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9310,6 +15696,13 @@ export class RevertEvaluationResultsShrinkRequest extends $tea.Model {
 }
 
 export class RevertEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 01ACCBF2-0B0B-59F2-9E84-07B38267BCA1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9354,9 +15747,52 @@ export class RevertEvaluationResultsResponse extends $tea.Model {
 }
 
 export class StartAggregateConfigRuleEvaluationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-3a58626622af0005****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * > You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+   * 
+   * @example
+   * cp-ac16626622af0053****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+   * 
+   * @example
+   * cr-c169626622af009f****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
+   * 
+   * *   true: re-evaluates the ignored non-compliant resource based on the rule.
+   * *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
+   * 
+   * @example
+   * false
+   */
   revertEvaluation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9382,7 +15818,24 @@ export class StartAggregateConfigRuleEvaluationRequest extends $tea.Model {
 }
 
 export class StartAggregateConfigRuleEvaluationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ABC0FFF8-0B44-40C6-8BBF-3A185EFDD212
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the involved resources were evaluated. Valid values:
+   * 
+   * *   true: The involved resources were evaluated.
+   * *   false: The involved resources were not evaluated
+   * 
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9429,8 +15882,39 @@ export class StartAggregateConfigRuleEvaluationResponse extends $tea.Model {
 }
 
 export class StartAggregateRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-6b4a626622af0012****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-6b7c626622af00b4****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources to be remediated belong. If this parameter is left empty, non-compliant resources of all accounts in the account group are remediated.
+   * 
+   * > You must specify the ID of the current management account or a member account in the account group of the management account.
+   * 
+   * @example
+   * 100271897542****
+   */
   resourceAccountId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9454,7 +15938,24 @@ export class StartAggregateRemediationRequest extends $tea.Model {
 }
 
 export class StartAggregateRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9501,8 +16002,40 @@ export class StartAggregateRemediationResponse extends $tea.Model {
 }
 
 export class StartConfigRuleEvaluationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
+   * 
+   * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+   * 
+   * @example
+   * cp-ac16626622af0053****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * You can call the [ListConfigRules](https://help.aliyun.com/document_detail/609222.html) operation to obtain the rule ID.
+   * 
+   * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+   * 
+   * @example
+   * cr-9920626622af0035****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
+   * 
+   * *   true: re-evaluates the ignored non-compliant resource based on the rule.
+   * *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
+   * 
+   * @example
+   * false
+   */
   revertEvaluation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9526,7 +16059,24 @@ export class StartConfigRuleEvaluationRequest extends $tea.Model {
 }
 
 export class StartConfigRuleEvaluationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D31EEAD7-BF1E-5927-977A-AFF9342A7273
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9573,7 +16123,18 @@ export class StartConfigRuleEvaluationResponse extends $tea.Model {
 }
 
 export class StartConfigurationRecorderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the configuration recorder.
+   */
   configurationRecorder?: StartConfigurationRecorderResponseBodyConfigurationRecorder;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4D994662-6B27-536F-B320-38F4B3D58705
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9620,6 +16181,17 @@ export class StartConfigurationRecorderResponse extends $tea.Model {
 }
 
 export class StartRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-8a973ac2e2be00a2****
+   */
   configRuleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9639,7 +16211,24 @@ export class StartRemediationRequest extends $tea.Model {
 }
 
 export class StartRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9686,7 +16275,24 @@ export class StartRemediationResponse extends $tea.Model {
 }
 
 export class StopConfigurationRecorderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AB2E892E-8A43-5B0F-8FE3-B53ADA53CB2D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   stopConfigurationRecorderResult?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9733,9 +16339,47 @@ export class StopConfigurationRecorderResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can add tags to up to 50 resources.
+   * 
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   `ACS::Config::Rule`
+   * *   `ACS::Config::AggregateConfigRule`
+   * *   `ACS::Config::Aggregator`
+   * *   `ACS::Config::CompliancePack`
+   * *   `ACS::Config::AggregateCompliancePack`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::Config::Rule
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag value of the resource.
+   * 
+   * You can specify up to 20 tag values.
+   * 
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9761,9 +16405,47 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can add tags to up to 50 resources.
+   * 
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   `ACS::Config::Rule`
+   * *   `ACS::Config::AggregateConfigRule`
+   * *   `ACS::Config::Aggregator`
+   * *   `ACS::Config::CompliancePack`
+   * *   `ACS::Config::AggregateCompliancePack`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::Config::Rule
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag value of the resource.
+   * 
+   * You can specify up to 20 tag values.
+   * 
+   * This parameter is required.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9789,6 +16471,13 @@ export class TagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AB2E4317-06A6-5745-B7C3-E001E551B380
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9833,10 +16522,56 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the resource. Valid values:
+   * 
+   * *   true: All tags are removed from the resource.
+   * *   false (default): The specified tags are removed from the resource.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The region ID of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * You can remove tags from up to 50 resources at a time.
+   * 
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   `ACS::Config::Rule`
+   * *   `ACS::Config::AggregateConfigRule`
+   * *   `ACS::Config::Aggregator`
+   * *   `ACS::Config::CompliancePack`
+   * *   `ACS::Config::AggregateCompliancePack`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::Config::Rule
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9864,6 +16599,13 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AB2E4317-06A6-5745-B7C3-E001E551B380
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9908,21 +16650,120 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateAggregateCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * @example
+   * test-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   * 
+   * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you set this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+   */
   configRules?: UpdateAggregateCompliancePackRequestConfigRules[];
+  /**
+   * @remarks
+   * The description of the compliance package.
+   * 
+   * @example
+   * Test compliance pack description.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateAggregateCompliancePackRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateAggregateCompliancePackRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -9975,21 +16816,120 @@ export class UpdateAggregateCompliancePackRequest extends $tea.Model {
 }
 
 export class UpdateAggregateCompliancePackShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * 
+   * @example
+   * test-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   * 
+   * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you set this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+   */
   configRulesShrink?: string;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   * 
+   * @example
+   * Test compliance pack description.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateAggregateCompliancePackShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -10042,7 +16982,21 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $tea.Model {
 }
 
 export class UpdateAggregateCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10089,23 +17043,185 @@ export class UpdateAggregateCompliancePackResponse extends $tea.Model {
 }
 
 export class UpdateAggregateConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource change logs. If you set this parameter to true, Cloud Config delivers resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource change logs.
+   * *   false (default): Cloud Config does not deliver resource change logs.
+   * 
+   * > This parameter is available for delivery channels of the OSS, SLS, and MNS types.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled resource snapshots.
+   * *   false (default): Cloud Config does not deliver scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The rule that is attached to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The lowest risk level of the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the lowest risk level of the events to which you subscribed. Valid values: 1, 2, and 3, where 1 indicates the high risk level, 2 indicates the medium risk level, and 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you subscribed. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](https://help.aliyun.com/document_detail/429842.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * @example
+   * testoss
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The ARN of the delivery destination. Valid values:
+   * 
+   * *   `acs:oss:{RegionId}:{accountId}:{bucketName}` if your delivery destination is an OSS bucket. Example: `acs:oss:cn-shanghai:100931896542****:new-bucket`.
+   * *   `acs:mns:{RegionId}:{accountId}:/topics/{topicName}` if your delivery destination is an MNS topic. Example: `acs:mns:cn-shanghai:100931896542****:/topics/topic1`.
+   * *   `acs:log:{RegionId}:{accountId}:project/{projectName}/logstore/{logstoreName}` if your delivery destination is a Log Service Logstore. Example: `acs:log:cn-shanghai:100931896542****:project/project1/logstore/logstore1`.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The time when Cloud Config delivers scheduled resources snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * > When you enable the scheduled resource delivery feature, you can specify a custom delivery time for this parameter. If you do not configure this parameter, Cloud Config automatically delivers scheduled resource snapshots at `04:00Z` and `16:00Z` every day.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource non-compliance events. If you set this parameter to true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are considered non-compliant. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource non-compliance events.
+   * *   false (default): Cloud Config does not deliver resource non-compliance events.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which the delivered data is transferred when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
+   * 
+   * If you do not configure this parameter, Cloud Config delivers only summary data.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type. The upper limit on the storage size of delivery channels of the SLS type is 1 MB, and the upper limit on the storage size of delivery channels of the MNS type is 64 KB.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the delivery channel. Valid values:
+   * 
+   * *   0: The delivery channel is disabled. Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+   * *   1 (default): The delivery channel is enabled.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
       clientToken: 'ClientToken',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelCondition: 'DeliveryChannelCondition',
@@ -10124,6 +17240,7 @@ export class UpdateAggregateConfigDeliveryChannelRequest extends $tea.Model {
     return {
       aggregatorId: 'string',
       clientToken: 'string',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelCondition: 'string',
@@ -10144,7 +17261,21 @@ export class UpdateAggregateConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class UpdateAggregateConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10192,28 +17323,209 @@ export class UpdateAggregateConfigDeliveryChannelResponse extends $tea.Model {
 
 export class UpdateAggregateConfigRuleRequest extends $tea.Model {
   accountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to query the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-4e3d626622af0080****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * >  This parameter applies only to a custom rule.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The IDs of the member accounts to which the rule does not apply, which means that the resources within the member accounts are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * 120886317861****
+   */
   excludeAccountIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource directories to which the rule does not apply, which means that the resources within member accounts in the resource directories are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-pWmkqZ****
+   */
   excludeFolderIdsScope?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateAggregateConfigRuleRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The IDs of the resource directories to which the rule applies, which means that the resources within member accounts in the resource directories are evaluated based on the rule.
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-ZtHsRH****
+   */
   folderIdsScope?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The intervals at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour
+   * *   Three_Hours: 3 hours
+   * *   Six_Hours: 6 hours
+   * *   Twelve_Hours: 12 hours
+   * *   TwentyFour_Hours: 24 hours
+   * 
+   * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScope?: string[];
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 3
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateAggregateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -10283,28 +17595,209 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
 
 export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
   accountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to query the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-4e3d626622af0080****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * >  This parameter applies only to a custom rule.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The IDs of the member accounts to which the rule does not apply, which means that the resources within the member accounts are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * 120886317861****
+   */
   excludeAccountIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource directories to which the rule does not apply, which means that the resources within member accounts in the resource directories are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-pWmkqZ****
+   */
   excludeFolderIdsScope?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The IDs of the resource directories to which the rule applies, which means that the resources within member accounts in the resource directories are evaluated based on the rule.
+   * 
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-ZtHsRH****
+   */
   folderIdsScope?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParametersShrink?: string;
+  /**
+   * @remarks
+   * The intervals at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour
+   * *   Three_Hours: 3 hours
+   * *   Six_Hours: 6 hours
+   * *   Twelve_Hours: 12 hours
+   * *   TwentyFour_Hours: 24 hours
+   * 
+   * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScopeShrink?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 3
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateAggregateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -10373,7 +17866,21 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
 }
 
 export class UpdateAggregateConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-4e3d626622af0080****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10420,12 +17927,83 @@ export class UpdateAggregateConfigRuleResponse extends $tea.Model {
 }
 
 export class UpdateAggregateRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * You can the [ListAggregators](https://help.aliyun.com/document_detail/255797.html) operation to obtain the ID of the account group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-6b4a626622af0012****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation is not executed.
+   * *   AUTO_EXECUTION: The remediation is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The desired parameter values of the remediation setting.
+   * 
+   * @example
+   * {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket Name."},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL Permission Name."}]}
+   */
   params?: string;
+  /**
+   * @remarks
+   * The ID of the remediation setting.
+   * 
+   * You can call the [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html) operation to obtain the ID of the remediation setting.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: Operation Orchestration Service (OOS)
+   * *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The type of the rule for which the remediation template is configured. Valid values:
+   * 
+   * *   ALIYUN: managed rule.
+   * *   CUSTOM: custom rule.
+   * *   NONE: The rule is not specified.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10457,7 +18035,21 @@ export class UpdateAggregateRemediationRequest extends $tea.Model {
 }
 
 export class UpdateAggregateRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the remediation setting.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10504,10 +18096,52 @@ export class UpdateAggregateRemediationResponse extends $tea.Model {
 }
 
 export class UpdateAggregatorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The members in the account group.
+   * 
+   * >  When you modify the configurations of an account group, this parameter can be left empty. In this case, the member list is not updated. If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * **if can be null:**
+   * false
+   */
   aggregatorAccounts?: UpdateAggregatorRequestAggregatorAccounts[];
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-dacf86d8314e00eb****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * For more information about how to obtain the name of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the account group.
+   * 
+   * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10535,10 +18169,52 @@ export class UpdateAggregatorRequest extends $tea.Model {
 }
 
 export class UpdateAggregatorShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The members in the account group.
+   * 
+   * >  When you modify the configurations of an account group, this parameter can be left empty. In this case, the member list is not updated. If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * **if can be null:**
+   * false
+   */
   aggregatorAccountsShrink?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca-dacf86d8314e00eb****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * For more information about how to obtain the name of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the account group.
+   * 
+   * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10566,7 +18242,21 @@ export class UpdateAggregatorShrinkRequest extends $tea.Model {
 }
 
 export class UpdateAggregatorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-dacf86d8314e00eb****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8195B664-9565-4685-89AC-8B5F04B44B92
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10613,20 +18303,102 @@ export class UpdateAggregatorResponse extends $tea.Model {
 }
 
 export class UpdateCompliancePackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * For more information about how to obtain the name of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   * 
+   * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you configure this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+   */
   configRules?: UpdateCompliancePackRequestConfigRules[];
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * 23642660635687****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateCompliancePackRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagValueScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateCompliancePackRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -10677,20 +18449,102 @@ export class UpdateCompliancePackRequest extends $tea.Model {
 }
 
 export class UpdateCompliancePackShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * For more information about how to obtain the name of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   * 
+   * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you configure this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
+   */
   configRulesShrink?: string;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * 23642660635687****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateCompliancePackShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * >  You must configure the TagValueScope parameter together with the TagValueScope parameter.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateCompliancePackShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -10741,7 +18595,21 @@ export class UpdateCompliancePackShrinkRequest extends $tea.Model {
 }
 
 export class UpdateCompliancePackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10788,21 +18656,172 @@ export class UpdateCompliancePackResponse extends $tea.Model {
 }
 
 export class UpdateConfigDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests.
+   * 
+   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource change logs. If you set this parameter to true, Cloud Config delivers resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource change logs.
+   * *   false (default): Cloud Config does not deliver resource change logs.
+   * 
+   * > This parameter is available for delivery channels of the OSS, SLS, and MNS types.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled resource snapshots.
+   * *   false (default): Cloud Config does not deliver scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The rule that you want to attach to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of a delivery channel, see [DescribeDeliveryChannels](https://help.aliyun.com/document_detail/429841.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * @example
+   * testoss
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination. Valid values:
+   * 
+   * *   `acs:oss:{RegionId}:{accountId}:{bucketName}` if your delivery destination is an OSS bucket. Example: `acs:oss:cn-shanghai:100931896542****:new-bucket`.
+   * *   `acs:mns:{RegionId}:{accountId}:/topics/{topicName}` if your delivery destination is an MNS topic. Example: `acs:mns:cn-shanghai:100931896542****:/topics/topic1`.
+   * *   `acs:log:{RegionId}:{accountId}:project/{projectName}/logstore/{logstoreName}` if your delivery destination is a Log Service Logstore. Example: `acs:log:cn-shanghai:100931896542****:project/project1/logstore/logstore1`.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The time when you want Cloud Config to deliver scheduled resource snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * > When you enable the scheduled resource delivery feature, you can configure this parameter to specify a custom delivery time. If you do not configure this parameter, Cloud Config automatically delivers scheduled resource snapshots at `04:00Z` and `16:00Z` every day.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource non-compliance events. If you set this parameter to true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are considered non-compliant. Valid values:
+   * 
+   * *   true: Cloud Config delivers resource non-compliance events.
+   * *   false (default): Cloud Config does not deliver resource non-compliance events.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
+   * 
+   * If you do not configure this parameter, Cloud Config delivers only summary data.
+   * 
+   * > This parameter is available only for delivery channels of the SLS or MNS type. The maximum storage size of delivery channels of the SLS type is 1 MB, and the maximum storage size of delivery channels of the MNS type is 64 KB.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the delivery channel. Valid values:
+   * 
+   * *   0: Cloud Config disables the delivery channel. Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+   * *   1 (default): Cloud Config enables the delivery channel.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelCondition: 'DeliveryChannelCondition',
@@ -10820,6 +18839,7 @@ export class UpdateConfigDeliveryChannelRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelCondition: 'string',
@@ -10840,7 +18860,21 @@ export class UpdateConfigDeliveryChannelRequest extends $tea.Model {
 }
 
 export class UpdateConfigDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10887,24 +18921,159 @@ export class UpdateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class UpdateConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to query the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-a260626622af0005****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * >  This parameter applies only to custom rules.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule. You can enter up to 500 characters.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateConfigRuleRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The intervals at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours.
+   * *   TwentyFour_Hours (default): 24 hours.
+   * 
+   * >  This parameter is required if you set the `ConfigRuleTriggerTypes` parameter to `ScheduledNotification`.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScope?: string[];
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 3
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -10963,24 +19132,159 @@ export class UpdateConfigRuleRequest extends $tea.Model {
 }
 
 export class UpdateConfigRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * For more information about how to query the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cr-a260626622af0005****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * >  This parameter applies only to custom rules.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The description of the rule. You can enter up to 500 characters.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resources excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * lb-t4nbowvtbkss7t326****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateConfigRuleShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParametersShrink?: string;
+  /**
+   * @remarks
+   * The intervals at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours.
+   * *   TwentyFour_Hours (default): 24 hours.
+   * 
+   * >  This parameter is required if you set the `ConfigRuleTriggerTypes` parameter to `ScheduledNotification`.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource groups to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypesScopeShrink?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 3
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: UpdateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
@@ -11039,7 +19343,21 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
 }
 
 export class UpdateConfigRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-a260626622af0005****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11086,6 +19404,15 @@ export class UpdateConfigRuleResponse extends $tea.Model {
 }
 
 export class UpdateConfigurationRecorderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource types. Separate multiple resource types with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11105,7 +19432,18 @@ export class UpdateConfigurationRecorderRequest extends $tea.Model {
 }
 
 export class UpdateConfigurationRecorderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the configuration recorder.
+   */
   configurationRecorder?: UpdateConfigurationRecorderResponseBodyConfigurationRecorder;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2A1D5095-D1F9-56B6-A712-EA495608E79A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11152,17 +19490,147 @@ export class UpdateConfigurationRecorderResponse extends $tea.Model {
 }
 
 export class UpdateDeliveryChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * @example
+   * 1594295238-f9361358-5843-4294-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * > This parameter is available for delivery channels of the OSS, Log Service, and MNS types.
+   * 
+   * @example
+   * false
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled resource snapshots to the OSS bucket. If the value of this parameter is true, the scheduled resource snapshots are delivered to the specified OSS bucket at 00:00:00 and 12:00:00 on a daily basis. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * > This parameter is applicable only to delivery channels of the OSS type.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The ARN of the role that you want to assign to the delivery channel. Specify the ARN in the following format: `acs:ram::{accountId}:role/aliyunserviceroleforconfig`.
+   * 
+   * @example
+   * acs:ram::100931896542****:role/aliyunserviceroleforconfig
+   */
   deliveryChannelAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The rule that is attached to the delivery channel. This parameter is available only for delivery channels of the MNS type.
+   * 
+   * This parameter specifies the lowest risk level and the resource types for the events to which you want to subscribe.
+   * 
+   * *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *     The `value` field specifies the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level. The value 2 indicates the medium risk level. The value 3 indicates the low risk level.
+   * 
+   * *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * For more information about how to obtain the ID of the delivery channel, see [DescribeDeliveryChannels](https://help.aliyun.com/document_detail/174466.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * > If you do not configure this parameter, this parameter is left empty.
+   * 
+   * @example
+   * testoss
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The ARN of the delivery destination. Valid values:
+   * 
+   * *   `acs:oss:{RegionId}:{accountId}:{bucketName}` if your delivery destination is an OSS bucket. Example: `acs:oss:cn-shanghai:100931896542****:new-bucket`.
+   * *   `acs:mns:{RegionId}:{accountId}:/topics/{topicName}` if your delivery destination is an MNS topic. Example: `acs:mns:cn-shanghai:100931896542****:/topics/topic1`.
+   * *   `acs:log:{RegionId}:{accountId}:project/{projectName}/logstore/{logstoreName}` if your delivery destination is a Log Service Logstore. Example: `acs:log:cn-shanghai:100931896542****:project/project1/logstore/logstore1`.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver resource non-compliance events. If the value of this parameter is true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are evaluated as non-compliant. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * > This parameter is available only for delivery channels of the Log Service or MNS type.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
+   * 
+   * If you do not configure this parameter, Cloud Config delivers only summary data.
+   * 
+   * > This parameter is available only for delivery channels of the Log Service or MNS type. The maximum storage size of delivery channels of the Log Service type is 1 MB, and the maximum storage size of delivery channels of the MNS type is 64 KB.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the delivery channel. Valid values:
+   * 
+   * *   0: The delivery channel is disabled for Cloud Config. Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+   * *   1 (default): The delivery channel is enabled for Cloud Config.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11204,7 +19672,21 @@ export class UpdateDeliveryChannelRequest extends $tea.Model {
 }
 
 export class UpdateDeliveryChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11251,8 +19733,43 @@ export class UpdateDeliveryChannelResponse extends $tea.Model {
 }
 
 export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: resource change event
+   * *   NonCompliantNotification: non-compliance event
+   * 
+   * @example
+   * NonCompliantNotification
+   */
   integratedTypes?: string;
+  /**
+   * @remarks
+   * The identity of the cloud service that is integrated with Cloud Config. Valid values:
+   * 
+   * *   eventbridge: EventBridge
+   * *   cms: CloudMonitor
+   * *   bpstudio: Cloud Architect Design Tools
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cadt
+   */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Specifies whether you want the product to be integrated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11276,6 +19793,13 @@ export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
 }
 
 export class UpdateIntegratedServiceStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 02EB7638-B029-5ABB-93F5-A2ABEEAC282D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11320,12 +19844,79 @@ export class UpdateIntegratedServiceStatusResponse extends $tea.Model {
 }
 
 export class UpdateRemediationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 2014295338-e7361358-5822-4276-8d30-b5183fac****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation is not executed.
+   * *   AUTO_EXECUTION: The remediation is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The desired parameter values of the remediation setting.
+   * 
+   * @example
+   * {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket Name."},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL Permission Name."}]}
+   */
   params?: string;
+  /**
+   * @remarks
+   * The ID of the remediation setting.
+   * 
+   * You can call the [ListRemediations](https://help.aliyun.com/document_detail/270772.html) operation to obtain the ID of the remediation setting.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: Operation Orchestration Service (OOS)
+   * *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The source of the remediation setting. Valid values:
+   * 
+   * *   ALIYUN: the default remediation setting of Alibaba Cloud.
+   * *   CUSTOM: a custom remediation setting.
+   * *   NONE: The source is not specified.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11357,7 +19948,21 @@ export class UpdateRemediationRequest extends $tea.Model {
 }
 
 export class UpdateRemediationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the remediation setting.
+   * 
+   * @example
+   * crr-7c2ba2d0236700a3****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11404,8 +20009,35 @@ export class UpdateRemediationResponse extends $tea.Model {
 }
 
 export class ActiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-5772ba41209e007b****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the rule is enabled, no error code is returned.
+   * *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11429,6 +20061,10 @@ export class ActiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleI
 }
 
 export class ActiveAggregateConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   operateRuleItemList?: ActiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -11448,8 +20084,35 @@ export class ActiveAggregateConfigRulesResponseBodyOperateRuleResult extends $te
 }
 
 export class ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-2da35180a8d1008e****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the rule is enabled, no error code is returned.
+   * *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://next.api.aliyun.com/document/Config/2020-09-07/errorCode).
+   * 
+   * @example
+   * ConfigRuleStatusNotInActive
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11473,6 +20136,10 @@ export class ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList e
 }
 
 export class ActiveConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   operateRuleItemList?: ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -11492,8 +20159,35 @@ export class ActiveConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
 }
 
 export class AttachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-a124626622af00e7****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   This parameter is empty if the rule is added to the compliance package.
+   * *   An error code is returned if the rule fails to be added to the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11517,6 +20211,10 @@ export class AttachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleRes
 }
 
 export class AttachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the operation to add the rule.
+   */
   operateRuleItemList?: AttachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -11536,8 +20234,35 @@ export class AttachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleRes
 }
 
 export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-6cc4626622af00e7****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   This parameter is empty if the rule is added to the compliance package.
+   * *   An error code is returned if the rule fails to be added to the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11561,6 +20286,10 @@ export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperat
 }
 
 export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the operation to add the rule.
+   */
   operateRuleItemList?: AttachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -11580,7 +20309,25 @@ export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResult exten
 }
 
 export class CreateAggregateCompliancePackRequestConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * bandwidth
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * 10
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11602,11 +20349,58 @@ export class CreateAggregateCompliancePackRequestConfigRulesConfigRuleParameters
 }
 
 export class CreateAggregateCompliancePackRequestConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+   * 
+   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * @example
+   * cr-e918626622af000f****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
   configRuleParameters?: CreateAggregateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The rule description.
+   * 
+   * @example
+   * Test rule description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
+   * 
+   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the identifier of a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11812,8 +20606,29 @@ export class CreateAggregateConfigRuleShrinkRequestTagsScope extends $tea.Model 
 }
 
 export class CreateAggregatorRequestAggregatorAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The member account ID. For more information about how to obtain the ID of a member account, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
+   * 
+   * @example
+   * 171322098523****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The name of the member account. For more information about how to obtain the name of a member account, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
+   * 
+   * @example
+   * Alice
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The type of the member account. Set this parameter to ResourceDirectory.
+   * 
+   * @example
+   * ResourceDirectory
+   */
   accountType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11837,7 +20652,25 @@ export class CreateAggregatorRequestAggregatorAccounts extends $tea.Model {
 }
 
 export class CreateCompliancePackRequestConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value is specified, you must specify this parameter. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the names of input parameters of the managed rule.
+   * 
+   * @example
+   * bandwidth
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value is specified, you must specify this parameter. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the values of input parameters of the managed rule.
+   * 
+   * @example
+   * 10
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11859,11 +20692,58 @@ export class CreateCompliancePackRequestConfigRulesConfigRuleParameters extends 
 }
 
 export class CreateCompliancePackRequestConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID. If you specify this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+   * 
+   * You need to only specify `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, Cloud Config adds a rule based on the value of `ConfigRuleId`. You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+   * 
+   * @example
+   * cr-e918626622af000f****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
   configRuleParameters?: CreateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * The description of the test rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule. Cloud Config automatically creates a managed rule based on the specified identifier and adds the rule to the compliance package.
+   * 
+   * You need to only specify `ManagedRuleIdentifier` or `ConfigRuleId`. If you specify both parameters, Cloud Config adds a rule based on the value of `ConfigRuleId`. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the identifier of the managed rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12069,8 +20949,35 @@ export class CreateConfigRuleShrinkRequestTagsScope extends $tea.Model {
 }
 
 export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-5772ba41209e007b****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the rule is disabled, no error code is returned.
+   * *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12094,6 +21001,10 @@ export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRul
 }
 
 export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The operations that are performed to disable the rule.
+   */
   operateRuleItemList?: DeactiveAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -12113,8 +21024,35 @@ export class DeactiveAggregateConfigRulesResponseBodyOperateRuleResult extends $
 }
 
 export class DeactiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-19a56457e0d90058****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the rule is disabled, no error code is returned.
+   * *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleCanNotDelete
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12138,6 +21076,10 @@ export class DeactiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList
 }
 
 export class DeactiveConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The operations that are performed to disable the rule.
+   */
   operateRuleItemList?: DeactiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -12157,8 +21099,35 @@ export class DeactiveConfigRulesResponseBodyOperateRuleResult extends $tea.Model
 }
 
 export class DeleteAggregateCompliancePacksResponseBodyOperateCompliancePacksResultOperateCompliancePacks extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the compliance package is deleted, no error code is returned.
+   * *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * CompliancePackAlreadyPending
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12182,6 +21151,10 @@ export class DeleteAggregateCompliancePacksResponseBodyOperateCompliancePacksRes
 }
 
 export class DeleteAggregateCompliancePacksResponseBodyOperateCompliancePacksResult extends $tea.Model {
+  /**
+   * @remarks
+   * An array that contains the deleted compliance packages.
+   */
   operateCompliancePacks?: DeleteAggregateCompliancePacksResponseBodyOperateCompliancePacksResultOperateCompliancePacks[];
   static names(): { [key: string]: string } {
     return {
@@ -12201,8 +21174,35 @@ export class DeleteAggregateCompliancePacksResponseBodyOperateCompliancePacksRes
 }
 
 export class DeleteAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-4e3d626622af0080****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the rule is deleted, no error code is returned.
+   * *   If the rule fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleCanNotDelete
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12226,6 +21226,10 @@ export class DeleteAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleI
 }
 
 export class DeleteAggregateConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the result.
+   */
   operateRuleItemList?: DeleteAggregateConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -12245,8 +21249,35 @@ export class DeleteAggregateConfigRulesResponseBodyOperateRuleResult extends $te
 }
 
 export class DeleteAggregateRemediationsResponseBodyRemediationDeleteResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the remediation template is deleted, no error code is returned.
+   * *   If the remediation template fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * RemediationConfigNotExist
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12270,8 +21301,34 @@ export class DeleteAggregateRemediationsResponseBodyRemediationDeleteResults ext
 }
 
 export class DeleteAggregatorsResponseBodyOperateAggregatorsResultOperateAggregators extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-dacf86d8314e00eb****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * > No error code is returned for the account group if the account group is deleted.
+   * 
+   * @example
+   * AccountNotExisted
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12295,6 +21352,10 @@ export class DeleteAggregatorsResponseBodyOperateAggregatorsResultOperateAggrega
 }
 
 export class DeleteAggregatorsResponseBodyOperateAggregatorsResult extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the account group.
+   */
   operateAggregators?: DeleteAggregatorsResponseBodyOperateAggregatorsResultOperateAggregators[];
   static names(): { [key: string]: string } {
     return {
@@ -12314,8 +21375,35 @@ export class DeleteAggregatorsResponseBodyOperateAggregatorsResult extends $tea.
 }
 
 export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResultOperateCompliancePacks extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the compliance package is deleted, no error code is returned.
+   * *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * CompliancePackAlreadyPending
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12339,6 +21427,10 @@ export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResultOperat
 }
 
 export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResult extends $tea.Model {
+  /**
+   * @remarks
+   * An array that contains compliance packages that are deleted.
+   */
   operateCompliancePacks?: DeleteCompliancePacksResponseBodyOperateCompliancePacksResultOperateCompliancePacks[];
   static names(): { [key: string]: string } {
     return {
@@ -12358,8 +21450,35 @@ export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResult exten
 }
 
 export class DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-9908626622af0035****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the rule is disabled, no error code is returned.
+   * *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://api.alibabacloud.com/document/Config/2020-09-07/errorCode).
+   * 
+   * @example
+   * ConfigRuleCanNotDelete
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12383,6 +21502,10 @@ export class DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList e
 }
 
 export class DeleteConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the delete operation.
+   */
   operateRuleItemList?: DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -12402,8 +21525,35 @@ export class DeleteConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
 }
 
 export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the remediation template is deleted, no error code is returned.
+   * *   If the remediation template fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * RemediationConfigNotExist
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * crr-909ba2d4716700eb****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12427,16 +21577,112 @@ export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $tea
 }
 
 export class DescribeRemediationResponseBodyRemediation extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-3184626622af003****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template was not executed.
+   * *   AUTO_EXECUTION: The remediation template was automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template was manually executed.
+   * *   NOT_CONFIG: The execution mode was not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The record ID of the last successful execution of the remediation template.
+   * 
+   * @example
+   * bd7629fb-cac8-42fe-bcb1-e362c5a6****
+   */
   lastSuccessfulInvocationId?: string;
+  /**
+   * @remarks
+   * The timestamp of the last successful execution of the remediation template. Unit: milliseconds.
+   * 
+   * @example
+   * 1625451393589
+   */
   lastSuccessfulInvocationTime?: number;
+  /**
+   * @remarks
+   * The mode of the last successful execution of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template was not executed.
+   * *   AUTO_EXECUTION: The remediation template was automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template was manually executed.
+   * *   NOT_CONFIG: The execution mode was not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   lastSuccessfulInvocationType?: string;
+  /**
+   * @remarks
+   * The ID of the remediation configuration.
+   * 
+   * @example
+   * crr-f381cf0c1c2f004e****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
+   */
   remediationOriginParams?: string;
+  /**
+   * @remarks
+   * The source of the remediation template. Valid values:
+   * 
+   * *   ALIYUN: official template
+   * *   CUSTOM: custom template
+   * *   NONE: none
+   * 
+   * @example
+   * ALIYUN
+   */
   remediationSourceType?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: Operation Orchestration Service (official remediation)
+   * *   FC: Function Compute (custom remediation)
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12476,8 +21722,35 @@ export class DescribeRemediationResponseBodyRemediation extends $tea.Model {
 }
 
 export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-a124626622af00e7****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   This parameter is empty if the rule is removed from the compliance package.
+   * *   An error code is returned if the rule fails to be removed from the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12501,6 +21774,10 @@ export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleRes
 }
 
 export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the operation to remove the rule.
+   */
   operateRuleItemList?: DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -12520,8 +21797,35 @@ export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleRes
 }
 
 export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-6cc4626622af00e7****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   This parameter is empty if the rule is removed from the compliance package.
+   * *   An error code is returned if the rule fails to be removed from the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12545,6 +21849,10 @@ export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperat
 }
 
 export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the operation to remove the rule.
+   */
   operateRuleItemList?: DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -12564,7 +21872,23 @@ export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResult exten
 }
 
 export class EvaluatePreConfigRulesRequestResourceEvaluateItemsRules extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the evaluation rule.
+   * 
+   * For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](https://help.aliyun.com/document_detail/467810.html).
+   * 
+   * @example
+   * ecs-instance-deletion-protection-enabled
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The input parameters of the evaluation rule.
+   * 
+   * @example
+   * {}
+   */
   inputParameters?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12586,9 +21910,39 @@ export class EvaluatePreConfigRulesRequestResourceEvaluateItemsRules extends $te
 }
 
 export class EvaluatePreConfigRulesRequestResourceEvaluateItems extends $tea.Model {
+  /**
+   * @remarks
+   * The logical ID of the resource.
+   * 
+   * @example
+   * ResourceLogicId-test
+   */
   resourceLogicalId?: string;
+  /**
+   * @remarks
+   * The properties of the resource.
+   * 
+   * @example
+   * {
+   *     "ImageId": "ubuntu_18_04_64_20G_alibase_20190624.vhd",
+   *     "SecurityGroupId": "sg-bp15ed6xe1yxeycg****",
+   *     "HostName": "LocalHostName",
+   *     "RegionId": "cn-hangzhou"
+   * }
+   */
   resourceProperties?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The evaluation rules.
+   */
   rules?: EvaluatePreConfigRulesRequestResourceEvaluateItemsRules[];
   static names(): { [key: string]: string } {
     return {
@@ -12614,9 +21968,41 @@ export class EvaluatePreConfigRulesRequestResourceEvaluateItems extends $tea.Mod
 }
 
 export class EvaluatePreConfigRulesResponseBodyResourceEvaluationsRules extends $tea.Model {
+  /**
+   * @remarks
+   * The reason why the resource was evaluated as incompliant.
+   * 
+   * @example
+   * {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.DeletionProtection\\"}
+   */
   annotation?: string;
+  /**
+   * @remarks
+   * The compliance type of the resource that was evaluated by using the evaluation rule. Valid values:
+   * 
+   * *   COMPLIANT: The resource was evaluated as compliant.
+   * *   NON_COMPLIANT: The resource was evaluated as incompliant.
+   * *   NOT_APPLICABLE: The evaluation rule does not apply to the resource.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+   * 
+   * @example
+   * https://example.aliyundoc.com
+   */
   helpUrl?: string;
+  /**
+   * @remarks
+   * The identifier of the evaluation rule.
+   * 
+   * @example
+   * ecs-instance-deletion-protection-enabled
+   */
   identifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12642,8 +22028,28 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluationsRules extends 
 }
 
 export class EvaluatePreConfigRulesResponseBodyResourceEvaluations extends $tea.Model {
+  /**
+   * @remarks
+   * The logical ID of the resource.
+   * 
+   * >  If the ResourceLogicalId request parameter is left empty, the value of the ResourceLogicalId response parameter is generated based on the value of the `ResourceProperties` parameter.
+   * 
+   * @example
+   * ResourceLogicId-test
+   */
   resourceLogicalId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The evaluation rules.
+   */
   rules?: EvaluatePreConfigRulesResponseBodyResourceEvaluationsRules[];
   static names(): { [key: string]: string } {
     return {
@@ -12667,8 +22073,29 @@ export class EvaluatePreConfigRulesResponseBodyResourceEvaluations extends $tea.
 }
 
 export class GetAdvancedSearchFileResponseBodyResourceSearch extends $tea.Model {
+  /**
+   * @remarks
+   * The download URL of the resource file.
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The time when the resource file was generated. The value is a timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1688281755480
+   */
   resourceInventoryGenerateTime?: number;
+  /**
+   * @remarks
+   * The generation status of the resource file. Valid values:
+   * 
+   * *   CREATING: The resource file is being generated.
+   * *   COMPLETE: The resource file is generated.
+   * 
+   * @example
+   * COMPLETE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12692,8 +22119,34 @@ export class GetAdvancedSearchFileResponseBodyResourceSearch extends $tea.Model 
 }
 
 export class GetAggregateAccountComplianceByPackResponseBodyAccountComplianceResultAccountCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the member account in the account group.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The name of the member account in the account group.
+   * 
+   * @example
+   * Alice
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resource was evaluated as compliant.
+   * *   NON_COMPLIANT: The resource was evaluated as incompliant.
+   * *   NOT_APPLICABLE: The rule did not apply to your resource.
+   * *   INSUFFICIENT_DATA: No resource data was available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12717,9 +22170,34 @@ export class GetAggregateAccountComplianceByPackResponseBodyAccountComplianceRes
 }
 
 export class GetAggregateAccountComplianceByPackResponseBodyAccountComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result of member accounts.
+   */
   accountCompliances?: GetAggregateAccountComplianceByPackResponseBodyAccountComplianceResultAccountCompliances[];
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The number of non-compliant member accounts.
+   * 
+   * @example
+   * 0
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of member accounts.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12745,8 +22223,31 @@ export class GetAggregateAccountComplianceByPackResponseBodyAccountComplianceRes
 }
 
 export class GetAggregateAdvancedSearchFileResponseBodyResourceSearch extends $tea.Model {
+  /**
+   * @remarks
+   * The download URL of the resource file.
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The time when the resource file was generated. The value is a timestamp.
+   * 
+   * Unit: milliseconds.
+   * 
+   * @example
+   * 1691375618130
+   */
   resourceInventoryGenerateTime?: number;
+  /**
+   * @remarks
+   * The generation status of the resource file. Valid values:
+   * 
+   * *   CREATING: The resource file is being generated.
+   * *   COMPLETE: The resource file is generated.
+   * 
+   * @example
+   * COMPLETE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12770,8 +22271,32 @@ export class GetAggregateAdvancedSearchFileResponseBodyResourceSearch extends $t
 }
 
 export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * @example
+   * bandwidth
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * @example
+   * 10
+   */
   parameterValue?: string;
+  /**
+   * @remarks
+   * Indicates whether the input parameter was required. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12795,12 +22320,56 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConf
 }
 
 export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-a260626622af0005****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The details of the input parameter of the rule.
+   */
   configRuleParameters?: GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the rule template.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the resource evaluated based on the rule. Multiple resource types are separated with commas (,).
+   * 
+   * @example
+   * ACS::EIP::EipAddress
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12878,12 +22447,47 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope 
 export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that is not evaluated by using the compliance package.
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources were evaluated by using the compliance package.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources are evaluated by using the compliance package.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The tag key of the resource that is evaluated by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that is evaluated by using the compliance package.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
   tagsScope?: GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope[];
   static names(): { [key: string]: string } {
@@ -12922,17 +22526,93 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
 }
 
 export class GetAggregateCompliancePackResponseBodyCompliancePack extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account to which the compliance package belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   */
   configRules?: GetAggregateCompliancePackResponseBodyCompliancePackConfigRules[];
+  /**
+   * @remarks
+   * The timestamp when the compliance package was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624243657000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The evaluation scope of the compliance package.
+   */
   scope?: GetAggregateCompliancePackResponseBodyCompliancePackScope;
+  /**
+   * @remarks
+   * The status of the compliance package. Valid values:
+   * 
+   * *   ACTIVE: The compliance package was normal.
+   * *   CREATING: The compliance package was being created.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
+   */
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12974,10 +22654,46 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $tea.M
 }
 
 export class GetAggregateCompliancePackReportResponseBodyCompliancePackReport extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account to which the compliance package belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
+   * 
+   * @example
+   * 1624330246640
+   */
   reportCreateTimestamp?: number;
+  /**
+   * @remarks
+   * The status of the compliance evaluation report. Valid values:
+   * 
+   * *   NONE: The compliance evaluation report is not generated.
+   * *   CREATING: The compliance evaluation report is being generated.
+   * *   COMPLETE: The compliance evaluation report is generated.
+   * 
+   * @example
+   * COMPLETE
+   */
   reportStatus?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the compliance evaluation report.
+   */
   reportUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13005,9 +22721,37 @@ export class GetAggregateCompliancePackReportResponseBodyCompliancePackReport ex
 }
 
 export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the compliance statistics were collected. Unit: milliseconds.
+   * 
+   * @example
+   * 1589853822103
+   */
   complianceSummaryTimestamp?: number;
+  /**
+   * @remarks
+   * The number of compliant rules.
+   * 
+   * @example
+   * 4
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant rules.
+   * 
+   * @example
+   * 5
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 9
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13033,9 +22777,37 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianc
 }
 
 export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the compliance statistics were collected. Unit: milliseconds.
+   * 
+   * @example
+   * 1589853822103
+   */
   complianceSummaryTimestamp?: number;
+  /**
+   * @remarks
+   * The number of compliant resources.
+   * 
+   * @example
+   * 20
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of non-compliant resources.
+   * 
+   * @example
+   * 11
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 31
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13061,7 +22833,15 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianc
 }
 
 export class GetAggregateComplianceSummaryResponseBodyComplianceSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The summary of compliance statistics from the rule dimension.
+   */
   complianceSummaryByConfigRule?: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
+  /**
+   * @remarks
+   * The summary of compliance statistics from the resource dimension.
+   */
   complianceSummaryByResource?: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
   static names(): { [key: string]: string } {
     return {
@@ -13083,25 +22863,172 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummary extends 
 }
 
 export class GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the member in the account group.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: The specified destination receives resource change logs.
+   * *   false: The specified destination does not receive resource change logs.
+   * 
+   * @example
+   * true
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled resource snapshots.
+   * *   false: The specified destination does not receive scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The ARN of the role that is assigned to the delivery channel.
+   * 
+   * @example
+   * acs:ram::120886317861****:role/aliyunserviceroleforconfig
+   */
   deliveryChannelAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The rule that is attached to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The lowest risk level of the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * @example
+   * myDeliveryChannel
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is OSS, the value of this parameter is the ARN of the destination OSS bucket.
+   * *   If the value of the DeliveryChannelType parameter is MNS, the value of this parameter is the ARN of the destination MNS topic.
+   * *   If the value of the DeliveryChannelType parameter is SLS, the value of this parameter is the ARN of the destination Log Service Logstore.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:120886317861****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The time when Cloud Config delivers scheduled resources snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource non-compliance events. If the value of this parameter is true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are evaluated as non-compliant. Valid values:
+   * 
+   * *   true: The specified destination receives resource non-compliance events.
+   * *   false: The specified destination does not receive resource non-compliance events.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which the delivered data is transferred when the size of the data exceeds the specified upper limit of the delivery channel.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * The status of the delivery channel. Valid values:
+   * 
+   * *   0: The delivery channel is disabled.
+   * *   1: The delivery channel is enabled.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       aggregatorId: 'AggregatorId',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelAssumeRoleArn: 'DeliveryChannelAssumeRoleArn',
@@ -13122,6 +23049,7 @@ export class GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel extend
     return {
       accountId: 'string',
       aggregatorId: 'string',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelAssumeRoleArn: 'string',
@@ -13144,7 +23072,26 @@ export class GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel extend
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleCompliance extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics on the compliance evaluation results by compliance type. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of evaluated resources.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13166,13 +23113,72 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleCompliance extends $tea
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp when the rule was first triggered.
+   * 
+   * @example
+   * 1624932221993
+   */
   firstActivatedTimestamp?: number;
+  /**
+   * @remarks
+   * Indicates whether resources were evaluated based on the rule. Valid values:
+   * 
+   * *   true: Resources were evaluated based on the rule.
+   * *   false: Resources were not evaluated based on the rule.
+   * 
+   * @example
+   * true
+   */
   firstEvaluationStarted?: boolean;
+  /**
+   * @remarks
+   * The error code returned for the last failed compliance evaluation.
+   * 
+   * @example
+   * TimeOut
+   */
   lastErrorCode?: string;
+  /**
+   * @remarks
+   * The error message returned for the last failed compliance evaluation.
+   * 
+   * @example
+   * time out
+   */
   lastErrorMessage?: string;
+  /**
+   * @remarks
+   * The timestamp when the last failed compliance evaluation of the rule ended. Unit: milliseconds.
+   * 
+   * @example
+   * 1614687022000
+   */
   lastFailedEvaluationTimestamp?: number;
+  /**
+   * @remarks
+   * The timestamp when the last failed compliance evaluation of the rule started. Unit: milliseconds.
+   * 
+   * @example
+   * 1614687022000
+   */
   lastFailedInvocationTimestamp?: number;
+  /**
+   * @remarks
+   * The timestamp when the last successful compliance evaluation of the rule ended. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227486
+   */
   lastSuccessfulEvaluationTimestamp?: number;
+  /**
+   * @remarks
+   * The timestamp when the last successful compliance evaluation of the rule started. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227476
+   */
   lastSuccessfulInvocationTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13206,12 +23212,58 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationSta
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleCreateBy extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-04b3fd170e340007****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af008****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the account that was used to create the rule.
+   * 
+   * @example
+   * 100931896542****
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The name of the account that was used to create the rule.
+   * 
+   * @example
+   * Alice
+   */
   creatorName?: string;
+  /**
+   * @remarks
+   * The type of the entity to which the rule belongs. The value is fixed to `AGGREGATOR`, which indicates an account group.
+   * 
+   * @example
+   * AGGREGATOR
+   */
   creatorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13265,8 +23317,40 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope extend
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The event source of the managed rule.
+   * 
+   * >  Only events related to Cloud Config are supported. The value is fixed to aliyun.config.
+   * 
+   * @example
+   * aliyun.config
+   */
   eventSource?: string;
+  /**
+   * @remarks
+   * The intervals at which the managed rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours
+   * *   TwentyFour_Hours: 24 hours
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   messageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13290,12 +23374,49 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetail
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
+  /**
+   * @remarks
+   * The required input parameters of the managed rule.
+   * 
+   * @example
+   * {}
+   */
   compulsoryInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The description of the managed rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * @example
+   * ram-user-mfa-check
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The tags of the managed rule.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * The name of the managed rule.
+   */
   managedRuleName?: string;
+  /**
+   * @remarks
+   * The optional input parameters of the managed rule.
+   * 
+   * @example
+   * {}
+   */
   optionalInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The details of the source of the managed rule.
+   */
   sourceDetails?: GetAggregateConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -13327,8 +23448,40 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleManagedRule extends $te
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The event source of the managed rule.
+   * 
+   * >  Only events related to Cloud Config are supported. The value is fixed to aliyun.config.
+   * 
+   * @example
+   * aliyun.config
+   */
   eventSource?: string;
+  /**
+   * @remarks
+   * The intervals at which the managed rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours
+   * *   TwentyFour_Hours: 24 hours
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   messageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13352,8 +23505,32 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails ext
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * *   If the rule was created based on a managed rule, the value of this parameter is the name of the managed rule.
+   * *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+   * 
+   * @example
+   * acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/specific-config
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The way in which the rule was created. Valid values:
+   * 
+   * *   CUSTOM_FC: The rule is a custom rule.
+   * *   ALIYUN: The rule was created based on a managed rule of Alibaba Cloud.
+   * 
+   * @example
+   * ALIYUN
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The details of the source of the rule.
+   */
   sourceDetails?: GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -13399,37 +23576,236 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleTagsScope extends $tea.
 }
 
 export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the rule belongs.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
   accountIdsScope?: string;
+  /**
+   * @remarks
+   * The details of compliance evaluation results.
+   */
   compliance?: GetAggregateConfigRuleResponseBodyConfigRuleCompliance;
+  /**
+   * @remarks
+   * The ARN of the managed rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-7f7d626622af0041****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The information about compliance evaluations performed by the rule.
+   */
   configRuleEvaluationStatus?: GetAggregateConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-7f7d626622af0041****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the monitoring rule.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   ACTIVE: The rule is being used to monitor resource configurations.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+   * *   INACTIVE: The rule is disabled and is no longer used to monitor resource configurations.
+   * 
+   * @example
+   * ACTIVE
+   */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The information about the creation of the rule.
+   */
   createBy?: GetAggregateConfigRuleResponseBodyConfigRuleCreateBy;
+  /**
+   * @remarks
+   * The timestamp when the rule was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1604684022000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The description of the managed rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule.
+   * 
+   * >  This parameter applies only to a managed rule.
+   * 
+   * @example
+   * 120886317861****
+   */
   excludeAccountIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule.
+   * 
+   * > 
+   * *   This parameter applies only to a rule of a global account group.
+   * *   This parameter applies only to a managed rule.
+   * 
+   * @example
+   * fd-pWmkqZ****
+   */
   excludeFolderIdsScope?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource excluded from the compliance evaluations performed by the rule.
+   * 
+   * @example
+   * 23642660635687****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+   * 
+   * > 
+   * *   This parameter applies only to rules of a global account group.
+   * *   This parameter applies only to managed rules.
+   * 
+   * @example
+   * fd-ZtHsRH****
+   */
   folderIdsScope?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   * 
+   * @example
+   * {"tag1Key":"ECS","tag1Value":"test"}
+   */
   inputParameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The details of the managed rule.
+   */
   managedRule?: GetAggregateConfigRuleResponseBodyConfigRuleManagedRule;
+  /**
+   * @remarks
+   * The intervals at which the managed rule is triggered. Valid values:
+   * 
+   * *   One_Hour: 1 hour.
+   * *   Three_Hours: 3 hours.
+   * *   Six_Hours: 6 hours.
+   * *   Twelve_Hours: 12 hours
+   * *   TwentyFour_Hours: 24 hours
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The timestamp when the rule was last updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1614687022000
+   */
   modifiedTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the region to which the rule applies.
+   * 
+   * @example
+   * global
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the rule applies.
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource evaluated by the rule.
+   * 
+   * @example
+   * ACS::RAM::User
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The information about how the rule was created.
+   */
   source?: GetAggregateConfigRuleResponseBodyConfigRuleSource;
+  /**
+   * @remarks
+   * The logical relationship among the tag keys if you specify multiple tag keys by using the `TagKeyScope` parameter. For example, if the `TagKeyScope` parameter is set to `ECS,OSS` and the TagKeyLogicScope parameter is set to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND: the logical relationship of AND
+   * *   OR: the logical relationship of OR
+   * 
+   * @example
+   * AND
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * @example
+   * RAM
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * 
+   * @example
+   * MFA
+   */
   tagValueScope?: string;
   tagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleTagsScope[];
   static names(): { [key: string]: string } {
@@ -13514,8 +23890,34 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
 }
 
 export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result returned by the rule. Valid values:
+   * 
+   * *   COMPLIANT: The relevant resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-fdc8626622af00f9****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13539,9 +23941,34 @@ export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplia
 }
 
 export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The information about rules in the compliance package.
+   */
   configRuleCompliances?: GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances[];
+  /**
+   * @remarks
+   * The number of rules against which specific resources are evaluated as non-compliant.
+   * 
+   * @example
+   * 0
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of rules in the compliance package.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13567,8 +23994,33 @@ export class GetAggregateConfigRuleComplianceByPackResponseBodyConfigRuleComplia
 }
 
 export class GetAggregateConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSummaries extends $tea.Model {
+  /**
+   * @remarks
+   * The number of rules against which specific resources are evaluated as compliant.
+   * 
+   * @example
+   * 3
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of rules against which specific resources are evaluated as non-compliant.
+   * 
+   * @example
+   * 1
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13592,11 +24044,54 @@ export class GetAggregateConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSumma
 }
 
 export class GetAggregateConfigRulesReportResponseBodyConfigRulesReport extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account to which the rules belong.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
+   * 
+   * @example
+   * 1624332329593
+   */
   reportCreateTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the compliance evaluation report.
+   * 
+   * @example
+   * crp-88176457e0d900c9****
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * The status of the compliance evaluation report. Valid values:
+   * 
+   * *   NONE: The compliance evaluation report was not generated.
+   * *   CREATING: The compliance evaluation report was being generated.
+   * *   COMPLETE: The compliance evaluation report was generated.
+   * 
+   * @example
+   * CREATING
+   */
   reportStatus?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the compliance evaluation report.
+   */
   reportUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13626,17 +24121,100 @@ export class GetAggregateConfigRulesReportResponseBodyConfigRulesReport extends 
 }
 
 export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the zone in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   availabilityZone?: string;
   complianceType?: string;
+  /**
+   * @remarks
+   * The configuration of the resource.
+   * 
+   * @example
+   * {\\"AccessControlList\\":{\\"Grant\\":\\"private\\"},\\"ServerSideEncryptionRule\\":{\\"SSEAlgorithm\\":\\"None\\"},\\"Comment\\":\\"\\",\\"CreationDate\\":\\"2021-06-29T10:05:12.000Z\\",\\"Owner\\":{\\"DisplayName\\":\\"100931896542****\\",\\"ID\\":\\"100931896542****\\"},\\"StorageClass\\":\\"Standard\\",\\"DataRedundancyType\\":\\"LRS\\",\\"AllowEmptyReferer\\":\\"true\\",\\"Name\\":\\"new-bucket\\",\\"BucketPolicy\\":{\\"LogPrefix\\":\\"\\",\\"LogBucket\\":\\"\\"},\\"ExtranetEndpoint\\":\\"oss-cn-hangzhou.aliyuncs.com\\",\\"IntranetEndpoint\\":\\"oss-cn-hangzhou-internal.aliyuncs.com\\",\\"Location\\":\\"oss-cn-hangzhou\\"}
+   */
   configuration?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The timestamp when the resource was created.
+   * 
+   * @example
+   * 1624961112000
+   */
   resourceCreationTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the resource was deleted. Valid values:
+   * 
+   * *   1: The resource was not deleted.
+   * *   0: The resource was deleted.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The status of the resource. The value of this parameter varies based on the resource type and may be empty.
+   * 
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an ECS instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+   * 
+   * @example
+   * offline
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::OSS::BucketACS::CDN::Domain
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13678,7 +24256,26 @@ export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail 
 }
 
 export class GetAggregateResourceComplianceByConfigRuleResponseBodyComplianceResultCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation results of the resources. Valid values:
+   * 
+   * *   COMPLIANT: The resource was evaluated as compliant.
+   * *   NON_COMPLIANT: The resource was evaluated as incompliant.
+   * *   NOT_APPLICABLE: The rule did not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data was available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of resources that have compliance evaluation results. For example, if the value of the `ComplianceType` parameter is `COMPLIANT`, this parameter value indicates the number of compliant resources.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13700,7 +24297,18 @@ export class GetAggregateResourceComplianceByConfigRuleResponseBodyComplianceRes
 }
 
 export class GetAggregateResourceComplianceByConfigRuleResponseBodyComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance list result.
+   */
   compliances?: GetAggregateResourceComplianceByConfigRuleResponseBodyComplianceResultCompliances[];
+  /**
+   * @remarks
+   * The total number of evaluated resources.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13722,8 +24330,29 @@ export class GetAggregateResourceComplianceByConfigRuleResponseBodyComplianceRes
 }
 
 export class GetAggregateResourceComplianceByPackResponseBodyResourceComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The number of non-compliant resources.
+   * 
+   * @example
+   * 7
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13747,7 +24376,26 @@ export class GetAggregateResourceComplianceByPackResponseBodyResourceComplianceR
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The total number of evaluation results.
+   * 
+   * @example
+   * 1
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13769,7 +24417,18 @@ export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceRe
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   compliances?: GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances[];
+  /**
+   * @remarks
+   * The region ID of the evaluated resource.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13791,6 +24450,10 @@ export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceRe
 }
 
 export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation results grouped by region.
+   */
   complianceResultList?: GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -13810,7 +24473,26 @@ export class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceRe
 }
 
 export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of statistical results.
+   * 
+   * @example
+   * 1
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13832,7 +24514,18 @@ export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyCompli
 }
 
 export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   compliances?: GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances[];
+  /**
+   * @remarks
+   * The type of the evaluated resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13854,6 +24547,10 @@ export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyCompli
 }
 
 export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation results grouped by resource type.
+   */
   complianceResultList?: GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -13873,17 +24570,133 @@ export class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyCompli
 }
 
 export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * The ID of the zone in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1625200295276
+   */
   captureTime?: number;
+  /**
+   * @remarks
+   * The information about the rules that evaluated the resource and the compliance evaluation result.
+   * 
+   * @example
+   * {
+   *     "AccessControlList": {
+   *         "Grant": "private"
+   *     },
+   *     "ServerSideEncryptionRule": {
+   *         "SSEAlgorithm": "None"
+   *     },
+   *     "Comment": "",
+   *     "Owner": {
+   *         "DisplayName": "126672004088****",
+   *         "ID": "126672004088****"
+   *     },
+   *     "ResourceGroupId": "rg-acfmy4dfoau****",
+   *     "StorageClass": "Standard",
+   *     "DataRedundancyType": "LRS",
+   *     "AllowEmptyReferer": "true",
+   *     "Name": "test-private-oss****",
+   *     "BucketPolicy": {
+   *         "LogPrefix": "",
+   *         "LogBucket": ""
+   *     },
+   *     "ExtranetEndpoint": "oss-cn-hangzhou.aliyuncs.com",
+   *     "IntranetEndpoint": "oss-cn-hangzhou-internal.aliyuncs.com",
+   *     "Location": "oss-cn-hangzhou"
+   * }
+   */
   configuration?: string;
+  /**
+   * @remarks
+   * The details of the resource change that triggered the compliance evaluation.
+   * 
+   * @example
+   * {
+   *     "ResourceGroupId": [
+   *         "rg-acfmy4dfoau****",
+   *         "rg-a3dmy4lksta****"
+   *     ]
+   * }
+   */
   configurationDiff?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The timestamp when the resource was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624961112000
+   */
   resourceCreateTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * test-private-oss****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * test-private-oss****
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+   * 
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is set to ACS::OSS::Bucket, the resource is an OSS bucket that does not have a specific state. In this case, this parameter is left empty.
+   * 
+   * @example
+   * Running
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13925,8 +24738,29 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
 }
 
 export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+   * 
+   * *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
+   */
   complianceList?: GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 5OVS5J4I1/UKTkHV5oNs****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13950,16 +24784,103 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
 }
 
 export class GetAggregateResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the zone in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The timestamp when the resource change snapshot was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1624961156000
+   */
   captureTime?: string;
+  /**
+   * @remarks
+   * The details of the resource change that triggered the compliance evaluation.
+   * 
+   * @example
+   * {\\"AccessControlList\\":[null,{\\"Grant\\":\\"private\\"}],\\"ServerSideEncryptionRule\\":[null,{\\"SSEAlgorithm\\":\\"None\\"}],\\"CreationDate\\":[null,\\"2021-06-29T10:05:12.000Z\\"],\\"Owner\\":[null,{\\"DisplayName\\":\\"100931896542****\\",\\"ID\\":\\"100931896542****\\"}],\\"BucketPolicy\\":[null,{\\"LogPrefix\\":\\"\\",\\"LogBucket\\":\\"\\"}],\\"StorageClass\\":[null,\\"Standard\\"],\\"ExtranetEndpoint\\":[null,\\"oss-cn-hangzhou.aliyuncs.com\\"],\\"DataRedundancyType\\":[null,\\"LRS\\"],\\"AllowEmptyReferer\\":[null,\\"true\\"],\\"IntranetEndpoint\\":[null,\\"oss-cn-hangzhou-internal.aliyuncs.com\\"],\\"Name\\":[null,\\"new-bucket\\"],\\"Location\\":[null,\\"oss-cn-hangzhou\\"]}
+   */
   configurationDiff?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The timestamp when the resource was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624961112000
+   */
   resourceCreateTime?: string;
+  /**
+   * @remarks
+   * The type of the resource change event involved. Valid values:
+   * 
+   * *   DISCOVERED: A resource is created.
+   * *   DISCOVERED_REVISED: A resource is created by periodic remediation tasks.
+   * *   MODIFY: A resource is modified.
+   * *   MODIFY_REVISED: A resource is modified by periodic remediation tasks.
+   * *   REMOVE: A resource is deleted.
+   * 
+   * > 
+   * *   To ensure the integrity of resources, periodic remediation tasks are run to check data and generate events that indicate the creation of new resources. Such events are infrequent.
+   * *   The time when a resource change event is generated by a periodic remediation task is considered as the detection time of Cloud Config. The detection time is later than the time when the resource is modified.
+   * 
+   * @example
+   * DISCOVERED
+   */
   resourceEventType?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13999,8 +24920,26 @@ export class GetAggregateResourceConfigurationTimelineResponseBodyResourceConfig
 }
 
 export class GetAggregateResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The resource name.
+   */
   configurationList?: GetAggregateResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to initiate the next request.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14024,8 +24963,31 @@ export class GetAggregateResourceConfigurationTimelineResponseBodyResourceConfig
 }
 
 export class GetAggregateResourceCountsGroupByRegionResponseBodyDiscoveredResourceCountsSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The dimension by which statistics are collected.
+   * 
+   * >  In most cases, the `Region` parameter is returned instead of the GroupName parameter.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The ID of the region by which statistics are collected.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The total number of resources in the region.
+   * 
+   * @example
+   * 10
+   */
   resourceCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14049,8 +25011,29 @@ export class GetAggregateResourceCountsGroupByRegionResponseBodyDiscoveredResour
 }
 
 export class GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is expired. The resource type by which statistics are collected.
+   * 
+   * @example
+   * ACS::RAM::Role
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The total number of resources in the region.
+   * 
+   * @example
+   * 7
+   */
   resourceCount?: number;
+  /**
+   * @remarks
+   * The resource type by which statistics are collected.
+   * 
+   * @example
+   * ACS::RAM::Role
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14074,8 +25057,31 @@ export class GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscovered
 }
 
 export class GetAggregateResourceInventoryResponseBodyResourceInventory extends $tea.Model {
+  /**
+   * @remarks
+   * The download URL of the resource inventory.
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The time when the resource inventory was generated. The value is a timestamp.
+   * 
+   * Unit: milliseconds.
+   * 
+   * @example
+   * 1687674774123
+   */
   resourceInventoryGenerateTime?: number;
+  /**
+   * @remarks
+   * The generation status of the resource inventory. Valid values:
+   * 
+   * *   CREATING: The resource inventory is being generated.
+   * *   COMPLETE: The resource inventory is generated.
+   * 
+   * @example
+   * COMPLETE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14099,9 +25105,42 @@ export class GetAggregateResourceInventoryResponseBodyResourceInventory extends 
 }
 
 export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * 171322098523****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The display name of the member.
+   * 
+   * @example
+   * Alice
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
+   * 
+   * @example
+   * ResourceDirectory
+   */
   accountType?: string;
+  /**
+   * @remarks
+   * The status of the configuration recorder for the member. Valid values:
+   * 
+   * *   REGISTRABLE: The configuration recorder is not registered.
+   * *   BUILDING: The configuration recorder is being deployed.
+   * *   REGISTERED: The configuration recorder is registered.
+   * *   REBUILDING: The configuration recorder is being redeployed.
+   * 
+   * @example
+   * REGISTERED
+   */
   recorderStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14127,15 +25166,91 @@ export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $tea.
 }
 
 export class GetAggregatorResponseBodyAggregator extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account that is used to create the account group.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The number of members in the account group.
+   * 
+   * @example
+   * 2
+   */
   aggregatorAccountCount?: number;
+  /**
+   * @remarks
+   * The information about the members in the account group.
+   */
   aggregatorAccounts?: GetAggregatorResponseBodyAggregatorAggregatorAccounts[];
+  /**
+   * @remarks
+   * The timestamp generated when the account group was created.
+   * 
+   * Unit: milliseconds.
+   * 
+   * @example
+   * 1623034091000
+   */
   aggregatorCreateTimestamp?: string;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-88ea626622af0055****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * @example
+   * Test-Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The status of the account group. Valid values:
+   * 
+   * *   0: The account group is being created.
+   * *   1: The account group was created.
+   * 
+   * @example
+   * 1
+   */
   aggregatorStatus?: number;
+  /**
+   * @remarks
+   * The type of the account group. Valid values:
+   * 
+   * *   RD: a global account group.
+   * *   FOLDER: an account group for a folder.
+   * *   CUSTOM: a custom account group.
+   * 
+   * @example
+   * CUSTOM
+   */
   aggregatorType?: string;
+  /**
+   * @remarks
+   * The description of the account group.
+   * 
+   * @example
+   * The description of the test account group.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the attached folder of the account group.
+   * 
+   * @example
+   * fd-brHdgv****
+   */
   folderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14173,8 +25288,32 @@ export class GetAggregatorResponseBodyAggregator extends $tea.Model {
 }
 
 export class GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * @example
+   * bandwidth
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * @example
+   * 10
+   */
   parameterValue?: string;
+  /**
+   * @remarks
+   * Indicates whether the input parameters are required. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14198,12 +25337,56 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRulePar
 }
 
 export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-a260626622af0005****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The rule name.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
   configRuleParameters?: GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The rule description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the resource evaluated based on the rule. Separate multiple resource types with commas (,).
+   * 
+   * @example
+   * ACS::EIP::EipAddress
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14281,13 +25464,56 @@ export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $
 export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource that you do not want to evaluate by using the compliance package.
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   excludeTagsScope?: GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
+  /**
+   * @remarks
+   * The ID of the region whose resources you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The tag key of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * ECS
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value of the resource that you want to evaluate by using the compliance package.
+   * 
+   * @example
+   * test
+   */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tagsScope?: GetCompliancePackResponseBodyCompliancePackScopeTagsScope[];
   static names(): { [key: string]: string } {
     return {
@@ -14325,16 +25551,85 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model
 }
 
 export class GetCompliancePackResponseBodyCompliancePack extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the compliance package belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-a8a8626622af0082****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The rules in the compliance package.
+   */
   configRules?: GetCompliancePackResponseBodyCompliancePackConfigRules[];
+  /**
+   * @remarks
+   * The timestamp when the compliance package was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624245766000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The resource group for which the compliance package took effect.
+   */
   scope?: GetCompliancePackResponseBodyCompliancePackScope;
+  /**
+   * @remarks
+   * The status of the compliance package. Valid values:
+   * 
+   * *   ACTIVE: The compliance package is normal.
+   * *   CREATING: The compliance package is being created.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
+   */
   templateContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14374,10 +25669,46 @@ export class GetCompliancePackResponseBodyCompliancePack extends $tea.Model {
 }
 
 export class GetCompliancePackReportResponseBodyCompliancePackReport extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the compliance package belongs.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
+   * 
+   * @example
+   * 1624329965857
+   */
   reportCreateTimestamp?: number;
+  /**
+   * @remarks
+   * The status of the compliance evaluation report. Valid values:
+   * 
+   * *   NONE: The compliance evaluation report is not generated.
+   * *   CREATING: The compliance evaluation report is being generated.
+   * *   COMPLETE: The compliance evaluation report is generated.
+   * 
+   * @example
+   * COMPLETE
+   */
   reportStatus?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the compliance evaluation report.
+   */
   reportUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14405,9 +25736,37 @@ export class GetCompliancePackReportResponseBodyCompliancePackReport extends $te
 }
 
 export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the compliance summary was generated. Unit: milliseconds.
+   * 
+   * @example
+   * 1589853712165
+   */
   complianceSummaryTimestamp?: number;
+  /**
+   * @remarks
+   * The number of rules evaluated as compliant.
+   * 
+   * @example
+   * 5
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of rules evaluated as non-compliant.
+   * 
+   * @example
+   * 11
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 16
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14433,9 +25792,37 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
 }
 
 export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the compliance summary was generated. Unit: milliseconds.
+   * 
+   * @example
+   * 1589853712165
+   */
   complianceSummaryTimestamp?: number;
+  /**
+   * @remarks
+   * The number of resources evaluated as compliant.
+   * 
+   * @example
+   * 1
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of resources evaluated as non-compliant.
+   * 
+   * @example
+   * 12
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 13
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14461,7 +25848,15 @@ export class GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryB
 }
 
 export class GetComplianceSummaryResponseBodyComplianceSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The summary of compliance statistics from the rule dimension.
+   */
   complianceSummaryByConfigRule?: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
+  /**
+   * @remarks
+   * The summary of compliance statistics from the resource dimension.
+   */
   complianceSummaryByResource?: GetComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
   static names(): { [key: string]: string } {
     return {
@@ -14483,23 +25878,163 @@ export class GetComplianceSummaryResponseBodyComplianceSummary extends $tea.Mode
 }
 
 export class GetConfigDeliveryChannelResponseBodyDeliveryChannel extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: The specified destination receives resource change logs.
+   * *   false: The specified destination does not receive resource change logs.
+   * 
+   * @example
+   * true
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled resource snapshots.
+   * *   false: The specified destination does not receive scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role assumed by the delivery channel.
+   * 
+   * @example
+   * acs:ram::120886317861****:role/aliyunserviceroleforconfig
+   */
   deliveryChannelAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The rule that is attached to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * @example
+   * myDeliveryChannel
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is OSS, the value of this parameter is the ARN of the destination OSS bucket.
+   * *   If the value of the DeliveryChannelType parameter is MNS, the value of this parameter is the ARN of the destination MNS topic.
+   * *   If the value of the DeliveryChannelType parameter is SLS, the value of this parameter is the ARN of the destination Log Service Logstore.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:120886317861****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The time when Cloud Config delivers scheduled resources snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource non-compliance events. If the value of this parameter is true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are evaluated as non-compliant. Valid values:
+   * 
+   * *   true: The specified destination receives resource non-compliance events.
+   * *   false: The specified destination does not receive resource non-compliance events.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * The status of the delivery channel. Valid values:
+   * 
+   * *   0: The delivery channel is disabled.
+   * *   1: The delivery channel is enabled.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelAssumeRoleArn: 'DeliveryChannelAssumeRoleArn',
@@ -14519,6 +26054,7 @@ export class GetConfigDeliveryChannelResponseBodyDeliveryChannel extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelAssumeRoleArn: 'string',
@@ -14541,7 +26077,26 @@ export class GetConfigDeliveryChannelResponseBodyDeliveryChannel extends $tea.Mo
 }
 
 export class GetConfigRuleResponseBodyConfigRuleCompliance extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics on the compliance evaluation results by compliance type. Valid values:
+   * 
+   * *   COMPLIANT: The resource was evaluated as compliant.
+   * *   NON_COMPLIANT: The resource was evaluated as incompliant.
+   * *   NOT_APPLICABLE: The rule did not apply to your resource.
+   * *   INSUFFICIENT_DATA: No resource data was available.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of evaluated resources.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14563,13 +26118,72 @@ export class GetConfigRuleResponseBodyConfigRuleCompliance extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp generated when the rule was first triggered. Unit: millisecond.
+   * 
+   * @example
+   * 1624932221993
+   */
   firstActivatedTimestamp?: number;
+  /**
+   * @remarks
+   * Indicates whether resource configurations were evaluated based on the rule. Valid values:
+   * 
+   * *   true: Resource configurations were evaluated based on the rule.
+   * *   false: Resource configurations were not evaluated based on the rule.
+   * 
+   * @example
+   * true
+   */
   firstEvaluationStarted?: boolean;
+  /**
+   * @remarks
+   * The error code returned for the previous failed compliance evaluation.
+   * 
+   * @example
+   * TimeOut
+   */
   lastErrorCode?: string;
+  /**
+   * @remarks
+   * The error message returned for the previous failed compliance evaluation.
+   * 
+   * @example
+   * Time out
+   */
   lastErrorMessage?: string;
+  /**
+   * @remarks
+   * The timestamp generated when the previous failed compliance evaluation of the rule ended. Unit: millisecond.
+   * 
+   * @example
+   * 1614687022000
+   */
   lastFailedEvaluationTimestamp?: number;
+  /**
+   * @remarks
+   * The timestamp generated when the previous failed compliance evaluation of the rule started. Unit: millisecond.
+   * 
+   * @example
+   * 1614687022000
+   */
   lastFailedInvocationTimestamp?: number;
+  /**
+   * @remarks
+   * The timestamp generated when the previous successful compliance evaluation of the rule ended. Unit: millisecond.
+   * 
+   * @example
+   * 1624932227486
+   */
   lastSuccessfulEvaluationTimestamp?: number;
+  /**
+   * @remarks
+   * The timestamp generated when the previous successful compliance evaluation of the rule started. Unit: millisecond.
+   * 
+   * @example
+   * 1624932227476
+   */
   lastSuccessfulInvocationTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14603,9 +26217,34 @@ export class GetConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus exten
 }
 
 export class GetConfigRuleResponseBodyConfigRuleCreateBy extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-541e626622af008****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the account that was used to create the rule.
+   * 
+   * @example
+   * 100931896542****
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The name of the account that was used to create the rule.
+   * 
+   * @example
+   * Alice
+   */
   creatorName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14653,8 +26292,42 @@ export class GetConfigRuleResponseBodyConfigRuleExcludeTagsScope extends $tea.Mo
 }
 
 export class GetConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The event source.
+   * 
+   * >  Only aliyun.config is returned, which indicates that only events related to Cloud Config are supported.
+   * 
+   * @example
+   * aliyun.config
+   */
   eventSource?: string;
+  /**
+   * @remarks
+   * The interval at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours
+   * 
+   * >  This parameter is returned if the rule is periodically triggered.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   messageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14678,12 +26351,43 @@ export class GetConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends
 }
 
 export class GetConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
+  /**
+   * @remarks
+   * The settings of the required input parameters for the managed rule.
+   */
   compulsoryInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The description of the managed rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * @example
+   * ram-user-mfa-check
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The rule tags.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * The name of the managed rule.
+   */
   managedRuleName?: string;
+  /**
+   * @remarks
+   * The settings of the optional input parameters for the managed rule.
+   */
   optionalInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The details of the source of the managed rule.
+   */
   sourceDetails?: GetConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -14715,6 +26419,10 @@ export class GetConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRuleScope extends $tea.Model {
+  /**
+   * @remarks
+   * The types of the resources to be evaluated against the rule. You can also view the resource types by using the ResourceTypesScope parameter.
+   */
   complianceResourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -14734,8 +26442,42 @@ export class GetConfigRuleResponseBodyConfigRuleScope extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The event source.
+   * 
+   * >  Only aliyun.config is returned, which indicates that only events related to Cloud Config are supported.
+   * 
+   * @example
+   * aliyun.config
+   */
   eventSource?: string;
+  /**
+   * @remarks
+   * The interval at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours
+   * 
+   * >  This parameter is returned if the rule is periodically triggered.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   messageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14759,8 +26501,32 @@ export class GetConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $tea
 }
 
 export class GetConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * *   If the rule is a managed rule, the value of this parameter is the identifier of the managed rule.
+   * *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
+   * 
+   * @example
+   * acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/specific-config
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   CUSTOM_FC: a custom rule.
+   * *   ALIYUN: a managed rule.
+   * 
+   * @example
+   * ALIYUN
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The details of the source of the rule.
+   */
   sourceDetails?: GetConfigRuleResponseBodyConfigRuleSourceSourceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -14806,34 +26572,208 @@ export class GetConfigRuleResponseBodyConfigRuleTagsScope extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the rule belongs.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The details of compliance evaluation results.
+   */
   compliance?: GetConfigRuleResponseBodyConfigRuleCompliance;
+  /**
+   * @remarks
+   * The ARN of the managed rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-7f7d626622af0041****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The information about compliance evaluations performed by the rule.
+   */
   configRuleEvaluationStatus?: GetConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-7f7d626622af0041****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   ACTIVE: The rule is enabled.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is being used to evaluate resource configurations.
+   * *   INACTIVE: The rule is disabled.
+   * 
+   * @example
+   * ACTIVE
+   */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule was triggered by configuration changes.
+   * *   ScheduledNotification: The rule was periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   configRuleTriggerTypes?: string;
+  /**
+   * @remarks
+   * The information about the creation of the rule.
+   */
   createBy?: GetConfigRuleResponseBodyConfigRuleCreateBy;
+  /**
+   * @remarks
+   * The timestamp generated when the rule was created. Unit: millisecond.
+   * 
+   * @example
+   * 1604684022000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The description of the managed rule.
+   */
   description?: string;
   excludeRegionIdsScope?: string;
   excludeResourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource excluded from the compliance evaluations performed by the rule.
+   * 
+   * @example
+   * 23642660635687****
+   */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: GetConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
   inputParameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The details of the managed rule.
+   */
   managedRule?: GetConfigRuleResponseBodyConfigRuleManagedRule;
+  /**
+   * @remarks
+   * The interval at which the rule is triggered. Valid values:
+   * 
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours
+   * 
+   * >  This parameter is returned if the rule is periodically triggered.
+   * 
+   * @example
+   * One_Hour
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The timestamp generated when the rule was last updated. Unit: millisecond.
+   * 
+   * @example
+   * 1614687022000
+   */
   modifiedTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the region to which the rule applies.
+   * 
+   * @example
+   * global
+   */
   regionIdsScope?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the rule applies.
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   resourceGroupIdsScope?: string;
   resourceIdsScope?: string;
+  /**
+   * @remarks
+   * The type of the resource to be evaluated by the rule.
+   * 
+   * @example
+   * ACS::RAM::User
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The effective scope of the rule.
+   */
   scope?: GetConfigRuleResponseBodyConfigRuleScope;
+  /**
+   * @remarks
+   * The information about how the rule was created.
+   */
   source?: GetConfigRuleResponseBodyConfigRuleSource;
+  /**
+   * @remarks
+   * The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule.
+   * 
+   * > This parameter applies only to a managed rule.
+   * 
+   * @example
+   * 120886317861****
+   */
   tagKeyLogicScope?: string;
+  /**
+   * @remarks
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+   * 
+   * > The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
+   * 
+   * @example
+   * RAM
+   */
   tagKeyScope?: string;
+  /**
+   * @remarks
+   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * 
+   * > The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
+   * 
+   * @example
+   * MFA
+   */
   tagValueScope?: string;
   tagsScope?: GetConfigRuleResponseBodyConfigRuleTagsScope[];
   static names(): { [key: string]: string } {
@@ -14912,8 +26852,34 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
 }
 
 export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The relevant resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The ID of the rule enabled in the compliance package.
+   * 
+   * @example
+   * cr-fdc8626622af00f9****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule enabled in the compliance package.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14937,9 +26903,34 @@ export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult
 }
 
 export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The rule enabled in the compliance package and the compliance evaluation result returned by the rule.
+   */
   configRuleCompliances?: GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResultConfigRuleCompliances[];
+  /**
+   * @remarks
+   * The number of rules against which specific resources are evaluated as non-compliant.
+   * 
+   * @example
+   * 0
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of rules enabled in the compliance package.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14965,8 +26956,33 @@ export class GetConfigRuleComplianceByPackResponseBodyConfigRuleComplianceResult
 }
 
 export class GetConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSummaries extends $tea.Model {
+  /**
+   * @remarks
+   * The number of rules against which specific resources are evaluated as compliant.
+   * 
+   * @example
+   * 3
+   */
   compliantCount?: number;
+  /**
+   * @remarks
+   * The number of rules against which specific resources are evaluated as non-compliant.
+   * 
+   * @example
+   * 1
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules. Valid values:
+   * 
+   * *   1: high risk level.
+   * *   2: medium risk level.
+   * *   3: low risk level.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14990,10 +27006,46 @@ export class GetConfigRuleSummaryByRiskLevelResponseBodyConfigRuleSummaries exte
 }
 
 export class GetConfigRulesReportResponseBodyConfigRulesReport extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the rules belong.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation report was generated. Unit: milliseconds.
+   * 
+   * @example
+   * 1614687022000
+   */
   reportCreateTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the compliance evaluation report.
+   * 
+   * @example
+   * crp-88176457e0d900c9****
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * The status of the compliance evaluation report. Valid values:
+   * 
+   * *   NONE: The compliance evaluation report is not generated.
+   * *   CREATING: The compliance evaluation report is being generated.
+   * *   COMPLETE: The compliance evaluation report is generated.
+   * 
+   * @example
+   * CREATING
+   */
   reportStatus?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the compliance evaluation report.
+   */
   reportUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15021,7 +27073,23 @@ export class GetConfigRulesReportResponseBodyConfigRulesReport extends $tea.Mode
 }
 
 export class GetConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the configuration recorder. Valid values:
+   * 
+   * *   REGISTRABLE: The configuration recorder has not been registered.
+   * *   BUILDING: The configuration recorder is being deployed.
+   * *   REGISTERED: The configuration recorder has been registered.
+   * *   REBUILDING: The configuration recorder is being redeployed.
+   * 
+   * @example
+   * REGISTERED
+   */
   configurationRecorderStatus?: string;
+  /**
+   * @remarks
+   * The types of resources that are monitored.
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15043,17 +27111,100 @@ export class GetConfigurationRecorderResponseBodyConfigurationRecorder extends $
 }
 
 export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the zone in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   availabilityZone?: string;
   complianceType?: string;
+  /**
+   * @remarks
+   * The configuration of the resource.
+   * 
+   * @example
+   * {\\"AccessControlList\\":{\\"Grant\\":\\"private\\"},\\"ServerSideEncryptionRule\\":{\\"SSEAlgorithm\\":\\"None\\"},\\"Comment\\":\\"\\",\\"CreationDate\\":\\"2021-06-29T10:05:12.000Z\\",\\"Owner\\":{\\"DisplayName\\":\\"100931896542****\\",\\"ID\\":\\"100931896542****\\"},\\"StorageClass\\":\\"Standard\\",\\"DataRedundancyType\\":\\"LRS\\",\\"AllowEmptyReferer\\":\\"true\\",\\"Name\\":\\"new-bucket\\",\\"BucketPolicy\\":{\\"LogPrefix\\":\\"\\",\\"LogBucket\\":\\"\\"},\\"ExtranetEndpoint\\":\\"oss-cn-hangzhou.aliyuncs.com\\",\\"IntranetEndpoint\\":\\"oss-cn-hangzhou-internal.aliyuncs.com\\",\\"Location\\":\\"oss-cn-hangzhou\\"}
+   */
   configuration?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The timestamp when the resource was created.
+   * 
+   * @example
+   * 1624961112000
+   */
   resourceCreationTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the resource was deleted. Valid values:
+   * 
+   * *   1: The resource was not deleted.
+   * *   0: The resource was deleted.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The status of the resource. The value of this parameter varies based on the resource type and may be empty.
+   * 
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an ECS instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+   * 
+   * @example
+   * offline
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::OSS::BucketACS::CDN::Domain
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15095,8 +27246,31 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
 }
 
 export class GetDiscoveredResourceCountsGroupByRegionResponseBodyDiscoveredResourceCountsSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The dimension by which statistics are collected.
+   * 
+   * >  In most cases, the `Region` parameter instead of the GroupName parameter is returned.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The ID of the region by which statistics are collected.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
   resourceCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15120,8 +27294,31 @@ export class GetDiscoveredResourceCountsGroupByRegionResponseBodyDiscoveredResou
 }
 
 export class GetDiscoveredResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The resource type by which the statistics are collected.
+   * 
+   * > We recommend that you use the `ResourceType` parameter.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
   resourceCount?: number;
+  /**
+   * @remarks
+   * The resource type by which the statistics are collected.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15145,6 +27342,10 @@ export class GetDiscoveredResourceCountsGroupByResourceTypeResponseBodyDiscovere
 }
 
 export class GetManagedRuleResponseBodyManagedRuleScope extends $tea.Model {
+  /**
+   * @remarks
+   * The types of resources to which the managed rule applies.
+   */
   complianceResourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15164,7 +27365,30 @@ export class GetManagedRuleResponseBodyManagedRuleScope extends $tea.Model {
 }
 
 export class GetManagedRuleResponseBodyManagedRuleSourceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The interval at which the rule is triggered. Valid values: Valid values:
+   * 
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours
+   * 
+   * @example
+   * TwentyFour_Hours
+   */
   maximumExecutionFrequency?: string;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   messageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15186,15 +27410,80 @@ export class GetManagedRuleResponseBodyManagedRuleSourceDetails extends $tea.Mod
 }
 
 export class GetManagedRuleResponseBodyManagedRule extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the required input parameters for the managed rule.
+   * 
+   * @example
+   * {}
+   */
   compulsoryInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the managed rule.
+   * 
+   * @example
+   * cdn-domain-https-enabled
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The description of the managed rule.
+   * 
+   * @example
+   * If HTTPS encryption is enabled for the CDN domain name, the configuration is considered compliant.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The URL of the topic that provides guidance on remediation for the managed rule.
+   * 
+   * @example
+   * https://example.aliyundoc.com
+   */
   helpUrls?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * @example
+   * cdn-domain-https-enabled
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The tags of the managed rule.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * The details of the optional input parameters for the managed rule.
+   * 
+   * @example
+   * {}
+   */
   optionalInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The risk level of the managed rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The effective scope of the managed rule.
+   */
   scope?: GetManagedRuleResponseBodyManagedRuleScope;
+  /**
+   * @remarks
+   * The information about the trigger type of the managed rule.
+   */
   sourceDetails?: GetManagedRuleResponseBodyManagedRuleSourceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -15232,11 +27521,48 @@ export class GetManagedRuleResponseBodyManagedRule extends $tea.Model {
 }
 
 export class GetRemediationTemplateResponseBodyRemediationTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the supported rule template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alb-delete-protection-enabled
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the automatic remediation template. The value is set to OOS.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The parameters of the automatic remediation template.
+   */
   templateDefinition?: string;
+  /**
+   * @remarks
+   * The description of the automatic remediation template.
+   * 
+   * This parameter is required.
+   */
   templateDescription?: string;
+  /**
+   * @remarks
+   * The ID of the automatic remediation template.
+   * 
+   * @example
+   * ACS-ALB-BulkyEnableDeletionProtection
+   */
   templateIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the automatic remediation template.
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15266,7 +27592,26 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $tea
 }
 
 export class GetResourceComplianceByConfigRuleResponseBodyComplianceResultCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The relevant resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The relevant resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of resources that have the compliance evaluation result. For example, if the value of the `ComplianceType` parameter is `COMPLIANT`, this parameter value indicates the number of compliant resources.
+   * 
+   * @example
+   * 5
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15288,7 +27633,18 @@ export class GetResourceComplianceByConfigRuleResponseBodyComplianceResultCompli
 }
 
 export class GetResourceComplianceByConfigRuleResponseBodyComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the compliance evaluation.
+   */
   compliances?: GetResourceComplianceByConfigRuleResponseBodyComplianceResultCompliances[];
+  /**
+   * @remarks
+   * The total number of evaluated resources.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15310,8 +27666,29 @@ export class GetResourceComplianceByConfigRuleResponseBodyComplianceResult exten
 }
 
 export class GetResourceComplianceByPackResponseBodyResourceComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The number of non-compliant resources.
+   * 
+   * @example
+   * 7
+   */
   nonCompliantCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15335,7 +27712,26 @@ export class GetResourceComplianceByPackResponseBodyResourceComplianceResult ext
 }
 
 export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The total number of evaluation results.
+   * 
+   * @example
+   * 1
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15357,7 +27753,18 @@ export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultCompl
 }
 
 export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   compliances?: GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances[];
+  /**
+   * @remarks
+   * The region ID of the evaluated resource.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15379,6 +27786,10 @@ export class GetResourceComplianceGroupByRegionResponseBodyComplianceResultCompl
 }
 
 export class GetResourceComplianceGroupByRegionResponseBodyComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation results grouped by region.
+   */
   complianceResultList?: GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -15398,7 +27809,26 @@ export class GetResourceComplianceGroupByRegionResponseBodyComplianceResult exte
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The total number of evaluation results.
+   * 
+   * @example
+   * 1
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15420,7 +27850,18 @@ export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResul
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The queried evaluation results.
+   */
   compliances?: GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances[];
+  /**
+   * @remarks
+   * The type of the evaluated resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15442,6 +27883,10 @@ export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResul
 }
 
 export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation results grouped by resource type.
+   */
   complianceResultList?: GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -15461,17 +27906,104 @@ export class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResul
 }
 
 export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * The ID of the zone in which the resource resides.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1625200295276
+   */
   captureTime?: number;
+  /**
+   * @remarks
+   * The rules associated with the resource and the compliance details of the rules.
+   * 
+   * @example
+   * {\\"Compliance\\":{\\"complianceType\\":\\"COMPLIANT\\",\\"count\\":1},\\"ConfigRuleList\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-9524626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-9524626622af003d****\\",\\"configRuleName\\":\\"test-rule-name\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"}]}
+   */
   configuration?: string;
+  /**
+   * @remarks
+   * The details of the resource changes that trigger the compliance evaluation.
+   * 
+   * @example
+   * {\\"test-rule-name\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-965f626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-965f626622af003d****\\",\\"configRuleName\\":\\"test-rule-name\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"},{}]}
+   */
   configurationDiff?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The time when the resource was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624961112000
+   */
   resourceCreateTime?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+   * 
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+   * 
+   * @example
+   * Running
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15513,8 +28045,26 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
 }
 
 export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation records on the compliance timeline.
+   */
   complianceList?: GetResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList[];
+  /**
+   * @remarks
+   * The maximum number of entries that can be returned for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to initiate the next request.
+   * 
+   * @example
+   * 5OVS5J4I1/UKTkHV5oNs****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15538,18 +28088,121 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
 }
 
 export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The time when the resource change snapshot was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1624961156000
+   */
   captureTime?: string;
+  /**
+   * @remarks
+   * The details of the resource changes that trigger the compliance evaluation.
+   * 
+   * @example
+   * {\\"AccessControlList\\":[null,{\\"Grant\\":\\"private\\"}],\\"ServerSideEncryptionRule\\":[null,{\\"SSEAlgorithm\\":\\"None\\"}],\\"CreationDate\\":[null,\\"2021-06-29T10:05:12.000Z\\"],\\"Owner\\":[null,{\\"DisplayName\\":\\"100931896542****\\",\\"ID\\":\\"100931896542****\\"}],\\"BucketPolicy\\":[null,{\\"LogPrefix\\":\\"\\",\\"LogBucket\\":\\"\\"}],\\"StorageClass\\":[null,\\"Standard\\"],\\"ExtranetEndpoint\\":[null,\\"oss-cn-hangzhou.aliyuncs.com\\"],\\"DataRedundancyType\\":[null,\\"LRS\\"],\\"AllowEmptyReferer\\":[null,\\"true\\"],\\"IntranetEndpoint\\":[null,\\"oss-cn-hangzhou-internal.aliyuncs.com\\"],\\"Name\\":[null,\\"new-bucket\\"],\\"Location\\":[null,\\"oss-cn-hangzhou\\"]}
+   */
   configurationDiff?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The details of each resource that is associated with the current resource, including the region ID, resource relationship, resource ID, and resource type.
+   * 
+   * @example
+   * ""
+   */
   relationship?: string;
+  /**
+   * @remarks
+   * The change records of the resource relationship.
+   * 
+   * @example
+   * ""
+   */
   relationshipDiff?: string;
+  /**
+   * @remarks
+   * The time when the resource was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624961112000
+   */
   resourceCreateTime?: string;
+  /**
+   * @remarks
+   * The type of the resource change event. Valid values:
+   * 
+   * *   DISCOVERED: A resource is created.
+   * *   DISCOVERED_REVISED: A resource is created by periodic remediation tasks.
+   * *   MODIFY: A resource is modified.
+   * *   MODIFY_REVISED: A resource is modified by periodic remediation tasks.
+   * *   REMOVE: A resource is deleted.
+   * 
+   * > 
+   * 
+   * *   To ensure the integrity of resources, periodic remediation tasks are run to check data and generate events that indicate the creation of new resources. Such events are infrequent.
+   * 
+   * *   The time when a resource change event is generated by a periodic remediation task is considered as the detection time of Cloud Config. The detection time is later than the time when the resource is modified.
+   * 
+   * @example
+   * DISCOVERED
+   */
   resourceEventType?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * new-bucket
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15593,8 +28246,26 @@ export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTi
 }
 
 export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration changes on the configuration timeline.
+   */
   configurationList?: GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15618,8 +28289,29 @@ export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTi
 }
 
 export class GetResourceInventoryResponseBodyResourceInventory extends $tea.Model {
+  /**
+   * @remarks
+   * The download URL of the resource inventory.
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The time when the resource inventory was generated. The value is a timestamp.
+   * 
+   * @example
+   * 1687674634220
+   */
   resourceInventoryGenerateTime?: number;
+  /**
+   * @remarks
+   * The generation status of the resource inventory. Valid values:
+   * 
+   * *   CREATING: The resource inventory is being generated.
+   * *   COMPLETE: The resource inventory is generated.
+   * 
+   * @example
+   * COMPLETE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15643,7 +28335,26 @@ export class GetResourceInventoryResponseBodyResourceInventory extends $tea.Mode
 }
 
 export class GetSupportedResourceRelationConfigResponseBodyResourceRelationConfigList extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the relationship between the resource and the object. Valid values:
+   * 
+   * *   IsContained: The object is included as part of the resource.
+   * *   IsAttachedTo: The object is added to the resource.
+   * *   IsAssociatedIn: The object is associated with the resource.
+   * *   Contains: The actual value contains the expected value.
+   * 
+   * @example
+   * IsAttachedTo
+   */
   relationType?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::ECS::Disk
+   */
   targetResourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15665,9 +28376,53 @@ export class GetSupportedResourceRelationConfigResponseBodyResourceRelationConfi
 }
 
 export class IgnoreAggregateEvaluationResultsRequestResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources belong.
+   * 
+   * >  You must specify the ID of the current management account or a member account in the account group of the management account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 120886317861****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-hp3a3b4ztyfm2plgm****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::SLB::LoadBalancer
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15693,9 +28448,51 @@ export class IgnoreAggregateEvaluationResultsRequestResources extends $tea.Model
 }
 
 export class IgnoreEvaluationResultsRequestResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * For more information about how to obtain the ID of the region in which a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resources belong.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-hp3a3b4ztyfm2plgm****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::SLB::LoadBalancer
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15721,14 +28518,78 @@ export class IgnoreEvaluationResultsRequestResources extends $tea.Model {
 }
 
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account to which the compliance package belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The account group ID.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance package was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624243657000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The status of the compliance package. Valid values:
+   * 
+   * *   ACTIVE: The compliance package is normal.
+   * *   CREATING: The compliance package is being created.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15764,9 +28625,34 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
 }
 
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance packages.
+   */
   compliancePacks?: ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of compliance packages returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15792,25 +28678,172 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult exten
 }
 
 export class ListAggregateConfigDeliveryChannelsResponseBodyDeliveryChannels extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the member in the account group.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-a4e5626622af0079****
+   */
   aggregatorId?: string;
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: The specified destination receives resource change logs.
+   * *   false: The specified destination does not receive resource change logs.
+   * 
+   * @example
+   * true
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled resource snapshots.
+   * *   false: The specified destination does not receive scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The ARN of the role that is assigned to the delivery channel.
+   * 
+   * @example
+   * acs:ram::120886317861****:role/aliyunserviceroleforconfig
+   */
   deliveryChannelAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The rule that is attached to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The lowest risk level of the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * @example
+   * myDeliveryChannel
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is OSS, the value of this parameter is the ARN of the destination OSS bucket.
+   * *   If the value of the DeliveryChannelType parameter is MNS, the value of this parameter is the ARN of the destination MNS topic.
+   * *   If the value of the DeliveryChannelType parameter is SLS, the value of this parameter is the ARN of the destination Log Service Logstore.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:120886317861****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The time when Cloud Config delivers scheduled resources snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource non-compliance events. If the value of this parameter is true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are evaluated as non-compliant. Valid values:
+   * 
+   * *   true: The specified destination receives resource non-compliance events.
+   * *   false: The specified destination does not receive resource non-compliance events.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which the delivered data is transferred when the size of the data exceeds the specified upper limit of the delivery channel.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * The status of the delivery channel. Valid values:
+   * 
+   * *   0: The delivery channel is disabled.
+   * *   1: The delivery channel is enabled.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       aggregatorId: 'AggregatorId',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelAssumeRoleArn: 'DeliveryChannelAssumeRoleArn',
@@ -15831,6 +28864,7 @@ export class ListAggregateConfigDeliveryChannelsResponseBodyDeliveryChannels ext
     return {
       accountId: 'number',
       aggregatorId: 'string',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelAssumeRoleArn: 'string',
@@ -15853,15 +28887,87 @@ export class ListAggregateConfigDeliveryChannelsResponseBodyDeliveryChannels ext
 }
 
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package to which the rule belongs.
+   * 
+   * @example
+   * cr-7263fd26622af00bc****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The ARN of the rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-888f626622af00ae****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-888f626622af00ae****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The date on which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The ID of the region in which your resources reside.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * Bucket-test
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * Bucket-test
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 173808452267****
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::OSS::Bucket
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15899,7 +29005,20 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 }
 
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the evaluated resource in the compliance evaluation result.
+   */
   evaluationResultQualifier?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+   * 
+   * >  This timestamp indicates the time when the rule was triggered. You can obtain the timestamp from the `ConfigRuleInvokedTimestamp` parameter.
+   * 
+   * @example
+   * 1624869012713
+   */
   orderingTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15921,13 +29040,88 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 }
 
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The annotation to the resource that is evaluated as non-compliant. The following parameters may be returned:
+   * 
+   * *   `configuration`: the current resource configuration that is evaluated as incompliant by using the rule.
+   * *   `desiredValue`: the expected resource configuration that is evaluated as compliant.
+   * *   `operator`: the operator that compares the current configuration with the expected configuration of the resource.
+   * *   `property`: the JSON path of the current configuration in the resource property struct.
+   * *   `reason`: the reason why the resource is evaluated as non-compliant.
+   * 
+   * @example
+   * {\\"configuration\\":\\"LRS\\",\\"desiredValue\\":\\"ZRS\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.DataRedundancyType\\"}
+   */
   annotation?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+   * 
+   * @example
+   * 1624869012713
+   */
   configRuleInvokedTimestamp?: number;
+  /**
+   * @remarks
+   * The identifying information about the compliance evaluation result.
+   */
   evaluationResultIdentifier?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * @example
+   * ScheduledNotification
+   */
   invokingEventMessageType?: string;
+  /**
+   * @remarks
+   * Indicates whether the remediation template is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   remediationEnabled?: boolean;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation result was recorded. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1624869013065
+   */
   resultRecordedTimestamp?: number;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15961,8 +29155,26 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 }
 
 export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResults extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the compliance evaluation result.
+   */
   evaluationResultList?: ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15986,11 +29198,53 @@ export class ListAggregateConfigRuleEvaluationResultsResponseBodyEvaluationResul
 }
 
 export class ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationResults extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-edd3626622af00b3****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The number of resources that are evaluated as non-compliant.
+   * 
+   * @example
+   * 25
+   */
   nonCompliantResourceCnt?: number;
+  /**
+   * @remarks
+   * The number of rules based on which resources are evaluated as non-compliant.
+   * 
+   * @example
+   * 3
+   */
   nonCompliantRuleCnt?: number;
+  /**
+   * @remarks
+   * The date on which the statistics are obtained.
+   * 
+   * @example
+   * 2023-06-27
+   */
   statisticDate?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 153
+   */
   totalResourceCnt?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 10
+   */
   totalRuleCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16020,7 +29274,26 @@ export class ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationRe
 }
 
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompliance extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
+   * 
+   * @example
+   * 2
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16042,12 +29315,61 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompli
 }
 
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy extends $tea.Model {
+  /**
+   * @remarks
+   * The account group ID.
+   * 
+   * @example
+   * ca-f632626622af0079****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * @example
+   * test-pack-name
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the management account that created the rule.
+   * 
+   * @example
+   * 100931896542****
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The name of the management account that create the rule.
+   * 
+   * @example
+   * Alice
+   */
   creatorName?: string;
+  /**
+   * @remarks
+   * The type of the creator of the rule. The value is fixed to AGGREGATOR, which indicates an account group.
+   * 
+   * @example
+   * AGGREGATOR
+   */
   creatorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16079,7 +29401,21 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreate
 }
 
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the rule.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value of the rule.
+   * 
+   * @example
+   * prod
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16101,19 +29437,123 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListTags e
 }
 
 export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account to which the rules belong.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The type of the remediation template. Only OOS is returned, which indicates CloudOps Orchestration Service.
+   * 
+   * @example
+   * OOS
+   */
   automationType?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result.
+   */
   compliance?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCompliance;
+  /**
+   * @remarks
+   * The ARN of the rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-fdc8626622af00f9****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-fdc8626622af00f9****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   ACTIVE: The rule is being used to monitor resource configurations.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+   * *   INACTIVE: The rule is disabled.
+   * 
+   * @example
+   * ACTIVE
+   */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The information about the creation of the rule.
+   */
   createBy?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy;
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * The description of the test rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The types of resources evaluated by the rule. Multiple resource types are separated with commas (,).
+   * 
+   * @example
+   * ACS::EIP::EipAddress
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * *   If the rule is a managed rule, the value of this parameter is the name of the managed rule.
+   * *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   sourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   CUSTOM_FC: a custom rule.
+   * *   ALIYUN: a managed rule.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The tags of the rule.
+   */
   tags?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleListTags[];
   static names(): { [key: string]: string } {
     return {
@@ -16159,9 +29599,34 @@ export class ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList exten
 }
 
 export class ListAggregateConfigRulesResponseBodyConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the rule.
+   */
   configRuleList?: ListAggregateConfigRulesResponseBodyConfigRulesConfigRuleList[];
+  /**
+   * @remarks
+   * The number of the page returned.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16187,17 +29652,107 @@ export class ListAggregateConfigRulesResponseBodyConfigRules extends $tea.Model 
 }
 
 export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs. We recommend that you use the ResourceOwnerId parameter.
+   * 
+   * @example
+   * 161259599160****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the zone in which the resource resides.
+   * 
+   * @example
+   * cn-huhehaote-a
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-huhehaote
+   */
   region?: string;
+  /**
+   * @remarks
+   * The time when the resource was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1618675206000
+   */
   resourceCreationTime?: number;
+  /**
+   * @remarks
+   * The status of the resource. Valid values:
+   * 
+   * *   0: The resource is deleted.
+   * *   1: The resource is retained.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * eni-hp31cqoba96jagtz****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * Cloud Firewall
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 161259599160****
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The status of the resource. The value of this parameter varies with the resource type and may be empty. Examples:
+   * 
+   * *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
+   * 
+   * @example
+   * InUse
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::ECS::NetworkInterface
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"key1\\":[\\"value2\\"]}
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The build version of the resource.
+   * 
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16239,9 +29794,34 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
 }
 
 export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfiles extends $tea.Model {
+  /**
+   * @remarks
+   * The queried resource.
+   */
   discoveredResourceProfileList?: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that was used to initiate the next request.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 8
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16267,11 +29847,56 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
 }
 
 export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the remediation record was created.
+   * 
+   * @example
+   * 2023-06-25T11:48:15Z
+   */
   executionCreateDate?: string;
+  /**
+   * @remarks
+   * The invocation ID of the remediation record.
+   * 
+   * @example
+   * exec-befded3781994ccf****
+   */
   executionInvocationId?: string;
+  /**
+   * @remarks
+   * The IDs of the remediated resources. Multiple resource IDs are separated with commas (,).
+   * 
+   * @example
+   * rm-0jlk629z240l8****
+   */
   executionResourceIds?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::RDS::DBInstance
+   */
   executionResourceType?: string;
+  /**
+   * @remarks
+   * The status of the remediation. Valid values:
+   * 
+   * *   Success
+   * *   Failed
+   * 
+   * @example
+   * Success
+   */
   executionStatus?: string;
+  /**
+   * @remarks
+   * The error message returned when the remediation fails.
+   * 
+   * @example
+   * Invocation time out.
+   */
   executionStatusMessage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16301,8 +29926,26 @@ export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionD
 }
 
 export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * cNclqNaKs0Ds7zSNip0a****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The queried remediation records.
+   */
   remediationExecutions?: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions[];
   static names(): { [key: string]: string } {
     return {
@@ -16326,17 +29969,118 @@ export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionD
 }
 
 export class ListAggregateRemediationsResponseBodyRemediations extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-6b4a626622af0012****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-6b7c626622af00b4****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template is not executed.
+   * *   AUTO_EXECUTION: The remediation template is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The ID of the last successful execution of the remediation template.
+   * 
+   * @example
+   * bd7629fb-cac8-42fe-bcb1-e362c5a6****
+   */
   lastSuccessfulInvocationId?: string;
+  /**
+   * @remarks
+   * The timestamp of the last successful execution of the remediation template. Unit: milliseconds.
+   * 
+   * @example
+   * 1625451393589
+   */
   lastSuccessfulInvocationTime?: number;
+  /**
+   * @remarks
+   * The mode of the last successful execution of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template is not executed.
+   * *   AUTO_EXECUTION: The remediation template is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   lastSuccessfulInvocationType?: string;
+  /**
+   * @remarks
+   * The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+   * 
+   * @example
+   * {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
+   */
   remediaitonOriginParams?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * crr-6b7c626622af0026****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The source of remediation template. Valid values:
+   * 
+   * *   ALIYUN: official template.
+   * *   CUSTOM: custom template.
+   * *   NONE: none.
+   * 
+   * @example
+   * ALIYUN
+   */
   remediationSourceType?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: Operation Orchestration Service (official remediation).
+   * *   FC: Function Compute (custom remediation).
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16378,13 +30122,71 @@ export class ListAggregateRemediationsResponseBodyRemediations extends $tea.Mode
 }
 
 export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-7f7d626622af0041****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-7f7d626622af0041****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the monitoring rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The ID of the region where the resource resides.
+   * 
+   * @example
+   * global
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * 23642660635396****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * rd_member
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::RAM::User
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16418,7 +30220,18 @@ export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults
 }
 
 export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the evaluated resource in the compliance evaluation result.
+   */
   evaluationResultQualifier?: ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227157
+   */
   orderingTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16440,13 +30253,82 @@ export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults
 }
 
 export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The annotation to the resource that is evaluated as incompliant.
+   * 
+   * @example
+   * {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.LoginProfile.MFABindRequired\\"}
+   */
   annotation?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resources. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as incompliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The timestamp when the rule was triggered. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227157
+   */
   configRuleInvokedTimestamp?: number;
+  /**
+   * @remarks
+   * The identifying information about the compliance evaluation result.
+   */
   evaluationResultIdentifier?: ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
+  /**
+   * @remarks
+   * The trigger type of the managed rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * 
+   * @example
+   * ScheduledNotification
+   */
   invokingEventMessageType?: string;
+  /**
+   * @remarks
+   * Indicates whether the remediation template is enabled. Valid values:
+   * 
+   * - true: The remediation template is enabled.
+   * - false: The remediation template is disabled.
+   * 
+   * @example
+   * false
+   */
   remediationEnabled?: boolean;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227595
+   */
   resultRecordedTimestamp?: number;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16480,8 +30362,26 @@ export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults
 }
 
 export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the compliance evaluation result.
+   */
   evaluationResultList?: ListAggregateResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that was used to initiate the next request.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16505,12 +30405,68 @@ export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults
 }
 
 export class ListAggregateResourceRelationsResponseBodyResourceRelationsResourceRelationList extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the resource owner.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The type of the relationship between the resource and the object.
+   * 
+   * Valid values:
+   * 
+   * *   IsContained: The object is included as part of the resource.
+   * *   IsAttachedTo: The object is added to the resource.
+   * *   IsAssociatedIn: The object is associated with the resource.
+   * *   Contains: The object contains the resource.
+   * 
+   * @example
+   * IsAttachedTo
+   */
   relationType?: string;
+  /**
+   * @remarks
+   * The resource ID of the current resource.
+   * 
+   * @example
+   * i-j6cajg9yrfoh4sas****
+   */
   sourceResourceId?: string;
+  /**
+   * @remarks
+   * The region ID of the current resource.
+   * 
+   * @example
+   * cn-shanghai
+   */
   sourceResourceRegionId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   sourceResourceType?: string;
+  /**
+   * @remarks
+   * The resource ID of the resource that is associated with the object.
+   * 
+   * @example
+   * d-j6c8k731qbrc7fxi****
+   */
   targetResourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource that is associated with the object.
+   * 
+   * @example
+   * ACS::ECS::Disk
+   */
   targetResourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16542,8 +30498,26 @@ export class ListAggregateResourceRelationsResponseBodyResourceRelationsResource
 }
 
 export class ListAggregateResourceRelationsResponseBodyResourceRelations extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that was used to initiate the next request.
+   * 
+   * @example
+   * AcBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * An array that contains the relationships.
+   */
   resourceRelationList?: ListAggregateResourceRelationsResponseBodyResourceRelationsResourceRelationList[];
   static names(): { [key: string]: string } {
     return {
@@ -16567,7 +30541,15 @@ export class ListAggregateResourceRelationsResponseBodyResourceRelations extends
 }
 
 export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The field names.
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * The resource data.
+   */
   values?: any[];
   static names(): { [key: string]: string } {
     return {
@@ -16589,6 +30571,10 @@ export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQuery
 }
 
 export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults extends $tea.Model {
+  /**
+   * @remarks
+   * The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
+   */
   queryResultList?: ListAggregateResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList;
   static names(): { [key: string]: string } {
     return {
@@ -16608,14 +30594,81 @@ export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults exte
 }
 
 export class ListAggregatorsResponseBodyAggregatorsResultAggregators extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the management account that is used to create the account group.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The number of member accounts in the account group.
+   * 
+   * @example
+   * 2
+   */
   aggregatorAccountCount?: number;
+  /**
+   * @remarks
+   * The timestamp generated when the account group was created.
+   * 
+   * @example
+   * 1623036305000
+   */
   aggregatorCreateTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * @example
+   * ca-88ea626622af0055****
+   */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The name of the account group.
+   * 
+   * @example
+   * Test_Group
+   */
   aggregatorName?: string;
+  /**
+   * @remarks
+   * The status of the account group. Valid values:
+   * 
+   * *   0: The account group is being created.
+   * *   1: The account group was created.
+   * 
+   * @example
+   * 1
+   */
   aggregatorStatus?: number;
+  /**
+   * @remarks
+   * The type of the account group. Valid values:
+   * 
+   * *   RD: global account group.
+   * *   FOLDER: account group of the folder.
+   * *   CUSTOM: custom account group.
+   * 
+   * @example
+   * CUSTOM
+   */
   aggregatorType?: string;
+  /**
+   * @remarks
+   * The description of the account group.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The information about the member accounts in the account group.
+   * 
+   * @example
+   * r-BU****
+   */
   folderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16651,7 +30704,18 @@ export class ListAggregatorsResponseBodyAggregatorsResultAggregators extends $te
 }
 
 export class ListAggregatorsResponseBodyAggregatorsResult extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the account groups.
+   */
   aggregators?: ListAggregatorsResponseBodyAggregatorsResultAggregators[];
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * 
+   * @example
+   * TGlzdFJlc291cmNlU2hhcmVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16673,8 +30737,32 @@ export class ListAggregatorsResponseBodyAggregatorsResult extends $tea.Model {
 }
 
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter of the managed rule.
+   * 
+   * @example
+   * days
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter of the managed rule.
+   * 
+   * @example
+   * 90
+   */
   parameterValue?: string;
+  /**
+   * @remarks
+   * Indicates whether the parameter is required in the managed rule. Valid values:
+   * 
+   * *   true: required
+   * *   false: optional
+   * 
+   * @example
+   * true
+   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16698,14 +30786,77 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 }
 
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The input parameter of the managed rule.
+   */
   configRuleParameters?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The description of the regulation. This parameter is available only for regulation compliance packages.
+   * 
+   * @example
+   * No classic networks exist.
+   */
   controlDescription?: string;
+  /**
+   * @remarks
+   * The regulation ID.
+   * 
+   * >  This parameter is available only for regulation compliance packages.
+   * 
+   * @example
+   * 3.1
+   */
   controlId?: string;
+  /**
+   * @remarks
+   * Indicates whether the rules are enabled together with the compliance package. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   defaultEnable?: boolean;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule.
+   * 
+   * @example
+   * slb-servercertificate-expired-check
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the managed rule.
+   */
   managedRuleName?: string;
+  /**
+   * @remarks
+   * The types of the resources evaluated based on the rule.
+   * 
+   * @example
+   * ACS::SLB::ServerCertificate
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the managed rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16741,12 +30892,53 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 }
 
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * @example
+   * ct-d254ff4e06a300cf****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package template.
+   */
   compliancePackTemplateName?: string;
+  /**
+   * @remarks
+   * The default rules in the compliance package.
+   */
   configRules?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRules[];
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The tag of the compliance package.
+   */
   labels?: string;
+  /**
+   * @remarks
+   * The time when the compliance package was last updated.
+   * 
+   * @example
+   * 1663408308
+   */
   lastUpdate?: number;
+  /**
+   * @remarks
+   * The risk level of the managed rule in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16778,9 +30970,34 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 }
 
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResult extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package templates.
+   */
   compliancePackTemplates?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplates[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of the compliance package templates returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16806,13 +31023,70 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 }
 
 export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the compliance package belongs.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   */
   compliancePackName?: string;
+  /**
+   * @remarks
+   * The ID of the compliance package template.
+   * 
+   * @example
+   * ct-5f26ff4e06a300c4****
+   */
   compliancePackTemplateId?: string;
+  /**
+   * @remarks
+   * The timestamp when the compliance package was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1621325046000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The description of the compliance package.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The status of the compliance package. Valid values:
+   * 
+   * *   ACTIVE: The compliance package is normal.
+   * *   CREATING: The compliance package is being created.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16846,9 +31120,34 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
 }
 
 export class ListCompliancePacksResponseBodyCompliancePacksResult extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance packages.
+   */
   compliancePacks?: ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of compliance packages returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16874,23 +31173,163 @@ export class ListCompliancePacksResponseBodyCompliancePacksResult extends $tea.M
 }
 
 export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 120886317861****
+   */
   accountId?: number;
+  compliantSnapshot?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
+   * 
+   * *   true: The specified destination receives resource change logs.
+   * *   false: The specified destination does not receive resource change logs.
+   * 
+   * @example
+   * true
+   */
   configurationItemChangeNotification?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled resource snapshots.
+   * *   false: The specified destination does not receive scheduled resource snapshots.
+   * 
+   * @example
+   * false
+   */
   configurationSnapshot?: boolean;
+  /**
+   * @remarks
+   * The ARN of the role assumed by the delivery channel.
+   * 
+   * @example
+   * acs:ram::120886317861****:role/aliyunserviceroleforconfig
+   */
   deliveryChannelAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The rule that is attached to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * 
+   *     *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   * 
+   *         The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
+   * 
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   * @example
+   * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
+   */
   deliveryChannelCondition?: string;
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-d9106457e0d900b1****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
+   * @example
+   * myDeliveryChannel
+   */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination.
+   * 
+   * *   If the value of the DeliveryChannelType parameter is OSS, the value of this parameter is the ARN of the destination OSS bucket.
+   * *   If the value of the DeliveryChannelType parameter is MNS, the value of this parameter is the ARN of the destination MNS topic.
+   * *   If the value of the DeliveryChannelType parameter is SLS, the value of this parameter is the ARN of the destination Log Service Logstore.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:120886317861****:new-bucket
+   */
   deliveryChannelTargetArn?: string;
+  /**
+   * @remarks
+   * The type of the delivery channel. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
+   * 
+   * @example
+   * OSS
+   */
   deliveryChannelType?: string;
+  /**
+   * @remarks
+   * The time when Cloud Config delivers scheduled resources snapshots every day.
+   * 
+   * Format: `HH:mmZ`. This time is displayed in UTC.
+   * 
+   * @example
+   * 09:10Z
+   */
   deliverySnapshotTime?: string;
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   * 
+   * @example
+   * My OSS delivery.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives resource non-compliance events. If the value of this parameter is true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are evaluated as non-compliant. Valid values:
+   * 
+   * *   true: The specified destination receives resource non-compliance events.
+   * *   false: The specified destination does not receive resource non-compliance events.
+   * 
+   * @example
+   * false
+   */
   nonCompliantNotification?: boolean;
+  /**
+   * @remarks
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel.
+   * 
+   * @example
+   * acs:oss:cn-shanghai:100931896542****:new-bucket
+   */
   oversizedDataOSSTargetArn?: string;
+  /**
+   * @remarks
+   * The status of the delivery channel. Valid values:
+   * 
+   * *   0: The delivery channel is disabled.
+   * *   1: The delivery channel is enabled.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      compliantSnapshot: 'CompliantSnapshot',
       configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
       configurationSnapshot: 'ConfigurationSnapshot',
       deliveryChannelAssumeRoleArn: 'DeliveryChannelAssumeRoleArn',
@@ -16910,6 +31349,7 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $tea
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      compliantSnapshot: 'boolean',
       configurationItemChangeNotification: 'boolean',
       configurationSnapshot: 'boolean',
       deliveryChannelAssumeRoleArn: 'string',
@@ -16932,15 +31372,87 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $tea
 }
 
 export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package to which the rule belongs.
+   * 
+   * @example
+   * cp-bcc33457e0d900d5****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The ARN of the rule.
+   * 
+   * @example
+   * acs:config::120886317861****:rule/cr-cac56457e0d900d3****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-cac56457e0d900d3****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The date on which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The ID of the region in which your resources reside.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * i-hp3e4kvhzqn2s11t****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * iZuf6j91r34rnwawoox****
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 120886317861****
+   */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the resource that is monitored by Cloud Config.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16978,7 +31490,18 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
 }
 
 export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the evaluated resource in the compliance evaluation result.
+   */
   evaluationResultQualifier?: ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+   * 
+   * @example
+   * 1622802307081
+   */
   orderingTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17000,13 +31523,88 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
 }
 
 export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The annotation to the resource that is evaluated as non-compliant. The following section describe the parameters that can be returned:
+   * 
+   * *   `configuration`: the current resource configuration that is evaluated as non-compliant.
+   * *   `desiredValue`: the expected resource configuration that is evaluated as compliant.
+   * *   `operator`: the operator that compares the current configuration with the expected configuration of the resource.
+   * *   `property`: the JSON path of the current configuration in the resource property struct.
+   * *   `reason`: the reason why the resource is evaluated as non-compliant.
+   * 
+   * @example
+   * {\\"configuration\\":\\"\\",\\"desiredValue\\":\\"\\",\\"operator\\":\\"IsNotStringEmpty\\",\\"property\\":\\"$.KeyPairName\\",\\"reason\\":\\"No property contains.\\"}
+   */
   annotation?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+   * 
+   * @example
+   * 1622802307081
+   */
   configRuleInvokedTimestamp?: number;
+  /**
+   * @remarks
+   * The identifying information about the compliance evaluation result.
+   */
   evaluationResultIdentifier?: ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
+  /**
+   * @remarks
+   * The trigger type of the rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
+   * 
+   * @example
+   * ConfigurationItemChangeNotification
+   */
   invokingEventMessageType?: string;
+  /**
+   * @remarks
+   * Indicates whether the remediation template is enabled. Valid values:
+   * 
+   * *   true: The remediation template is enabled.
+   * *   false: The remediation template is disabled.
+   * 
+   * @example
+   * false
+   */
   remediationEnabled?: boolean;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1622802307150
+   */
   resultRecordedTimestamp?: number;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17040,8 +31638,26 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
 }
 
 export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResults extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the compliance evaluation result.
+   */
   evaluationResultList?: ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17065,10 +31681,45 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResults extend
 }
 
 export class ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults extends $tea.Model {
+  /**
+   * @remarks
+   * The number of resources that are evaluated as non-compliant.
+   * 
+   * @example
+   * 30
+   */
   nonCompliantResourceCnt?: number;
+  /**
+   * @remarks
+   * The number of rules based on which resources are evaluated as non-compliant.
+   * 
+   * @example
+   * 5
+   */
   nonCompliantRuleCnt?: number;
+  /**
+   * @remarks
+   * The date on which the statistics are obtained.
+   * 
+   * @example
+   * 2023-06-27
+   */
   statisticDate?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 91
+   */
   totalResourceCnt?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 13
+   */
   totalRuleCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17096,7 +31747,26 @@ export class ListConfigRuleEvaluationStatisticsResponseBodyEvaluationResults ext
 }
 
 export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance evaluation result of the rule. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The number of resources that are evaluated based on the rule.
+   * 
+   * @example
+   * 2
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17118,7 +31788,21 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance exte
 }
 
 export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package ID.
+   * 
+   * @example
+   * cp-fdc8626622af00f9****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The name of the compliance package.
+   * 
+   * @example
+   * test-pack-name
+   */
   compliancePackName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17140,7 +31824,21 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy extend
 }
 
 export class ListConfigRulesResponseBodyConfigRulesConfigRuleListTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the rule.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value of the rule.
+   * 
+   * @example
+   * prod
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17162,19 +31860,123 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleListTags extends $t
 }
 
 export class ListConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account to which the rule belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The type of the remediation template. Only OOS is returned, which indicates CloudOps Orchestration Service.
+   * 
+   * @example
+   * OOS
+   */
   automationType?: string;
+  /**
+   * @remarks
+   * The compliance aggregation result of the rule.
+   */
   compliance?: ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance;
+  /**
+   * @remarks
+   * The ARN of the rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-fdc8626622af00f9****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-fdc8626622af00f9****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   ACTIVE: The rule is enabled.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is being used to evaluate resource configurations.
+   * *   INACTIVE: The rule is disabled.
+   * 
+   * @example
+   * ACTIVE
+   */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The information about the creation of the rule.
+   */
   createBy?: ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy;
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * The description of the test rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The types of resources evaluated by the rule. Multiple resource types are separated with commas (,).
+   * 
+   * @example
+   * ACS::EIP::EipAddress
+   */
   resourceTypesScope?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high.
+   * *   2: medium.
+   * *   3: low.
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * *   If the rule is a managed rule, the value of this parameter is the identifier of the managed rule.
+   * *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   sourceIdentifier?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   CUSTOM_FC: a custom rule.
+   * *   ALIYUN: a managed rule.
+   * 
+   * @example
+   * ALIYUN
+   */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The tags of the rule.
+   */
   tags?: ListConfigRulesResponseBodyConfigRulesConfigRuleListTags[];
   static names(): { [key: string]: string } {
     return {
@@ -17220,9 +32022,34 @@ export class ListConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.M
 }
 
 export class ListConfigRulesResponseBodyConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the rule.
+   */
   configRuleList?: ListConfigRulesResponseBodyConfigRulesConfigRuleList[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17248,16 +32075,99 @@ export class ListConfigRulesResponseBodyConfigRules extends $tea.Model {
 }
 
 export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 161259599160****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The timestamp when the resource was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1618675206000
+   */
   resourceCreationTime?: number;
+  /**
+   * @remarks
+   * The status of the resource. Valid values:
+   * 
+   * *   0: The resource is deleted.
+   * *   1: The resource is retained.
+   * 
+   * @example
+   * 1
+   */
   resourceDeleted?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * eni-hp31cqoba96jagtz****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * Cloud Firewall
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The status of the resource. The value of this parameter varies based on the resource type and may be empty. Examples:
+   * 
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+   * 
+   * @example
+   * InUse
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::ECS::NetworkInterface
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * @example
+   * {\\"key1\\":[\\"value2\\"]}
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The version of the resource change.
+   * 
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17297,9 +32207,34 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
 }
 
 export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the resources.
+   */
   discoveredResourceProfileList?: ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList[];
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 161259599160****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 8
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17325,9 +32260,47 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles exten
 }
 
 export class ListIntegratedServiceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: resource change event
+   * *   NonCompliantNotification: non-compliance event
+   * 
+   * @example
+   * NonCompliantNotification
+   */
   integratedTypes?: string;
+  /**
+   * @remarks
+   * The identifier of the cloud service. Valid values:
+   * 
+   * *   eventbridge: EventBridge
+   * *   cms: CloudMonitor
+   * *   bpstudio: Cloud Architect Design Tools
+   * 
+   * @example
+   * cms
+   */
   serviceCode?: string;
+  /**
+   * @remarks
+   * The name of the cloud service.
+   * 
+   * @example
+   * cms
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The integration status of the cloud service. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17353,6 +32326,10 @@ export class ListIntegratedServiceResponseBodyData extends $tea.Model {
 }
 
 export class ListManagedRulesResponseBodyManagedRulesManagedRuleListScope extends $tea.Model {
+  /**
+   * @remarks
+   * The types of resources to which the managed rule applies.
+   */
   complianceResourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -17372,15 +32349,86 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleListScope extend
 }
 
 export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the managed rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The description of the managed rule.
+   * 
+   * @example
+   * The description of the test rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The URL of the topic that describes how the managed rule remediates the incompliant configurations.
+   * 
+   * @example
+   * https://example.aliyundoc.com
+   */
   helpUrls?: string;
+  /**
+   * @remarks
+   * The unique identifier of the managed rule.
+   * 
+   * @example
+   * cdn-domain-https-enabled
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The classification description of the managed rule.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * ACS-CDN-SetDomainServerCertificate
+   */
   remediationTemplateIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the remediation template.
+   * 
+   * @example
+   * Configure encryption rules for OSS buckets
+   */
   remediationTemplateName?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The effective scope of the managed rule.
+   */
   scope?: ListManagedRulesResponseBodyManagedRulesManagedRuleListScope;
+  /**
+   * @remarks
+   * Indicates whether precheck is supported. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   supportPreviewManagedRule?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17418,9 +32466,36 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $te
 }
 
 export class ListManagedRulesResponseBodyManagedRules extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the managed rule.
+   */
   managedRuleList?: ListManagedRulesResponseBodyManagedRulesManagedRuleList[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Page start from page 1.
+   * 
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page. Valid values: 1 to 500.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17446,12 +32521,55 @@ export class ListManagedRulesResponseBodyManagedRules extends $tea.Model {
 }
 
 export class ListPreManagedRulesResponseBodyManagedRules extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the required input parameters of the rule.
+   * 
+   * @example
+   * {}
+   */
   compulsoryInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the rule.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The description of the rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The URL of the topic that describes how the evaluation rule remediates the incompliant configurations.
+   * 
+   * @example
+   * https://example.aliyundoc.com
+   */
   helpUrls?: string;
+  /**
+   * @remarks
+   * The identifier of the rule.
+   * 
+   * @example
+   * ecs-instance-deletion-protection-enabled
+   */
   identifier?: string;
+  /**
+   * @remarks
+   * The details of the optional input parameters of the rule.
+   * 
+   * @example
+   * {}
+   */
   optionalInputParameterDetails?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17483,11 +32601,56 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $tea.Model {
 }
 
 export class ListRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the remediation record was created.
+   * 
+   * @example
+   * 2023-06-25T11:48:15Z
+   */
   executionCreateDate?: string;
+  /**
+   * @remarks
+   * The invocation ID of the remediation record.
+   * 
+   * @example
+   * exec-befded3781994ccf****
+   */
   executionInvocationId?: string;
+  /**
+   * @remarks
+   * The IDs of the resources to which the remediation belongs. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * rm-0jlk629z240l8****
+   */
   executionResourceIds?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::RDS::DBInstance
+   */
   executionResourceType?: string;
+  /**
+   * @remarks
+   * The status of the remediation record. Valid values:
+   * 
+   * *   Success
+   * *   Failed
+   * 
+   * @example
+   * Success
+   */
   executionStatus?: string;
+  /**
+   * @remarks
+   * The error message returned when the remediation fails.
+   * 
+   * @example
+   * Invocation time out.
+   */
   executionStatusMessage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17517,8 +32680,26 @@ export class ListRemediationExecutionsResponseBodyRemediationExecutionDataRemedi
 }
 
 export class ListRemediationExecutionsResponseBodyRemediationExecutionData extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * cMbjqNaYs0Ps7zSNiu37****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The queried remediation records.
+   */
   remediationExecutions?: ListRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions[];
   static names(): { [key: string]: string } {
     return {
@@ -17542,10 +32723,74 @@ export class ListRemediationExecutionsResponseBodyRemediationExecutionData exten
 }
 
 export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the remediation template. Valid value: OOS, which indicates Operation Orchestration Service.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The definition of the remediation template.
+   * 
+   * @example
+   * {
+   *     "Parameters": {
+   *         "bucketName": {
+   *             "Default": "{resourceId}",
+   *             "Description": {
+   *                 "zh-cn": "[Required]OSS Bucket Name.",
+   *                 "en": "[Required]OSS Bucket Name."
+   *             },
+   *             "Type": "String"
+   *         },
+   *         "regionId": {
+   *             "AssociationProperty": "RegionId",
+   *             "Default": "{regionId}",
+   *             "Description": {
+   *                 "zh-cn": "[Required]The id of target region.",
+   *                 "en": "[Required]The id of target region."
+   *             },
+   *             "Type": "String"
+   *         },
+   *         "permissionName": {
+   *             "AllowValues": "[\\"public-read-write\\",\\"public-read\\",\\"private\\"]",
+   *             "Default": "private",
+   *             "Description": {
+   *                 "zh-cn": "[Required]ACL Permission Name.",
+   *                 "en": "[Required]ACL Permission Name."
+   *             },
+   *             "Type": "String"
+   *         }
+   *     }
+   * }
+   */
   templateDefinition?: string;
+  /**
+   * @remarks
+   * The description of the remediation template.
+   * 
+   * @example
+   * Configure encryption rules for OSSBucket through the PutBucketEncryption interface. Be aware of the risks and exercise caution.
+   */
   templateDescription?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   templateIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the remediation template.
+   * 
+   * @example
+   * Set the ACL of an OSS bucket to private
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17573,16 +32818,110 @@ export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $t
 }
 
 export class ListRemediationsResponseBodyRemediations extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-6b7c626622af00b4****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The execution mode of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template was not executed.
+   * *   AUTO_EXECUTION: The remediation template was automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template was manually executed.
+   * *   NOT_CONFIG: The execution mode was not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   invokeType?: string;
+  /**
+   * @remarks
+   * The ID of the last successful execution of the remediation template.
+   * 
+   * @example
+   * bd7629fb-cac8-42fe-bcb1-e362c5a6****
+   */
   lastSuccessfulInvocationId?: string;
+  /**
+   * @remarks
+   * The timestamp of the last successful execution of the remediation template Unit: milliseconds.
+   * 
+   * @example
+   * 1625451393589
+   */
   lastSuccessfulInvocationTime?: number;
+  /**
+   * @remarks
+   * The mode of the last successful execution of the remediation template. Valid values:
+   * 
+   * *   NON_EXECUTION: The remediation template was not executed.
+   * *   AUTO_EXECUTION: The remediation template was automatically executed.
+   * *   MANUAL_EXECUTION: The remediation template was manually executed.
+   * *   NOT_CONFIG: The execution mode was not specified.
+   * 
+   * @example
+   * AUTO_EXECUTION
+   */
   lastSuccessfulInvocationType?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * crr-6b7c626622af0026****
+   */
   remediationId?: string;
+  /**
+   * @remarks
+   * The converted configuration of the remediation template. This parameter is available only for an OOS remediation template.
+   * 
+   * @example
+   * {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
+   */
   remediationOriginParams?: string;
+  /**
+   * @remarks
+   * The source of remediation. Valid values:
+   * 
+   * *   ALIYUN: official template.
+   * *   CUSTOM: custom template.
+   * *   NONE: none.
+   * 
+   * @example
+   * ALIYUN
+   */
   remediationSourceType?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   remediationTemplateId?: string;
+  /**
+   * @remarks
+   * The type of the remediation template. Valid values:
+   * 
+   * *   OOS: Operation Orchestration Service (official remediation)
+   * *   FC: Function Compute (custom remediation)
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17622,13 +32961,71 @@ export class ListRemediationsResponseBodyRemediations extends $tea.Model {
 }
 
 export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the rule.
+   * 
+   * @example
+   * acs:config::100931896542****:rule/cr-7f7d626622af0041****
+   */
   configRuleArn?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-7f7d626622af0041****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The name of the monitoring rule.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The date from which the system automatically re-evaluates the ignored incompliant resources.
+   * 
+   * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must re-evaluate the ignored incompliant resources.
+   * 
+   * @example
+   * 2022-06-01
+   */
   ignoreDate?: string;
+  /**
+   * @remarks
+   * The ID of the region where your resources reside.
+   * 
+   * @example
+   * global
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * 23642660635396****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * Alice
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::RAM::User
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17662,7 +33059,18 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
 }
 
 export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the evaluated resource returned in the compliance evaluation result.
+   */
   evaluationResultQualifier?: ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation was performed. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227157
+   */
   orderingTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17684,13 +33092,88 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
 }
 
 export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The annotation to the resource that is evaluated as incompliant. The following section describes the parameters that can be returned:
+   * 
+   * *   `configuration`: the current resource configuration that is evaluated as incompliant by using the rule.
+   * *   `desiredValue`: the expected resource configuration that is evaluated as compliant by using the rule.
+   * *   `operator`: the operator that is used to compare the current configuration with the expected configuration of the resource.
+   * *   `property`: the JSON path of the current configuration in the resource property struct.
+   * *   `reason`: the reason why the resource is evaluated as incompliant.
+   * 
+   * @example
+   * {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.LoginProfile.MFABindRequired\\"}
+   */
   annotation?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resources. Valid values:
+   * 
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as incompliant.
+   * *   NOT_APPLICABLE: The rule does not apply to your resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * NON_COMPLIANT
+   */
   complianceType?: string;
+  /**
+   * @remarks
+   * The timestamp when the rule was triggered for the compliance evaluation. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227157
+   */
   configRuleInvokedTimestamp?: number;
+  /**
+   * @remarks
+   * The identifying information about the compliance evaluation result.
+   */
   evaluationResultIdentifier?: ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
+  /**
+   * @remarks
+   * The trigger type of the managed rule. Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
+   * *   ScheduledNotification: The managed rule is periodically triggered.
+   * 
+   * @example
+   * ScheduledNotification
+   */
   invokingEventMessageType?: string;
+  /**
+   * @remarks
+   * Indicates whether the remediation template is enabled. Valid values:
+   * 
+   * - true: The remediation template is enabled.
+   * - false: The remediation template is disabled.
+   * 
+   * @example
+   * true
+   */
   remediationEnabled?: boolean;
+  /**
+   * @remarks
+   * The timestamp when the compliance evaluation result was recorded. Unit: milliseconds.
+   * 
+   * @example
+   * 1624932227595
+   */
   resultRecordedTimestamp?: number;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17724,8 +33207,26 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
 }
 
 export class ListResourceEvaluationResultsResponseBodyEvaluationResults extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the compliance evaluation result.
+   */
   evaluationResultList?: ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that was used to initiate the next request.
+   * 
+   * @example
+   * IWBjqMYSy0is7zSMGu16****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17749,12 +33250,68 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResults extends 
 }
 
 export class ListResourceRelationsResponseBodyResourceRelationsResourceRelationList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * @example
+   * 100931896542****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The type of the relationship between the resource and the object.
+   * 
+   * Valid values:
+   * 
+   * *   IsContained: The object is included as part of the resource.
+   * *   IsAttachedTo: The object is added to the resource.
+   * *   IsAssociatedIn: The object is associated with the resource.
+   * *   Contains: The object contains the resource.
+   * 
+   * @example
+   * IsAttachedTo
+   */
   relationType?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * i-j6cajg9yrfoh4sas****
+   */
   sourceResourceId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
   sourceResourceRegionId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   sourceResourceType?: string;
+  /**
+   * @remarks
+   * The ID of the associated resource.
+   * 
+   * @example
+   * d-j6c8k731qbrc7fxi****
+   */
   targetResourceId?: string;
+  /**
+   * @remarks
+   * The type of the associated resource.
+   * 
+   * @example
+   * ACS::ECS::Disk
+   */
   targetResourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17786,8 +33343,26 @@ export class ListResourceRelationsResponseBodyResourceRelationsResourceRelationL
 }
 
 export class ListResourceRelationsResponseBodyResourceRelations extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that was used to initiate the next request.
+   * 
+   * @example
+   * C2DjqMYSy0is7zSMGf21****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * An array that contains the relationships.
+   */
   resourceRelationList?: ListResourceRelationsResponseBodyResourceRelationsResourceRelationList[];
   static names(): { [key: string]: string } {
     return {
@@ -17811,7 +33386,15 @@ export class ListResourceRelationsResponseBodyResourceRelations extends $tea.Mod
 }
 
 export class ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The field names.
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * The resource data.
+   */
   values?: any[];
   static names(): { [key: string]: string } {
     return {
@@ -17833,6 +33416,10 @@ export class ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultLis
 }
 
 export class ListResourcesByAdvancedSearchResponseBodyQueryResults extends $tea.Model {
+  /**
+   * @remarks
+   * The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
+   */
   queryResultList?: ListResourcesByAdvancedSearchResponseBodyQueryResultsQueryResultList;
   static names(): { [key: string]: string } {
     return {
@@ -17852,9 +33439,34 @@ export class ListResourcesByAdvancedSearchResponseBodyQueryResults extends $tea.
 }
 
 export class ListSupportedProductsResponseBodyProductsResourceTypeList extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the resource type.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The English name of the resource type.
+   * 
+   * @example
+   * Ecs Instance
+   */
   typeNameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the resource type.
+   */
   typeNameZh?: string;
+  /**
+   * @remarks
+   * The URL of the resource type in the console.
+   * 
+   * @example
+   * https://ecs.console.aliyun.com/#/server/@{ResourceId}/detail?regionId=@{RegionId}
+   */
   typePageLink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17880,8 +33492,23 @@ export class ListSupportedProductsResponseBodyProductsResourceTypeList extends $
 }
 
 export class ListSupportedProductsResponseBodyProducts extends $tea.Model {
+  /**
+   * @remarks
+   * The English name of the Alibaba Cloud service.
+   * 
+   * @example
+   * Elastic Compute Service
+   */
   productNameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the Alibaba Cloud service.
+   */
   productNameZh?: string;
+  /**
+   * @remarks
+   * The resource types that are supported by Cloud Config.
+   */
   resourceTypeList?: ListSupportedProductsResponseBodyProductsResourceTypeList[];
   static names(): { [key: string]: string } {
     return {
@@ -17905,7 +33532,25 @@ export class ListSupportedProductsResponseBodyProducts extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
+   * You can add up to 20 tag keys to a resource.
+   * 
+   * @example
+   * Env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * You can add up to 20 tag values to a resource.
+   * 
+   * @example
+   * prod
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17927,9 +33572,37 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * cr-115b626622af0060****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::Config:rule
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Env
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * prod
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17974,9 +33647,53 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class RevertAggregateEvaluationResultsRequestResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which your resources reside.
+   * 
+   * For more information about how to obtain the ID of the region in which your resources reside, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * >  You must specify the ID of the current management account or a member in the account group of the management account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 120886317861****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-hp3a3b4ztyfm2plgm****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::SLB::LoadBalancer
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18002,9 +33719,51 @@ export class RevertAggregateEvaluationResultsRequestResources extends $tea.Model
 }
 
 export class RevertEvaluationResultsRequestResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the resource resides.
+   * 
+   * For more information about how to obtain the ID of the region in which a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100931896542****
+   */
   resourceAccountId?: number;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lb-hp3a3b4ztyfm2plgm****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * For more information about how to query the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS::SLB::LoadBalancer
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18030,7 +33789,23 @@ export class RevertEvaluationResultsRequestResources extends $tea.Model {
 }
 
 export class StartConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the configuration recorder. Valid values:
+   * 
+   * *   REGISTRABLE: The configuration recorder has not been registered.
+   * *   BUILDING: The configuration recorder is being deployed.
+   * *   REGISTERED: The configuration recorder has been registered.
+   * *   REBUILDING: The configuration recorder is being redeployed.
+   * 
+   * @example
+   * REGISTERED
+   */
   configurationRecorderStatus?: string;
+  /**
+   * @remarks
+   * The types of the resources that are monitored by Cloud Config.
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -18052,7 +33827,25 @@ export class StartConfigurationRecorderResponseBodyConfigurationRecorder extends
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
+   * You can add up to 20 tag keys to a resource.
+   * 
+   * @example
+   * Env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * You can add up to 20 tag values to a resource.
+   * 
+   * @example
+   * prod
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18074,7 +33867,25 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * bandwidth
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * 20
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18096,11 +33907,58 @@ export class UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters
 }
 
 export class UpdateAggregateCompliancePackRequestConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+   * 
+   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * @example
+   * cr-e918626622af000f****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * test-rule-name
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
   configRuleParameters?: UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * The description of the test rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
+   * 
+   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the identifier of the managed rule.
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18306,8 +34164,39 @@ export class UpdateAggregateConfigRuleShrinkRequestTagsScope extends $tea.Model 
 }
 
 export class UpdateAggregatorRequestAggregatorAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * For more information about how to obtain the ID of a member, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
+   * 
+   * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * @example
+   * 173808452267****
+   */
   accountId?: number;
+  /**
+   * @remarks
+   * The display name of the member.
+   * 
+   * For more information about how to obtain the name of a member, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
+   * 
+   * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * @example
+   * Tony
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
+   * 
+   * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
+   * 
+   * @example
+   * ResourceDirectory
+   */
   accountType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18331,7 +34220,25 @@ export class UpdateAggregatorRequestAggregatorAccounts extends $tea.Model {
 }
 
 export class UpdateCompliancePackRequestConfigRulesConfigRuleParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input parameter.
+   * 
+   * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * bandwidth
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the input parameter.
+   * 
+   * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * 20
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18353,11 +34260,52 @@ export class UpdateCompliancePackRequestConfigRulesConfigRuleParameters extends 
 }
 
 export class UpdateCompliancePackRequestConfigRules extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+   * 
+   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+   * 
+   * @example
+   * cr-e918626622af000f****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The rule name.
+   */
   configRuleName?: string;
+  /**
+   * @remarks
+   * The input parameters of the rule.
+   */
   configRuleParameters?: UpdateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  /**
+   * @remarks
+   * The description of the event rule.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The identifier of the managed rule. Cloud Config automatically creates a rule based on the identifier of the managed rule and adds the rule to the current compliance package.
+   * 
+   * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the identifier of a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+   * 
+   * @example
+   * eip-bandwidth-limit
+   */
   managedRuleIdentifier?: string;
+  /**
+   * @remarks
+   * The risk level of the resources that do not comply with the rule. Valid values:
+   * 
+   * *   1: high
+   * *   2: medium
+   * *   3: low
+   * 
+   * @example
+   * 1
+   */
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18563,7 +34511,23 @@ export class UpdateConfigRuleShrinkRequestTagsScope extends $tea.Model {
 }
 
 export class UpdateConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the configuration recorder. Valid values:
+   * 
+   * *   REGISTRABLE: The configuration recorder has not been registered.
+   * *   BUILDING: The configuration recorder is being deployed.
+   * *   REGISTERED: The configuration recorder has been registered.
+   * *   REBUILDING: The configuration recorder is being redeployed.
+   * 
+   * @example
+   * REGISTERED
+   */
   configurationRecorderStatus?: string;
+  /**
+   * @remarks
+   * The types of the resources that are monitored by Cloud Config.
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -18612,13 +34576,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables one or more rules in an account group.
-   *
-   * @description This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
-   *
-   * @param request ActiveAggregateConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ActiveAggregateConfigRulesResponse
+   * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The rule is in the `INACTIVE` state.
+   * ### [](#)Description
+   * This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+   * 
+   * @param request - ActiveAggregateConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActiveAggregateConfigRulesResponse
    */
   async activeAggregateConfigRulesWithOptions(request: ActiveAggregateConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ActiveAggregateConfigRulesResponse> {
     Util.validateModel(request);
@@ -18649,12 +34617,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables one or more rules in an account group.
-   *
-   * @description This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
-   *
-   * @param request ActiveAggregateConfigRulesRequest
-   * @return ActiveAggregateConfigRulesResponse
+   * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The rule is in the `INACTIVE` state.
+   * ### [](#)Description
+   * This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+   * 
+   * @param request - ActiveAggregateConfigRulesRequest
+   * @returns ActiveAggregateConfigRulesResponse
    */
   async activeAggregateConfigRules(request: ActiveAggregateConfigRulesRequest): Promise<ActiveAggregateConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18662,11 +34634,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables multiple rules at a time so that these rules enter the Active state.
-   *
-   * @param request ActiveConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ActiveConfigRulesResponse
+   * Enables a rule in Cloud Config. After a rule is enabled, Cloud Config automatically evaluates the compliance of a resource based on the trigger mechanism of the rule.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The rule is in the `INACTIVE` state.
+   * 
+   * @param request - ActiveConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActiveConfigRulesResponse
    */
   async activeConfigRulesWithOptions(request: ActiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ActiveConfigRulesResponse> {
     Util.validateModel(request);
@@ -18693,10 +34669,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables multiple rules at a time so that these rules enter the Active state.
-   *
-   * @param request ActiveConfigRulesRequest
-   * @return ActiveConfigRulesResponse
+   * Enables a rule in Cloud Config. After a rule is enabled, Cloud Config automatically evaluates the compliance of a resource based on the trigger mechanism of the rule.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The rule is in the `INACTIVE` state.
+   * 
+   * @param request - ActiveConfigRulesRequest
+   * @returns ActiveConfigRulesResponse
    */
   async activeConfigRules(request: ActiveConfigRulesRequest): Promise<ActiveConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18704,13 +34684,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more rules in an account group to a compliance package.
-   *
-   * @description The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request AttachAggregateConfigRuleToCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachAggregateConfigRuleToCompliancePackResponse
+   * Adds one or more rules in an account group to a compliance package.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
+   * 
+   * @param request - AttachAggregateConfigRuleToCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachAggregateConfigRuleToCompliancePackResponse
    */
   async attachAggregateConfigRuleToCompliancePackWithOptions(request: AttachAggregateConfigRuleToCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<AttachAggregateConfigRuleToCompliancePackResponse> {
     Util.validateModel(request);
@@ -18745,12 +34726,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more rules in an account group to a compliance package.
-   *
-   * @description The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request AttachAggregateConfigRuleToCompliancePackRequest
-   * @return AttachAggregateConfigRuleToCompliancePackResponse
+   * Adds one or more rules in an account group to a compliance package.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
+   * 
+   * @param request - AttachAggregateConfigRuleToCompliancePackRequest
+   * @returns AttachAggregateConfigRuleToCompliancePackResponse
    */
   async attachAggregateConfigRuleToCompliancePack(request: AttachAggregateConfigRuleToCompliancePackRequest): Promise<AttachAggregateConfigRuleToCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18758,13 +34740,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more rules to a compliance package.
-   *
-   * @description This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request AttachConfigRuleToCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachConfigRuleToCompliancePackResponse
+   * Adds one or more rules to a compliance package.
+   * 
+   * @remarks
+   * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
+   * 
+   * @param request - AttachConfigRuleToCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachConfigRuleToCompliancePackResponse
    */
   async attachConfigRuleToCompliancePackWithOptions(request: AttachConfigRuleToCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<AttachConfigRuleToCompliancePackResponse> {
     Util.validateModel(request);
@@ -18795,12 +34778,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more rules to a compliance package.
-   *
-   * @description This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request AttachConfigRuleToCompliancePackRequest
-   * @return AttachConfigRuleToCompliancePackResponse
+   * Adds one or more rules to a compliance package.
+   * 
+   * @remarks
+   * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
+   * 
+   * @param request - AttachConfigRuleToCompliancePackRequest
+   * @returns AttachConfigRuleToCompliancePackResponse
    */
   async attachConfigRuleToCompliancePack(request: AttachConfigRuleToCompliancePackRequest): Promise<AttachConfigRuleToCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18808,11 +34792,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Replicates compliance packages.
-   *
-   * @param request CopyCompliancePacksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CopyCompliancePacksResponse
+   * Replicates compliance packages.
+   * 
+   * @param request - CopyCompliancePacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyCompliancePacksResponse
    */
   async copyCompliancePacksWithOptions(request: CopyCompliancePacksRequest, runtime: $Util.RuntimeOptions): Promise<CopyCompliancePacksResponse> {
     Util.validateModel(request);
@@ -18847,10 +34831,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Replicates compliance packages.
-   *
-   * @param request CopyCompliancePacksRequest
-   * @return CopyCompliancePacksResponse
+   * Replicates compliance packages.
+   * 
+   * @param request - CopyCompliancePacksRequest
+   * @returns CopyCompliancePacksResponse
    */
   async copyCompliancePacks(request: CopyCompliancePacksRequest): Promise<CopyCompliancePacksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18858,11 +34842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Replicates rules.
-   *
-   * @param request CopyConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CopyConfigRulesResponse
+   * Replicates rules.
+   * 
+   * @param request - CopyConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyConfigRulesResponse
    */
   async copyConfigRulesWithOptions(request: CopyConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<CopyConfigRulesResponse> {
     Util.validateModel(request);
@@ -18897,10 +34881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Replicates rules.
-   *
-   * @param request CopyConfigRulesRequest
-   * @return CopyConfigRulesResponse
+   * Replicates rules.
+   * 
+   * @param request - CopyConfigRulesRequest
+   * @returns CopyConfigRulesResponse
    */
   async copyConfigRules(request: CopyConfigRulesRequest): Promise<CopyConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18908,11 +34892,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a downloadable resource file for the current Alibaba Cloud account.
-   *
-   * @param request CreateAdvancedSearchFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAdvancedSearchFileResponse
+   * Creates a downloadable resource file for the current Alibaba Cloud account.
+   * 
+   * @param request - CreateAdvancedSearchFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAdvancedSearchFileResponse
    */
   async createAdvancedSearchFileWithOptions(request: CreateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdvancedSearchFileResponse> {
     Util.validateModel(request);
@@ -18939,10 +34923,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a downloadable resource file for the current Alibaba Cloud account.
-   *
-   * @param request CreateAdvancedSearchFileRequest
-   * @return CreateAdvancedSearchFileResponse
+   * Creates a downloadable resource file for the current Alibaba Cloud account.
+   * 
+   * @param request - CreateAdvancedSearchFileRequest
+   * @returns CreateAdvancedSearchFileResponse
    */
   async createAdvancedSearchFile(request: CreateAdvancedSearchFileRequest): Promise<CreateAdvancedSearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18950,13 +34934,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a downloadable resource file for an account group.
-   *
-   * @description This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
-   *
-   * @param request CreateAggregateAdvancedSearchFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAggregateAdvancedSearchFileResponse
+   * Creates a downloadable resource file for an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+   * 
+   * @param request - CreateAggregateAdvancedSearchFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAggregateAdvancedSearchFileResponse
    */
   async createAggregateAdvancedSearchFileWithOptions(request: CreateAggregateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateAdvancedSearchFileResponse> {
     Util.validateModel(request);
@@ -18987,12 +34972,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a downloadable resource file for an account group.
-   *
-   * @description This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
-   *
-   * @param request CreateAggregateAdvancedSearchFileRequest
-   * @return CreateAggregateAdvancedSearchFileResponse
+   * Creates a downloadable resource file for an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+   * 
+   * @param request - CreateAggregateAdvancedSearchFileRequest
+   * @returns CreateAggregateAdvancedSearchFileResponse
    */
   async createAggregateAdvancedSearchFile(request: CreateAggregateAdvancedSearchFileRequest): Promise<CreateAggregateAdvancedSearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19000,14 +34986,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a compliance package for an account group.
-   *
-   * @description You can use your management account to create up to five compliance packages for each account group.
-   * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck for the `ca-f632626622af0079****` account group. The compliance package contains the `eip-bandwidth-limit` managed rule.
-   *
-   * @param tmpReq CreateAggregateCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAggregateCompliancePackResponse
+   * Creates a compliance package for an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
+   * 
+   * @param tmpReq - CreateAggregateCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAggregateCompliancePackResponse
    */
   async createAggregateCompliancePackWithOptions(tmpReq: CreateAggregateCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateCompliancePackResponse> {
     Util.validateModel(tmpReq);
@@ -19117,13 +35103,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a compliance package for an account group.
-   *
-   * @description You can use your management account to create up to five compliance packages for each account group.
-   * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck for the `ca-f632626622af0079****` account group. The compliance package contains the `eip-bandwidth-limit` managed rule.
-   *
-   * @param request CreateAggregateCompliancePackRequest
-   * @return CreateAggregateCompliancePackResponse
+   * Creates a compliance package for an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
+   * 
+   * @param request - CreateAggregateCompliancePackRequest
+   * @returns CreateAggregateCompliancePackResponse
    */
   async createAggregateCompliancePack(request: CreateAggregateCompliancePackRequest): Promise<CreateAggregateCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19131,13 +35117,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a delivery channel for an account group.
-   *
-   * @description In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   *
-   * @param request CreateAggregateConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAggregateConfigDeliveryChannelResponse
+   * Creates a delivery channel for an account group.
+   * 
+   * @remarks
+   * In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+   * 
+   * @param request - CreateAggregateConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAggregateConfigDeliveryChannelResponse
    */
   async createAggregateConfigDeliveryChannelWithOptions(request: CreateAggregateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateConfigDeliveryChannelResponse> {
     Util.validateModel(request);
@@ -19148,6 +35135,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.compliantSnapshot)) {
+      query["CompliantSnapshot"] = request.compliantSnapshot;
     }
 
     if (!Util.isUnset(request.configurationItemChangeNotification)) {
@@ -19208,12 +35199,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a delivery channel for an account group.
-   *
-   * @description In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   *
-   * @param request CreateAggregateConfigDeliveryChannelRequest
-   * @return CreateAggregateConfigDeliveryChannelResponse
+   * Creates a delivery channel for an account group.
+   * 
+   * @remarks
+   * In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+   * 
+   * @param request - CreateAggregateConfigDeliveryChannelRequest
+   * @returns CreateAggregateConfigDeliveryChannelResponse
    */
   async createAggregateConfigDeliveryChannel(request: CreateAggregateConfigDeliveryChannelRequest): Promise<CreateAggregateConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19221,16 +35213,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a rule for an account group.
-   *
-   * @description ### Limits
+   * Creates a rule for an account group.
+   * 
+   * @remarks
+   * ### Limits
    * You can create up to 200 rules for each management account.
    * ### Usage notes
    * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
-   *
-   * @param tmpReq CreateAggregateConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAggregateConfigRuleResponse
+   * 
+   * @param tmpReq - CreateAggregateConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAggregateConfigRuleResponse
    */
   async createAggregateConfigRuleWithOptions(tmpReq: CreateAggregateConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateConfigRuleResponse> {
     Util.validateModel(tmpReq);
@@ -19372,15 +35365,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a rule for an account group.
-   *
-   * @description ### Limits
+   * Creates a rule for an account group.
+   * 
+   * @remarks
+   * ### Limits
    * You can create up to 200 rules for each management account.
    * ### Usage notes
    * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
-   *
-   * @param request CreateAggregateConfigRuleRequest
-   * @return CreateAggregateConfigRuleResponse
+   * 
+   * @param request - CreateAggregateConfigRuleRequest
+   * @returns CreateAggregateConfigRuleResponse
    */
   async createAggregateConfigRule(request: CreateAggregateConfigRuleRequest): Promise<CreateAggregateConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19388,13 +35382,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a remediation template for a rule in an account group.
-   *
-   * @description This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-   *
-   * @param request CreateAggregateRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAggregateRemediationResponse
+   * Creates a remediation template for a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+   * 
+   * @param request - CreateAggregateRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAggregateRemediationResponse
    */
   async createAggregateRemediationWithOptions(request: CreateAggregateRemediationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregateRemediationResponse> {
     Util.validateModel(request);
@@ -19449,12 +35444,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a remediation template for a rule in an account group.
-   *
-   * @description This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-   *
-   * @param request CreateAggregateRemediationRequest
-   * @return CreateAggregateRemediationResponse
+   * Creates a remediation template for a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+   * 
+   * @param request - CreateAggregateRemediationRequest
+   * @returns CreateAggregateRemediationResponse
    */
   async createAggregateRemediation(request: CreateAggregateRemediationRequest): Promise<CreateAggregateRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19462,19 +35458,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an account group.
-   *
-   * @description Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
+   * Creates an account group.
+   * 
+   * @remarks
+   * Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
    * Cloud Config supports the following types of account groups:
    * *   Global account group: The global account group contains all the member accounts that are added to the resource directory. A management account can create only one global account group.
    * *   Custom account group: If you create a custom account group, you must manually add all or specific member accounts from the resource directory to the custom account group.
    * This topic provides an example on how to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
    * *   Member account ID: `171322098523****`. Member account name: `Alice`.
    * *   Member account ID: `100532098349****`. Member account name: `Tom`.
-   *
-   * @param tmpReq CreateAggregatorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAggregatorResponse
+   * 
+   * @param tmpReq - CreateAggregatorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAggregatorResponse
    */
   async createAggregatorWithOptions(tmpReq: CreateAggregatorRequest, runtime: $Util.RuntimeOptions): Promise<CreateAggregatorResponse> {
     Util.validateModel(tmpReq);
@@ -19527,18 +35524,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an account group.
-   *
-   * @description Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
+   * Creates an account group.
+   * 
+   * @remarks
+   * Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
    * Cloud Config supports the following types of account groups:
    * *   Global account group: The global account group contains all the member accounts that are added to the resource directory. A management account can create only one global account group.
    * *   Custom account group: If you create a custom account group, you must manually add all or specific member accounts from the resource directory to the custom account group.
    * This topic provides an example on how to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
    * *   Member account ID: `171322098523****`. Member account name: `Alice`.
    * *   Member account ID: `100532098349****`. Member account name: `Tom`.
-   *
-   * @param request CreateAggregatorRequest
-   * @return CreateAggregatorResponse
+   * 
+   * @param request - CreateAggregatorRequest
+   * @returns CreateAggregatorResponse
    */
   async createAggregator(request: CreateAggregatorRequest): Promise<CreateAggregatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19546,14 +35544,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a compliance package for the current account.
-   *
-   * @description Each ordinary account can create up to five compliance packages.
+   * Creates a compliance package for the current account.
+   * 
+   * @remarks
+   * Each ordinary account can create up to five compliance packages.
    * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
-   *
-   * @param tmpReq CreateCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCompliancePackResponse
+   * 
+   * @param tmpReq - CreateCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCompliancePackResponse
    */
   async createCompliancePackWithOptions(tmpReq: CreateCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<CreateCompliancePackResponse> {
     Util.validateModel(tmpReq);
@@ -19659,13 +35658,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a compliance package for the current account.
-   *
-   * @description Each ordinary account can create up to five compliance packages.
+   * Creates a compliance package for the current account.
+   * 
+   * @remarks
+   * Each ordinary account can create up to five compliance packages.
    * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
-   *
-   * @param request CreateCompliancePackRequest
-   * @return CreateCompliancePackResponse
+   * 
+   * @param request - CreateCompliancePackRequest
+   * @returns CreateCompliancePackResponse
    */
   async createCompliancePack(request: CreateCompliancePackRequest): Promise<CreateCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19673,19 +35673,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a delivery channel.
-   *
-   * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   *
-   * @param request CreateConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConfigDeliveryChannelResponse
+   * Creates a delivery channel.
+   * 
+   * @remarks
+   * In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+   * 
+   * @param request - CreateConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigDeliveryChannelResponse
    */
   async createConfigDeliveryChannelWithOptions(request: CreateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigDeliveryChannelResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.compliantSnapshot)) {
+      query["CompliantSnapshot"] = request.compliantSnapshot;
     }
 
     if (!Util.isUnset(request.configurationItemChangeNotification)) {
@@ -19746,12 +35751,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a delivery channel.
-   *
-   * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   *
-   * @param request CreateConfigDeliveryChannelRequest
-   * @return CreateConfigDeliveryChannelResponse
+   * Creates a delivery channel.
+   * 
+   * @remarks
+   * In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+   * 
+   * @param request - CreateConfigDeliveryChannelRequest
+   * @returns CreateConfigDeliveryChannelResponse
    */
   async createConfigDeliveryChannel(request: CreateConfigDeliveryChannelRequest): Promise<CreateConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19759,14 +35765,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a rule for the current account.
-   *
-   * @description ## Limits
+   * Creates a rule for the current account.
+   * 
+   * @remarks
+   * ## Limits
    * You can use a common account to create up to 200 rules.
-   *
-   * @param tmpReq CreateConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConfigRuleResponse
+   * 
+   * @param tmpReq - CreateConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigRuleResponse
    */
   async createConfigRuleWithOptions(tmpReq: CreateConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigRuleResponse> {
     Util.validateModel(tmpReq);
@@ -19888,13 +35895,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a rule for the current account.
-   *
-   * @description ## Limits
+   * Creates a rule for the current account.
+   * 
+   * @remarks
+   * ## Limits
    * You can use a common account to create up to 200 rules.
-   *
-   * @param request CreateConfigRuleRequest
-   * @return CreateConfigRuleResponse
+   * 
+   * @param request - CreateConfigRuleRequest
+   * @returns CreateConfigRuleResponse
    */
   async createConfigRule(request: CreateConfigRuleRequest): Promise<CreateConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19902,15 +35910,16 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a delivery channel.
+   * 
+   * @remarks
+   * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+   * 
    * @deprecated OpenAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead.
-   *
-   * @summary Creates a delivery channel.
-   *
-   * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   *
-   * @param request CreateDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDeliveryChannelResponse
+   * 
+   * @param request - CreateDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeliveryChannelResponse
    */
   // Deprecated
   async createDeliveryChannelWithOptions(request: CreateDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeliveryChannelResponse> {
@@ -19978,14 +35987,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a delivery channel.
+   * 
+   * @remarks
+   * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+   * 
    * @deprecated OpenAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead.
-   *
-   * @summary Creates a delivery channel.
-   *
-   * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-   *
-   * @param request CreateDeliveryChannelRequest
-   * @return CreateDeliveryChannelResponse
+   * 
+   * @param request - CreateDeliveryChannelRequest
+   * @returns CreateDeliveryChannelResponse
    */
   // Deprecated
   async createDeliveryChannel(request: CreateDeliveryChannelRequest): Promise<CreateDeliveryChannelResponse> {
@@ -19994,13 +36004,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a remediation template for a rule.
-   *
-   * @description This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-   *
-   * @param request CreateRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRemediationResponse
+   * Creates a remediation template for a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+   * 
+   * @param request - CreateRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRemediationResponse
    */
   async createRemediationWithOptions(request: CreateRemediationRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemediationResponse> {
     Util.validateModel(request);
@@ -20051,12 +36062,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a remediation template for a rule.
-   *
-   * @description This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-   *
-   * @param request CreateRemediationRequest
-   * @return CreateRemediationResponse
+   * Creates a remediation template for a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+   * 
+   * @param request - CreateRemediationRequest
+   * @returns CreateRemediationResponse
    */
   async createRemediation(request: CreateRemediationRequest): Promise<CreateRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20064,13 +36076,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables one or more rules in an account group.
-   *
-   * @description This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
-   *
-   * @param request DeactiveAggregateConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeactiveAggregateConfigRulesResponse
+   * Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The status of the rule is `ACTIVE`.
+   * ### [](#)Description
+   * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
+   * 
+   * @param request - DeactiveAggregateConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeactiveAggregateConfigRulesResponse
    */
   async deactiveAggregateConfigRulesWithOptions(request: DeactiveAggregateConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeactiveAggregateConfigRulesResponse> {
     Util.validateModel(request);
@@ -20101,12 +36117,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables one or more rules in an account group.
-   *
-   * @description This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
-   *
-   * @param request DeactiveAggregateConfigRulesRequest
-   * @return DeactiveAggregateConfigRulesResponse
+   * Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The status of the rule is `ACTIVE`.
+   * ### [](#)Description
+   * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
+   * 
+   * @param request - DeactiveAggregateConfigRulesRequest
+   * @returns DeactiveAggregateConfigRulesResponse
    */
   async deactiveAggregateConfigRules(request: DeactiveAggregateConfigRulesRequest): Promise<DeactiveAggregateConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20114,13 +36134,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables one or more rules.
-   *
-   * @description In this example, the `cr-19a56457e0d90058****` rule is used.
-   *
-   * @param request DeactiveConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeactiveConfigRulesResponse
+   * Disables a rule. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The status of the rule is `ACTIVE`.
+   * ### [](#)Description
+   * This topic provides an example on how to disable the `cr-19a56457e0d90058****` rule.
+   * 
+   * @param request - DeactiveConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeactiveConfigRulesResponse
    */
   async deactiveConfigRulesWithOptions(request: DeactiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeactiveConfigRulesResponse> {
     Util.validateModel(request);
@@ -20147,12 +36171,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables one or more rules.
-   *
-   * @description In this example, the `cr-19a56457e0d90058****` rule is used.
-   *
-   * @param request DeactiveConfigRulesRequest
-   * @return DeactiveConfigRulesResponse
+   * Disables a rule. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * The status of the rule is `ACTIVE`.
+   * ### [](#)Description
+   * This topic provides an example on how to disable the `cr-19a56457e0d90058****` rule.
+   * 
+   * @param request - DeactiveConfigRulesRequest
+   * @returns DeactiveConfigRulesResponse
    */
   async deactiveConfigRules(request: DeactiveConfigRulesRequest): Promise<DeactiveConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20160,13 +36188,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the compliance packages of an account group.
-   *
-   * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
-   *
-   * @param request DeleteAggregateCompliancePacksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAggregateCompliancePacksResponse
+   * Deletes the compliance packages of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
+   * 
+   * @param request - DeleteAggregateCompliancePacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAggregateCompliancePacksResponse
    */
   async deleteAggregateCompliancePacksWithOptions(request: DeleteAggregateCompliancePacksRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAggregateCompliancePacksResponse> {
     Util.validateModel(request);
@@ -20205,12 +36234,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the compliance packages of an account group.
-   *
-   * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
-   *
-   * @param request DeleteAggregateCompliancePacksRequest
-   * @return DeleteAggregateCompliancePacksResponse
+   * Deletes the compliance packages of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
+   * 
+   * @param request - DeleteAggregateCompliancePacksRequest
+   * @returns DeleteAggregateCompliancePacksResponse
    */
   async deleteAggregateCompliancePacks(request: DeleteAggregateCompliancePacksRequest): Promise<DeleteAggregateCompliancePacksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20218,13 +36248,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a delivery channel from an account group.
-   *
-   * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-   *
-   * @param request DeleteAggregateConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAggregateConfigDeliveryChannelResponse
+   * Deletes a delivery channel from an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+   * 
+   * @param request - DeleteAggregateConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAggregateConfigDeliveryChannelResponse
    */
   async deleteAggregateConfigDeliveryChannelWithOptions(request: DeleteAggregateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAggregateConfigDeliveryChannelResponse> {
     Util.validateModel(request);
@@ -20255,12 +36286,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a delivery channel from an account group.
-   *
-   * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-   *
-   * @param request DeleteAggregateConfigDeliveryChannelRequest
-   * @return DeleteAggregateConfigDeliveryChannelResponse
+   * Deletes a delivery channel from an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+   * 
+   * @param request - DeleteAggregateConfigDeliveryChannelRequest
+   * @returns DeleteAggregateConfigDeliveryChannelResponse
    */
   async deleteAggregateConfigDeliveryChannel(request: DeleteAggregateConfigDeliveryChannelRequest): Promise<DeleteAggregateConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20268,16 +36300,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more rules from an account group.
-   *
-   * @description ### Background information
-   * You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
-   * ### Usage notes
+   * Deletes one or more rules from an account group. You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
+   * 
+   * @remarks
    * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
-   *
-   * @param request DeleteAggregateConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAggregateConfigRulesResponse
+   * 
+   * @param request - DeleteAggregateConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAggregateConfigRulesResponse
    */
   async deleteAggregateConfigRulesWithOptions(request: DeleteAggregateConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAggregateConfigRulesResponse> {
     Util.validateModel(request);
@@ -20308,15 +36338,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more rules from an account group.
-   *
-   * @description ### Background information
-   * You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
-   * ### Usage notes
+   * Deletes one or more rules from an account group. You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
+   * 
+   * @remarks
    * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
-   *
-   * @param request DeleteAggregateConfigRulesRequest
-   * @return DeleteAggregateConfigRulesResponse
+   * 
+   * @param request - DeleteAggregateConfigRulesRequest
+   * @returns DeleteAggregateConfigRulesResponse
    */
   async deleteAggregateConfigRules(request: DeleteAggregateConfigRulesRequest): Promise<DeleteAggregateConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20324,13 +36352,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more remediation templates from a rule in an account group.
-   *
-   * @description This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-   *
-   * @param request DeleteAggregateRemediationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAggregateRemediationsResponse
+   * Deletes one or more remediation templates from a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+   * 
+   * @param request - DeleteAggregateRemediationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAggregateRemediationsResponse
    */
   async deleteAggregateRemediationsWithOptions(request: DeleteAggregateRemediationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAggregateRemediationsResponse> {
     Util.validateModel(request);
@@ -20361,12 +36390,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more remediation templates from a rule in an account group.
-   *
-   * @description This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-   *
-   * @param request DeleteAggregateRemediationsRequest
-   * @return DeleteAggregateRemediationsResponse
+   * Deletes one or more remediation templates from a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+   * 
+   * @param request - DeleteAggregateRemediationsRequest
+   * @returns DeleteAggregateRemediationsResponse
    */
   async deleteAggregateRemediations(request: DeleteAggregateRemediationsRequest): Promise<DeleteAggregateRemediationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20374,13 +36404,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an account group.
-   *
-   * @description This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
-   *
-   * @param request DeleteAggregatorsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAggregatorsResponse
+   * The management account or delegated administrator account of a resource directory can delete an account group.
+   * 
+   * @remarks
+   * ### [](#)Background information
+   * After you delete an account group, the following changes occur to Cloud Config:
+   * *   The rules and compliance packages of the account group are deleted and cannot be recovered.
+   * *   All compliance results generated in the account group are automatically deleted and cannot be recovered.
+   * *   Service-linked roles for Cloud Config of member accounts in the account group are retained.
+   * *   If the account groups to which a member belongs are all deleted, the member account uses Cloud Config as an independent Alibaba Cloud account.
+   * ### [](#)Description
+   * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
+   * 
+   * @param request - DeleteAggregatorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAggregatorsResponse
    */
   async deleteAggregatorsWithOptions(request: DeleteAggregatorsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAggregatorsResponse> {
     Util.validateModel(request);
@@ -20411,12 +36449,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an account group.
-   *
-   * @description This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
-   *
-   * @param request DeleteAggregatorsRequest
-   * @return DeleteAggregatorsResponse
+   * The management account or delegated administrator account of a resource directory can delete an account group.
+   * 
+   * @remarks
+   * ### [](#)Background information
+   * After you delete an account group, the following changes occur to Cloud Config:
+   * *   The rules and compliance packages of the account group are deleted and cannot be recovered.
+   * *   All compliance results generated in the account group are automatically deleted and cannot be recovered.
+   * *   Service-linked roles for Cloud Config of member accounts in the account group are retained.
+   * *   If the account groups to which a member belongs are all deleted, the member account uses Cloud Config as an independent Alibaba Cloud account.
+   * ### [](#)Description
+   * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
+   * 
+   * @param request - DeleteAggregatorsRequest
+   * @returns DeleteAggregatorsResponse
    */
   async deleteAggregators(request: DeleteAggregatorsRequest): Promise<DeleteAggregatorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20424,13 +36470,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more compliance packages.
-   *
-   * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
-   *
-   * @param request DeleteCompliancePacksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCompliancePacksResponse
+   * Deletes one or more compliance packages.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
+   * 
+   * @param request - DeleteCompliancePacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCompliancePacksResponse
    */
   async deleteCompliancePacksWithOptions(request: DeleteCompliancePacksRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCompliancePacksResponse> {
     Util.validateModel(request);
@@ -20465,12 +36512,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more compliance packages.
-   *
-   * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
-   *
-   * @param request DeleteCompliancePacksRequest
-   * @return DeleteCompliancePacksResponse
+   * Deletes one or more compliance packages.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
+   * 
+   * @param request - DeleteCompliancePacksRequest
+   * @returns DeleteCompliancePacksResponse
    */
   async deleteCompliancePacks(request: DeleteCompliancePacksRequest): Promise<DeleteCompliancePacksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20478,13 +36526,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a delivery channel.
-   *
-   * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-   *
-   * @param request DeleteConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConfigDeliveryChannelResponse
+   * Deletes a delivery channel.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+   * 
+   * @param request - DeleteConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigDeliveryChannelResponse
    */
   async deleteConfigDeliveryChannelWithOptions(request: DeleteConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConfigDeliveryChannelResponse> {
     Util.validateModel(request);
@@ -20511,12 +36560,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a delivery channel.
-   *
-   * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-   *
-   * @param request DeleteConfigDeliveryChannelRequest
-   * @return DeleteConfigDeliveryChannelResponse
+   * Deletes a delivery channel.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+   * 
+   * @param request - DeleteConfigDeliveryChannelRequest
+   * @returns DeleteConfigDeliveryChannelResponse
    */
   async deleteConfigDeliveryChannel(request: DeleteConfigDeliveryChannelRequest): Promise<DeleteConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20524,13 +36574,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes rules.
-   *
-   * @description In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
-   *
-   * @param request DeleteConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConfigRulesResponse
+   * Deletes rules.
+   * 
+   * @remarks
+   * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
+   * 
+   * @param request - DeleteConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigRulesResponse
    */
   async deleteConfigRulesWithOptions(request: DeleteConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConfigRulesResponse> {
     Util.validateModel(request);
@@ -20557,12 +36608,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes rules.
-   *
-   * @description In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
-   *
-   * @param request DeleteConfigRulesRequest
-   * @return DeleteConfigRulesResponse
+   * Deletes rules.
+   * 
+   * @remarks
+   * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
+   * 
+   * @param request - DeleteConfigRulesRequest
+   * @returns DeleteConfigRulesResponse
    */
   async deleteConfigRules(request: DeleteConfigRulesRequest): Promise<DeleteConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20570,13 +36622,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more configured remediation templates that are associated with a rule.
-   *
-   * @description This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-   *
-   * @param request DeleteRemediationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRemediationsResponse
+   * Deletes one or more configured remediation templates that are associated with a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+   * 
+   * @param request - DeleteRemediationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRemediationsResponse
    */
   async deleteRemediationsWithOptions(request: DeleteRemediationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemediationsResponse> {
     Util.validateModel(request);
@@ -20603,12 +36656,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more configured remediation templates that are associated with a rule.
-   *
-   * @description This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-   *
-   * @param request DeleteRemediationsRequest
-   * @return DeleteRemediationsResponse
+   * Deletes one or more configured remediation templates that are associated with a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+   * 
+   * @param request - DeleteRemediationsRequest
+   * @returns DeleteRemediationsResponse
    */
   async deleteRemediations(request: DeleteRemediationsRequest): Promise<DeleteRemediationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20616,11 +36670,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
-   *
-   * @param request DescribeRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRemediationResponse
+   * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
+   * 
+   * @param request - DescribeRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRemediationResponse
    */
   async describeRemediationWithOptions(request: DescribeRemediationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRemediationResponse> {
     Util.validateModel(request);
@@ -20643,10 +36697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
-   *
-   * @param request DescribeRemediationRequest
-   * @return DescribeRemediationResponse
+   * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
+   * 
+   * @param request - DescribeRemediationRequest
+   * @returns DescribeRemediationResponse
    */
   async describeRemediation(request: DescribeRemediationRequest): Promise<DescribeRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20654,16 +36708,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes one or more rules in an account group from a compliance package.
-   *
-   * @description ### Prerequisites
+   * Removes one or more rules in an account group from a compliance package.
+   * 
+   * @remarks
+   * ### Prerequisites
    * One or more rules are added to a compliance package.
    * ### Usage notes
    * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request DetachAggregateConfigRuleToCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachAggregateConfigRuleToCompliancePackResponse
+   * 
+   * @param request - DetachAggregateConfigRuleToCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachAggregateConfigRuleToCompliancePackResponse
    */
   async detachAggregateConfigRuleToCompliancePackWithOptions(request: DetachAggregateConfigRuleToCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<DetachAggregateConfigRuleToCompliancePackResponse> {
     Util.validateModel(request);
@@ -20698,15 +36753,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes one or more rules in an account group from a compliance package.
-   *
-   * @description ### Prerequisites
+   * Removes one or more rules in an account group from a compliance package.
+   * 
+   * @remarks
+   * ### Prerequisites
    * One or more rules are added to a compliance package.
    * ### Usage notes
    * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request DetachAggregateConfigRuleToCompliancePackRequest
-   * @return DetachAggregateConfigRuleToCompliancePackResponse
+   * 
+   * @param request - DetachAggregateConfigRuleToCompliancePackRequest
+   * @returns DetachAggregateConfigRuleToCompliancePackResponse
    */
   async detachAggregateConfigRuleToCompliancePack(request: DetachAggregateConfigRuleToCompliancePackRequest): Promise<DetachAggregateConfigRuleToCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20714,16 +36770,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes one or more rules from a compliance package.
-   *
-   * @description ### Prerequisites
+   * Removes one or more rules from a compliance package.
+   * 
+   * @remarks
+   * ### Prerequisites
    * One or more rules are added to a compliance package.
    * ### Usage notes
    * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request DetachConfigRuleToCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachConfigRuleToCompliancePackResponse
+   * 
+   * @param request - DetachConfigRuleToCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachConfigRuleToCompliancePackResponse
    */
   async detachConfigRuleToCompliancePackWithOptions(request: DetachConfigRuleToCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<DetachConfigRuleToCompliancePackResponse> {
     Util.validateModel(request);
@@ -20754,15 +36811,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes one or more rules from a compliance package.
-   *
-   * @description ### Prerequisites
+   * Removes one or more rules from a compliance package.
+   * 
+   * @remarks
+   * ### Prerequisites
    * One or more rules are added to a compliance package.
    * ### Usage notes
    * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
-   *
-   * @param request DetachConfigRuleToCompliancePackRequest
-   * @return DetachConfigRuleToCompliancePackResponse
+   * 
+   * @param request - DetachConfigRuleToCompliancePackRequest
+   * @returns DetachConfigRuleToCompliancePackResponse
    */
   async detachConfigRuleToCompliancePack(request: DetachConfigRuleToCompliancePackRequest): Promise<DetachConfigRuleToCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20770,11 +36828,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Executes evaluation rules to evaluate resources.
-   *
-   * @param tmpReq EvaluatePreConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EvaluatePreConfigRulesResponse
+   * Executes evaluation rules to evaluate resources.
+   * 
+   * @param tmpReq - EvaluatePreConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EvaluatePreConfigRulesResponse
    */
   async evaluatePreConfigRulesWithOptions(tmpReq: EvaluatePreConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<EvaluatePreConfigRulesResponse> {
     Util.validateModel(tmpReq);
@@ -20811,10 +36869,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Executes evaluation rules to evaluate resources.
-   *
-   * @param request EvaluatePreConfigRulesRequest
-   * @return EvaluatePreConfigRulesResponse
+   * Executes evaluation rules to evaluate resources.
+   * 
+   * @param request - EvaluatePreConfigRulesRequest
+   * @returns EvaluatePreConfigRulesResponse
    */
   async evaluatePreConfigRules(request: EvaluatePreConfigRulesRequest): Promise<EvaluatePreConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20822,14 +36880,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on a compliance package in an account group.
-   *
-   * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
+   * Generates a compliance evaluation report based on a compliance package in an account group.
+   * 
+   * @remarks
+   * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GenerateAggregateCompliancePackReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateAggregateCompliancePackReportResponse
+   * 
+   * @param request - GenerateAggregateCompliancePackReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAggregateCompliancePackReportResponse
    */
   async generateAggregateCompliancePackReportWithOptions(request: GenerateAggregateCompliancePackReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAggregateCompliancePackReportResponse> {
     Util.validateModel(request);
@@ -20864,13 +36923,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on a compliance package in an account group.
-   *
-   * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
+   * Generates a compliance evaluation report based on a compliance package in an account group.
+   * 
+   * @remarks
+   * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GenerateAggregateCompliancePackReportRequest
-   * @return GenerateAggregateCompliancePackReportResponse
+   * 
+   * @param request - GenerateAggregateCompliancePackReportRequest
+   * @returns GenerateAggregateCompliancePackReportResponse
    */
   async generateAggregateCompliancePackReport(request: GenerateAggregateCompliancePackReportRequest): Promise<GenerateAggregateCompliancePackReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20878,14 +36938,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on all rules in an account group.
-   *
-   * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
+   * Generates a compliance evaluation report for the rules in a specified account group.
+   * 
+   * @remarks
+   * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
    * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GenerateAggregateConfigRulesReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateAggregateConfigRulesReportResponse
+   * 
+   * @param request - GenerateAggregateConfigRulesReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAggregateConfigRulesReportResponse
    */
   async generateAggregateConfigRulesReportWithOptions(request: GenerateAggregateConfigRulesReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAggregateConfigRulesReportResponse> {
     Util.validateModel(request);
@@ -20920,13 +36981,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on all rules in an account group.
-   *
-   * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
+   * Generates a compliance evaluation report for the rules in a specified account group.
+   * 
+   * @remarks
+   * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
    * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GenerateAggregateConfigRulesReportRequest
-   * @return GenerateAggregateConfigRulesReportResponse
+   * 
+   * @param request - GenerateAggregateConfigRulesReportRequest
+   * @returns GenerateAggregateConfigRulesReportResponse
    */
   async generateAggregateConfigRulesReport(request: GenerateAggregateConfigRulesReportRequest): Promise<GenerateAggregateConfigRulesReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20934,13 +36996,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a downloadable inventory for global resources in an account group.
-   *
-   * @description This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-   *
-   * @param request GenerateAggregateResourceInventoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateAggregateResourceInventoryResponse
+   * Generates a downloadable inventory for global resources in an account group.
+   * 
+   * @remarks
+   * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+   * 
+   * @param request - GenerateAggregateResourceInventoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAggregateResourceInventoryResponse
    */
   async generateAggregateResourceInventoryWithOptions(request: GenerateAggregateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAggregateResourceInventoryResponse> {
     Util.validateModel(request);
@@ -20983,12 +37046,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a downloadable inventory for global resources in an account group.
-   *
-   * @description This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-   *
-   * @param request GenerateAggregateResourceInventoryRequest
-   * @return GenerateAggregateResourceInventoryResponse
+   * Generates a downloadable inventory for global resources in an account group.
+   * 
+   * @remarks
+   * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+   * 
+   * @param request - GenerateAggregateResourceInventoryRequest
+   * @returns GenerateAggregateResourceInventoryResponse
    */
   async generateAggregateResourceInventory(request: GenerateAggregateResourceInventoryRequest): Promise<GenerateAggregateResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20996,14 +37060,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on a compliance package.
-   *
-   * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
+   * Generates a compliance evaluation report based on a compliance package.
+   * 
+   * @remarks
+   * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
-   *
-   * @param request GenerateCompliancePackReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateCompliancePackReportResponse
+   * 
+   * @param request - GenerateCompliancePackReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateCompliancePackReportResponse
    */
   async generateCompliancePackReportWithOptions(request: GenerateCompliancePackReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateCompliancePackReportResponse> {
     Util.validateModel(request);
@@ -21034,13 +37099,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on a compliance package.
-   *
-   * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
+   * Generates a compliance evaluation report based on a compliance package.
+   * 
+   * @remarks
+   * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
    * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
-   *
-   * @param request GenerateCompliancePackReportRequest
-   * @return GenerateCompliancePackReportResponse
+   * 
+   * @param request - GenerateCompliancePackReportRequest
+   * @returns GenerateCompliancePackReportResponse
    */
   async generateCompliancePackReport(request: GenerateCompliancePackReportRequest): Promise<GenerateCompliancePackReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21048,14 +37114,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on all existing rules.
-   *
-   * @description >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
+   * Generates a compliance evaluation report for a rule.
+   * 
+   * @remarks
+   * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
    * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
-   *
-   * @param request GenerateConfigRulesReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateConfigRulesReportResponse
+   * 
+   * @param request - GenerateConfigRulesReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateConfigRulesReportResponse
    */
   async generateConfigRulesReportWithOptions(request: GenerateConfigRulesReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateConfigRulesReportResponse> {
     Util.validateModel(request);
@@ -21086,13 +37153,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a compliance evaluation report based on all existing rules.
-   *
-   * @description >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
+   * Generates a compliance evaluation report for a rule.
+   * 
+   * @remarks
+   * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
    * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
-   *
-   * @param request GenerateConfigRulesReportRequest
-   * @return GenerateConfigRulesReportResponse
+   * 
+   * @param request - GenerateConfigRulesReportRequest
+   * @returns GenerateConfigRulesReportResponse
    */
   async generateConfigRulesReport(request: GenerateConfigRulesReportRequest): Promise<GenerateConfigRulesReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21100,13 +37168,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a resource inventory for global resources.
-   *
-   * @description This topic provides an example on how to generate a resource inventory for global resources of the current account.
-   *
-   * @param request GenerateResourceInventoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateResourceInventoryResponse
+   * Generates a resource inventory for global resources.
+   * 
+   * @remarks
+   * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+   * 
+   * @param request - GenerateResourceInventoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateResourceInventoryResponse
    */
   async generateResourceInventoryWithOptions(request: GenerateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GenerateResourceInventoryResponse> {
     Util.validateModel(request);
@@ -21141,12 +37210,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a resource inventory for global resources.
-   *
-   * @description This topic provides an example on how to generate a resource inventory for global resources of the current account.
-   *
-   * @param request GenerateResourceInventoryRequest
-   * @return GenerateResourceInventoryResponse
+   * Generates a resource inventory for global resources.
+   * 
+   * @remarks
+   * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+   * 
+   * @param request - GenerateResourceInventoryRequest
+   * @returns GenerateResourceInventoryResponse
    */
   async generateResourceInventory(request: GenerateResourceInventoryRequest): Promise<GenerateResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21154,14 +37224,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
-   *
-   * @description ### [](#)Prerequisites
+   * Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * You must call the [CreateAdvancedSearchFile](https://help.aliyun.com/document_detail/2511967.html) operation to create a resource advanced search file. Then, you can call this operation to obtain the URL of the resource advanced search file.
-   *
-   * @param request GetAdvancedSearchFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAdvancedSearchFileResponse
+   * 
+   * @param request - GetAdvancedSearchFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdvancedSearchFileResponse
    */
   async getAdvancedSearchFileWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAdvancedSearchFileResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -21180,12 +37251,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
-   *
-   * @description ### [](#)Prerequisites
+   * Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * You must call the [CreateAdvancedSearchFile](https://help.aliyun.com/document_detail/2511967.html) operation to create a resource advanced search file. Then, you can call this operation to obtain the URL of the resource advanced search file.
-   *
-   * @return GetAdvancedSearchFileResponse
+   * @returns GetAdvancedSearchFileResponse
    */
   async getAdvancedSearchFile(): Promise<GetAdvancedSearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21193,13 +37264,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
-   *
-   * @param request GetAggregateAccountComplianceByPackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateAccountComplianceByPackResponse
+   * Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
+   * 
+   * @param request - GetAggregateAccountComplianceByPackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateAccountComplianceByPackResponse
    */
   async getAggregateAccountComplianceByPackWithOptions(request: GetAggregateAccountComplianceByPackRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateAccountComplianceByPackResponse> {
     Util.validateModel(request);
@@ -21222,12 +37294,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
-   *
-   * @param request GetAggregateAccountComplianceByPackRequest
-   * @return GetAggregateAccountComplianceByPackResponse
+   * Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
+   * 
+   * @param request - GetAggregateAccountComplianceByPackRequest
+   * @returns GetAggregateAccountComplianceByPackResponse
    */
   async getAggregateAccountComplianceByPack(request: GetAggregateAccountComplianceByPackRequest): Promise<GetAggregateAccountComplianceByPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21235,11 +37308,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the most recently generated resource file of an account group.
-   *
-   * @param request GetAggregateAdvancedSearchFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateAdvancedSearchFileResponse
+   * Queries the most recently generated resource file of an account group.
+   * 
+   * @param request - GetAggregateAdvancedSearchFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateAdvancedSearchFileResponse
    */
   async getAggregateAdvancedSearchFileWithOptions(request: GetAggregateAdvancedSearchFileRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateAdvancedSearchFileResponse> {
     Util.validateModel(request);
@@ -21266,10 +37339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the most recently generated resource file of an account group.
-   *
-   * @param request GetAggregateAdvancedSearchFileRequest
-   * @return GetAggregateAdvancedSearchFileResponse
+   * Queries the most recently generated resource file of an account group.
+   * 
+   * @param request - GetAggregateAdvancedSearchFileRequest
+   * @returns GetAggregateAdvancedSearchFileResponse
    */
   async getAggregateAdvancedSearchFile(request: GetAggregateAdvancedSearchFileRequest): Promise<GetAggregateAdvancedSearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21277,13 +37350,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a compliance package in an account group.
-   *
-   * @description The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
-   *
-   * @param request GetAggregateCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateCompliancePackResponse
+   * Queries the details of a compliance package in an account group.
+   * 
+   * @remarks
+   * The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
+   * 
+   * @param request - GetAggregateCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateCompliancePackResponse
    */
   async getAggregateCompliancePackWithOptions(request: GetAggregateCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateCompliancePackResponse> {
     Util.validateModel(request);
@@ -21306,12 +37380,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a compliance package in an account group.
-   *
-   * @description The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
-   *
-   * @param request GetAggregateCompliancePackRequest
-   * @return GetAggregateCompliancePackResponse
+   * Queries the details of a compliance package in an account group.
+   * 
+   * @remarks
+   * The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
+   * 
+   * @param request - GetAggregateCompliancePackRequest
+   * @returns GetAggregateCompliancePackResponse
    */
   async getAggregateCompliancePack(request: GetAggregateCompliancePackRequest): Promise<GetAggregateCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21319,14 +37394,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on a compliance package of an account group.
-   *
-   * @description > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
+   * Queries the compliance evaluation report that is generated based on a compliance package of an account group.
+   * 
+   * @remarks
+   * > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GetAggregateCompliancePackReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateCompliancePackReportResponse
+   * 
+   * @param request - GetAggregateCompliancePackReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateCompliancePackReportResponse
    */
   async getAggregateCompliancePackReportWithOptions(request: GetAggregateCompliancePackReportRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateCompliancePackReportResponse> {
     Util.validateModel(request);
@@ -21349,13 +37425,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on a compliance package of an account group.
-   *
-   * @description > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
+   * Queries the compliance evaluation report that is generated based on a compliance package of an account group.
+   * 
+   * @remarks
+   * > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GetAggregateCompliancePackReportRequest
-   * @return GetAggregateCompliancePackReportResponse
+   * 
+   * @param request - GetAggregateCompliancePackReportRequest
+   * @returns GetAggregateCompliancePackReportResponse
    */
   async getAggregateCompliancePackReport(request: GetAggregateCompliancePackReportRequest): Promise<GetAggregateCompliancePackReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21363,13 +37440,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance statistics of an account group.
-   *
-   * @description This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-   *
-   * @param request GetAggregateComplianceSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateComplianceSummaryResponse
+   * Queries the compliance statistics of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+   * 
+   * @param request - GetAggregateComplianceSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateComplianceSummaryResponse
    */
   async getAggregateComplianceSummaryWithOptions(request: GetAggregateComplianceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateComplianceSummaryResponse> {
     Util.validateModel(request);
@@ -21396,12 +37474,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance statistics of an account group.
-   *
-   * @description This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-   *
-   * @param request GetAggregateComplianceSummaryRequest
-   * @return GetAggregateComplianceSummaryResponse
+   * Queries the compliance statistics of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+   * 
+   * @param request - GetAggregateComplianceSummaryRequest
+   * @returns GetAggregateComplianceSummaryResponse
    */
   async getAggregateComplianceSummary(request: GetAggregateComplianceSummaryRequest): Promise<GetAggregateComplianceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21409,11 +37488,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a delivery channel in an account group.
-   *
-   * @param request GetAggregateConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateConfigDeliveryChannelResponse
+   * Queries the information about a delivery channel in an account group.
+   * 
+   * @param request - GetAggregateConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateConfigDeliveryChannelResponse
    */
   async getAggregateConfigDeliveryChannelWithOptions(request: GetAggregateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigDeliveryChannelResponse> {
     Util.validateModel(request);
@@ -21444,10 +37523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a delivery channel in an account group.
-   *
-   * @param request GetAggregateConfigDeliveryChannelRequest
-   * @return GetAggregateConfigDeliveryChannelResponse
+   * Queries the information about a delivery channel in an account group.
+   * 
+   * @param request - GetAggregateConfigDeliveryChannelRequest
+   * @returns GetAggregateConfigDeliveryChannelResponse
    */
   async getAggregateConfigDeliveryChannel(request: GetAggregateConfigDeliveryChannelRequest): Promise<GetAggregateConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21455,13 +37534,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取账号组规则详情
-   *
-   * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
-   *
-   * @param request GetAggregateConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateConfigRuleResponse
+   * 获取账号组规则详情
+   * 
+   * @remarks
+   * This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
+   * 
+   * @param request - GetAggregateConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateConfigRuleResponse
    */
   async getAggregateConfigRuleWithOptions(request: GetAggregateConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigRuleResponse> {
     Util.validateModel(request);
@@ -21492,12 +37572,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取账号组规则详情
-   *
-   * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
-   *
-   * @param request GetAggregateConfigRuleRequest
-   * @return GetAggregateConfigRuleResponse
+   * 获取账号组规则详情
+   * 
+   * @remarks
+   * This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
+   * 
+   * @param request - GetAggregateConfigRuleRequest
+   * @returns GetAggregateConfigRuleResponse
    */
   async getAggregateConfigRule(request: GetAggregateConfigRuleRequest): Promise<GetAggregateConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21505,13 +37586,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-   *
-   * @description The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
-   *
-   * @param request GetAggregateConfigRuleComplianceByPackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateConfigRuleComplianceByPackResponse
+   * Queries compliance evaluation results based on the rules in a compliance package in an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
+   * 
+   * @param request - GetAggregateConfigRuleComplianceByPackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateConfigRuleComplianceByPackResponse
    */
   async getAggregateConfigRuleComplianceByPackWithOptions(request: GetAggregateConfigRuleComplianceByPackRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigRuleComplianceByPackResponse> {
     Util.validateModel(request);
@@ -21534,12 +37616,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-   *
-   * @description The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
-   *
-   * @param request GetAggregateConfigRuleComplianceByPackRequest
-   * @return GetAggregateConfigRuleComplianceByPackResponse
+   * Queries compliance evaluation results based on the rules in a compliance package in an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
+   * 
+   * @param request - GetAggregateConfigRuleComplianceByPackRequest
+   * @returns GetAggregateConfigRuleComplianceByPackResponse
    */
   async getAggregateConfigRuleComplianceByPack(request: GetAggregateConfigRuleComplianceByPackRequest): Promise<GetAggregateConfigRuleComplianceByPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21547,13 +37630,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the summary of compliance evaluation results by rule risk level in an account group.
-   *
-   * @description This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
-   *
-   * @param request GetAggregateConfigRuleSummaryByRiskLevelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
+   * Queries the summary of compliance evaluation results by rule risk level in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
+   * 
+   * @param request - GetAggregateConfigRuleSummaryByRiskLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateConfigRuleSummaryByRiskLevelResponse
    */
   async getAggregateConfigRuleSummaryByRiskLevelWithOptions(request: GetAggregateConfigRuleSummaryByRiskLevelRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigRuleSummaryByRiskLevelResponse> {
     Util.validateModel(request);
@@ -21576,12 +37660,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the summary of compliance evaluation results by rule risk level in an account group.
-   *
-   * @description This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
-   *
-   * @param request GetAggregateConfigRuleSummaryByRiskLevelRequest
-   * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
+   * Queries the summary of compliance evaluation results by rule risk level in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
+   * 
+   * @param request - GetAggregateConfigRuleSummaryByRiskLevelRequest
+   * @returns GetAggregateConfigRuleSummaryByRiskLevelResponse
    */
   async getAggregateConfigRuleSummaryByRiskLevel(request: GetAggregateConfigRuleSummaryByRiskLevelRequest): Promise<GetAggregateConfigRuleSummaryByRiskLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21589,14 +37674,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on all rules in an account group.
-   *
-   * @description > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
+   * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
+   * 
+   * @remarks
+   * > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
    * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GetAggregateConfigRulesReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateConfigRulesReportResponse
+   * 
+   * @param request - GetAggregateConfigRulesReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateConfigRulesReportResponse
    */
   async getAggregateConfigRulesReportWithOptions(request: GetAggregateConfigRulesReportRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigRulesReportResponse> {
     Util.validateModel(request);
@@ -21627,13 +37713,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on all rules in an account group.
-   *
-   * @description > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
+   * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
+   * 
+   * @remarks
+   * > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
    * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
-   *
-   * @param request GetAggregateConfigRulesReportRequest
-   * @return GetAggregateConfigRulesReportResponse
+   * 
+   * @param request - GetAggregateConfigRulesReportRequest
+   * @returns GetAggregateConfigRulesReportResponse
    */
   async getAggregateConfigRulesReport(request: GetAggregateConfigRulesReportRequest): Promise<GetAggregateConfigRulesReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21641,13 +37728,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a resource in an account group.
-   *
-   * @description This topic provides an example on how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
-   *
-   * @param request GetAggregateDiscoveredResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateDiscoveredResourceResponse
+   * Queries the details of a specific resource in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
+   * 
+   * @param request - GetAggregateDiscoveredResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateDiscoveredResourceResponse
    */
   async getAggregateDiscoveredResourceWithOptions(request: GetAggregateDiscoveredResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateDiscoveredResourceResponse> {
     Util.validateModel(request);
@@ -21698,12 +37786,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a resource in an account group.
-   *
-   * @description This topic provides an example on how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
-   *
-   * @param request GetAggregateDiscoveredResourceRequest
-   * @return GetAggregateDiscoveredResourceResponse
+   * Queries the details of a specific resource in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
+   * 
+   * @param request - GetAggregateDiscoveredResourceRequest
+   * @returns GetAggregateDiscoveredResourceResponse
    */
   async getAggregateDiscoveredResource(request: GetAggregateDiscoveredResourceRequest): Promise<GetAggregateDiscoveredResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21711,13 +37800,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
-   *
-   * @param request GetAggregateResourceComplianceByConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceComplianceByConfigRuleResponse
+   * Queries compliance evaluation results based on the rules in a compliance package in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+   * 
+   * @param request - GetAggregateResourceComplianceByConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceComplianceByConfigRuleResponse
    */
   async getAggregateResourceComplianceByConfigRuleWithOptions(request: GetAggregateResourceComplianceByConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceComplianceByConfigRuleResponse> {
     Util.validateModel(request);
@@ -21760,12 +37850,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
-   *
-   * @param request GetAggregateResourceComplianceByConfigRuleRequest
-   * @return GetAggregateResourceComplianceByConfigRuleResponse
+   * Queries compliance evaluation results based on the rules in a compliance package in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+   * 
+   * @param request - GetAggregateResourceComplianceByConfigRuleRequest
+   * @returns GetAggregateResourceComplianceByConfigRuleResponse
    */
   async getAggregateResourceComplianceByConfigRule(request: GetAggregateResourceComplianceByConfigRuleRequest): Promise<GetAggregateResourceComplianceByConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21773,13 +37864,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
-   *
-   * @param request GetAggregateResourceComplianceByPackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceComplianceByPackResponse
+   * Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
+   * 
+   * @param request - GetAggregateResourceComplianceByPackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceComplianceByPackResponse
    */
   async getAggregateResourceComplianceByPackWithOptions(request: GetAggregateResourceComplianceByPackRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceComplianceByPackResponse> {
     Util.validateModel(request);
@@ -21802,12 +37894,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
-   *
-   * @param request GetAggregateResourceComplianceByPackRequest
-   * @return GetAggregateResourceComplianceByPackResponse
+   * Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
+   * 
+   * @param request - GetAggregateResourceComplianceByPackRequest
+   * @returns GetAggregateResourceComplianceByPackResponse
    */
   async getAggregateResourceComplianceByPack(request: GetAggregateResourceComplianceByPackRequest): Promise<GetAggregateResourceComplianceByPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21815,11 +37908,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by resource type for an account group rule.
-   *
-   * @param request GetAggregateResourceComplianceGroupByRegionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceComplianceGroupByRegionResponse
+   * Queries the evaluation results grouped by resource type for an account group rule.
+   * 
+   * @param request - GetAggregateResourceComplianceGroupByRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceComplianceGroupByRegionResponse
    */
   async getAggregateResourceComplianceGroupByRegionWithOptions(request: GetAggregateResourceComplianceGroupByRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceComplianceGroupByRegionResponse> {
     Util.validateModel(request);
@@ -21850,10 +37943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by resource type for an account group rule.
-   *
-   * @param request GetAggregateResourceComplianceGroupByRegionRequest
-   * @return GetAggregateResourceComplianceGroupByRegionResponse
+   * Queries the evaluation results grouped by resource type for an account group rule.
+   * 
+   * @param request - GetAggregateResourceComplianceGroupByRegionRequest
+   * @returns GetAggregateResourceComplianceGroupByRegionResponse
    */
   async getAggregateResourceComplianceGroupByRegion(request: GetAggregateResourceComplianceGroupByRegionRequest): Promise<GetAggregateResourceComplianceGroupByRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21861,11 +37954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by resource type for an account group rule.
-   *
-   * @param request GetAggregateResourceComplianceGroupByResourceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceComplianceGroupByResourceTypeResponse
+   * Queries the evaluation results grouped by resource type for an account group rule.
+   * 
+   * @param request - GetAggregateResourceComplianceGroupByResourceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceComplianceGroupByResourceTypeResponse
    */
   async getAggregateResourceComplianceGroupByResourceTypeWithOptions(request: GetAggregateResourceComplianceGroupByResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceComplianceGroupByResourceTypeResponse> {
     Util.validateModel(request);
@@ -21896,10 +37989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by resource type for an account group rule.
-   *
-   * @param request GetAggregateResourceComplianceGroupByResourceTypeRequest
-   * @return GetAggregateResourceComplianceGroupByResourceTypeResponse
+   * Queries the evaluation results grouped by resource type for an account group rule.
+   * 
+   * @param request - GetAggregateResourceComplianceGroupByResourceTypeRequest
+   * @returns GetAggregateResourceComplianceGroupByResourceTypeResponse
    */
   async getAggregateResourceComplianceGroupByResourceType(request: GetAggregateResourceComplianceGroupByResourceTypeRequest): Promise<GetAggregateResourceComplianceGroupByResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21907,13 +38000,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance timeline of a resource in an account group.
-   *
-   * @description The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-   *
-   * @param request GetAggregateResourceComplianceTimelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceComplianceTimelineResponse
+   * Queries the compliance timeline of a resource in an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+   * 
+   * @param request - GetAggregateResourceComplianceTimelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceComplianceTimelineResponse
    */
   async getAggregateResourceComplianceTimelineWithOptions(request: GetAggregateResourceComplianceTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceComplianceTimelineResponse> {
     Util.validateModel(request);
@@ -21936,12 +38030,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance timeline of a resource in an account group.
-   *
-   * @description The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-   *
-   * @param request GetAggregateResourceComplianceTimelineRequest
-   * @return GetAggregateResourceComplianceTimelineResponse
+   * Queries the compliance timeline of a resource in an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+   * 
+   * @param request - GetAggregateResourceComplianceTimelineRequest
+   * @returns GetAggregateResourceComplianceTimelineResponse
    */
   async getAggregateResourceComplianceTimeline(request: GetAggregateResourceComplianceTimelineRequest): Promise<GetAggregateResourceComplianceTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21949,13 +38044,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration timeline of a resource in an account group.
-   *
-   * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-   *
-   * @param request GetAggregateResourceConfigurationTimelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceConfigurationTimelineResponse
+   * Queries the configuration timeline of a resource in an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+   * 
+   * @param request - GetAggregateResourceConfigurationTimelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceConfigurationTimelineResponse
    */
   async getAggregateResourceConfigurationTimelineWithOptions(request: GetAggregateResourceConfigurationTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceConfigurationTimelineResponse> {
     Util.validateModel(request);
@@ -21978,12 +38074,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration timeline of a resource in an account group.
-   *
-   * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-   *
-   * @param request GetAggregateResourceConfigurationTimelineRequest
-   * @return GetAggregateResourceConfigurationTimelineResponse
+   * Queries the configuration timeline of a resource in an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+   * 
+   * @param request - GetAggregateResourceConfigurationTimelineRequest
+   * @returns GetAggregateResourceConfigurationTimelineResponse
    */
   async getAggregateResourceConfigurationTimeline(request: GetAggregateResourceConfigurationTimelineRequest): Promise<GetAggregateResourceConfigurationTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21991,13 +38088,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on the resources in an account group by region.
-   *
-   * @description This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
-   *
-   * @param request GetAggregateResourceCountsGroupByRegionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceCountsGroupByRegionResponse
+   * Queries the statistics on the resources in an account group by region.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+   * 
+   * @param request - GetAggregateResourceCountsGroupByRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceCountsGroupByRegionResponse
    */
   async getAggregateResourceCountsGroupByRegionWithOptions(request: GetAggregateResourceCountsGroupByRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceCountsGroupByRegionResponse> {
     Util.validateModel(request);
@@ -22040,12 +38138,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on the resources in an account group by region.
-   *
-   * @description This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
-   *
-   * @param request GetAggregateResourceCountsGroupByRegionRequest
-   * @return GetAggregateResourceCountsGroupByRegionResponse
+   * Queries the statistics on the resources in an account group by region.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+   * 
+   * @param request - GetAggregateResourceCountsGroupByRegionRequest
+   * @returns GetAggregateResourceCountsGroupByRegionResponse
    */
   async getAggregateResourceCountsGroupByRegion(request: GetAggregateResourceCountsGroupByRegionRequest): Promise<GetAggregateResourceCountsGroupByRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22053,13 +38152,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on the resources in an account group by resource type.
-   *
-   * @description This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
-   *
-   * @param request GetAggregateResourceCountsGroupByResourceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceCountsGroupByResourceTypeResponse
+   * Queries the statistics on the resources in an account group by resource type.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
+   * 
+   * @param request - GetAggregateResourceCountsGroupByResourceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceCountsGroupByResourceTypeResponse
    */
   async getAggregateResourceCountsGroupByResourceTypeWithOptions(request: GetAggregateResourceCountsGroupByResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceCountsGroupByResourceTypeResponse> {
     Util.validateModel(request);
@@ -22102,12 +38202,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on the resources in an account group by resource type.
-   *
-   * @description This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
-   *
-   * @param request GetAggregateResourceCountsGroupByResourceTypeRequest
-   * @return GetAggregateResourceCountsGroupByResourceTypeResponse
+   * Queries the statistics on the resources in an account group by resource type.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
+   * 
+   * @param request - GetAggregateResourceCountsGroupByResourceTypeRequest
+   * @returns GetAggregateResourceCountsGroupByResourceTypeResponse
    */
   async getAggregateResourceCountsGroupByResourceType(request: GetAggregateResourceCountsGroupByResourceTypeRequest): Promise<GetAggregateResourceCountsGroupByResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22115,16 +38216,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
-   *
-   * @description ### [](#)Prerequisites
+   * Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * The [GenerateAggregateResourceInventory](https://help.aliyun.com/document_detail/2398353.html) operation is called to generate a resource inventory. Then, this operation is called to obtain the URL of the resource inventory.
    * ### [](#)Description
    * This topic provides an example on how to obtain the last resource inventory that is generated within the account group ca-a91d626622af0035\\*\\*\\*\\*.
-   *
-   * @param request GetAggregateResourceInventoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregateResourceInventoryResponse
+   * 
+   * @param request - GetAggregateResourceInventoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregateResourceInventoryResponse
    */
   async getAggregateResourceInventoryWithOptions(request: GetAggregateResourceInventoryRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateResourceInventoryResponse> {
     Util.validateModel(request);
@@ -22151,15 +38253,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
-   *
-   * @description ### [](#)Prerequisites
+   * Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * The [GenerateAggregateResourceInventory](https://help.aliyun.com/document_detail/2398353.html) operation is called to generate a resource inventory. Then, this operation is called to obtain the URL of the resource inventory.
    * ### [](#)Description
    * This topic provides an example on how to obtain the last resource inventory that is generated within the account group ca-a91d626622af0035\\*\\*\\*\\*.
-   *
-   * @param request GetAggregateResourceInventoryRequest
-   * @return GetAggregateResourceInventoryResponse
+   * 
+   * @param request - GetAggregateResourceInventoryRequest
+   * @returns GetAggregateResourceInventoryResponse
    */
   async getAggregateResourceInventory(request: GetAggregateResourceInventoryRequest): Promise<GetAggregateResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22167,13 +38270,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an account group.
-   *
-   * @description The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
-   *
-   * @param request GetAggregatorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAggregatorResponse
+   * Queries the details of an account group. You can query the name, creation time, member, and type of an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
+   * 
+   * @param request - GetAggregatorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAggregatorResponse
    */
   async getAggregatorWithOptions(request: GetAggregatorRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregatorResponse> {
     Util.validateModel(request);
@@ -22200,12 +38304,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an account group.
-   *
-   * @description The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
-   *
-   * @param request GetAggregatorRequest
-   * @return GetAggregatorResponse
+   * Queries the details of an account group. You can query the name, creation time, member, and type of an account group.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
+   * 
+   * @param request - GetAggregatorRequest
+   * @returns GetAggregatorResponse
    */
   async getAggregator(request: GetAggregatorRequest): Promise<GetAggregatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22213,13 +38318,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a compliance package.
-   *
-   * @description This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
-   *
-   * @param request GetCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCompliancePackResponse
+   * Queries the details of a compliance package.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
+   * 
+   * @param request - GetCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCompliancePackResponse
    */
   async getCompliancePackWithOptions(request: GetCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<GetCompliancePackResponse> {
     Util.validateModel(request);
@@ -22242,12 +38348,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a compliance package.
-   *
-   * @description This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
-   *
-   * @param request GetCompliancePackRequest
-   * @return GetCompliancePackResponse
+   * Queries the details of a compliance package.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
+   * 
+   * @param request - GetCompliancePackRequest
+   * @returns GetCompliancePackResponse
    */
   async getCompliancePack(request: GetCompliancePackRequest): Promise<GetCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22255,14 +38362,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on a compliance package.
-   *
-   * @description > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
+   * Queries the compliance evaluation report that is generated based on a compliance package.
+   * 
+   * @remarks
+   * > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
-   *
-   * @param request GetCompliancePackReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCompliancePackReportResponse
+   * 
+   * @param request - GetCompliancePackReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCompliancePackReportResponse
    */
   async getCompliancePackReportWithOptions(request: GetCompliancePackReportRequest, runtime: $Util.RuntimeOptions): Promise<GetCompliancePackReportResponse> {
     Util.validateModel(request);
@@ -22285,13 +38393,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on a compliance package.
-   *
-   * @description > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
+   * Queries the compliance evaluation report that is generated based on a compliance package.
+   * 
+   * @remarks
+   * > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
    * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
-   *
-   * @param request GetCompliancePackReportRequest
-   * @return GetCompliancePackReportResponse
+   * 
+   * @param request - GetCompliancePackReportRequest
+   * @returns GetCompliancePackReportResponse
    */
   async getCompliancePackReport(request: GetCompliancePackReportRequest): Promise<GetCompliancePackReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22299,13 +38408,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the summary of compliance statistics within the current account.
-   *
-   * @description This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
-   *
-   * @param request GetComplianceSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetComplianceSummaryResponse
+   * Queries the summary of compliance statistics within the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+   * 
+   * @param request - GetComplianceSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetComplianceSummaryResponse
    */
   async getComplianceSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetComplianceSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -22324,11 +38434,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the summary of compliance statistics within the current account.
-   *
-   * @description This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
-   *
-   * @return GetComplianceSummaryResponse
+   * Queries the summary of compliance statistics within the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+   * @returns GetComplianceSummaryResponse
    */
   async getComplianceSummary(): Promise<GetComplianceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22336,11 +38446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a delivery channel.
-   *
-   * @param request GetConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConfigDeliveryChannelResponse
+   * Queries the information about a delivery channel.
+   * 
+   * @param request - GetConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigDeliveryChannelResponse
    */
   async getConfigDeliveryChannelWithOptions(request: GetConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigDeliveryChannelResponse> {
     Util.validateModel(request);
@@ -22367,10 +38477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a delivery channel.
-   *
-   * @param request GetConfigDeliveryChannelRequest
-   * @return GetConfigDeliveryChannelResponse
+   * Queries the information about a delivery channel.
+   * 
+   * @param request - GetConfigDeliveryChannelRequest
+   * @returns GetConfigDeliveryChannelResponse
    */
   async getConfigDeliveryChannel(request: GetConfigDeliveryChannelRequest): Promise<GetConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22378,13 +38488,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a rule.
-   *
-   * @description This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
-   *
-   * @param request GetConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConfigRuleResponse
+   * Queries the details of a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
+   * 
+   * @param request - GetConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigRuleResponse
    */
   async getConfigRuleWithOptions(request: GetConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigRuleResponse> {
     Util.validateModel(request);
@@ -22411,12 +38522,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a rule.
-   *
-   * @description This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
-   *
-   * @param request GetConfigRuleRequest
-   * @return GetConfigRuleResponse
+   * Queries the details of a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
+   * 
+   * @param request - GetConfigRuleRequest
+   * @returns GetConfigRuleResponse
    */
   async getConfigRule(request: GetConfigRuleRequest): Promise<GetConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22424,13 +38536,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries compliance evaluation results based on the rules in a compliance package.
-   *
-   * @description In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
-   *
-   * @param request GetConfigRuleComplianceByPackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConfigRuleComplianceByPackResponse
+   * Queries compliance evaluation results based on the rules in a compliance package.
+   * 
+   * @remarks
+   * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
+   * 
+   * @param request - GetConfigRuleComplianceByPackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigRuleComplianceByPackResponse
    */
   async getConfigRuleComplianceByPackWithOptions(request: GetConfigRuleComplianceByPackRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigRuleComplianceByPackResponse> {
     Util.validateModel(request);
@@ -22453,12 +38566,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries compliance evaluation results based on the rules in a compliance package.
-   *
-   * @description In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
-   *
-   * @param request GetConfigRuleComplianceByPackRequest
-   * @return GetConfigRuleComplianceByPackResponse
+   * Queries compliance evaluation results based on the rules in a compliance package.
+   * 
+   * @remarks
+   * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
+   * 
+   * @param request - GetConfigRuleComplianceByPackRequest
+   * @returns GetConfigRuleComplianceByPackResponse
    */
   async getConfigRuleComplianceByPack(request: GetConfigRuleComplianceByPackRequest): Promise<GetConfigRuleComplianceByPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22466,13 +38580,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the summary of compliance evaluation results by rule risk level.
-   *
-   * @description This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
-   *
-   * @param request GetConfigRuleSummaryByRiskLevelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConfigRuleSummaryByRiskLevelResponse
+   * Queries the compliance summary based on the risk level of a rule.
+   * 
+   * @remarks
+   * This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+   * 
+   * @param request - GetConfigRuleSummaryByRiskLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigRuleSummaryByRiskLevelResponse
    */
   async getConfigRuleSummaryByRiskLevelWithOptions(runtime: $Util.RuntimeOptions): Promise<GetConfigRuleSummaryByRiskLevelResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -22491,11 +38606,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the summary of compliance evaluation results by rule risk level.
-   *
-   * @description This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
-   *
-   * @return GetConfigRuleSummaryByRiskLevelResponse
+   * Queries the compliance summary based on the risk level of a rule.
+   * 
+   * @remarks
+   * This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+   * @returns GetConfigRuleSummaryByRiskLevelResponse
    */
   async getConfigRuleSummaryByRiskLevel(): Promise<GetConfigRuleSummaryByRiskLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22503,14 +38618,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on all existing rules.
-   *
-   * @description >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
+   * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
+   * 
+   * @remarks
+   * >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
    * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
-   *
-   * @param request GetConfigRulesReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConfigRulesReportResponse
+   * 
+   * @param request - GetConfigRulesReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigRulesReportResponse
    */
   async getConfigRulesReportWithOptions(request: GetConfigRulesReportRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigRulesReportResponse> {
     Util.validateModel(request);
@@ -22537,13 +38653,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation report that is generated based on all existing rules.
-   *
-   * @description >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
+   * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
+   * 
+   * @remarks
+   * >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
    * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
-   *
-   * @param request GetConfigRulesReportRequest
-   * @return GetConfigRulesReportResponse
+   * 
+   * @param request - GetConfigRulesReportRequest
+   * @returns GetConfigRulesReportResponse
    */
   async getConfigRulesReport(request: GetConfigRulesReportRequest): Promise<GetConfigRulesReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22551,13 +38668,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the activation status and resource monitoring scope of Cloud Config for the current account.
-   *
-   * @description This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
-   *
-   * @param request GetConfigurationRecorderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConfigurationRecorderResponse
+   * Queries the activation status and resource monitoring scope of Cloud Config for the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+   * 
+   * @param request - GetConfigurationRecorderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigurationRecorderResponse
    */
   async getConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<GetConfigurationRecorderResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -22576,11 +38694,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the activation status and resource monitoring scope of Cloud Config for the current account.
-   *
-   * @description This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
-   *
-   * @return GetConfigurationRecorderResponse
+   * Queries the activation status and resource monitoring scope of Cloud Config for the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+   * @returns GetConfigurationRecorderResponse
    */
   async getConfigurationRecorder(): Promise<GetConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22588,13 +38706,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a resource.
-   *
-   * @description The sample request in this topic shows you how to query the details of the `new-bucket` resource.
-   *
-   * @param request GetDiscoveredResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDiscoveredResourceResponse
+   * Queries the details of a specific resource.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
+   * 
+   * @param request - GetDiscoveredResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDiscoveredResourceResponse
    */
   async getDiscoveredResourceWithOptions(request: GetDiscoveredResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceResponse> {
     Util.validateModel(request);
@@ -22633,12 +38752,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a resource.
-   *
-   * @description The sample request in this topic shows you how to query the details of the `new-bucket` resource.
-   *
-   * @param request GetDiscoveredResourceRequest
-   * @return GetDiscoveredResourceResponse
+   * Queries the details of a specific resource.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
+   * 
+   * @param request - GetDiscoveredResourceRequest
+   * @returns GetDiscoveredResourceResponse
    */
   async getDiscoveredResource(request: GetDiscoveredResourceRequest): Promise<GetDiscoveredResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22646,13 +38766,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on resources by region.
-   *
-   * @description This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
-   *
-   * @param request GetDiscoveredResourceCountsGroupByRegionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDiscoveredResourceCountsGroupByRegionResponse
+   * Queries the statistics on resources by region.
+   * 
+   * @remarks
+   * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+   * 
+   * @param request - GetDiscoveredResourceCountsGroupByRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDiscoveredResourceCountsGroupByRegionResponse
    */
   async getDiscoveredResourceCountsGroupByRegionWithOptions(request: GetDiscoveredResourceCountsGroupByRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceCountsGroupByRegionResponse> {
     Util.validateModel(request);
@@ -22679,12 +38800,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on resources by region.
-   *
-   * @description This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
-   *
-   * @param request GetDiscoveredResourceCountsGroupByRegionRequest
-   * @return GetDiscoveredResourceCountsGroupByRegionResponse
+   * Queries the statistics on resources by region.
+   * 
+   * @remarks
+   * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+   * 
+   * @param request - GetDiscoveredResourceCountsGroupByRegionRequest
+   * @returns GetDiscoveredResourceCountsGroupByRegionResponse
    */
   async getDiscoveredResourceCountsGroupByRegion(request: GetDiscoveredResourceCountsGroupByRegionRequest): Promise<GetDiscoveredResourceCountsGroupByRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22692,13 +38814,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on resources by resource type.
-   *
-   * @description This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
-   *
-   * @param request GetDiscoveredResourceCountsGroupByResourceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
+   * Queries the statistics on resources by resource type.
+   * 
+   * @remarks
+   * This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
+   * 
+   * @param request - GetDiscoveredResourceCountsGroupByResourceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDiscoveredResourceCountsGroupByResourceTypeResponse
    */
   async getDiscoveredResourceCountsGroupByResourceTypeWithOptions(request: GetDiscoveredResourceCountsGroupByResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceCountsGroupByResourceTypeResponse> {
     Util.validateModel(request);
@@ -22725,12 +38848,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on resources by resource type.
-   *
-   * @description This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
-   *
-   * @param request GetDiscoveredResourceCountsGroupByResourceTypeRequest
-   * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
+   * Queries the statistics on resources by resource type.
+   * 
+   * @remarks
+   * This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
+   * 
+   * @param request - GetDiscoveredResourceCountsGroupByResourceTypeRequest
+   * @returns GetDiscoveredResourceCountsGroupByResourceTypeResponse
    */
   async getDiscoveredResourceCountsGroupByResourceType(request: GetDiscoveredResourceCountsGroupByResourceTypeRequest): Promise<GetDiscoveredResourceCountsGroupByResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22738,11 +38862,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a cloud service that is integrated with Cloud Config.
-   *
-   * @param request GetIntegratedServiceStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIntegratedServiceStatusResponse
+   * Queries the integration status of a specific cloud service.
+   * 
+   * @param request - GetIntegratedServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIntegratedServiceStatusResponse
    */
   async getIntegratedServiceStatusWithOptions(request: GetIntegratedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetIntegratedServiceStatusResponse> {
     Util.validateModel(request);
@@ -22769,10 +38893,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a cloud service that is integrated with Cloud Config.
-   *
-   * @param request GetIntegratedServiceStatusRequest
-   * @return GetIntegratedServiceStatusResponse
+   * Queries the integration status of a specific cloud service.
+   * 
+   * @param request - GetIntegratedServiceStatusRequest
+   * @returns GetIntegratedServiceStatusResponse
    */
   async getIntegratedServiceStatus(request: GetIntegratedServiceStatusRequest): Promise<GetIntegratedServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22780,13 +38904,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a managed rule.
-   *
-   * @description In this topic, the `cdn-domain-https-enabled` managed rule is used as an example.
-   *
-   * @param request GetManagedRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetManagedRuleResponse
+   * Queries the details of a specific managed rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
+   * 
+   * @param request - GetManagedRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetManagedRuleResponse
    */
   async getManagedRuleWithOptions(request: GetManagedRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetManagedRuleResponse> {
     Util.validateModel(request);
@@ -22813,12 +38938,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a managed rule.
-   *
-   * @description In this topic, the `cdn-domain-https-enabled` managed rule is used as an example.
-   *
-   * @param request GetManagedRuleRequest
-   * @return GetManagedRuleResponse
+   * Queries the details of a specific managed rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
+   * 
+   * @param request - GetManagedRuleRequest
+   * @returns GetManagedRuleResponse
    */
   async getManagedRule(request: GetManagedRuleRequest): Promise<GetManagedRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22826,13 +38952,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an automatic remediation template.
-   *
-   * @description This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
-   *
-   * @param request GetRemediationTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRemediationTemplateResponse
+   * Queries the details of an automatic remediation template.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+   * 
+   * @param request - GetRemediationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRemediationTemplateResponse
    */
   async getRemediationTemplateWithOptions(request: GetRemediationTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetRemediationTemplateResponse> {
     Util.validateModel(request);
@@ -22859,12 +38986,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an automatic remediation template.
-   *
-   * @description This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
-   *
-   * @param request GetRemediationTemplateRequest
-   * @return GetRemediationTemplateResponse
+   * Queries the details of an automatic remediation template.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+   * 
+   * @param request - GetRemediationTemplateRequest
+   * @returns GetRemediationTemplateResponse
    */
   async getRemediationTemplate(request: GetRemediationTemplateRequest): Promise<GetRemediationTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22872,13 +39000,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation result of a resource by using a rule.
-   *
-   * @description In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
-   *
-   * @param request GetResourceComplianceByConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceComplianceByConfigRuleResponse
+   * Queries the compliance summary based on the compliance evaluation result of a rule.
+   * 
+   * @remarks
+   * In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
+   * 
+   * @param request - GetResourceComplianceByConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceComplianceByConfigRuleResponse
    */
   async getResourceComplianceByConfigRuleWithOptions(request: GetResourceComplianceByConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceByConfigRuleResponse> {
     Util.validateModel(request);
@@ -22901,12 +39030,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation result of a resource by using a rule.
-   *
-   * @description In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
-   *
-   * @param request GetResourceComplianceByConfigRuleRequest
-   * @return GetResourceComplianceByConfigRuleResponse
+   * Queries the compliance summary based on the compliance evaluation result of a rule.
+   * 
+   * @remarks
+   * In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
+   * 
+   * @param request - GetResourceComplianceByConfigRuleRequest
+   * @returns GetResourceComplianceByConfigRuleResponse
    */
   async getResourceComplianceByConfigRule(request: GetResourceComplianceByConfigRuleRequest): Promise<GetResourceComplianceByConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22914,13 +39044,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
-   *
-   * @param request GetResourceComplianceByPackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceComplianceByPackResponse
+   * Queries the compliance evaluation results of resources evaluated based on a compliance package.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
+   * 
+   * @param request - GetResourceComplianceByPackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceComplianceByPackResponse
    */
   async getResourceComplianceByPackWithOptions(request: GetResourceComplianceByPackRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceByPackResponse> {
     Util.validateModel(request);
@@ -22943,12 +39074,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
-   *
-   * @param request GetResourceComplianceByPackRequest
-   * @return GetResourceComplianceByPackResponse
+   * Queries the compliance evaluation results of resources evaluated based on a compliance package.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
+   * 
+   * @param request - GetResourceComplianceByPackRequest
+   * @returns GetResourceComplianceByPackResponse
    */
   async getResourceComplianceByPack(request: GetResourceComplianceByPackRequest): Promise<GetResourceComplianceByPackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22956,11 +39088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by region for a rule.
-   *
-   * @param request GetResourceComplianceGroupByRegionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceComplianceGroupByRegionResponse
+   * Queries the evaluation results grouped by region for a rule.
+   * 
+   * @param request - GetResourceComplianceGroupByRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceComplianceGroupByRegionResponse
    */
   async getResourceComplianceGroupByRegionWithOptions(request: GetResourceComplianceGroupByRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceGroupByRegionResponse> {
     Util.validateModel(request);
@@ -22987,10 +39119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by region for a rule.
-   *
-   * @param request GetResourceComplianceGroupByRegionRequest
-   * @return GetResourceComplianceGroupByRegionResponse
+   * Queries the evaluation results grouped by region for a rule.
+   * 
+   * @param request - GetResourceComplianceGroupByRegionRequest
+   * @returns GetResourceComplianceGroupByRegionResponse
    */
   async getResourceComplianceGroupByRegion(request: GetResourceComplianceGroupByRegionRequest): Promise<GetResourceComplianceGroupByRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22998,11 +39130,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by resource type for a rule.
-   *
-   * @param request GetResourceComplianceGroupByResourceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceComplianceGroupByResourceTypeResponse
+   * Queries the evaluation results grouped by resource type for a rule.
+   * 
+   * @param request - GetResourceComplianceGroupByResourceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceComplianceGroupByResourceTypeResponse
    */
   async getResourceComplianceGroupByResourceTypeWithOptions(request: GetResourceComplianceGroupByResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceGroupByResourceTypeResponse> {
     Util.validateModel(request);
@@ -23029,10 +39161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the evaluation results grouped by resource type for a rule.
-   *
-   * @param request GetResourceComplianceGroupByResourceTypeRequest
-   * @return GetResourceComplianceGroupByResourceTypeResponse
+   * Queries the evaluation results grouped by resource type for a rule.
+   * 
+   * @param request - GetResourceComplianceGroupByResourceTypeRequest
+   * @returns GetResourceComplianceGroupByResourceTypeResponse
    */
   async getResourceComplianceGroupByResourceType(request: GetResourceComplianceGroupByResourceTypeRequest): Promise<GetResourceComplianceGroupByResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23040,14 +39172,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
-   *
-   * @description In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
+   * Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
+   * 
+   * @remarks
+   * In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
    * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-   *
-   * @param request GetResourceComplianceTimelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceComplianceTimelineResponse
+   * 
+   * @param request - GetResourceComplianceTimelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceComplianceTimelineResponse
    */
   async getResourceComplianceTimelineWithOptions(request: GetResourceComplianceTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceTimelineResponse> {
     Util.validateModel(request);
@@ -23070,13 +39203,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
-   *
-   * @description In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
+   * Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
+   * 
+   * @remarks
+   * In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
    * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-   *
-   * @param request GetResourceComplianceTimelineRequest
-   * @return GetResourceComplianceTimelineResponse
+   * 
+   * @param request - GetResourceComplianceTimelineRequest
+   * @returns GetResourceComplianceTimelineResponse
    */
   async getResourceComplianceTimeline(request: GetResourceComplianceTimelineRequest): Promise<GetResourceComplianceTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23084,13 +39218,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration timeline of a resource.
-   *
-   * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-   *
-   * @param request GetResourceConfigurationTimelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceConfigurationTimelineResponse
+   * Queries the configuration timeline of a resource.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+   * 
+   * @param request - GetResourceConfigurationTimelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceConfigurationTimelineResponse
    */
   async getResourceConfigurationTimelineWithOptions(request: GetResourceConfigurationTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceConfigurationTimelineResponse> {
     Util.validateModel(request);
@@ -23113,12 +39248,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration timeline of a resource.
-   *
-   * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-   *
-   * @param request GetResourceConfigurationTimelineRequest
-   * @return GetResourceConfigurationTimelineResponse
+   * Queries the configuration timeline of a resource.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+   * 
+   * @param request - GetResourceConfigurationTimelineRequest
+   * @returns GetResourceConfigurationTimelineResponse
    */
   async getResourceConfigurationTimeline(request: GetResourceConfigurationTimelineRequest): Promise<GetResourceConfigurationTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23126,16 +39262,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
-   *
-   * @description ### [](#)Prerequisites
+   * Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * You can call the [GenerateResourceInventory](https://help.aliyun.com/document_detail/2398354.html) operation to generate a resource inventory. Then, you can call the GetResourceInventory operation to obtain the URL of the resource inventory.
    * ### [](#)Description
    * This topic provides an example on how to obtain the last resource inventory that is generated within the current Alibaba Cloud account.
-   *
-   * @param request GetResourceInventoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceInventoryResponse
+   * 
+   * @param request - GetResourceInventoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceInventoryResponse
    */
   async getResourceInventoryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetResourceInventoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -23154,14 +39291,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
-   *
-   * @description ### [](#)Prerequisites
+   * Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
    * You can call the [GenerateResourceInventory](https://help.aliyun.com/document_detail/2398354.html) operation to generate a resource inventory. Then, you can call the GetResourceInventory operation to obtain the URL of the resource inventory.
    * ### [](#)Description
    * This topic provides an example on how to obtain the last resource inventory that is generated within the current Alibaba Cloud account.
-   *
-   * @return GetResourceInventoryResponse
+   * @returns GetResourceInventoryResponse
    */
   async getResourceInventory(): Promise<GetResourceInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23169,13 +39306,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource relationships supported by a resource type.
-   *
-   * @description This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
-   *
-   * @param request GetSupportedResourceRelationConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSupportedResourceRelationConfigResponse
+   * Queries the resource relationships supported by a resource type.
+   * 
+   * @remarks
+   * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
+   * 
+   * @param request - GetSupportedResourceRelationConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupportedResourceRelationConfigResponse
    */
   async getSupportedResourceRelationConfigWithOptions(request: GetSupportedResourceRelationConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetSupportedResourceRelationConfigResponse> {
     Util.validateModel(request);
@@ -23202,12 +39340,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource relationships supported by a resource type.
-   *
-   * @description This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
-   *
-   * @param request GetSupportedResourceRelationConfigRequest
-   * @return GetSupportedResourceRelationConfigResponse
+   * Queries the resource relationships supported by a resource type.
+   * 
+   * @remarks
+   * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
+   * 
+   * @param request - GetSupportedResourceRelationConfigRequest
+   * @returns GetSupportedResourceRelationConfigResponse
    */
   async getSupportedResourceRelationConfig(request: GetSupportedResourceRelationConfigRequest): Promise<GetSupportedResourceRelationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23215,14 +39354,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Ignores the compliance evaluation results of one or more non-compliant resources that are evaluated based on a rule in an account group.
-   *
-   * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+   * Ignores the compliance evaluation results of one or more non-compliant resources that are evaluated based on a rule in an account group.
+   * 
+   * @remarks
+   * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
    * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-   *
-   * @param tmpReq IgnoreAggregateEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return IgnoreAggregateEvaluationResultsResponse
+   * 
+   * @param tmpReq - IgnoreAggregateEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IgnoreAggregateEvaluationResultsResponse
    */
   async ignoreAggregateEvaluationResultsWithOptions(tmpReq: IgnoreAggregateEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<IgnoreAggregateEvaluationResultsResponse> {
     Util.validateModel(tmpReq);
@@ -23271,13 +39411,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Ignores the compliance evaluation results of one or more non-compliant resources that are evaluated based on a rule in an account group.
-   *
-   * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+   * Ignores the compliance evaluation results of one or more non-compliant resources that are evaluated based on a rule in an account group.
+   * 
+   * @remarks
+   * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
    * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-   *
-   * @param request IgnoreAggregateEvaluationResultsRequest
-   * @return IgnoreAggregateEvaluationResultsResponse
+   * 
+   * @param request - IgnoreAggregateEvaluationResultsRequest
+   * @returns IgnoreAggregateEvaluationResultsResponse
    */
   async ignoreAggregateEvaluationResults(request: IgnoreAggregateEvaluationResultsRequest): Promise<IgnoreAggregateEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23285,14 +39426,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Ignores one or more resources that are evaluated as non-compliant by using a rule.
-   *
-   * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+   * Ignores one or more resources that are evaluated as non-compliant by using a rule.
+   * 
+   * @remarks
+   * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
    * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-   *
-   * @param tmpReq IgnoreEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return IgnoreEvaluationResultsResponse
+   * 
+   * @param tmpReq - IgnoreEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IgnoreEvaluationResultsResponse
    */
   async ignoreEvaluationResultsWithOptions(tmpReq: IgnoreEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<IgnoreEvaluationResultsResponse> {
     Util.validateModel(tmpReq);
@@ -23337,13 +39479,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Ignores one or more resources that are evaluated as non-compliant by using a rule.
-   *
-   * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+   * Ignores one or more resources that are evaluated as non-compliant by using a rule.
+   * 
+   * @remarks
+   * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
    * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-   *
-   * @param request IgnoreEvaluationResultsRequest
-   * @return IgnoreEvaluationResultsResponse
+   * 
+   * @param request - IgnoreEvaluationResultsRequest
+   * @returns IgnoreEvaluationResultsResponse
    */
   async ignoreEvaluationResults(request: IgnoreEvaluationResultsRequest): Promise<IgnoreEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23351,13 +39494,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance packages in an account group.
-   *
-   * @description In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
-   *
-   * @param request ListAggregateCompliancePacksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateCompliancePacksResponse
+   * Queries a list of compliance packages in an account group.
+   * 
+   * @remarks
+   * In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
+   * 
+   * @param request - ListAggregateCompliancePacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateCompliancePacksResponse
    */
   async listAggregateCompliancePacksWithOptions(request: ListAggregateCompliancePacksRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateCompliancePacksResponse> {
     Util.validateModel(request);
@@ -23396,12 +39540,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance packages in an account group.
-   *
-   * @description In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
-   *
-   * @param request ListAggregateCompliancePacksRequest
-   * @return ListAggregateCompliancePacksResponse
+   * Queries a list of compliance packages in an account group.
+   * 
+   * @remarks
+   * In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
+   * 
+   * @param request - ListAggregateCompliancePacksRequest
+   * @returns ListAggregateCompliancePacksResponse
    */
   async listAggregateCompliancePacks(request: ListAggregateCompliancePacksRequest): Promise<ListAggregateCompliancePacksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23409,11 +39554,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all delivery channels in an account group.
-   *
-   * @param request ListAggregateConfigDeliveryChannelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateConfigDeliveryChannelsResponse
+   * Queries the information about all delivery channels in an account group.
+   * 
+   * @param request - ListAggregateConfigDeliveryChannelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateConfigDeliveryChannelsResponse
    */
   async listAggregateConfigDeliveryChannelsWithOptions(request: ListAggregateConfigDeliveryChannelsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateConfigDeliveryChannelsResponse> {
     Util.validateModel(request);
@@ -23444,10 +39589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all delivery channels in an account group.
-   *
-   * @param request ListAggregateConfigDeliveryChannelsRequest
-   * @return ListAggregateConfigDeliveryChannelsResponse
+   * Queries the information about all delivery channels in an account group.
+   * 
+   * @param request - ListAggregateConfigDeliveryChannelsRequest
+   * @returns ListAggregateConfigDeliveryChannelsResponse
    */
   async listAggregateConfigDeliveryChannels(request: ListAggregateConfigDeliveryChannelsRequest): Promise<ListAggregateConfigDeliveryChannelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23455,13 +39600,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources based on a rule in an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
-   *
-   * @param request ListAggregateConfigRuleEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateConfigRuleEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources based on a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
+   * 
+   * @param request - ListAggregateConfigRuleEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateConfigRuleEvaluationResultsResponse
    */
   async listAggregateConfigRuleEvaluationResultsWithOptions(request: ListAggregateConfigRuleEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateConfigRuleEvaluationResultsResponse> {
     Util.validateModel(request);
@@ -23528,12 +39674,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources based on a rule in an account group.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
-   *
-   * @param request ListAggregateConfigRuleEvaluationResultsRequest
-   * @return ListAggregateConfigRuleEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources based on a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
+   * 
+   * @param request - ListAggregateConfigRuleEvaluationResultsRequest
+   * @returns ListAggregateConfigRuleEvaluationResultsResponse
    */
   async listAggregateConfigRuleEvaluationResults(request: ListAggregateConfigRuleEvaluationResultsRequest): Promise<ListAggregateConfigRuleEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23541,13 +39688,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics of compliance evaluation results of an account group.
-   *
-   * @description This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
-   *
-   * @param request ListAggregateConfigRuleEvaluationStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+   * Queries the statistics of compliance evaluation results of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+   * 
+   * @param request - ListAggregateConfigRuleEvaluationStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateConfigRuleEvaluationStatisticsResponse
    */
   async listAggregateConfigRuleEvaluationStatisticsWithOptions(request: ListAggregateConfigRuleEvaluationStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateConfigRuleEvaluationStatisticsResponse> {
     Util.validateModel(request);
@@ -23574,12 +39722,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics of compliance evaluation results of an account group.
-   *
-   * @description This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
-   *
-   * @param request ListAggregateConfigRuleEvaluationStatisticsRequest
-   * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+   * Queries the statistics of compliance evaluation results of an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+   * 
+   * @param request - ListAggregateConfigRuleEvaluationStatisticsRequest
+   * @returns ListAggregateConfigRuleEvaluationStatisticsResponse
    */
   async listAggregateConfigRuleEvaluationStatistics(request: ListAggregateConfigRuleEvaluationStatisticsRequest): Promise<ListAggregateConfigRuleEvaluationStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23587,13 +39736,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of rules in an account group.
-   *
-   * @description This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
-   *
-   * @param request ListAggregateConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateConfigRulesResponse
+   * Queries a list of rules in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
+   * 
+   * @param request - ListAggregateConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateConfigRulesResponse
    */
   async listAggregateConfigRulesWithOptions(request: ListAggregateConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateConfigRulesResponse> {
     Util.validateModel(request);
@@ -23652,12 +39802,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of rules in an account group.
-   *
-   * @description This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
-   *
-   * @param request ListAggregateConfigRulesRequest
-   * @return ListAggregateConfigRulesResponse
+   * Queries a list of rules in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
+   * 
+   * @param request - ListAggregateConfigRulesRequest
+   * @returns ListAggregateConfigRulesResponse
    */
   async listAggregateConfigRules(request: ListAggregateConfigRulesRequest): Promise<ListAggregateConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23665,13 +39816,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
-   *
-   * @description This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
-   *
-   * @param request ListAggregateDiscoveredResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateDiscoveredResourcesResponse
+   * Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
+   * 
+   * @param request - ListAggregateDiscoveredResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateDiscoveredResourcesResponse
    */
   async listAggregateDiscoveredResourcesWithOptions(request: ListAggregateDiscoveredResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateDiscoveredResourcesResponse> {
     Util.validateModel(request);
@@ -23730,12 +39882,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
-   *
-   * @description This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
-   *
-   * @param request ListAggregateDiscoveredResourcesRequest
-   * @return ListAggregateDiscoveredResourcesResponse
+   * Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
+   * 
+   * @param request - ListAggregateDiscoveredResourcesRequest
+   * @returns ListAggregateDiscoveredResourcesResponse
    */
   async listAggregateDiscoveredResources(request: ListAggregateDiscoveredResourcesRequest): Promise<ListAggregateDiscoveredResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23743,13 +39896,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remediation records of a rule in an account group.
-   *
-   * @description This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
-   *
-   * @param request ListAggregateRemediationExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateRemediationExecutionsResponse
+   * Queries the remediation records of a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+   * 
+   * @param request - ListAggregateRemediationExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateRemediationExecutionsResponse
    */
   async listAggregateRemediationExecutionsWithOptions(request: ListAggregateRemediationExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateRemediationExecutionsResponse> {
     Util.validateModel(request);
@@ -23796,12 +39950,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remediation records of a rule in an account group.
-   *
-   * @description This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
-   *
-   * @param request ListAggregateRemediationExecutionsRequest
-   * @return ListAggregateRemediationExecutionsResponse
+   * Queries the remediation records of a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+   * 
+   * @param request - ListAggregateRemediationExecutionsRequest
+   * @returns ListAggregateRemediationExecutionsResponse
    */
   async listAggregateRemediationExecutions(request: ListAggregateRemediationExecutionsRequest): Promise<ListAggregateRemediationExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23809,13 +39964,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of remediation templates for a rule in an account group.
-   *
-   * @description This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
-   *
-   * @param request ListAggregateRemediationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateRemediationsResponse
+   * Queries a list of remediation templates for a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
+   * 
+   * @param request - ListAggregateRemediationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateRemediationsResponse
    */
   async listAggregateRemediationsWithOptions(request: ListAggregateRemediationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateRemediationsResponse> {
     Util.validateModel(request);
@@ -23846,12 +40002,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of remediation templates for a rule in an account group.
-   *
-   * @description This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
-   *
-   * @param request ListAggregateRemediationsRequest
-   * @return ListAggregateRemediationsResponse
+   * Queries a list of remediation templates for a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
+   * 
+   * @param request - ListAggregateRemediationsRequest
+   * @returns ListAggregateRemediationsResponse
    */
   async listAggregateRemediations(request: ListAggregateRemediationsRequest): Promise<ListAggregateRemediationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23859,13 +40016,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources in an account group.
-   *
-   * @description This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-   *
-   * @param request ListAggregateResourceEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateResourceEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources in an account group.
+   * 
+   * @remarks
+   * This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+   * 
+   * @param request - ListAggregateResourceEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateResourceEvaluationResultsResponse
    */
   async listAggregateResourceEvaluationResultsWithOptions(request: ListAggregateResourceEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateResourceEvaluationResultsResponse> {
     Util.validateModel(request);
@@ -23916,12 +40074,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation results of resources in an account group.
-   *
-   * @description This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-   *
-   * @param request ListAggregateResourceEvaluationResultsRequest
-   * @return ListAggregateResourceEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources in an account group.
+   * 
+   * @remarks
+   * This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+   * 
+   * @param request - ListAggregateResourceEvaluationResultsRequest
+   * @returns ListAggregateResourceEvaluationResultsResponse
    */
   async listAggregateResourceEvaluationResults(request: ListAggregateResourceEvaluationResultsRequest): Promise<ListAggregateResourceEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23929,13 +40088,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of the resources of a specific resource in an account group.
-   *
-   * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
-   *
-   * @param request ListAggregateResourceRelationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateResourceRelationsResponse
+   * Queries a list of the resources of a specific resource in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
+   * 
+   * @param request - ListAggregateResourceRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateResourceRelationsResponse
    */
   async listAggregateResourceRelationsWithOptions(request: ListAggregateResourceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateResourceRelationsResponse> {
     Util.validateModel(request);
@@ -23998,12 +40158,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of the resources of a specific resource in an account group.
-   *
-   * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
-   *
-   * @param request ListAggregateResourceRelationsRequest
-   * @return ListAggregateResourceRelationsResponse
+   * Queries a list of the resources of a specific resource in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
+   * 
+   * @param request - ListAggregateResourceRelationsRequest
+   * @returns ListAggregateResourceRelationsResponse
    */
   async listAggregateResourceRelations(request: ListAggregateResourceRelationsRequest): Promise<ListAggregateResourceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24011,17 +40172,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
-   *
-   * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\))
+   * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
+   * 
+   * @remarks
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\))
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
    * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` in the account group `ca-4b05626622af000c****` by using the advanced search feature.
-   *
-   * @param request ListAggregateResourcesByAdvancedSearchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregateResourcesByAdvancedSearchResponse
+   * 
+   * @param request - ListAggregateResourcesByAdvancedSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregateResourcesByAdvancedSearchResponse
    */
   async listAggregateResourcesByAdvancedSearchWithOptions(request: ListAggregateResourcesByAdvancedSearchRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateResourcesByAdvancedSearchResponse> {
     Util.validateModel(request);
@@ -24052,16 +40214,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
-   *
-   * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\))
+   * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
+   * 
+   * @remarks
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\))
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
    * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` in the account group `ca-4b05626622af000c****` by using the advanced search feature.
-   *
-   * @param request ListAggregateResourcesByAdvancedSearchRequest
-   * @return ListAggregateResourcesByAdvancedSearchResponse
+   * 
+   * @param request - ListAggregateResourcesByAdvancedSearchRequest
+   * @returns ListAggregateResourcesByAdvancedSearchResponse
    */
   async listAggregateResourcesByAdvancedSearch(request: ListAggregateResourcesByAdvancedSearchRequest): Promise<ListAggregateResourcesByAdvancedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24069,13 +40232,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of account groups that the current account manages or to which the current account belongs.
-   *
-   * @description The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
-   *
-   * @param request ListAggregatorsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAggregatorsResponse
+   * Queries a list of account groups that the current account manages or to which the current account belongs.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
+   * 
+   * @param request - ListAggregatorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAggregatorsResponse
    */
   async listAggregatorsWithOptions(request: ListAggregatorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregatorsResponse> {
     Util.validateModel(request);
@@ -24106,12 +40270,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of account groups that the current account manages or to which the current account belongs.
-   *
-   * @description The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
-   *
-   * @param request ListAggregatorsRequest
-   * @return ListAggregatorsResponse
+   * Queries a list of account groups that the current account manages or to which the current account belongs.
+   * 
+   * @remarks
+   * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
+   * 
+   * @param request - ListAggregatorsRequest
+   * @returns ListAggregatorsResponse
    */
   async listAggregators(request: ListAggregatorsRequest): Promise<ListAggregatorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24119,13 +40284,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance package templates.
-   *
-   * @description This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
-   *
-   * @param request ListCompliancePackTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCompliancePackTemplatesResponse
+   * Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
+   * 
+   * @param request - ListCompliancePackTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCompliancePackTemplatesResponse
    */
   async listCompliancePackTemplatesWithOptions(request: ListCompliancePackTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCompliancePackTemplatesResponse> {
     Util.validateModel(request);
@@ -24164,12 +40330,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance package templates.
-   *
-   * @description This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
-   *
-   * @param request ListCompliancePackTemplatesRequest
-   * @return ListCompliancePackTemplatesResponse
+   * Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
+   * 
+   * @param request - ListCompliancePackTemplatesRequest
+   * @returns ListCompliancePackTemplatesResponse
    */
   async listCompliancePackTemplates(request: ListCompliancePackTemplatesRequest): Promise<ListCompliancePackTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24177,13 +40344,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance packages.
-   *
-   * @description This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
-   *
-   * @param request ListCompliancePacksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCompliancePacksResponse
+   * Queries a list of compliance packages.
+   * 
+   * @remarks
+   * This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
+   * 
+   * @param request - ListCompliancePacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCompliancePacksResponse
    */
   async listCompliancePacksWithOptions(request: ListCompliancePacksRequest, runtime: $Util.RuntimeOptions): Promise<ListCompliancePacksResponse> {
     Util.validateModel(request);
@@ -24218,12 +40386,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance packages.
-   *
-   * @description This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
-   *
-   * @param request ListCompliancePacksRequest
-   * @return ListCompliancePacksResponse
+   * Queries a list of compliance packages.
+   * 
+   * @remarks
+   * This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
+   * 
+   * @param request - ListCompliancePacksRequest
+   * @returns ListCompliancePacksResponse
    */
   async listCompliancePacks(request: ListCompliancePacksRequest): Promise<ListCompliancePacksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24231,11 +40400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of delivery channels.
-   *
-   * @param request ListConfigDeliveryChannelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConfigDeliveryChannelsResponse
+   * Queries a list of delivery channels.
+   * 
+   * @param request - ListConfigDeliveryChannelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigDeliveryChannelsResponse
    */
   async listConfigDeliveryChannelsWithOptions(request: ListConfigDeliveryChannelsRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigDeliveryChannelsResponse> {
     Util.validateModel(request);
@@ -24262,10 +40431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of delivery channels.
-   *
-   * @param request ListConfigDeliveryChannelsRequest
-   * @return ListConfigDeliveryChannelsResponse
+   * Queries a list of delivery channels.
+   * 
+   * @param request - ListConfigDeliveryChannelsRequest
+   * @returns ListConfigDeliveryChannelsResponse
    */
   async listConfigDeliveryChannels(request: ListConfigDeliveryChannelsRequest): Promise<ListConfigDeliveryChannelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24273,13 +40442,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance evaluation results of resources based on a rule.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
-   *
-   * @param request ListConfigRuleEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConfigRuleEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources based on a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
+   * 
+   * @param request - ListConfigRuleEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigRuleEvaluationResultsResponse
    */
   async listConfigRuleEvaluationResultsWithOptions(request: ListConfigRuleEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRuleEvaluationResultsResponse> {
     Util.validateModel(request);
@@ -24302,12 +40472,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of compliance evaluation results of resources based on a rule.
-   *
-   * @description This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
-   *
-   * @param request ListConfigRuleEvaluationResultsRequest
-   * @return ListConfigRuleEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources based on a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
+   * 
+   * @param request - ListConfigRuleEvaluationResultsRequest
+   * @returns ListConfigRuleEvaluationResultsResponse
    */
   async listConfigRuleEvaluationResults(request: ListConfigRuleEvaluationResultsRequest): Promise<ListConfigRuleEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24315,11 +40486,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
-   *
-   * @param request ListConfigRuleEvaluationStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConfigRuleEvaluationStatisticsResponse
+   * Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
+   * 
+   * @param request - ListConfigRuleEvaluationStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigRuleEvaluationStatisticsResponse
    */
   async listConfigRuleEvaluationStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListConfigRuleEvaluationStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -24338,9 +40509,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
-   *
-   * @return ListConfigRuleEvaluationStatisticsResponse
+   * Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
+   * @returns ListConfigRuleEvaluationStatisticsResponse
    */
   async listConfigRuleEvaluationStatistics(): Promise<ListConfigRuleEvaluationStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24348,13 +40518,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the rules of the current account.
-   *
-   * @description This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
-   *
-   * @param request ListConfigRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConfigRulesResponse
+   * Queries the rules of the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+   * 
+   * @param request - ListConfigRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigRulesResponse
    */
   async listConfigRulesWithOptions(request: ListConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRulesResponse> {
     Util.validateModel(request);
@@ -24409,12 +40580,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the rules of the current account.
-   *
-   * @description This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
-   *
-   * @param request ListConfigRulesRequest
-   * @return ListConfigRulesResponse
+   * Queries the rules of the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+   * 
+   * @param request - ListConfigRulesRequest
+   * @returns ListConfigRulesResponse
    */
   async listConfigRules(request: ListConfigRulesRequest): Promise<ListConfigRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24422,13 +40594,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
-   *
-   * @description This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
-   *
-   * @param request ListDiscoveredResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDiscoveredResourcesResponse
+   * Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
+   * 
+   * @remarks
+   * This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
+   * 
+   * @param request - ListDiscoveredResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDiscoveredResourcesResponse
    */
   async listDiscoveredResourcesWithOptions(request: ListDiscoveredResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDiscoveredResourcesResponse> {
     Util.validateModel(request);
@@ -24475,12 +40648,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
-   *
-   * @description This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
-   *
-   * @param request ListDiscoveredResourcesRequest
-   * @return ListDiscoveredResourcesResponse
+   * Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
+   * 
+   * @remarks
+   * This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
+   * 
+   * @param request - ListDiscoveredResourcesRequest
+   * @returns ListDiscoveredResourcesResponse
    */
   async listDiscoveredResources(request: ListDiscoveredResourcesRequest): Promise<ListDiscoveredResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24488,13 +40662,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cloud services that can be integrated by the current Alibaba Cloud account.
-   *
-   * @description This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
-   *
-   * @param request ListIntegratedServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntegratedServiceResponse
+   * Queries a list of cloud services that are integrated with Cloud Config and the status of each cloud service.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+   * 
+   * @param request - ListIntegratedServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegratedServiceResponse
    */
   async listIntegratedServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<ListIntegratedServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -24513,11 +40688,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cloud services that can be integrated by the current Alibaba Cloud account.
-   *
-   * @description This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
-   *
-   * @return ListIntegratedServiceResponse
+   * Queries a list of cloud services that are integrated with Cloud Config and the status of each cloud service.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+   * @returns ListIntegratedServiceResponse
    */
   async listIntegratedService(): Promise<ListIntegratedServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24525,13 +40700,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries managed rules.
-   *
-   * @description This topic describes how to query the managed rules of Alibaba Cloud CDN by using the `CDN` keyword. The returned result shows that only one managed rule exists. You can view the rule details in the result.
-   *
-   * @param request ListManagedRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListManagedRulesResponse
+   * Queries a list of managed rules supported by Cloud Config.
+   * 
+   * @remarks
+   * ### [](#)Background information
+   * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
+   * ### [](#)Usage notes
+   * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
+   * 
+   * @param request - ListManagedRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListManagedRulesResponse
    */
   async listManagedRulesWithOptions(request: ListManagedRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListManagedRulesResponse> {
     Util.validateModel(request);
@@ -24574,12 +40753,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries managed rules.
-   *
-   * @description This topic describes how to query the managed rules of Alibaba Cloud CDN by using the `CDN` keyword. The returned result shows that only one managed rule exists. You can view the rule details in the result.
-   *
-   * @param request ListManagedRulesRequest
-   * @return ListManagedRulesResponse
+   * Queries a list of managed rules supported by Cloud Config.
+   * 
+   * @remarks
+   * ### [](#)Background information
+   * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
+   * ### [](#)Usage notes
+   * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
+   * 
+   * @param request - ListManagedRulesRequest
+   * @returns ListManagedRulesResponse
    */
   async listManagedRules(request: ListManagedRulesRequest): Promise<ListManagedRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24587,11 +40770,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of evaluation rules.
-   *
-   * @param tmpReq ListPreManagedRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPreManagedRulesResponse
+   * Queries a list of evaluation rules supported by Cloud Config.
+   * 
+   * @remarks
+   * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
+   * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+   * 
+   * @param tmpReq - ListPreManagedRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPreManagedRulesResponse
    */
   async listPreManagedRulesWithOptions(tmpReq: ListPreManagedRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListPreManagedRulesResponse> {
     Util.validateModel(tmpReq);
@@ -24632,10 +40819,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of evaluation rules.
-   *
-   * @param request ListPreManagedRulesRequest
-   * @return ListPreManagedRulesResponse
+   * Queries a list of evaluation rules supported by Cloud Config.
+   * 
+   * @remarks
+   * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
+   * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+   * 
+   * @param request - ListPreManagedRulesRequest
+   * @returns ListPreManagedRulesResponse
    */
   async listPreManagedRules(request: ListPreManagedRulesRequest): Promise<ListPreManagedRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24643,13 +40834,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remediation records of a rule.
-   *
-   * @description This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
-   *
-   * @param request ListRemediationExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRemediationExecutionsResponse
+   * Queries the remediation records of a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+   * 
+   * @param request - ListRemediationExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRemediationExecutionsResponse
    */
   async listRemediationExecutionsWithOptions(request: ListRemediationExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemediationExecutionsResponse> {
     Util.validateModel(request);
@@ -24688,12 +40880,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remediation records of a rule.
-   *
-   * @description This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
-   *
-   * @param request ListRemediationExecutionsRequest
-   * @return ListRemediationExecutionsResponse
+   * Queries the remediation records of a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+   * 
+   * @param request - ListRemediationExecutionsRequest
+   * @returns ListRemediationExecutionsResponse
    */
   async listRemediationExecutions(request: ListRemediationExecutionsRequest): Promise<ListRemediationExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24701,13 +40894,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of remediation templates for a managed rule.
-   *
-   * @description In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
-   *
-   * @param request ListRemediationTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRemediationTemplatesResponse
+   * Queries a list of remediation templates for a managed rule.
+   * 
+   * @remarks
+   * In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
+   * 
+   * @param request - ListRemediationTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRemediationTemplatesResponse
    */
   async listRemediationTemplatesWithOptions(request: ListRemediationTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListRemediationTemplatesResponse> {
     Util.validateModel(request);
@@ -24746,12 +40940,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of remediation templates for a managed rule.
-   *
-   * @description In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
-   *
-   * @param request ListRemediationTemplatesRequest
-   * @return ListRemediationTemplatesResponse
+   * Queries a list of remediation templates for a managed rule.
+   * 
+   * @remarks
+   * In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
+   * 
+   * @param request - ListRemediationTemplatesRequest
+   * @returns ListRemediationTemplatesResponse
    */
   async listRemediationTemplates(request: ListRemediationTemplatesRequest): Promise<ListRemediationTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24759,13 +40954,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the execution of remediation templates.
-   *
-   * @description This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
-   *
-   * @param request ListRemediationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRemediationsResponse
+   * Queries the information about the execution of remediation templates.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
+   * 
+   * @param request - ListRemediationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRemediationsResponse
    */
   async listRemediationsWithOptions(request: ListRemediationsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemediationsResponse> {
     Util.validateModel(request);
@@ -24800,12 +40996,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the execution of remediation templates.
-   *
-   * @description This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
-   *
-   * @param request ListRemediationsRequest
-   * @return ListRemediationsResponse
+   * Queries the information about the execution of remediation templates.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
+   * 
+   * @param request - ListRemediationsRequest
+   * @returns ListRemediationsResponse
    */
   async listRemediations(request: ListRemediationsRequest): Promise<ListRemediationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24813,13 +41010,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation result of a resource.
-   *
-   * @description In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-   *
-   * @param request ListResourceEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources.
+   * 
+   * @remarks
+   * In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+   * 
+   * @param request - ListResourceEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceEvaluationResultsResponse
    */
   async listResourceEvaluationResultsWithOptions(request: ListResourceEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceEvaluationResultsResponse> {
     Util.validateModel(request);
@@ -24866,12 +41064,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the compliance evaluation result of a resource.
-   *
-   * @description In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-   *
-   * @param request ListResourceEvaluationResultsRequest
-   * @return ListResourceEvaluationResultsResponse
+   * Queries the compliance evaluation results of resources.
+   * 
+   * @remarks
+   * In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+   * 
+   * @param request - ListResourceEvaluationResultsRequest
+   * @returns ListResourceEvaluationResultsResponse
    */
   async listResourceEvaluationResults(request: ListResourceEvaluationResultsRequest): Promise<ListResourceEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24879,13 +41078,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of resources that associate with a specific resource.
-   *
-   * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
-   *
-   * @param request ListResourceRelationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceRelationsResponse
+   * Queries a list of resources that associate with a specific resource.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
+   * 
+   * @param request - ListResourceRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceRelationsResponse
    */
   async listResourceRelationsWithOptions(request: ListResourceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceRelationsResponse> {
     Util.validateModel(request);
@@ -24940,12 +41140,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of resources that associate with a specific resource.
-   *
-   * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
-   *
-   * @param request ListResourceRelationsRequest
-   * @return ListResourceRelationsResponse
+   * Queries a list of resources that associate with a specific resource.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
+   * 
+   * @param request - ListResourceRelationsRequest
+   * @returns ListResourceRelationsResponse
    */
   async listResourceRelations(request: ListResourceRelationsRequest): Promise<ListResourceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24953,17 +41154,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains resources based on the fields in the resource properties by using a SELECT statement.
-   *
-   * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\)).
+   * Obtains resources based on the fields in the resource properties by using a SELECT statement.
+   * 
+   * @remarks
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\)).
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
    * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` within the current account by using the advanced search feature.
-   *
-   * @param request ListResourcesByAdvancedSearchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourcesByAdvancedSearchResponse
+   * 
+   * @param request - ListResourcesByAdvancedSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourcesByAdvancedSearchResponse
    */
   async listResourcesByAdvancedSearchWithOptions(request: ListResourcesByAdvancedSearchRequest, runtime: $Util.RuntimeOptions): Promise<ListResourcesByAdvancedSearchResponse> {
     Util.validateModel(request);
@@ -24990,16 +41192,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains resources based on the fields in the resource properties by using a SELECT statement.
-   *
-   * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\)).
+   * Obtains resources based on the fields in the resource properties by using a SELECT statement.
+   * 
+   * @remarks
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\)).
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
    * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` within the current account by using the advanced search feature.
-   *
-   * @param request ListResourcesByAdvancedSearchRequest
-   * @return ListResourcesByAdvancedSearchResponse
+   * 
+   * @param request - ListResourcesByAdvancedSearchRequest
+   * @returns ListResourcesByAdvancedSearchResponse
    */
   async listResourcesByAdvancedSearch(request: ListResourcesByAdvancedSearchRequest): Promise<ListResourcesByAdvancedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25007,13 +41210,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cloud services and resource types that are supported by Cloud Config.
-   *
-   * @description This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
-   *
-   * @param request ListSupportedProductsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSupportedProductsResponse
+   * Queries the cloud services and resource types that are supported by Cloud Config.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
+   * 
+   * @param request - ListSupportedProductsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupportedProductsResponse
    */
   async listSupportedProductsWithOptions(request: ListSupportedProductsRequest, runtime: $Util.RuntimeOptions): Promise<ListSupportedProductsResponse> {
     Util.validateModel(request);
@@ -25044,12 +41248,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cloud services and resource types that are supported by Cloud Config.
-   *
-   * @description This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
-   *
-   * @param request ListSupportedProductsRequest
-   * @return ListSupportedProductsResponse
+   * Queries the cloud services and resource types that are supported by Cloud Config.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
+   * 
+   * @param request - ListSupportedProductsRequest
+   * @returns ListSupportedProductsResponse
    */
   async listSupportedProducts(request: ListSupportedProductsRequest): Promise<ListSupportedProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25057,11 +41262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags that are added to specified resources.
-   *
-   * @param tmpReq ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries tags that are added to specified resources.
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -25110,10 +41315,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags that are added to specified resources.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries tags that are added to specified resources.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25121,11 +41326,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits the evaluation results of a custom rule to Function Compute.
-   *
-   * @param request PutEvaluationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PutEvaluationsResponse
+   * Submits the evaluation results of a rule from Function Compute.
+   * 
+   * @remarks
+   * For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
+   * 
+   * @param request - PutEvaluationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutEvaluationsResponse
    */
   async putEvaluationsWithOptions(request: PutEvaluationsRequest, runtime: $Util.RuntimeOptions): Promise<PutEvaluationsResponse> {
     Util.validateModel(request);
@@ -25160,10 +41368,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits the evaluation results of a custom rule to Function Compute.
-   *
-   * @param request PutEvaluationsRequest
-   * @return PutEvaluationsResponse
+   * Submits the evaluation results of a rule from Function Compute.
+   * 
+   * @remarks
+   * For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
+   * 
+   * @param request - PutEvaluationsRequest
+   * @returns PutEvaluationsResponse
    */
   async putEvaluations(request: PutEvaluationsRequest): Promise<PutEvaluationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25171,16 +41382,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Re-evaluates one or more incompliant resources that are evaluated based on a rule in an account group.
-   *
-   * @description ### Prerequisites
-   * One or more non-compliant resources that are evaluated based on a rule are ignored.
-   * ### Usage notes
-   * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-   *
-   * @param tmpReq RevertAggregateEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RevertAggregateEvaluationResultsResponse
+   * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule in an account group are resumed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreAggregateEvaluationResults](https://help.aliyun.com/document_detail/607054.html).
+   * ### [](#)Description
+   * This topic provides an example on how to re-evaluate the non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule of the `120886317861****` member in the `ca-5b6c626622af008f****` group account. The ID of the region in which the resource resides is `cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
+   * 
+   * @param tmpReq - RevertAggregateEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevertAggregateEvaluationResultsResponse
    */
   async revertAggregateEvaluationResultsWithOptions(tmpReq: RevertAggregateEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<RevertAggregateEvaluationResultsResponse> {
     Util.validateModel(tmpReq);
@@ -25221,15 +41433,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Re-evaluates one or more incompliant resources that are evaluated based on a rule in an account group.
-   *
-   * @description ### Prerequisites
-   * One or more non-compliant resources that are evaluated based on a rule are ignored.
-   * ### Usage notes
-   * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-   *
-   * @param request RevertAggregateEvaluationResultsRequest
-   * @return RevertAggregateEvaluationResultsResponse
+   * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule in an account group are resumed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreAggregateEvaluationResults](https://help.aliyun.com/document_detail/607054.html).
+   * ### [](#)Description
+   * This topic provides an example on how to re-evaluate the non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule of the `120886317861****` member in the `ca-5b6c626622af008f****` group account. The ID of the region in which the resource resides is `cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
+   * 
+   * @param request - RevertAggregateEvaluationResultsRequest
+   * @returns RevertAggregateEvaluationResultsResponse
    */
   async revertAggregateEvaluationResults(request: RevertAggregateEvaluationResultsRequest): Promise<RevertAggregateEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25237,16 +41450,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Re-evaluates non-compliant resources that are evaluated based on a rule.
-   *
-   * @description ### Prerequisites
-   * One or more non-compliant resources that are evaluated by a rule are ignored.
-   * ### Usage notes
-   * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.``
-   *
-   * @param tmpReq RevertEvaluationResultsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RevertEvaluationResultsResponse
+   * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule are resumed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreEvaluationResults](https://help.aliyun.com/document_detail/606990.html).
+   * ### [](#)Description
+   * This topic provides an example on how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is`cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
+   * 
+   * @param tmpReq - RevertEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevertEvaluationResultsResponse
    */
   async revertEvaluationResultsWithOptions(tmpReq: RevertEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<RevertEvaluationResultsResponse> {
     Util.validateModel(tmpReq);
@@ -25283,15 +41497,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Re-evaluates non-compliant resources that are evaluated based on a rule.
-   *
-   * @description ### Prerequisites
-   * One or more non-compliant resources that are evaluated by a rule are ignored.
-   * ### Usage notes
-   * The sample request in this topic shows you how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.``
-   *
-   * @param request RevertEvaluationResultsRequest
-   * @return RevertEvaluationResultsResponse
+   * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule are resumed.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreEvaluationResults](https://help.aliyun.com/document_detail/606990.html).
+   * ### [](#)Description
+   * This topic provides an example on how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is`cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
+   * 
+   * @param request - RevertEvaluationResultsRequest
+   * @returns RevertEvaluationResultsResponse
    */
   async revertEvaluationResults(request: RevertEvaluationResultsRequest): Promise<RevertEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25299,14 +41514,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts to evaluate the involved resources by using a rule in an account group.
-   *
-   * @description > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
+   * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package in a specific account group.
+   * 
+   * @remarks
+   * > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
    * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
-   *
-   * @param request StartAggregateConfigRuleEvaluationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartAggregateConfigRuleEvaluationResponse
+   * 
+   * @param request - StartAggregateConfigRuleEvaluationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAggregateConfigRuleEvaluationResponse
    */
   async startAggregateConfigRuleEvaluationWithOptions(request: StartAggregateConfigRuleEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<StartAggregateConfigRuleEvaluationResponse> {
     Util.validateModel(request);
@@ -25345,13 +41561,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts to evaluate the involved resources by using a rule in an account group.
-   *
-   * @description > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
+   * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package in a specific account group.
+   * 
+   * @remarks
+   * > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
    * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
-   *
-   * @param request StartAggregateConfigRuleEvaluationRequest
-   * @return StartAggregateConfigRuleEvaluationResponse
+   * 
+   * @param request - StartAggregateConfigRuleEvaluationRequest
+   * @returns StartAggregateConfigRuleEvaluationResponse
    */
   async startAggregateConfigRuleEvaluation(request: StartAggregateConfigRuleEvaluationRequest): Promise<StartAggregateConfigRuleEvaluationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25359,13 +41576,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a remediation operation by using a rule in an account group.
-   *
-   * @description This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
-   *
-   * @param request StartAggregateRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartAggregateRemediationResponse
+   * Performs a remediation operation by using a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
+   * 
+   * @param request - StartAggregateRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAggregateRemediationResponse
    */
   async startAggregateRemediationWithOptions(request: StartAggregateRemediationRequest, runtime: $Util.RuntimeOptions): Promise<StartAggregateRemediationResponse> {
     Util.validateModel(request);
@@ -25400,12 +41618,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a remediation operation by using a rule in an account group.
-   *
-   * @description This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
-   *
-   * @param request StartAggregateRemediationRequest
-   * @return StartAggregateRemediationResponse
+   * Performs a remediation operation by using a rule in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
+   * 
+   * @param request - StartAggregateRemediationRequest
+   * @returns StartAggregateRemediationResponse
    */
   async startAggregateRemediation(request: StartAggregateRemediationRequest): Promise<StartAggregateRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25413,13 +41632,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Re-evaluates the compliance of resources based on a rule or compliance package.
-   *
-   * @description In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
-   *
-   * @param request StartConfigRuleEvaluationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartConfigRuleEvaluationResponse
+   * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package.
+   * 
+   * @remarks
+   * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+   * 
+   * @param request - StartConfigRuleEvaluationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartConfigRuleEvaluationResponse
    */
   async startConfigRuleEvaluationWithOptions(request: StartConfigRuleEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigRuleEvaluationResponse> {
     Util.validateModel(request);
@@ -25454,12 +41674,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Re-evaluates the compliance of resources based on a rule or compliance package.
-   *
-   * @description In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
-   *
-   * @param request StartConfigRuleEvaluationRequest
-   * @return StartConfigRuleEvaluationResponse
+   * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package.
+   * 
+   * @remarks
+   * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+   * 
+   * @param request - StartConfigRuleEvaluationRequest
+   * @returns StartConfigRuleEvaluationResponse
    */
   async startConfigRuleEvaluation(request: StartConfigRuleEvaluationRequest): Promise<StartConfigRuleEvaluationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25467,13 +41688,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
-   *
-   * @description This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
-   *
-   * @param request StartConfigurationRecorderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartConfigurationRecorderResponse
+   * Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
+   * 
+   * @remarks
+   * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+   * 
+   * @param request - StartConfigurationRecorderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartConfigurationRecorderResponse
    */
   async startConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<StartConfigurationRecorderResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -25492,11 +41714,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
-   *
-   * @description This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
-   *
-   * @return StartConfigurationRecorderResponse
+   * Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
+   * 
+   * @remarks
+   * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+   * @returns StartConfigurationRecorderResponse
    */
   async startConfigurationRecorder(): Promise<StartConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25504,13 +41726,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a remediation operation by using a rule.
-   *
-   * @description This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
-   *
-   * @param request StartRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartRemediationResponse
+   * Performs a remediation operation by using a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
+   * 
+   * @param request - StartRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRemediationResponse
    */
   async startRemediationWithOptions(request: StartRemediationRequest, runtime: $Util.RuntimeOptions): Promise<StartRemediationResponse> {
     Util.validateModel(request);
@@ -25537,12 +41760,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a remediation operation by using a rule.
-   *
-   * @description This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
-   *
-   * @param request StartRemediationRequest
-   * @return StartRemediationResponse
+   * Performs a remediation operation by using a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
+   * 
+   * @param request - StartRemediationRequest
+   * @returns StartRemediationResponse
    */
   async startRemediation(request: StartRemediationRequest): Promise<StartRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25550,11 +41774,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deactivates Cloud Config.
-   *
-   * @param request StopConfigurationRecorderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopConfigurationRecorderResponse
+   * Deactivates Cloud Config.
+   * 
+   * @remarks
+   * >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
+   * 
+   * @param request - StopConfigurationRecorderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopConfigurationRecorderResponse
    */
   async stopConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<StopConfigurationRecorderResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -25573,9 +41800,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deactivates Cloud Config.
-   *
-   * @return StopConfigurationRecorderResponse
+   * Deactivates Cloud Config.
+   * 
+   * @remarks
+   * >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
+   * @returns StopConfigurationRecorderResponse
    */
   async stopConfigurationRecorder(): Promise<StopConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25583,11 +41812,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to resources.
-   *
-   * @param tmpReq TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Adds tags to resources.
+   * 
+   * @param tmpReq - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(tmpReq: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -25632,10 +41861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to resources.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Adds tags to resources.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25643,11 +41872,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from specified resources.
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Removes tags from specified resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -25690,10 +41919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from specified resources.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Removes tags from specified resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25701,13 +41930,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a compliance package in an account group.
-   *
-   * @description This topic provides an example on how to change the value of a parameter for a managed rule whose ID is `eip-bandwidth-limit` to `20`. The managed rule is included in the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-   *
-   * @param tmpReq UpdateAggregateCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAggregateCompliancePackResponse
+   * Modifies the configurations of a compliance package in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
+   * 
+   * @param tmpReq - UpdateAggregateCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAggregateCompliancePackResponse
    */
   async updateAggregateCompliancePackWithOptions(tmpReq: UpdateAggregateCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAggregateCompliancePackResponse> {
     Util.validateModel(tmpReq);
@@ -25809,12 +42039,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a compliance package in an account group.
-   *
-   * @description This topic provides an example on how to change the value of a parameter for a managed rule whose ID is `eip-bandwidth-limit` to `20`. The managed rule is included in the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-   *
-   * @param request UpdateAggregateCompliancePackRequest
-   * @return UpdateAggregateCompliancePackResponse
+   * Modifies the configurations of a compliance package in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
+   * 
+   * @param request - UpdateAggregateCompliancePackRequest
+   * @returns UpdateAggregateCompliancePackResponse
    */
   async updateAggregateCompliancePack(request: UpdateAggregateCompliancePackRequest): Promise<UpdateAggregateCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25822,13 +42053,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a delivery channel in an account group.
-   *
-   * @description This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
-   *
-   * @param request UpdateAggregateConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAggregateConfigDeliveryChannelResponse
+   * Modifies a delivery channel in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+   * 
+   * @param request - UpdateAggregateConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAggregateConfigDeliveryChannelResponse
    */
   async updateAggregateConfigDeliveryChannelWithOptions(request: UpdateAggregateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAggregateConfigDeliveryChannelResponse> {
     Util.validateModel(request);
@@ -25839,6 +42071,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.compliantSnapshot)) {
+      query["CompliantSnapshot"] = request.compliantSnapshot;
     }
 
     if (!Util.isUnset(request.configurationItemChangeNotification)) {
@@ -25903,12 +42139,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a delivery channel in an account group.
-   *
-   * @description This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
-   *
-   * @param request UpdateAggregateConfigDeliveryChannelRequest
-   * @return UpdateAggregateConfigDeliveryChannelResponse
+   * Modifies a delivery channel in an account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+   * 
+   * @param request - UpdateAggregateConfigDeliveryChannelRequest
+   * @returns UpdateAggregateConfigDeliveryChannelResponse
    */
   async updateAggregateConfigDeliveryChannel(request: UpdateAggregateConfigDeliveryChannelRequest): Promise<UpdateAggregateConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25916,13 +42153,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a rule in an account group.
-   *
-   * @description The sample request in this topic shows you how to change the risk level specified for the `cr-4e3d626622af0080****` managed rule to `3`, which indicates low risk level, in the `ca-a4e5626622af0079****` account group.
-   *
-   * @param tmpReq UpdateAggregateConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAggregateConfigRuleResponse
+   * Modifies the description, input parameters, and risk level of a rule in a specific account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
+   * 
+   * @param tmpReq - UpdateAggregateConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAggregateConfigRuleResponse
    */
   async updateAggregateConfigRuleWithOptions(tmpReq: UpdateAggregateConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAggregateConfigRuleResponse> {
     Util.validateModel(tmpReq);
@@ -26060,12 +42298,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a rule in an account group.
-   *
-   * @description The sample request in this topic shows you how to change the risk level specified for the `cr-4e3d626622af0080****` managed rule to `3`, which indicates low risk level, in the `ca-a4e5626622af0079****` account group.
-   *
-   * @param request UpdateAggregateConfigRuleRequest
-   * @return UpdateAggregateConfigRuleResponse
+   * Modifies the description, input parameters, and risk level of a rule in a specific account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
+   * 
+   * @param request - UpdateAggregateConfigRuleRequest
+   * @returns UpdateAggregateConfigRuleResponse
    */
   async updateAggregateConfigRule(request: UpdateAggregateConfigRuleRequest): Promise<UpdateAggregateConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26073,13 +42312,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a remediation template for a rule in an account group.
-   *
-   * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-   *
-   * @param request UpdateAggregateRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAggregateRemediationResponse
+   * Modifies a remediation template for a rule in an account group.
+   * 
+   * @remarks
+   * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+   * 
+   * @param request - UpdateAggregateRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAggregateRemediationResponse
    */
   async updateAggregateRemediationWithOptions(request: UpdateAggregateRemediationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAggregateRemediationResponse> {
     Util.validateModel(request);
@@ -26130,12 +42370,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a remediation template for a rule in an account group.
-   *
-   * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-   *
-   * @param request UpdateAggregateRemediationRequest
-   * @return UpdateAggregateRemediationResponse
+   * Modifies a remediation template for a rule in an account group.
+   * 
+   * @remarks
+   * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+   * 
+   * @param request - UpdateAggregateRemediationRequest
+   * @returns UpdateAggregateRemediationResponse
    */
   async updateAggregateRemediation(request: UpdateAggregateRemediationRequest): Promise<UpdateAggregateRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26143,13 +42384,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modify an account group
-   *
-   * @description The sample request in this topic shows you how to add a member account to the account group whose ID is `ca-dacf86d8314e00eb****`. The member account ID is `173808452267****` and the member account name is `Tony`. The member account belongs to `ResourceDirectory`.
-   *
-   * @param tmpReq UpdateAggregatorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAggregatorResponse
+   * The management account or delegated administrator account of a resource directory can be used to modify the name and description of an account group. The management account or delegated administrator account can also be used to add or remove members from the account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
+   * 
+   * @param tmpReq - UpdateAggregatorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAggregatorResponse
    */
   async updateAggregatorWithOptions(tmpReq: UpdateAggregatorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAggregatorResponse> {
     Util.validateModel(tmpReq);
@@ -26198,12 +42440,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modify an account group
-   *
-   * @description The sample request in this topic shows you how to add a member account to the account group whose ID is `ca-dacf86d8314e00eb****`. The member account ID is `173808452267****` and the member account name is `Tony`. The member account belongs to `ResourceDirectory`.
-   *
-   * @param request UpdateAggregatorRequest
-   * @return UpdateAggregatorResponse
+   * The management account or delegated administrator account of a resource directory can be used to modify the name and description of an account group. The management account or delegated administrator account can also be used to add or remove members from the account group.
+   * 
+   * @remarks
+   * This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
+   * 
+   * @param request - UpdateAggregatorRequest
+   * @returns UpdateAggregatorResponse
    */
   async updateAggregator(request: UpdateAggregatorRequest): Promise<UpdateAggregatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26211,13 +42454,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a compliance package within your account.
-   *
-   * @description This topic provides an example on how to change the value of a parameter for a managed rule whose ID is `eip-bandwidth-limit` to `20`. The managed rule is included in the `cp-a8a8626622af0082****` compliance package.
-   *
-   * @param tmpReq UpdateCompliancePackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCompliancePackResponse
+   * Modifies the configurations of a specific compliance package in the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
+   * 
+   * @param tmpReq - UpdateCompliancePackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCompliancePackResponse
    */
   async updateCompliancePackWithOptions(tmpReq: UpdateCompliancePackRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCompliancePackResponse> {
     Util.validateModel(tmpReq);
@@ -26315,12 +42559,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a compliance package within your account.
-   *
-   * @description This topic provides an example on how to change the value of a parameter for a managed rule whose ID is `eip-bandwidth-limit` to `20`. The managed rule is included in the `cp-a8a8626622af0082****` compliance package.
-   *
-   * @param request UpdateCompliancePackRequest
-   * @return UpdateCompliancePackResponse
+   * Modifies the configurations of a specific compliance package in the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
+   * 
+   * @param request - UpdateCompliancePackRequest
+   * @returns UpdateCompliancePackResponse
    */
   async updateCompliancePack(request: UpdateCompliancePackRequest): Promise<UpdateCompliancePackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26328,19 +42573,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a delivery channel.
-   *
-   * @description In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
-   *
-   * @param request UpdateConfigDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateConfigDeliveryChannelResponse
+   * Modifies a delivery channel.
+   * 
+   * @remarks
+   * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
+   * 
+   * @param request - UpdateConfigDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigDeliveryChannelResponse
    */
   async updateConfigDeliveryChannelWithOptions(request: UpdateConfigDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigDeliveryChannelResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.compliantSnapshot)) {
+      query["CompliantSnapshot"] = request.compliantSnapshot;
     }
 
     if (!Util.isUnset(request.configurationItemChangeNotification)) {
@@ -26405,12 +42655,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a delivery channel.
-   *
-   * @description In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
-   *
-   * @param request UpdateConfigDeliveryChannelRequest
-   * @return UpdateConfigDeliveryChannelResponse
+   * Modifies a delivery channel.
+   * 
+   * @remarks
+   * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
+   * 
+   * @param request - UpdateConfigDeliveryChannelRequest
+   * @returns UpdateConfigDeliveryChannelResponse
    */
   async updateConfigDeliveryChannel(request: UpdateConfigDeliveryChannelRequest): Promise<UpdateConfigDeliveryChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26418,13 +42669,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the rules of an account.
-   *
-   * @description This topic provides an example on how to change the risk level of a managed rule whose ID is `cr-a260626622af0005****` to `3` (low risk level).
-   *
-   * @param tmpReq UpdateConfigRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateConfigRuleResponse
+   * Modifies the description, input parameters, and risk level of a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
+   * 
+   * @param tmpReq - UpdateConfigRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigRuleResponse
    */
   async updateConfigRuleWithOptions(tmpReq: UpdateConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigRuleResponse> {
     Util.validateModel(tmpReq);
@@ -26542,12 +42794,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the rules of an account.
-   *
-   * @description This topic provides an example on how to change the risk level of a managed rule whose ID is `cr-a260626622af0005****` to `3` (low risk level).
-   *
-   * @param request UpdateConfigRuleRequest
-   * @return UpdateConfigRuleResponse
+   * Modifies the description, input parameters, and risk level of a rule.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
+   * 
+   * @param request - UpdateConfigRuleRequest
+   * @returns UpdateConfigRuleResponse
    */
   async updateConfigRule(request: UpdateConfigRuleRequest): Promise<UpdateConfigRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26555,13 +42808,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the resource monitoring scope of the current account.
-   *
-   * @description This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
-   *
-   * @param request UpdateConfigurationRecorderRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateConfigurationRecorderResponse
+   * Modifies the resource monitoring scope of the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+   * 
+   * @param request - UpdateConfigurationRecorderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigurationRecorderResponse
    */
   async updateConfigurationRecorderWithOptions(request: UpdateConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigurationRecorderResponse> {
     Util.validateModel(request);
@@ -26588,12 +42842,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the resource monitoring scope of the current account.
-   *
-   * @description This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
-   *
-   * @param request UpdateConfigurationRecorderRequest
-   * @return UpdateConfigurationRecorderResponse
+   * Modifies the resource monitoring scope of the current account.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+   * 
+   * @param request - UpdateConfigurationRecorderRequest
+   * @returns UpdateConfigurationRecorderResponse
    */
   async updateConfigurationRecorder(request: UpdateConfigurationRecorderRequest): Promise<UpdateConfigurationRecorderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26601,15 +42856,16 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a delivery channel.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+   * 
    * @deprecated OpenAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-   *
-   * @summary Modifies a delivery channel.
-   *
-   * @description This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-   *
-   * @param request UpdateDeliveryChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDeliveryChannelResponse
+   * 
+   * @param request - UpdateDeliveryChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeliveryChannelResponse
    */
   // Deprecated
   async updateDeliveryChannelWithOptions(request: UpdateDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeliveryChannelResponse> {
@@ -26681,14 +42937,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a delivery channel.
+   * 
+   * @remarks
+   * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+   * 
    * @deprecated OpenAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-   *
-   * @summary Modifies a delivery channel.
-   *
-   * @description This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-   *
-   * @param request UpdateDeliveryChannelRequest
-   * @return UpdateDeliveryChannelResponse
+   * 
+   * @param request - UpdateDeliveryChannelRequest
+   * @returns UpdateDeliveryChannelResponse
    */
   // Deprecated
   async updateDeliveryChannel(request: UpdateDeliveryChannelRequest): Promise<UpdateDeliveryChannelResponse> {
@@ -26697,11 +42954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the integration of a cloud service.
-   *
-   * @param request UpdateIntegratedServiceStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIntegratedServiceStatusResponse
+   * Enables or disables the integration of a cloud service.
+   * 
+   * @param request - UpdateIntegratedServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIntegratedServiceStatusResponse
    */
   async updateIntegratedServiceStatusWithOptions(request: UpdateIntegratedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntegratedServiceStatusResponse> {
     Util.validateModel(request);
@@ -26736,10 +42993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the integration of a cloud service.
-   *
-   * @param request UpdateIntegratedServiceStatusRequest
-   * @return UpdateIntegratedServiceStatusResponse
+   * Enables or disables the integration of a cloud service.
+   * 
+   * @param request - UpdateIntegratedServiceStatusRequest
+   * @returns UpdateIntegratedServiceStatusResponse
    */
   async updateIntegratedServiceStatus(request: UpdateIntegratedServiceStatusRequest): Promise<UpdateIntegratedServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26747,13 +43004,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a remediation template for a rule.
-   *
-   * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-   *
-   * @param request UpdateRemediationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRemediationResponse
+   * Updates a remediation template for a rule.
+   * 
+   * @remarks
+   * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+   * 
+   * @param request - UpdateRemediationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRemediationResponse
    */
   async updateRemediationWithOptions(request: UpdateRemediationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRemediationResponse> {
     Util.validateModel(request);
@@ -26804,12 +43062,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a remediation template for a rule.
-   *
-   * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-   *
-   * @param request UpdateRemediationRequest
-   * @return UpdateRemediationResponse
+   * Updates a remediation template for a rule.
+   * 
+   * @remarks
+   * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+   * 
+   * @param request - UpdateRemediationRequest
+   * @returns UpdateRemediationResponse
    */
   async updateRemediation(request: UpdateRemediationRequest): Promise<UpdateRemediationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
