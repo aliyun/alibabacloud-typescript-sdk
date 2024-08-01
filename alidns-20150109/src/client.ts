@@ -642,7 +642,7 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
    * @remarks
    * The extended information. The required parameters vary based on the value of ProtocolType.
    * 
-   * *   When ProtocolType is set to HTTP or HTTPS:
+   * *   HTTP or HTTPS
    * 
    *     *   port: the port that you want to check
    * 
@@ -650,7 +650,7 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
    * 
    *     *   path: the URL path
    * 
-   *     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value.
+   *     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value. Values: 400, 500.
    * 
    *     *   failureRate: the failure rate
    * 
@@ -664,7 +664,7 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   When ProtocolType is set to PING:
+   * *   PING
    * 
    *     *   failureRate: the failure rate
    * 
@@ -677,7 +677,7 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
    *         *   IPV4
    *         *   IPV6
    * 
-   * *   When ProtocolType is set to TCP:
+   * *   TCP
    * 
    *     *   port: the port that you want to check
    * 
@@ -800,7 +800,7 @@ export class AddDnsGtmAddressPoolResponseBody extends $tea.Model {
   addrPoolId?: string;
   /**
    * @remarks
-   * The ID of the health check task.
+   * The ID of the health check configuration.
    * 
    * @example
    * test1
@@ -3774,11 +3774,13 @@ export class CreatePdnsAppKeyResponse extends $tea.Model {
 
 export class CreatePdnsUdpIpSegmentRequest extends $tea.Model {
   ip?: string;
+  ipToken?: string;
   lang?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       ip: 'Ip',
+      ipToken: 'IpToken',
       lang: 'Lang',
       name: 'Name',
     };
@@ -3787,6 +3789,7 @@ export class CreatePdnsUdpIpSegmentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ip: 'string',
+      ipToken: 'string',
       lang: 'string',
       name: 'string',
     };
@@ -29565,10 +29568,12 @@ export class ValidateDnsGtmCnameRrCanUseResponse extends $tea.Model {
 
 export class ValidatePdnsUdpIpSegmentRequest extends $tea.Model {
   ip?: string;
+  ipToken?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
       ip: 'Ip',
+      ipToken: 'IpToken',
       lang: 'Lang',
     };
   }
@@ -29576,6 +29581,7 @@ export class ValidatePdnsUdpIpSegmentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ip: 'string',
+      ipToken: 'string',
       lang: 'string',
     };
   }
@@ -29792,7 +29798,7 @@ export class AddDnsGtmAddressPoolRequestAddr extends $tea.Model {
    * @remarks
    * The information about the source region of the address. The value of this parameter is a JSON string. Valid values:
    * 
-   * *   LineCode: the line code of the source region for the address
+   * *   lineCode: the line code of the source region for the address
    * 
    * *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
    * 
@@ -29808,7 +29814,7 @@ export class AddDnsGtmAddressPoolRequestAddr extends $tea.Model {
   attributeInfo?: string;
   /**
    * @remarks
-   * The weight of the address pool.
+   * The weight of the address.
    * 
    * @example
    * 1
@@ -29830,7 +29836,7 @@ export class AddDnsGtmAddressPoolRequestAddr extends $tea.Model {
   mode?: string;
   /**
    * @remarks
-   * The remarks.
+   * The description of the address pool.
    * 
    * @example
    * test
@@ -45249,6 +45255,10 @@ export default class Client extends OpenApi {
       query["Ip"] = request.ip;
     }
 
+    if (!Util.isUnset(request.ipToken)) {
+      query["IpToken"] = request.ipToken;
+    }
+
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -55602,6 +55612,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.ip)) {
       query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.ipToken)) {
+      query["IpToken"] = request.ipToken;
     }
 
     if (!Util.isUnset(request.lang)) {
