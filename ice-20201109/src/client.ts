@@ -10207,6 +10207,163 @@ export class ListDynamicImageJobsResponse extends $tea.Model {
   }
 }
 
+export class ListEditingProjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * OpenAPI
+   */
+  createSource?: string;
+  /**
+   * @example
+   * 2022-02-02T23:59:59Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * ******6f36bc45d09a9d5cde49******
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: string;
+  /**
+   * @example
+   * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * EditingProject
+   */
+  projectType?: string;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 2017-12-21T08:00:01Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Produced
+   */
+  status?: string;
+  /**
+   * @example
+   * None
+   */
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createSource: 'CreateSource',
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectType: 'ProjectType',
+      sortBy: 'SortBy',
+      startTime: 'StartTime',
+      status: 'Status',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createSource: 'string',
+      endTime: 'string',
+      keyword: 'string',
+      maxResults: 'string',
+      nextToken: 'string',
+      projectType: 'string',
+      sortBy: 'string',
+      startTime: 'string',
+      status: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEditingProjectsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Nzv3rcKla9wHUGua9YXHNA==
+   */
+  nextToken?: string;
+  projectList?: ListEditingProjectsResponseBodyProjectList[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectList: 'ProjectList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      projectList: { 'type': 'array', 'itemType': ListEditingProjectsResponseBodyProjectList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEditingProjectsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEditingProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEditingProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLiveRecordFilesRequest extends $tea.Model {
   /**
    * @example
@@ -33536,6 +33693,119 @@ export class ListDynamicImageJobsResponseBodyJobs extends $tea.Model {
   }
 }
 
+export class ListEditingProjectsResponseBodyProjectList extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  businessConfig?: string;
+  /**
+   * @example
+   * {}
+   */
+  businessStatus?: string;
+  /**
+   * @example
+   * https://xxx.com/cover/xxx.jpg
+   */
+  coverURL?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
+  createSource?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
+  createTime?: string;
+  description?: string;
+  /**
+   * @example
+   * InvalidParameter
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
+  modifiedSource?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
+  modifiedTime?: string;
+  /**
+   * @example
+   * ****fddd7748b58bf1d47e95****
+   */
+  projectId?: string;
+  /**
+   * @example
+   * EditingProject
+   */
+  projectType?: string;
+  /**
+   * @example
+   * Produced
+   */
+  status?: string;
+  /**
+   * @example
+   * Timeline
+   */
+  templateType?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessConfig: 'BusinessConfig',
+      businessStatus: 'BusinessStatus',
+      coverURL: 'CoverURL',
+      createSource: 'CreateSource',
+      createTime: 'CreateTime',
+      description: 'Description',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      modifiedSource: 'ModifiedSource',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      projectType: 'ProjectType',
+      status: 'Status',
+      templateType: 'TemplateType',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessConfig: 'string',
+      businessStatus: 'string',
+      coverURL: 'string',
+      createSource: 'string',
+      createTime: 'string',
+      description: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      modifiedSource: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      projectType: 'string',
+      status: 'string',
+      templateType: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLiveRecordFilesResponseBodyFiles extends $tea.Model {
   /**
    * @example
@@ -53317,6 +53587,84 @@ export default class Client extends OpenApi {
   async listDynamicImageJobs(request: ListDynamicImageJobsRequest): Promise<ListDynamicImageJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDynamicImageJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取云剪辑工程列表
+   * 
+   * @param request - ListEditingProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEditingProjectsResponse
+   */
+  async listEditingProjectsWithOptions(request: ListEditingProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListEditingProjectsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createSource)) {
+      query["CreateSource"] = request.createSource;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectType)) {
+      query["ProjectType"] = request.projectType;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEditingProjects",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEditingProjectsResponse>(await this.callApi(params, req, runtime), new ListEditingProjectsResponse({}));
+  }
+
+  /**
+   * 获取云剪辑工程列表
+   * 
+   * @param request - ListEditingProjectsRequest
+   * @returns ListEditingProjectsResponse
+   */
+  async listEditingProjects(request: ListEditingProjectsRequest): Promise<ListEditingProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEditingProjectsWithOptions(request, runtime);
   }
 
   /**
