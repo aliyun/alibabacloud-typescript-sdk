@@ -11752,6 +11752,117 @@ export class ExternalUserDeleteResponse extends $tea.Model {
   }
 }
 
+export class ExternalUserQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  module?: ExternalUserQueryResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210e847f16611516748613869de4f6
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      module: ExternalUserQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExternalUserQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExternalUserQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExternalUserUpdateHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -39620,6 +39731,7 @@ export class ApplyAddRequestDefaultStandard extends $tea.Model {
 export class ApplyAddRequestExternalTravelerList extends $tea.Model {
   attribute?: string;
   costCenterId?: number;
+  externalUserId?: string;
   invoiceId?: number;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
@@ -39634,6 +39746,7 @@ export class ApplyAddRequestExternalTravelerList extends $tea.Model {
     return {
       attribute: 'attribute',
       costCenterId: 'cost_center_id',
+      externalUserId: 'external_user_id',
       invoiceId: 'invoice_id',
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
@@ -39651,6 +39764,7 @@ export class ApplyAddRequestExternalTravelerList extends $tea.Model {
     return {
       attribute: 'string',
       costCenterId: 'number',
+      externalUserId: 'string',
       invoiceId: 'number',
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
@@ -40557,6 +40671,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
    * 100
    */
   vehicleInvoiceFee?: string;
+  vehicleNormalInvoiceFee?: string;
   static names(): { [key: string]: string } {
     return {
       contact: 'contact',
@@ -40581,6 +40696,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
+      vehicleNormalInvoiceFee: 'vehicle_normal_invoice_fee',
     };
   }
 
@@ -40608,6 +40724,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
+      vehicleNormalInvoiceFee: 'string',
     };
   }
 
@@ -40695,6 +40812,7 @@ export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $t
   attribute?: string;
   costCenterName?: string;
   departId?: string;
+  externalUserId?: string;
   invoiceName?: string;
   paymentDepartmentName?: string;
   projectCode?: string;
@@ -40706,6 +40824,7 @@ export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $t
       attribute: 'attribute',
       costCenterName: 'cost_center_name',
       departId: 'depart_id',
+      externalUserId: 'external_user_id',
       invoiceName: 'invoice_name',
       paymentDepartmentName: 'payment_department_name',
       projectCode: 'project_code',
@@ -40720,6 +40839,7 @@ export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $t
       attribute: 'string',
       costCenterName: 'string',
       departId: 'string',
+      externalUserId: 'string',
       invoiceName: 'string',
       paymentDepartmentName: 'string',
       projectCode: 'string',
@@ -41276,6 +41396,7 @@ export class ApplyModifyRequestDefaultStandard extends $tea.Model {
 export class ApplyModifyRequestExternalTravelerList extends $tea.Model {
   attribute?: string;
   costCenterId?: number;
+  externalUserId?: string;
   invoiceId?: number;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
@@ -41290,6 +41411,7 @@ export class ApplyModifyRequestExternalTravelerList extends $tea.Model {
     return {
       attribute: 'attribute',
       costCenterId: 'cost_center_id',
+      externalUserId: 'external_user_id',
       invoiceId: 'invoice_id',
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
@@ -41307,6 +41429,7 @@ export class ApplyModifyRequestExternalTravelerList extends $tea.Model {
     return {
       attribute: 'string',
       costCenterId: 'number',
+      externalUserId: 'string',
       invoiceId: 'number',
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
@@ -42223,6 +42346,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
    * 1
    */
   economyDiscount?: number;
+  externalUserId?: string;
   /**
    * @example
    * 1
@@ -42271,6 +42395,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       costCenterName: 'cost_center_name',
       departId: 'depart_id',
       economyDiscount: 'economy_discount',
+      externalUserId: 'external_user_id',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       flightIntlRuleCode: 'flight_intl_rule_code',
@@ -42302,6 +42427,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       costCenterName: 'string',
       departId: 'string',
       economyDiscount: 'number',
+      externalUserId: 'string',
       firstDiscount: 'number',
       flightCabins: 'string',
       flightIntlRuleCode: 'number',
@@ -47097,6 +47223,84 @@ export class ExternalUserAddRequestCertRequestList extends $tea.Model {
       certNo: 'string',
       certType: 'number',
       nationality: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExternalUserQueryResponseBodyModule extends $tea.Model {
+  /**
+   * @example
+   * 2000-01-02
+   */
+  birthday?: string;
+  /**
+   * @example
+   * btrip123456
+   */
+  corpId?: string;
+  /**
+   * @example
+   * zhangsan@alibaba-inc.com
+   */
+  email?: string;
+  /**
+   * @example
+   * 000001
+   */
+  externalUserId?: string;
+  /**
+   * @example
+   * 13438009765
+   */
+  phone?: string;
+  realName?: string;
+  /**
+   * @example
+   * zhang/san
+   */
+  realNameEn?: string;
+  /**
+   * @example
+   * e1$12345678
+   */
+  userId?: string;
+  userNick?: string;
+  /**
+   * @example
+   * 1
+   */
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      corpId: 'corp_id',
+      email: 'email',
+      externalUserId: 'external_user_id',
+      phone: 'phone',
+      realName: 'real_name',
+      realNameEn: 'real_name_en',
+      userId: 'user_id',
+      userNick: 'user_nick',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      corpId: 'string',
+      email: 'string',
+      externalUserId: 'string',
+      phone: 'string',
+      realName: 'string',
+      realNameEn: 'string',
+      userId: 'string',
+      userNick: 'string',
+      userType: 'number',
     };
   }
 
@@ -89952,6 +90156,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
    * 100
    */
   vehicleInvoiceFee?: string;
+  vehicleNormalInvoiceFee?: string;
   static names(): { [key: string]: string } {
     return {
       contact: 'contact',
@@ -89976,6 +90181,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
+      vehicleNormalInvoiceFee: 'vehicle_normal_invoice_fee',
     };
   }
 
@@ -90003,6 +90209,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
+      vehicleNormalInvoiceFee: 'string',
     };
   }
 
@@ -93910,6 +94117,50 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ExternalUserDeleteHeaders({ });
     return await this.externalUserDeleteWithOptions(externalUserId, headers, runtime);
+  }
+
+  /**
+   * 查询外部出行人
+   * 
+   * @param headers - ExternalUserQueryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExternalUserQueryResponse
+   */
+  async externalUserQueryWithOptions(externalUserId: string, headers: ExternalUserQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ExternalUserQueryResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ExternalUserQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/user/v1/externalUsers/${OpenApiUtil.getEncodeParam(externalUserId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExternalUserQueryResponse>(await this.callApi(params, req, runtime), new ExternalUserQueryResponse({}));
+  }
+
+  /**
+   * 查询外部出行人
+   * @returns ExternalUserQueryResponse
+   */
+  async externalUserQuery(externalUserId: string): Promise<ExternalUserQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExternalUserQueryHeaders({ });
+    return await this.externalUserQueryWithOptions(externalUserId, headers, runtime);
   }
 
   /**
