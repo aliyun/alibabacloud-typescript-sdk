@@ -1815,6 +1815,128 @@ export class ListChunksResponse extends $tea.Model {
   }
 }
 
+export class ListFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
+   */
+  categoryId?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAdH70eOCSCKtacdomNzak4U=
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  code?: string;
+  data?: ListFileResponseBodyData;
+  /**
+   * @example
+   * Requests throttling triggered.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8F97A63B-55F1-527F-9D6E-467B6A7E8CF1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListFileResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIndexDocumentsRequest extends $tea.Model {
   documentName?: string;
   /**
@@ -3764,6 +3886,125 @@ export class ListChunksResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListFileResponseBodyDataFileList extends $tea.Model {
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
+   */
+  categoryId?: string;
+  /**
+   * @example
+   * 2023-08-18 11:03:35
+   */
+  createTime?: string;
+  /**
+   * @example
+   * file_5ff599b3455a45db8c41b0054b361518_10098576
+   */
+  fileId?: string;
+  /**
+   * @example
+   * auto-test-1721096109278.pdf
+   */
+  fileName?: string;
+  /**
+   * @example
+   * docx
+   */
+  fileType?: string;
+  /**
+   * @example
+   * DASHSCOPE_DOCMIND
+   */
+  parser?: string;
+  /**
+   * @example
+   * 512
+   */
+  sizeInBytes?: number;
+  /**
+   * @example
+   * 200
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      createTime: 'CreateTime',
+      fileId: 'FileId',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      parser: 'Parser',
+      sizeInBytes: 'SizeInBytes',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      createTime: 'string',
+      fileId: 'string',
+      fileName: 'string',
+      fileType: 'string',
+      parser: 'string',
+      sizeInBytes: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileResponseBodyData extends $tea.Model {
+  fileList?: ListFileResponseBodyDataFileList[];
+  /**
+   * @example
+   * true
+   */
+  hasNext?: boolean;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 4jzbJk9J6lNeuXD9hP0viA==
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 48
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileList: 'FileList',
+      hasNext: 'HasNext',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileList: { 'type': 'array', 'itemType': ListFileResponseBodyDataFileList },
+      hasNext: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
   /**
    * @example
@@ -5429,6 +5670,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listChunksWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取文档列表
+   * 
+   * @param request - ListFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileResponse
+   */
+  async listFileWithOptions(WorkspaceId: string, request: ListFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFile",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/datacenter/files`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFileResponse>(await this.callApi(params, req, runtime), new ListFileResponse({}));
+  }
+
+  /**
+   * 获取文档列表
+   * 
+   * @param request - ListFileRequest
+   * @returns ListFileResponse
+   */
+  async listFile(WorkspaceId: string, request: ListFileRequest): Promise<ListFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFileWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
