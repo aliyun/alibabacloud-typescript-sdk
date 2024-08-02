@@ -3910,15 +3910,18 @@ export class ListProjectsResponse extends $tea.Model {
 }
 
 export class ListRegionsRequest extends $tea.Model {
+  bizSource?: string;
   productType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizSource: 'BizSource',
       productType: 'ProductType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizSource: 'string',
       productType: 'string',
     };
   }
@@ -9392,8 +9395,9 @@ export default class Client extends OpenApi {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
+    let bodyFlat : {[key: string ]: any} = { };
     if (!Util.isUnset(request.authorizeUserIds)) {
-      body["AuthorizeUserIds"] = request.authorizeUserIds;
+      bodyFlat["AuthorizeUserIds"] = request.authorizeUserIds;
     }
 
     if (!Util.isUnset(request.productType)) {
@@ -9401,9 +9405,13 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(request.unAuthorizeUserIds)) {
-      body["UnAuthorizeUserIds"] = request.unAuthorizeUserIds;
+      bodyFlat["UnAuthorizeUserIds"] = request.unAuthorizeUserIds;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -10934,6 +10942,10 @@ export default class Client extends OpenApi {
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bizSource)) {
+      query["BizSource"] = request.bizSource;
+    }
+
     if (!Util.isUnset(request.productType)) {
       query["ProductType"] = request.productType;
     }
