@@ -9325,6 +9325,7 @@ export class UpgradePrePayOrderResponseBody extends $tea.Model {
    * operation success.
    */
   message?: string;
+  orderId?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -9345,6 +9346,7 @@ export class UpgradePrePayOrderResponseBody extends $tea.Model {
     return {
       code: 'Code',
       message: 'Message',
+      orderId: 'OrderId',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -9354,6 +9356,7 @@ export class UpgradePrePayOrderResponseBody extends $tea.Model {
     return {
       code: 'number',
       message: 'string',
+      orderId: 'string',
       requestId: 'string',
       success: 'boolean',
     };
