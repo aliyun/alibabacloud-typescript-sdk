@@ -3900,6 +3900,10 @@ export class CreateTriggerResponse extends $tea.Model {
 }
 
 export class DeleteAlertContactRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -3919,6 +3923,10 @@ export class DeleteAlertContactRequest extends $tea.Model {
 }
 
 export class DeleteAlertContactShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3940,7 +3948,7 @@ export class DeleteAlertContactShrinkRequest extends $tea.Model {
 export class DeleteAlertContactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: DeleteAlertContactResponseBody;
+  body?: DeleteAlertContactResponseBody[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3953,7 +3961,7 @@ export class DeleteAlertContactResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DeleteAlertContactResponseBody,
+      body: { 'type': 'array', 'itemType': DeleteAlertContactResponseBody },
     };
   }
 
@@ -3963,6 +3971,10 @@ export class DeleteAlertContactResponse extends $tea.Model {
 }
 
 export class DeleteAlertContactGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactGroupIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -3982,6 +3994,10 @@ export class DeleteAlertContactGroupRequest extends $tea.Model {
 }
 
 export class DeleteAlertContactGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactGroupIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13803,13 +13819,65 @@ export class UpdateClusterAuditLogConfigResponse extends $tea.Model {
   }
 }
 
+export class UpdateContactGroupForAlertRequest extends $tea.Model {
+  alertRuleGroupName?: string;
+  contactGroupIds?: number[];
+  crName?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertRuleGroupName: 'alert_rule_group_name',
+      contactGroupIds: 'contact_group_ids',
+      crName: 'cr_name',
+      namespace: 'namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertRuleGroupName: 'string',
+      contactGroupIds: { 'type': 'array', 'itemType': 'number' },
+      crName: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContactGroupForAlertResponseBody extends $tea.Model {
+  msg?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'msg',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateContactGroupForAlertResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  body?: UpdateContactGroupForAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -13817,6 +13885,7 @@ export class UpdateContactGroupForAlertResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: UpdateContactGroupForAlertResponseBody,
     };
   }
 
@@ -17051,7 +17120,7 @@ export class CreateClusterNodePoolRequestTeeConfig extends $tea.Model {
   }
 }
 
-export class DeleteAlertContactResponseBodyBody extends $tea.Model {
+export class DeleteAlertContactResponseBody extends $tea.Model {
   status?: boolean;
   msg?: string;
   contactId?: string;
@@ -17068,25 +17137,6 @@ export class DeleteAlertContactResponseBodyBody extends $tea.Model {
       status: 'boolean',
       msg: 'string',
       contactId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAlertContactResponseBody extends $tea.Model {
-  body?: DeleteAlertContactResponseBodyBody[];
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: { 'type': 'array', 'itemType': DeleteAlertContactResponseBodyBody },
     };
   }
 
@@ -28263,6 +28313,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除ACK报警联系人
+   * 
    * @param tmpReq - DeleteAlertContactRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28300,6 +28352,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除ACK报警联系人
+   * 
    * @param request - DeleteAlertContactRequest
    * @returns DeleteAlertContactResponse
    */
@@ -28310,6 +28364,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除ACK报警联系人分组
+   * 
    * @param tmpReq - DeleteAlertContactGroupRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28347,6 +28403,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除ACK报警联系人分组
+   * 
    * @param request - DeleteAlertContactGroupRequest
    * @returns DeleteAlertContactGroupResponse
    */
@@ -33689,13 +33747,35 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为集群中报警规则集设置订阅的通知对象联系人组
+   * 
+   * @param request - UpdateContactGroupForAlertRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateContactGroupForAlertResponse
    */
-  async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
+  async updateContactGroupForAlertWithOptions(ClusterId: string, request: UpdateContactGroupForAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertRuleGroupName)) {
+      body["alert_rule_group_name"] = request.alertRuleGroupName;
+    }
+
+    if (!Util.isUnset(request.contactGroupIds)) {
+      body["contact_group_ids"] = request.contactGroupIds;
+    }
+
+    if (!Util.isUnset(request.crName)) {
+      body["cr_name"] = request.crName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["namespace"] = request.namespace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateContactGroupForAlert",
@@ -33706,18 +33786,21 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<UpdateContactGroupForAlertResponse>(await this.callApi(params, req, runtime), new UpdateContactGroupForAlertResponse({}));
   }
 
   /**
+   * 为集群中报警规则集设置订阅的通知对象联系人组
+   * 
+   * @param request - UpdateContactGroupForAlertRequest
    * @returns UpdateContactGroupForAlertResponse
    */
-  async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
+  async updateContactGroupForAlert(ClusterId: string, request: UpdateContactGroupForAlertRequest): Promise<UpdateContactGroupForAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
+    return await this.updateContactGroupForAlertWithOptions(ClusterId, request, headers, runtime);
   }
 
   /**
