@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sls20201230",
-  "version": "5.2.2",
+  "version": "5.3.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.8",
-    "@alicloud/gateway-sls": "^0.0.9",
+    "@alicloud/gateway-sls": "^0.1.0",
     "@alicloud/openapi-client": "^0.4.10",
     "@alicloud/openapi-util": "^0.3.2"
   },

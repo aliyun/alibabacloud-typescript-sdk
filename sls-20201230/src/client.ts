@@ -405,6 +405,96 @@ export class ConditionConfiguration extends $tea.Model {
   }
 }
 
+export class ConsumeProcessor extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  configuration?: ConsumeProcessorConfiguration;
+  /**
+   * @example
+   * 1717171200
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 过滤content字段
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * consume-processor-1
+   */
+  processorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 字段过滤处理
+   */
+  processorName?: string;
+  /**
+   * @example
+   * 1717171200
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      createTime: 'createTime',
+      description: 'description',
+      processorId: 'processorId',
+      processorName: 'processorName',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: ConsumeProcessorConfiguration,
+      createTime: 'number',
+      description: 'string',
+      processorId: 'string',
+      processorName: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConsumeProcessorConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * * | project content
+   */
+  spl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spl: 'spl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConsumerGroup extends $tea.Model {
   /**
    * @example
@@ -812,6 +902,103 @@ export class Histogram extends $tea.Model {
       from: 'number',
       progress: 'string',
       to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IngestProcessor extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  configuration?: IngestProcessorConfiguration;
+  /**
+   * @example
+   * 1717171200
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 过滤content字段
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ingest-processor-1
+   */
+  processorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 字段过滤处理
+   */
+  processorName?: string;
+  /**
+   * @example
+   * 1717171200
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      createTime: 'createTime',
+      description: 'description',
+      processorId: 'processorId',
+      processorName: 'processorName',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: IngestProcessorConfiguration,
+      createTime: 'number',
+      description: 'string',
+      processorId: 'string',
+      processorName: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IngestProcessorConfiguration extends $tea.Model {
+  /**
+   * @example
+   * keep
+   */
+  parseFail?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * * | project content
+   */
+  spl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parseFail: 'parseFail',
+      spl: 'spl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parseFail: 'string',
+      spl: 'string',
     };
   }
 
@@ -2087,6 +2274,90 @@ export class PolicyConfiguration extends $tea.Model {
       actionPolicyId: 'string',
       alertPolicyId: 'string',
       repeatInterval: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProcessorAssociate extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ingest-processor-1
+   */
+  processorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processorId: 'processorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProjectSummary extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      description: 'description',
+      projectName: 'projectName',
+      region: 'region',
+      resourceGroupId: 'resourceGroupId',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      description: 'string',
+      projectName: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -4212,6 +4483,84 @@ export class CreateDomainResponse extends $tea.Model {
   }
 }
 
+export class CreateDownloadJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 下载配置
+   * 
+   * This parameter is required.
+   */
+  configuration?: CreateDownloadJobRequestConfiguration;
+  /**
+   * @remarks
+   * 任务描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 任务显示名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * download-123456789
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * download-123
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      description: 'description',
+      displayName: 'displayName',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: CreateDownloadJobRequestConfiguration,
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateETLRequest extends $tea.Model {
   /**
    * @remarks
@@ -5839,6 +6188,28 @@ export class DeleteDomainResponse extends $tea.Model {
   }
 }
 
+export class DeleteDownloadJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteETLResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -6971,6 +7342,111 @@ export class GetDashboardResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Dashboard,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 下载配置
+   */
+  configuration?: GetDownloadJobResponseBodyConfiguration;
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * @example
+   * 1722411060
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 任务描述
+   * 
+   * @example
+   * a download job
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 任务显示名称
+   * 
+   * @example
+   * download-123456
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * 任务执行细节
+   */
+  executionDetails?: GetDownloadJobResponseBodyExecutionDetails;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * download-123
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 代表资源状态的资源属性字段
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      createTime: 'createTime',
+      description: 'description',
+      displayName: 'displayName',
+      executionDetails: 'executionDetails',
+      name: 'name',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: GetDownloadJobResponseBodyConfiguration,
+      createTime: 'string',
+      description: 'string',
+      displayName: 'string',
+      executionDetails: GetDownloadJobResponseBodyExecutionDetails,
+      name: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDownloadJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDownloadJobResponseBody,
     };
   }
 
@@ -9117,6 +9593,101 @@ export class ListDomainsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * ali-test-logstore
+   */
+  logstore?: string;
+  /**
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  count?: number;
+  results?: ListDownloadJobsResponseBodyResults[];
+  /**
+   * @example
+   * 10
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      results: 'results',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      results: { 'type': 'array', 'itemType': ListDownloadJobsResponseBodyResults },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDownloadJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDownloadJobsResponseBody,
     };
   }
 
@@ -13631,6 +14202,176 @@ export class MachineGroupGroupAttribute extends $tea.Model {
   }
 }
 
+export class CreateDownloadJobRequestConfigurationSink extends $tea.Model {
+  /**
+   * @remarks
+   * 对象存储桶
+   * 
+   * @example
+   * oss-test-bucket
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * 压缩格式
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * none
+   */
+  compressionType?: string;
+  /**
+   * @remarks
+   * 下载文件格式
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * csv
+   */
+  contentType?: string;
+  /**
+   * @example
+   * download/
+   */
+  prefix?: string;
+  /**
+   * @remarks
+   * 下载使用roleArn
+   * 
+   * @example
+   * acs:ram::0123456789:role/aliyunlogdefaultrole
+   */
+  roleArn?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunOSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      compressionType: 'compressionType',
+      contentType: 'contentType',
+      prefix: 'prefix',
+      roleArn: 'roleArn',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      compressionType: 'string',
+      contentType: 'string',
+      prefix: 'string',
+      roleArn: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadJobRequestConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  allowInComplete?: boolean;
+  /**
+   * @remarks
+   * 起点时间戳（精确到秒）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1722406260
+   */
+  fromTime?: number;
+  /**
+   * @remarks
+   * 源logstore
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-logstore
+   */
+  logstore?: string;
+  /**
+   * @remarks
+   * 是否启用powerSql
+   * 
+   * @example
+   * true
+   */
+  powerSql?: boolean;
+  /**
+   * @remarks
+   * 查询语句
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * * | select *
+   */
+  query?: string;
+  /**
+   * @remarks
+   * 导出配置
+   * 
+   * This parameter is required.
+   */
+  sink?: CreateDownloadJobRequestConfigurationSink;
+  /**
+   * @remarks
+   * 结束时间戳（精确到秒）
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1722409860
+   */
+  toTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowInComplete: 'allowInComplete',
+      fromTime: 'fromTime',
+      logstore: 'logstore',
+      powerSql: 'powerSql',
+      query: 'query',
+      sink: 'sink',
+      toTime: 'toTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowInComplete: 'boolean',
+      fromTime: 'number',
+      logstore: 'string',
+      powerSql: 'boolean',
+      query: 'string',
+      sink: CreateDownloadJobRequestConfigurationSink,
+      toTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIndexRequestLine extends $tea.Model {
   /**
    * @remarks
@@ -14258,6 +14999,239 @@ export class GetCollectionPolicyResponseBodyCollectionPolicy extends $tea.Model 
       policyUid: 'string',
       productCode: 'string',
       resourceDirectory: GetCollectionPolicyResponseBodyCollectionPolicyResourceDirectory,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadJobResponseBodyConfigurationSink extends $tea.Model {
+  /**
+   * @remarks
+   * 对象存储桶
+   * 
+   * @example
+   * ali-test-oss-bucket
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * 压缩格式
+   * 
+   * @example
+   * none
+   */
+  compressionType?: string;
+  /**
+   * @remarks
+   * 下载文件格式
+   * 
+   * @example
+   * csv
+   */
+  contentType?: string;
+  /**
+   * @example
+   * download/
+   */
+  prefix?: string;
+  /**
+   * @remarks
+   * 下载使用roleArn
+   * 
+   * @example
+   * acs:ram::0123456789:role/aliyunlogdefaultrole
+   */
+  roleArn?: string;
+  /**
+   * @example
+   * AliyunOSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      compressionType: 'compressionType',
+      contentType: 'contentType',
+      prefix: 'prefix',
+      roleArn: 'roleArn',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      compressionType: 'string',
+      contentType: 'string',
+      prefix: 'string',
+      roleArn: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadJobResponseBodyConfiguration extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  allowInComplete?: boolean;
+  /**
+   * @remarks
+   * 起点时间戳（精确到秒）
+   * 
+   * @example
+   * 1722409860
+   */
+  fromTime?: number;
+  /**
+   * @remarks
+   * 源logstore
+   * 
+   * @example
+   * ali-test-logstore
+   */
+  logstore?: string;
+  /**
+   * @remarks
+   * 是否启用powerSql
+   * 
+   * @example
+   * false
+   */
+  powerSql?: boolean;
+  /**
+   * @remarks
+   * 查询语句
+   * 
+   * @example
+   * * | select *
+   */
+  query?: string;
+  /**
+   * @remarks
+   * 导出配置
+   */
+  sink?: GetDownloadJobResponseBodyConfigurationSink;
+  /**
+   * @remarks
+   * 结束时间戳（精确到秒）
+   * 
+   * @example
+   * 1722411060
+   */
+  toTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowInComplete: 'allowInComplete',
+      fromTime: 'fromTime',
+      logstore: 'logstore',
+      powerSql: 'powerSql',
+      query: 'query',
+      sink: 'sink',
+      toTime: 'toTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowInComplete: 'boolean',
+      fromTime: 'number',
+      logstore: 'string',
+      powerSql: 'boolean',
+      query: 'string',
+      sink: GetDownloadJobResponseBodyConfigurationSink,
+      toTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadJobResponseBodyExecutionDetails extends $tea.Model {
+  /**
+   * @example
+   * EXSFGSDASDASDG123ASD
+   */
+  checkSum?: string;
+  /**
+   * @remarks
+   * 下载错误信息
+   * 
+   * @example
+   * timeout
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * 下载执行时间
+   * 
+   * @example
+   * 123
+   */
+  executeTime?: number;
+  /**
+   * @remarks
+   * 下载结果链接
+   * 
+   * @example
+   * https://xxx.csv.zst?xxx
+   */
+  filePath?: string;
+  /**
+   * @remarks
+   * 下载文件大小
+   * 
+   * @example
+   * 123456
+   */
+  fileSize?: number;
+  /**
+   * @remarks
+   * 下载日志条数
+   * 
+   * @example
+   * 123
+   */
+  logCount?: number;
+  /**
+   * @remarks
+   * 下载进度
+   * 
+   * @example
+   * 100
+   */
+  progress?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkSum: 'checkSum',
+      errorMessage: 'errorMessage',
+      executeTime: 'executeTime',
+      filePath: 'filePath',
+      fileSize: 'fileSize',
+      logCount: 'logCount',
+      progress: 'progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkSum: 'string',
+      errorMessage: 'string',
+      executeTime: 'number',
+      filePath: 'string',
+      fileSize: 'number',
+      logCount: 'number',
+      progress: 'number',
     };
   }
 
@@ -14923,6 +15897,313 @@ export class ListDashboardResponseBodyDashboardItems extends $tea.Model {
     return {
       dashboardName: 'string',
       displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $tea.Model {
+  /**
+   * @remarks
+   * 对象存储桶
+   * 
+   * @example
+   * ali-test-oss-bucket
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * 压缩格式
+   * 
+   * @example
+   * none
+   */
+  compressionType?: string;
+  /**
+   * @remarks
+   * 下载文件格式
+   * 
+   * @example
+   * csv
+   */
+  contentType?: string;
+  /**
+   * @example
+   * download/
+   */
+  prefix?: string;
+  /**
+   * @remarks
+   * 下载使用roleArn
+   * 
+   * @example
+   * acs:ram::123456:role/aliyunlogimportossrole
+   */
+  roleArn?: string;
+  /**
+   * @example
+   * AliyunOSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      compressionType: 'compressionType',
+      contentType: 'contentType',
+      prefix: 'prefix',
+      roleArn: 'roleArn',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      compressionType: 'string',
+      contentType: 'string',
+      prefix: 'string',
+      roleArn: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsResponseBodyResultsConfiguration extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  allowInComplete?: string;
+  /**
+   * @remarks
+   * 起点时间戳（精确到秒）
+   * 
+   * @example
+   * 1722409260
+   */
+  fromTime?: number;
+  /**
+   * @remarks
+   * 源logstore
+   * 
+   * @example
+   * ali-test-logstore
+   */
+  logstore?: string;
+  /**
+   * @remarks
+   * 是否启用powerSql
+   * 
+   * @example
+   * true
+   */
+  powerSql?: boolean;
+  /**
+   * @remarks
+   * 查询语句
+   * 
+   * @example
+   * * | select *
+   */
+  query?: string;
+  /**
+   * @remarks
+   * 导出配置
+   */
+  sink?: ListDownloadJobsResponseBodyResultsConfigurationSink;
+  /**
+   * @remarks
+   * 结束时间戳（精确到秒）
+   * 
+   * @example
+   * 1722411060
+   */
+  toTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowInComplete: 'allowInComplete',
+      fromTime: 'fromTime',
+      logstore: 'logstore',
+      powerSql: 'powerSql',
+      query: 'query',
+      sink: 'sink',
+      toTime: 'toTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowInComplete: 'string',
+      fromTime: 'number',
+      logstore: 'string',
+      powerSql: 'boolean',
+      query: 'string',
+      sink: ListDownloadJobsResponseBodyResultsConfigurationSink,
+      toTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $tea.Model {
+  /**
+   * @example
+   * ETASFGASDASQWDasd
+   */
+  checkSum?: string;
+  /**
+   * @remarks
+   * 下载错误信息
+   * 
+   * @example
+   * timeout
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * 下载执行时间
+   * 
+   * @example
+   * 123
+   */
+  executeTime?: number;
+  /**
+   * @remarks
+   * 下载结果链接
+   * 
+   * @example
+   * https://sls-downloaded-xxxx.csv.gzip?Expiresxxx
+   */
+  filePath?: string;
+  /**
+   * @remarks
+   * 下载文件大小
+   * 
+   * @example
+   * 123456
+   */
+  fileSize?: number;
+  /**
+   * @remarks
+   * 下载日志条数
+   * 
+   * @example
+   * 123
+   */
+  logCount?: number;
+  /**
+   * @remarks
+   * 下载进度
+   * 
+   * @example
+   * 100
+   */
+  progress?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkSum: 'checkSum',
+      errorMessage: 'errorMessage',
+      executeTime: 'executeTime',
+      filePath: 'filePath',
+      fileSize: 'fileSize',
+      logCount: 'logCount',
+      progress: 'progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkSum: 'string',
+      errorMessage: 'string',
+      executeTime: 'number',
+      filePath: 'string',
+      fileSize: 'number',
+      logCount: 'number',
+      progress: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDownloadJobsResponseBodyResults extends $tea.Model {
+  /**
+   * @remarks
+   * 下载配置
+   */
+  configuration?: ListDownloadJobsResponseBodyResultsConfiguration;
+  /**
+   * @example
+   * 1722411060
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 任务描述
+   * 
+   * @example
+   * a download job
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 任务显示名称
+   * 
+   * @example
+   * download-123
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * 任务执行细节
+   */
+  executionDetails?: ListDownloadJobsResponseBodyResultsExecutionDetails;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * download-123
+   */
+  name?: string;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      createTime: 'createTime',
+      description: 'description',
+      displayName: 'displayName',
+      executionDetails: 'executionDetails',
+      name: 'name',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: ListDownloadJobsResponseBodyResultsConfiguration,
+      createTime: 'string',
+      description: 'string',
+      displayName: 'string',
+      executionDetails: ListDownloadJobsResponseBodyResultsExecutionDetails,
+      name: 'string',
+      status: 'string',
     };
   }
 
@@ -16224,6 +17505,66 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDomainWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * 创建下载任务
+   * 
+   * @param request - CreateDownloadJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDownloadJobResponse
+   */
+  async createDownloadJobWithOptions(project: string, request: CreateDownloadJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDownloadJobResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDownloadJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/downloadjobs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateDownloadJobResponse>(await this.execute(params, req, runtime), new CreateDownloadJobResponse({}));
+  }
+
+  /**
+   * 创建下载任务
+   * 
+   * @param request - CreateDownloadJobRequest
+   * @returns CreateDownloadJobResponse
+   */
+  async createDownloadJob(project: string, request: CreateDownloadJobRequest): Promise<CreateDownloadJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDownloadJobWithOptions(project, request, headers, runtime);
   }
 
   /**
@@ -17739,6 +19080,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除下载任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDownloadJobResponse
+   */
+  async deleteDownloadJobWithOptions(project: string, downloadJobName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDownloadJobResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDownloadJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/downloadjobs/${downloadJobName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteDownloadJobResponse>(await this.execute(params, req, runtime), new DeleteDownloadJobResponse({}));
+  }
+
+  /**
+   * 删除下载任务
+   * @returns DeleteDownloadJobResponse
+   */
+  async deleteDownloadJob(project: string, downloadJobName: string): Promise<DeleteDownloadJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDownloadJobWithOptions(project, downloadJobName, headers, runtime);
+  }
+
+  /**
    * 删除数据加工任务
    * 
    * @param headers - map
@@ -19134,6 +20513,44 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDashboardWithOptions(project, dashboardName, headers, runtime);
+  }
+
+  /**
+   * 获取下载任务信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDownloadJobResponse
+   */
+  async getDownloadJobWithOptions(project: string, downloadJobName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDownloadJobResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDownloadJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/downloadjobs/${downloadJobName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDownloadJobResponse>(await this.execute(params, req, runtime), new GetDownloadJobResponse({}));
+  }
+
+  /**
+   * 获取下载任务信息
+   * @returns GetDownloadJobResponse
+   */
+  async getDownloadJob(project: string, downloadJobName: string): Promise<GetDownloadJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDownloadJobWithOptions(project, downloadJobName, headers, runtime);
   }
 
   /**
@@ -20898,6 +22315,62 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDomainsWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * 列举下载任务
+   * 
+   * @param request - ListDownloadJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDownloadJobsResponse
+   */
+  async listDownloadJobsWithOptions(project: string, request: ListDownloadJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDownloadJobsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDownloadJobs",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/downloadjobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDownloadJobsResponse>(await this.execute(params, req, runtime), new ListDownloadJobsResponse({}));
+  }
+
+  /**
+   * 列举下载任务
+   * 
+   * @param request - ListDownloadJobsRequest
+   * @returns ListDownloadJobsResponse
+   */
+  async listDownloadJobs(project: string, request: ListDownloadJobsRequest): Promise<ListDownloadJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDownloadJobsWithOptions(project, request, headers, runtime);
   }
 
   /**
