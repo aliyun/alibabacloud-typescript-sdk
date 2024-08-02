@@ -34312,6 +34312,7 @@ export class ExportInsightWorkitemStatusResponseBodyResult extends $tea.Model {
    * 505ac6433dfbda8df0b08bxxxx
    */
   projectId?: string;
+  serialNumber?: number;
   /**
    * @example
    * projex
@@ -34387,6 +34388,7 @@ export class ExportInsightWorkitemStatusResponseBodyResult extends $tea.Model {
       priority: 'priority',
       productId: 'productId',
       projectId: 'projectId',
+      serialNumber: 'serialNumber',
       source: 'source',
       sprintId: 'sprintId',
       stage: 'stage',
@@ -34425,6 +34427,7 @@ export class ExportInsightWorkitemStatusResponseBodyResult extends $tea.Model {
       priority: 'number',
       productId: 'string',
       projectId: 'string',
+      serialNumber: 'number',
       source: 'string',
       sprintId: 'string',
       stage: 'number',
@@ -34561,6 +34564,7 @@ export class ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponseBodyResul
    */
   projectId?: string;
   reopenNum?: number;
+  serialNumber?: number;
   seriousLevel?: number;
   solution?: string;
   /**
@@ -34649,6 +34653,7 @@ export class ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponseBodyResul
       productId: 'productId',
       projectId: 'projectId',
       reopenNum: 'reopenNum',
+      serialNumber: 'serialNumber',
       seriousLevel: 'seriousLevel',
       solution: 'solution',
       source: 'source',
@@ -34696,6 +34701,7 @@ export class ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponseBodyResul
       productId: 'string',
       projectId: 'string',
       reopenNum: 'number',
+      serialNumber: 'number',
       seriousLevel: 'number',
       solution: 'string',
       source: 'string',
