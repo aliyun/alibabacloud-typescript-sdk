@@ -872,10 +872,6 @@ export class UpdateInstanceNameResponse extends $tea.Model {
 }
 
 export class UpdatePublicNetworkStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   cidr?: string;
   /**
    * @remarks
