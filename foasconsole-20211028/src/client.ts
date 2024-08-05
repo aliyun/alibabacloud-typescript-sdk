@@ -3512,6 +3512,195 @@ export class DescribeInstancesRequestTags extends $tea.Model {
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight extends $tea.Model {
+  stepIndex?: number;
+  stepName?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stepIndex: 'StepIndex',
+      stepName: 'StepName',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stepIndex: 'number',
+      stepName: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage extends $tea.Model {
+  clusterId?: string;
+  currentStage?: number;
+  message?: string;
+  status?: string;
+  totalStageWithWeight?: DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      currentStage: 'CurrentStage',
+      message: 'Message',
+      status: 'Status',
+      totalStageWithWeight: 'TotalStageWithWeight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      currentStage: 'number',
+      message: 'string',
+      status: 'string',
+      totalStageWithWeight: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDtoUserSlbListeners extends $tea.Model {
+  listenersStatus?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listenersStatus: 'ListenersStatus',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenersStatus: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto extends $tea.Model {
+  existSlb?: boolean;
+  slbId?: string;
+  slbIp?: string;
+  slbStatus?: string;
+  userSlbListeners?: DescribeInstancesResponseBodyInstancesClusterStateUserSlbDtoUserSlbListeners[];
+  static names(): { [key: string]: string } {
+    return {
+      existSlb: 'ExistSlb',
+      slbId: 'SlbId',
+      slbIp: 'SlbIp',
+      slbStatus: 'SlbStatus',
+      userSlbListeners: 'UserSlbListeners',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      existSlb: 'boolean',
+      slbId: 'string',
+      slbIp: 'string',
+      slbStatus: 'string',
+      userSlbListeners: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesClusterStateUserSlbDtoUserSlbListeners },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesClusterState extends $tea.Model {
+  clusterId?: string;
+  clusterStage?: DescribeInstancesResponseBodyInstancesClusterStateClusterStage;
+  createTimeout?: boolean;
+  status?: string;
+  subStatus?: string;
+  url?: string;
+  userSlbDto?: DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto;
+  vpcCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterStage: 'ClusterStage',
+      createTimeout: 'CreateTimeout',
+      status: 'Status',
+      subStatus: 'SubStatus',
+      url: 'Url',
+      userSlbDto: 'UserSlbDto',
+      vpcCidr: 'VpcCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterStage: DescribeInstancesResponseBodyInstancesClusterStateClusterStage,
+      createTimeout: 'boolean',
+      status: 'string',
+      subStatus: 'string',
+      url: 'string',
+      userSlbDto: DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto,
+      vpcCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends $tea.Model {
+  clusterId?: string;
+  ha?: boolean;
+  haUsedCpu?: number;
+  haUsedMemory?: number;
+  haUsedResource?: number;
+  usedCpu?: number;
+  usedMemory?: number;
+  usedResource?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      ha: 'Ha',
+      haUsedCpu: 'HaUsedCpu',
+      haUsedMemory: 'HaUsedMemory',
+      haUsedResource: 'HaUsedResource',
+      usedCpu: 'UsedCpu',
+      usedMemory: 'UsedMemory',
+      usedResource: 'UsedResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      ha: 'boolean',
+      haUsedCpu: 'number',
+      haUsedMemory: 'number',
+      haUsedResource: 'number',
+      usedCpu: 'number',
+      usedMemory: 'number',
+      usedResource: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesClusterUsedStorage extends $tea.Model {
   clusterId?: string;
   usedStorage?: number;
@@ -3556,6 +3745,46 @@ export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $tea.M
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesHaVSwitchInfo extends $tea.Model {
+  availableIpAddressCount?: number;
+  description?: string;
+  regionId?: string;
+  vSwitchCidr?: string;
+  vSwitchId?: string;
+  vSwitchName?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableIpAddressCount: 'AvailableIpAddressCount',
+      description: 'Description',
+      regionId: 'RegionId',
+      vSwitchCidr: 'VSwitchCidr',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableIpAddressCount: 'number',
+      description: 'string',
+      regionId: 'string',
+      vSwitchCidr: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Model {
   /**
    * @remarks
@@ -3578,6 +3807,37 @@ export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Mode
     return {
       hostNames: { 'type': 'array', 'itemType': 'string' },
       ip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesOssInfo extends $tea.Model {
+  accessId?: string;
+  accessKey?: string;
+  bucket?: string;
+  bucketVersioningStatus?: string;
+  endpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      accessKey: 'AccessKey',
+      bucket: 'Bucket',
+      bucketVersioningStatus: 'BucketVersioningStatus',
+      endpoint: 'Endpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      accessKey: 'string',
+      bucket: 'string',
+      bucketVersioningStatus: 'string',
+      endpoint: 'string',
     };
   }
 
@@ -3694,6 +3954,80 @@ export class DescribeInstancesResponseBodyInstancesTags extends $tea.Model {
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesVSwitchInfo extends $tea.Model {
+  availableIpAddressCount?: string;
+  description?: string;
+  regionId?: string;
+  vSwitchCidr?: string;
+  vSwitchId?: string;
+  vSwitchName?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableIpAddressCount: 'AvailableIpAddressCount',
+      description: 'Description',
+      regionId: 'RegionId',
+      vSwitchCidr: 'VSwitchCidr',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableIpAddressCount: 'string',
+      description: 'string',
+      regionId: 'string',
+      vSwitchCidr: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesVpcInfo extends $tea.Model {
+  cidrBlock?: string;
+  description?: string;
+  regionId?: string;
+  status?: string;
+  vpcId?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      description: 'Description',
+      regionId: 'RegionId',
+      status: 'Status',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      description: 'string',
+      regionId: 'string',
+      status: 'string',
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   architectureType?: string;
   askClusterId?: string;
@@ -3702,15 +4036,18 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
    * PRE
    */
   chargeType?: string;
+  clusterState?: DescribeInstancesResponseBodyInstancesClusterState;
   /**
    * @example
    * RUNNING
    */
   clusterStatus?: string;
+  clusterUsedResources?: DescribeInstancesResponseBodyInstancesClusterUsedResources[];
   clusterUsedStorage?: DescribeInstancesResponseBodyInstancesClusterUsedStorage;
   ha?: boolean;
   haResourceSpec?: DescribeInstancesResponseBodyInstancesHaResourceSpec;
   haVSwitchIds?: string[];
+  haVSwitchInfo?: DescribeInstancesResponseBodyInstancesHaVSwitchInfo[];
   haZoneId?: string;
   /**
    * @remarks
@@ -3733,6 +4070,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
    * NORMAL
    */
   orderState?: string;
+  ossInfo?: DescribeInstancesResponseBodyInstancesOssInfo;
   /**
    * @example
    * cn-beijing
@@ -3763,11 +4101,13 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
    */
   uid?: string;
   vSwitchIds?: string[];
+  vSwitchInfo?: DescribeInstancesResponseBodyInstancesVSwitchInfo[];
   /**
    * @example
    * vpc-2ze9*******nxfmfcdi
    */
   vpcId?: string;
+  vpcInfo?: DescribeInstancesResponseBodyInstancesVpcInfo;
   /**
    * @example
    * cn-beijing-g
@@ -3778,17 +4118,21 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       architectureType: 'ArchitectureType',
       askClusterId: 'AskClusterId',
       chargeType: 'ChargeType',
+      clusterState: 'ClusterState',
       clusterStatus: 'ClusterStatus',
+      clusterUsedResources: 'ClusterUsedResources',
       clusterUsedStorage: 'ClusterUsedStorage',
       ha: 'Ha',
       haResourceSpec: 'HaResourceSpec',
       haVSwitchIds: 'HaVSwitchIds',
+      haVSwitchInfo: 'HaVSwitchInfo',
       haZoneId: 'HaZoneId',
       hostAliases: 'HostAliases',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       monitorType: 'MonitorType',
       orderState: 'OrderState',
+      ossInfo: 'OssInfo',
       region: 'Region',
       resourceCreateTime: 'ResourceCreateTime',
       resourceExpiredTime: 'ResourceExpiredTime',
@@ -3799,7 +4143,9 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       tags: 'Tags',
       uid: 'Uid',
       vSwitchIds: 'VSwitchIds',
+      vSwitchInfo: 'VSwitchInfo',
       vpcId: 'VpcId',
+      vpcInfo: 'VpcInfo',
       zoneId: 'ZoneId',
     };
   }
@@ -3809,17 +4155,21 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       architectureType: 'string',
       askClusterId: 'string',
       chargeType: 'string',
+      clusterState: DescribeInstancesResponseBodyInstancesClusterState,
       clusterStatus: 'string',
+      clusterUsedResources: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesClusterUsedResources },
       clusterUsedStorage: DescribeInstancesResponseBodyInstancesClusterUsedStorage,
       ha: 'boolean',
       haResourceSpec: DescribeInstancesResponseBodyInstancesHaResourceSpec,
       haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haVSwitchInfo: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesHaVSwitchInfo },
       haZoneId: 'string',
       hostAliases: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesHostAliases },
       instanceId: 'string',
       instanceName: 'string',
       monitorType: 'string',
       orderState: 'string',
+      ossInfo: DescribeInstancesResponseBodyInstancesOssInfo,
       region: 'string',
       resourceCreateTime: 'number',
       resourceExpiredTime: 'number',
@@ -3830,7 +4180,9 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       tags: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesTags },
       uid: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vSwitchInfo: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesVSwitchInfo },
       vpcId: 'string',
+      vpcInfo: DescribeInstancesResponseBodyInstancesVpcInfo,
       zoneId: 'string',
     };
   }
@@ -4020,6 +4372,8 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
 }
 
 export class DescribeSupportedRegionsResponseBodyRegions extends $tea.Model {
+  description?: string;
+  extra?: string;
   /**
    * @example
    * cn-beijing
@@ -4032,6 +4386,8 @@ export class DescribeSupportedRegionsResponseBodyRegions extends $tea.Model {
   regionName?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
+      extra: 'Extra',
       region: 'Region',
       regionName: 'RegionName',
     };
@@ -4039,6 +4395,8 @@ export class DescribeSupportedRegionsResponseBodyRegions extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
+      extra: 'string',
       region: 'string',
       regionName: 'string',
     };
