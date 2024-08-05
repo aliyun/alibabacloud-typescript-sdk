@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,16 +8,52 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DataExtraInfoSubCondsValue extends $tea.Model {
+  /**
+   * @example
+   * tenant_name
+   */
   tenantName?: string;
+  /**
+   * @example
+   * db_name
+   */
   database?: string;
+  /**
+   * @example
+   * dest_db
+   */
   destDatabase?: string;
+  /**
+   * @example
+   * table_name
+   */
   tableName?: string;
+  /**
+   * @example
+   * dest_name
+   */
   destName?: string;
+  /**
+   * @example
+   * id>1
+   */
   whereClause?: string;
   filterColumns?: string[];
   shardColumns?: string[];
+  /**
+   * @example
+   * null
+   */
   logicTableId?: string;
+  /**
+   * @example
+   * null
+   */
   sourceEndpointId?: string;
+  /**
+   * @example
+   * null
+   */
   sourceClientId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,11 +93,35 @@ export class DataExtraInfoSubCondsValue extends $tea.Model {
 }
 
 export class DataExtraInfoSubDbsValue extends $tea.Model {
+  /**
+   * @example
+   * cluster_name
+   */
   clusterName?: string;
+  /**
+   * @example
+   * tenant_name
+   */
   tenantName?: string;
+  /**
+   * @example
+   * null
+   */
   databaseId?: string;
+  /**
+   * @example
+   * db_name
+   */
   databaseName?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappingDatabaseName?: string;
+  /**
+   * @example
+   * null
+   */
   sourceClientId?: string;
   tables?: DataExtraInfoSubDbsValueTables[];
   static names(): { [key: string]: string } {
@@ -95,8 +154,35 @@ export class DataExtraInfoSubDbsValue extends $tea.Model {
 }
 
 export class BatchKillProcessListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of sessions to close.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"ProxySessId":"752113700739156671","SessionId":3221555062,"ServerIp":"10.***.**.***"}]
+   */
   sessionList?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -120,7 +206,18 @@ export class BatchKillProcessListRequest extends $tea.Model {
 }
 
 export class BatchKillProcessListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The array of the return result.
+   */
   data?: BatchKillProcessListResponseBodyData[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,8 +264,36 @@ export class BatchKillProcessListResponse extends $tea.Model {
 }
 
 export class BatchKillSessionListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of sessions, which is concatenated with commas.
+   * >The session information is obtained from the result returned by the DescribeSessionList API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 342,354,343
+   */
   sessionList?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -192,6 +317,13 @@ export class BatchKillSessionListRequest extends $tea.Model {
 }
 
 export class BatchKillSessionListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -236,6 +368,13 @@ export class BatchKillSessionListResponse extends $tea.Model {
 }
 
 export class CancelProjectModifyRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 344000005
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -255,16 +394,56 @@ export class CancelProjectModifyRecordRequest extends $tea.Model {
 }
 
 export class CancelProjectModifyRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 30
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: CancelProjectModifyRecordResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -329,7 +508,21 @@ export class CancelProjectModifyRecordResponse extends $tea.Model {
 }
 
 export class CreateBackupSetDownloadLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bak-6f****
+   */
   backupSetId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp67acfmxazb4p****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -351,7 +544,15 @@ export class CreateBackupSetDownloadLinkRequest extends $tea.Model {
 }
 
 export class CreateBackupSetDownloadLinkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10000***67
+   */
   downloadTaskId?: number;
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -398,12 +599,72 @@ export class CreateBackupSetDownloadLinkResponse extends $tea.Model {
 }
 
 export class CreateDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The encoding standard of the database.
+   * For more information, see the Charset field returned by the DescribeCharset operation.
+   * 
+   * @example
+   * utf8mb4_general_ci
+   */
   collation?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **CreateDatabase**.
+   * 
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * utf8mb4
+   */
   encoding?: string;
+  /**
+   * @remarks
+   * The collation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the database.   
+   * You cannot use reserved keywords, such as test and mysql.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -435,7 +696,18 @@ export class CreateDatabaseRequest extends $tea.Model {
 }
 
 export class CreateDatabaseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * CreateDatabase
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -482,24 +754,208 @@ export class CreateDatabaseResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic renewal.   
+   * This parameter is valid only when the ChargeType parameter is set to PrePaid. Valid values: 
+   * - true: enables automatic renewal for the instance.   
+   * - false: disables automatic renewal for the instance. This is the default value.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The automatic renewal period of the instance. This parameter is required when the AutoRenew parameter is set to true. Valid values:  
+   * - If the PeriodUnit parameter is set to Year: "1", "2", and "3".   
+   * - If the PeriodUnit parameter is set to Month: "1", "2", "3", "6", and "12".
+   * 
+   * @example
+   * 2
+   */
   autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:  
+   * - PrePay: the subscription billing method. You must ensure that the remaining balance or credit balance of your account can cover the cost of the subscription. Otherwise, you will receive an InvalidPayMethod error. 
+   * - PostPay: the pay-as-you-go billing method. This is the default value. By default, fees are charged on an hourly basis.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PrePay
+   */
   chargeType?: string;
+  /**
+   * @example
+   * x86
+   */
   cpuArch?: string;
+  /**
+   * @remarks
+   * The size of the storage space,in GB.    
+   * The limits on the storage space vary with the cluster specifications:   
+   * - 8C32GB: 100 GB to 10000 GB   
+   * - 14C70GB: 200 GB to 10000 GB   
+   * - 30C180GB: 400 GB to 10000 GB   
+   * - 62C400GB: 800 GB to 10000 GB    
+   * The preceding minimum storage space sizes are the default storage space sizes of the corresponding cluster specification plans.
+   * 
+   * @example
+   * 200
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * The type of the storage disk where the cluster is deployed. This parameter takes effect only for Standard Cluster Edition (Cloud Disk).
+   * Valid values:
+   * - cloud_essd_pl1: ESSD PL1.
+   * - cloud_essd_pl0: ESSD PL0. Default value: cloud_essd_pl1.
+   * 
+   * @example
+   * cloud_essd_pl1
+   */
   diskType?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+   * - true: Only a dry-run request is sent and the instance is not created. If the dry run succeeds, DryRunResult=true is returned. If the dry run fails, an error code is returned.
+   * - false: The actual request is sent and no dry run is performed. The instance is created if the requirements are met. By default, the DryRunResult parameter returns false if you set DryRun to false.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The specifications of the cluster.     
+   * You can specify one of the following four plans:   
+   *  - 8C32GB: indicates 8 CPU cores and 32 GB of memory.    
+   *  - 14C70GB: indicates 14 CPU cores and 70 GB of memory. This is the default value.
+   * - 30C180GB: indicates 30 CPU cores and 180 GB of memory.     
+   * - 62C400GB: indicates 62 CPU cores and 400 GB of memory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 14C70GB
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The name of the OceanBase cluster.    
+   * It must be 1 to 20 characters in length.   
+   * If this parameter is not specified, the value is the instance ID of the cluster by default.
+   * 
+   * @example
+   * amap_aos_tx_ob
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the control group feature.
+   * Valid values:
+   * - true
+   * - false
+   * 
+   * @example
+   * true
+   */
   isolationOptimization?: string;
+  /**
+   * @remarks
+   * OceanBase Server version number.
+   * 
+   * @example
+   * 2.2.77
+   */
   obVersion?: string;
+  /**
+   * @remarks
+   * The valid duration of the purchased resources. The unit is specified by the PeriodUnit parameter.   
+   * This parameter is valid and required only when the InstanceChargeType parameter is set to PrePaid.      
+   * Valid values:     
+   * - When the PeriodUnit parameter is set to Month: "1", "2", "3", "4", "5", "6", "7", "8", "9". 
+   * - When the PeriodUnit parameter is set to Year: "1", "2", "3".
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The unit of the valid duration of the purchased resources.     
+   * Valid value for subscription: Month or Year.
+   * Default value: Month for subscription, and Hour for pay-as-you-go.
+   * 
+   * @example
+   * Month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * Primary instance ID.
+   * 
+   * @example
+   * ob3h8ytroxxxxx
+   */
   primaryInstance?: string;
+  /**
+   * @remarks
+   * Primary instance region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   primaryRegion?: string;
+  /**
+   * @remarks
+   * The number of full-featured replicas.
+   * - 3F: three full-featured replicas.
+   * - 2F1L: two full-featured replicas and one log replica.
+   * - 2F1A: two full-featured replicas and one arbitration service.
+   * - ApsaraDB for OceanBase earlier than V4.1 supports 3F and 2F1L.
+   * - ApsaraDB for OceanBase V4.1 or later supports 3F and 2F1A.
+   * - An ApsaraDB for OceanBase instance deployed across three zones supports only 3F.
+   * - An ApsaraDB for OceanBase instance deployed across two zones supports 2F1A or 2F1L, depending on the version.
+   * - An ApsaraDB for OceanBase instance deployed in a single zone supports 3F, 2F1A, or 2F1L, depending on the version.
+   * 
+   * @example
+   * 3F
+   */
   replicaMode?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-bp67acfmxazb4p****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The series of the OceanBase cluster. Valid values:    
+   * - normal: Standard Cluster Edition (Cloud Disk). This is the default value.
+   * - normal_ssd: Standard Cluster Edition (Local Disk).
+   * - history: History Database Cluster Edition.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
   series?: string;
+  /**
+   * @remarks
+   * The ID of the zone to which the instance belongs.   
+   * For more information about how to obtain the list of zones, see [DescribeZones](https://help.aliyun.com/document_detail/25610.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h,cn-hangzhou-i,cn-hangzhou-j
+   */
   zones?: string;
   static names(): { [key: string]: string } {
     return {
@@ -555,7 +1011,18 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateInstanceResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -602,6 +1069,13 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateLabelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -621,16 +1095,56 @@ export class CreateLabelRequest extends $tea.Model {
 }
 
 export class CreateLabelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * l_****
+   */
   data?: string;
   errorDetail?: CreateLabelResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * E3D924FB-52****B253-0C1A7EFB778C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 24
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -695,17 +1209,73 @@ export class CreateLabelResponse extends $tea.Model {
 }
 
 export class CreateMySqlDataSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * dg-x****
+   */
   dgInstanceId?: string;
+  /**
+   * @example
+   * rm-t4****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * source_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pass_word
+   */
   password?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * test
+   */
   schema?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VPC
+   */
   type?: string;
   useSsl?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_name
+   */
   userName?: string;
+  /**
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -747,16 +1317,56 @@ export class CreateMySqlDataSourceRequest extends $tea.Model {
 }
 
 export class CreateMySqlDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * e_edz****
+   */
   data?: string;
   errorDetail?: CreateMySqlDataSourceResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 24
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -821,21 +1431,103 @@ export class CreateMySqlDataSourceResponse extends $tea.Model {
 }
 
 export class CreateOceanBaseDataSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * cluster_name
+   */
   cluster?: string;
+  /**
+   * @example
+   * http://xxx.xxx.xxx.2:2883/services?Action=ObRootServiceInfo&User_ID=alibaba&UID=ocpmaster&ObRegion=ob_1***29.admin
+   */
   configUrl?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * pas***
+   */
   drcPassword?: string;
+  /**
+   * @example
+   * user_na***
+   */
   drcUserName?: string;
+  /**
+   * @example
+   * in***
+   */
   innerDrcPassword?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @remarks
+   * LogProxy IP。
+   * 
+   * @example
+   * null
+   */
   logProxyIp?: string;
+  /**
+   * @example
+   * null
+   */
   logProxyPort?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * source_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pass_word
+   */
   password?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tenant_name
+   */
   tenant?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OB_MYSQL_VPC
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_name
+   */
   userName?: string;
+  /**
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -885,16 +1577,56 @@ export class CreateOceanBaseDataSourceRequest extends $tea.Model {
 }
 
 export class CreateOceanBaseDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * e_edz****
+   */
   data?: string;
   errorDetail?: CreateOceanBaseDataSourceResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 30
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -959,16 +1691,120 @@ export class CreateOceanBaseDataSourceResponse extends $tea.Model {
 }
 
 export class CreateOmsMysqlDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the data source.   
+   * 
+   * It must be 2 to 256 characters in length. The default value is null.
+   * 
+   * @example
+   * MySQL data source for OMS testing
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the database gateway instance.   
+   * 
+   * > <br>If Type is set to DG, this parameter is required.
+   * 
+   * @example
+   * dg-yhss6sdlaff****
+   */
   dgDatabaseId?: string;
+  /**
+   * @remarks
+   * The ID of the ECS instance of the data source.   
+   * 
+   * > <br>If Type is set to RDS, PolarDB, or DG, this parameter is required.
+   * 
+   * @example
+   * pc-12ab34cd56******
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the data source.   
+   * 
+   * > <br>If Type is set to INTERNET or VPC, this parameter is required.
+   * 
+   * @example
+   * 10.0.****
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The name of the data source.   
+   * It must be 2 to 128 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).   
+   * 
+   * > <br>Invalid characters, such as slashes (/), are not allowed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oms-mysql
+   */
   name?: string;
+  /**
+   * @remarks
+   * The password of the username that is used to access the database. It must be Base64 encoded.   
+   * For example, for the password abcd123@!, the Base64-encoded value is YWJjZDEyM0Ah.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * YWJjZDEyM0Ah
+   */
   password?: string;
+  /**
+   * @remarks
+   * The port number of the data source.   
+   * 
+   * > <br>If Type is set to INTERNET or VPC, this parameter is required.
+   * 
+   * @example
+   * 3306
+   */
   port?: string;
+  /**
+   * @remarks
+   * The name of the database.   
+   * 
+   * > <br>If you specify this parameter, subsequent migration or synchronization operations will take effect on this database only.
+   * 
+   * @example
+   * test
+   */
   schema?: string;
+  /**
+   * @remarks
+   * The type of the MySQL data source.   
+   * Valid values: INTERNET, VPC, RDS, PolarDB, and DG.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INTERNET
+   */
   type?: string;
+  /**
+   * @remarks
+   * The username that is used to access the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * omsTestUser
+   */
   username?: string;
+  /**
+   * @remarks
+   * The ID of the VPC to which the data source belongs.   
+   * 
+   * > <br>If Type is set to VPC, this parameter is required.
+   * 
+   * @example
+   * vpc-12345abcde*******
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1008,7 +1844,18 @@ export class CreateOmsMysqlDataSourceRequest extends $tea.Model {
 }
 
 export class CreateOmsMysqlDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The return result of the request.
+   */
   data?: CreateOmsMysqlDataSourceResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1056,24 +1903,95 @@ export class CreateOmsMysqlDataSourceResponse extends $tea.Model {
 
 export class CreateProjectRequest extends $tea.Model {
   commonTransferConfig?: CreateProjectRequestCommonTransferConfig;
+  /**
+   * @example
+   * true
+   */
   enableFullTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableFullVerify?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableReverseIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableStructTransfer?: boolean;
   fullTransferConfig?: CreateProjectRequestFullTransferConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   id?: string;
   incrTransferConfig?: CreateProjectRequestIncrTransferConfig;
   labelIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * open_api_create_project/oacp_xxx
+   */
   ossKey?: string;
   reverseIncrTransferConfig?: CreateProjectRequestReverseIncrTransferConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e_4j0cz****
+   */
   sinkEndpointId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e_4j0c12z****
+   */
   sourceEndpointId?: string;
   structTransferConfig?: CreateProjectRequestStructTransferConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   transferMapping?: CreateProjectRequestTransferMapping;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MIGRATION
+   */
   type?: string;
+  /**
+   * @example
+   * true
+   */
   useOss?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * g_abcdefj***
+   */
   workerGradeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1132,24 +2050,95 @@ export class CreateProjectRequest extends $tea.Model {
 
 export class CreateProjectShrinkRequest extends $tea.Model {
   commonTransferConfigShrink?: string;
+  /**
+   * @example
+   * true
+   */
   enableFullTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableFullVerify?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableReverseIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableStructTransfer?: boolean;
   fullTransferConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   id?: string;
   incrTransferConfigShrink?: string;
   labelIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * open_api_create_project/oacp_xxx
+   */
   ossKey?: string;
   reverseIncrTransferConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e_4j0cz****
+   */
   sinkEndpointId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e_4j0c12z****
+   */
   sourceEndpointId?: string;
   structTransferConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   transferMappingShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MIGRATION
+   */
   type?: string;
+  /**
+   * @example
+   * true
+   */
   useOss?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * g_abcdefj***
+   */
   workerGradeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1207,16 +2196,56 @@ export class CreateProjectShrinkRequest extends $tea.Model {
 }
 
 export class CreateProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 27
+   */
   cost?: string;
+  /**
+   * @example
+   * np_****
+   */
   data?: string;
   errorDetail?: CreateProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * XCVSADG****DSGDS
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1281,7 +2310,18 @@ export class CreateProjectResponse extends $tea.Model {
 }
 
 export class CreateProjectModifyRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   databases?: CreateProjectModifyRecordsRequestDatabases[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_fe****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1303,7 +2343,18 @@ export class CreateProjectModifyRecordsRequest extends $tea.Model {
 }
 
 export class CreateProjectModifyRecordsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   databasesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_fe****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1325,16 +2376,56 @@ export class CreateProjectModifyRecordsShrinkRequest extends $tea.Model {
 }
 
 export class CreateProjectModifyRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 28
+   */
   cost?: string;
+  /**
+   * @example
+   * 4
+   */
   data?: number;
   errorDetail?: CreateProjectModifyRecordsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1399,11 +2490,50 @@ export class CreateProjectModifyRecordsResponse extends $tea.Model {
 }
 
 export class CreateRdsPostgreSQLDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * db_name
+   */
   databaseName?: string;
+  /**
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * g_abcdefj***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * data_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pass_word
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_name
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1433,16 +2563,56 @@ export class CreateRdsPostgreSQLDataSourceRequest extends $tea.Model {
 }
 
 export class CreateRdsPostgreSQLDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 30
+   */
   cost?: string;
+  /**
+   * @example
+   * e_5anwndq
+   */
   data?: string;
   errorDetail?: CreateRdsPostgreSQLDataSourceResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1507,8 +2677,35 @@ export class CreateRdsPostgreSQLDataSourceResponse extends $tea.Model {
 }
 
 export class CreateSecurityIpGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the whitelist group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_online
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"192.168.1.1","192.168.0.0.1/8"}
+   */
   securityIps?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1532,7 +2729,20 @@ export class CreateSecurityIpGroupRequest extends $tea.Model {
 }
 
 export class CreateSecurityIpGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses or CIDR blocks in the IP address whitelist group.   
+   * The return values of SecurityIps are strings that are separated with commas (,).
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **CreateSecurityIpGroup**.
+   */
   securityIpGroup?: CreateSecurityIpGroupResponseBodySecurityIpGroup;
   static names(): { [key: string]: string } {
     return {
@@ -1579,7 +2789,23 @@ export class CreateSecurityIpGroupResponse extends $tea.Model {
 }
 
 export class CreateTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the client.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 1
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1601,7 +2827,21 @@ export class CreateTagRequest extends $tea.Model {
 }
 
 export class CreateTagResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag group creation result.
+   * 
+   * @example
+   * Create tag success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1648,8 +2888,33 @@ export class CreateTagResponse extends $tea.Model {
 }
 
 export class CreateTagValueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The identifier of the client.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The name of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1673,7 +2938,21 @@ export class CreateTagValueRequest extends $tea.Model {
 }
 
 export class CreateTagValueResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag creation result.
+   * 
+   * @example
+   * create tag value success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1720,20 +2999,153 @@ export class CreateTagValueResponse extends $tea.Model {
 }
 
 export class CreateTenantRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The character set.    
+   * For more information, see [DescribeCharset](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describecharset).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @remarks
+   * The number of CPU cores of the tenant.   
+   * 
+   * > <br>The CPU specification of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the CPU specification of the tenant cannot exceed 14 cores.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   cpu?: number;
   createParams?: { [key: string]: string };
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The size of the log disk allocated to the tenant, in GB.
+   * 
+   * @example
+   * 128
+   */
   logDisk?: number;
+  /**
+   * @remarks
+   * The memory size of the tenant, in GB.   
+   * 
+   * > <br>The memory size of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the memory size of the tenant cannot exceed 70 GB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The primary zone of the tenant.    
+   * It is one of the zones in which the cluster is deployed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   primaryZone?: string;
+  /**
+   * @remarks
+   * Specifies to create a read-only zone. Separate the names of multiple zones with commas (,).
+   * >Notice: <br>At present, this parameter is unavailable.
+   * 
+   * @example
+   * cn-shanghai-g-ro,cn-shanghai-h-ro
+   */
   readOnlyZoneList?: string;
+  /**
+   * @remarks
+   * The tenant mode.    
+   * Valid values: Oracle and MySQL.   
+   * For more information, see [DescribeInstanceTenantModes](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describeinstancetenantmodes).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Oracle
+   */
   tenantMode?: string;
+  /**
+   * @remarks
+   * The name of the tenant.    
+   * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The time zone of the tenant. For more information, see [DescribeTimeZones](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describetimezones).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
+  /**
+   * @remarks
+   * The number of resource distribution nodes in the tenant.    
+   * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
+   * 
+   * @example
+   * 2
+   */
   unitNum?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch.    
+   * If no suitable vSwitch is available, create a vSwitch as prompted.   
+   * For more information, see Use a vSwitch.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp11k1aypnzu1l3whi****
+   */
   userVSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.   
+   *  If no suitable VPC is available, create a VPC as prompted.   
+   * For more information, see "What is a VPC".
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   userVpcId?: string;
   userVpcOwnerId?: string;
   static names(): { [key: string]: string } {
@@ -1784,20 +3196,153 @@ export class CreateTenantRequest extends $tea.Model {
 }
 
 export class CreateTenantShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The character set.    
+   * For more information, see [DescribeCharset](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describecharset).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @remarks
+   * The number of CPU cores of the tenant.   
+   * 
+   * > <br>The CPU specification of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the CPU specification of the tenant cannot exceed 14 cores.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   cpu?: number;
   createParamsShrink?: string;
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The size of the log disk allocated to the tenant, in GB.
+   * 
+   * @example
+   * 128
+   */
   logDisk?: number;
+  /**
+   * @remarks
+   * The memory size of the tenant, in GB.   
+   * 
+   * > <br>The memory size of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the memory size of the tenant cannot exceed 70 GB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The primary zone of the tenant.    
+   * It is one of the zones in which the cluster is deployed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   primaryZone?: string;
+  /**
+   * @remarks
+   * Specifies to create a read-only zone. Separate the names of multiple zones with commas (,).
+   * >Notice: <br>At present, this parameter is unavailable.
+   * 
+   * @example
+   * cn-shanghai-g-ro,cn-shanghai-h-ro
+   */
   readOnlyZoneList?: string;
+  /**
+   * @remarks
+   * The tenant mode.    
+   * Valid values: Oracle and MySQL.   
+   * For more information, see [DescribeInstanceTenantModes](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describeinstancetenantmodes).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Oracle
+   */
   tenantMode?: string;
+  /**
+   * @remarks
+   * The name of the tenant.    
+   * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The time zone of the tenant. For more information, see [DescribeTimeZones](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describetimezones).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
+  /**
+   * @remarks
+   * The number of resource distribution nodes in the tenant.    
+   * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
+   * 
+   * @example
+   * 2
+   */
   unitNum?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch.    
+   * If no suitable vSwitch is available, create a vSwitch as prompted.   
+   * For more information, see Use a vSwitch.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp11k1aypnzu1l3whi****
+   */
   userVSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.   
+   *  If no suitable VPC is available, create a VPC as prompted.   
+   * For more information, see "What is a VPC".
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   userVpcId?: string;
   userVpcOwnerId?: string;
   static names(): { [key: string]: string } {
@@ -1848,7 +3393,21 @@ export class CreateTenantShrinkRequest extends $tea.Model {
 }
 
 export class CreateTenantResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1895,10 +3454,42 @@ export class CreateTenantResponse extends $tea.Model {
 }
 
 export class CreateTenantReadOnlyConnectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp11k1aypnzu1l3whi****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1926,6 +3517,10 @@ export class CreateTenantReadOnlyConnectionRequest extends $tea.Model {
 }
 
 export class CreateTenantReadOnlyConnectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1970,9 +3565,49 @@ export class CreateTenantReadOnlyConnectionResponse extends $tea.Model {
 }
 
 export class CreateTenantSecurityIpGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The group name of the whitelist group of IP addresses.
+   * 
+   * It starts with lowercase letters and ends with lowercase letters or numbers. It can only contain lowercase letters, numbers, and underscores, and should be 2~32 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The list of IP addresses in the whitelist group.
+   * 
+   * It is a JSON array. Each object in the array is an IP address or a CIDR block. You can have up to 40 whitelists.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.***.*.*"
+   */
   securityIps?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1998,7 +3633,18 @@ export class CreateTenantSecurityIpGroupRequest extends $tea.Model {
 }
 
 export class CreateTenantSecurityIpGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the whitelist group.
+   */
   securityIpGroup?: CreateTenantSecurityIpGroupResponseBodySecurityIpGroup;
   static names(): { [key: string]: string } {
     return {
@@ -2045,13 +3691,79 @@ export class CreateTenantSecurityIpGroupResponse extends $tea.Model {
 }
 
 export class CreateTenantUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * 加密方式。
+   * 
+   * @example
+   * RAS
+   */
   encryptionType?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The role of the user account.  In Oracle mode, this parameter unspecified is left unspecified.  In MySQL mode, the super administrator account has ALL PRIVILEGES, and you can leave this parameter unspecified.  You need to specify the account information for a general user account. By default, the account information is a JSON array that contains the information of the role and the schema (Oracle mode) or database (MySQL mode).  Valid values: ReadWrite: a role that has the read and write privileges, namely ALL PRIVILEGES. ReadOnly: a role that has only the read-only privilege SELECT. DDL: a role that has DDL privileges such as CREATE, DROP, ALTER, SHOW VIEW, and CREATE VIEW. DML: a role that has DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
+   * 
+   * @example
+   * [{"Database":"oceanbase1","Role":"readwrite"},{"Database":"oceanbase2","Role":"readonly"}]
+   */
   roles?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The name of the database account.  You cannot use reserved keywords, such as SYS and root.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The password of the database account.  It must be 10 to 32 characters in length and contain three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. The special characters are ! @ # $ % \\ ^ \\ & \\ * ( ) _ + - =
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * !Aliyun4Oceanbase
+   */
   userPassword?: string;
+  /**
+   * @remarks
+   * The type of the database account. Valid values: Admin: the super administrator account. Normal: a general account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
   userType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2085,7 +3797,18 @@ export class CreateTenantUserRequest extends $tea.Model {
 }
 
 export class CreateTenantUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of database accounts in the tenant.
+   */
   tenantUser?: CreateTenantUserResponseBodyTenantUser;
   static names(): { [key: string]: string } {
     return {
@@ -2132,6 +3855,13 @@ export class CreateTenantUserResponse extends $tea.Model {
 }
 
 export class DeleteDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e_5anwndq
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2151,16 +3881,56 @@ export class DeleteDataSourceRequest extends $tea.Model {
 }
 
 export class DeleteDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 28
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: DeleteDataSourceResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * E3D924FB-52****B253-0C1A7EFB778C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2225,8 +3995,26 @@ export class DeleteDataSourceResponse extends $tea.Model {
 }
 
 export class DeleteDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["sms_pre", "pay_pre"]
+   */
   databaseNames?: string;
+  /**
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2250,6 +4038,10 @@ export class DeleteDatabasesRequest extends $tea.Model {
 }
 
 export class DeleteDatabasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2294,8 +4086,39 @@ export class DeleteDatabasesResponse extends $tea.Model {
 }
 
 export class DeleteInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The backup retention strategy for cluster deletion. Valid values:  
+   * - receive_all: retains all backup sets.   
+   * - delete_all: deletes all backup sets.   
+   * - receive_last: retains the last backup set.    
+   * 
+   * > <br>Default value: delete_all.
+   * 
+   * @example
+   * delete_all
+   */
   backupRetainMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+   * - true: Only a dry-run request is sent and the instance is not deleted. If the dry run succeeds, DryRunResult=true is returned. If the dry run fails, an error code is returned.
+   * - false: The actual request is sent and no dry run is performed. The instance is deleted if the requirements are met. By default, false is returned for the parameter DryRunResult if you set DryRun to false.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the cluster to be deleted.   
+   * The value is a string in the JSON format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [”ob ob3f6yhv9uxxxx“]
+   */
   instanceIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2319,7 +4142,18 @@ export class DeleteInstancesRequest extends $tea.Model {
 }
 
 export class DeleteInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteInstancesResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 473469C7-****-****-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2366,6 +4200,13 @@ export class DeleteInstancesResponse extends $tea.Model {
 }
 
 export class DeleteProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2385,16 +4226,56 @@ export class DeleteProjectRequest extends $tea.Model {
 }
 
 export class DeleteProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: DeleteProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-XXXX-XXX-B3DB-A3DC0DE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 24
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2459,7 +4340,26 @@ export class DeleteProjectResponse extends $tea.Model {
 }
 
 export class DeleteSecurityIpGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the IP address whitelist group.    
+   * It must be 2 to 32 characters in length, start with a lowercase letter, end with a lowercase letter or digit, and contain only lowercase letters, digits, and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The information of the deleted IP whitelist group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2481,6 +4381,13 @@ export class DeleteSecurityIpGroupRequest extends $tea.Model {
 }
 
 export class DeleteSecurityIpGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   securityIpGroup?: DeleteSecurityIpGroupResponseBodySecurityIpGroup;
   static names(): { [key: string]: string } {
@@ -2528,6 +4435,15 @@ export class DeleteSecurityIpGroupResponse extends $tea.Model {
 }
 
 export class DeleteTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 2
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2547,7 +4463,21 @@ export class DeleteTagRequest extends $tea.Model {
 }
 
 export class DeleteTagResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag group deletion result.
+   * 
+   * @example
+   * delete tag success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2594,7 +4524,25 @@ export class DeleteTagResponse extends $tea.Model {
 }
 
 export class DeleteTagValueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The name of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag 2
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2616,7 +4564,21 @@ export class DeleteTagValueRequest extends $tea.Model {
 }
 
 export class DeleteTagValueResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag deletion result.
+   * 
+   * @example
+   * delete tag-value success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2663,8 +4625,37 @@ export class DeleteTagValueResponse extends $tea.Model {
 }
 
 export class DeleteTenantSecurityIpGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The group name of the whitelist group of IP addresses.
+   * 
+   * It starts with lowercase letters and ends with lowercase letters or numbers. It can only contain lowercase letters, numbers, and underscores, and should be 2~32 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2688,7 +4679,18 @@ export class DeleteTenantSecurityIpGroupRequest extends $tea.Model {
 }
 
 export class DeleteTenantSecurityIpGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the whitelist group.
+   */
   securityIpGroup?: DeleteTenantSecurityIpGroupResponseBodySecurityIpGroup;
   static names(): { [key: string]: string } {
     return {
@@ -2735,8 +4737,35 @@ export class DeleteTenantSecurityIpGroupResponse extends $tea.Model {
 }
 
 export class DeleteTenantUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * A list of usernames.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["testUser"]
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2760,6 +4789,13 @@ export class DeleteTenantUsersRequest extends $tea.Model {
 }
 
 export class DeleteTenantUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2804,7 +4840,30 @@ export class DeleteTenantUsersResponse extends $tea.Model {
 }
 
 export class DeleteTenantsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * You can call this operation to delete one or more tenants from an OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DeleteTenants
+   * &TenantIds=["ob2mr3oae0****", "ob2mr3oae1****"]
+   * &InstanceId=ob317v4uif****
+   * &Common request parameters
+   * ```
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["ob2mr3oae0****", "ob2mr3oae1****"]
+   */
   tenantIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2826,6 +4885,10 @@ export class DeleteTenantsRequest extends $tea.Model {
 }
 
 export class DeleteTenantsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   tenantIds?: string[];
   static names(): { [key: string]: string } {
@@ -2873,22 +4936,158 @@ export class DeleteTenantsResponse extends $tea.Model {
 }
 
 export class DescribeAnomalySQLListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the returned data.   
+   * Default value: CN for a China site and EN for an International site.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The end time of the time range for querying suspicious SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The filter condition.   
+   * > <br> - All fields in OceanBase Database support filtering. <br> - You can write the key-value pair of a parameter in a JSON string in the JSON format to filter the parameter.
+   * 
+   * @example
+   * {
+   *   "UserName":testUser
+   * }
+   */
   filterCondition?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * obsd23j4f****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp19y05uq6xpacyqnlrc
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The number of the page to return.    
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of rows to return on each page.    
+   * - Maximum value: 100   
+   * - Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParameter?: string;
+  /**
+   * @remarks
+   * The search rule.   
+   * Valid values: "=", ">", ">=", "<", and "<="
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * The sorted column.
+   * 
+   * @example
+   * cputime
+   */
   sortColumn?: string;
+  /**
+   * @remarks
+   * The sorting rule.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The start time of the time range for querying suspicious SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2940,22 +5139,158 @@ export class DescribeAnomalySQLListRequest extends $tea.Model {
 }
 
 export class DescribeAnomalySQLListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the returned data.   
+   * Default value: CN for a China site and EN for an International site.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The end time of the time range for querying suspicious SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The filter condition.   
+   * > <br> - All fields in OceanBase Database support filtering. <br> - You can write the key-value pair of a parameter in a JSON string in the JSON format to filter the parameter.
+   * 
+   * @example
+   * {
+   *   "UserName":testUser
+   * }
+   */
   filterConditionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * obsd23j4f****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp19y05uq6xpacyqnlrc
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The number of the page to return.    
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of rows to return on each page.    
+   * - Maximum value: 100   
+   * - Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParameter?: string;
+  /**
+   * @remarks
+   * The search rule.   
+   * Valid values: "=", ">", ">=", "<", and "<="
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * The sorted column.
+   * 
+   * @example
+   * cputime
+   */
   sortColumn?: string;
+  /**
+   * @remarks
+   * The sorting rule.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The start time of the time range for querying suspicious SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3007,8 +5342,26 @@ export class DescribeAnomalySQLListShrinkRequest extends $tea.Model {
 }
 
 export class DescribeAnomalySQLListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of suspicious SQL statements.
+   */
   anomalySQLList?: DescribeAnomalySQLListResponseBodyAnomalySQLList[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3057,8 +5410,38 @@ export class DescribeAnomalySQLListResponse extends $tea.Model {
 }
 
 export class DescribeAvailableCpuResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CPU resources available.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeAvailableCpuResource
+   * &InstanceId=ob317v4uif****
+   * &TenantId=ob2mr3oae0****
+   * &ModifyType=update
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * update
+   */
   modifyType?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeAvailableCpuResource**.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3083,6 +5466,10 @@ export class DescribeAvailableCpuResourceRequest extends $tea.Model {
 
 export class DescribeAvailableCpuResourceResponseBody extends $tea.Model {
   data?: DescribeAvailableCpuResourceResponseBodyData[];
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3129,9 +5516,44 @@ export class DescribeAvailableCpuResourceResponse extends $tea.Model {
 }
 
 export class DescribeAvailableMemResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 14
+   */
   cpuNum?: number;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The number of resource distribution nodes in the tenant.   
+   * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   unitNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3157,7 +5579,18 @@ export class DescribeAvailableMemResourceRequest extends $tea.Model {
 }
 
 export class DescribeAvailableMemResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The available memory size.
+   */
   data?: DescribeAvailableMemResourceResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3204,8 +5637,26 @@ export class DescribeAvailableMemResourceResponse extends $tea.Model {
 }
 
 export class DescribeAvailableSpecRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * oceanbase.cluster.cd8.xlarge
+   */
   spec?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * upgradespec
+   */
   upgradeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3230,6 +5681,10 @@ export class DescribeAvailableSpecRequest extends $tea.Model {
 
 export class DescribeAvailableSpecResponseBody extends $tea.Model {
   data?: DescribeAvailableSpecResponseBodyData;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3276,11 +5731,38 @@ export class DescribeAvailableSpecResponse extends $tea.Model {
 }
 
 export class DescribeAvailableZoneRequest extends $tea.Model {
+  /**
+   * @example
+   * x86
+   */
   cpuArch?: string;
+  /**
+   * @example
+   * multiple
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cluster
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 3.2.4.4
+   */
   obVersion?: string;
+  /**
+   * @example
+   * normal
+   */
   series?: string;
+  /**
+   * @example
+   * oceanbase.cluster.cd8.xlarge
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3311,6 +5793,10 @@ export class DescribeAvailableZoneRequest extends $tea.Model {
 
 export class DescribeAvailableZoneResponseBody extends $tea.Model {
   data?: DescribeAvailableZoneResponseBodyData;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3357,7 +5843,25 @@ export class DescribeAvailableZoneResponse extends $tea.Model {
 }
 
 export class DescribeBackupSetDownloadLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the download task corresponding to the target backup set.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1000002
+   */
   downloadTaskId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3379,7 +5883,18 @@ export class DescribeBackupSetDownloadLinkRequest extends $tea.Model {
 }
 
 export class DescribeBackupSetDownloadLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeBackupSetDownloadLinkResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3427,7 +5942,23 @@ export class DescribeBackupSetDownloadLinkResponse extends $tea.Model {
 
 export class DescribeCharsetRequest extends $tea.Model {
   instanceId?: string;
+  /**
+   * @remarks
+   * 实例的系列  - normal（默认）：标准集群版（云盘）  - normal_ssd：标准集群版（本地盘） - history：历史库集群版。
+   * 
+   * @example
+   * normal
+   */
   series?: string;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Oracle
+   */
   tenantMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3451,7 +5982,23 @@ export class DescribeCharsetRequest extends $tea.Model {
 }
 
 export class DescribeCharsetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeCharset
+   * &TenantMode=Oracle
+   * &Common request parameters
+   * ```
+   */
   charset?: DescribeCharsetResponseBodyCharset[];
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeCharset**.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3498,12 +6045,43 @@ export class DescribeCharsetResponse extends $tea.Model {
 }
 
 export class DescribeDataBackupSetRequest extends $tea.Model {
+  /**
+   * @example
+   * tenant
+   */
   backupObjectType?: string;
+  /**
+   * @example
+   * 2023-01-06T15:59:59Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-12-27T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * DONE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3536,7 +6114,15 @@ export class DescribeDataBackupSetRequest extends $tea.Model {
 
 export class DescribeDataBackupSetResponseBody extends $tea.Model {
   data?: DescribeDataBackupSetResponseBodyData[];
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3585,12 +6171,68 @@ export class DescribeDataBackupSetResponse extends $tea.Model {
 }
 
 export class DescribeDatabasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.    
+   * You cannot use reserved keywords, such as test and mysql.
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * @example
+   * ob****n0abo9uo
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page returned.  
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of rows returned on each page.  
+   * - Maximum value: 100.  
+   * - Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * pay
+   */
   searchKey?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the information about tables in the database.
+   * Default value: false. 
+   * > The operation may time out if the database contains a large number of tables.
+   * 
+   * @example
+   * true
+   */
   withTables?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3622,8 +6264,26 @@ export class DescribeDatabasesRequest extends $tea.Model {
 }
 
 export class DescribeDatabasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of databases in the tenant.
+   */
   databases?: DescribeDatabasesResponseBodyDatabases[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of databases in the tenant.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3672,8 +6332,24 @@ export class DescribeDatabasesResponse extends $tea.Model {
 }
 
 export class DescribeInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The size of the data disk, in GB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   maxConnectionLimit?: string;
+  /**
+   * @remarks
+   * The information about the storage resources of the cluster.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3697,7 +6373,18 @@ export class DescribeInstanceRequest extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The log disk space of each replica node in the cluster. Unit: GB.
+   */
   instance?: DescribeInstanceResponseBodyInstance;
+  /**
+   * @remarks
+   * The total log disk space of the cluster, in GB.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3744,6 +6431,15 @@ export class DescribeInstanceResponse extends $tea.Model {
 }
 
 export class DescribeInstanceCreatableZoneRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the zone.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3763,7 +6459,19 @@ export class DescribeInstanceCreatableZoneRequest extends $tea.Model {
 }
 
 export class DescribeInstanceCreatableZoneResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the cluster is deployed in the zone.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeInstanceCreatableZone**.
+   */
   zoneList?: DescribeInstanceCreatableZoneResponseBodyZoneList[];
   static names(): { [key: string]: string } {
     return {
@@ -3810,6 +6518,13 @@ export class DescribeInstanceCreatableZoneResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSSLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3830,6 +6545,10 @@ export class DescribeInstanceSSLRequest extends $tea.Model {
 
 export class DescribeInstanceSSLResponseBody extends $tea.Model {
   instanceSSL?: DescribeInstanceSSLResponseBodyInstanceSSL;
+  /**
+   * @example
+   * EE205C00-30E4-xxxx-xxxx-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3876,7 +6595,23 @@ export class DescribeInstanceSSLResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSecurityConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of the check.
+   * 
+   * @example
+   * xxx
+   */
   checkId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3898,7 +6633,18 @@ export class DescribeInstanceSecurityConfigsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSecurityConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The return result of the request.
+   */
   instanceSecurityConfigs?: DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigs;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3945,7 +6691,21 @@ export class DescribeInstanceSecurityConfigsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of cluster IDs.
+   * 
+   * @example
+   * ["ob3za5w73as8rk"]
+   */
   instanceIds?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"},{}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3967,7 +6727,18 @@ export class DescribeInstanceTagsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagResources?: DescribeInstanceTagsResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -4014,6 +6785,16 @@ export class DescribeInstanceTagsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTenantModesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeInstanceTenantModes**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4034,6 +6815,10 @@ export class DescribeInstanceTenantModesRequest extends $tea.Model {
 
 export class DescribeInstanceTenantModesResponseBody extends $tea.Model {
   instanceModes?: string[];
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4080,6 +6865,15 @@ export class DescribeInstanceTenantModesResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTopologyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the node.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4099,7 +6893,18 @@ export class DescribeInstanceTopologyRequest extends $tea.Model {
 }
 
 export class DescribeInstanceTopologyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of CPU cores used by the node.
+   */
   instanceTopology?: DescribeInstanceTopologyResponseBodyInstanceTopology;
+  /**
+   * @remarks
+   * The information about the CPU resources of the node.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4146,11 +6951,57 @@ export class DescribeInstanceTopologyResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the OceanBase cluster. It must be 1 to 20 characters in length. If this parameter is not specified, the value is the instance ID of the cluster by default.
+   * 
+   * @example
+   * ob4prod
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * - Pages start from page 1.
+   * - Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of rows to return on each page.
+   * - Maximum value: 100.
+   * - Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group. If you do not specify this parameter, all resources are returned.
+   * 
+   * @example
+   * group1
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The keyword for fuzzy search, which can be an instance ID, instance name, tenant ID, or tenant name.
+   * 
+   * @example
+   * pay
+   */
   searchKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4180,8 +7031,26 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information of the OceanBase cluster.
+   */
   instances?: DescribeInstancesResponseBodyInstances[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of OceanBase clusters queried.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4230,15 +7099,69 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeMetricsDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app,clusterId
+   */
   groupByLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app:OB,clusterId:ob***
+   */
   labels?: string;
+  /**
+   * @example
+   * 5
+   */
   limit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tps
+   */
   metrics?: string;
   replicaType?: string;
+  /**
+   * @example
+   * tps
+   */
   sortMetricKey?: string;
+  /**
+   * @example
+   * DESC
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4276,7 +7199,21 @@ export class DescribeMetricsDataRequest extends $tea.Model {
 }
 
 export class DescribeMetricsDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [
+   *                 {
+   *                     "sql_select_count":75.****15****1515,
+   *                     "timestamp":165079****
+   *                 },
+   *                 ......
+   *             ]
+   */
   data?: string[];
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4323,14 +7260,85 @@ export class DescribeMetricsDataResponse extends $tea.Model {
 }
 
 export class DescribeNodeMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * $.parameters[7].schema.description
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of nodes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * $.parameters[7].schema.enumValueTitles
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tps
+   */
   metrics?: string;
+  /**
+   * @remarks
+   * $.parameters[10].schema.description
+   * 
+   * @example
+   * [i-bp16niirq4zdmgvm****,i-bp16n56hq4z4fgvm****]
+   */
   nodeIdList?: string;
+  /**
+   * @remarks
+   * $.parameters[8].schema.example
+   * 
+   * @example
+   * i-bp16niirq4zdmgvm****
+   */
   nodeName?: string;
+  /**
+   * @remarks
+   * $.parameters[6].schema.description
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * $.parameters[9].schema.example
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * $.parameters[6].schema.enumValueTitles
+   * 
+   * @example
+   * tfafd34fs****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4366,8 +7374,38 @@ export class DescribeNodeMetricsRequest extends $tea.Model {
 }
 
 export class DescribeNodeMetricsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
   nodeMetrics?: string;
+  /**
+   * @remarks
+   * You can call this operation to query the detailed metrics information of an OceanBase Database node.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeNodeMetrics
+   * &InstanceId=ob317v4uif****
+   * &PageSize=10
+   * &PageNumber=1
+   * &TenantId=ob2mr3oae0****
+   * &StartTime=2021-06-13 15:40:43
+   * &EndTime=2021-09-13 15:40:43
+   * &Metrics=tps
+   * &NodeName=i-bp16niirq4zdmgvm****
+   * &NodeIdList=["i-bp19y05uq6xpacyqnlrc","i-bp1blcr3htr3g3u2vqvu","i-bp1392ikhayhr3hi4fli"]
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * 9
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4416,23 +7454,150 @@ export class DescribeNodeMetricsResponse extends $tea.Model {
 }
 
 export class DescribeOasAnomalySQLListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * - zh: Chinese
+   * - en: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The current page.
+   * 
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * db_****
+   */
   dbName?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * The end time of the monitoring data.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * All parameters are referenced by the symbol @. For a list of available parameters, refer to the returned parameters in [Query performance indicators of an SQL statement](https://en.oceanbase.com/docs/community-ocp-en-10000000000840290).
+   * 
+   * @example
+   * @avgCpuTime > 20 and @executions > 100
+   */
   filterCondition?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   mergeDynamicSql?: boolean;
+  /**
+   * @remarks
+   * The node IP.
+   * 
+   * @example
+   * i-bp19y05uq6x*********
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * Page size.
+   * - Start value: 1
+   * - Default value: 1
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParam?: string;
+  /**
+   * @remarks
+   * The search rule.   
+   * Valid values: "=", ">", ">=", "<", and "<="
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * Max length of the returned SQL text.
+   * 
+   * @example
+   * 65535
+   */
   sqlTextLength?: number;
+  /**
+   * @remarks
+   * The start time of the monitoring data.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4486,8 +7651,26 @@ export class DescribeOasAnomalySQLListRequest extends $tea.Model {
 }
 
 export class DescribeOasAnomalySQLListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of suspicious SQLs.
+   */
   data?: DescribeOasAnomalySQLListResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469**-AA6F-4D**-B3DB-A***********
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 9
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4536,12 +7719,68 @@ export class DescribeOasAnomalySQLListResponse extends $tea.Model {
 }
 
 export class DescribeOasSQLDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * The end time of querying the SQL execution plan.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * The start time of querying the SQL execution plan.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4573,7 +7812,18 @@ export class DescribeOasSQLDetailsRequest extends $tea.Model {
 }
 
 export class DescribeOasSQLDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the SQL execution plan.
+   */
   data?: DescribeOasSQLDetailsResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4620,14 +7870,84 @@ export class DescribeOasSQLDetailsResponse extends $tea.Model {
 }
 
 export class DescribeOasSQLHistoryListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * - zh: Chinese
+   * - en: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * The end time of querying the execution history of the SQL statement.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp19y05uq6x*********
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * The start time of querying the execution history of the SQL statement.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4663,7 +7983,18 @@ export class DescribeOasSQLHistoryListRequest extends $tea.Model {
 }
 
 export class DescribeOasSQLHistoryListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of SQL execution history.
+   */
   data?: DescribeOasSQLHistoryListResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4710,15 +8041,80 @@ export class DescribeOasSQLHistoryListResponse extends $tea.Model {
 }
 
 export class DescribeOasSQLPlansRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Supported language. Valid values:
+   * - zh-CN: Chinese
+   * - en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * The end time of querying the SQL execution plan.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   planUnionHash?: string;
   returnBriefInfo?: boolean;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * The start time of querying the SQL execution plan.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4756,7 +8152,18 @@ export class DescribeOasSQLPlansRequest extends $tea.Model {
 }
 
 export class DescribeOasSQLPlansResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of SQL execution plan.
+   */
   data?: DescribeOasSQLPlansResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4803,21 +8210,129 @@ export class DescribeOasSQLPlansResponse extends $tea.Model {
 }
 
 export class DescribeOasSlowSQLListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * The end time of querying slow SQL historical parameters.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * All parameters are referenced by the symbol @. For a list of available parameters, refer to the returned parameters in [Query performance indicators of an SQL statement](https://en.oceanbase.com/docs/community-ocp-en-10000000000840290).
+   * 
+   * @example
+   * @avgCpuTime > 20 and @executions > 100
+   */
   filterCondition?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   mergeDynamicSql?: boolean;
+  /**
+   * @remarks
+   * The IP of the database node.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParam?: string;
+  /**
+   * @remarks
+   * The search rule.
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * SQL ID, the unique identifier of the SQL.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * Max length of the returned SQL text.
+   * 
+   * @example
+   * 65535
+   */
   sqlTextLength?: number;
+  /**
+   * @remarks
+   * The start time of querying slow SQL historical parameters.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4867,7 +8382,18 @@ export class DescribeOasSlowSQLListRequest extends $tea.Model {
 }
 
 export class DescribeOasSlowSQLListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of slow queries.
+   */
   data?: DescribeOasSlowSQLListResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4914,21 +8440,133 @@ export class DescribeOasSlowSQLListResponse extends $tea.Model {
 }
 
 export class DescribeOasTopSQLListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - zh: Chinese
+   * - en: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * The end time of querying the TOPSQL parameter.
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * All parameters are referenced by the symbol @. For a list of available parameters, refer to the returned parameters in [Query performance indicators of an SQL statement](https://en.oceanbase.com/docs/community-ocp-en-10000000000840290).
+   * 
+   * @example
+   * @avgCpuTime > 20 and @executions > 100
+   */
   filterCondition?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   mergeDynamicSql?: boolean;
+  /**
+   * @remarks
+   * The node IP.
+   * 
+   * @example
+   * i-bp18l4****str4uk03
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParam?: string;
+  /**
+   * @remarks
+   * The search rule.
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * SQL ID.
+   * > When the SQL ID is provided, the system collects all the request data for the target SQL ID. When the SQL ID is empty, the system collects all the request data for the entire database instance.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * Max length of the returned SQL text.
+   * 
+   * @example
+   * 65535
+   */
   sqlTextLength?: number;
+  /**
+   * @remarks
+   * The start time of querying the TOPSQL parameter.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4978,7 +8616,18 @@ export class DescribeOasTopSQLListRequest extends $tea.Model {
 }
 
 export class DescribeOasTopSQLListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of Top SQL.
+   */
   data?: DescribeOasTopSQLListResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5025,11 +8674,63 @@ export class DescribeOasTopSQLListResponse extends $tea.Model {
 }
 
 export class DescribeOutlineBindingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testdb
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * - When the value is set to True, the throttling information in the database is queried based on the SQL ID.   
+   * - When the value is set to False, the bound index or execution plan in the database is queried based on the SQL ID.
+   * 
+   * @example
+   * false
+   */
   isConcurrentLimit?: boolean;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The name of the tenant.    
+   * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_). It cannot be set to SYS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_online
+   */
   tableName?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5059,7 +8760,18 @@ export class DescribeOutlineBindingRequest extends $tea.Model {
 }
 
 export class DescribeOutlineBindingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The binding information.
+   */
   outlineBinding?: DescribeOutlineBindingResponseBodyOutlineBinding;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5106,8 +8818,33 @@ export class DescribeOutlineBindingResponse extends $tea.Model {
 }
 
 export class DescribeParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TENANT
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   dimensionValue?: string;
+  /**
+   * @remarks
+   * 498529
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5131,7 +8868,20 @@ export class DescribeParametersRequest extends $tea.Model {
 }
 
 export class DescribeParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a restart is required for changes to the parameter to take effect. Valid values:   
+   * - true: A restart is required.   
+   * - false: A restart is not required.
+   */
   parameters?: DescribeParametersResponseBodyParameters[];
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5178,12 +8928,79 @@ export class DescribeParametersResponse extends $tea.Model {
 }
 
 export class DescribeParametersHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the parameter.   
+   * Valid values: CLUSTER and TENANT.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TENANT
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The resource ID of the parameter type.   
+   * You can leave this parameter unspecified when you call this operation to query the modification history of cluster parameters. In the case of tenant parameters, pass the tenant ID.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   dimensionValue?: string;
+  /**
+   * @remarks
+   * The end time for the query of parameter modification history.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13 15:40:43
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return.    
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of rows to return on each page.   
+   * - Maximum value: 100   
+   * - Default value: 10
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The start time of the time range for querying the parameter modification history.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13 15:40:43
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5215,7 +9032,18 @@ export class DescribeParametersHistoryRequest extends $tea.Model {
 }
 
 export class DescribeParametersHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of parameter modification records.
+   */
   respond?: DescribeParametersHistoryResponseBodyRespond[];
   static names(): { [key: string]: string } {
     return {
@@ -5262,13 +9090,71 @@ export class DescribeParametersHistoryResponse extends $tea.Model {
 }
 
 export class DescribeProcessStatsCompositionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 127.*.*.*
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the server.
+   * 
+   * @example
+   * 127.*.*.*
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The SQL statement. It supports LIKE clauses, and you may specify only part of the clauses in the SQL statement.
+   * 
+   * @example
+   * SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+   */
   sqlText?: string;
+  /**
+   * @remarks
+   * The state of the session.
+   * 
+   * @example
+   * ACTIVE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The user identifier (UID) of OceanBase Database.
+   * 
+   * @example
+   * 139*************
+   */
   UId?: string;
+  /**
+   * @remarks
+   * The username that you use to log in to the database.
+   * 
+   * @example
+   * test1
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5302,7 +9188,18 @@ export class DescribeProcessStatsCompositionRequest extends $tea.Model {
 }
 
 export class DescribeProcessStatsCompositionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The return result.
+   */
   data?: DescribeProcessStatsCompositionResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5349,6 +9246,13 @@ export class DescribeProcessStatsCompositionResponse extends $tea.Model {
 }
 
 export class DescribeProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_fe****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5368,16 +9272,52 @@ export class DescribeProjectRequest extends $tea.Model {
 }
 
 export class DescribeProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: DescribeProjectResponseBodyData;
   errorDetail?: DescribeProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-XXXX-XXXX-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5442,6 +9382,13 @@ export class DescribeProjectResponse extends $tea.Model {
 }
 
 export class DescribeProjectComponentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5461,16 +9408,52 @@ export class DescribeProjectComponentsRequest extends $tea.Model {
 }
 
 export class DescribeProjectComponentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 48
+   */
   cost?: string;
   data?: DescribeProjectComponentsResponseBodyData;
   errorDetail?: DescribeProjectComponentsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 9
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5535,6 +9518,13 @@ export class DescribeProjectComponentsResponse extends $tea.Model {
 }
 
 export class DescribeProjectProgressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5554,16 +9544,52 @@ export class DescribeProjectProgressRequest extends $tea.Model {
 }
 
 export class DescribeProjectProgressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: DescribeProjectProgressResponseBodyData;
   errorDetail?: DescribeProjectProgressResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5628,12 +9654,58 @@ export class DescribeProjectProgressResponse extends $tea.Model {
 }
 
 export class DescribeProjectStepMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AVG
+   */
   aggregator?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1689244696
+   */
   beginTimestamp?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1689254646
+   */
   endTimestamp?: number;
+  /**
+   * @example
+   * 6
+   */
   maxPointNum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RPS
+   */
   metricType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_dr****
+   */
   projectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FULL_TRANSFER
+   */
   stepName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5665,16 +9737,52 @@ export class DescribeProjectStepMetricRequest extends $tea.Model {
 }
 
 export class DescribeProjectStepMetricResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: DescribeProjectStepMetricResponseBodyData;
   errorDetail?: DescribeProjectStepMetricResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5739,6 +9847,13 @@ export class DescribeProjectStepMetricResponse extends $tea.Model {
 }
 
 export class DescribeProjectStepsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5758,16 +9873,52 @@ export class DescribeProjectStepsRequest extends $tea.Model {
 }
 
 export class DescribeProjectStepsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: DescribeProjectStepsResponseBodyData[];
   errorDetail?: DescribeProjectStepsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5832,8 +9983,38 @@ export class DescribeProjectStepsResponse extends $tea.Model {
 }
 
 export class DescribeRecommendIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The index recommended for the SQL statement after calculation by the diagnostic system.   
+   * - If the recommended index is the primary key, PRIMARY is returned.  
+   * - If an index created by the user is recommended, the index name is returned.   
+   * The system recommends only one index for an SQL statement. You can call the DescribeIndexes operation to view the indexes of a table.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5857,7 +10038,20 @@ export class DescribeRecommendIndexRequest extends $tea.Model {
 }
 
 export class DescribeRecommendIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the recommended index.
+   */
   recommendIndex?: DescribeRecommendIndexResponseBodyRecommendIndex;
+  /**
+   * @remarks
+   * The tenant mode.   Valid values:  
+   * Oracle   
+   * MySQL
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5904,7 +10098,25 @@ export class DescribeRecommendIndexResponse extends $tea.Model {
 }
 
 export class DescribeSQLDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5926,7 +10138,24 @@ export class DescribeSQLDetailsRequest extends $tea.Model {
 }
 
 export class DescribeSQLDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeSQLDetails**.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeSQLDetails
+   * &TenantId=t2mr3oae0****
+   * &SQLId=8D6E84****0B8FB1823D199E2CA1****
+   * &Common request parameters
+   * ```
+   */
   SQLDetails?: DescribeSQLDetailsResponseBodySQLDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -5973,11 +10202,64 @@ export class DescribeSQLDetailsResponse extends $tea.Model {
 }
 
 export class DescribeSQLHistoryListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the time range for querying the SQL execution history.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.   
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The start time of the time range for querying the SQL execution history.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6007,7 +10289,18 @@ export class DescribeSQLHistoryListRequest extends $tea.Model {
 }
 
 export class DescribeSQLHistoryListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution history of the SQL statement.
+   */
   SQLHistoryList?: DescribeSQLHistoryListResponseBodySQLHistoryList;
   static names(): { [key: string]: string } {
     return {
@@ -6054,7 +10347,25 @@ export class DescribeSQLHistoryListResponse extends $tea.Model {
 }
 
 export class DescribeSQLPlansRequest extends $tea.Model {
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6076,7 +10387,18 @@ export class DescribeSQLPlansRequest extends $tea.Model {
 }
 
 export class DescribeSQLPlansResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the execution plan.
+   */
   SQLPlans?: DescribeSQLPlansResponseBodySQLPlans[];
   static names(): { [key: string]: string } {
     return {
@@ -6123,12 +10445,64 @@ export class DescribeSQLPlansResponse extends $tea.Model {
 }
 
 export class DescribeSQLSamplesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The end time of querying the slow query execution.
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   returnSqlText?: boolean;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * The start time of querying the slow query execution.
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6160,7 +10534,18 @@ export class DescribeSQLSamplesRequest extends $tea.Model {
 }
 
 export class DescribeSQLSamplesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of sample data of slow query execution details.
+   */
   data?: DescribeSQLSamplesResponseBodyData[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6207,12 +10592,60 @@ export class DescribeSQLSamplesResponse extends $tea.Model {
 }
 
 export class DescribeSQLTuningAdvicesRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * obsdf43****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * SqlId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tsdc2s2****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6245,6 +10678,10 @@ export class DescribeSQLTuningAdvicesRequest extends $tea.Model {
 
 export class DescribeSQLTuningAdvicesResponseBody extends $tea.Model {
   data?: DescribeSQLTuningAdvicesResponseBodyData[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6291,13 +10728,59 @@ export class DescribeSQLTuningAdvicesResponse extends $tea.Model {
 }
 
 export class DescribeSampleSqlRawTextsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T05:38:38Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   limit?: string;
+  /**
+   * @remarks
+   * SQL ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @example
+   * YB420A700EFB-00060D53E42D0C61-0-0
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6332,6 +10815,10 @@ export class DescribeSampleSqlRawTextsRequest extends $tea.Model {
 
 export class DescribeSampleSqlRawTextsResponseBody extends $tea.Model {
   data?: DescribeSampleSqlRawTextsResponseBodyData;
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6378,6 +10865,15 @@ export class DescribeSampleSqlRawTextsResponse extends $tea.Model {
 }
 
 export class DescribeSecurityIpGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp67acfmxazb4p****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6397,8 +10893,22 @@ export class DescribeSecurityIpGroupsRequest extends $tea.Model {
 }
 
 export class DescribeSecurityIpGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   securityIpGroups?: DescribeSecurityIpGroupsResponseBodySecurityIpGroups[];
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6447,7 +10957,25 @@ export class DescribeSecurityIpGroupsResponse extends $tea.Model {
 }
 
 export class DescribeSessionListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6469,7 +10997,18 @@ export class DescribeSessionListRequest extends $tea.Model {
 }
 
 export class DescribeSessionListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The object information.
+   */
   data?: DescribeSessionListResponseBodyData[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6516,11 +11055,67 @@ export class DescribeSessionListResponse extends $tea.Model {
 }
 
 export class DescribeSlowSQLHistoryListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the time range for querying the execution history of the slow SQL statement.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-12-14T08:34:49Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The number of the page to return.    
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of rows to return on each page.  
+   * - Maximum value: 100   
+   * - Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The SQL ID, which uniquely identifies an SQL statement.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8D6E84735C0****1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The start time of the time range for querying the execution history of the slow SQL statement.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-12-14T02:34:49Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t384tolsj****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6550,7 +11145,18 @@ export class DescribeSlowSQLHistoryListRequest extends $tea.Model {
 }
 
 export class DescribeSlowSQLHistoryListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution history of the slow SQL statement.
+   */
   slowSQLHistoryList?: DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryList;
   static names(): { [key: string]: string } {
     return {
@@ -6597,20 +11203,137 @@ export class DescribeSlowSQLHistoryListResponse extends $tea.Model {
 }
 
 export class DescribeSlowSQLListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The end time of the time range for querying slow SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The filter condition.
+   * 
+   * @example
+   * [dbName:sys]
+   */
   filterCondition?: { [key: string]: any };
+  /**
+   * @remarks
+   * The IP address of the database node.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The number of rows to return on each page.  
+   * - Maximum value: 100  
+   * - Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of the page to return.    
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The SQL ID, which uniquely identifies an SQL statement.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParameter?: string;
+  /**
+   * @remarks
+   * The search rule.
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * The sorted column.
+   * 
+   * @example
+   * cputime
+   */
   sortColumn?: string;
+  /**
+   * @remarks
+   * The sorting rule.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The start time of the time range for querying slow SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6658,20 +11381,137 @@ export class DescribeSlowSQLListRequest extends $tea.Model {
 }
 
 export class DescribeSlowSQLListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The end time of the time range for querying slow SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The filter condition.
+   * 
+   * @example
+   * [dbName:sys]
+   */
   filterConditionShrink?: string;
+  /**
+   * @remarks
+   * The IP address of the database node.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The number of rows to return on each page.  
+   * - Maximum value: 100  
+   * - Default value: 10
+   * 
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of the page to return.    
+   * - Start value: 1   
+   * - Default value: 1
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The SQL ID, which uniquely identifies an SQL statement.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * The search parameter.
+   * 
+   * @example
+   * cputime
+   */
   searchParameter?: string;
+  /**
+   * @remarks
+   * The search rule.
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The search value.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * The sorted column.
+   * 
+   * @example
+   * cputime
+   */
   sortColumn?: string;
+  /**
+   * @remarks
+   * The sorting rule.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The start time of the time range for querying slow SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6719,8 +11559,26 @@ export class DescribeSlowSQLListShrinkRequest extends $tea.Model {
 }
 
 export class DescribeSlowSQLListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of slow SQL statements.
+   */
   slowSQLList?: DescribeSlowSQLListResponseBodySlowSQLList[];
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6769,6 +11627,15 @@ export class DescribeSlowSQLListResponse extends $tea.Model {
 }
 
 export class DescribeTagValuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tag
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6788,7 +11655,21 @@ export class DescribeTagValuesRequest extends $tea.Model {
 }
 
 export class DescribeTagValuesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The mappings between tag groups and tags.
+   * 
+   * @example
+   * "{\\"Tag group 2\\":[\\"Tag 2-1\\",\\"Tag 2-2\\"],\\"Tag group 1\\":[\\"Tag 1-1\\"]}"
+   */
   map?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6835,7 +11716,29 @@ export class DescribeTagValuesResponse extends $tea.Model {
 }
 
 export class DescribeTenantRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the Internet address for accessing the tenant. Valid values:   
+   * - CLOSED: The address is disabled.   
+   * - ALLOCATING_INTERNET_ADDRESS: An address is being applied for.   
+   * - PENDING_OFFLINE_INTERNET_ADDRESS: The address is being disabled.   
+   * - ONLINE: The address is in service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether to enable transaction splitting.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6857,7 +11760,18 @@ export class DescribeTenantRequest extends $tea.Model {
 }
 
 export class DescribeTenantResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The zone information of the tenant.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the zone.
+   */
   tenant?: DescribeTenantResponseBodyTenant;
   static names(): { [key: string]: string } {
     return {
@@ -6904,10 +11818,33 @@ export class DescribeTenantResponse extends $tea.Model {
 }
 
 export class DescribeTenantEncryptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
+  /**
+   * @example
+   * forMySQLTenant
+   */
   tenantName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6935,8 +11872,16 @@ export class DescribeTenantEncryptionRequest extends $tea.Model {
 }
 
 export class DescribeTenantEncryptionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   tenantEncryptions?: DescribeTenantEncryptionResponseBodyTenantEncryptions[];
+  /**
+   * @example
+   * 8
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6985,14 +11930,81 @@ export class DescribeTenantEncryptionResponse extends $tea.Model {
 }
 
 export class DescribeTenantMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:45:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * 2021-06-13T15:40:43Z
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * {"name":"DescribeTenantMetrics","product":"OceanBasePro","version":"2019-09-01","path":"/","deprecated":0,"method":"POST|GET","protocol":"HTTP|HTTPS","hidden":0,"timeout":10000,"parameter_type":"Single","params":"[{\\"name\\":\\"Action\\",\\"position\\":\\"Query\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"description\\":\\"\\",\\"example\\":\\"DescribeTenantMetrics\\"},{\\"name\\":\\"InstanceId\\",\\"position\\":\\"Body\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"ob317v4uif****\\"},{\\"name\\":\\"PageSize\\",\\"position\\":\\"Body\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"Integer\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"10\\"},{\\"name\\":\\"PageNumber\\",\\"position\\":\\"Body\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"Integer\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"1\\"},{\\"name\\":\\"TenantName\\",\\"position\\":\\"Body\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":true,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"pay_online\\"},{\\"name\\":\\"StartTime\\",\\"position\\":\\"Body\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"2021-06-13T15:40:43Z\\"},{\\"name\\":\\"EndTime\\",\\"position\\":\\"Body\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"2021-06-13T15:45:43Z\\"},{\\"name\\":\\"Metrics\\",\\"position\\":\\"Body\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"tps\\"},{\\"name\\":\\"TenantId\\",\\"position\\":\\"Body\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":true,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"tfafd34fs****\\"},{\\"name\\":\\"TenantIdList\\",\\"position\\":\\"Body\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"[tdak3nac****,tdakc42df****]\\"}]","response_headers":"[]","response":"{\\"type\\":\\"Object\\",\\"children\\":[{\\"name\\":\\"TotalCount\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"Integer\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"9\\"},{\\"name\\":\\"RequestId\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C\\"},{\\"name\\":\\"TenantMetrics\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"\\\\\\"Metrics\\\\\\":[ {\\\\\\"request_queue_rt\\\\\\":0.0,\\\\\\"TimeStamp\\\\\\":\\\\\\"2022-02-23T01:58:00Z\\\\\\"}]\\"}],\\"title\\":\\"\\",\\"description\\":\\"\\"}","errors":"{}"}
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tps
+   */
   metrics?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * tfafd34fs****
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * tfafd34fs****
+   * 
+   * @deprecated
+   */
   tenantId?: string;
+  /**
+   * @example
+   * [tdak3nac****,tdakc42df****]
+   */
   tenantIdList?: string;
+  /**
+   * @remarks
+   * 2021-06-13T15:45:43Z
+   * 
+   * @example
+   * pay_online
+   * 
+   * @deprecated
+   */
   tenantName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7028,8 +12040,20 @@ export class DescribeTenantMetricsRequest extends $tea.Model {
 }
 
 export class DescribeTenantMetricsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * "Metrics":[ {"request_queue_rt":0.0,"TimeStamp":"2022-02-23T01:58:00Z"}]
+   */
   tenantMetrics?: string;
+  /**
+   * @example
+   * 9
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7078,7 +12102,25 @@ export class DescribeTenantMetricsResponse extends $tea.Model {
 }
 
 export class DescribeTenantReadableScnRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7100,7 +12142,18 @@ export class DescribeTenantReadableScnRequest extends $tea.Model {
 }
 
 export class DescribeTenantReadableScnResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data in the return result of the request.
+   */
   data?: DescribeTenantReadableScnResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8442BB1E-3171-1192-B9DC-F6F4E53B2673
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7147,8 +12200,31 @@ export class DescribeTenantReadableScnResponse extends $tea.Model {
 }
 
 export class DescribeTenantSecurityConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of the security check.
+   * 
+   * @example
+   * ****
+   */
   checkId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7172,7 +12248,18 @@ export class DescribeTenantSecurityConfigsRequest extends $tea.Model {
 }
 
 export class DescribeTenantSecurityConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of parameters.
+   */
   configs?: DescribeTenantSecurityConfigsResponseBodyConfigs;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 523E7183-****-590D-****-12DFD316614B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7219,7 +12306,25 @@ export class DescribeTenantSecurityConfigsResponse extends $tea.Model {
 }
 
 export class DescribeTenantSecurityIpGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7241,8 +12346,26 @@ export class DescribeTenantSecurityIpGroupsRequest extends $tea.Model {
 }
 
 export class DescribeTenantSecurityIpGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469**-AA6F-4D**-B3DB-A***********
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of the whitelist groups.
+   */
   securityIpGroups?: DescribeTenantSecurityIpGroupsResponseBodySecurityIpGroups[];
+  /**
+   * @remarks
+   * The total number of the whitelist groups.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7291,8 +12414,33 @@ export class DescribeTenantSecurityIpGroupsResponse extends $tea.Model {
 }
 
 export class DescribeTenantTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"}]
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The JSON string of the tenant ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["t5r0x2f6q****", "t33h8y08k****", "t5r41rtl7****"]
+   */
   tenantIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7316,7 +12464,18 @@ export class DescribeTenantTagsRequest extends $tea.Model {
 }
 
 export class DescribeTenantTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagResources?: DescribeTenantTagsResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -7363,6 +12522,10 @@ export class DescribeTenantTagsResponse extends $tea.Model {
 }
 
 export class DescribeTenantUserRolesRequest extends $tea.Model {
+  /**
+   * @example
+   * t4pnum****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7382,6 +12545,10 @@ export class DescribeTenantUserRolesRequest extends $tea.Model {
 }
 
 export class DescribeTenantUserRolesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   role?: string[];
   static names(): { [key: string]: string } {
@@ -7429,10 +12596,48 @@ export class DescribeTenantUserRolesResponse extends $tea.Model {
 }
 
 export class DescribeTenantUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The database privileges of the account.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * pay
+   */
   searchKey?: string;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeTenantUsers**.
+   * 
+   * @example
+   * pay_test
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7460,8 +12665,38 @@ export class DescribeTenantUsersRequest extends $tea.Model {
 }
 
 export class DescribeTenantUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The type of the database account. Valid values:    
+   * - Admin: the super administrator account.   
+   * - NORMAL: a general account.
+   */
   tenantUsers?: DescribeTenantUsersResponseBodyTenantUsers[];
+  /**
+   * @remarks
+   * The role of the account.   
+   * In Oracle mode, a role is a schema-level role. Valid values:  
+   * - ReadWrite: a role that has the read and write privileges, including: CREATE TABLE, CREATE VIEW, CREATE PROCEDURE, CREATE SYNONYM, CREATE SEQUENCE, CREATE TRIGGER, CREATE TYPE, CREATE SESSION, EXECUTE ANY PROCEDURE, CREATE ANY OUTLINE, ALTER ANY OUTLINE, DROP ANY OUTLINE, CREATE ANY PROCEDURE, ALTER ANY PROCEDURE, DROP ANY PROCEDURE, CREATE ANY SEQUENCE, ALTER ANY SEQUENCE, DROP ANY SEQUENCE, CREATE ANY TYPE, ALTER ANY TYPE, DROP ANY TYPE, SYSKM, CREATE ANY TRIGGER, ALTER ANY TRIGGER, DROP ANY TRIGGER, CREATE PROFILE, ALTER PROFILE, and DROP PROFILE.  
+   * - ReadOnly: a role that has only the read-only privilege SELECT.
+   * In MySQL mode, a role is a database-level role. Valid values: 
+   * - ReadWrite: a role that has the read and write privileges, namely ALL PRIVILEGES.   
+   * - ReadOnly: a role that has only the read-only privilege SELECT.   
+   * - DDL: a role that has the DDL privileges such as CREATE, DROP, ALTER, SHOW VIEW, and CREATE VIEW.   
+   * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.   
+   * 
+   * > <br>By default, an Oracle account has the read and write privileges on its own schema, which are not listed here.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7510,7 +12745,25 @@ export class DescribeTenantUsersResponse extends $tea.Model {
 }
 
 export class DescribeTenantZonesReadRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The zone information of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7532,7 +12785,18 @@ export class DescribeTenantZonesReadRequest extends $tea.Model {
 }
 
 export class DescribeTenantZonesReadResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a read-only connection needs to be created for the zone.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   */
   tenantZones?: DescribeTenantZonesReadResponseBodyTenantZones[];
   static names(): { [key: string]: string } {
     return {
@@ -7579,11 +12843,55 @@ export class DescribeTenantZonesReadResponse extends $tea.Model {
 }
 
 export class DescribeTenantsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of used disks of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * You can call this operation to query the tenants in an OceanBase cluster.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The primary zone of the tenant.
+   * 
+   * @example
+   * pay
+   */
   searchKey?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The information of tenants.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7613,8 +12921,26 @@ export class DescribeTenantsRequest extends $tea.Model {
 }
 
 export class DescribeTenantsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   */
   tenants?: DescribeTenantsResponseBodyTenants[];
+  /**
+   * @remarks
+   * The total memory size of the tenant, in GB.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7663,7 +12989,18 @@ export class DescribeTenantsResponse extends $tea.Model {
 }
 
 export class DescribeTimeZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * DescribeTimeZones
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The description of the time zone.
+   */
   timeZones?: DescribeTimeZonesResponseBodyTimeZones;
   static names(): { [key: string]: string } {
     return {
@@ -7710,20 +13047,134 @@ export class DescribeTimeZonesResponse extends $tea.Model {
 }
 
 export class DescribeTopSQLListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of block index cache hits.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The SQL type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The average number of logical reads of the SQL statement during the specified period of time.   
+   * The value covers the numbers of reads of different caches and the number of disk I/Os. It is an important metric for measuring the SQL filtering performance.   
+   * 
+   * > <br> A higher ratio of the number of logical reads to the number of returned rows indicates poorer filtering performance. General causes include non-standard content written by SQL statements, non-standard table indexes created, and non-standard SQL execution plans.
+   * 
+   * @example
+   * [dbName:sys]
+   */
   filterCondition?: { [key: string]: any };
+  /**
+   * @remarks
+   * The number of failures.
+   * 
+   * @example
+   * i-bp19y05uq6xpacyqnlrc
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The queuing time, in ms.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of row cache hits.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The I/O wait time, in ms.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The number of retries.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * cputime
+   */
   searchParameter?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The number of Bloom filter cache hits.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * The number of rows read from the disk.
+   * 
+   * @example
+   * cputime
+   */
   sortColumn?: string;
+  /**
+   * @remarks
+   * The list of top SQL statements.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The maximum response time, in ms.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The average CPU time, in ms.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7771,20 +13222,134 @@ export class DescribeTopSQLListRequest extends $tea.Model {
 }
 
 export class DescribeTopSQLListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of block index cache hits.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The SQL type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-13T15:40:43Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The average number of logical reads of the SQL statement during the specified period of time.   
+   * The value covers the numbers of reads of different caches and the number of disk I/Os. It is an important metric for measuring the SQL filtering performance.   
+   * 
+   * > <br> A higher ratio of the number of logical reads to the number of returned rows indicates poorer filtering performance. General causes include non-standard content written by SQL statements, non-standard table indexes created, and non-standard SQL execution plans.
+   * 
+   * @example
+   * [dbName:sys]
+   */
   filterConditionShrink?: string;
+  /**
+   * @remarks
+   * The number of failures.
+   * 
+   * @example
+   * i-bp19y05uq6xpacyqnlrc
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The queuing time, in ms.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of row cache hits.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The I/O wait time, in ms.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The number of retries.
+   * 
+   * @example
+   * update
+   */
   searchKeyWord?: string;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * cputime
+   */
   searchParameter?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * >
+   */
   searchRule?: string;
+  /**
+   * @remarks
+   * The number of Bloom filter cache hits.
+   * 
+   * @example
+   * 0.01
+   */
   searchValue?: string;
+  /**
+   * @remarks
+   * The number of rows read from the disk.
+   * 
+   * @example
+   * cputime
+   */
   sortColumn?: string;
+  /**
+   * @remarks
+   * The list of top SQL statements.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The maximum response time, in ms.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-06-13T15:40:43Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The average CPU time, in ms.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7832,8 +13397,26 @@ export class DescribeTopSQLListShrinkRequest extends $tea.Model {
 }
 
 export class DescribeTopSQLListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The I/O wait time, in ms.
+   */
   topSQLList?: DescribeTopSQLListResponseBodyTopSQLList[];
+  /**
+   * @remarks
+   * It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+   * 
+   * @example
+   * 9
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7882,8 +13465,27 @@ export class DescribeTopSQLListResponse extends $tea.Model {
 }
 
 export class DescribeZonesRequest extends $tea.Model {
+  /**
+   * @example
+   * x86
+   */
   cpuArch?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeZones**.
+   * 
+   * @example
+   * single
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * The deployment mode.
+   * 
+   * @example
+   * NORMAL
+   */
   series?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7907,7 +13509,23 @@ export class DescribeZonesRequest extends $tea.Model {
 }
 
 export class DescribeZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeZones
+   * &Series=normal
+   * &DeployType=single
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * You can call this operation to learn of zones where a cluster can be created in an Alibaba Cloud region.
+   */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {
@@ -7954,7 +13572,18 @@ export class DescribeZonesResponse extends $tea.Model {
 }
 
 export class GetUploadOssUrlRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   effectiveTimeMinutes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CREATE_PROJECT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7976,16 +13605,52 @@ export class GetUploadOssUrlRequest extends $tea.Model {
 }
 
 export class GetUploadOssUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 278
+   */
   cost?: string;
   data?: GetUploadOssUrlResponseBodyData;
   errorDetail?: GetUploadOssUrlResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 11
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8050,8 +13715,35 @@ export class GetUploadOssUrlResponse extends $tea.Model {
 }
 
 export class KillProcessListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of the sessions that need to be closed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"ServerIp":"192.168.13.119","SessionId":"3221614618"}]
+   */
   sessionList?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8075,7 +13767,18 @@ export class KillProcessListRequest extends $tea.Model {
 }
 
 export class KillProcessListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: KillProcessListResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8122,16 +13825,52 @@ export class KillProcessListResponse extends $tea.Model {
 }
 
 export class ListAllLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: ListAllLabelsResponseBodyData[];
   errorDetail?: ListAllLabelsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 29
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8196,10 +13935,30 @@ export class ListAllLabelsResponse extends $tea.Model {
 }
 
 export class ListDataSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * descend
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * GRATI****89278244
+   */
   searchKey?: string;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortField?: string;
   types?: string[];
   static names(): { [key: string]: string } {
@@ -8230,10 +13989,30 @@ export class ListDataSourceRequest extends $tea.Model {
 }
 
 export class ListDataSourceShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * descend
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * GRATI****89278244
+   */
   searchKey?: string;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortField?: string;
   typesShrink?: string;
   static names(): { [key: string]: string } {
@@ -8264,16 +14043,52 @@ export class ListDataSourceShrinkRequest extends $tea.Model {
 }
 
 export class ListDataSourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 28
+   */
   cost?: string;
   data?: ListDataSourceResponseBodyData[];
   errorDetail?: ListDataSourceResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 132
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8339,10 +14154,25 @@ export class ListDataSourceResponse extends $tea.Model {
 
 export class ListProjectFullVerifyResultRequest extends $tea.Model {
   destSchemas?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w5abs****
+   */
   projectId?: string;
   sourceSchemas?: string[];
+  /**
+   * @example
+   * FINISHED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8373,10 +14203,25 @@ export class ListProjectFullVerifyResultRequest extends $tea.Model {
 
 export class ListProjectFullVerifyResultShrinkRequest extends $tea.Model {
   destSchemasShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w5abs****
+   */
   projectId?: string;
   sourceSchemasShrink?: string;
+  /**
+   * @example
+   * FINISHED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8406,16 +14251,52 @@ export class ListProjectFullVerifyResultShrinkRequest extends $tea.Model {
 }
 
 export class ListProjectFullVerifyResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: ListProjectFullVerifyResultResponseBodyData;
   errorDetail?: ListProjectFullVerifyResultResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8480,6 +14361,13 @@ export class ListProjectFullVerifyResultResponse extends $tea.Model {
 }
 
 export class ListProjectModifyRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_598jmu****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8499,16 +14387,52 @@ export class ListProjectModifyRecordsRequest extends $tea.Model {
 }
 
 export class ListProjectModifyRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 30
+   */
   cost?: string;
   data?: ListProjectModifyRecordsResponseBodyData[];
   errorDetail?: ListProjectModifyRecordsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8575,15 +14499,43 @@ export class ListProjectModifyRecordsResponse extends $tea.Model {
 export class ListProjectsRequest extends $tea.Model {
   labelIds?: string[];
   needRelatedInfo?: boolean;
+  /**
+   * @example
+   * descend
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * np_4w****
+   */
   searchKey?: string;
   sinkEndpointTypes?: string[];
+  /**
+   * @example
+   * gmtCreate
+   */
   sortField?: string;
   sourceEndpointTypes?: string[];
   status?: string[];
+  /**
+   * @example
+   * MIGRATION
+   */
   type?: string;
+  /**
+   * @example
+   * false
+   */
   visibleSubProject?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8627,15 +14579,43 @@ export class ListProjectsRequest extends $tea.Model {
 export class ListProjectsShrinkRequest extends $tea.Model {
   labelIdsShrink?: string;
   needRelatedInfo?: boolean;
+  /**
+   * @example
+   * descend
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * np_4w****
+   */
   searchKey?: string;
   sinkEndpointTypesShrink?: string;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortField?: string;
   sourceEndpointTypesShrink?: string;
   statusShrink?: string;
+  /**
+   * @example
+   * MIGRATION
+   */
   type?: string;
+  /**
+   * @example
+   * false
+   */
   visibleSubProject?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8677,16 +14657,52 @@ export class ListProjectsShrinkRequest extends $tea.Model {
 }
 
 export class ListProjectsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: ListProjectsResponseBodyData[];
   errorDetail?: ListProjectsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8751,11 +14767,35 @@ export class ListProjectsResponse extends $tea.Model {
 }
 
 export class ListWorkerInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * KAFKA
+   */
   destType?: string;
+  /**
+   * @example
+   * i4katz****
+   */
   instanceName?: string;
+  /**
+   * @example
+   * true
+   */
   onlyBindable?: boolean;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * OCEANBASE
+   */
   sourceType?: string;
   specs?: string[];
   static names(): { [key: string]: string } {
@@ -8788,11 +14828,35 @@ export class ListWorkerInstancesRequest extends $tea.Model {
 }
 
 export class ListWorkerInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * KAFKA
+   */
   destType?: string;
+  /**
+   * @example
+   * i4katz****
+   */
   instanceName?: string;
+  /**
+   * @example
+   * true
+   */
   onlyBindable?: boolean;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * OCEANBASE
+   */
   sourceType?: string;
   specsShrink?: string;
   static names(): { [key: string]: string } {
@@ -8825,16 +14889,52 @@ export class ListWorkerInstancesShrinkRequest extends $tea.Model {
 }
 
 export class ListWorkerInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   advice?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 71
+   */
   cost?: string;
   data?: ListWorkerInstancesResponseBodyData[];
   errorDetail?: ListWorkerInstancesResponseBodyErrorDetail;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 237
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8899,9 +14999,44 @@ export class ListWorkerInstancesResponse extends $tea.Model {
 }
 
 export class ModifyDatabaseDescriptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **ModifyDatabaseDescription**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8927,6 +15062,10 @@ export class ModifyDatabaseDescriptionRequest extends $tea.Model {
 }
 
 export class ModifyDatabaseDescriptionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8971,9 +15110,43 @@ export class ModifyDatabaseDescriptionResponse extends $tea.Model {
 }
 
 export class ModifyDatabaseUserRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The account information.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * A list of usernames and their respective roles.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"UserName":"omstest","Role":"readwrite"}]
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8999,7 +15172,15 @@ export class ModifyDatabaseUserRolesRequest extends $tea.Model {
 }
 
 export class ModifyDatabaseUserRolesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   */
   tenantUser?: ModifyDatabaseUserRolesResponseBodyTenantUser;
   static names(): { [key: string]: string } {
     return {
@@ -9046,7 +15227,25 @@ export class ModifyDatabaseUserRolesResponse extends $tea.Model {
 }
 
 export class ModifyInstanceNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob4prod
+   */
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9068,6 +15267,14 @@ export class ModifyInstanceNameRequest extends $tea.Model {
 }
 
 export class ModifyInstanceNameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **ModifyInstanceName**.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9112,8 +15319,35 @@ export class ModifyInstanceNameResponse extends $tea.Model {
 }
 
 export class ModifyInstanceNodeNumRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+   * - true: Only a dry-run request is sent and the number of nodes in the instance is not modified. If the dry run succeeds, DryRunResult=true is returned. If the dry run fails, an error code is returned.
+   * - false: The actual request is sent and no dry run is performed. The number of nodes is changed if the requirements are met. By default, the DryRunResult parameter returns false if you set DryRun to false.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of nodes in the cluster. If the cluster is deployed in n-n-n mode, the number of nodes in the cluster equals n × 3.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6
+   */
   nodeNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9137,7 +15371,18 @@ export class ModifyInstanceNodeNumRequest extends $tea.Model {
 }
 
 export class ModifyInstanceNodeNumResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The return result of the request.
+   */
   data?: ModifyInstanceNodeNumResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9184,7 +15429,31 @@ export class ModifyInstanceNodeNumResponse extends $tea.Model {
 }
 
 export class ModifyInstanceSSLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The operation to modify the SSL status. Valid values:
+   * 
+   * - open: Enable SSL encryption.
+   * 
+   * - update: Update the CA certificate.
+   * 
+   * - close: Disable SSL encryption.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * open
+   */
   enableSSL?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9206,7 +15475,18 @@ export class ModifyInstanceSSLRequest extends $tea.Model {
 }
 
 export class ModifyInstanceSSLResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The SSL setting of the OceanBase cluster instance.
+   */
   instanceSSL?: ModifyInstanceSSLResponseBodyInstanceSSL;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9253,10 +15533,57 @@ export class ModifyInstanceSSLResponse extends $tea.Model {
 }
 
 export class ModifyInstanceSpecRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The size of the storage space, in GB. The required storage space varies based on the cluster specifications:
+   * - 8C32G: 100 GB to 10 TB.
+   * - 14C70G: 200 GB to 10 TB.
+   * - 30C180G: 400 GB to 10 TB.
+   * - 62C400G: 800 GB to 10 TB. The preceding minimum storage space sizes are the default storage space sizes of the corresponding cluster specification plans.
+   * 
+   * @example
+   * 200
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * Disk type.
+   * 
+   * @example
+   * cloud_essd_pl1
+   */
   diskType?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+   * - true: Only a dry-run request is sent and the instance settings are not modified. If the dry run succeeds, DryRunResult=true is returned. If the dry run fails, an error code is returned.
+   * - false: If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The specifications of the cluster. You can specify one of the following four plans:
+   * - 8C32GB: indicates 8 CPU cores and 32 GB of memory.
+   * - 14C70GB: indicates 14 CPU cores and 70 GB of memory. This is the default value.
+   * - 30C180GB: indicates 30 CPU cores and 180 GB of memory.
+   * - 62C400GB: indicates 62 CPU cores and 400 GB of memory.
+   * 
+   * @example
+   * 14C70GB
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob3h8ytroxxxxx
+   */
   instanceId?: string;
   upgradeSpecNative?: boolean;
   static names(): { [key: string]: string } {
@@ -9287,7 +15614,21 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyInstanceSpecResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The return data of the request.
+   * 
+   * @example
+   * 1234567890
+   */
   data?: ModifyInstanceSpecResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9334,7 +15675,25 @@ export class ModifyInstanceSpecResponse extends $tea.Model {
 }
 
 export class ModifyInstanceTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"},{}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9356,7 +15715,21 @@ export class ModifyInstanceTagsRequest extends $tea.Model {
 }
 
 export class ModifyInstanceTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag modification result.
+   * 
+   * @example
+   * done
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9403,9 +15776,38 @@ export class ModifyInstanceTagsResponse extends $tea.Model {
 }
 
 export class ModifyInstanceTemporaryCapacityRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The disk size. Unit: GB.
+   * 
+   * @example
+   * 400
+   */
   diskSize?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specification.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oceanbase.cluster.i2.small
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9431,6 +15833,13 @@ export class ModifyInstanceTemporaryCapacityRequest extends $tea.Model {
 }
 
 export class ModifyInstanceTemporaryCapacityResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9475,9 +15884,44 @@ export class ModifyInstanceTemporaryCapacityResponse extends $tea.Model {
 }
 
 export class ModifyParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TENANT
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The cause of the modification failure.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   dimensionValue?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The resource ID of the parameter type.    
+   * You can leave this parameter unspecified when you call this operation to modify cluster parameters. In the case of tenant parameters, pass the tenant ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Name":"connect_timeout","Value":"20"}]
+   */
   parameters?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9503,7 +15947,19 @@ export class ModifyParametersRequest extends $tea.Model {
 }
 
 export class ModifyParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **ModifyParameters**.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Example 1
+   */
   results?: ModifyParametersResponseBodyResults;
   static names(): { [key: string]: string } {
     return {
@@ -9550,8 +16006,32 @@ export class ModifyParametersResponse extends $tea.Model {
 }
 
 export class ModifySecurityIpsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The information of the IP address whitelist group.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The list of IP addresses and CIDR blocks in the whitelist.   
+   * It is a JSON array. Each object in the array is an IP address or CIDR block. You can specify at most 40 IP addresses or CIDR blocks.
+   * 
+   * @example
+   * ["192.168.0.0/20","192.169.1.1"]
+   */
   securityIps?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9575,7 +16055,18 @@ export class ModifySecurityIpsRequest extends $tea.Model {
 }
 
 export class ModifySecurityIpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Example 1
+   */
   securityIpGroup?: ModifySecurityIpsResponseBodySecurityIpGroup;
   static names(): { [key: string]: string } {
     return {
@@ -9622,7 +16113,25 @@ export class ModifySecurityIpsResponse extends $tea.Model {
 }
 
 export class ModifyTagNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The new name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 2
+   */
   newKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9644,7 +16153,21 @@ export class ModifyTagNameRequest extends $tea.Model {
 }
 
 export class ModifyTagNameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag group renaming result.
+   * 
+   * @example
+   * update tag name success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9691,8 +16214,35 @@ export class ModifyTagNameResponse extends $tea.Model {
 }
 
 export class ModifyTagValueNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag group 1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The new name of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag 2
+   */
   newValue?: string;
+  /**
+   * @remarks
+   * The name of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tag 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9716,7 +16266,21 @@ export class ModifyTagValueNameRequest extends $tea.Model {
 }
 
 export class ModifyTagValueNameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag renaming result.
+   * 
+   * @example
+   * update tag-value name success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9763,9 +16327,34 @@ export class ModifyTagValueNameResponse extends $tea.Model {
 }
 
 export class ModifyTenantEncryptionRequest extends $tea.Model {
+  /**
+   * @example
+   * key-shh322****470h8v0-g2ll85****
+   */
   encryptionKeyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * EncryptionKey
+   */
   encryptionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9791,7 +16380,18 @@ export class ModifyTenantEncryptionRequest extends $tea.Model {
 }
 
 export class ModifyTenantEncryptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * job
+   */
   tenantEncryption?: ModifyTenantEncryptionResponseBodyTenantEncryption;
   static names(): { [key: string]: string } {
     return {
@@ -9838,13 +16438,63 @@ export class ModifyTenantEncryptionResponse extends $tea.Model {
 }
 
 export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The primary zone of the tenant.    
+   * It is one of the zones in which the cluster is deployed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=ModifyTenantPrimaryZone
+   * &TenantId=ob2mr3oae0****
+   * &InstanceId=ob317v4uif****
+   * &PrimaryZone=cn-hangzhou-h
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   masterIntranetAddressZone?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   primaryZone?: string;
   tenantEndpointDirectId?: string;
+  /**
+   * @example
+   * obe-4tw51gp7****
+   */
   tenantEndpointId?: string;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   userDirectVSwitchId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * vsw-xxx
+   */
   userVSwitchId?: string;
   userVpcOwnerId?: string;
   vpcId?: string;
@@ -9884,6 +16534,10 @@ export class ModifyTenantPrimaryZoneRequest extends $tea.Model {
 }
 
 export class ModifyTenantPrimaryZoneResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9928,11 +16582,63 @@ export class ModifyTenantPrimaryZoneResponse extends $tea.Model {
 }
 
 export class ModifyTenantResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the CPU resources of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The size of the log disk allocated to the tenant, in GB.
+   * 
+   * @example
+   * 128
+   */
   logDisk?: number;
+  /**
+   * @remarks
+   * The memory size of the tenant, in GB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   memory?: number;
+  /**
+   * @remarks
+   * Specifies to create a read-only zone. Separate the names of multiple zones with commas (,).
+   * 
+   * @example
+   * cn-shanghai-g-ro,cn-shanghai-h-ro
+   * 
+   * @deprecated
+   */
   readOnlyZoneList?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9962,7 +16668,21 @@ export class ModifyTenantResourceRequest extends $tea.Model {
 }
 
 export class ModifyTenantResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10009,9 +16729,49 @@ export class ModifyTenantResourceResponse extends $tea.Model {
 }
 
 export class ModifyTenantSecurityIpGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The group name of the whitelist group of IP addresses.
+   * 
+   * It starts with lowercase letters and ends with lowercase letters or numbers. It can only contain lowercase letters, numbers, and underscores, and should be 2~32 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The list of IP addresses in the whitelist group.
+   * 
+   * It is a JSON array. Each object in the array is an IP address or a CIDR block. You can have up to 40 whitelists.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.***.*.*"
+   */
   securityIps?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10037,7 +16797,18 @@ export class ModifyTenantSecurityIpGroupRequest extends $tea.Model {
 }
 
 export class ModifyTenantSecurityIpGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of the IP address whitelist group.
+   */
   securityIpGroup?: ModifyTenantSecurityIpGroupResponseBodySecurityIpGroup;
   static names(): { [key: string]: string } {
     return {
@@ -10084,8 +16855,35 @@ export class ModifyTenantSecurityIpGroupResponse extends $tea.Model {
 }
 
 export class ModifyTenantTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"}]
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10109,7 +16907,21 @@ export class ModifyTenantTagsRequest extends $tea.Model {
 }
 
 export class ModifyTenantTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag modification result.
+   * 
+   * @example
+   * done
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10156,9 +16968,46 @@ export class ModifyTenantTagsResponse extends $tea.Model {
 }
 
 export class ModifyTenantUserDescriptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **ModifyTenantUserDescription**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * this is a test database
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_test
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10184,6 +17033,13 @@ export class ModifyTenantUserDescriptionRequest extends $tea.Model {
 }
 
 export class ModifyTenantUserDescriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * You can call this operation to modify the description of a specified account in a tenant.
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10228,10 +17084,58 @@ export class ModifyTenantUserDescriptionResponse extends $tea.Model {
 }
 
 export class ModifyTenantUserPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 加密方式。
+   * 
+   * @example
+   * RSA
+   */
   encryptionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=ModifyTenantUserPassword
+   * &UserName=pay_test
+   * &TenantId=ob2mr3oae0****
+   * &UserPassword=!Aliyun4Oceanbase
+   * &InstanceId=ob317v4uif****
+   * &Common request parameters
+   * ```
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @remarks
+   * You can call this operation to change the logon password of a specified account in a tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * !Aliyun4Oceanbase
+   */
   userPassword?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10259,6 +17163,10 @@ export class ModifyTenantUserPasswordRequest extends $tea.Model {
 }
 
 export class ModifyTenantUserPasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10303,10 +17211,60 @@ export class ModifyTenantUserPasswordResponse extends $tea.Model {
 }
 
 export class ModifyTenantUserRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the privilege modification operation.   
+   * Valid values:  
+   * update: updates all privileges. This is the default value.  
+   * add: adds a privilege.  
+   * delete: deletes a privilege.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * update
+   */
   modifyType?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **ModifyTenantUserRoles**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The role of the database account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The type of the account. Valid values:   
+   * - Admin: the super administrator account.   
+   * - Normal: a general account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Database":"20210824160559","Role":"readwrite"}]
+   */
   userRole?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10334,7 +17292,15 @@ export class ModifyTenantUserRolesRequest extends $tea.Model {
 }
 
 export class ModifyTenantUserRolesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   */
   tenantUser?: ModifyTenantUserRolesResponseBodyTenantUser;
   static names(): { [key: string]: string } {
     return {
@@ -10381,9 +17347,48 @@ export class ModifyTenantUserRolesResponse extends $tea.Model {
 }
 
 export class ModifyTenantUserStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **ModifyTenantUserStatus**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The list of database accounts in the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The status of the database account. Valid values:   
+   * - Locked: The account is locked. 
+   * - Online: The account is unlocked.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * The ID of the tenant.
+   */
   userStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10409,6 +17414,13 @@ export class ModifyTenantUserStatusRequest extends $tea.Model {
 }
 
 export class ModifyTenantUserStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
   tenantUser?: ModifyTenantUserStatusResponseBodyTenantUser[];
   static names(): { [key: string]: string } {
@@ -10456,6 +17468,13 @@ export class ModifyTenantUserStatusResponse extends $tea.Model {
 }
 
 export class ReleaseProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10475,16 +17494,56 @@ export class ReleaseProjectRequest extends $tea.Model {
 }
 
 export class ReleaseProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: ReleaseProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 50
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10549,6 +17608,13 @@ export class ReleaseProjectResponse extends $tea.Model {
 }
 
 export class ReleaseWorkerInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * g_abcdefj***
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10568,16 +17634,56 @@ export class ReleaseWorkerInstanceRequest extends $tea.Model {
 }
 
 export class ReleaseWorkerInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 30
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: string;
   errorDetail?: ReleaseWorkerInstanceResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10642,6 +17748,13 @@ export class ReleaseWorkerInstanceResponse extends $tea.Model {
 }
 
 export class ResumeProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10661,16 +17774,56 @@ export class ResumeProjectRequest extends $tea.Model {
 }
 
 export class ResumeProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: ResumeProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 50
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10735,6 +17888,13 @@ export class ResumeProjectResponse extends $tea.Model {
 }
 
 export class RetryProjectModifyRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 344000005
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10754,16 +17914,56 @@ export class RetryProjectModifyRecordsRequest extends $tea.Model {
 }
 
 export class RetryProjectModifyRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 30
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: RetryProjectModifyRecordsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10828,6 +18028,13 @@ export class RetryProjectModifyRecordsResponse extends $tea.Model {
 }
 
 export class StartProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10847,16 +18054,56 @@ export class StartProjectRequest extends $tea.Model {
 }
 
 export class StartProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: string;
   errorDetail?: StartProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * XCVSADG****DSGDS
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10921,6 +18168,13 @@ export class StartProjectResponse extends $tea.Model {
 }
 
 export class StartProjectsByLabelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * l_****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10940,16 +18194,52 @@ export class StartProjectsByLabelRequest extends $tea.Model {
 }
 
 export class StartProjectsByLabelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: StartProjectsByLabelResponseBodyData;
   errorDetail?: StartProjectsByLabelResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 79
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11014,6 +18304,13 @@ export class StartProjectsByLabelResponse extends $tea.Model {
 }
 
 export class StopProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_4w3a****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11033,16 +18330,56 @@ export class StopProjectRequest extends $tea.Model {
 }
 
 export class StopProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 27 ms
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: string;
   errorDetail?: StopProjectResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469**-AA6F-4D**-B3DB-A***********
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11107,6 +18444,13 @@ export class StopProjectResponse extends $tea.Model {
 }
 
 export class StopProjectModifyRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 344000005
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11126,16 +18470,56 @@ export class StopProjectModifyRecordsRequest extends $tea.Model {
 }
 
 export class StopProjectModifyRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 30
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: any;
   errorDetail?: StopProjectModifyRecordsResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11200,6 +18584,13 @@ export class StopProjectModifyRecordsResponse extends $tea.Model {
 }
 
 export class StopProjectsByLabelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * l_****
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11219,16 +18610,52 @@ export class StopProjectsByLabelRequest extends $tea.Model {
 }
 
 export class StopProjectsByLabelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
   data?: StopProjectsByLabelResponseBodyData;
   errorDetail?: StopProjectsByLabelResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * A595F34C-XXXX-5D0C-8DA8-B3ED76
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 140
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11293,8 +18720,35 @@ export class StopProjectsByLabelResponse extends $tea.Model {
 }
 
 export class SwitchoverInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Whether to force the switchover.
+   * - true: Force the switchover.
+   * - false: Do not force the switchover.
+   * 
+   * @example
+   * true
+   */
   forced?: boolean;
+  /**
+   * @remarks
+   * The instance ID of the primary/standby instance. You can set the default value to the instance ID of the instance to be switched to the primary instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance ID of the instance to be switched to the primary instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob4bv8o7sp****
+   */
   targetInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11318,7 +18772,18 @@ export class SwitchoverInstanceRequest extends $tea.Model {
 }
 
 export class SwitchoverInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of data for the switchover.
+   */
   data?: SwitchoverInstanceResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469**-AA6F-4D**-B3DB-A***********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11367,6 +18832,13 @@ export class SwitchoverInstanceResponse extends $tea.Model {
 export class UpdateProjectConfigRequest extends $tea.Model {
   commonTransferConfig?: UpdateProjectConfigRequestCommonTransferConfig;
   fullTransferConfig?: UpdateProjectConfigRequestFullTransferConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_fe****
+   */
   id?: string;
   incrTransferConfig?: UpdateProjectConfigRequestIncrTransferConfig;
   reverseIncrTransferConfig?: UpdateProjectConfigRequestReverseIncrTransferConfig;
@@ -11398,6 +18870,13 @@ export class UpdateProjectConfigRequest extends $tea.Model {
 export class UpdateProjectConfigShrinkRequest extends $tea.Model {
   commonTransferConfigShrink?: string;
   fullTransferConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np_fe****
+   */
   id?: string;
   incrTransferConfigShrink?: string;
   reverseIncrTransferConfigShrink?: string;
@@ -11427,16 +18906,56 @@ export class UpdateProjectConfigShrinkRequest extends $tea.Model {
 }
 
 export class UpdateProjectConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Contact the administrator.
+   */
   advice?: string;
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   cost?: string;
+  /**
+   * @example
+   * null
+   */
   data?: string;
   errorDetail?: UpdateProjectConfigResponseBodyErrorDetail;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11501,19 +19020,75 @@ export class UpdateProjectConfigResponse extends $tea.Model {
 }
 
 export class DataExtraInfoSubDbsValueTablesColumns extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   columnName?: string;
+  /**
+   * @example
+   * null
+   */
   position?: number;
+  /**
+   * @example
+   * null
+   */
   columnType?: string;
+  /**
+   * @example
+   * null
+   */
   recordFieldType?: string;
+  /**
+   * @example
+   * null
+   */
   rawColumnType?: string;
+  /**
+   * @example
+   * null
+   */
   columnKey?: string;
+  /**
+   * @example
+   * true
+   */
   nullable?: boolean;
+  /**
+   * @example
+   * null
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * null
+   */
   dataLength?: number;
+  /**
+   * @example
+   * 64
+   */
   dataPrecision?: number;
+  /**
+   * @example
+   * null
+   */
   dataScale?: number;
+  /**
+   * @example
+   * utf8
+   */
   encoding?: string;
+  /**
+   * @example
+   * comments
+   */
   columnComment?: string;
+  /**
+   * @example
+   * false
+   */
   isGenerateField?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11559,10 +19134,30 @@ export class DataExtraInfoSubDbsValueTablesColumns extends $tea.Model {
 }
 
 export class DataExtraInfoSubDbsValueTables extends $tea.Model {
+  /**
+   * @example
+   * fexg***
+   */
   tableId?: string;
+  /**
+   * @example
+   * db_name
+   */
   database?: string;
+  /**
+   * @example
+   * table_name
+   */
   tableName?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappingTableName?: string;
+  /**
+   * @example
+   * g_i4kat***
+   */
   instance?: string;
   columns?: DataExtraInfoSubDbsValueTablesColumns[];
   static names(): { [key: string]: string } {
@@ -11593,6 +19188,13 @@ export class DataExtraInfoSubDbsValueTables extends $tea.Model {
 }
 
 export class BatchKillProcessListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the calling is successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11612,18 +19214,54 @@ export class BatchKillProcessListResponseBodyData extends $tea.Model {
 }
 
 export class CancelProjectModifyRecordResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -11667,9 +19305,41 @@ export class CancelProjectModifyRecordResponseBodyErrorDetail extends $tea.Model
 }
 
 export class CreateInstanceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the dry-run request.
+   * 
+   * If the DryRun parameter is set to true and the dry run succeeds, the DryRunResult parameter returns true. Otherwise, an error code is returned.
+   * If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+   * 
+   * @example
+   * true
+   */
   dryRunResult?: boolean;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * @example
+   * i-bp67acfmxazb4p****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Order ID. The ID of the order that you have placed.
+   * This parameter returns a value after you create a pre-paid or post-paid cluster.
+   * 
+   * @example
+   * 1234567890
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * Resource group ID.
+   * 
+   * @example
+   * rg-***************
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11695,18 +19365,54 @@ export class CreateInstanceResponseBodyData extends $tea.Model {
 }
 
 export class CreateLabelResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -11750,18 +19456,54 @@ export class CreateLabelResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class CreateMySqlDataSourceResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -11805,18 +19547,54 @@ export class CreateMySqlDataSourceResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class CreateOceanBaseDataSourceResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -11860,6 +19638,13 @@ export class CreateOceanBaseDataSourceResponseBodyErrorDetail extends $tea.Model
 }
 
 export class CreateOmsMysqlDataSourceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the data source record.
+   * 
+   * @example
+   * e_1234abcd*****
+   */
   endpointId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11901,21 +19686,65 @@ export class CreateProjectRequestCommonTransferConfigCustomColumns extends $tea.
 }
 
 export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   activeActive?: boolean;
   customColumns?: CreateProjectRequestCommonTransferConfigCustomColumns[];
+  /**
+   * @example
+   * null
+   */
   dataWorksBusinessName?: string;
+  /**
+   * @example
+   * TUPLE
+   */
   datahubTopicType?: string;
+  /**
+   * @example
+   * 0
+   */
   mqPartition?: number;
+  /**
+   * @example
+   * ONE
+   */
   mqPartitionMode?: string;
+  /**
+   * @example
+   * DEFAULT
+   */
   mqSerializerType?: string;
+  /**
+   * @example
+   * false
+   */
   rocketMqEnableMsgTrace?: boolean;
+  /**
+   * @example
+   * default_tag
+   */
   rocketMqMsgTags?: string;
+  /**
+   * @example
+   * OMS
+   */
   rocketMqProducerGroup?: string;
+  /**
+   * @example
+   * null
+   */
   rocketMqSendMsgTimeout?: number;
   sinkStoreFormat?: string;
   sourceStoreFormat?: string;
   syncSchema?: boolean;
   syncSchemaColumnName?: string;
+  /**
+   * @example
+   * ALL
+   */
   tableCategory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11965,9 +19794,25 @@ export class CreateProjectRequestCommonTransferConfig extends $tea.Model {
 }
 
 export class CreateProjectRequestFullTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   allowDestTableNotEmpty?: boolean;
+  /**
+   * @example
+   * NORMAL
+   */
   fullTransferSpeedMode?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   fullVerifySpeedMode?: string;
+  /**
+   * @example
+   * true
+   */
   nonePkUkTruncateDstTable?: boolean;
   readWorkerNum?: number;
   throttleIOPS?: number;
@@ -12005,11 +19850,31 @@ export class CreateProjectRequestFullTransferConfig extends $tea.Model {
 }
 
 export class CreateProjectRequestIncrTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableIncrSyncStatistics?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableSequencingWithinTxn?: boolean;
+  /**
+   * @example
+   * 64
+   */
   incrSyncConcurrency?: number;
   recordTypeWhiteList?: string[];
+  /**
+   * @example
+   * 1689201369
+   */
   startTimestamp?: string;
+  /**
+   * @example
+   * 24
+   */
   storeLogKeptHour?: number;
   supportDDLTypes?: string[];
   throttleIOPS?: number;
@@ -12091,7 +19956,15 @@ export class CreateProjectRequestReverseIncrTransferConfig extends $tea.Model {
 }
 
 export class CreateProjectRequestStructTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * DO_NOTHING_IF_BYTE_USED
+   */
   byteCharConvertStrategy?: string;
+  /**
+   * @example
+   * true
+   */
   deferIndexCreation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12114,7 +19987,15 @@ export class CreateProjectRequestStructTransferConfig extends $tea.Model {
 
 export class CreateProjectRequestTransferMappingDatabasesSpecificTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12143,10 +20024,26 @@ export class CreateProjectRequestTransferMappingDatabasesSpecificTablesAdbTableS
 export class CreateProjectRequestTransferMappingDatabasesSpecificTables extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesSpecificTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_4azdil4lu7***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<5
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12179,7 +20076,15 @@ export class CreateProjectRequestTransferMappingDatabasesSpecificTables extends 
 
 export class CreateProjectRequestTransferMappingDatabasesSpecificViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12208,10 +20113,26 @@ export class CreateProjectRequestTransferMappingDatabasesSpecificViewsAdbTableSc
 export class CreateProjectRequestTransferMappingDatabasesSpecificViews extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesSpecificViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_3wsmjv49a***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<5
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12244,7 +20165,15 @@ export class CreateProjectRequestTransferMappingDatabasesSpecificViews extends $
 
 export class CreateProjectRequestTransferMappingDatabasesTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12273,10 +20202,26 @@ export class CreateProjectRequestTransferMappingDatabasesTablesAdbTableSchema ex
 export class CreateProjectRequestTransferMappingDatabasesTables extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_4l085bu7***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id > 1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12309,7 +20254,15 @@ export class CreateProjectRequestTransferMappingDatabasesTables extends $tea.Mod
 
 export class CreateProjectRequestTransferMappingDatabasesViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12338,10 +20291,26 @@ export class CreateProjectRequestTransferMappingDatabasesViewsAdbTableSchema ext
 export class CreateProjectRequestTransferMappingDatabasesViews extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_4himpq4z***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id>1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12373,13 +20342,33 @@ export class CreateProjectRequestTransferMappingDatabasesViews extends $tea.Mode
 }
 
 export class CreateProjectRequestTransferMappingDatabases extends $tea.Model {
+  /**
+   * @example
+   * cluster_name
+   */
   clusterName?: string;
+  /**
+   * @example
+   * gez3***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappedName?: string;
+  /**
+   * @example
+   * db_name
+   */
   name?: string;
   specificTables?: CreateProjectRequestTransferMappingDatabasesSpecificTables[];
   specificViews?: CreateProjectRequestTransferMappingDatabasesSpecificViews[];
   tables?: CreateProjectRequestTransferMappingDatabasesTables[];
+  /**
+   * @example
+   * tenant_name
+   */
   tenantName?: string;
   views?: CreateProjectRequestTransferMappingDatabasesViews[];
   static names(): { [key: string]: string } {
@@ -12417,7 +20406,15 @@ export class CreateProjectRequestTransferMappingDatabases extends $tea.Model {
 
 export class CreateProjectRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12446,10 +20443,26 @@ export class CreateProjectRequestTransferMappingDatabasesBlackSpecificTablesAdbT
 export class CreateProjectRequestTransferMappingDatabasesBlackSpecificTables extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_4himpq4zf***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12482,7 +20495,15 @@ export class CreateProjectRequestTransferMappingDatabasesBlackSpecificTables ext
 
 export class CreateProjectRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12511,10 +20532,26 @@ export class CreateProjectRequestTransferMappingDatabasesBlackSpecificViewsAdbTa
 export class CreateProjectRequestTransferMappingDatabasesBlackSpecificViews extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_474hmh5iqo***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12547,7 +20584,15 @@ export class CreateProjectRequestTransferMappingDatabasesBlackSpecificViews exte
 
 export class CreateProjectRequestTransferMappingDatabasesBlackTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12576,10 +20621,26 @@ export class CreateProjectRequestTransferMappingDatabasesBlackTablesAdbTableSche
 export class CreateProjectRequestTransferMappingDatabasesBlackTables extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesBlackTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_474hmh5iqo***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12612,7 +20673,15 @@ export class CreateProjectRequestTransferMappingDatabasesBlackTables extends $te
 
 export class CreateProjectRequestTransferMappingDatabasesBlackViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12641,10 +20710,26 @@ export class CreateProjectRequestTransferMappingDatabasesBlackViewsAdbTableSchem
 export class CreateProjectRequestTransferMappingDatabasesBlackViews extends $tea.Model {
   adbTableSchema?: CreateProjectRequestTransferMappingDatabasesBlackViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * e_4azdil4lu7mo
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<5
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12676,13 +20761,33 @@ export class CreateProjectRequestTransferMappingDatabasesBlackViews extends $tea
 }
 
 export class CreateProjectRequestTransferMappingDatabasesBlack extends $tea.Model {
+  /**
+   * @example
+   * cluster_name
+   */
   clusterName?: string;
+  /**
+   * @example
+   * e_3y6v5v1x94f4
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappedName?: string;
+  /**
+   * @example
+   * db_name
+   */
   name?: string;
   specificTables?: CreateProjectRequestTransferMappingDatabasesBlackSpecificTables[];
   specificViews?: CreateProjectRequestTransferMappingDatabasesBlackSpecificViews[];
   tables?: CreateProjectRequestTransferMappingDatabasesBlackTables[];
+  /**
+   * @example
+   * tenant_name
+   */
   tenantName?: string;
   views?: CreateProjectRequestTransferMappingDatabasesBlackViews[];
   static names(): { [key: string]: string } {
@@ -12721,6 +20826,10 @@ export class CreateProjectRequestTransferMappingDatabasesBlack extends $tea.Mode
 export class CreateProjectRequestTransferMapping extends $tea.Model {
   databases?: CreateProjectRequestTransferMappingDatabases[];
   databasesBlack?: CreateProjectRequestTransferMappingDatabasesBlack[];
+  /**
+   * @example
+   * SPCEIFIC
+   */
   mode?: string;
   tableAndViewBlackList?: string[];
   tableAndViewWhiteList?: string[];
@@ -12750,18 +20859,54 @@ export class CreateProjectRequestTransferMapping extends $tea.Model {
 }
 
 export class CreateProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -12806,7 +20951,15 @@ export class CreateProjectResponseBodyErrorDetail extends $tea.Model {
 
 export class CreateProjectModifyRecordsRequestDatabasesSpecificTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12835,10 +20988,26 @@ export class CreateProjectModifyRecordsRequestDatabasesSpecificTablesAdbTableSch
 export class CreateProjectModifyRecordsRequestDatabasesSpecificTables extends $tea.Model {
   adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesSpecificTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12871,7 +21040,15 @@ export class CreateProjectModifyRecordsRequestDatabasesSpecificTables extends $t
 
 export class CreateProjectModifyRecordsRequestDatabasesSpecificViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12900,10 +21077,26 @@ export class CreateProjectModifyRecordsRequestDatabasesSpecificViewsAdbTableSche
 export class CreateProjectModifyRecordsRequestDatabasesSpecificViews extends $tea.Model {
   adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesSpecificViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * view_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id <1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12936,7 +21129,15 @@ export class CreateProjectModifyRecordsRequestDatabasesSpecificViews extends $te
 
 export class CreateProjectModifyRecordsRequestDatabasesTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -12965,10 +21166,26 @@ export class CreateProjectModifyRecordsRequestDatabasesTablesAdbTableSchema exte
 export class CreateProjectModifyRecordsRequestDatabasesTables extends $tea.Model {
   adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13001,7 +21218,15 @@ export class CreateProjectModifyRecordsRequestDatabasesTables extends $tea.Model
 
 export class CreateProjectModifyRecordsRequestDatabasesViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -13030,10 +21255,26 @@ export class CreateProjectModifyRecordsRequestDatabasesViewsAdbTableSchema exten
 export class CreateProjectModifyRecordsRequestDatabasesViews extends $tea.Model {
   adbTableSchema?: CreateProjectModifyRecordsRequestDatabasesViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * view_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13065,8 +21306,20 @@ export class CreateProjectModifyRecordsRequestDatabasesViews extends $tea.Model 
 }
 
 export class CreateProjectModifyRecordsRequestDatabases extends $tea.Model {
+  /**
+   * @example
+   * db_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappedName?: string;
+  /**
+   * @example
+   * db_name
+   */
   name?: string;
   specificTables?: CreateProjectModifyRecordsRequestDatabasesSpecificTables[];
   specificViews?: CreateProjectModifyRecordsRequestDatabasesSpecificViews[];
@@ -13102,18 +21355,54 @@ export class CreateProjectModifyRecordsRequestDatabases extends $tea.Model {
 }
 
 export class CreateProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -13157,18 +21446,54 @@ export class CreateProjectModifyRecordsResponseBodyErrorDetail extends $tea.Mode
 }
 
 export class CreateRdsPostgreSQLDataSourceResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -13212,8 +21537,32 @@ export class CreateRdsPostgreSQLDataSourceResponseBodyErrorDetail extends $tea.M
 }
 
 export class CreateSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model {
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=CreateSecurityIpGroup
+   * &InstanceId=ob317v4uif****
+   * &SecurityIps=192.168.1.1,192.168.0.0.1/8
+   * &SecurityIpGroupName=pay_online
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * You can call this operation to create an IP address whitelist group.
+   * 
+   * @example
+   * pay_online
+   */
   securityIpGroupName?: string;
+  /**
+   * @example
+   * 192.168.1.1,192.168.0.0.1/8
+   */
   securityIps?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13237,9 +21586,39 @@ export class CreateSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model
 }
 
 export class CreateTenantSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the whitelist group.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The list of IP addresses in the IP address whitelist group.   
+   * 
+   * It is a string separated by commas, and each object is an IP address or CIDR block.
+   * 
+   * @example
+   * 192.***.*.*
+   */
   securityIps?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13265,7 +21644,15 @@ export class CreateTenantSecurityIpGroupResponseBodySecurityIpGroup extends $tea
 }
 
 export class CreateTenantUserResponseBodyTenantUserRoles extends $tea.Model {
+  /**
+   * @example
+   * db_pay1
+   */
   database?: string;
+  /**
+   * @example
+   * ReadOnly
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13288,7 +21675,15 @@ export class CreateTenantUserResponseBodyTenantUserRoles extends $tea.Model {
 
 export class CreateTenantUserResponseBodyTenantUser extends $tea.Model {
   roles?: CreateTenantUserResponseBodyTenantUserRoles[];
+  /**
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @example
+   * ONLINE
+   */
   userStatus?: string;
   userType?: string;
   static names(): { [key: string]: string } {
@@ -13315,18 +21710,54 @@ export class CreateTenantUserResponseBodyTenantUser extends $tea.Model {
 }
 
 export class DeleteDataSourceResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -13370,6 +21801,15 @@ export class DeleteDataSourceResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class DeleteInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the dry-run request.
+   * - If the DryRun parameter is set to true and the dry run succeeds, the DryRunResult parameter returns true. Otherwise, an error code is returned.
+   * - If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+   * 
+   * @example
+   * false
+   */
   dryRunResult?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13389,18 +21829,54 @@ export class DeleteInstancesResponseBodyData extends $tea.Model {
 }
 
 export class DeleteProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -13444,7 +21920,15 @@ export class DeleteProjectResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class DeleteSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model {
+  /**
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13466,8 +21950,29 @@ export class DeleteSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model
 }
 
 export class DeleteTenantSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the whitelist group.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13491,17 +21996,101 @@ export class DeleteTenantSecurityIpGroupResponseBodySecurityIpGroup extends $tea
 }
 
 export class DescribeAnomalySQLListResponseBodyAnomalySQLList extends $tea.Model {
+  /**
+   * @remarks
+   * The average CPU time, in ms.
+   * 
+   * @example
+   * 50.13
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * database1
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The diagnosis information.
+   * 
+   * @example
+   * Total number of executions = 80199, Average CPU time = 6.8 ms, Overall CPU utilization = 87%
+   */
   diagnosis?: string;
+  /**
+   * @remarks
+   * The diagnostic rule.
+   * 
+   * @example
+   * Utilization above threshold
+   */
   diagnosisRule?: string;
+  /**
+   * @remarks
+   * The number of executions.
+   * 
+   * @example
+   * 89043
+   */
   executions?: number;
+  /**
+   * @remarks
+   * The sequence number of the returned SQL statement.
+   * 
+   * @example
+   * 1
+   */
   key?: number;
+  /**
+   * @remarks
+   * The request time, in ms.
+   * 
+   * @example
+   * 50.00
+   */
   requestTime?: number;
+  /**
+   * @remarks
+   * The request time in UTC +0.
+   * 
+   * @example
+   * 2022-01-11T07:08:00Z
+   */
   requestTimeUTCString?: string;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * 99E9D3BF****B486239E6C7BC79B****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The SQL text.
+   * 
+   * @example
+   * SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+   */
   SQLText?: string;
+  /**
+   * @remarks
+   * The suggestions.
+   * 
+   * @example
+   * Check your business scenarios, data distribution changes, request surges, and execution plan changes.
+   */
   suggestion?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * tester
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13543,10 +22132,30 @@ export class DescribeAnomalySQLListResponseBodyAnomalySQLList extends $tea.Model
 }
 
 export class DescribeAvailableCpuResourceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * UnitNum.RejectComment.Storage
+   */
   comment?: string;
+  /**
+   * @example
+   * 10
+   */
   maxCpu?: number;
+  /**
+   * @example
+   * 2
+   */
   minCpu?: number;
+  /**
+   * @example
+   * UnitNum.Change.Accept
+   */
   reviewCode?: string;
+  /**
+   * @example
+   * 2
+   */
   unitNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13574,9 +22183,37 @@ export class DescribeAvailableCpuResourceResponseBodyData extends $tea.Model {
 }
 
 export class DescribeAvailableMemResourceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum memory size for each resource unit, in GB.
+   * 
+   * @example
+   * 10
+   */
   maxMem?: number;
+  /**
+   * @remarks
+   * The minimum memory size required for each resource unit, in GB.
+   * 
+   * @example
+   * 5
+   */
   minMem?: number;
+  /**
+   * @remarks
+   * The maximum allowed memory usage, in GB.
+   * 
+   * @example
+   * 10.0
+   */
   safeMem?: string;
+  /**
+   * @remarks
+   * The number of resource units in the tenant.
+   * 
+   * @example
+   * 2
+   */
   usedMem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13602,8 +22239,20 @@ export class DescribeAvailableMemResourceResponseBodyData extends $tea.Model {
 }
 
 export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange extends $tea.Model {
+  /**
+   * @example
+   * 40000
+   */
   max?: number;
+  /**
+   * @example
+   * 1000
+   */
   min?: number;
+  /**
+   * @example
+   * 5
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13627,8 +22276,20 @@ export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSiz
 }
 
 export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange extends $tea.Model {
+  /**
+   * @example
+   * 4000
+   */
   max?: number;
+  /**
+   * @example
+   * 100
+   */
   min?: number;
+  /**
+   * @example
+   * 5
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13654,9 +22315,17 @@ export class DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDisk
 export class DescribeAvailableSpecResponseBodyDataAvailableSpecifications extends $tea.Model {
   diskSizeRange?: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsDiskSizeRange;
   diskTypes?: string[];
+  /**
+   * @example
+   * 4C16GB
+   */
   instanceClass?: string;
   logDiskSizeRange?: DescribeAvailableSpecResponseBodyDataAvailableSpecificationsLogDiskSizeRange;
   nodeNum?: number[];
+  /**
+   * @example
+   * oceanbase.cluster.cd8.xlarge
+   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13705,8 +22374,20 @@ export class DescribeAvailableSpecResponseBodyData extends $tea.Model {
 }
 
 export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsDiskSizeRange extends $tea.Model {
+  /**
+   * @example
+   * 40000
+   */
   max?: number;
+  /**
+   * @example
+   * 1000
+   */
   min?: number;
+  /**
+   * @example
+   * 5
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13730,7 +22411,15 @@ export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifica
 }
 
 export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsSupportEngineVersions extends $tea.Model {
+  /**
+   * @example
+   * 3.2.4.4
+   */
   obVersion?: string;
+  /**
+   * @example
+   * true
+   */
   supportIsolationOptimization?: boolean;
   supportReplicaModes?: string[];
   static names(): { [key: string]: string } {
@@ -13757,7 +22446,15 @@ export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifica
 export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifications extends $tea.Model {
   diskSizeRange?: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsDiskSizeRange;
   diskTypes?: string[];
+  /**
+   * @example
+   * 4C16GB
+   */
   instanceClass?: string;
+  /**
+   * @example
+   * oceanbase.cluster.cd8.xlarge
+   */
   spec?: string;
   supportEngineVersions?: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecificationsSupportEngineVersions[];
   static names(): { [key: string]: string } {
@@ -13786,13 +22483,41 @@ export class DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifica
 }
 
 export class DescribeAvailableZoneResponseBodyDataAvailableZones extends $tea.Model {
+  /**
+   * @example
+   * PUBLIC
+   */
   channel?: string;
+  /**
+   * @example
+   * x86
+   */
   cpuArch?: string;
+  /**
+   * @example
+   * multiple
+   */
   deployType?: string;
+  /**
+   * @example
+   * cluster
+   */
   instanceType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * normal
+   */
   series?: string;
   supportSpecifications?: DescribeAvailableZoneResponseBodyDataAvailableZonesSupportSpecifications[];
+  /**
+   * @example
+   * cn-hangzhou-h,cn-hangzhou-i,cn-hangzhou-j
+   */
   zones?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13845,13 +22570,69 @@ export class DescribeAvailableZoneResponseBodyData extends $tea.Model {
 }
 
 export class DescribeBackupSetDownloadLinkResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The restorable time of the backup set.
+   * 
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   backupRestorableTime?: string;
+  /**
+   * @remarks
+   * The ID of the target backup set.
+   * 
+   * @example
+   * bak-4n****gacpa8
+   */
   backupSetId?: string;
+  /**
+   * @remarks
+   * The time when the download task corresponding to the target backup set was created.
+   * 
+   * @example
+   * 2020-05-22T17:04:18
+   */
   downloadTaskCreateTime?: string;
+  /**
+   * @remarks
+   * The ID of the download task corresponding to the target backup set.
+   * 
+   * @example
+   * 1000002
+   */
   downloadTaskId?: number;
+  /**
+   * @remarks
+   * The status of the download task corresponding to the target backup set.
+   * 
+   * @example
+   * RUNNING
+   */
   downloadTaskStatus?: string;
+  /**
+   * @remarks
+   * The internal URL.
+   * 
+   * @example
+   * http://bucket.oss-region-internal.aliyuncs.com/xxxxx
+   */
   internalUrl?: string;
+  /**
+   * @remarks
+   * The validity period of the URL, in seconds.
+   * 
+   * @example
+   * 3600
+   */
   urlAliveTime?: number;
+  /**
+   * @remarks
+   * The expiration time of the URL.
+   * 
+   * @example
+   * 2024-01-04 17:39:49
+   */
   urlExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13885,6 +22666,13 @@ export class DescribeBackupSetDownloadLinkResponseBodyData extends $tea.Model {
 }
 
 export class DescribeCharsetResponseBodyCharset extends $tea.Model {
+  /**
+   * @remarks
+   * DescribeCharset
+   * 
+   * @example
+   * utf8
+   */
   charset?: string;
   collations?: string[];
   static names(): { [key: string]: string } {
@@ -13907,6 +22695,10 @@ export class DescribeCharsetResponseBodyCharset extends $tea.Model {
 }
 
 export class DescribeDataBackupSetResponseBodyDataBackupObjectsDatabaseTablesList extends $tea.Model {
+  /**
+   * @example
+   * sms_pre
+   */
   database?: string;
   tables?: string[];
   static names(): { [key: string]: string } {
@@ -13929,8 +22721,16 @@ export class DescribeDataBackupSetResponseBodyDataBackupObjectsDatabaseTablesLis
 }
 
 export class DescribeDataBackupSetResponseBodyDataBackupObjects extends $tea.Model {
+  /**
+   * @example
+   * test-****way
+   */
   clusterName?: string;
   databaseTablesList?: DescribeDataBackupSetResponseBodyDataBackupObjectsDatabaseTablesList[];
+  /**
+   * @example
+   * ob2mr3oae0****
+   */
   tenantName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13954,9 +22754,25 @@ export class DescribeDataBackupSetResponseBodyDataBackupObjects extends $tea.Mod
 }
 
 export class DescribeDataBackupSetResponseBodyDataBackupResultsTableBackupResults extends $tea.Model {
+  /**
+   * @example
+   * order_ce****_online
+   */
   database?: string;
+  /**
+   * @example
+   * Create tag success
+   */
   message?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * tr_sale_order_****
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13982,8 +22798,16 @@ export class DescribeDataBackupSetResponseBodyDataBackupResultsTableBackupResult
 }
 
 export class DescribeDataBackupSetResponseBodyDataBackupResults extends $tea.Model {
+  /**
+   * @example
+   * container-opa-****-02
+   */
   clusterName?: string;
   tableBackupResults?: DescribeDataBackupSetResponseBodyDataBackupResultsTableBackupResults[];
+  /**
+   * @example
+   * ob2mr3oae0****
+   */
   tenantName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14007,23 +22831,87 @@ export class DescribeDataBackupSetResponseBodyDataBackupResults extends $tea.Mod
 }
 
 export class DescribeDataBackupSetResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * cluster
+   */
   backupObjectType?: string;
   backupObjects?: DescribeDataBackupSetResponseBodyDataBackupObjects[];
   backupResults?: DescribeDataBackupSetResponseBodyDataBackupResults[];
+  /**
+   * @example
+   * 2023-05-15T07:11:08Z
+   */
   checkpoint?: string;
+  /**
+   * @example
+   * 31457280
+   */
   dataSize?: number;
+  /**
+   * @example
+   * 1678847020352
+   */
   dataVersion?: number;
+  /**
+   * @example
+   * 100***012
+   */
   downloadTaskId?: number;
+  /**
+   * @example
+   * not_exist
+   */
   downloadTaskStatus?: string;
+  /**
+   * @example
+   * 2023-04-13T03:38:10Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * logical
+   */
   method?: string;
+  /**
+   * @example
+   * automated
+   */
   policy?: string;
+  /**
+   * @example
+   * 52
+   */
   progress?: string;
+  /**
+   * @example
+   * imm-test-set-cb****ee-b7d7-11ed-956f-****3e10bd70
+   */
   setId?: number;
+  /**
+   * @example
+   * 2020-05-22T17:04:18
+   */
   startTime?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * standard
+   */
   storageClass?: string;
+  /**
+   * @example
+   * manual
+   */
   type?: string;
+  /**
+   * @example
+   * VALID
+   */
   validity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14077,6 +22965,13 @@ export class DescribeDataBackupSetResponseBodyData extends $tea.Model {
 }
 
 export class DescribeDatabasesResponseBodyDatabasesTables extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database table.
+   * 
+   * @example
+   * testTables
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14096,9 +22991,44 @@ export class DescribeDatabasesResponseBodyDatabasesTables extends $tea.Model {
 }
 
 export class DescribeDatabasesResponseBodyDatabasesUsers extends $tea.Model {
+  /**
+   * @remarks
+   * If you have granted custom privileges on the database, this parameter indicates the custom privileges, separated by commas (,). Otherwise, no data is returned for this parameter.
+   * 
+   * @example
+   * select,delete,update
+   */
   privileges?: string;
+  /**
+   * @remarks
+   * The role of the account.    
+   * In MySQL mode, a role is a database-level role. Valid values:  
+   * - ReadWrite: a role that has the read and write privileges, namely ALL PRIVILEGES.  
+   * - ReadOnly: a role that has only the read-only privilege SELECT.   
+   * - DDL: a role that has the DDL privileges such as CREATE, DROP, ALTER, SHOW VIEW, and CREATE VIEW.   
+   * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
+   * 
+   * @example
+   * ReadOnly
+   */
   role?: string;
+  /**
+   * @remarks
+   * The name of the account.
+   * 
+   * @example
+   * user_pay_ro
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The type of the account. Valid values:  
+   * - Admin: the super administrator account. 
+   * - Normal: a general account.
+   * 
+   * @example
+   * Normal
+   */
   userType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14124,19 +23054,114 @@ export class DescribeDatabasesResponseBodyDatabasesUsers extends $tea.Model {
 }
 
 export class DescribeDatabasesResponseBodyDatabases extends $tea.Model {
+  /**
+   * @remarks
+   * The collation.
+   * 
+   * @example
+   * utf8mb4_general_ci
+   */
   collation?: string;
+  /**
+   * @remarks
+   * The time when the database was created.
+   * 
+   * @example
+   * 2022-02-21 15:41:06
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The actual data size, in GB. 
+   * >Notice: This parameter is no longer used in later versions. RequiredSize is used instead.
+   * 
+   * @example
+   * 5.67 GB
+   */
   dataSize?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The database type.
+   * 
+   * @example
+   * mysql
+   */
   dbType?: string;
+  /**
+   * @remarks
+   * The description of the database.
+   * 
+   * @example
+   * test db
+   */
   description?: string;
+  /**
+   * @remarks
+   * The encoding standard of the database. Encoding standards such as utf8mb4 and GBK are supported.
+   * 
+   * @example
+   * utf8mb4
+   */
   encoding?: string;
+  /**
+   * @remarks
+   * The ID of the cluster to which the tenant belongs.
+   * 
+   * @example
+   * obsdh2f****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The storage space required, in GB.
+   * 
+   * @example
+   * 5.67 GB
+   */
   requiredSize?: number;
+  /**
+   * @remarks
+   * The status of the database. Valid values:    
+   * - ONLINE: The database is running.  
+   * - DELETING: The database is being deleted.
+   * 
+   * @example
+   * ONLINE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The list of database tables.
+   */
   tables?: DescribeDatabasesResponseBodyDatabasesTables[];
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * tenantABC
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The list of accounts that are granted privileges on this database.
+   */
   users?: DescribeDatabasesResponseBodyDatabasesUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -14250,9 +23275,25 @@ export class DescribeInstanceResponseBodyInstanceReadOnlyResourceCapacityUnit ex
 }
 
 export class DescribeInstanceResponseBodyInstanceReadOnlyResourceCpu extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   originalTotalCpu?: number;
+  /**
+   * @example
+   * 14
+   */
   totalCpu?: number;
+  /**
+   * @example
+   * 10
+   */
   unitCpu?: number;
+  /**
+   * @example
+   * 10
+   */
   usedCpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14282,9 +23323,25 @@ export class DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize extend
   maxDiskSize?: number;
   maxDiskUsedObServer?: string[];
   maxDiskUsedPercent?: number;
+  /**
+   * @example
+   * 200
+   */
   originalTotalDiskSize?: number;
+  /**
+   * @example
+   * 200
+   */
   totalDiskSize?: number;
+  /**
+   * @example
+   * 200
+   */
   unitDiskSize?: number;
+  /**
+   * @example
+   * 100
+   */
   usedDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14321,7 +23378,15 @@ export class DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize ext
   logAssignedSize?: string;
   maxLogAssignedObServer?: string[];
   maxLogAssignedPercent?: string;
+  /**
+   * @example
+   * 400
+   */
   totalDiskSize?: number;
+  /**
+   * @example
+   * 200
+   */
   unitDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14349,9 +23414,25 @@ export class DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize ext
 }
 
 export class DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory extends $tea.Model {
+  /**
+   * @example
+   * 72
+   */
   originalTotalMemory?: number;
+  /**
+   * @example
+   * 70
+   */
   totalMemory?: number;
+  /**
+   * @example
+   * 10
+   */
   unitMemory?: number;
+  /**
+   * @example
+   * 10
+   */
   usedMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14382,6 +23463,10 @@ export class DescribeInstanceResponseBodyInstanceReadOnlyResource extends $tea.M
   diskSize?: DescribeInstanceResponseBodyInstanceReadOnlyResourceDiskSize;
   logDiskSize?: DescribeInstanceResponseBodyInstanceReadOnlyResourceLogDiskSize;
   memory?: DescribeInstanceResponseBodyInstanceReadOnlyResourceMemory;
+  /**
+   * @example
+   * 1
+   */
   unitCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14436,9 +23521,38 @@ export class DescribeInstanceResponseBodyInstanceResourceCapacityUnit extends $t
 }
 
 export class DescribeInstanceResponseBodyInstanceResourceCpu extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   originalTotalCpu?: number;
+  /**
+   * @remarks
+   * The series of the OceanBase cluster. Valid values:   
+   * - NORMAL: the high availability edition.   
+   * - BASIC: the basic edition.
+   * 
+   * @example
+   * 14
+   */
   totalCpu?: number;
+  /**
+   * @remarks
+   * The type of the storage disk where the cluster is deployed. 
+   * 
+   * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
+   * 
+   * @example
+   * 10
+   */
   unitCpu?: number;
+  /**
+   * @remarks
+   * Indicates whether automatic upgrade of the OBServer version is enabled.
+   * 
+   * @example
+   * 10
+   */
   usedCpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14464,13 +23578,65 @@ export class DescribeInstanceResponseBodyInstanceResourceCpu extends $tea.Model 
 }
 
 export class DescribeInstanceResponseBodyInstanceResourceDiskSize extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * 200
+   */
   dataUsedSize?: number;
   maxDiskSize?: number;
+  /**
+   * @remarks
+   * The time in UTC when the cluster expires.
+   */
   maxDiskUsedObServer?: string[];
+  /**
+   * @remarks
+   * The maximum disk usage, in percentage.
+   * 
+   * @example
+   * 0.14
+   */
   maxDiskUsedPercent?: number;
+  /**
+   * @example
+   * 200
+   */
   originalTotalDiskSize?: number;
+  /**
+   * @remarks
+   * The data replica distribution mode of the cluster. Valid values: 
+   * - n: indicates the single-IDC mode. 
+   * - n-n: indicates the dual-IDC mode. 
+   * - n-n-n: indicates the multi-IDC mode. 
+   * 
+   * > <br>The integer n represents the number of OBServer nodes in each IDC.
+   * 
+   * @example
+   * 200
+   */
   totalDiskSize?: number;
+  /**
+   * @remarks
+   * The list of zones.
+   * 
+   * @example
+   * 200
+   */
   unitDiskSize?: number;
+  /**
+   * @remarks
+   * The specifications of the cluster.  You can specify one of the following four plans:    
+   * - 8C32G: indicates 8 CPU cores and 32 GB of memory. 
+   * - 14C70G: indicates 14 CPU cores and 70 GB of memory. 
+   * - 30C180G: indicates 30 CPU cores and 180 GB of memory. 
+   * - 62C400G: indicates 62 CPU cores and 400 GB of memory.
+   * 
+   * @example
+   * 100
+   */
   usedDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14508,7 +23674,21 @@ export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $te
   maxLogAssignedObServer?: string[];
   maxLogAssignedPercent?: string;
   originalTotalDiskSize?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * 400
+   */
   totalDiskSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 200
+   */
   unitDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14538,9 +23718,34 @@ export class DescribeInstanceResponseBodyInstanceResourceLogDiskSize extends $te
 }
 
 export class DescribeInstanceResponseBodyInstanceResourceMemory extends $tea.Model {
+  /**
+   * @example
+   * 72
+   */
   originalTotalMemory?: number;
+  /**
+   * @remarks
+   * Indicates whether trusted ECS instances are used.
+   * 
+   * @example
+   * 70
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * The log disk space of each replica node in the cluster. Unit: GB.
+   * 
+   * @example
+   * 10
+   */
   unitMemory?: number;
+  /**
+   * @remarks
+   * The time in UTC when the cluster was created.
+   * 
+   * @example
+   * 10
+   */
   usedMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14567,10 +23772,35 @@ export class DescribeInstanceResponseBodyInstanceResourceMemory extends $tea.Mod
 
 export class DescribeInstanceResponseBodyInstanceResource extends $tea.Model {
   capacityUnit?: DescribeInstanceResponseBodyInstanceResourceCapacityUnit;
+  /**
+   * @remarks
+   * The information of the OceanBase cluster.
+   */
   cpu?: DescribeInstanceResponseBodyInstanceResourceCpu;
+  /**
+   * @remarks
+   * The number of the page to return. 
+   * - Start value: 1  
+   * - Default value: 1
+   */
   diskSize?: DescribeInstanceResponseBodyInstanceResourceDiskSize;
+  /**
+   * @remarks
+   * The server with the highest disk usage.
+   */
   logDiskSize?: DescribeInstanceResponseBodyInstanceResourceLogDiskSize;
+  /**
+   * @remarks
+   * The name of the OceanBase cluster.
+   */
   memory?: DescribeInstanceResponseBodyInstanceResourceMemory;
+  /**
+   * @remarks
+   * The number of CPU cores used in the cluster.
+   * 
+   * @example
+   * 1
+   */
   unitCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14600,6 +23830,10 @@ export class DescribeInstanceResponseBodyInstanceResource extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBodyInstanceTenantCreatable extends $tea.Model {
+  /**
+   * @example
+   * CPU_NOT_ENOUGH、 MEMORY_NOT_ENOUGH、TENANT_COUNT_EXCEEDS_LIMIT
+   */
   disableCreateTenantReason?: string;
   enableCreateTenant?: boolean;
   static names(): { [key: string]: string } {
@@ -14623,49 +23857,204 @@ export class DescribeInstanceResponseBodyInstanceTenantCreatable extends $tea.Mo
 
 export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   allowModifyInternetAddressConnectionLimit?: boolean;
+  /**
+   * @remarks
+   * The operation that you want to perform. <br>Set the value to **DescribeInstance**.
+   * 
+   * @example
+   * true
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * true
+   */
   autoUpgradeObVersion?: boolean;
   availableZones?: string[];
+  /**
+   * @example
+   * X86
+   */
   cpuArchitecture?: string;
+  /**
+   * @remarks
+   * Indicates whether the log disk specifications can be upgraded.
+   * 
+   * @example
+   * 2021-10-19T07:13:41Z
+   */
   createTime?: string;
   dataDiskAutoScale?: boolean;
   dataDiskAutoScaleConfig?: DescribeInstanceResponseBodyInstanceDataDiskAutoScaleConfig;
+  /**
+   * @remarks
+   * The total number of CPU cores of the cluster.
+   * 
+   * @example
+   * 02:00
+   */
   dataMergeTime?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * @example
+   * 1-1-1
+   */
   deployMode?: string;
+  /**
+   * @remarks
+   * It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+   * 
+   * @example
+   * multiple
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * The total storage space of the cluster, in GB.
+   * 
+   * @example
+   * cloud_essd_pl1
+   */
   diskType?: string;
   enableIsolationOptimization?: boolean;
   enableProxyService?: boolean;
   enableReadOnlyReplica?: boolean;
   enableReadOnlyReplicaManagement?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableUpgradeLogDisk?: boolean;
   exclusiveUnitNumLimit?: number;
+  /**
+   * @remarks
+   * The information of the OceanBase cluster.
+   * 
+   * @example
+   * 2021-10-17T16:00:00Z
+   */
   expireTime?: string;
   inTempCapacityStatus?: boolean;
+  /**
+   * @remarks
+   * The detailed information of the OBServer version.
+   * 
+   * @example
+   * 14C70G
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The information about the log disk space of the cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether automatic upgrade of the OBServer version is enabled.
+   * 
+   * @example
+   * ob4test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   instanceRole?: string;
+  /**
+   * @example
+   * true
+   */
   isLatestObVersion?: boolean;
+  /**
+   * @remarks
+   * The information about the CPU resources of the cluster.
+   * 
+   * @example
+   * true
+   */
   isTrustEcs?: boolean;
   isolationOptimization?: boolean;
+  /**
+   * @remarks
+   * The time when the major compaction of cluster data is performed.
+   * 
+   * @example
+   * 19:00Z-20:00Z
+   */
   maintainTime?: string;
+  /**
+   * @example
+   * 6
+   */
   nodeNum?: string;
+  /**
+   * @example
+   * 2.2.77-20210526202046
+   */
   obRpmVersion?: string;
+  /**
+   * @remarks
+   * The list of zones.
+   * 
+   * @example
+   * PREPAY
+   */
   payType?: string;
+  /**
+   * @example
+   * ob3h8ytroxxxxx
+   */
   primaryInstance?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   primaryRegion?: string;
   proxyClusterId?: string;
   proxyServiceStatus?: string;
   readOnlyResource?: DescribeInstanceResponseBodyInstanceReadOnlyResource;
   replicaMode?: string;
+  /**
+   * @remarks
+   * The size of used memory in the cluster, in GB.
+   */
   resource?: DescribeInstanceResponseBodyInstanceResource;
+  /**
+   * @remarks
+   * Indicates whether the OBServer version is the latest.
+   * 
+   * @example
+   * Indicates whether the OBServer version is the latest.
+   */
   series?: string;
   sharedUnitNumLimit?: number;
   specType?: string;
+  /**
+   * @remarks
+   * The information about cluster resources.
+   * 
+   * @example
+   * ONLINE
+   */
   status?: string;
   tenantCreatable?: DescribeInstanceResponseBodyInstanceTenantCreatable;
   unitSpec?: string;
+  /**
+   * @remarks
+   * You can call this operation to query the detailed information of an OceanBase cluster.
+   * 
+   * @example
+   * 2.2.77
+   */
   version?: string;
   zones?: string[];
   static names(): { [key: string]: string } {
@@ -14776,7 +24165,18 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
 }
 
 export class DescribeInstanceCreatableZoneResponseBodyZoneList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   isInCluster?: boolean;
+  /**
+   * @remarks
+   * DescribeInstanceCreatableZone
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14798,12 +24198,40 @@ export class DescribeInstanceCreatableZoneResponseBodyZoneList extends $tea.Mode
 }
 
 export class DescribeInstanceSSLResponseBodyInstanceSSL extends $tea.Model {
+  /**
+   * @example
+   * https://xxxx
+   */
   caUrl?: string;
+  /**
+   * @example
+   * OPEN
+   */
   enableSSL?: string;
+  /**
+   * @example
+   * CLOSE
+   */
   forceSSL?: string;
+  /**
+   * @example
+   * false
+   */
   forceSSLSupport?: boolean;
+  /**
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * 2024-09-20 07:55:03.0
+   */
   validPeriod?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14835,10 +24263,45 @@ export class DescribeInstanceSSLResponseBodyInstanceSSL extends $tea.Model {
 }
 
 export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigsSecurityConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the check item.
+   * 
+   * @example
+   * Check whether the scope of the cluster allowlist is too big
+   */
   configDescription?: string;
+  /**
+   * @remarks
+   * The group of the check.
+   * 
+   * @example
+   * WHITELIST
+   */
   configGroup?: string;
+  /**
+   * @remarks
+   * The name of the specific check item.
+   * 
+   * @example
+   * xxx
+   */
   configName?: string;
+  /**
+   * @remarks
+   * Specifies whether a risk is detected.
+   * 
+   * @example
+   * true
+   */
   risk?: boolean;
+  /**
+   * @remarks
+   * Security recommendations.
+   * 
+   * @example
+   * xxx
+   */
   riskDescription?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14866,11 +24329,50 @@ export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigsS
 }
 
 export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of the check.
+   * 
+   * @example
+   * xxx
+   */
   checkId?: string;
+  /**
+   * @remarks
+   * The time when the check was performed.
+   * 
+   * @example
+   * 2023-08-07 15:30:00
+   */
   checkTime?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of check items.
+   */
   securityConfigs?: DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigsSecurityConfigs[];
+  /**
+   * @remarks
+   * The total number of security check items for the cluster.
+   * 
+   * @example
+   * 5
+   */
   totalCheckCount?: number;
+  /**
+   * @remarks
+   * The total number of detected cluster security risks.
+   * 
+   * @example
+   * 0
+   */
   totalRiskCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14900,8 +24402,29 @@ export class DescribeInstanceSecurityConfigsResponseBodyInstanceSecurityConfigs 
 }
 
 export class DescribeInstanceTagsResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag of the resource.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"},{}]
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15056,15 +24579,80 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyReplicas extend
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the migration can be canceled.   
+   * This field is valid only for units that are being manually immigrated or emigrated.
+   * 
+   * @example
+   * true
+   */
   enableCancelMigrateUnit?: boolean;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * true
+   */
   enableMigrateUnit?: boolean;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * true
+   */
   manualMigrate?: boolean;
+  /**
+   * @remarks
+   * It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+   * 
+   * @example
+   * i-bp16niirq4zdmgvm****
+   */
   nodeId?: string;
   replicaType?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * @example
+   * 2
+   */
   unitCpu?: number;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeInstanceTopology**.
+   * 
+   * @example
+   * 10
+   */
   unitDataSize?: number;
+  /**
+   * @remarks
+   * The topology of the cluster.
+   * 
+   * @example
+   * 1002
+   */
   unitId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 10
+   */
   unitMemory?: number;
+  /**
+   * @remarks
+   * You can call this operation to query the topology of an OceanBase cluster.
+   * 
+   * @example
+   * ONLINE
+   */
   unitStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15102,11 +24690,36 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZones extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum disk usage, in percentage.
+   * 
+   * @example
+   * true
+   */
   isPrimaryTenantZone?: boolean;
   logicalZone?: string;
   replicaType?: string;
+  /**
+   * @remarks
+   * The server with the highest disk usage.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   tenantZoneId?: string;
+  /**
+   * @remarks
+   * The information of zones.
+   * 
+   * @example
+   * ReadWrite
+   */
   tenantZoneRole?: string;
+  /**
+   * @remarks
+   * The information about the storage resources.
+   */
   units?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZonesUnits[];
   static names(): { [key: string]: string } {
     return {
@@ -15136,18 +24749,85 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZo
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenants extends $tea.Model {
+  /**
+   * @remarks
+   * The server with the highest disk usage.
+   * 
+   * @example
+   * RANDOM
+   */
   primaryZoneDeployType?: string;
+  /**
+   * @remarks
+   * The information about the memory resources of the node.
+   * 
+   * @example
+   * 2
+   */
   tenantCpu?: number;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * multiple
+   */
   tenantDeployType?: string;
   tenantDiskSize?: number;
+  /**
+   * @remarks
+   * The size of used memory of the node, in GB.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The total storage space of the node, in GB.
+   * 
+   * @example
+   * 10
+   */
   tenantMemory?: number;
+  /**
+   * @remarks
+   * The size of used storage space of the node, in GB.
+   * 
+   * @example
+   * Oracle
+   */
   tenantMode?: string;
+  /**
+   * @remarks
+   * The total memory size of the node, in GB.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The size of used memory of the node, in GB.
+   * 
+   * @example
+   * ONLINE
+   */
   tenantStatus?: string;
   tenantUnitCpu?: number;
   tenantUnitMemory?: number;
+  /**
+   * @remarks
+   * The number of CPU cores of the tenant.
+   * 
+   * @example
+   * 1
+   */
   tenantUnitNum?: number;
+  /**
+   * @remarks
+   * The information about the storage resources of the node.
+   */
   tenantZones?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenantsTenantZones[];
   static names(): { [key: string]: string } {
     return {
@@ -15191,7 +24871,15 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyTenants extends
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResourceCpu extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   totalCpu?: number;
+  /**
+   * @example
+   * 4
+   */
   usedCpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15235,7 +24923,15 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeR
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResourceMemory extends $tea.Model {
+  /**
+   * @example
+   * 70
+   */
   totalMemory?: number;
+  /**
+   * @example
+   * 10
+   */
   usedMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15284,9 +24980,34 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeR
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes extends $tea.Model {
   fullCopyId?: number;
   logicalZone?: string;
+  /**
+   * @remarks
+   * The information of zones.
+   * 
+   * @example
+   * 1
+   */
   nodeCopyId?: number;
+  /**
+   * @remarks
+   * The ID of the resource unit.
+   * 
+   * @example
+   * i-bp16niirq4zdmgvm****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   */
   nodeResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodesNodeResource;
+  /**
+   * @remarks
+   * The ID of the OBServer where the resource unit resides.
+   * 
+   * @example
+   * ONLINE
+   */
   nodeStatus?: string;
   readOnlyCopyId?: number;
   replicaType?: string;
@@ -15323,6 +25044,13 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes exte
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesZoneResourceDiskSize extends $tea.Model {
   maxDiskUsedObServer?: string[];
+  /**
+   * @remarks
+   * DescribeInstanceTopology
+   * 
+   * @example
+   * 0.14
+   */
   maxDiskUsedPercent?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15363,10 +25091,39 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZonesZoneResour
 }
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopologyZones extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region.
+   */
   nodes?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesNodes[];
+  /**
+   * @remarks
+   * The zone information of the cluster.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The information about the memory resources of the node.
+   * 
+   * @example
+   * 200 GB
+   */
   zoneDisk?: string;
+  /**
+   * @remarks
+   * The information of the tenant.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
+  /**
+   * @remarks
+   * Example 1
+   */
   zoneResource?: DescribeInstanceTopologyResponseBodyInstanceTopologyZonesZoneResource;
   static names(): { [key: string]: string } {
     return {
@@ -15395,7 +25152,15 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopologyZones extends $
 
 export class DescribeInstanceTopologyResponseBodyInstanceTopology extends $tea.Model {
   replicas?: DescribeInstanceTopologyResponseBodyInstanceTopologyReplicas[];
+  /**
+   * @remarks
+   * The total number of CPU cores for the node.
+   */
   tenants?: DescribeInstanceTopologyResponseBodyInstanceTopologyTenants[];
+  /**
+   * @remarks
+   * The information about resource units.
+   */
   zones?: DescribeInstanceTopologyResponseBodyInstanceTopologyZones[];
   static names(): { [key: string]: string } {
     return {
@@ -15419,13 +25184,69 @@ export class DescribeInstanceTopologyResponseBodyInstanceTopology extends $tea.M
 }
 
 export class DescribeInstancesResponseBodyInstancesDataDiskAutoScaleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic scaling of the data disk.
+   * 
+   * @example
+   * true
+   */
   autoScale?: boolean;
+  /**
+   * @remarks
+   * The maximum size of the disk, in GB.
+   * 
+   * @example
+   * 80000
+   */
   maxDiskSize?: number;
+  /**
+   * @remarks
+   * The size of scaling step during a major compaction.
+   * 
+   * @example
+   * 100
+   */
   scaleStepInMerge?: number;
+  /**
+   * @remarks
+   * The size of scaling step during daily use.
+   * 
+   * @example
+   * 50
+   */
   scaleStepInNormal?: number;
+  /**
+   * @remarks
+   * The maximum usage of the data disk, in percentage, that triggers the scaling of the data disk for major compactions.
+   * 
+   * @example
+   * 90
+   */
   upperMergeThreshold?: number;
+  /**
+   * @remarks
+   * The scale-out strategy. Valid values: RAW and PERCENTAGE.
+   * 
+   * @example
+   * RAW
+   */
   upperScaleStrategy?: string;
+  /**
+   * @remarks
+   * The maximum usage of the data disk, in percentage, that triggers the scaling of the data disk for daily use.
+   * 
+   * @example
+   * 80
+   */
   upperThreshold?: number;
+  /**
+   * @remarks
+   * The maximum space, in GB, to which the data disk can be scaled.
+   * 
+   * @example
+   * 16
+   */
   upperbound?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15459,8 +25280,29 @@ export class DescribeInstancesResponseBodyInstancesDataDiskAutoScaleConfig exten
 }
 
 export class DescribeInstancesResponseBodyInstancesResourceCapacityUnit extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of capacity units.
+   * 
+   * @example
+   * 4
+   */
   maxCapacityUnit?: number;
+  /**
+   * @remarks
+   * The minimum number of capacity units.
+   * 
+   * @example
+   * 1
+   */
   minCapacityUnit?: number;
+  /**
+   * @remarks
+   * The number of used capacity units.
+   * 
+   * @example
+   * 2
+   */
   usedCapacityUnit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15484,9 +25326,37 @@ export class DescribeInstancesResponseBodyInstancesResourceCapacityUnit extends 
 }
 
 export class DescribeInstancesResponseBodyInstancesResourceCpu extends $tea.Model {
+  /**
+   * @remarks
+   * The number of original CPU cores in the cluster.
+   * 
+   * @example
+   * 14
+   */
   originalTotalCpu?: number;
+  /**
+   * @remarks
+   * The total number of CPU cores of the cluster.
+   * 
+   * @example
+   * 14
+   */
   totalCpu?: number;
+  /**
+   * @remarks
+   * The number of CPU cores of each replica node in the cluster.
+   * 
+   * @example
+   * 10
+   */
   unitCpu?: number;
+  /**
+   * @remarks
+   * The number of CPU cores used in the cluster.
+   * 
+   * @example
+   * 10
+   */
   usedCpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15512,9 +25382,37 @@ export class DescribeInstancesResponseBodyInstancesResourceCpu extends $tea.Mode
 }
 
 export class DescribeInstancesResponseBodyInstancesResourceDiskSize extends $tea.Model {
+  /**
+   * @remarks
+   * The original size of the disk.
+   * 
+   * @example
+   * 200
+   */
   originalTotalDiskSize?: number;
+  /**
+   * @remarks
+   * The total storage space of the cluster, in GB.
+   * 
+   * @example
+   * 200
+   */
   totalDiskSize?: number;
+  /**
+   * @remarks
+   * The storage space of each replica node in the cluster, in GB.
+   * 
+   * @example
+   * 200
+   */
   unitDiskSize?: number;
+  /**
+   * @remarks
+   * The size of used storage space of the cluster, in GB.
+   * 
+   * @example
+   * 100
+   */
   usedDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15540,9 +25438,37 @@ export class DescribeInstancesResponseBodyInstancesResourceDiskSize extends $tea
 }
 
 export class DescribeInstancesResponseBodyInstancesResourceMemory extends $tea.Model {
+  /**
+   * @remarks
+   * The original memory size of the cluster, in GB.
+   * 
+   * @example
+   * 72
+   */
   originalTotalMemory?: number;
+  /**
+   * @remarks
+   * The total memory size of the cluster, in GB.
+   * 
+   * @example
+   * 70
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * The memory size of each replica node in the cluster, in GB.
+   * 
+   * @example
+   * 10
+   */
   unitMemory?: number;
+  /**
+   * @remarks
+   * The size of used memory in the cluster, in GB.
+   * 
+   * @example
+   * 10
+   */
   usedMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15568,10 +25494,33 @@ export class DescribeInstancesResponseBodyInstancesResourceMemory extends $tea.M
 }
 
 export class DescribeInstancesResponseBodyInstancesResource extends $tea.Model {
+  /**
+   * @remarks
+   * The information about capacity units.
+   */
   capacityUnit?: DescribeInstancesResponseBodyInstancesResourceCapacityUnit;
+  /**
+   * @remarks
+   * The information about the CPU resources of the cluster.
+   */
   cpu?: DescribeInstancesResponseBodyInstancesResourceCpu;
+  /**
+   * @remarks
+   * The information about the storage resources of the cluster.
+   */
   diskSize?: DescribeInstancesResponseBodyInstancesResourceDiskSize;
+  /**
+   * @remarks
+   * The information about the memory resources of the cluster.
+   */
   memory?: DescribeInstancesResponseBodyInstancesResourceMemory;
+  /**
+   * @remarks
+   * The number of resource units in the cluster.
+   * 
+   * @example
+   * 1
+   */
   unitCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15599,36 +25548,300 @@ export class DescribeInstancesResponseBodyInstancesResource extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the zone in which the cluster is deployed.
+   */
   availableZones?: string[];
+  /**
+   * @remarks
+   * The product code of the OceanBase cluster.   
+   * - oceanbase_oceanbasepre_public_cn: indicates an OceanBase cluster that is billed based on the subscription plan and that is deployed in a China site.  
+   * - oceanbase_oceanbasepost_public_cn: indicates an OceanBase cluster that is billed based on the pay-as-you-go plan and that is deployed in a China site.  
+   * - oceanbase_obpre_public_intl: indicates an OceanBase cluster that is billed based on the subscription plan and that is deployed in an international site.
+   * 
+   * @example
+   * oceanbase_oceanbasepost_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The number of CPU cores of the cluster.
+   * 
+   * @example
+   * 14
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The CPU architecture of the cluster.
+   * 
+   * @example
+   * X86_64, AARCH64
+   */
   cpuArchitecture?: string;
+  /**
+   * @remarks
+   * The time in UTC when the cluster was created.
+   * 
+   * @example
+   * 2021-10-19T07:13:41Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Specifies parameters for the automatic scaling of the data disk.
+   */
   dataDiskAutoScaleConfig?: DescribeInstancesResponseBodyInstancesDataDiskAutoScaleConfig;
+  /**
+   * @remarks
+   * The data replica distribution mode of the cluster. The value is in the n-n-n format, where n is the number of OBServer nodes in each IDC.
+   * 
+   * @example
+   * 1-1-1
+   */
   deployMode?: string;
+  /**
+   * @remarks
+   * The deployment type of the cluster. Valid values:   
+   * - multiple: multi-IDC deployment  
+   * - single: single-IDC deployment  
+   * - dual: dual-IDC deployment
+   * 
+   * @example
+   * multiple
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * The size of the storage space, in GB.
+   * 
+   * @example
+   * 200
+   */
   diskSize?: string;
+  /**
+   * @remarks
+   * The type of the storage disk where the cluster is deployed.   
+   * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
+   * 
+   * @example
+   * cloud_essd_pl1
+   */
   diskType?: string;
+  /**
+   * @remarks
+   * Indicates whether the cluster supports read-only replicas.
+   * 
+   * @example
+   * yes
+   */
   enableReadOnlyReplicaManagement?: boolean;
+  /**
+   * @remarks
+   * Indicates whether new nodes can be added.
+   * 
+   * @example
+   * true
+   */
   enableUpgradeNodes?: boolean;
+  /**
+   * @remarks
+   * The time elapsed since the expiration of the cluster, in seconds. 
+   * > In subscription mode, if the cluster has not expired, this parameter indicates the remaining validity period of the cluster. If the cluster has expired, this parameter indicates the time elapsed since the expiration.
+   * 
+   * @example
+   * 2606682
+   */
   expireSeconds?: number;
+  /**
+   * @remarks
+   * The time in UTC when the cluster expires. 
+   * > This parameter is valid only for subscription instances.
+   * 
+   * @example
+   * 2021-10-17T16:00:00Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to indicate the temporary status of the capacity.
+   * 
+   * @example
+   * false
+   */
   inTempCapacityStatus?: boolean;
+  /**
+   * @remarks
+   * The specifications of the cluster.  You can specify one of the following four plans:  
+   * - 8C32G: indicates 8 CPU cores and 32 GB of memory.  
+   * - 14C70G: indicates 14 CPU cores and 70 GB of memory.  
+   * - 30C180G: indicates 30 CPU cores and 180 GB of memory.  
+   * - 62C400G: indicates 62 CPU cores and 400 GB of memory.
+   * 
+   * @example
+   * 14C70G
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the OceanBase cluster.
+   * 
+   * @example
+   * ob4test
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The role of the instance.
+   * 
+   * @example
+   * NORMAL
+   */
   instanceRole?: string;
+  /**
+   * @remarks
+   * The instance type.
+   * - cluster: indicates a cluster instance.
+   * - mtenant: indicates a tenant instance in MySQL mode.
+   * - mtenant_serverless: indicates a serverless instance in MySQL mode.
+   * 
+   * @example
+   * CLUSTER
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The time period in UTC for the daily routine maintenance of the cluster.
+   * 
+   * @example
+   * 2021-10-19T07:13:41Z
+   */
   maintainTime?: string;
+  /**
+   * @remarks
+   * The memory size of the instance, in GB.
+   * 
+   * @example
+   * 70
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The billing method for the OceanBase cluster. Valid values:  
+   * - PREPAY: the subscription billing method.  
+   * - POSTPAY: the pay-as-you-go billing method.
+   * 
+   * @example
+   * PREPAY
+   */
   payType?: string;
+  /**
+   * @remarks
+   * The information about cluster resources.
+   */
   resource?: DescribeInstancesResponseBodyInstancesResource;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * group1
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The series of the OceanBase cluster. Valid values:   
+   * - NORMAL: the high availability edition.   
+   * - BASIC: the basic edition.
+   * 
+   * @example
+   * NORMAL
+   */
   series?: string;
   specType?: string;
+  /**
+   * @remarks
+   * The status of the cluster. Valid values:   
+   * - ONLINE: The cluster is running.  
+   * - PENDING_CREATE: The cluster is being created.  
+   * - ARREARS_CLOSED("arrears_closed"): The cluster is suspended due to insufficient balance.
+   * - PREPAID_EXPIRE_CLOSED("prepaid_expire_closed"): The cluster is suspended because the subscription has expired.
+   * - WHITE_LIST_MODIFYING("white_list_modifying"): The allowlist of the cluster is being modified.
+   * - SSL_MODIFYING("ssl_modifying"): The Secure Sockets Layer (SSL) settings of the cluster are being modified.
+   * - PARAMETER_MODIFYING("parameter_modifying"): Parameters of the cluster are being modified.
+   * - TENANT_CREATING("tenant_creating"): A tenant is being created in the cluster.
+   * - TENANT_SPEC_MODIFYING("tenant_spec_modifying"): The specifications of a tenant in the cluster are being modified.
+   * - EXPANDING("expanding"): Nodes are being added to the cluster.
+   * - REDUCING("reducing"): Nodes are being removed from the cluster.
+   * - ZONE_CHANGING("zone_changing"): Zones of the cluster are being modified.
+   * - SPEC_UPGRADING: The service plan is being upgraded.
+   * - SPEC_DOWNGRADING("spec_downgrading"): The plan specification is being downgraded.
+   * - DISK_UPGRADING: The storage space is being expanded.
+   * - UPGRADING("upgrading"): The version of the cluster is being upgraded.
+   * - PENDING_DELETE("pending_delete"): The cluster is being deleted.
+   * - DELETED("deleted"): The cluster has been deleted.
+   * - ABNORMAL("abnormal"): The cluster is abnormal.
+   * - OFFLINE("offline"): The cluster is offline.
+   * - STANDBY_CREATING("standby_creating"): A standby cluster is being created for the cluster.
+   * - STANDBY_DELETING("standby_deleting"): A standby cluster of the cluster is being deleted.
+   * - SWITCHOVER_SWITCHING("switchover_switching"): The cluster is undergoing a primary/standby switchover.
+   * - STANDBY_DISCONNECTING("standby_disconnecting"): The cluster is being decoupled from its standby cluster.
+   * - LOG_DISK_UPGRADING("log_disk_upgrading"): The log disk of the cluster is being scaled out.
+   * - ISOLATION_OPTIMIZATION_MODIFYING("isolation_optimization_modifying"): The isolation optimization settings of the cluster are being modified.
+   * - DISKTYPE_MODIFYING("disktype_modifying"): The data disk type of the cluster is being modified.
+   * - PROXY_SERVICE_CREATING("proxy_service_creating"): The proxy service is being enabled for the cluster.
+   * - PROXY_SERVICE_DELETING("proxy_service_deleting"): The proxy service is being disabled for the cluster.
+   * - PROXY_SERVICE_SPEC_MODIFYING("proxy_service_spec_modifying"): The proxy service specification is being modified for the cluster.
+   * - READONLY_ADD_NODE("readonly_add_node"): A read-only node is being added to the cluster.
+   * - READONLY_REDUCE_NODE("readonly_reduce_node"): A read-only node is being removed from the cluster.
+   * - READONLY_REDUCE_ZONE("readonly_reduce_zone"): A read-only zone is being removed from the cluster.
+   * - READONLY_ADD_ZONE("readonly_add_zone"): A read-only zone is being added to the cluster.
+   * - READONLY_UPGRADE_SPEC("readonly_upgrade_spec"): The specification of read-only replicas is being upgraded.
+   * - READONLY_UPGRADE_DISK("readonly_upgrade_disk"): The disk space of read-only replicas is being scaled out.
+   * - READONLY_DOWNGRADE_SPEC("readonly_downgrade_spec"): The specification of read-only replicas is being downgraded.
+   * - READONLY_DOWNGRADE_DISK("readonly_downgrade_disk"): The disk space of read-only replicas is being scaled in.
+   * - CREATING_TENANT_READONLY_REPLICA("creating_tenant_readonly_replica"): A read-only replica is being created for a tenant in the cluster.
+   * - DELETING_TENANT_READONLY_REPLICA("deleting_tenant_readonly_replica"): A read-only replica is being deleted for a tenant in the cluster.
+   * - DISK_DOWNGRADING("disk_downgrading"): The disk space of the cluster is being scaled in.
+   * - DEPLOY_MODE_MODIFYING("deploy_mode_modifying"): The deployment mode of the cluster is being modified.
+   * > Generally, the cluster is in the ONLINE state.
+   * 
+   * @example
+   * ONLINE
+   */
   state?: string;
+  /**
+   * @remarks
+   * The size of used storage space of the cluster, in GB.
+   * 
+   * @example
+   * 20
+   */
   usedDiskSize?: number;
+  /**
+   * @remarks
+   * The OBServer version.
+   * 
+   * @example
+   * 2.2.77
+   */
   version?: string;
+  /**
+   * @remarks
+   * vpcId
+   * 
+   * @example
+   * vpc-8vb8qjrixzovjpy******
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15784,27 +25997,123 @@ export class DescribeOasAnomalySQLListResponseBodyDataSqlList extends $tea.Model
 }
 
 export class DescribeOasAnomalySQLListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Average CPU time of the suspicious SQL.
+   * 
+   * @example
+   * 100.24
+   */
   avgCpuTime?: number;
   avgDbTime?: number;
+  /**
+   * @remarks
+   * Average response time of the suspicious SQL.
+   * 
+   * @example
+   * 100.28
+   */
   avgElapsedTime?: number;
+  /**
+   * @remarks
+   * Average time to obtain the execution plan of the suspicious SQL.
+   * 
+   * @example
+   * 0
+   */
   avgGetPlanTime?: number;
   avgLogicalReads?: number;
   avgRetryCount?: number;
+  /**
+   * @remarks
+   * CPU time of the suspicious SQL.
+   * 
+   * @example
+   * 100.23
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * db_***
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The type of the diagnosis.
+   */
   diagTypes?: string[];
+  /**
+   * @remarks
+   * The details of diagnosis.
+   */
   diagnosis?: string;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * Total execution count of the suspicious SQL.
+   * 
+   * @example
+   * 1
+   */
   executions?: number;
+  /**
+   * @remarks
+   * Last execution time of the suspicious SQL.
+   * 
+   * @example
+   * 2023-04-12T04:38:38Z
+   */
   lastExecutedTime?: number;
+  /**
+   * @remarks
+   * Risk level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
   sqlList?: DescribeOasAnomalySQLListResponseBodyDataSqlList[];
+  /**
+   * @remarks
+   * Prefix of the SQL text.
+   */
   sqlTextShort?: string;
+  /**
+   * @remarks
+   * Suggestion for the suspicious SQL.
+   * 
+   * @example
+   * review
+   */
   suggestion?: string;
   sumDbTime?: number;
+  /**
+   * @remarks
+   * Total response time of the suspicious SQL.
+   * 
+   * @example
+   * 11452126.36
+   */
   sumElapsedTime?: string;
   sumRetryCount?: number;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15866,10 +26175,42 @@ export class DescribeOasAnomalySQLListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeOasSQLDetailsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * SQL text.
+   * 
+   * @example
+   * select a from b
+   */
   fulltext?: string;
+  /**
+   * @remarks
+   * Parameterized text.
+   * 
+   * @example
+   * select a from b
+   */
   statement?: string;
+  /**
+   * @remarks
+   * The table name related to the SQL.
+   */
   tables?: string[];
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15897,74 +26238,543 @@ export class DescribeOasSQLDetailsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeOasSQLHistoryListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Average updated rows during the execution period.
+   * 
+   * @example
+   * 9978.75
+   */
   avgAffectedRows?: number;
+  /**
+   * @remarks
+   * Average Application event wait time (in milliseconds) during the client waiting period.
+   * 
+   * @example
+   * 0.0
+   */
   avgApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Average BlockCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBlockCacheHit?: number;
+  /**
+   * @remarks
+   * Average BlockIndexCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBlockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * Average BloomFilterCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * Average Concurrency event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Average CPU time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1875.34
+   */
   avgCpuTime?: number;
   avgDbTime?: number;
+  /**
+   * @remarks
+   * Average syntax parsing time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDecodeTime?: number;
+  /**
+   * @remarks
+   * Average physical read count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDiskReads?: number;
+  /**
+   * @remarks
+   * Average response time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1876.78
+   */
   avgElapsedTime?: number;
+  /**
+   * @remarks
+   * Average plan execution time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1895.7
+   */
   avgExecuteTime?: number;
+  /**
+   * @remarks
+   * Average number of RPC requests executed during the execution period.
+   * 
+   * @example
+   * 0
+   */
   avgExecutorRpcCount?: number;
+  /**
+   * @remarks
+   * Average degree of parallelism during the execution period.
+   * 
+   * @example
+   * 3
+   */
   avgExpectedWorkerCount?: number;
+  /**
+   * @remarks
+   * Average plan generation time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgGetPlanTime?: number;
+  /**
+   * @remarks
+   * Average logical reads during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgLogicalReads?: number;
+  /**
+   * @remarks
+   * Average Memstore read rows during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgMemstoreReadRows?: number;
+  /**
+   * @remarks
+   * Average network transmission time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 8
+   */
   avgNetTime?: number;
+  /**
+   * @remarks
+   * Average network enqueue time (in milliseconds) during the network waiting period.
+   * 
+   * @example
+   * 0.0
+   */
   avgNetWaitTime?: number;
+  /**
+   * @remarks
+   * Average number of partition accessed during the execution period.
+   * 
+   * @example
+   * 1
+   */
   avgPartitionCount?: number;
+  /**
+   * @remarks
+   * Average queueing time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.01
+   */
   avgQueueTime?: number;
+  /**
+   * @remarks
+   * Average number of rows returned during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgReturnRows?: number;
+  /**
+   * @remarks
+   * Average RowCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgRowCacheHit?: number;
+  /**
+   * @remarks
+   * Average number of RPC sent during the execution.
+   * 
+   * @example
+   * 8.0
+   */
   avgRpcCount?: number;
+  /**
+   * @remarks
+   * Average Schedule event wait time (in milliseconds) during the scheduling period.
+   * 
+   * @example
+   * 0.0
+   */
   avgScheduleTime?: number;
+  /**
+   * @remarks
+   * Average Ssstore read rows during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgSsstoreReadRows?: number;
+  /**
+   * @remarks
+   * Average number of threads used of the SQL during the execution period.
+   * 
+   * @example
+   * 3
+   */
   avgUsedWorkerCount?: number;
+  /**
+   * @remarks
+   * Average UserIO event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Average number of waits during the execution period.
+   * 
+   * @example
+   * 0
+   */
   avgWaitCount?: number;
+  /**
+   * @remarks
+   * Average wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1442.49
+   */
   avgWaitTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * Distributed plan percentage during the execution period.
+   * 
+   * @example
+   * 100
+   */
   distPlanPercentage?: number;
+  /**
+   * @remarks
+   * Average execution count per second during the execution period.
+   * 
+   * @example
+   * 0.31
+   */
   execPs?: number;
+  /**
+   * @remarks
+   * Total number of executions during the execution period.
+   * 
+   * @example
+   * 1
+   */
   executions?: number;
+  /**
+   * @remarks
+   * The total number of errors during the execution period.
+   * 
+   * @example
+   * 0
+   */
   failCount?: number;
+  /**
+   * @remarks
+   * Error percentage during the execution period.
+   * 
+   * @example
+   * 0
+   */
   failPercentage?: number;
+  /**
+   * @remarks
+   * Local plan percentage during the execution period.
+   * 
+   * @example
+   * 0
+   */
   localPlanPercentage?: number;
+  /**
+   * @remarks
+   * Max updated rows during the execution period.
+   * 
+   * @example
+   * 10000
+   */
   maxAffectedRows?: number;
+  /**
+   * @remarks
+   * Max Application event wait time (in milliseconds) during the execution period
+   * 
+   * @example
+   * 0
+   */
   maxApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Max Concurrency event wait time (in milliseconds) during the execution period
+   * 
+   * @example
+   * 0
+   */
   maxConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Max CPU time.
+   * 
+   * @example
+   * 13641.9
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * Max physical read count during the execution period.
+   * 
+   * @example
+   * 0
+   */
   maxDiskReads?: number;
+  /**
+   * @remarks
+   * Max response time.
+   * 
+   * @example
+   * 13643.3
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * Max returned rows during the execution period.
+   * 
+   * @example
+   * 0
+   */
   maxReturnRows?: number;
+  /**
+   * @remarks
+   * Max UserIO event wait time (in milliseconds) during the execution period
+   * 
+   * @example
+   * 0
+   */
   maxUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Max wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 3.4
+   */
   maxWaitTime?: number;
+  /**
+   * @remarks
+   * Plan hit rage during the execution period.
+   * 
+   * @example
+   * 0
+   */
   missPlanPercentage?: number;
+  /**
+   * @remarks
+   * Missed plan count.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * Remote plan percentage during the execution period.
+   * 
+   * @example
+   * 0
+   */
   remotePlanPercentage?: number;
+  /**
+   * @remarks
+   * Remote plan count.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 4012 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode4012Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 4013 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode4013Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5001 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5001Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5024 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5024Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5167 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5167Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5217 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5217Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 6002 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode6002Count?: number;
+  /**
+   * @remarks
+   * Total number of retries during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The server where the SQL is executed.
+   * 
+   * @example
+   * i-bp1db1****8uemejio
+   */
   server?: string;
+  /**
+   * @remarks
+   * Strong consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 100
+   */
   strongConsistencyPercentage?: number;
   sumDbTime?: number;
+  /**
+   * @remarks
+   * Total response time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 11452126.36
+   */
   sumElapsedTime?: number;
+  /**
+   * @remarks
+   * Total logical reads.
+   * 
+   * @example
+   * 0
+   */
   sumLogicalReads?: number;
+  /**
+   * @remarks
+   * The total wait time (in milliseconds) during the internal waiting period.
+   * 
+   * @example
+   * 9421.73
+   */
   sumWaitTime?: number;
+  /**
+   * @remarks
+   * Table scan percentage during the execution period.
+   * 
+   * @example
+   * 0
+   */
   tableScanPercentage?: number;
+  /**
+   * @remarks
+   * Timestamp for the sample.
+   * 
+   * @example
+   * 2023-04-12T04:46:38Z
+   */
   timestamp?: string;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
+  /**
+   * @remarks
+   * Eventually consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0
+   */
   weakConsistencyPercentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16120,6 +26930,13 @@ export class DescribeOasSQLHistoryListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeOasSQLPlansResponseBodyDataPlanExplain extends $tea.Model {
+  /**
+   * @remarks
+   * JSON string of the SQL execution plan.
+   * 
+   * @example
+   * {\\"RootOperations\\":[{\\"Children\\
+   */
   planJsonString?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16139,40 +26956,278 @@ export class DescribeOasSQLPlansResponseBodyDataPlanExplain extends $tea.Model {
 }
 
 export class DescribeOasSQLPlansResponseBodyDataPlans extends $tea.Model {
+  /**
+   * @remarks
+   * Average Application event waiting time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Average cache read count during the execution period.
+   * 
+   * @example
+   * 30137.03
+   */
   avgBufferGets?: number;
+  /**
+   * @remarks
+   * Average Concurrency event waiting time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Average CPU time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1875.34
+   */
   avgCpuTime?: number;
+  /**
+   * @remarks
+   * The average physical read count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDiskReads?: number;
+  /**
+   * @remarks
+   * The average physical write count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDiskWrites?: number;
+  /**
+   * @remarks
+   * Average interval waiting time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1876.78
+   */
   avgElapsedTime?: number;
+  /**
+   * @remarks
+   * Average row processing waiting time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1.0
+   */
   avgRowProcessed?: number;
+  /**
+   * @remarks
+   * Average UserIo event waiting time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Collection time.
+   * 
+   * @example
+   * 1684368****00000
+   */
   collectTimeUs?: number;
+  /**
+   * @remarks
+   * Percentage of delayed long-running queries.
+   * 
+   * @example
+   * 0.0
+   */
   delayedLargeQueryPercentage?: number;
+  /**
+   * @remarks
+   * The average execution count per second during the execution period.
+   * 
+   * @example
+   * 0.31
+   */
   execPs?: number;
+  /**
+   * @remarks
+   * The total number of executions during the execution period.
+   * 
+   * @example
+   * 1
+   */
   executions?: number;
+  /**
+   * @remarks
+   * First time to load the plan.
+   * 
+   * @example
+   * 2023-04-12T04:46:38Z
+   */
   firstLoadTime?: string;
+  /**
+   * @remarks
+   * First loading time.
+   * 
+   * @example
+   * 1684****03289441
+   */
   firstLoadTimeUs?: number;
+  /**
+   * @remarks
+   * Whether to hit the diagnosis.
+   * 
+   * @example
+   * false
+   */
   hitDiagnosis?: boolean;
+  /**
+   * @remarks
+   * Hit rate.
+   * 
+   * @example
+   * 100.0
+   */
   hitPercentage?: number;
+  /**
+   * @remarks
+   * Percentage of completed long-running queries.
+   * 
+   * @example
+   * 0.0
+   */
   largeQueryPercentage?: number;
+  /**
+   * @remarks
+   * Merge version.
+   * 
+   * @example
+   * 513
+   */
   mergedVersion?: number;
+  /**
+   * @remarks
+   * Database ID.
+   * 
+   * @example
+   * 11006****828
+   */
   obDbId?: number;
+  /**
+   * @remarks
+   * Server ID.
+   * 
+   * @example
+   * 2
+   */
   obServerId?: number;
+  /**
+   * @remarks
+   * The outline_data parameter of the SQL execution plan.
+   * 
+   * @example
+   * /*+ BEGIN_OUTLINE_DATA INDEX(@\\"SEL$1\\
+   */
   outlineData?: string;
+  /**
+   * @remarks
+   * Outline ID.
+   * 
+   * @example
+   * -1
+   */
   outlineId?: number;
+  /**
+   * @remarks
+   * The internal identifier of the SQL execution plan in the diagnostic system.
+   * 
+   * @example
+   * -86290582****886880
+   */
   planHash?: string;
+  /**
+   * @remarks
+   * The ID of the plan.
+   * 
+   * @example
+   * 590****
+   */
   planId?: number;
+  /**
+   * @remarks
+   * Plan size.
+   * 
+   * @example
+   * 10****
+   */
   planSize?: number;
+  /**
+   * @remarks
+   * Plan type, including LOCAL, REMOTE, DIST.
+   * 
+   * @example
+   * LOCAL
+   */
   planType?: string;
+  /**
+   * @remarks
+   * The internal unique identifier of the SQL execution plan in the diagnostic system.
+   * 
+   * @example
+   * "52c7c53****53e61b3f7586b17****ad"
+   */
   planUnionHash?: string;
+  /**
+   * @remarks
+   * Schema version.
+   * 
+   * @example
+   * 16838****3550464
+   */
   schemaVersion?: number;
+  /**
+   * @remarks
+   * The server where the SQL is executed.
+   * 
+   * @example
+   * i-bp1db1a9us038****jio
+   */
   server?: string;
+  /**
+   * @remarks
+   * The ID of the backend server instance.
+   * 
+   * @example
+   * 2
+   */
   serverId?: number;
   sqlId?: string;
+  /**
+   * @remarks
+   * Whether a full table scan is performed.
+   * 
+   * @example
+   * false
+   */
   tableScan?: boolean;
+  /**
+   * @remarks
+   * Percentage of timeouts.
+   * 
+   * @example
+   * 0.0
+   */
   timeoutPercentage?: number;
+  /**
+   * @remarks
+   * The unique identifier of the plan.
+   * 
+   * @example
+   * AAAAAAAAAAI****AAFoT2QAF--7W****
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16260,18 +27315,103 @@ export class DescribeOasSQLPlansResponseBodyDataPlans extends $tea.Model {
 }
 
 export class DescribeOasSQLPlansResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Average CPU time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1875.34
+   */
   avgCpuTime?: number;
+  /**
+   * @remarks
+   * Whether to bind the execution plan.
+   * 
+   * @example
+   * false
+   */
   bounded?: boolean;
+  /**
+   * @remarks
+   * Execution count.
+   * 
+   * @example
+   * 1
+   */
   executions?: number;
+  /**
+   * @remarks
+   * First loading time.
+   * 
+   * @example
+   * 2023-04-12T04:46:38Z
+   */
   firstLoadTime?: string;
+  /**
+   * @remarks
+   * Whether to hit the diagnosis.
+   * 
+   * @example
+   * false
+   */
   hitDiagnosis?: boolean;
+  /**
+   * @remarks
+   * Hit rate.
+   * 
+   * @example
+   * 100.0
+   */
   hitPercentage?: number;
+  /**
+   * @remarks
+   * Merge version.
+   * 
+   * @example
+   * 513
+   */
   mergedVersion?: number;
+  /**
+   * @remarks
+   * Execution plan.
+   */
   planExplain?: DescribeOasSQLPlansResponseBodyDataPlanExplain;
+  /**
+   * @remarks
+   * The internal identifier of the SQL execution plan in the diagnostic system.
+   * 
+   * @example
+   * 1758****24913166****
+   */
   planHash?: string;
+  /**
+   * @remarks
+   * Execution plan type.
+   * 
+   * @example
+   * LOCAL
+   */
   planType?: string;
+  /**
+   * @remarks
+   * The internal unique identifier of the SQL execution plan in the diagnostic system.
+   * 
+   * @example
+   * "52c7c53****53e61b3f7586b17****ad"
+   */
   planUnionHash?: string;
+  /**
+   * @remarks
+   * The list of the execution plan.
+   */
   plans?: DescribeOasSQLPlansResponseBodyDataPlans[];
+  /**
+   * @remarks
+   * The SQL for the query.
+   * 
+   * @example
+   * "select 1 from t"
+   */
   querySql?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16562,84 +27702,609 @@ export class DescribeOasSlowSQLListResponseBodyDataSqlList extends $tea.Model {
 }
 
 export class DescribeOasSlowSQLListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Average updated rows during the execution period.
+   * 
+   * @example
+   * 9978.75
+   */
   avgAffectedRows?: number;
+  /**
+   * @remarks
+   * Average Application event wait time (in milliseconds) during the client waiting period.
+   * 
+   * @example
+   * 0.0
+   */
   avgApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Average BlockCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBlockCacheHit?: number;
+  /**
+   * @remarks
+   * Average BlockIndexCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBlockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * Average BloomFilterCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * Average Concurrency event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Average CPU time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1875.34
+   */
   avgCpuTime?: number;
   avgDbTime?: number;
+  /**
+   * @remarks
+   * Average syntax parsing time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDecodeTime?: number;
+  /**
+   * @remarks
+   * Average physical read count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDiskReads?: number;
+  /**
+   * @remarks
+   * Average response time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1876.78
+   */
   avgElapsedTime?: number;
+  /**
+   * @remarks
+   * Average plan execution time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1895.7
+   */
   avgExecuteTime?: number;
+  /**
+   * @remarks
+   * Average number of RPC requests executed during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgExecutorRpcCount?: number;
+  /**
+   * @remarks
+   * Average degree of parallelism during the execution period.
+   * 
+   * @example
+   * 3
+   */
   avgExpectedWorkerCount?: number;
+  /**
+   * @remarks
+   * Average plan generation time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgGetPlanTime?: number;
+  /**
+   * @remarks
+   * Average logical reads of the SQL during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgLogicalReads?: number;
+  /**
+   * @remarks
+   * Strong consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgMemstoreReadRows?: number;
+  /**
+   * @remarks
+   * Average network transmission time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgNetTime?: number;
+  /**
+   * @remarks
+   * Average network enqueue time (in milliseconds) during the network waiting period.
+   * 
+   * @example
+   * 0.0
+   */
   avgNetWaitTime?: number;
+  /**
+   * @remarks
+   * Average number of partition accessed during the execution period.
+   * 
+   * @example
+   * 1.0
+   */
   avgPartitionCount?: number;
+  /**
+   * @remarks
+   * Average queueing time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.01
+   */
   avgQueueTime?: number;
+  /**
+   * @remarks
+   * Average number of rows returned during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgReturnRows?: number;
+  /**
+   * @remarks
+   * Average RowCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgRowCacheHit?: number;
+  /**
+   * @remarks
+   * Average number of RPC sent during the execution.
+   * 
+   * @example
+   * 8.0
+   */
   avgRpcCount?: number;
+  /**
+   * @remarks
+   * Average Schedule event wait time (in milliseconds) during the scheduling period.
+   * 
+   * @example
+   * 0.0
+   */
   avgScheduleTime?: number;
+  /**
+   * @remarks
+   * Eventually consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgSsstoreReadRows?: number;
+  /**
+   * @remarks
+   * Average number of threads used of the SQL during the execution period.
+   * 
+   * @example
+   * 3
+   */
   avgUsedWorkerCount?: number;
+  /**
+   * @remarks
+   * Average UserIO event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Average number of waits during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgWaitCount?: number;
+  /**
+   * @remarks
+   * Average wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1.42
+   */
   avgWaitTime?: number;
+  /**
+   * @remarks
+   * Client IP.
+   * 
+   * @example
+   * 1*2.***.1*3.***
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * Distributed plan percentage during the execution period.
+   * 
+   * @example
+   * 100.0
+   */
   distPlanPercentage?: number;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * Average execution count per second during the execution period.
+   * 
+   * @example
+   * 0.31
+   */
   execPs?: number;
+  /**
+   * @remarks
+   * Total number of executions during the execution period.
+   * 
+   * @example
+   * 1
+   */
   executions?: number;
+  /**
+   * @remarks
+   * Average number of partition accessed during the execution period.
+   * 
+   * @example
+   * 0
+   */
   failCount?: number;
+  /**
+   * @remarks
+   * Error percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   failPercentage?: number;
+  /**
+   * @remarks
+   * Whether an internal SQL.
+   * 
+   * @example
+   * false
+   */
   inner?: boolean;
+  /**
+   * @remarks
+   * Local plan percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   localPlanPercentage?: number;
+  /**
+   * @remarks
+   * Max affected rows during the execution period.
+   * 
+   * @example
+   * 10000.0
+   */
   maxAffectedRows?: number;
+  /**
+   * @remarks
+   * Max Application event wait time (in milliseconds) during the execution period
+   * 
+   * @example
+   * 0.0
+   */
   maxApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Max Concurrency event wait time (in milliseconds) during the execution period
+   * 
+   * @example
+   * 0.0
+   */
   maxConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Max CPU time.
+   * 
+   * @example
+   * 257.967
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * Max physical read count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxDiskReads?: number;
+  /**
+   * @remarks
+   * Max response time during the execution period.
+   * 
+   * @example
+   * 260.044
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * Max returned rows during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxReturnRows?: number;
+  /**
+   * @remarks
+   * Max UserIO event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Max wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 3.4
+   */
   maxWaitTime?: number;
+  /**
+   * @remarks
+   * Plan hit rage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   missPlanPercentage?: number;
+  /**
+   * @remarks
+   * Missed hit count of the execution plan during the execution period.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * Remote plan percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   remotePlanPercentage?: number;
+  /**
+   * @remarks
+   * Remote execution count during the execution period.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 4012 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode4012Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 4013 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode4013Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5001 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5001Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5024 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5024Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5167 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5167Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 5217 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5217Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of code 6002 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode6002Count?: number;
+  /**
+   * @remarks
+   * Total number of retries during the execution period.
+   * 
+   * @example
+   * 5
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * RPC count during the execution period.
+   * 
+   * @example
+   * 0
+   */
   rpcCount?: number;
+  /**
+   * @remarks
+   * The server where the SQL is executed.
+   * 
+   * @example
+   * i-bp1db1a**s038**mej**
+   */
   server?: string;
+  /**
+   * @remarks
+   * The IP address of the server.
+   * 
+   * @example
+   * i-bp1db1a**s038**mej**
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The server port where the SQL is executed.
+   * 
+   * @example
+   * 10110
+   */
   serverPort?: number;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
   sqlList?: DescribeOasSlowSQLListResponseBodyDataSqlList[];
+  /**
+   * @remarks
+   * SQL text (the first 100 characters).
+   * 
+   * @example
+   * select a from b where
+   */
   sqlTextShort?: string;
+  /**
+   * @remarks
+   * SQL type.
+   * 
+   * @example
+   * select
+   */
   sqlType?: string;
+  /**
+   * @remarks
+   * Strong consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 100.0
+   */
   strongConsistencyPercentage?: number;
   sumDbTime?: number;
+  /**
+   * @remarks
+   * Total response time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 11452126.36
+   */
   sumElapsedTime?: number;
+  /**
+   * @remarks
+   * Total logical reads of the SQL during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   sumLogicalReads?: number;
+  /**
+   * @remarks
+   * The total wait time (in milliseconds) during the internal waiting period.
+   * 
+   * @example
+   * 9421.73
+   */
   sumWaitTime?: number;
+  /**
+   * @remarks
+   * Table scan percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   tableScanPercentage?: number;
+  /**
+   * @remarks
+   * Total wait time during the execution period.
+   * 
+   * @example
+   * 10.966
+   */
   totalWaitTime?: number;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
+  /**
+   * @remarks
+   * Longest wait event during the execution period.
+   * 
+   * @example
+   * none
+   */
   waitEvent?: string;
+  /**
+   * @remarks
+   * Eventually consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   weakConsistencyPercentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17065,86 +28730,615 @@ export class DescribeOasTopSQLListResponseBodyDataSqlList extends $tea.Model {
 }
 
 export class DescribeOasTopSQLListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Average updated rows during the execution period.
+   * 
+   * @example
+   * 9978.75
+   */
   avgAffectedRows?: number;
+  /**
+   * @remarks
+   * Average Application event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Average BlockCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBlockCacheHit?: number;
+  /**
+   * @remarks
+   * Average BlockIndexCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBlockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * Average BloomFilterCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgBloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * Average Concurrency event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Average CPU time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1875.34
+   */
   avgCpuTime?: number;
   avgDbTime?: number;
+  /**
+   * @remarks
+   * Average syntax parsing time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDecodeTime?: number;
+  /**
+   * @remarks
+   * Average physical read count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgDiskReads?: number;
+  /**
+   * @remarks
+   * Average response time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 903.29
+   */
   avgElapsedTime?: number;
+  /**
+   * @remarks
+   * Average plan execution time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1895.7
+   */
   avgExecuteTime?: number;
+  /**
+   * @remarks
+   * Average number of RPC requests executed during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgExecutorRpcCount?: number;
+  /**
+   * @remarks
+   * Average degree of parallelism during the execution period.
+   * 
+   * @example
+   * 3
+   */
   avgExpectedWorkerCount?: number;
+  /**
+   * @remarks
+   * Average plan generation time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgGetPlanTime?: number;
+  /**
+   * @remarks
+   * Average logical reads of the SQL during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgLogicalReads?: number;
+  /**
+   * @remarks
+   * Strong consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgMemstoreReadRows?: number;
+  /**
+   * @remarks
+   * Average network transmission time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgNetTime?: number;
+  /**
+   * @remarks
+   * Average network enqueue time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgNetWaitTime?: number;
+  /**
+   * @remarks
+   * Average number of partition accessed during the execution period.
+   * 
+   * @example
+   * 1.0
+   */
   avgPartitionCount?: number;
+  /**
+   * @remarks
+   * Average queueing time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.01
+   */
   avgQueueTime?: number;
+  /**
+   * @remarks
+   * Average returned rows during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgReturnRows?: number;
+  /**
+   * @remarks
+   * Average RowCache hit count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgRowCacheHit?: number;
+  /**
+   * @remarks
+   * Average count of RPC sent during the execution period.
+   * 
+   * @example
+   * 8.0
+   */
   avgRpcCount?: number;
+  /**
+   * @remarks
+   * Average Schedule event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgScheduleTime?: number;
+  /**
+   * @remarks
+   * Eventually consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgSsstoreReadRows?: number;
+  /**
+   * @remarks
+   * Average number of threads used of the SQL during the execution period.
+   * 
+   * @example
+   * 3
+   */
   avgUsedWorkerCount?: number;
+  /**
+   * @remarks
+   * Average UserIO event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Average wait count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   avgWaitCount?: number;
+  /**
+   * @remarks
+   * Average wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 1442.49
+   */
   avgWaitTime?: number;
+  /**
+   * @remarks
+   * Client IP.
+   * 
+   * @example
+   * i-bp1db****38uemejio
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * CPU percentage.
+   * 
+   * @example
+   * 100.0
+   */
   cpuPercentage?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * Distributed plan percentage during the execution period.
+   * 
+   * @example
+   * 100.0
+   */
   distPlanPercentage?: number;
   dynamicSql?: boolean;
+  /**
+   * @remarks
+   * Average execution count per second during the execution period.
+   * 
+   * @example
+   * 0.31
+   */
   execPs?: number;
+  /**
+   * @remarks
+   * Total number of executions during the execution period.
+   * 
+   * @example
+   * 1
+   */
   executions?: number;
+  /**
+   * @remarks
+   * Average number of partition accessed during the execution period.
+   * 
+   * @example
+   * 0
+   */
   failCount?: number;
+  /**
+   * @remarks
+   * Error percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   failPercentage?: number;
+  /**
+   * @remarks
+   * Whether a internal SQL.
+   * 
+   * @example
+   * false
+   */
   inner?: boolean;
   lastFailCode?: number;
+  /**
+   * @remarks
+   * Local plan percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   localPlanPercentage?: number;
+  /**
+   * @remarks
+   * Max affected rows during the execution period.
+   * 
+   * @example
+   * 10000.0
+   */
   maxAffectedRows?: number;
+  /**
+   * @remarks
+   * Max Application event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxApplicationWaitTime?: number;
+  /**
+   * @remarks
+   * Max Concurrency event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxConcurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Max CPU time (in milliseconds).
+   * 
+   * @example
+   * 13641.9
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * Max physical read count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxDiskReads?: number;
+  /**
+   * @remarks
+   * Max response time during the execution period.
+   * 
+   * @example
+   * 13643.3
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * Max returned rows during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxReturnRows?: number;
+  /**
+   * @remarks
+   * Max UserIO event wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   maxUserIoWaitTime?: number;
+  /**
+   * @remarks
+   * Max wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 3.4
+   */
   maxWaitTime?: number;
+  /**
+   * @remarks
+   * Plan hit rage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   missPlanPercentage?: number;
+  /**
+   * @remarks
+   * Missed hit count of the execution plan during the execution period.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * Remote plan percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   remotePlanPercentage?: number;
+  /**
+   * @remarks
+   * Remote execution count during the execution period.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 4012 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode4012Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 4013 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode4013Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 5001 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5001Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 5024 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5024Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 5167 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5167Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 5217 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode5217Count?: number;
+  /**
+   * @remarks
+   * Number of occurrences of the code 6002 during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retCode6002Count?: number;
+  /**
+   * @remarks
+   * Total retry count during the execution period.
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * RPC count during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   rpcCount?: number;
+  /**
+   * @remarks
+   * The server where the SQL is executed.
+   * 
+   * @example
+   * i-bp1db1****8uemejio
+   */
   server?: string;
+  /**
+   * @remarks
+   * The server IP where the SQL is executed.
+   * 
+   * @example
+   * i-bp1db1****8uemejio
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The server port where the SQL is executed.
+   * 
+   * @example
+   * 389
+   */
   serverPort?: number;
+  /**
+   * @remarks
+   * SQL ID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
   sqlList?: DescribeOasTopSQLListResponseBodyDataSqlList[];
+  /**
+   * @remarks
+   * SQL text (the first 100 characters).
+   */
   sqlTextShort?: string;
+  /**
+   * @remarks
+   * SQL type.
+   * 
+   * @example
+   * select
+   */
   sqlType?: string;
+  /**
+   * @remarks
+   * Strong consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 100.0
+   */
   strongConsistencyPercentage?: number;
   sumDbTime?: number;
+  /**
+   * @remarks
+   * Total response time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 11452126.36
+   */
   sumElapsedTime?: number;
+  /**
+   * @remarks
+   * Total logical reads.
+   * 
+   * @example
+   * 0.0
+   */
   sumLogicalReads?: number;
+  /**
+   * @remarks
+   * Total wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 9421.73
+   */
   sumWaitTime?: number;
+  /**
+   * @remarks
+   * Table scan percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   tableScanPercentage?: number;
+  /**
+   * @remarks
+   * Total wait time (in milliseconds) during the execution period.
+   * 
+   * @example
+   * 10.966
+   */
   totalWaitTime?: number;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
+  /**
+   * @remarks
+   * Longest wait event during the execution period.
+   * 
+   * @example
+   * none
+   */
   waitEvent?: string;
+  /**
+   * @remarks
+   * Eventually consistent transaction percentage during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   weakConsistencyPercentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17324,10 +29518,42 @@ export class DescribeOasTopSQLListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeOutlineBindingResponseBodyOutlineBinding extends $tea.Model {
+  /**
+   * @remarks
+   * The bound index.
+   * 
+   * @example
+   * PRIMARY
+   */
   bindIndex?: string;
+  /**
+   * @remarks
+   * The bound plan.
+   * 
+   * @example
+   * PHY_TABLE_SCAN | bmsql_order_line | 40 ******
+   */
   bindPlan?: string;
+  /**
+   * @remarks
+   * The maximum number of concurrent tasks.
+   * 
+   * @example
+   * 2
+   */
   maxConcurrent?: number;
+  /**
+   * @remarks
+   * OutlineID.
+   * 
+   * @example
+   * -1
+   */
   outlineId?: number;
+  /**
+   * @remarks
+   * 表名称
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17355,15 +29581,99 @@ export class DescribeOutlineBindingResponseBodyOutlineBinding extends $tea.Model
 }
 
 export class DescribeParametersResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * DescribeParameters
+   */
   acceptableValue?: string[];
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * 600
+   */
   currentValue?: string;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeParameters
+   * &InstanceId=ob317v4uif****
+   * &Dimension=TENANT
+   * &DimensionValue=ob2mr3oae0****
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * 600s
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * The operation that you want to perform.   
+   * Set the value to **DescribeParameters**.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * connect_timeout
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * false
+   */
   needReboot?: boolean;
+  /**
+   * @remarks
+   * 参数是否只读
+   */
   readonly?: boolean;
+  /**
+   * @remarks
+   * {
+   *     "RequestId": "EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C",
+   *     "Parameters": [
+   *         {
+   *             "Description": "The maximum delay allowed in weak-consistency reads.",
+   *             "ValueType": "CAPACITY",
+   *             "CurrentValue": "600",
+   *             "NeedReboot": false,
+   *             "Name": "connect_timeout",
+   *             "DefaultValue": "600s",
+   *             "RejectedValue": [
+   *                 "1s"
+   *             ],
+   *             "AcceptableValue": [
+   *                 "1s"
+   *             ]
+   *         }
+   *     ]
+   * }
+   */
   rejectedValue?: string[];
+  /**
+   * @example
+   * s
+   */
   unit?: string;
+  /**
+   * @remarks
+   * The invalid value range of the parameter.    
+   * It is an array with two string elements, which represents a range. The first element represents the minimum value and the second element represents the maximum value.
+   * 
+   * @example
+   * CAPACITY
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17401,12 +29711,65 @@ export class DescribeParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class DescribeParametersHistoryResponseBodyRespondParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the parameter modification was initiated.
+   * 
+   * @example
+   * 2021-09-14 10:57:44
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The resource ID of the parameter type.    
+   * - When you called this operation to query the modification history of cluster parameters, the value is DEFAULT_DIMENSION_VALUE.   
+   * - When you called this operation to query the modification history of tenant parameters, the value is the tenant ID.
+   * 
+   * @example
+   * DEFAULT_DIMENSION_VALUE
+   */
   dimensionValue?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * connect_timeout
+   */
   name?: string;
+  /**
+   * @remarks
+   * The value of the parameter after the modification.
+   * 
+   * @example
+   * 200
+   */
   newValue?: string;
+  /**
+   * @remarks
+   * The parameter value before modification.
+   * 
+   * @example
+   * 300
+   */
   oldValue?: string;
+  /**
+   * @remarks
+   * The modification status. Valid values:    
+   * - APPLIED: The modification was successful.   
+   * - SCHEDULING: The modification was to be made.
+   * 
+   * @example
+   * APPLIED
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the parameter modification took effect.
+   * 
+   * @example
+   * 2021-09-14 10:57:44
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17438,8 +29801,26 @@ export class DescribeParametersHistoryResponseBodyRespondParameters extends $tea
 }
 
 export class DescribeParametersHistoryResponseBodyRespond extends $tea.Model {
+  /**
+   * @remarks
+   * The number of returned entries on each page.
+   * 
+   * @example
+   * Default value: 10.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The parameter modification history.
+   */
   parameters?: DescribeParametersHistoryResponseBodyRespondParameters[];
+  /**
+   * @remarks
+   * The number of parameter modification records.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17667,11 +30048,31 @@ export class DescribeProcessStatsCompositionResponseBodyData extends $tea.Model 
 }
 
 export class DescribeProjectResponseBodyDataAlarmStats extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   alarmContent?: string;
+  /**
+   * @example
+   * false
+   */
   alarming?: boolean;
+  /**
+   * @example
+   * true
+   */
   openMonitor?: boolean;
+  /**
+   * @example
+   * 0
+   */
   recentlyTriggerCount?: number;
   ruleToRecentlyTriggerCount?: { [key: string]: number };
+  /**
+   * @example
+   * null
+   */
   target?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17701,18 +30102,62 @@ export class DescribeProjectResponseBodyDataAlarmStats extends $tea.Model {
 }
 
 export class DescribeProjectResponseBodyDataCommonTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   activeActive?: boolean;
+  /**
+   * @example
+   * null
+   */
   dataWorksBusinessName?: string;
+  /**
+   * @example
+   * TUPLE
+   */
   datahubTopicType?: string;
+  /**
+   * @example
+   * 0
+   */
   mqPartition?: number;
+  /**
+   * @example
+   * ONE
+   */
   mqPartitionMode?: string;
+  /**
+   * @example
+   * DEFAULT
+   */
   mqSerializerType?: string;
+  /**
+   * @example
+   * true
+   */
   rocketMqEnableMsgTrace?: boolean;
+  /**
+   * @example
+   * default_tag
+   */
   rocketMqMsgTags?: string;
+  /**
+   * @example
+   * OMS
+   */
   rocketMqProducerGroup?: string;
+  /**
+   * @example
+   * null
+   */
   rocketMqSendMsgTimeout?: number;
   sinkStoreFormat?: string;
   sourceStoreFormat?: string;
+  /**
+   * @example
+   * ALL
+   */
   tableCategory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17756,23 +30201,75 @@ export class DescribeProjectResponseBodyDataCommonTransferConfig extends $tea.Mo
 }
 
 export class DescribeProjectResponseBodyDataExtraInfo extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   accessObSource?: boolean;
+  /**
+   * @example
+   * false
+   */
   ignoreUnsupportDdl?: boolean;
+  /**
+   * @example
+   * 1689244596
+   */
   incrSyncTimestamp?: number;
+  /**
+   * @example
+   * 1689214358
+   */
   logServiceStartCheckpoint?: number;
+  /**
+   * @example
+   * -1
+   */
   maxConnectorCount?: number;
+  /**
+   * @example
+   * true
+   */
   monitoringIncr?: boolean;
+  /**
+   * @example
+   * true
+   */
   overwriteConfig?: boolean;
   reverseSubtopics?: string[];
+  /**
+   * @example
+   * 90
+   */
   runningProgress?: number;
+  /**
+   * @example
+   * PRE-CHECK
+   */
   runningStep?: string;
+  /**
+   * @example
+   * 24
+   */
   sourceStoreKeptHour?: number;
+  /**
+   * @example
+   * true
+   */
   storeIncr?: boolean;
   subConds?: { [key: string]: DataExtraInfoSubCondsValue[] };
   subDbs?: { [key: string]: DataExtraInfoSubDbsValue[] };
   subIds?: { [key: string]: string };
   subtopics?: string[];
+  /**
+   * @example
+   * null
+   */
   syncDelay?: number;
+  /**
+   * @example
+   * 1689214358
+   */
   syncDelaySampleTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17826,9 +30323,25 @@ export class DescribeProjectResponseBodyDataExtraInfo extends $tea.Model {
 }
 
 export class DescribeProjectResponseBodyDataFullTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   allowDestTableNotEmpty?: boolean;
+  /**
+   * @example
+   * FAST
+   */
   fullTransferSpeedMode?: string;
+  /**
+   * @example
+   * FAST
+   */
   fullVerifySpeedMode?: string;
+  /**
+   * @example
+   * false
+   */
   nonePkUkTruncateDstTable?: boolean;
   readWorkerNum?: number;
   throttleIOPS?: number;
@@ -17866,11 +30379,31 @@ export class DescribeProjectResponseBodyDataFullTransferConfig extends $tea.Mode
 }
 
 export class DescribeProjectResponseBodyDataIncrTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableIncrSyncStatistics?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableSequencingWithinTxn?: boolean;
+  /**
+   * @example
+   * 64
+   */
   incrSyncConcurrency?: number;
   recordTypeWhiteList?: string[];
+  /**
+   * @example
+   * 1667286900
+   */
   startTimestamp?: number;
+  /**
+   * @example
+   * 24
+   */
   storeLogKeptHour?: number;
   supportDDLTypes?: string[];
   throttleIOPS?: number;
@@ -17909,7 +30442,15 @@ export class DescribeProjectResponseBodyDataIncrTransferConfig extends $tea.Mode
 }
 
 export class DescribeProjectResponseBodyDataLabels extends $tea.Model {
+  /**
+   * @example
+   * l_dr****
+   */
   id?: string;
+  /**
+   * @example
+   * test_tag
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17974,24 +30515,103 @@ export class DescribeProjectResponseBodyDataReverseIncrTransferConfig extends $t
 }
 
 export class DescribeProjectResponseBodyDataSinkConnectInfo extends $tea.Model {
+  /**
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @example
+   * null
+   */
   connExtraAttributes?: any;
+  /**
+   * @example
+   * null
+   */
   connectionInfo?: string;
+  /**
+   * @example
+   * MYSQL_PUBLIC
+   */
   dbEngine?: string;
+  /**
+   * @example
+   * e_4w1q****
+   */
   endpointId?: string;
+  /**
+   * @example
+   * RATION12948*****
+   */
   endpointName?: string;
+  /**
+   * @example
+   * sink
+   */
   endpointSide?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   host?: string;
+  /**
+   * @example
+   * e_4lgzuzi9znr4
+   */
   id?: string;
+  /**
+   * @example
+   * null
+   */
   nlsLengthSemantics?: string;
+  /**
+   * @example
+   * null
+   */
   ocpName?: string;
+  /**
+   * @example
+   * Linux
+   */
   operatingSystem?: string;
+  /**
+   * @remarks
+   * Owner。
+   * 
+   * @example
+   * oms_test
+   */
   owner?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * 1325847***
+   */
   resourceOwner?: string;
+  /**
+   * @example
+   * +08:00
+   */
   timezone?: string;
+  /**
+   * @example
+   * oms2027obmysql@oms_***
+   */
   username?: string;
+  /**
+   * @example
+   * 2.2.77
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18047,24 +30667,103 @@ export class DescribeProjectResponseBodyDataSinkConnectInfo extends $tea.Model {
 }
 
 export class DescribeProjectResponseBodyDataSourceConnectInfo extends $tea.Model {
+  /**
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @example
+   * null
+   */
   connExtraAttributes?: any;
+  /**
+   * @example
+   * null
+   */
   connectionInfo?: string;
+  /**
+   * @example
+   * OB_MYSQL_PUBLIC
+   */
   dbEngine?: string;
+  /**
+   * @example
+   * e_3kx5i***1s
+   */
   endpointId?: string;
+  /**
+   * @example
+   * migon****
+   */
   endpointName?: string;
+  /**
+   * @example
+   * source
+   */
   endpointSide?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   host?: string;
+  /**
+   * @example
+   * c_feg****
+   */
   id?: string;
+  /**
+   * @example
+   * null
+   */
   nlsLengthSemantics?: string;
+  /**
+   * @example
+   * null
+   */
   ocpName?: string;
+  /**
+   * @example
+   * Linux
+   */
   operatingSystem?: string;
+  /**
+   * @remarks
+   * Owner。
+   * 
+   * @example
+   * oms_test
+   */
   owner?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 1325847***
+   */
   resourceOwner?: string;
+  /**
+   * @example
+   * +08:00
+   */
   timezone?: string;
+  /**
+   * @example
+   * oms2027obmysql@oms_***
+   */
   username?: string;
+  /**
+   * @example
+   * 2.2.77
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18120,18 +30819,57 @@ export class DescribeProjectResponseBodyDataSourceConnectInfo extends $tea.Model
 }
 
 export class DescribeProjectResponseBodyDataStepsExtraInfoErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @remarks
+   * FATAL, ERROR, WARNING, CRITICAL
+   * 
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -18175,10 +30913,22 @@ export class DescribeProjectResponseBodyDataStepsExtraInfoErrorDetails extends $
 }
 
 export class DescribeProjectResponseBodyDataStepsExtraInfo extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   errorCode?: string;
   errorDetails?: DescribeProjectResponseBodyDataStepsExtraInfoErrorDetails[];
+  /**
+   * @example
+   * A system error occurred.
+   */
   errorMsg?: string;
   errorParam?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   failedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18208,11 +30958,35 @@ export class DescribeProjectResponseBodyDataStepsExtraInfo extends $tea.Model {
 export class DescribeProjectResponseBodyDataSteps extends $tea.Model {
   description?: string;
   extraInfo?: DescribeProjectResponseBodyDataStepsExtraInfo;
+  /**
+   * @example
+   * 2020-05-22T17:04:18
+   */
   finishTime?: string;
+  /**
+   * @example
+   * PRE_CHECK
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @example
+   * 90
+   */
   progress?: number;
+  /**
+   * @example
+   * 2020-05-22T17:04:18
+   */
   startTime?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   stepInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -18249,7 +31023,15 @@ export class DescribeProjectResponseBodyDataSteps extends $tea.Model {
 }
 
 export class DescribeProjectResponseBodyDataStructTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * DO_NOTHING_IF_BYTE_USED
+   */
   byteCharConvertStrategy?: string;
+  /**
+   * @example
+   * true
+   */
   deferIndexCreation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -18272,7 +31054,15 @@ export class DescribeProjectResponseBodyDataStructTransferConfig extends $tea.Mo
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18301,10 +31091,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificTabl
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificTables extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id>1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18337,7 +31143,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificTabl
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18366,10 +31180,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificView
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificViews extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * view_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<3
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18402,7 +31232,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificView
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18431,10 +31269,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesTablesAdbTab
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesTables extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id > 1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18467,7 +31321,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesTables exten
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18496,10 +31358,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesViewsAdbTabl
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesViews extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * fexdg***
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id < 1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18531,13 +31409,33 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesViews extend
 }
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabases extends $tea.Model {
+  /**
+   * @example
+   * db_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappedName?: string;
+  /**
+   * @example
+   * db_name
+   */
   name?: string;
   specificTables?: DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificTables[];
   specificViews?: DescribeProjectResponseBodyDataTransferMappingDatabasesSpecificViews[];
   tables?: DescribeProjectResponseBodyDataTransferMappingDatabasesTables[];
+  /**
+   * @example
+   * tenant_name
+   */
   tenantName?: string;
+  /**
+   * @example
+   * MYSQL
+   */
   type?: string;
   views?: DescribeProjectResponseBodyDataTransferMappingDatabasesViews[];
   static names(): { [key: string]: string } {
@@ -18575,7 +31473,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabases extends $te
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18604,10 +31510,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecifi
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificTables extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<3
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18640,7 +31562,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecifi
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18669,10 +31599,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecifi
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificViews extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * view_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id>2
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18705,7 +31651,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecifi
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18734,10 +31688,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackTablesA
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackTables extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackTablesAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_table
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id>1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18770,7 +31740,15 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackTables 
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: string;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -18799,10 +31777,26 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackViewsAd
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackViews extends $tea.Model {
   adbTableSchema?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackViewsAdbTableSchema;
   filterColumns?: string[];
+  /**
+   * @example
+   * view_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id>2
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18834,13 +31828,33 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlackViews e
 }
 
 export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlack extends $tea.Model {
+  /**
+   * @example
+   * db_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappedName?: string;
+  /**
+   * @example
+   * db_name
+   */
   name?: string;
   specificTables?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificTables[];
   specificViews?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackSpecificViews[];
   tables?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackTables[];
+  /**
+   * @example
+   * mapped_tenant
+   */
   tenantName?: string;
+  /**
+   * @example
+   * DATABASE
+   */
   type?: string;
   views?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlackViews[];
   static names(): { [key: string]: string } {
@@ -18879,6 +31893,10 @@ export class DescribeProjectResponseBodyDataTransferMappingDatabasesBlack extend
 export class DescribeProjectResponseBodyDataTransferMapping extends $tea.Model {
   databases?: DescribeProjectResponseBodyDataTransferMappingDatabases[];
   databasesBlack?: DescribeProjectResponseBodyDataTransferMappingDatabasesBlack[];
+  /**
+   * @example
+   * SPECIFIC
+   */
   mode?: string;
   tableAndViewBlackList?: string[];
   tableAndViewWhiteList?: string[];
@@ -18968,38 +31986,130 @@ export class DescribeProjectResponseBodyDataWorkerGradeInfo extends $tea.Model {
 export class DescribeProjectResponseBodyData extends $tea.Model {
   alarmStats?: DescribeProjectResponseBodyDataAlarmStats;
   commonTransferConfig?: DescribeProjectResponseBodyDataCommonTransferConfig;
+  /**
+   * @example
+   * c_deg***
+   */
   destConnId?: string;
+  /**
+   * @example
+   * true
+   */
   enableFullTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableFullVerify?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrVerify?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableReverseIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableStructTransfer?: boolean;
   extraInfo?: DescribeProjectResponseBodyDataExtraInfo;
   fullTransferConfig?: DescribeProjectResponseBodyDataFullTransferConfig;
+  /**
+   * @example
+   * 2023-07-13T06:26:15
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T07:02:27
+   */
   gmtFinish?: string;
+  /**
+   * @example
+   * 2023-07-13T06:26:15
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 2023-07-13T07:02:27
+   */
   gmtStart?: string;
+  /**
+   * @example
+   * np_fe****
+   */
   id?: string;
+  /**
+   * @example
+   * HIGH
+   */
   importance?: string;
   incrTransferConfig?: DescribeProjectResponseBodyDataIncrTransferConfig;
+  /**
+   * @example
+   * false
+   */
   isMerging?: boolean;
+  /**
+   * @example
+   * false
+   */
   isModifying?: boolean;
+  /**
+   * @example
+   * false
+   */
   isSubProject?: boolean;
   labels?: DescribeProjectResponseBodyDataLabels[];
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * omsefry***
+   */
   owner?: string;
   reverseIncrTransferConfig?: DescribeProjectResponseBodyDataReverseIncrTransferConfig;
   sinkConnectInfo?: DescribeProjectResponseBodyDataSinkConnectInfo;
+  /**
+   * @example
+   * MYSQL
+   */
   sinkEndpointType?: string;
   sourceConnectInfo?: DescribeProjectResponseBodyDataSourceConnectInfo;
+  /**
+   * @example
+   * OB_MYSQL
+   */
   sourceEndpointType?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   steps?: DescribeProjectResponseBodyDataSteps[];
   structTransferConfig?: DescribeProjectResponseBodyDataStructTransferConfig;
   transferMapping?: DescribeProjectResponseBodyDataTransferMapping;
+  /**
+   * @example
+   * SYNC
+   */
   type?: string;
+  /**
+   * @example
+   * g_i4wa7XXX
+   */
   workerGradeId?: string;
   workerGradeInfo?: DescribeProjectResponseBodyDataWorkerGradeInfo;
   static names(): { [key: string]: string } {
@@ -19090,18 +32200,54 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
 }
 
 export class DescribeProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19145,18 +32291,54 @@ export class DescribeProjectResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class DescribeProjectComponentsResponseBodyDataFullImportComponentsErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19201,13 +32383,45 @@ export class DescribeProjectComponentsResponseBodyDataFullImportComponentsErrorD
 
 export class DescribeProjectComponentsResponseBodyDataFullImportComponents extends $tea.Model {
   errorDetails?: DescribeProjectComponentsResponseBodyDataFullImportComponentsErrorDetails[];
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * p_4w8v****
+   */
   identity?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1-9000:connector_v2:np_4w8v****c-full_trans-1-0:0000000276
+   */
   name?: string;
+  /**
+   * @example
+   * 90
+   */
   progress?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19243,18 +32457,54 @@ export class DescribeProjectComponentsResponseBodyDataFullImportComponents exten
 }
 
 export class DescribeProjectComponentsResponseBodyDataFullVerifyComponentsErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19298,15 +32548,51 @@ export class DescribeProjectComponentsResponseBodyDataFullVerifyComponentsErrorD
 }
 
 export class DescribeProjectComponentsResponseBodyDataFullVerifyComponents extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   consistentQuantity?: number;
   errorDetails?: DescribeProjectComponentsResponseBodyDataFullVerifyComponentsErrorDetails[];
+  /**
+   * @example
+   * 0
+   */
   inconsistentQuantity?: number;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1-9000:90247:0000000033
+   */
   name?: string;
+  /**
+   * @example
+   * 100
+   */
   progress?: string;
+  /**
+   * @example
+   * 100
+   */
   recordProgress?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * 1345***
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19344,18 +32630,54 @@ export class DescribeProjectComponentsResponseBodyDataFullVerifyComponents exten
 }
 
 export class DescribeProjectComponentsResponseBodyDataIncrSyncComponentsErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19399,18 +32721,62 @@ export class DescribeProjectComponentsResponseBodyDataIncrSyncComponentsErrorDet
 }
 
 export class DescribeProjectComponentsResponseBodyDataIncrSyncComponents extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-13T09:19:53
+   */
   checkpoint?: string;
+  /**
+   * @example
+   * 1689250071
+   */
   checkpointSampleTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   delay?: number;
   errorDetails?: DescribeProjectComponentsResponseBodyDataIncrSyncComponentsErrorDetails[];
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * np_4w***
+   */
   identity?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1-9000:connector_v2:np_4w****jxc-incr_trans-1-0:0000000277
+   */
   name?: string;
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
   region?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   subtopics?: string[];
+  /**
+   * @example
+   * 1
+   */
   tps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19454,18 +32820,54 @@ export class DescribeProjectComponentsResponseBodyDataIncrSyncComponents extends
 }
 
 export class DescribeProjectComponentsResponseBodyDataReverseIncrSyncComponentsErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19509,18 +32911,62 @@ export class DescribeProjectComponentsResponseBodyDataReverseIncrSyncComponentsE
 }
 
 export class DescribeProjectComponentsResponseBodyDataReverseIncrSyncComponents extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-13T09:19:53
+   */
   checkpoint?: string;
+  /**
+   * @example
+   * 1689250049
+   */
   checkpointSampleTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   delay?: number;
   errorDetails?: DescribeProjectComponentsResponseBodyDataReverseIncrSyncComponentsErrorDetails[];
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * np_4w8****
+   */
   identity?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1-9000:connector_v2:np_4w8****9jxc-incr_trans-1-0:0000000277
+   */
   name?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   subtopics?: string[];
+  /**
+   * @example
+   * 1
+   */
   tps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19564,18 +33010,54 @@ export class DescribeProjectComponentsResponseBodyDataReverseIncrSyncComponents 
 }
 
 export class DescribeProjectComponentsResponseBodyDataReverseStoreListErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19619,25 +33101,107 @@ export class DescribeProjectComponentsResponseBodyDataReverseStoreListErrorDetai
 }
 
 export class DescribeProjectComponentsResponseBodyDataReverseStoreList extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-13T09:19:53
+   */
   beginCheckpoint?: string;
+  /**
+   * @example
+   * 1
+   */
   conn?: number;
+  /**
+   * @example
+   * 1
+   */
   delay?: number;
+  /**
+   * @example
+   * 2023-07-13T09:19:53
+   */
   endCheckpoint?: string;
+  /**
+   * @example
+   * null
+   */
   errMsg?: string;
   errorDetails?: DescribeProjectComponentsResponseBodyDataReverseStoreListErrorDetails[];
+  /**
+   * @example
+   * 1689250071
+   */
   gmt?: number;
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T18:04:36
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * 1689250071
+   */
   latelyHeartbeatTimeSec?: number;
+  /**
+   * @example
+   * xxx.xxx.xxx.1-9000:connector_v2:np_4w****9jxc-incr_trans-1-0:0000000277
+   */
   name?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   region?: string;
+  /**
+   * @example
+   * EXCEPTION
+   */
   status?: string;
+  /**
+   * @example
+   * 2882
+   */
   storePort?: number;
+  /**
+   * @remarks
+   * SubTopic。
+   * 
+   * @example
+   * null
+   */
   subtopic?: string;
+  /**
+   * @example
+   * false
+   */
   toSwitch?: boolean;
+  /**
+   * @remarks
+   * Topic。
+   * 
+   * @example
+   * null
+   */
   topic?: string;
+  /**
+   * @example
+   * 1
+   */
   tps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19695,18 +33259,54 @@ export class DescribeProjectComponentsResponseBodyDataReverseStoreList extends $
 }
 
 export class DescribeProjectComponentsResponseBodyDataStoreListErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19750,25 +33350,107 @@ export class DescribeProjectComponentsResponseBodyDataStoreListErrorDetails exte
 }
 
 export class DescribeProjectComponentsResponseBodyDataStoreList extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-13T09:19:53
+   */
   beginCheckpoint?: string;
+  /**
+   * @example
+   * 1
+   */
   conn?: number;
+  /**
+   * @example
+   * 24
+   */
   delay?: number;
+  /**
+   * @example
+   * 2023-07-13T09:19:53
+   */
   endCheckpoint?: string;
+  /**
+   * @example
+   * null
+   */
   errMsg?: string;
   errorDetails?: DescribeProjectComponentsResponseBodyDataStoreListErrorDetails[];
+  /**
+   * @example
+   * 1689250049
+   */
   gmt?: number;
+  /**
+   * @example
+   * 2023-07-13T17:29:54
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T17:29:54
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * 1689250071
+   */
   latelyHeartbeatTimeSec?: number;
+  /**
+   * @example
+   * xxx.xxx.xxx.1-7145:OB_ORACLE_np_4w3r***_4w:0000***97
+   */
   name?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * EXCEPTION
+   */
   status?: string;
+  /**
+   * @example
+   * 2882
+   */
   storePort?: number;
+  /**
+   * @remarks
+   * SubTopic。
+   * 
+   * @example
+   * OB_ORACLE_np_4w3***c_4w3**-0
+   */
   subtopic?: string;
+  /**
+   * @example
+   * false
+   */
   toSwitch?: boolean;
+  /**
+   * @remarks
+   * Topic。
+   * 
+   * @example
+   * OB_ORACLE_np_4w3r29c_4w3****
+   */
   topic?: string;
+  /**
+   * @example
+   * 0
+   */
   tps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19860,18 +33542,54 @@ export class DescribeProjectComponentsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeProjectComponentsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -19915,17 +33633,65 @@ export class DescribeProjectComponentsResponseBodyErrorDetail extends $tea.Model
 }
 
 export class DescribeProjectProgressResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * MEDIUM
+   */
   alarmLevel?: string;
+  /**
+   * @example
+   * PRE_CHECK
+   */
   currentStep?: string;
+  /**
+   * @example
+   * true
+   */
   enableFullTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrSync?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableReverseIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableStructTransfer?: boolean;
+  /**
+   * @example
+   * 100
+   */
   fullTransferProgress?: number;
+  /**
+   * @example
+   * 1689248064
+   */
   incrSyncCheckpoint?: number;
+  /**
+   * @example
+   * np_fe****
+   */
   projectId?: string;
+  /**
+   * @example
+   * 1689248075
+   */
   reverseIncrTransferCheckpoint?: number;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * 100
+   */
   structTransferProgress?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19967,18 +33733,54 @@ export class DescribeProjectProgressResponseBodyData extends $tea.Model {
 }
 
 export class DescribeProjectProgressResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -20022,7 +33824,15 @@ export class DescribeProjectProgressResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class DescribeProjectStepMetricResponseBodyDataMetricsDataPoints extends $tea.Model {
+  /**
+   * @example
+   * 1689244696
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 0
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20045,6 +33855,10 @@ export class DescribeProjectStepMetricResponseBodyDataMetricsDataPoints extends 
 
 export class DescribeProjectStepMetricResponseBodyDataMetrics extends $tea.Model {
   dataPoints?: DescribeProjectStepMetricResponseBodyDataMetricsDataPoints[];
+  /**
+   * @example
+   * metric_name
+   */
   name?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -20069,8 +33883,16 @@ export class DescribeProjectStepMetricResponseBodyDataMetrics extends $tea.Model
 }
 
 export class DescribeProjectStepMetricResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * AVG
+   */
   aggregator?: string;
   metrics?: DescribeProjectStepMetricResponseBodyDataMetrics[];
+  /**
+   * @example
+   * null
+   */
   referenceValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20094,18 +33916,54 @@ export class DescribeProjectStepMetricResponseBodyData extends $tea.Model {
 }
 
 export class DescribeProjectStepMetricResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -20149,18 +34007,54 @@ export class DescribeProjectStepMetricResponseBodyErrorDetail extends $tea.Model
 }
 
 export class DescribeProjectStepsResponseBodyDataExtraInfoErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -20204,10 +34098,22 @@ export class DescribeProjectStepsResponseBodyDataExtraInfoErrorDetails extends $
 }
 
 export class DescribeProjectStepsResponseBodyDataExtraInfo extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   errorCode?: string;
   errorDetails?: DescribeProjectStepsResponseBodyDataExtraInfoErrorDetails[];
+  /**
+   * @example
+   * The ResourceDirectoryId is invalid.
+   */
   errorMsg?: string;
   errorParam?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   failedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20237,12 +34143,40 @@ export class DescribeProjectStepsResponseBodyDataExtraInfo extends $tea.Model {
 export class DescribeProjectStepsResponseBodyData extends $tea.Model {
   description?: string;
   extraInfo?: DescribeProjectStepsResponseBodyDataExtraInfo;
+  /**
+   * @example
+   * 2020-05-22T17:04:18
+   */
   finishTime?: string;
+  /**
+   * @example
+   * PRE_CHECK
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @example
+   * 100
+   */
   progress?: number;
+  /**
+   * @example
+   * 2020-05-22T17:04:18
+   */
   startTime?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * null
+   */
   stepInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -20278,18 +34212,54 @@ export class DescribeProjectStepsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeProjectStepsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -20333,8 +34303,23 @@ export class DescribeProjectStepsResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class DescribeRecommendIndexResponseBodyRecommendIndex extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * PRIMARY
+   */
   suggestIndex?: string;
+  /**
+   * @example
+   * testtable
+   */
   tableList?: string;
+  /**
+   * @example
+   * mysql
+   */
   tenantMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20358,8 +34343,23 @@ export class DescribeRecommendIndexResponseBodyRecommendIndex extends $tea.Model
 }
 
 export class DescribeSQLDetailsResponseBodySQLDetails extends $tea.Model {
+  /**
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * {"name":"DescribeSQLDetails","product":"OceanBasePro","version":"2019-09-01","path":"/","deprecated":0,"method":"POST|GET","protocol":"HTTP|HTTPS","hidden":0,"timeout":10000,"parameter_type":"Single","params":"[{\\"name\\":\\"Action\\",\\"position\\":\\"Query\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"description\\":\\"\\",\\"example\\":\\"DescribeSQLDetails\\"},{\\"name\\":\\"TenantId\\",\\"position\\":\\"Body\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"t2mr3oae0****\\"},{\\"name\\":\\"SQLId\\",\\"position\\":\\"Body\\",\\"required\\":true,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"SQLID\\",\\"description\\":\\"SQLID。\\",\\"example\\":\\"8D6E84****0B8FB1823D199E2CA1****\\"}]","response_headers":"[]","response":"{\\"type\\":\\"Object\\",\\"children\\":[{\\"name\\":\\"RequestId\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E\\"},{\\"name\\":\\"SQLDetails\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"Array\\",\\"subType\\":\\"Object\\",\\"description\\":\\"  \\",\\"children\\":[{\\"name\\":\\"SQLText\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC\\"},{\\"name\\":\\"DbName\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"testdb\\"},{\\"name\\":\\"UserName\\",\\"required\\":false,\\"checkBlank\\":false,\\"visibility\\":\\"Public\\",\\"deprecated\\":false,\\"type\\":\\"String\\",\\"title\\":\\"\\",\\"description\\":\\"\\",\\"example\\":\\"tester\\"}],\\"title\\":\\"\\"}],\\"title\\":\\"\\",\\"description\\":\\"\\"}","errors":"{}"}
+   * 
+   * @example
+   * SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+   */
   SQLText?: string;
+  /**
+   * @example
+   * tester
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20383,43 +34383,309 @@ export class DescribeSQLDetailsResponseBodySQLDetails extends $tea.Model {
 }
 
 export class DescribeSQLHistoryListResponseBodySQLHistoryListList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of rows affected.
+   * 
+   * @example
+   * 0
+   */
   affectedRows?: number;
+  /**
+   * @remarks
+   * The wait time of the client.
+   * 
+   * @example
+   * 0.0
+   */
   appWaitTime?: number;
+  /**
+   * @remarks
+   * The number of block cache hits.
+   * 
+   * @example
+   * 14
+   */
   blockCacheHit?: number;
+  /**
+   * @remarks
+   * The number of block index cache hits.
+   * 
+   * @example
+   * 4
+   */
   blockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * The number of Bloom filter cache hits.
+   * 
+   * @example
+   * 0
+   */
   bloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1*2.***.1*3.***
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The wait time in concurrent execution.
+   * 
+   * @example
+   * 0.0
+   */
   concurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * The average CPU time.
+   * 
+   * @example
+   * 50.13
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The time to wait for decoding.
+   * 
+   * @example
+   * 0.0
+   */
   decodeTime?: number;
+  /**
+   * @remarks
+   * The number of physical reads.
+   * 
+   * @example
+   * 0
+   */
   diskRead?: number;
+  /**
+   * @remarks
+   * The average response time.
+   * 
+   * @example
+   * 76.382
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The end time.
+   * 
+   * @example
+   * 2021-12-28T02:08:18Z
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The end time in UTC +0.
+   * 
+   * @example
+   * 2021-12-28T02:08:18Z
+   */
   endTimeUTCString?: string;
+  /**
+   * @remarks
+   * The wait event.
+   * 
+   * @example
+   * mysql response wait client
+   */
   event?: string;
+  /**
+   * @remarks
+   * The number of executions per second.
+   * 
+   * @example
+   * 163.0
+   */
   execPerSecond?: number;
+  /**
+   * @remarks
+   * The internal execution time.
+   * 
+   * @example
+   * 61.044
+   */
   executeTime?: number;
+  /**
+   * @remarks
+   * The number of executions.
+   * 
+   * @example
+   * 89403
+   */
   executions?: number;
+  /**
+   * @remarks
+   * The number of failures.
+   * 
+   * @example
+   * 0
+   */
   failTimes?: number;
+  /**
+   * @remarks
+   * The time spent in hard parsing.
+   * 
+   * @example
+   * 0.052
+   */
   getPlanTime?: number;
+  /**
+   * @remarks
+   * The I/O wait time.
+   * 
+   * @example
+   * 0.0
+   */
   IOWaitTime?: number;
+  /**
+   * @remarks
+   * The number of logical reads.
+   * 
+   * @example
+   * 19
+   */
   logicalRead?: number;
+  /**
+   * @remarks
+   * The maximum CPU time.
+   * 
+   * @example
+   * 257.967
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * The maximum response time.
+   * 
+   * @example
+   * 260.44
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * The number of rows read from the memory.
+   * 
+   * @example
+   * 527
+   */
   memstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The number of plan misses.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * The network latency.
+   * 
+   * @example
+   * 0.0
+   */
   netWaitTime?: number;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The queuing time.
+   * 
+   * @example
+   * 15.275
+   */
   queueTime?: number;
+  /**
+   * @remarks
+   * The number of RPCs.
+   * 
+   * @example
+   * 0
+   */
   RPCCount?: number;
+  /**
+   * @remarks
+   * The number of remote plans.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * The number of retries.
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * The number of rows returned.
+   * 
+   * @example
+   * 1
+   */
   returnRows?: number;
+  /**
+   * @remarks
+   * The number of row cache hits.
+   * 
+   * @example
+   * 0
+   */
   rowCacheHit?: number;
+  /**
+   * @remarks
+   * The scheduling duration.
+   * 
+   * @example
+   * 0.0
+   */
   scheduleTime?: number;
+  /**
+   * @remarks
+   * The number of rows read from the disk.
+   * 
+   * @example
+   * 43086
+   */
   ssstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The internal wait time.
+   * 
+   * @example
+   * 10.966
+   */
   totalWaitTime?: number;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * tester
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20513,6 +34779,13 @@ export class DescribeSQLHistoryListResponseBodySQLHistoryListList extends $tea.M
 }
 
 export class DescribeSQLHistoryListResponseBodySQLHistoryList extends $tea.Model {
+  /**
+   * @remarks
+   * The quantity.
+   * 
+   * @example
+   * 1
+   */
   count?: number;
   list?: DescribeSQLHistoryListResponseBodySQLHistoryListList[];
   static names(): { [key: string]: string } {
@@ -20535,21 +34808,130 @@ export class DescribeSQLHistoryListResponseBodySQLHistoryList extends $tea.Model
 }
 
 export class DescribeSQLPlansResponseBodySQLPlans extends $tea.Model {
+  /**
+   * @remarks
+   * The average execution duration, in ms.
+   * 
+   * @example
+   * 1
+   */
   avgExecutionMS?: number;
+  /**
+   * @remarks
+   * The average execution duration when the database uses this execution plan, in ms.
+   * 
+   * @example
+   * 288
+   */
   avgExecutionTimeMS?: number;
+  /**
+   * @remarks
+   * The time when the plan was loaded for the first time, .
+   * 
+   * @example
+   * 1641492303000
+   */
   firstLoadTime?: number;
+  /**
+   * @remarks
+   * The time when the plan was loaded for the first time, in UTC +0.
+   * 
+   * @example
+   * 2022-01-06T18:05:03Z
+   */
   firstLoadTimeUTCString?: string;
+  /**
+   * @remarks
+   * The number of hits.
+   * 
+   * @example
+   * 3
+   */
   hitCount?: number;
+  /**
+   * @remarks
+   * The major compaction version.
+   * 
+   * @example
+   * 132
+   */
   mergedVersion?: number;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp16niirq4zdmgvm****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The outline data.
+   */
   outlineData?: string;
+  /**
+   * @remarks
+   * OutlineID.
+   * 
+   * @example
+   * -1
+   */
   outlineId?: number;
+  /**
+   * @remarks
+   * The time when the plan was bound.
+   * 
+   * @example
+   * 1641492303000
+   */
   outlineTime?: number;
+  /**
+   * @remarks
+   * The time when the plan was bound, in UTC +0.
+   * 
+   * @example
+   * 2022-01-06T18:05:03Z
+   */
   outlineTimeUTCString?: string;
+  /**
+   * @remarks
+   * The complete execution plan of the SQL statement.
+   * 
+   * @example
+   * PHY_TABLE_SCAN | bmsql_order_line | 40 ******
+   */
   planFull?: string;
+  /**
+   * @remarks
+   * The ID of the SQL execution plan in the database.
+   * 
+   * @example
+   * 9114
+   */
   planId?: number;
+  /**
+   * @remarks
+   * The information about the plan.
+   * 
+   * @example
+   * PHY_TABLE_SCAN
+   */
   planInfo?: string;
+  /**
+   * @remarks
+   * The unique identifier of the SQL execution plan in the diagnostic system.
+   * 
+   * @example
+   * 859ef7ee****b23ac98cdeb2476f****
+   */
   planUnionHash?: string;
+  /**
+   * @remarks
+   * The query SQL statement.
+   * 
+   * @example
+   * SELECT ol_i_id, ***, *** FROM aaa
+   */
   querySQL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20599,58 +34981,415 @@ export class DescribeSQLPlansResponseBodySQLPlans extends $tea.Model {
 }
 
 export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Average updated rows during the execution period.
+   * 
+   * @example
+   * 10000.0
+   */
   affectedRows?: number;
+  /**
+   * @remarks
+   * Application event waiting time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   applicationWaitTime?: number;
+  /**
+   * @remarks
+   * BlockCache hit count
+   * 
+   * @example
+   * 99279.0
+   */
   blockCacheHit?: number;
+  /**
+   * @remarks
+   * BlockIndexCache hit count
+   * 
+   * @example
+   * 142514.0
+   */
   blockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * BloomFilterCache hit count.
+   * 
+   * @example
+   * 0.0
+   */
   bloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * Client IP.
+   * 
+   * @example
+   * i-bp1db****38uemejio
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * Client port.
+   * 
+   * @example
+   * 4****
+   */
   clientPort?: string;
+  /**
+   * @remarks
+   * Concurrency event waiting time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   concurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * Consistency level.
+   * 
+   * @example
+   * 3
+   */
   consistencyLevel?: string;
+  /**
+   * @remarks
+   * CPU time (in milliseconds).
+   * 
+   * @example
+   * 3377.57
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * Database name.
+   * 
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * Syntax parsing time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   decodeTime?: number;
+  /**
+   * @remarks
+   * Disk read count.
+   * 
+   * @example
+   * 96972.0
+   */
   diskReads?: number;
+  /**
+   * @remarks
+   * Response time (in milliseconds).
+   * 
+   * @example
+   * 2182.66
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * Plan execution time (in milliseconds).
+   * 
+   * @example
+   * 8262.01
+   */
   executeTime?: number;
+  /**
+   * @remarks
+   * Whether to initiate RPC.
+   * 
+   * @example
+   * 0.0
+   */
   executorRpc?: boolean;
+  /**
+   * @remarks
+   * Degree of parallelism.
+   * 
+   * @example
+   * 0
+   */
   expectedWorkerCount?: number;
   fullSqlText?: string;
+  /**
+   * @remarks
+   * Plan generation time (in milliseconds).
+   * 
+   * @example
+   * 0.19
+   */
   getPlanTime?: number;
+  /**
+   * @remarks
+   * Whether to hit the execution plan.
+   * 
+   * @example
+   * true
+   */
   hitPlan?: boolean;
+  /**
+   * @remarks
+   * Whether an internal SQL.
+   * 
+   * @example
+   * false
+   */
   inner?: boolean;
+  /**
+   * @remarks
+   * Memstore read row count.
+   * 
+   * @example
+   * 0
+   */
   memstoreReadRows?: number;
+  /**
+   * @remarks
+   * Network transmission time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   netTime?: number;
+  /**
+   * @remarks
+   * Network enqueue time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   netWaitTime?: number;
+  /**
+   * @remarks
+   * Database ID.
+   * 
+   * @example
+   * 11006111****4828
+   */
   obDbId?: number;
+  /**
+   * @remarks
+   * Server  ID.
+   * 
+   * @example
+   * 2
+   */
   obServerId?: number;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 100010
+   */
   obUserId?: number;
+  /**
+   * @remarks
+   * Average number of partition accessed during the execution period.
+   * 
+   * @example
+   * 1.0
+   */
   partitionCount?: number;
+  /**
+   * @remarks
+   * The execution plan ID.
+   * 
+   * @example
+   * 590****
+   */
   planId?: number;
+  /**
+   * @remarks
+   * Plan type.
+   * 
+   * @example
+   * LOCAL
+   */
   planType?: string;
+  /**
+   * @remarks
+   * Queueing time (in milliseconds).
+   * 
+   * @example
+   * 0.02
+   */
   queueTime?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * SQL request time.
+   * 
+   * @example
+   * 2023-04-12T04:46:38Z
+   */
   requestTime?: string;
+  /**
+   * @remarks
+   * Result code.
+   * 
+   * @example
+   * 0
+   */
   retCode?: number;
+  /**
+   * @remarks
+   * Retry count.
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * Average returned rows during the execution period.
+   * 
+   * @example
+   * 0.0
+   */
   returnRows?: number;
+  /**
+   * @remarks
+   * RowCache hit count.
+   * 
+   * @example
+   * 498.0
+   */
   rowCacheHit?: number;
+  /**
+   * @remarks
+   * Number of RPC sent.
+   * 
+   * @example
+   * 8.0
+   */
   rpcCount?: number;
+  /**
+   * @remarks
+   * Schedule event waiting time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   scheduleTime?: number;
+  /**
+   * @remarks
+   * The server where the SQL is executed.
+   * 
+   * @example
+   * i-bp1db1****8uemejio
+   */
   server?: string;
   sqlText?: string;
+  /**
+   * @remarks
+   * SQL type.
+   * 
+   * @example
+   * select
+   */
   sqlType?: string;
+  /**
+   * @remarks
+   * Ssstore read row count.
+   * 
+   * @example
+   * 986190
+   */
   ssstoreReadRows?: number;
+  /**
+   * @remarks
+   * Parameterized SQL text.
+   * 
+   * @example
+   * select a from b
+   */
   statement?: string;
+  /**
+   * @remarks
+   * Whether to perform full table scan.
+   * 
+   * @example
+   * false
+   */
   tableScan?: boolean;
+  /**
+   * @remarks
+   * Trace ID.
+   * 
+   * @example
+   * YB42C****-0005E303D1****-0-0
+   */
   traceId?: string;
+  /**
+   * @remarks
+   * Transaction hash.
+   * 
+   * @example
+   * 1219****927****73791
+   */
   transHash?: string;
+  /**
+   * @remarks
+   * Actual number of SQL execution threads.
+   * 
+   * @example
+   * 0
+   */
   usedWorkerCount?: number;
+  /**
+   * @remarks
+   * UserIO event waiting time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   userIoWaitTime?: number;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
+  /**
+   * @remarks
+   * Wait count.
+   * 
+   * @example
+   * 0.0
+   */
   waitCount?: number;
+  /**
+   * @remarks
+   * Longest wait event during the execution period.
+   * 
+   * @example
+   * none
+   */
   waitEvent?: string;
+  /**
+   * @remarks
+   * Wait time (in milliseconds).
+   * 
+   * @example
+   * 0.0
+   */
   waitTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20774,9 +35513,28 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
 }
 
 export class DescribeSQLTuningAdvicesResponseBodyDataColumns extends $tea.Model {
+  /**
+   * @example
+   * xxxx
+   */
   columnName?: string;
+  /**
+   * @example
+   * 100
+   */
   maxValue?: string;
+  /**
+   * @example
+   * 1
+   */
   minValue?: string;
+  /**
+   * @remarks
+   * NDV
+   * 
+   * @example
+   * 100
+   */
   ndv?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20802,37 +35560,171 @@ export class DescribeSQLTuningAdvicesResponseBodyDataColumns extends $tea.Model 
 }
 
 export class DescribeSQLTuningAdvicesResponseBodyDataPlan extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   avgApplicationWaitTime?: number;
+  /**
+   * @example
+   * 0
+   */
   avgBufferGets?: number;
+  /**
+   * @example
+   * 0
+   */
   avgConcurrencyWaitTime?: number;
+  /**
+   * @example
+   * 100.36
+   */
   avgCpuTime?: number;
+  /**
+   * @example
+   * 0
+   */
   avgDiskReads?: number;
+  /**
+   * @example
+   * 0
+   */
   avgDiskWrites?: number;
+  /**
+   * @example
+   * 713.62
+   */
   avgElapsedTime?: number;
+  /**
+   * @example
+   * 1
+   */
   avgRowProcessed?: number;
+  /**
+   * @example
+   * 0
+   */
   avgUserIoWaitTime?: number;
+  /**
+   * @example
+   * 1672358400000000
+   */
   collectTimeUs?: number;
+  /**
+   * @example
+   * 0
+   */
   delayedLargeQueryPercentage?: number;
+  /**
+   * @example
+   * 1.45
+   */
   execPs?: number;
+  /**
+   * @example
+   * 2062
+   */
   executions?: number;
+  /**
+   * @example
+   * 2022-12-30T02:25:30.576Z
+   */
   firstLoadTime?: string;
+  /**
+   * @example
+   * 1672367130576163
+   */
   firstLoadTimeUs?: number;
+  /**
+   * @example
+   * false
+   */
   hitDiagnosis?: boolean;
+  /**
+   * @example
+   * 66.8
+   */
   hitPercentage?: number;
+  /**
+   * @example
+   * 0
+   */
   largeQueryPercentage?: number;
+  /**
+   * @example
+   * 3
+   */
   mergedVersion?: number;
+  /**
+   * @example
+   * 1108307720799259
+   */
   obDbId?: number;
+  /**
+   * @remarks
+   * server  ID。
+   * 
+   * @example
+   * 1
+   */
   obServerId?: number;
+  /**
+   * @example
+   * xxxxx
+   */
   outlineData?: string;
+  /**
+   * @remarks
+   * Outline ID。
+   * 
+   * @example
+   * 1
+   */
   outlineId?: number;
+  /**
+   * @example
+   * -86290582****886880
+   */
   planHash?: string;
+  /**
+   * @example
+   * 818
+   */
   planId?: number;
+  /**
+   * @example
+   * 49216
+   */
   planSize?: number;
+  /**
+   * @example
+   * LOCAL
+   */
   planType?: string;
+  /**
+   * @example
+   * 1672367130529680
+   */
   schemaVersion?: number;
+  /**
+   * @example
+   * i-bp1*****sw64dhb*****
+   */
   serverSn?: string;
+  /**
+   * @example
+   * false
+   */
   tableScan?: boolean;
+  /**
+   * @example
+   * 0
+   */
   timeoutPercentage?: number;
+  /**
+   * @example
+   * AAAAAAAAAAEAAAAAAAADMgAF8QJQwIUj
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20914,12 +35806,32 @@ export class DescribeSQLTuningAdvicesResponseBodyDataPlan extends $tea.Model {
 }
 
 export class DescribeSQLTuningAdvicesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * c1;c2;c3
+   */
   columnNames?: string;
   columns?: DescribeSQLTuningAdvicesResponseBodyDataColumns[];
+  /**
+   * @example
+   * test_db
+   */
   dbName?: string;
+  /**
+   * @example
+   * Local/Global
+   */
   localityType?: string;
   plan?: DescribeSQLTuningAdvicesResponseBodyDataPlan;
+  /**
+   * @example
+   * test_table
+   */
   table?: string;
+  /**
+   * @example
+   * PLAN_BINDING/INDEX_CREATION
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20970,7 +35882,15 @@ export class DescribeSampleSqlRawTextsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeSecurityIpGroupsResponseBodySecurityIpGroups extends $tea.Model {
+  /**
+   * @example
+   * online_paycore
+   */
   securityIpGroupName?: string;
+  /**
+   * @example
+   * 121.41.106.33,100.104.7.0/26
+   */
   securityIps?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20992,7 +35912,21 @@ export class DescribeSecurityIpGroupsResponseBodySecurityIpGroups extends $tea.M
 }
 
 export class DescribeSessionListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The address of the client, with the format ip:port.
+   * 
+   * @example
+   * 192.***.**.100:80
+   */
   host?: string;
+  /**
+   * @remarks
+   * The session ID of the proxy service.
+   * 
+   * @example
+   * d2c90ad0-bc54-410f-bb89-2dcf14aa3c6d
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21014,45 +35948,325 @@ export class DescribeSessionListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryListList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of rows affected.
+   * 
+   * @example
+   * 0
+   */
   affectedRows?: number;
+  /**
+   * @remarks
+   * The wait time of the client.
+   * 
+   * @example
+   * 0.0
+   */
   appWaitTime?: number;
+  /**
+   * @remarks
+   * The number of block cache hits.
+   * 
+   * @example
+   * 14
+   */
   blockCacheHit?: number;
+  /**
+   * @remarks
+   * The number of block index cache hits.
+   * 
+   * @example
+   * 4
+   */
   blockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * The number of Bloom filter cache hits.
+   * 
+   * @example
+   * 0
+   */
   bloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1*2.***.1*3.***
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The wait time in concurrent execution.
+   * 
+   * @example
+   * 0.0
+   */
   concurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * The average CPU time.
+   * 
+   * @example
+   * 50.13
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The time to wait for decoding.
+   * 
+   * @example
+   * 0.0
+   */
   decodeTime?: number;
+  /**
+   * @remarks
+   * The number of physical reads.
+   * 
+   * @example
+   * 0
+   */
   diskRead?: number;
+  /**
+   * @remarks
+   * The average response time.
+   * 
+   * @example
+   * 76.382
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The end time.
+   * 
+   * @example
+   * 2021-12-28T02:08:18Z
+   */
   endTimeUTCString?: string;
+  /**
+   * @remarks
+   * The wait event.
+   * 
+   * @example
+   * mysql response wait client
+   */
   event?: string;
+  /**
+   * @remarks
+   * The number of executions per second.
+   * 
+   * @example
+   * 163.0
+   */
   execPerSecond?: number;
+  /**
+   * @remarks
+   * The internal execution time.
+   * 
+   * @example
+   * 61.044
+   */
   executeTime?: number;
+  /**
+   * @remarks
+   * The number of executions.
+   * 
+   * @example
+   * 89403
+   */
   executions?: number;
+  /**
+   * @remarks
+   * The number of failures.
+   * 
+   * @example
+   * 0
+   */
   failTimes?: number;
+  /**
+   * @remarks
+   * Hard parsing time.
+   * 
+   * @example
+   * 0.052
+   */
   getPlanTime?: number;
+  /**
+   * @remarks
+   * The I/O wait time.
+   * 
+   * @example
+   * 0.0
+   */
   IOWaitTime?: number;
+  /**
+   * @remarks
+   * The number of logical reads.
+   * 
+   * @example
+   * 19
+   */
   logicalRead?: number;
+  /**
+   * @remarks
+   * The maximum CPU time.
+   * 
+   * @example
+   * 257.967
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * The maximum response time.
+   * 
+   * @example
+   * 260.044
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * The number of rows read from the memory.
+   * 
+   * @example
+   * 527
+   */
   memstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The number of plan misses.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * The wait time for network.
+   * 
+   * @example
+   * 0.0
+   */
   netWaitTime?: number;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The queuing time.
+   * 
+   * @example
+   * 15.275
+   */
   queueTime?: number;
+  /**
+   * @remarks
+   * The number of RPCs.
+   * 
+   * @example
+   * 0
+   */
   RPCCount?: number;
+  /**
+   * @remarks
+   * The number of remote plans.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * The number of retries.
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * The number of rows returned.
+   * 
+   * @example
+   * 1
+   */
   returnRows?: number;
+  /**
+   * @remarks
+   * The number of row cache hits.
+   * 
+   * @example
+   * 0
+   */
   rowCacheHit?: number;
+  /**
+   * @remarks
+   * The scheduling duration.
+   * 
+   * @example
+   * 0.0
+   */
   scheduleTime?: number;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   sqlId?: string;
+  /**
+   * @remarks
+   * The SQL type.
+   * 
+   * @example
+   * 1
+   */
   sqlType?: string;
+  /**
+   * @remarks
+   * The number of rows read from the disk.
+   * 
+   * @example
+   * 43086
+   */
   ssstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The internal wait time.
+   * 
+   * @example
+   * 10.966
+   */
   totalWaitTime?: number;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * tester
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21150,7 +36364,18 @@ export class DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryListList extend
 }
 
 export class DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryList extends $tea.Model {
+  /**
+   * @remarks
+   * The quantity.
+   * 
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @remarks
+   * The return result of the request.
+   */
   list?: DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryListList[];
   static names(): { [key: string]: string } {
     return {
@@ -21172,45 +36397,325 @@ export class DescribeSlowSQLHistoryListResponseBodySlowSQLHistoryList extends $t
 }
 
 export class DescribeSlowSQLListResponseBodySlowSQLList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of rows affected.
+   * 
+   * @example
+   * 0
+   */
   affectedRows?: number;
+  /**
+   * @remarks
+   * The wait time of the client.
+   * 
+   * @example
+   * 0.0
+   */
   appWaitTime?: number;
+  /**
+   * @remarks
+   * The number of block cache hits.
+   * 
+   * @example
+   * 14
+   */
   blockCacheHit?: number;
+  /**
+   * @remarks
+   * The number of block index cache hits.
+   * 
+   * @example
+   * 4
+   */
   blockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * The number of Bloom filter cache hits.
+   * 
+   * @example
+   * 0
+   */
   bloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1*2.***.1*3.***
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The wait time in concurrent execution.
+   * 
+   * @example
+   * 0.0
+   */
   concurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * The average CPU time.
+   * 
+   * @example
+   * 50.13
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The time to wait for decoding.
+   * 
+   * @example
+   * 0.0
+   */
   decodeTime?: number;
+  /**
+   * @remarks
+   * The number of physical reads.
+   * 
+   * @example
+   * 0
+   */
   diskRead?: number;
+  /**
+   * @remarks
+   * The average response time.
+   * 
+   * @example
+   * 76.382
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The wait event.
+   * 
+   * @example
+   * mysql response wait client
+   */
   event?: string;
+  /**
+   * @remarks
+   * The number of executions per second.
+   * 
+   * @example
+   * 163.0
+   */
   execPerSecond?: number;
+  /**
+   * @remarks
+   * The internal execution time.
+   * 
+   * @example
+   * 61.044
+   */
   executeTime?: number;
+  /**
+   * @remarks
+   * The number of executions.
+   * 
+   * @example
+   * 89403
+   */
   executions?: number;
+  /**
+   * @remarks
+   * The number of failures.
+   * 
+   * @example
+   * 0
+   */
   failTimes?: number;
+  /**
+   * @remarks
+   * The time spent in hard parsing.
+   * 
+   * @example
+   * 0.052
+   */
   getPlanTime?: number;
+  /**
+   * @remarks
+   * The I/O wait time.
+   * 
+   * @example
+   * 0.0
+   */
   IOWaitTime?: number;
+  /**
+   * @remarks
+   * The sequence number of the returned SQL statement.
+   * 
+   * @example
+   * 1
+   */
   key?: number;
+  /**
+   * @remarks
+   * The number of logical reads.
+   * 
+   * @example
+   * 19
+   */
   logicalRead?: number;
+  /**
+   * @remarks
+   * The maximum CPU time.
+   * 
+   * @example
+   * 257.967
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * The maximum response time.
+   * 
+   * @example
+   * 260.044
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * The number of rows read from the memory.
+   * 
+   * @example
+   * 527
+   */
   memstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The number of plan misses.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * The network latency.
+   * 
+   * @example
+   * 0.0
+   */
   netWaitTime?: number;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The queuing time.
+   * 
+   * @example
+   * 15.275
+   */
   queueTime?: number;
+  /**
+   * @remarks
+   * The number of RPCs.
+   * 
+   * @example
+   * 0
+   */
   RPCCount?: number;
+  /**
+   * @remarks
+   * The number of remote plans.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * The number of retries.
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * The number of rows returned.
+   * 
+   * @example
+   * 1
+   */
   returnRows?: number;
+  /**
+   * @remarks
+   * The number of row cache hits.
+   * 
+   * @example
+   * 0
+   */
   rowCacheHit?: number;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The SQL text.
+   * 
+   * @example
+   * SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+   */
   SQLText?: string;
+  /**
+   * @remarks
+   * The SQL type.
+   * 
+   * @example
+   * 1
+   */
   SQLType?: number;
+  /**
+   * @remarks
+   * The scheduling duration.
+   * 
+   * @example
+   * 0.0
+   */
   scheduleTime?: number;
+  /**
+   * @remarks
+   * The number of rows read from the disk.
+   * 
+   * @example
+   * 43086
+   */
   ssstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The internal wait time.
+   * 
+   * @example
+   * 10.966
+   */
   totalWaitTime?: number;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * tester
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21333,7 +36838,15 @@ export class DescribeTenantResponseBodyTenantReadOnlyResourceCapacityUnit extend
 }
 
 export class DescribeTenantResponseBodyTenantReadOnlyResourceCpu extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   totalCpu?: number;
+  /**
+   * @example
+   * 8
+   */
   unitCpu?: number;
   usedCpu?: number;
   static names(): { [key: string]: string } {
@@ -21358,6 +36871,10 @@ export class DescribeTenantResponseBodyTenantReadOnlyResourceCpu extends $tea.Mo
 }
 
 export class DescribeTenantResponseBodyTenantReadOnlyResourceDiskSize extends $tea.Model {
+  /**
+   * @example
+   * 86
+   */
   usedDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21399,8 +36916,20 @@ export class DescribeTenantResponseBodyTenantReadOnlyResourceLogDiskSize extends
 }
 
 export class DescribeTenantResponseBodyTenantReadOnlyResourceMemory extends $tea.Model {
+  /**
+   * @example
+   * 64
+   */
   totalMemory?: number;
+  /**
+   * @example
+   * 32
+   */
   unitMemory?: number;
+  /**
+   * @example
+   * 30
+   */
   usedMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21458,30 +36987,135 @@ export class DescribeTenantResponseBodyTenantReadOnlyResource extends $tea.Model
 }
 
 export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Model {
+  /**
+   * @remarks
+   * The primary zone of the tenant.
+   * 
+   * @example
+   * MASTER
+   */
   addressType?: string;
   connectionLogicalZones?: string[];
   connectionReplicaType?: string;
+  /**
+   * @remarks
+   * The Internet address for accessing the tenant.
+   * 
+   * @example
+   * ["cn-hangzhou-i", "cn-hangzhou-j"]
+   */
   connectionZones?: string[];
   enableTransactionSplit?: boolean;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * @example
+   * t32a7ru5u****mo.oceanbase.aliyuncs.com
+   */
   internetAddress?: string;
+  /**
+   * @remarks
+   * 实例系列
+   * 
+   * @example
+   * CLOSED
+   */
   internetAddressStatus?: string;
   internetMaxConnectionLimit?: number;
   internetMaxConnectionNum?: number;
+  /**
+   * @remarks
+   * 实例类型
+   * 
+   * @example
+   * 3306
+   */
   internetPort?: number;
   internetRpcPort?: number;
+  /**
+   * @remarks
+   * The deployment type of the cluster. Valid values:  
+   * - multiple: multi-IDC deployment   
+   * - single: single-IDC deployment   
+   * - dual: dual-IDC deployment
+   * 
+   * @example
+   * t32a7ru5u****.oceanbase.aliyuncs.com
+   */
   intranetAddress?: string;
+  /**
+   * @remarks
+   * PayCore business database
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   intranetAddressMasterZoneId?: string;
+  /**
+   * @remarks
+   * The total number of CPU cores of the tenant.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
   intranetAddressSlaveZoneId?: string;
+  /**
+   * @remarks
+   * 付费类型
+   * 
+   * @example
+   * ONLINE
+   */
   intranetAddressStatus?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 3306
+   */
   intranetPort?: number;
   intranetRpcPort?: number;
   maxConnectionLimit?: number;
+  /**
+   * @example
+   * 5000
+   */
   maxConnectionNum?: number;
   parallelQueryDegree?: number;
   proxyClusterId?: string;
+  /**
+   * @example
+   * obe-4tw51gp7****
+   */
   tenantEndpointId?: string;
+  /**
+   * @remarks
+   * The primary zone corresponding to the address for accessing the tenant.
+   * 
+   * @example
+   * true
+   */
   transactionSplit?: boolean;
+  /**
+   * @remarks
+   * The connection access information of the tenant.
+   * 
+   * @example
+   * vsw-bp11k1aypnzu1l3whi****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The service mode of the connection address. Valid values:  
+   * ReadWrite: provides strong-consistency read and write services.   
+   * ReadOnly: provides the read-only service to ensure ultimate consistency of data.   
+   * Clog: provides transaction log services.
+   * 
+   * @example
+   * vpc-bp1qiail1asmfe23t****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21574,8 +37208,37 @@ export class DescribeTenantResponseBodyTenantTenantResourceCapacityUnit extends 
 }
 
 export class DescribeTenantResponseBodyTenantTenantResourceCpu extends $tea.Model {
+  /**
+   * @remarks
+   * The data replica distribution mode of the tenant.    
+   * 
+   * - For the high availability version, N-N-N indicates the three-zone mode, and N-N indicates the dual-zone or single-zone mode.
+   * - For the basic version, N indicates the single-zone mode. 
+   * 
+   * > <br>N represents the number of nodes in a single zone.
+   * 
+   * @example
+   * 10
+   */
   totalCpu?: number;
+  /**
+   * @remarks
+   * The zone corresponding to the tenant connection.
+   * 
+   * @example
+   * 8
+   */
   unitCpu?: number;
+  /**
+   * @remarks
+   * The tenant mode.   
+   * Valid values: 
+   * Oracle   
+   * MySQL
+   * 
+   * @example
+   * 8
+   */
   usedCpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21599,6 +37262,13 @@ export class DescribeTenantResponseBodyTenantTenantResourceCpu extends $tea.Mode
 }
 
 export class DescribeTenantResponseBodyTenantTenantResourceDiskSize extends $tea.Model {
+  /**
+   * @remarks
+   * The total memory size of the tenant, in GB.
+   * 
+   * @example
+   * 86
+   */
   usedDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21640,8 +37310,33 @@ export class DescribeTenantResponseBodyTenantTenantResourceLogDiskSize extends $
 }
 
 export class DescribeTenantResponseBodyTenantTenantResourceMemory extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the memory resources of the tenant.
+   * 
+   * @example
+   * 64
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * The time when the tenant was created.
+   * 
+   * @example
+   * 32
+   */
   unitMemory?: number;
+  /**
+   * @remarks
+   * The status of the Internet address for accessing the tenant. Valid values:   
+   * Closed: The address is disabled.   
+   * - ALLOCATING_INTERNET_ADDRESS: An address is being applied for.   
+   * - PENDING_OFFLINE_INTERNET_ADDRESS: The address is being disabled.   
+   * - ONLINE: The address is in service.
+   * 
+   * @example
+   * 30
+   */
   usedMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21666,10 +37361,32 @@ export class DescribeTenantResponseBodyTenantTenantResourceMemory extends $tea.M
 
 export class DescribeTenantResponseBodyTenantTenantResource extends $tea.Model {
   capacityUnit?: DescribeTenantResponseBodyTenantTenantResourceCapacityUnit;
+  /**
+   * @remarks
+   * The enabling status of the Clog service.  
+   * CLOSED: The Clog service is disabled.  
+   * - ONLINE: The Clog service is running.
+   */
   cpu?: DescribeTenantResponseBodyTenantTenantResourceCpu;
+  /**
+   * @remarks
+   * The status of the intranet address for accessing the tenant.  
+   * The value ONLINE indicates that the address is in service.
+   */
   diskSize?: DescribeTenantResponseBodyTenantTenantResourceDiskSize;
   logDiskSize?: DescribeTenantResponseBodyTenantTenantResourceLogDiskSize;
+  /**
+   * @remarks
+   * The description of the tenant.
+   */
   memory?: DescribeTenantResponseBodyTenantTenantResourceMemory;
+  /**
+   * @remarks
+   * Alibaba Cloud CLI
+   * 
+   * @example
+   * 1
+   */
   unitNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21733,9 +37450,30 @@ export class DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas exten
 }
 
 export class DescribeTenantResponseBodyTenantTenantZones extends $tea.Model {
+  /**
+   * @remarks
+   * 是否允许开启读写分离地址
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The intranet port for accessing the tenant.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   tenantZoneId?: string;
   tenantZoneReplicas?: DescribeTenantResponseBodyTenantTenantZonesTenantZoneReplicas[];
+  /**
+   * @remarks
+   * The character set.
+   * 
+   * @example
+   * ReadOnly
+   */
   tenantZoneRole?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21761,41 +37499,335 @@ export class DescribeTenantResponseBodyTenantTenantZones extends $tea.Model {
 }
 
 export class DescribeTenantResponseBodyTenant extends $tea.Model {
+  /**
+   * @remarks
+   * DescribeTenant
+   */
   availableZones?: string[];
+  /**
+   * @remarks
+   * The number of CPU cores in each resource unit of the tenant.
+   * 
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @remarks
+   * 地址类型
+   * 
+   * @example
+   * CLOSED
+   */
   clogServiceStatus?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * utf8mb4_general_ci
+   */
   collation?: string;
+  /**
+   * @remarks
+   * You can call this operation to create a single tenant in a specific cluster.
+   * 
+   * @example
+   * 2021-09-17 15:52:17
+   */
   createTime?: string;
   dataMergeTime?: string;
+  /**
+   * @remarks
+   * The list of zones.
+   * 
+   * @example
+   * 1-1-1
+   */
   deployMode?: string;
+  /**
+   * @remarks
+   * The series of the instance.
+   * 
+   * @example
+   * multiple
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * Indicates whether to enable read/write splitting endpoint.
+   * 
+   * @example
+   * The information of the tenant.
+   */
   description?: string;
+  /**
+   * @remarks
+   * You can call this operation to query the information of a specific tenant in a specific cluster.
+   * 
+   * @example
+   * cloud_essd_pl1
+   */
   diskType?: string;
+  /**
+   * @remarks
+   * 是否可以申请Binlog服务
+   */
   enableBinlogService?: boolean;
+  /**
+   * @remarks
+   * The intranet address for accessing the tenant.
+   * 
+   * @example
+   * false
+   */
   enableClogService?: boolean;
+  /**
+   * @remarks
+   * The deployment type of the primary zone.
+   * 
+   * @example
+   * true
+   */
   enableInternetAddressService?: boolean;
   enableParallelQuery?: boolean;
   enableReadOnlyReplica?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableReadWriteSplit?: boolean;
+  /**
+   * @remarks
+   * {
+   *     "RequestId": "EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C",
+   *     "Tenant": {
+   *         "TenantId": "t33h8y08k****",
+   *         "TenantName": "pay_online",
+   *         "TenantMode": "Oracle",
+   *         "VpcId": "vpc-bp1d2q3mhg9i23ofi****",
+   *         "Status": "ONLINE",
+   *         "PrimaryZone": "cn-hangzhou-i",
+   *         "DeployType": "multiple",
+   *         "DeployMode": "1-1-1",
+   *         "Description": "PayCore business database",
+   *         "CreateTime": "2021-09-17 15:52:17",
+   *         "TenantResource": {
+   *             "UnitNum": 1,
+   *             "Cpu": {
+   *                 "UsedCpu": 8,
+   *                 "TotalCpu": 10,
+   *                 "UnitCpu": 8
+   *             },
+   *             "Memory": {
+   *                 "UsedMemory": 30,
+   *                 "TotalMemory": 64,
+   *                 "UnitMemory": 32
+   *             },
+   *             "DiskSize": {
+   *                 "UsedDiskSize": 86
+   *             }
+   *         },
+   *         "TenantConnections": [
+   *             {
+   *                 "ConnectionRole": "ReadWrite",
+   *                 "IntranetAddress": "t32a7ru5u****.oceanbase.aliyuncs.com",
+   *                 "IntranetPort": 3306,
+   *                 "InternetAddress": "t32a7ru5u****mo.oceanbase.aliyuncs.com",
+   *                 "InternetPort": 3306,
+   *                 "VpcId": "vpc-bp1qiail1asmfe23t****",
+   *                 "VSwitchId": "vsw-bp11k1aypnzu1l3whi****",
+   *                 "IntranetAddressMasterZoneId": "cn-hangzhou-i",
+   *                 "IntranetAddressSlaveZoneId": "cn-hangzhou-j",
+   *                 "IntranetAddressStatus": "ONLINE",
+   *                 "ConnectionZones": [
+   *                     "cn-hangzhou-i"
+   *                 ],
+   *                 "InternetAddressStatus": "CLOSED"
+   *             }
+   *         ],
+   *         "TenantZones": [
+   *             {
+   *                 "TenantZoneId": "cn-hangzhou-i",
+   *                 "Region": "cn-hangzhou",
+   *                 "TenantZoneRole": "ReadOnly"
+   *             }
+   *         ],
+   *         "ClogServiceStatus": "CLOSED"
+   *     }
+   * }
+   * 
+   * @example
+   * KAFKA_PUBLIC
+   */
   instanceType?: string;
-  lowerCaseTableNames?: Buffer;
+  lowerCaseTableNames?: number;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeTenant
+   * &InstanceId=ob317v4uif****
+   * &TenantId=ob2mr3oae0****
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   masterIntranetAddressZone?: string;
+  /**
+   * @example
+   * 32
+   */
   maxParallelQueryDegree?: number;
+  /**
+   * @example
+   * POSTPAY
+   */
   payType?: string;
+  /**
+   * @remarks
+   * The type of the payment.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   primaryZone?: string;
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * RANDOM
+   */
   primaryZoneDeployType?: string;
   readOnlyResource?: DescribeTenantResponseBodyTenantReadOnlyResource;
   recycleBinStatus?: string;
+  /**
+   * @remarks
+   * <DescribeTenantResponse>
+   *     <RequestId>EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C</RequestId>
+   *     <Tenant>
+   *         <TenantId>t33h8y08k****</TenantId>
+   *         <TenantName>pay_online</TenantName>
+   *         <TenantMode>Oracle</TenantMode>
+   *         <VpcId>vpc-bp1d2q3mhg9i23ofi****</VpcId>
+   *         <Status>ONLINE</Status>
+   *         <PrimaryZone>cn-hangzhou-i</PrimaryZone>
+   *         <DeployType>multiple</DeployType>
+   *         <DeployMode>1-1-1</DeployMode>
+   *         <Description>PayCore business database</Description>
+   *         <CreateTime>2021-09-17 15:52:17</CreateTime>
+   *         <TenantResource>
+   *             <UnitNum>1</UnitNum>
+   *             <Cpu>
+   *                 <UsedCpu>8</UsedCpu>
+   *                 <TotalCpu>10</TotalCpu>
+   *                 <UnitCpu>8</UnitCpu>
+   *             </Cpu>
+   *             <Memory>
+   *                 <UsedMemory>30</UsedMemory>
+   *                 <TotalMemory>64</TotalMemory>
+   *                 <UnitMemory>32</UnitMemory>
+   *             </Memory>
+   *             <DiskSize>
+   *                 <UsedDiskSize>86</UsedDiskSize>
+   *             </DiskSize>
+   *         </TenantResource>
+   *         <TenantConnections>
+   *             <ConnectionRole>ReadWrite</ConnectionRole>
+   *             <IntranetAddress>t32a7ru5u****.oceanbase.aliyuncs.com</IntranetAddress>
+   *             <IntranetPort>3306</IntranetPort>
+   *             <InternetAddress>t32a7ru5u****mo.oceanbase.aliyuncs.com</InternetAddress>
+   *             <InternetPort>3306</InternetPort>
+   *             <VpcId>vpc-bp1qiail1asmfe23t****</VpcId>
+   *             <VSwitchId>vsw-bp11k1aypnzu1l3whi****</VSwitchId>
+   *             <IntranetAddressMasterZoneId>cn-hangzhou-i</IntranetAddressMasterZoneId>
+   *             <IntranetAddressSlaveZoneId>cn-hangzhou-j</IntranetAddressSlaveZoneId>
+   *             <IntranetAddressStatus>ONLINE</IntranetAddressStatus>
+   *             <ConnectionZones>cn-hangzhou-i</ConnectionZones>
+   *             <InternetAddressStatus>CLOSED</InternetAddressStatus>
+   *         </TenantConnections>
+   *         <TenantZones>
+   *             <TenantZoneId>cn-hangzhou-i</TenantZoneId>
+   *             <Region>cn-hangzhou</Region>
+   *             <TenantZoneRole>ReadOnly</TenantZoneRole>
+   *         </TenantZones>
+   *         <ClogServiceStatus>CLOSED</ClogServiceStatus>
+   *     </Tenant>
+   * </DescribeTenantResponse>
+   * 
+   * @example
+   * normal
+   */
   series?: string;
+  /**
+   * @remarks
+   * The character set.
+   * 
+   * @example
+   * ONLINE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The status of the tenant.   
+   * - PENDING_CREATE: The tenant is being created.   
+   * - RESTORE: The tenant is being recovered.   
+   * - ONLINE: The tenant is running.   
+   * - SPEC_MODIFYING: The specification of the tenant is being modified.   
+   * - ALLOCATING_INTERNET_ADDRESS: An Internet address is being allocated.  
+   * - PENDING_OFFLINE_INTERNET_ADDRESS: The Internet address is being disabled.  
+   * - PRIMARY_ZONE_MODIFYING: The tenant is switching to a new primary zone.  
+   * - PARAMETER_MODIFYING: Parameters are being modified.   
+   * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+   */
   tenantConnections?: DescribeTenantResponseBodyTenantTenantConnections[];
+  /**
+   * @remarks
+   * The region where the zone of the tenant resides.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The enabling status of the clog service.  
+   * - CLOSED: The clog service is disabled.  
+   * - ONLINE: The clog service is running.
+   * 
+   * @example
+   * Oracle
+   */
   tenantMode?: string;
+  /**
+   * @remarks
+   * The request type of the zone of the tenant.  ReadWrite: The zone supports data reads and writes. ReadOnly: The zone supports only data reads. For a high availability cluster with multiple IDCs, the primary zone provides ReadWrite services, and the standby zone provides ReadOnly services. For a high availability cluster with a single IDC, all zones provide ReadWrite services.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+   */
   tenantResource?: DescribeTenantResponseBodyTenantTenantResource;
+  /**
+   * @remarks
+   * The standby zone corresponding to the address for accessing the tenant.
+   */
   tenantZones?: DescribeTenantResponseBodyTenantTenantZones[];
   timeZone?: string;
   version?: string;
+  /**
+   * @remarks
+   * Indicates whether the clog service is available. To enable the clog service, submit a ticket.
+   * 
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21857,7 +37889,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       enableReadOnlyReplica: 'boolean',
       enableReadWriteSplit: 'boolean',
       instanceType: 'string',
-      lowerCaseTableNames: 'Buffer',
+      lowerCaseTableNames: 'number',
       masterIntranetAddressZone: 'string',
       maxParallelQueryDegree: 'number',
       payType: 'string',
@@ -21885,13 +37917,45 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
 }
 
 export class DescribeTenantEncryptionResponseBodyTenantEncryptions extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   enableEncryption?: boolean;
+  /**
+   * @example
+   * xxx
+   */
   encryptionKeyId?: string;
+  /**
+   * @example
+   * INTERNAL
+   */
   encryptionType?: string;
+  /**
+   * @example
+   * OPEN
+   */
   status?: string;
+  /**
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
+  /**
+   * @example
+   * MySQL
+   */
   tenantMode?: string;
+  /**
+   * @example
+   * forMySQLTenant
+   */
   tenantName?: string;
+  /**
+   * @example
+   * ONLINE
+   */
   tenantStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21925,6 +37989,13 @@ export class DescribeTenantEncryptionResponseBodyTenantEncryptions extends $tea.
 }
 
 export class DescribeTenantReadableScnResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum readable timestamp.
+   * 
+   * @example
+   * 1715329164977
+   */
   readableScn?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21944,10 +38015,45 @@ export class DescribeTenantReadableScnResponseBodyData extends $tea.Model {
 }
 
 export class DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfigsSecurityConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the check item.
+   * 
+   * @example
+   * Check whether the scope of the cluster allowlist is too big
+   */
   configDescription?: string;
+  /**
+   * @remarks
+   * The group of the risk.
+   * 
+   * @example
+   * WHITELIST
+   */
   configGroup?: string;
+  /**
+   * @remarks
+   * The name of the risk.
+   * 
+   * @example
+   * WHITELIST_RANGE_LARGE
+   */
   configName?: string;
+  /**
+   * @remarks
+   * Indicates whether the risk causes security issues.
+   * 
+   * @example
+   * true
+   */
   risk?: boolean;
+  /**
+   * @remarks
+   * The description of the risk.
+   * 
+   * @example
+   * The scope of the allowlist is too big.
+   */
   riskDescription?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21975,9 +38081,34 @@ export class DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfi
 }
 
 export class DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The number of detected tenant security risks.
+   * 
+   * @example
+   * 0
+   */
   riskCount?: number;
+  /**
+   * @remarks
+   * The list of risks.
+   */
   securityConfigs?: DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfigsSecurityConfigs[];
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * xxx
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * xxx
+   */
   tenantName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22003,11 +38134,50 @@ export class DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfi
 }
 
 export class DescribeTenantSecurityConfigsResponseBodyConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of the check.
+   * 
+   * @example
+   * xxx
+   */
   checkId?: string;
+  /**
+   * @remarks
+   * The time when the check was performed.
+   * 
+   * @example
+   * 2023-08-07 15:30:00
+   */
   checkTime?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The check result.
+   */
   tenantSecurityConfigs?: DescribeTenantSecurityConfigsResponseBodyConfigsTenantSecurityConfigs[];
+  /**
+   * @remarks
+   * The total number of security check items.
+   * 
+   * @example
+   * 4
+   */
   totalCheckCount?: number;
+  /**
+   * @remarks
+   * The total number of detected security risks.
+   * 
+   * @example
+   * 0
+   */
   totalRiskCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22037,9 +38207,39 @@ export class DescribeTenantSecurityConfigsResponseBodyConfigs extends $tea.Model
 }
 
 export class DescribeTenantSecurityIpGroupsResponseBodySecurityIpGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The group name.
+   * 
+   * @example
+   * test1
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The whitelist group type.
+   * - instance: the whitelist group from the cluster.
+   * - tenant: the whitelist group of the current tenant.
+   * 
+   * @example
+   * tenant
+   */
   securityIpGroupType?: string;
+  /**
+   * @remarks
+   * The whitelist of IP addresses. It is a string separated by commas, and each object is an IP string or a CIDR block.
+   * 
+   * @example
+   * 192.***.*.*"
+   */
   securityIps?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22065,8 +38265,29 @@ export class DescribeTenantSecurityIpGroupsResponseBodySecurityIpGroups extends 
 }
 
 export class DescribeTenantTagsResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag of the resource.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"},{}]
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22090,9 +38311,21 @@ export class DescribeTenantTagsResponseBodyTagResources extends $tea.Model {
 }
 
 export class DescribeTenantUsersResponseBodyTenantUsersDatabases extends $tea.Model {
+  /**
+   * @example
+   * db_pay1
+   */
   database?: string;
   privileges?: string;
+  /**
+   * @example
+   * ReadOnly
+   */
   role?: string;
+  /**
+   * @example
+   * tbl_pay1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22119,11 +38352,41 @@ export class DescribeTenantUsersResponseBodyTenantUsersDatabases extends $tea.Mo
 
 export class DescribeTenantUsersResponseBodyTenantUsers extends $tea.Model {
   databases?: DescribeTenantUsersResponseBodyTenantUsersDatabases[];
+  /**
+   * @example
+   * use for test
+   */
   description?: string;
+  /**
+   * @remarks
+   * 所属集群Id
+   * 
+   * @example
+   * obshc32****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * 所属租户Id
+   * 
+   * @example
+   * tshfs3****
+   */
   tenantId?: string;
+  /**
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   userStatus?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   userType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22155,9 +38418,28 @@ export class DescribeTenantUsersResponseBodyTenantUsers extends $tea.Model {
 }
 
 export class DescribeTenantZonesReadResponseBodyTenantZones extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * true
+   */
   isElectable?: boolean;
+  /**
+   * @example
+   * true
+   */
   isPrimary?: boolean;
+  /**
+   * @example
+   * true
+   */
   isReadable?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22183,24 +38465,176 @@ export class DescribeTenantZonesReadResponseBodyTenantZones extends $tea.Model {
 }
 
 export class DescribeTenantsResponseBodyTenants extends $tea.Model {
+  /**
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @example
+   * utf8mb4_general_ci
+   */
   collation?: string;
+  /**
+   * @remarks
+   * The total number of CPU cores of the tenant.
+   * 
+   * @example
+   * 10
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The number of CPU cores in each resource unit of the tenant.
+   * 
+   * @example
+   * 2021-09-17 15:52:17.0
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * 1-1-1
+   */
   deployMode?: string;
+  /**
+   * @remarks
+   * The name of the tenant.   
+   * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
+   * 
+   * @example
+   * multiple
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeTenants
+   * &InstanceId=ob317v4uif****
+   * &TenantName=pay_online
+   * &PageSize=10
+   * &PageNumber=1
+   * &TenantId=ob2mr3oae0****
+   * &SearchKey=pay
+   * &Common request parameters
+   * ```
+   */
   description?: string;
   enableReadOnlyReplica?: boolean;
+  /**
+   * @remarks
+   * The number of the page to return.   
+   * Start value: 1
+   * - Default value: 1
+   * 
+   * @example
+   * 20
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   primaryZone?: string;
+  /**
+   * @remarks
+   * The status of the tenant.  <br>
+   * - PENDING_CREATE: The tenant is being created.
+   * - RESTORE: The tenant is being recovered.
+   * - ONLINE: The tenant is running.
+   * - SPEC_MODIFYING: The specification of the tenant is being modified.
+   * ALLOCATING_INTERNET_ADDRESS: An Internet address is being allocated.
+   * PENDING_OFFLINE_INTERNET_ADDRESS: The Internet address is being disabled.
+   * - PRIMARY_ZONE_MODIFYING: The tenant is switching to a new primary zone.
+   * - PARAMETER_MODIFYING: Parameters are being modified.
+   * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+   * 
+   * @example
+   * ONLINE
+   */
   status?: string;
+  /**
+   * @remarks
+   * You can call this operation to query the tenants in an OceanBase cluster.
+   * 
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * {
+   *     "TotalCount": 1,
+   *     "RequestId": "EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C",
+   *     "Tenants": [
+   *         {
+   *             "VpcId": "vpc-bp1d2q3mhg9i23ofi****",
+   *             "Status": "ONLINE",
+   *             "PrimaryZone": "cn-hangzhou-i",
+   *             "DeployType": "multiple",
+   *             "DeployMode": "1-1-1",
+   *             "CreateTime": "2021-09-17 15:52:17.0",
+   *             "TenantName": "pay_online",
+   *             "Mem": 20,
+   *             "Cpu": 10,
+   *             "Description": "PayCore business database",
+   *             "TenantMode": "Oracle",
+   *             "TenantId": "t33h8y08k****",
+   *             "UnitCpu": 5,
+   *             "UnitMem": 10,
+   *             "UnitNum": 2,
+   *             "UsedDiskSize": 10
+   *         }
+   *     ]
+   * }
+   * 
+   * @example
+   * Oracle
+   */
   tenantMode?: string;
+  /**
+   * @remarks
+   * The information of tenants.
+   * 
+   * @example
+   * pay_online
+   */
   tenantName?: string;
+  /**
+   * @example
+   * 5
+   */
   unitCpu?: number;
+  /**
+   * @example
+   * 10
+   */
   unitMem?: number;
+  /**
+   * @example
+   * 2
+   */
   unitNum?: number;
+  /**
+   * @example
+   * 10
+   */
   usedDiskSize?: number;
+  /**
+   * @remarks
+   * The time when the tenant was created.
+   * 
+   * @example
+   * vpc-bp1d2q3mhg9i23ofi****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22256,7 +38690,22 @@ export class DescribeTenantsResponseBodyTenants extends $tea.Model {
 }
 
 export class DescribeTimeZonesResponseBodyTimeZonesList extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * (GMT+8:00) Asia/Shanghai
+   */
   description?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeTimeZones**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22278,7 +38727,15 @@ export class DescribeTimeZonesResponseBodyTimeZonesList extends $tea.Model {
 }
 
 export class DescribeTimeZonesResponseBodyTimeZones extends $tea.Model {
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   default?: string;
+  /**
+   * @remarks
+   * The list of time zones.
+   */
   list?: DescribeTimeZonesResponseBodyTimeZonesList[];
   static names(): { [key: string]: string } {
     return {
@@ -22300,45 +38757,344 @@ export class DescribeTimeZonesResponseBodyTimeZones extends $tea.Model {
 }
 
 export class DescribeTopSQLListResponseBodyTopSQLList extends $tea.Model {
+  /**
+   * @remarks
+   * The internal wait time, in ms.
+   * 
+   * @example
+   * 0
+   */
   affectedRows?: number;
+  /**
+   * @remarks
+   * The wait time in concurrent execution, in ms.
+   * 
+   * @example
+   * 0.0
+   */
   appWaitTime?: number;
+  /**
+   * @remarks
+   * The average CPU time, in ms.
+   * 
+   * @example
+   * 14
+   */
   blockCacheHit?: number;
+  /**
+   * @remarks
+   * $.parameters[16].schema.example
+   * 
+   * @example
+   * 4
+   */
   blockIndexCacheHit?: number;
+  /**
+   * @remarks
+   * $.parameters[14].schema.enumValueTitles
+   * 
+   * @example
+   * 0
+   */
   bloomFilterCacheHit?: number;
+  /**
+   * @remarks
+   * $.parameters[14].schema.description
+   * 
+   * @example
+   * 1*2.***.1*3.***
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The number of rows returned.
+   * 
+   * @example
+   * 0.0
+   */
   concurrencyWaitTime?: number;
+  /**
+   * @remarks
+   * The maximum CPU time, in ms.
+   * 
+   * @example
+   * 50.13
+   */
   cpuTime?: number;
+  /**
+   * @remarks
+   * The number of remote plans.
+   * 
+   * @example
+   * testdb
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * The number of rows to return on each page.   
+   * - Maximum value: 100   
+   * - Default value: 10
+   * 
+   * @example
+   * 0.0
+   */
   decodeTime?: number;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 0
+   */
   diskRead?: number;
+  /**
+   * @remarks
+   * The sorting rule.
+   * 
+   * @example
+   * 76.382
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The number of rows read from the disk.
+   * 
+   * @example
+   * mysql response wait client
+   */
   event?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform.   
+   * Set the value to **DescribeTopSQLList**.
+   * 
+   * @example
+   * 163.0
+   */
   execPerSecond?: number;
+  /**
+   * @remarks
+   * The number of rows read from the memory.
+   * 
+   * @example
+   * 61.044
+   */
   executeTime?: number;
+  /**
+   * @remarks
+   * The number of executions per second.
+   * 
+   * @example
+   * 89403
+   */
   executions?: number;
+  /**
+   * @remarks
+   * $.parameters[12].schema.description
+   * 
+   * @example
+   * 0
+   */
   failTimes?: number;
+  /**
+   * @remarks
+   * The queuing time, in ms.
+   * 
+   * @example
+   * 0.052
+   */
   getPlanTime?: number;
+  /**
+   * @remarks
+   * $.parameters[15].schema.example
+   * 
+   * @example
+   * 0.0
+   */
   IOWaitTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * 1
+   */
   key?: number;
+  /**
+   * @remarks
+   * You can call this operation to query SQL execution performance data collected by the diagnostic system.
+   * 
+   * @example
+   * 19
+   */
   logicalRead?: number;
+  /**
+   * @remarks
+   * SQLID.
+   * 
+   * @example
+   * 257.967
+   */
   maxCpuTime?: number;
+  /**
+   * @remarks
+   * The sequence number of the returned SQL statement.
+   * 
+   * @example
+   * 260.044
+   */
   maxElapsedTime?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * 527
+   */
   memstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 0
+   */
   missPlans?: number;
+  /**
+   * @remarks
+   * The end time of the time range for querying TOP SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * @example
+   * 0.0
+   */
   netWaitTime?: number;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * i-bp18qljorblo8es*****
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * $.parameters[12].schema.enumValueTitles
+   * 
+   * @example
+   * 15.275
+   */
   queueTime?: number;
+  /**
+   * @remarks
+   * The start time of the time range for querying TOP SQL statements.   
+   * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * @example
+   * 0
+   */
   RPCCount?: number;
+  /**
+   * @remarks
+   * The return result of the request.
+   * 
+   * @example
+   * 0
+   */
   remotePlans?: number;
+  /**
+   * @remarks
+   * $.parameters[13].schema.description
+   * 
+   * @example
+   * 0
+   */
   retryCount?: number;
+  /**
+   * @remarks
+   * The wait event.
+   * 
+   * @example
+   * 1
+   */
   returnRows?: number;
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=DescribeTopSQLList
+   * &TenantId=t2mr3oae0****
+   * &StartTime=2021-06-13 15:40:43
+   * &EndTime=2021-09-13 15:40:43
+   * &DbName=testdb
+   * &SearchKeyWord=update
+   * &SearchParameter=cputime
+   * &SearchRule=>
+   * &SearchValue=0.01
+   * &SQLId=8D6E84****0B8FB1823D199E2CA1****
+   * &NodeIp=i-bp19y05uq6xpacyqnlrc
+   * &PageNumber=1
+   * &PageSize=10
+   * &SortColumn=cputime
+   * &SortOrder=desc
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * 0
+   */
   rowCacheHit?: number;
+  /**
+   * @remarks
+   * $.parameters[13].schema.example
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
   SQLId?: string;
+  /**
+   * @remarks
+   * The list of top SQL statements.
+   * 
+   * @example
+   * SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
+   */
   SQLText?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1
+   */
   SQLType?: number;
+  /**
+   * @remarks
+   * The search keyword.
+   * 
+   * @example
+   * 0.0
+   */
   scheduleTime?: number;
+  /**
+   * @example
+   * 43086
+   */
   ssstoreReadRowCount?: number;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * 10.966
+   */
   totalWaitTime?: number;
+  /**
+   * @remarks
+   * The number of Bloom filter cache hits.
+   * 
+   * @example
+   * tester
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22436,9 +39192,25 @@ export class DescribeTopSQLListResponseBodyTopSQLList extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZones extends $tea.Model {
+  /**
+   * @example
+   * 1-1-1
+   */
   deployType?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   series?: string;
+  /**
+   * @example
+   * cn-hangzhou-i,cn-hangzhou-j,cn-hangzhou-h
+   */
   zoneId?: string;
+  /**
+   * @example
+   * H/I/J
+   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22464,8 +39236,20 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class GetUploadOssUrlResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-26T06:33:11.175
+   */
   expectedExpirationTime?: string;
+  /**
+   * @example
+   * open_api_create_project/oacp_4xd****vk
+   */
   ossKey?: string;
+  /**
+   * @example
+   * https://cn-hangzhou-pre-omsstore.oss-cn-hangzhou.aliyuncs.com/open_api_create_project/oacp_4x****pvk?Expires=169031&OSSAccessKeyId=LTAI5tMN52D***TBf&Signature=XdDFPz%2BXKC***%2B
+   */
   ossUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22489,18 +39273,54 @@ export class GetUploadOssUrlResponseBodyData extends $tea.Model {
 }
 
 export class GetUploadOssUrlResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -22544,16 +39364,93 @@ export class GetUploadOssUrlResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class KillProcessListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The client IP address.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The start command for the container of the application.
+   * 
+   * @example
+   * select 1
+   */
   command?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test
+   */
   database?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Instance not found.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * Execution time (UTC+8). If it is left empty, it means to execute immediately.
+   * 
+   * @example
+   * 142
+   */
   executeTime?: string;
+  /**
+   * @remarks
+   * The IP address of the server.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   serverIp?: string;
+  /**
+   * @remarks
+   * The ID of the session.
+   * 
+   * @example
+   * 1123
+   */
   sessionId?: number;
+  /**
+   * @remarks
+   * The SQL statement.
+   * 
+   * @example
+   * :
+   */
   sqlText?: string;
+  /**
+   * @remarks
+   * The status of the task.
+   * 
+   * @example
+   * SLEEP
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t3ogqv07a56n4
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The database username.
+   * 
+   * @example
+   * oas
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22593,7 +39490,15 @@ export class KillProcessListResponseBodyData extends $tea.Model {
 }
 
 export class ListAllLabelsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * l_4w6r0***
+   */
   id?: string;
+  /**
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22615,18 +39520,54 @@ export class ListAllLabelsResponseBodyData extends $tea.Model {
 }
 
 export class ListAllLabelsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -22670,30 +39611,130 @@ export class ListAllLabelsResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ListDataSourceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @example
+   * cluster_name
+   */
   cluster?: string;
+  /**
+   * @example
+   * null
+   */
   connExtraAttributes?: any;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * 2023-07-13T20:27:28.000+00:00
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T20:37:28.000+00:00
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * e_4w****v
+   */
   id?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   ip?: string;
+  /**
+   * @example
+   * RATION***1DBUTF11
+   */
   name?: string;
+  /**
+   * @example
+   * Linux
+   */
   operatingSystem?: string;
+  /**
+   * @example
+   * null
+   */
   oracleNlsLengthSemantics?: string;
+  /**
+   * @example
+   * null
+   */
   oracleSid?: string;
+  /**
+   * @example
+   * admin
+   */
   owner?: string;
+  /**
+   * @example
+   * null
+   */
   partnerId?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @example
+   * 178641****05809
+   */
   resourceOwner?: string;
+  /**
+   * @example
+   * MASTER
+   */
   role?: string;
+  /**
+   * @example
+   * schema_name
+   */
   schema?: string;
+  /**
+   * @example
+   * tenant_name
+   */
   tenant?: string;
+  /**
+   * @example
+   * +08:00
+   */
   timezone?: string;
+  /**
+   * @example
+   * MYSQL_PUBLIC
+   */
   type?: string;
+  /**
+   * @example
+   * user_name
+   */
   userName?: string;
+  /**
+   * @example
+   * 4.1.0
+   */
   version?: string;
+  /**
+   * @example
+   * vpc_t4***
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22761,18 +39802,54 @@ export class ListDataSourceResponseBodyData extends $tea.Model {
 }
 
 export class ListDataSourceResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -22816,18 +39893,54 @@ export class ListDataSourceResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ListProjectFullVerifyResultResponseBodyDataFullVerifyTableStatisticsErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -22871,18 +39984,66 @@ export class ListProjectFullVerifyResultResponseBodyDataFullVerifyTableStatistic
 }
 
 export class ListProjectFullVerifyResultResponseBodyDataFullVerifyTableStatistics extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   consistentCount?: number;
+  /**
+   * @example
+   * 0
+   */
   destOnlyCount?: number;
+  /**
+   * @example
+   * dest_db
+   */
   destSchemaName?: string;
   errorDetails?: ListProjectFullVerifyResultResponseBodyDataFullVerifyTableStatisticsErrorDetails[];
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 0
+   */
   mismatchedCount?: number;
+  /**
+   * @example
+   * 80
+   */
   progress?: string;
+  /**
+   * @example
+   * desc
+   */
   resultDesc?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   resultType?: string;
+  /**
+   * @example
+   * 0
+   */
   sourceOnlyCount?: number;
+  /**
+   * @example
+   * source_db
+   */
   sourceSchemaName?: string;
+  /**
+   * @example
+   * source_table
+   */
   sourceTableName?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22926,6 +40087,10 @@ export class ListProjectFullVerifyResultResponseBodyDataFullVerifyTableStatistic
 }
 
 export class ListProjectFullVerifyResultResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 11
+   */
   differentNumber?: number;
   fullVerifyTableStatistics?: ListProjectFullVerifyResultResponseBodyDataFullVerifyTableStatistics[];
   static names(): { [key: string]: string } {
@@ -22948,18 +40113,54 @@ export class ListProjectFullVerifyResultResponseBodyData extends $tea.Model {
 }
 
 export class ListProjectFullVerifyResultResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -23004,7 +40205,15 @@ export class ListProjectFullVerifyResultResponseBodyErrorDetail extends $tea.Mod
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: number;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -23031,21 +40240,85 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesAdbT
 }
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesColumns extends $tea.Model {
+  /**
+   * @example
+   * comments
+   */
   columnComment?: string;
+  /**
+   * @example
+   * PRI
+   */
   columnKey?: string;
+  /**
+   * @example
+   * col_name
+   */
   columnName?: string;
+  /**
+   * @example
+   * FLOAT
+   */
   columnType?: string;
+  /**
+   * @example
+   * null
+   */
   dataLength?: number;
+  /**
+   * @example
+   * 64
+   */
   dataPrecision?: number;
+  /**
+   * @example
+   * null
+   */
   dataScale?: number;
+  /**
+   * @example
+   * null
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * utf16
+   */
   encoding?: string;
+  /**
+   * @example
+   * false
+   */
   isGenerateField?: boolean;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * false
+   */
   nullable?: boolean;
+  /**
+   * @example
+   * null
+   */
   position?: number;
+  /**
+   * @example
+   * null
+   */
   rawColumnType?: string;
+  /**
+   * @example
+   * INT8
+   */
   recordFieldType?: string;
+  /**
+   * @example
+   * DATABASE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23098,10 +40371,26 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTables ext
   adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesAdbTableSchema;
   columns?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTablesColumns[];
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<3
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23136,7 +40425,15 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTables ext
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: number;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -23163,21 +40460,85 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsAdbTa
 }
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsColumns extends $tea.Model {
+  /**
+   * @example
+   * comments
+   */
   columnComment?: string;
+  /**
+   * @example
+   * PRI
+   */
   columnKey?: string;
+  /**
+   * @example
+   * col_name
+   */
   columnName?: string;
+  /**
+   * @example
+   * FLOAT
+   */
   columnType?: string;
+  /**
+   * @example
+   * null
+   */
   dataLength?: number;
+  /**
+   * @example
+   * 64
+   */
   dataPrecision?: number;
+  /**
+   * @example
+   * null
+   */
   dataScale?: number;
+  /**
+   * @example
+   * null
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * utf16
+   */
   encoding?: string;
+  /**
+   * @example
+   * false
+   */
   isGenerateField?: boolean;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * true
+   */
   nullable?: boolean;
+  /**
+   * @example
+   * null
+   */
   position?: number;
+  /**
+   * @example
+   * null
+   */
   rawColumnType?: string;
+  /**
+   * @example
+   * INT8
+   */
   recordFieldType?: string;
+  /**
+   * @example
+   * DATABASE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23230,10 +40591,26 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViews exte
   adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsAdbTableSchema;
   columns?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViewsColumns[];
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id < 1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23268,7 +40645,15 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViews exte
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesTablesAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: number;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -23295,21 +40680,85 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesTablesAdbTableSche
 }
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesTablesColumns extends $tea.Model {
+  /**
+   * @example
+   * comments
+   */
   columnComment?: string;
+  /**
+   * @example
+   * PRI
+   */
   columnKey?: string;
+  /**
+   * @example
+   * col_name
+   */
   columnName?: string;
+  /**
+   * @example
+   * FLOAT
+   */
   columnType?: string;
+  /**
+   * @example
+   * null
+   */
   dataLength?: number;
+  /**
+   * @example
+   * 64
+   */
   dataPrecision?: number;
+  /**
+   * @example
+   * null
+   */
   dataScale?: number;
+  /**
+   * @example
+   * null
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * utf8
+   */
   encoding?: string;
+  /**
+   * @example
+   * false
+   */
   isGenerateField?: boolean;
+  /**
+   * @example
+   * mapped_col
+   */
   mappedName?: string;
+  /**
+   * @example
+   * true
+   */
   nullable?: boolean;
+  /**
+   * @example
+   * null
+   */
   position?: number;
+  /**
+   * @example
+   * null
+   */
   rawColumnType?: string;
+  /**
+   * @example
+   * INT8
+   */
   recordFieldType?: string;
+  /**
+   * @example
+   * DATABASE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23362,10 +40811,26 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesTables extends $te
   adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesTablesAdbTableSchema;
   columns?: ListProjectModifyRecordsResponseBodyDataDatabasesTablesColumns[];
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id < 1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23400,7 +40865,15 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesTables extends $te
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesViewsAdbTableSchema extends $tea.Model {
   distributedKeys?: string[];
+  /**
+   * @example
+   * 30
+   */
   partitionLifeCycle?: number;
+  /**
+   * @example
+   * PARTITION BY VALUE(\\"id\\")
+   */
   partitionStatement?: string;
   primaryKeys?: string[];
   static names(): { [key: string]: string } {
@@ -23427,21 +40900,85 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesViewsAdbTableSchem
 }
 
 export class ListProjectModifyRecordsResponseBodyDataDatabasesViewsColumns extends $tea.Model {
+  /**
+   * @example
+   * comments
+   */
   columnComment?: string;
+  /**
+   * @example
+   * PRI
+   */
   columnKey?: string;
+  /**
+   * @example
+   * col_name
+   */
   columnName?: string;
+  /**
+   * @example
+   * FLOAT
+   */
   columnType?: string;
+  /**
+   * @example
+   * null
+   */
   dataLength?: number;
+  /**
+   * @example
+   * 64
+   */
   dataPrecision?: number;
+  /**
+   * @example
+   * null
+   */
   dataScale?: number;
+  /**
+   * @example
+   * null
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * utf16
+   */
   encoding?: string;
+  /**
+   * @example
+   * false
+   */
   isGenerateField?: boolean;
+  /**
+   * @example
+   * mapped_name
+   */
   mappedName?: string;
+  /**
+   * @example
+   * false
+   */
   nullable?: boolean;
+  /**
+   * @example
+   * null
+   */
   position?: number;
+  /**
+   * @example
+   * null
+   */
   rawColumnType?: string;
+  /**
+   * @example
+   * INT8
+   */
   recordFieldType?: string;
+  /**
+   * @example
+   * DATABASE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23494,10 +41031,26 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesViews extends $tea
   adbTableSchema?: ListProjectModifyRecordsResponseBodyDataDatabasesViewsAdbTableSchema;
   columns?: ListProjectModifyRecordsResponseBodyDataDatabasesViewsColumns[];
   filterColumns?: string[];
+  /**
+   * @example
+   * table_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_view
+   */
   mappedName?: string;
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * id<1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23531,8 +41084,20 @@ export class ListProjectModifyRecordsResponseBodyDataDatabasesViews extends $tea
 }
 
 export class ListProjectModifyRecordsResponseBodyDataDatabases extends $tea.Model {
+  /**
+   * @example
+   * db_id
+   */
   id?: string;
+  /**
+   * @example
+   * mapped_db
+   */
   mappedName?: string;
+  /**
+   * @example
+   * db_name
+   */
   name?: string;
   specificTables?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificTables[];
   specificViews?: ListProjectModifyRecordsResponseBodyDataDatabasesSpecificViews[];
@@ -23568,18 +41133,54 @@ export class ListProjectModifyRecordsResponseBodyDataDatabases extends $tea.Mode
 }
 
 export class ListProjectModifyRecordsResponseBodyDataErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -23623,7 +41224,15 @@ export class ListProjectModifyRecordsResponseBodyDataErrorDetail extends $tea.Mo
 }
 
 export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTables extends $tea.Model {
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
+  /**
+   * @example
+   * schema_name
+   */
   schema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23645,7 +41254,15 @@ export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTables 
 }
 
 export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTablesBlack extends $tea.Model {
+  /**
+   * @example
+   * table_name
+   */
   name?: string;
+  /**
+   * @example
+   * schema_name
+   */
   schema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23667,7 +41284,15 @@ export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTablesB
 }
 
 export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViews extends $tea.Model {
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
+  /**
+   * @example
+   * schema_name
+   */
   schema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23689,7 +41314,15 @@ export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViews e
 }
 
 export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViewsBlack extends $tea.Model {
+  /**
+   * @example
+   * view_name
+   */
   name?: string;
+  /**
+   * @example
+   * schema_name
+   */
   schema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23715,6 +41348,10 @@ export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfo extend
   tablesBlack?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoTablesBlack[];
   views?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViews[];
   viewsBlack?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfoViewsBlack[];
+  /**
+   * @example
+   * true
+   */
   wildcardMode?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -23742,9 +41379,25 @@ export class ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfo extend
 }
 
 export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoColumnMappings extends $tea.Model {
+  /**
+   * @example
+   * dest_name
+   */
   destName?: string;
+  /**
+   * @example
+   * source_name
+   */
   sourceName?: string;
+  /**
+   * @example
+   * source_schema
+   */
   sourceSchema?: string;
+  /**
+   * @example
+   * source_table
+   */
   sourceTable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23770,7 +41423,15 @@ export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoColumn
 }
 
 export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoSchemaMappings extends $tea.Model {
+  /**
+   * @example
+   * mapped_schema
+   */
   destName?: string;
+  /**
+   * @example
+   * source_name
+   */
   sourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23792,8 +41453,20 @@ export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoSchema
 }
 
 export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoTableMappings extends $tea.Model {
+  /**
+   * @example
+   * dest_name
+   */
   destName?: string;
+  /**
+   * @example
+   * source_name
+   */
   sourceName?: string;
+  /**
+   * @example
+   * source_schema
+   */
   sourceSchema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23817,8 +41490,20 @@ export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoTableM
 }
 
 export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfoViewMappings extends $tea.Model {
+  /**
+   * @example
+   * dest_name
+   */
   destName?: string;
+  /**
+   * @example
+   * source_name
+   */
   sourceName?: string;
+  /**
+   * @example
+   * schema_name
+   */
   sourceSchema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23870,15 +41555,47 @@ export class ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfo exten
 }
 
 export class ListProjectModifyRecordsResponseBodyDataTableEtlList extends $tea.Model {
+  /**
+   * @example
+   * db_name
+   */
   database?: string;
+  /**
+   * @example
+   * dest_db
+   */
   destDatabase?: string;
+  /**
+   * @example
+   * dest_name
+   */
   destName?: string;
   filterColumns?: string[];
+  /**
+   * @example
+   * null
+   */
   logicTableId?: string;
   shardColumns?: string[];
+  /**
+   * @example
+   * null
+   */
   sourceEndpointId?: string;
+  /**
+   * @example
+   * table_name
+   */
   tableName?: string;
+  /**
+   * @example
+   * tenant_name
+   */
   tenantName?: string;
+  /**
+   * @example
+   * id>1
+   */
   whereClause?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23918,15 +41635,43 @@ export class ListProjectModifyRecordsResponseBodyDataTableEtlList extends $tea.M
 export class ListProjectModifyRecordsResponseBodyData extends $tea.Model {
   databases?: ListProjectModifyRecordsResponseBodyDataDatabases[];
   errorDetail?: ListProjectModifyRecordsResponseBodyDataErrorDetail;
+  /**
+   * @example
+   * 2023-07-13T06:26:15
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 344000005
+   */
   id?: number;
+  /**
+   * @example
+   * id
+   */
   mergeRequestId?: number;
   migrationObjectsInfo?: ListProjectModifyRecordsResponseBodyDataMigrationObjectsInfo;
   omsProjectMappingInfo?: ListProjectModifyRecordsResponseBodyDataOmsProjectMappingInfo;
+  /**
+   * @example
+   * PENDING
+   */
   status?: string;
+  /**
+   * @example
+   * np_598qm***
+   */
   subProjectId?: string;
   tableEtlList?: ListProjectModifyRecordsResponseBodyDataTableEtlList[];
+  /**
+   * @example
+   * INCREASE_OBJECT
+   */
   type?: string;
+  /**
+   * @example
+   * id
+   */
   updateRequestId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23968,18 +41713,54 @@ export class ListProjectModifyRecordsResponseBodyData extends $tea.Model {
 }
 
 export class ListProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -24023,11 +41804,31 @@ export class ListProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model 
 }
 
 export class ListProjectsResponseBodyDataAlarmStats extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   alarmContent?: string;
+  /**
+   * @example
+   * false
+   */
   alarming?: boolean;
+  /**
+   * @example
+   * true
+   */
   openMonitor?: boolean;
+  /**
+   * @example
+   * 0
+   */
   recentlyTriggerCount?: number;
   ruleToRecentlyTriggerCount?: { [key: string]: number };
+  /**
+   * @example
+   * null
+   */
   target?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24057,16 +41858,60 @@ export class ListProjectsResponseBodyDataAlarmStats extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataCommonTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   activeActive?: boolean;
+  /**
+   * @example
+   * null
+   */
   dataWorksBusinessName?: string;
+  /**
+   * @example
+   * TUPLE
+   */
   datahubTopicType?: string;
+  /**
+   * @example
+   * 0
+   */
   mqPartition?: number;
+  /**
+   * @example
+   * ONE
+   */
   mqPartitionMode?: string;
+  /**
+   * @example
+   * DEFAULT
+   */
   mqSerializerType?: string;
+  /**
+   * @example
+   * false
+   */
   rocketMqEnableMsgTrace?: boolean;
+  /**
+   * @example
+   * default_tag
+   */
   rocketMqMsgTags?: string;
+  /**
+   * @example
+   * OMS
+   */
   rocketMqProducerGroup?: string;
+  /**
+   * @example
+   * null
+   */
   rocketMqSendMsgTimeout?: number;
+  /**
+   * @example
+   * ALL
+   */
   tableCategory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24106,23 +41951,75 @@ export class ListProjectsResponseBodyDataCommonTransferConfig extends $tea.Model
 }
 
 export class ListProjectsResponseBodyDataExtraInfo extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   accessObSource?: boolean;
+  /**
+   * @example
+   * true
+   */
   ignoreUnsupportDdl?: boolean;
+  /**
+   * @example
+   * 1689244596
+   */
   incrSyncTimestamp?: number;
+  /**
+   * @example
+   * 1689214358
+   */
   logServiceStartCheckpoint?: number;
+  /**
+   * @example
+   * -1
+   */
   maxConnectorCount?: number;
+  /**
+   * @example
+   * true
+   */
   monitoringIncr?: boolean;
+  /**
+   * @example
+   * true
+   */
   overwriteConfig?: boolean;
   reverseSubtopics?: string[];
+  /**
+   * @example
+   * 90
+   */
   runningProgress?: number;
+  /**
+   * @example
+   * TRANSFER_PRECHECK
+   */
   runningStep?: string;
+  /**
+   * @example
+   * 24
+   */
   sourceStoreKeptHour?: number;
+  /**
+   * @example
+   * true
+   */
   storeIncr?: boolean;
   subConds?: { [key: string]: DataExtraInfoSubCondsValue[] };
   subDbs?: { [key: string]: DataExtraInfoSubDbsValue[] };
   subIds?: { [key: string]: string };
   subtopics?: string[];
+  /**
+   * @example
+   * null
+   */
   syncDelay?: number;
+  /**
+   * @example
+   * 1689214358
+   */
   syncDelaySampleTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24176,9 +42073,25 @@ export class ListProjectsResponseBodyDataExtraInfo extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataFullTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   allowDestTableNotEmpty?: boolean;
+  /**
+   * @example
+   * NORMAL
+   */
   fullTransferSpeedMode?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   fullVerifySpeedMode?: string;
+  /**
+   * @example
+   * false
+   */
   nonePkUkTruncateDstTable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -24204,11 +42117,31 @@ export class ListProjectsResponseBodyDataFullTransferConfig extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataIncrTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableIncrSyncStatistics?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableSequencingWithinTxn?: boolean;
+  /**
+   * @example
+   * 64
+   */
   incrSyncConcurrency?: number;
   recordTypeWhiteList?: string[];
+  /**
+   * @example
+   * 1681004708
+   */
   startTimestamp?: number;
+  /**
+   * @example
+   * 24
+   */
   storeLogKeptHour?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24238,10 +42171,30 @@ export class ListProjectsResponseBodyDataIncrTransferConfig extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataLabels extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   count?: number;
+  /**
+   * @example
+   * admin
+   */
   creator?: string;
+  /**
+   * @example
+   * l_dfe****
+   */
   id?: string;
+  /**
+   * @example
+   * label_name
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24269,24 +42222,103 @@ export class ListProjectsResponseBodyDataLabels extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataSinkConnectInfo extends $tea.Model {
+  /**
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @example
+   * null
+   */
   connExtraAttributes?: any;
+  /**
+   * @example
+   * null
+   */
   connectionInfo?: string;
+  /**
+   * @example
+   * MYSQL_PUBLIC
+   */
   dbEngine?: string;
+  /**
+   * @example
+   * e_4w3aic***
+   */
   endpointId?: string;
+  /**
+   * @example
+   * ation129***9apimysql5616****
+   */
   endpointName?: string;
+  /**
+   * @example
+   * sink
+   */
   endpointSide?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   host?: string;
+  /**
+   * @example
+   * c_4w3akx***
+   */
   id?: string;
+  /**
+   * @example
+   * null
+   */
   nlsLengthSemantics?: string;
+  /**
+   * @example
+   * null
+   */
   ocpName?: string;
+  /**
+   * @example
+   * Linux
+   */
   operatingSystem?: string;
+  /**
+   * @remarks
+   * Owner。
+   * 
+   * @example
+   * admin
+   */
   owner?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * 1325847***
+   */
   resourceOwner?: string;
+  /**
+   * @example
+   * +08:00
+   */
   timezone?: string;
+  /**
+   * @example
+   * oms**obmys**
+   */
   username?: string;
+  /**
+   * @example
+   * 2.2.77
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24342,24 +42374,103 @@ export class ListProjectsResponseBodyDataSinkConnectInfo extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataSourceConnectInfo extends $tea.Model {
+  /**
+   * @example
+   * utf8mb4
+   */
   charset?: string;
+  /**
+   * @example
+   * null
+   */
   connExtraAttributes?: any;
+  /**
+   * @example
+   * null
+   */
   connectionInfo?: string;
+  /**
+   * @example
+   * OB_MYSQL_PUBLIC
+   */
   dbEngine?: string;
+  /**
+   * @example
+   * e_4w3al***
+   */
   endpointId?: string;
+  /**
+   * @example
+   * ration12****0obmysql4116892***
+   */
   endpointName?: string;
+  /**
+   * @example
+   * source
+   */
   endpointSide?: string;
+  /**
+   * @example
+   * xxx.xxx.xxx.1
+   */
   host?: string;
+  /**
+   * @example
+   * c_4w3aq****
+   */
   id?: string;
+  /**
+   * @example
+   * null
+   */
   nlsLengthSemantics?: string;
+  /**
+   * @example
+   * null
+   */
   ocpName?: string;
+  /**
+   * @example
+   * Linux
+   */
   operatingSystem?: string;
+  /**
+   * @remarks
+   * Owner。
+   * 
+   * @example
+   * admin
+   */
   owner?: string;
+  /**
+   * @example
+   * 2883
+   */
   port?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * 1325847***
+   */
   resourceOwner?: string;
+  /**
+   * @example
+   * UTC
+   */
   timezone?: string;
+  /**
+   * @example
+   * oms931mys**
+   */
   username?: string;
+  /**
+   * @example
+   * 5.7.27
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24415,18 +42526,54 @@ export class ListProjectsResponseBodyDataSourceConnectInfo extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataStepsExtraInfoErrorDetails extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -24470,10 +42617,22 @@ export class ListProjectsResponseBodyDataStepsExtraInfoErrorDetails extends $tea
 }
 
 export class ListProjectsResponseBodyDataStepsExtraInfo extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   errorCode?: string;
   errorDetails?: ListProjectsResponseBodyDataStepsExtraInfoErrorDetails[];
+  /**
+   * @example
+   * A system error occurred.
+   */
   errorMsg?: string;
   errorParam?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   failedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24503,12 +42662,40 @@ export class ListProjectsResponseBodyDataStepsExtraInfo extends $tea.Model {
 export class ListProjectsResponseBodyDataSteps extends $tea.Model {
   description?: string;
   extraInfo?: ListProjectsResponseBodyDataStepsExtraInfo;
+  /**
+   * @example
+   * 2020-05-22T17:05:18
+   */
   finishTime?: string;
+  /**
+   * @example
+   * TRANSFER_PRECHECK
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @example
+   * 100
+   */
   progress?: number;
+  /**
+   * @example
+   * 2020-05-22T17:04:18
+   */
   startTime?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * null
+   */
   stepInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -24544,7 +42731,15 @@ export class ListProjectsResponseBodyDataSteps extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyDataStructTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * DO_NOTHING_IF_BYTE_USED
+   */
   byteCharConvertStrategy?: string;
+  /**
+   * @example
+   * false
+   */
   deferIndexCreation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -24566,6 +42761,10 @@ export class ListProjectsResponseBodyDataStructTransferConfig extends $tea.Model
 }
 
 export class ListProjectsResponseBodyDataTransferMapping extends $tea.Model {
+  /**
+   * @example
+   * SPECIFIC
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24645,37 +42844,129 @@ export class ListProjectsResponseBodyDataWorkerGradeInfo extends $tea.Model {
 export class ListProjectsResponseBodyData extends $tea.Model {
   alarmStats?: ListProjectsResponseBodyDataAlarmStats;
   commonTransferConfig?: ListProjectsResponseBodyDataCommonTransferConfig;
+  /**
+   * @example
+   * null
+   */
   destConnId?: string;
+  /**
+   * @example
+   * true
+   */
   enableFullTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableFullVerify?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableIncrVerify?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableReverseIncrTransfer?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableStructTransfer?: boolean;
   extraInfo?: ListProjectsResponseBodyDataExtraInfo;
   fullTransferConfig?: ListProjectsResponseBodyDataFullTransferConfig;
+  /**
+   * @example
+   * 2023-07-13T06:26:15
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-07-13T08:01:27
+   */
   gmtFinish?: string;
+  /**
+   * @example
+   * 2023-07-13T07:01:27
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 2023-07-13T07:02:27
+   */
   gmtStart?: string;
+  /**
+   * @example
+   * np_4w****
+   */
   id?: string;
+  /**
+   * @example
+   * MEDIUM
+   */
   importance?: string;
   incrTransferConfig?: ListProjectsResponseBodyDataIncrTransferConfig;
+  /**
+   * @example
+   * false
+   */
   isMerging?: boolean;
+  /**
+   * @example
+   * false
+   */
   isModifying?: boolean;
+  /**
+   * @example
+   * false
+   */
   isSubProject?: boolean;
   labels?: ListProjectsResponseBodyDataLabels[];
+  /**
+   * @example
+   * project_name
+   */
   name?: string;
+  /**
+   * @example
+   * admin
+   */
   owner?: string;
   sinkConnectInfo?: ListProjectsResponseBodyDataSinkConnectInfo;
+  /**
+   * @example
+   * OB_MYSQL
+   */
   sinkEndpointType?: string;
   sourceConnectInfo?: ListProjectsResponseBodyDataSourceConnectInfo;
+  /**
+   * @example
+   * MYSQL
+   */
   sourceEndpointType?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   steps?: ListProjectsResponseBodyDataSteps[];
   structTransferConfig?: ListProjectsResponseBodyDataStructTransferConfig;
   transferMapping?: ListProjectsResponseBodyDataTransferMapping;
+  /**
+   * @example
+   * MIGRATION
+   */
   type?: string;
+  /**
+   * @example
+   * g_i4wa7XXX
+   */
   workerGradeId?: string;
   workerGradeInfo?: ListProjectsResponseBodyDataWorkerGradeInfo;
   static names(): { [key: string]: string } {
@@ -24764,18 +43055,54 @@ export class ListProjectsResponseBodyData extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -24819,14 +43146,50 @@ export class ListProjectsResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ListWorkerInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-14T20:49:53
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * g_i4katzv***
+   */
   id?: string;
+  /**
+   * @example
+   * i4wa71k****
+   */
   name?: string;
+  /**
+   * @example
+   * np_4kb18w****
+   */
   projectId?: string;
+  /**
+   * @example
+   * j_migration_cloud-kafkavpc-ob
+   */
   projectName?: string;
+  /**
+   * @example
+   * MIGRATION
+   */
   projectType?: string;
+  /**
+   * @example
+   * null
+   */
   region?: string;
+  /**
+   * @example
+   * oms.g2m.small
+   */
   spec?: string;
+  /**
+   * @example
+   * ONLINE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24862,18 +43225,54 @@ export class ListWorkerInstancesResponseBodyData extends $tea.Model {
 }
 
 export class ListWorkerInstancesResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * FATAL
+   */
   level?: string;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -24917,7 +43316,15 @@ export class ListWorkerInstancesResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ModifyDatabaseUserRolesResponseBodyTenantUserUsers extends $tea.Model {
+  /**
+   * @example
+   * ReadOnly
+   */
   role?: string;
+  /**
+   * @example
+   * user_pay_ro
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24939,7 +43346,18 @@ export class ModifyDatabaseUserRolesResponseBodyTenantUserUsers extends $tea.Mod
 }
 
 export class ModifyDatabaseUserRolesResponseBodyTenantUser extends $tea.Model {
+  /**
+   * @remarks
+   * Example 1
+   * 
+   * @example
+   * sms_pre
+   */
   databaseName?: string;
+  /**
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
   users?: ModifyDatabaseUserRolesResponseBodyTenantUserUsers[];
   static names(): { [key: string]: string } {
@@ -24964,7 +43382,23 @@ export class ModifyDatabaseUserRolesResponseBodyTenantUser extends $tea.Model {
 }
 
 export class ModifyInstanceNodeNumResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the dry-run request.
+   * - If the DryRun parameter is set to true and the dry run succeeds, the DryRunResult parameter returns true. Otherwise, an error code is returned.
+   * - If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+   * 
+   * @example
+   * false
+   */
   dryRunResult?: boolean;
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 2132903*********
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24986,7 +43420,27 @@ export class ModifyInstanceNodeNumResponseBodyData extends $tea.Model {
 }
 
 export class ModifyInstanceSSLResponseBodyInstanceSSL extends $tea.Model {
+  /**
+   * @remarks
+   * The operation to modify the SSL status. Valid values:
+   * 
+   * - open: Enable SSL encryption.
+   * 
+   * - update: Update the CA certificate.
+   * 
+   * - close: Disable SSL encryption.
+   * 
+   * @example
+   * open
+   */
   enableSSL?: string;
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25008,7 +43462,23 @@ export class ModifyInstanceSSLResponseBodyInstanceSSL extends $tea.Model {
 }
 
 export class ModifyInstanceSpecResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The result of the dry-run request.
+   * - If the DryRun parameter is set to true and the dry run succeeds, the DryRunResult parameter returns true. Otherwise, an error code is returned.
+   * - If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+   * 
+   * @example
+   * false
+   */
   dryRunResult?: boolean;
+  /**
+   * @remarks
+   * The ID of the order that you have placed.
+   * 
+   * @example
+   * 213290*********
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25030,7 +43500,15 @@ export class ModifyInstanceSpecResponseBodyData extends $tea.Model {
 }
 
 export class ModifyParametersResponseBodyResults extends $tea.Model {
+  /**
+   * @example
+   * schedule timeout.
+   */
   message?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -25052,8 +43530,20 @@ export class ModifyParametersResponseBodyResults extends $tea.Model {
 }
 
 export class ModifySecurityIpsResponseBodySecurityIpGroup extends $tea.Model {
+  /**
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * online_paycore
+   */
   securityIpGroupName?: string;
+  /**
+   * @example
+   * 121.41.106.33,100.104.7.0/26
+   */
   securityIps?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25077,8 +43567,20 @@ export class ModifySecurityIpsResponseBodySecurityIpGroup extends $tea.Model {
 }
 
 export class ModifyTenantEncryptionResponseBodyTenantEncryption extends $tea.Model {
+  /**
+   * @example
+   * EncryptionKey
+   */
   encryptionType?: string;
+  /**
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ob2mr3oae0****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25102,9 +43604,39 @@ export class ModifyTenantEncryptionResponseBodyTenantEncryption extends $tea.Mod
 }
 
 export class ModifyTenantSecurityIpGroupResponseBodySecurityIpGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * @example
+   * ob317v4uif****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the whitelist group.
+   * 
+   * @example
+   * paytest
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The list of IP addresses in the IP address whitelist group.
+   * 
+   * It is a string separated by commas, and each object is an IP address or a CIDR block.
+   * 
+   * @example
+   * 192.***.*.*
+   */
   securityIps?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * t4louaeei****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25130,9 +43662,39 @@ export class ModifyTenantSecurityIpGroupResponseBodySecurityIpGroup extends $tea
 }
 
 export class ModifyTenantUserRolesResponseBodyTenantUserUserRole extends $tea.Model {
+  /**
+   * @remarks
+   * ```
+   * http(s)://[Endpoint]/?Action=ModifyTenantUserRoles
+   * &UserName=pay_test
+   * &TenantId=ob2mr3oae0****
+   * &UserRole=[{"Database":"20210824160559","Role":"readwrite"}]
+   * &InstanceId=ob317v4uif****
+   * &ModifyType=update
+   * &Common request parameters
+   * ```
+   * 
+   * @example
+   * db_pay1
+   */
   database?: string;
+  /**
+   * @example
+   * true
+   */
   isSuccess?: boolean;
+  /**
+   * @remarks
+   * You can call this operation to modify the database privileges of a specified account in a tenant.
+   * 
+   * @example
+   * ReadOnly
+   */
   role?: string;
+  /**
+   * @example
+   * tbl_pay1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25158,8 +43720,23 @@ export class ModifyTenantUserRolesResponseBodyTenantUserUserRole extends $tea.Mo
 }
 
 export class ModifyTenantUserRolesResponseBodyTenantUser extends $tea.Model {
+  /**
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The name of the database (MySQL mode) or schema (Oracle mode).
+   * 
+   * @example
+   * 账号具备的数据库权限信息列表。
+   */
   userRole?: ModifyTenantUserRolesResponseBodyTenantUserUserRole[];
   static names(): { [key: string]: string } {
     return {
@@ -25183,8 +43760,20 @@ export class ModifyTenantUserRolesResponseBodyTenantUser extends $tea.Model {
 }
 
 export class ModifyTenantUserStatusResponseBodyTenantUser extends $tea.Model {
+  /**
+   * @example
+   * t33h8y08k****
+   */
   tenantId?: string;
+  /**
+   * @example
+   * pay_test
+   */
   userName?: string;
+  /**
+   * @example
+   * LOCKED
+   */
   userStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25208,18 +43797,54 @@ export class ModifyTenantUserStatusResponseBodyTenantUser extends $tea.Model {
 }
 
 export class ReleaseProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25263,18 +43888,54 @@ export class ReleaseProjectResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ReleaseWorkerInstanceResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25318,18 +43979,54 @@ export class ReleaseWorkerInstanceResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class ResumeProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25373,18 +44070,54 @@ export class ResumeProjectResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class RetryProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25428,18 +44161,54 @@ export class RetryProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model
 }
 
 export class StartProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25485,6 +44254,10 @@ export class StartProjectResponseBodyErrorDetail extends $tea.Model {
 export class StartProjectsByLabelResponseBodyData extends $tea.Model {
   failedProjectIds?: string[];
   succeedProjectIds?: string[];
+  /**
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25508,18 +44281,54 @@ export class StartProjectsByLabelResponseBodyData extends $tea.Model {
 }
 
 export class StartProjectsByLabelResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25563,18 +44372,54 @@ export class StartProjectsByLabelResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class StopProjectResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25618,18 +44463,54 @@ export class StopProjectResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class StopProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * INNER_ERROR
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25675,6 +44556,10 @@ export class StopProjectModifyRecordsResponseBodyErrorDetail extends $tea.Model 
 export class StopProjectsByLabelResponseBodyData extends $tea.Model {
   failedProjectIds?: string[];
   succeedProjectIds?: string[];
+  /**
+   * @example
+   * 16
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25698,18 +44583,54 @@ export class StopProjectsByLabelResponseBodyData extends $tea.Model {
 }
 
 export class StopProjectsByLabelResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * ERROR
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
+  /**
+   * @example
+   * Contact the administrator.
+   */
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25753,7 +44674,23 @@ export class StopProjectsByLabelResponseBodyErrorDetail extends $tea.Model {
 }
 
 export class SwitchoverInstanceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The message of the switchover.
+   * 
+   * @example
+   * delete tag-value success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Whether the switchover is successful.
+   * - true: the switchover succeeded.
+   * - false: the switchover failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -25797,9 +44734,25 @@ export class UpdateProjectConfigRequestCommonTransferConfig extends $tea.Model {
 }
 
 export class UpdateProjectConfigRequestFullTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * 64
+   */
   readWorkerNum?: number;
+  /**
+   * @example
+   * null
+   */
   throttleIOPS?: number;
+  /**
+   * @example
+   * null
+   */
   throttleRps?: number;
+  /**
+   * @example
+   * 64
+   */
   writeWorkerNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25825,10 +44778,22 @@ export class UpdateProjectConfigRequestFullTransferConfig extends $tea.Model {
 }
 
 export class UpdateProjectConfigRequestIncrTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * 64
+   */
   incrSyncThreadCount?: number;
   recordTypeWhiteList?: string[];
   supportDDLTypes?: string[];
+  /**
+   * @example
+   * null
+   */
   throttleIOPS?: number;
+  /**
+   * @example
+   * null
+   */
   throttleRps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25856,10 +44821,22 @@ export class UpdateProjectConfigRequestIncrTransferConfig extends $tea.Model {
 }
 
 export class UpdateProjectConfigRequestReverseIncrTransferConfig extends $tea.Model {
+  /**
+   * @example
+   * 64
+   */
   incrSyncThreadCount?: number;
   recordTypeWhiteList?: string[];
   supportDDLTypes?: string[];
+  /**
+   * @example
+   * null
+   */
   throttleIOPS?: number;
+  /**
+   * @example
+   * null
+   */
   throttleRps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25887,18 +44864,50 @@ export class UpdateProjectConfigRequestReverseIncrTransferConfig extends $tea.Mo
 }
 
 export class UpdateProjectConfigResponseBodyErrorDetail extends $tea.Model {
+  /**
+   * @example
+   * CM-RESOAT1111
+   */
   code?: string;
   extraContext?: { [key: string]: any };
+  /**
+   * @example
+   * WARN
+   */
   level?: string;
+  /**
+   * @example
+   * A system error occurred.
+   */
   message?: string;
   messageMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   messageMcmsKey?: string;
   proposal?: string;
   proposalMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   proposalMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   reason?: string;
   reasonMcmsContext?: { [key: string]: string };
+  /**
+   * @example
+   * null
+   */
   reasonMcmsKey?: string;
+  /**
+   * @example
+   * null
+   */
   upstreamErrorDetail?: any;
   static names(): { [key: string]: string } {
     return {
@@ -25965,11 +44974,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
-   *
-   * @param request BatchKillProcessListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchKillProcessListResponse
+   * You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
+   * 
+   * @param request - BatchKillProcessListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchKillProcessListResponse
    */
   async batchKillProcessListWithOptions(request: BatchKillProcessListRequest, runtime: $Util.RuntimeOptions): Promise<BatchKillProcessListResponse> {
     Util.validateModel(request);
@@ -26004,10 +45013,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
-   *
-   * @param request BatchKillProcessListRequest
-   * @return BatchKillProcessListResponse
+   * You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
+   * 
+   * @param request - BatchKillProcessListRequest
+   * @returns BatchKillProcessListResponse
    */
   async batchKillProcessList(request: BatchKillProcessListRequest): Promise<BatchKillProcessListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26015,11 +45024,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
-   *
-   * @param request BatchKillSessionListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchKillSessionListResponse
+   * You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
+   * 
+   * @param request - BatchKillSessionListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchKillSessionListResponse
    */
   async batchKillSessionListWithOptions(request: BatchKillSessionListRequest, runtime: $Util.RuntimeOptions): Promise<BatchKillSessionListResponse> {
     Util.validateModel(request);
@@ -26054,10 +45063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
-   *
-   * @param request BatchKillSessionListRequest
-   * @return BatchKillSessionListResponse
+   * You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
+   * 
+   * @param request - BatchKillSessionListRequest
+   * @returns BatchKillSessionListResponse
    */
   async batchKillSessionList(request: BatchKillSessionListRequest): Promise<BatchKillSessionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26065,11 +45074,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
-   *
-   * @param request CancelProjectModifyRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelProjectModifyRecordResponse
+   * 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
+   * 
+   * @param request - CancelProjectModifyRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelProjectModifyRecordResponse
    */
   async cancelProjectModifyRecordWithOptions(request: CancelProjectModifyRecordRequest, runtime: $Util.RuntimeOptions): Promise<CancelProjectModifyRecordResponse> {
     Util.validateModel(request);
@@ -26096,10 +45105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
-   *
-   * @param request CancelProjectModifyRecordRequest
-   * @return CancelProjectModifyRecordResponse
+   * 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
+   * 
+   * @param request - CancelProjectModifyRecordRequest
+   * @returns CancelProjectModifyRecordResponse
    */
   async cancelProjectModifyRecord(request: CancelProjectModifyRecordRequest): Promise<CancelProjectModifyRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26107,11 +45116,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建备份任务下载链接
-   *
-   * @param request CreateBackupSetDownloadLinkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateBackupSetDownloadLinkResponse
+   * 创建备份任务下载链接
+   * 
+   * @param request - CreateBackupSetDownloadLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupSetDownloadLinkResponse
    */
   async createBackupSetDownloadLinkWithOptions(request: CreateBackupSetDownloadLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupSetDownloadLinkResponse> {
     Util.validateModel(request);
@@ -26142,10 +45151,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建备份任务下载链接
-   *
-   * @param request CreateBackupSetDownloadLinkRequest
-   * @return CreateBackupSetDownloadLinkResponse
+   * 创建备份任务下载链接
+   * 
+   * @param request - CreateBackupSetDownloadLinkRequest
+   * @returns CreateBackupSetDownloadLinkResponse
    */
   async createBackupSetDownloadLink(request: CreateBackupSetDownloadLinkRequest): Promise<CreateBackupSetDownloadLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26153,11 +45162,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request CreateDatabaseRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDatabaseResponse
+   * The request ID.
+   * 
+   * @param request - CreateDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseResponse
    */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
@@ -26208,10 +45217,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request CreateDatabaseRequest
-   * @return CreateDatabaseResponse
+   * The request ID.
+   * 
+   * @param request - CreateDatabaseRequest
+   * @returns CreateDatabaseResponse
    */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26219,11 +45228,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create an OceanBase cluster.
-   *
-   * @param request CreateInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * You can call this operation to create an OceanBase cluster.
+   * 
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -26322,10 +45331,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create an OceanBase cluster.
-   *
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * You can call this operation to create an OceanBase cluster.
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26333,11 +45342,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建标签
-   *
-   * @param request CreateLabelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLabelResponse
+   * 创建标签
+   * 
+   * @param request - CreateLabelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLabelResponse
    */
   async createLabelWithOptions(request: CreateLabelRequest, runtime: $Util.RuntimeOptions): Promise<CreateLabelResponse> {
     Util.validateModel(request);
@@ -26364,10 +45373,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建标签
-   *
-   * @param request CreateLabelRequest
-   * @return CreateLabelResponse
+   * 创建标签
+   * 
+   * @param request - CreateLabelRequest
+   * @returns CreateLabelResponse
    */
   async createLabel(request: CreateLabelRequest): Promise<CreateLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26375,11 +45384,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建 MySQL 数据源
-   *
-   * @param request CreateMySqlDataSourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMySqlDataSourceResponse
+   * 创建 MySQL 数据源
+   * 
+   * @param request - CreateMySqlDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMySqlDataSourceResponse
    */
   async createMySqlDataSourceWithOptions(request: CreateMySqlDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateMySqlDataSourceResponse> {
     Util.validateModel(request);
@@ -26450,10 +45459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建 MySQL 数据源
-   *
-   * @param request CreateMySqlDataSourceRequest
-   * @return CreateMySqlDataSourceResponse
+   * 创建 MySQL 数据源
+   * 
+   * @param request - CreateMySqlDataSourceRequest
+   * @returns CreateMySqlDataSourceResponse
    */
   async createMySqlDataSource(request: CreateMySqlDataSourceRequest): Promise<CreateMySqlDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26461,11 +45470,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建 OceanBase 数据源
-   *
-   * @param request CreateOceanBaseDataSourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOceanBaseDataSourceResponse
+   * 创建 OceanBase 数据源
+   * 
+   * @param request - CreateOceanBaseDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOceanBaseDataSourceResponse
    */
   async createOceanBaseDataSourceWithOptions(request: CreateOceanBaseDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateOceanBaseDataSourceResponse> {
     Util.validateModel(request);
@@ -26552,10 +45561,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建 OceanBase 数据源
-   *
-   * @param request CreateOceanBaseDataSourceRequest
-   * @return CreateOceanBaseDataSourceResponse
+   * 创建 OceanBase 数据源
+   * 
+   * @param request - CreateOceanBaseDataSourceRequest
+   * @returns CreateOceanBaseDataSourceResponse
    */
   async createOceanBaseDataSource(request: CreateOceanBaseDataSourceRequest): Promise<CreateOceanBaseDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26563,13 +45572,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a MySQL data source.
-   *
-   * @description To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
-   *
-   * @param request CreateOmsMysqlDataSourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOmsMysqlDataSourceResponse
+   * You can call this operation to create a MySQL data source.
+   * 
+   * @remarks
+   * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+   * 
+   * @param request - CreateOmsMysqlDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOmsMysqlDataSourceResponse
    */
   async createOmsMysqlDataSourceWithOptions(request: CreateOmsMysqlDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateOmsMysqlDataSourceResponse> {
     Util.validateModel(request);
@@ -26636,12 +45646,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a MySQL data source.
-   *
-   * @description To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
-   *
-   * @param request CreateOmsMysqlDataSourceRequest
-   * @return CreateOmsMysqlDataSourceResponse
+   * You can call this operation to create a MySQL data source.
+   * 
+   * @remarks
+   * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+   * 
+   * @param request - CreateOmsMysqlDataSourceRequest
+   * @returns CreateOmsMysqlDataSourceResponse
    */
   async createOmsMysqlDataSource(request: CreateOmsMysqlDataSourceRequest): Promise<CreateOmsMysqlDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26649,11 +45660,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建项目
-   *
-   * @param tmpReq CreateProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateProjectResponse
+   * 创建项目
+   * 
+   * @param tmpReq - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
    */
   async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(tmpReq);
@@ -26786,10 +45797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建项目
-   *
-   * @param request CreateProjectRequest
-   * @return CreateProjectResponse
+   * 创建项目
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
    */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26797,11 +45808,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
-   *
-   * @param tmpReq CreateProjectModifyRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateProjectModifyRecordsResponse
+   * 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
+   * 
+   * @param tmpReq - CreateProjectModifyRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectModifyRecordsResponse
    */
   async createProjectModifyRecordsWithOptions(tmpReq: CreateProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectModifyRecordsResponse> {
     Util.validateModel(tmpReq);
@@ -26838,10 +45849,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
-   *
-   * @param request CreateProjectModifyRecordsRequest
-   * @return CreateProjectModifyRecordsResponse
+   * 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
+   * 
+   * @param request - CreateProjectModifyRecordsRequest
+   * @returns CreateProjectModifyRecordsResponse
    */
   async createProjectModifyRecords(request: CreateProjectModifyRecordsRequest): Promise<CreateProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26849,11 +45860,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建RDS PG 数据源
-   *
-   * @param request CreateRdsPostgreSQLDataSourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRdsPostgreSQLDataSourceResponse
+   * 创建RDS PG 数据源
+   * 
+   * @param request - CreateRdsPostgreSQLDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRdsPostgreSQLDataSourceResponse
    */
   async createRdsPostgreSQLDataSourceWithOptions(request: CreateRdsPostgreSQLDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRdsPostgreSQLDataSourceResponse> {
     Util.validateModel(request);
@@ -26900,10 +45911,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建RDS PG 数据源
-   *
-   * @param request CreateRdsPostgreSQLDataSourceRequest
-   * @return CreateRdsPostgreSQLDataSourceResponse
+   * 创建RDS PG 数据源
+   * 
+   * @param request - CreateRdsPostgreSQLDataSourceRequest
+   * @returns CreateRdsPostgreSQLDataSourceResponse
    */
   async createRdsPostgreSQLDataSource(request: CreateRdsPostgreSQLDataSourceRequest): Promise<CreateRdsPostgreSQLDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26911,11 +45922,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the whitelist group.
-   *
-   * @param request CreateSecurityIpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSecurityIpGroupResponse
+   * The name of the whitelist group.
+   * 
+   * @param request - CreateSecurityIpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityIpGroupResponse
    */
   async createSecurityIpGroupWithOptions(request: CreateSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityIpGroupResponse> {
     Util.validateModel(request);
@@ -26950,10 +45961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the whitelist group.
-   *
-   * @param request CreateSecurityIpGroupRequest
-   * @return CreateSecurityIpGroupResponse
+   * The name of the whitelist group.
+   * 
+   * @param request - CreateSecurityIpGroupRequest
+   * @returns CreateSecurityIpGroupResponse
    */
   async createSecurityIpGroup(request: CreateSecurityIpGroupRequest): Promise<CreateSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26961,11 +45972,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a tag group.
-   *
-   * @param request CreateTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTagResponse
+   * You can call this operation to create a tag group.
+   * 
+   * @param request - CreateTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagResponse
    */
   async createTagWithOptions(request: CreateTagRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagResponse> {
     Util.validateModel(request);
@@ -26996,10 +46007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a tag group.
-   *
-   * @param request CreateTagRequest
-   * @return CreateTagResponse
+   * You can call this operation to create a tag group.
+   * 
+   * @param request - CreateTagRequest
+   * @returns CreateTagResponse
    */
   async createTag(request: CreateTagRequest): Promise<CreateTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27007,11 +46018,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a tag.
-   *
-   * @param request CreateTagValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTagValueResponse
+   * You can call this operation to create a tag.
+   * 
+   * @param request - CreateTagValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagValueResponse
    */
   async createTagValueWithOptions(request: CreateTagValueRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagValueResponse> {
     Util.validateModel(request);
@@ -27046,10 +46057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a tag.
-   *
-   * @param request CreateTagValueRequest
-   * @return CreateTagValueResponse
+   * You can call this operation to create a tag.
+   * 
+   * @param request - CreateTagValueRequest
+   * @returns CreateTagValueResponse
    */
   async createTagValue(request: CreateTagValueRequest): Promise<CreateTagValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27057,11 +46068,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a tenant.
-   *
-   * @param tmpReq CreateTenantRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTenantResponse
+   * You can call this operation to create a tenant.
+   * 
+   * @param tmpReq - CreateTenantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTenantResponse
    */
   async createTenantWithOptions(tmpReq: CreateTenantRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantResponse> {
     Util.validateModel(tmpReq);
@@ -27154,10 +46165,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create a tenant.
-   *
-   * @param request CreateTenantRequest
-   * @return CreateTenantResponse
+   * You can call this operation to create a tenant.
+   * 
+   * @param request - CreateTenantRequest
+   * @returns CreateTenantResponse
    */
   async createTenant(request: CreateTenantRequest): Promise<CreateTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27165,11 +46176,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request CreateTenantReadOnlyConnectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTenantReadOnlyConnectionResponse
+   * The request ID.
+   * 
+   * @param request - CreateTenantReadOnlyConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTenantReadOnlyConnectionResponse
    */
   async createTenantReadOnlyConnectionWithOptions(request: CreateTenantReadOnlyConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantReadOnlyConnectionResponse> {
     Util.validateModel(request);
@@ -27212,10 +46223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request CreateTenantReadOnlyConnectionRequest
-   * @return CreateTenantReadOnlyConnectionResponse
+   * The request ID.
+   * 
+   * @param request - CreateTenantReadOnlyConnectionRequest
+   * @returns CreateTenantReadOnlyConnectionResponse
    */
   async createTenantReadOnlyConnection(request: CreateTenantReadOnlyConnectionRequest): Promise<CreateTenantReadOnlyConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27223,11 +46234,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create the security whitelist for the tenant.
-   *
-   * @param request CreateTenantSecurityIpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTenantSecurityIpGroupResponse
+   * You can call this operation to create the security whitelist for the tenant.
+   * 
+   * @param request - CreateTenantSecurityIpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTenantSecurityIpGroupResponse
    */
   async createTenantSecurityIpGroupWithOptions(request: CreateTenantSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantSecurityIpGroupResponse> {
     Util.validateModel(request);
@@ -27266,10 +46277,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to create the security whitelist for the tenant.
-   *
-   * @param request CreateTenantSecurityIpGroupRequest
-   * @return CreateTenantSecurityIpGroupResponse
+   * You can call this operation to create the security whitelist for the tenant.
+   * 
+   * @param request - CreateTenantSecurityIpGroupRequest
+   * @returns CreateTenantSecurityIpGroupResponse
    */
   async createTenantSecurityIpGroup(request: CreateTenantSecurityIpGroupRequest): Promise<CreateTenantSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27277,11 +46288,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateTenantUser
-   *
-   * @param request CreateTenantUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTenantUserResponse
+   * CreateTenantUser
+   * 
+   * @param request - CreateTenantUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTenantUserResponse
    */
   async createTenantUserWithOptions(request: CreateTenantUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateTenantUserResponse> {
     Util.validateModel(request);
@@ -27336,10 +46347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateTenantUser
-   *
-   * @param request CreateTenantUserRequest
-   * @return CreateTenantUserResponse
+   * CreateTenantUser
+   * 
+   * @param request - CreateTenantUserRequest
+   * @returns CreateTenantUserResponse
    */
   async createTenantUser(request: CreateTenantUserRequest): Promise<CreateTenantUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27347,11 +46358,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据源
-   *
-   * @param request DeleteDataSourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDataSourceResponse
+   * 删除数据源
+   * 
+   * @param request - DeleteDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataSourceResponse
    */
   async deleteDataSourceWithOptions(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
     Util.validateModel(request);
@@ -27378,10 +46389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据源
-   *
-   * @param request DeleteDataSourceRequest
-   * @return DeleteDataSourceResponse
+   * 删除数据源
+   * 
+   * @param request - DeleteDataSourceRequest
+   * @returns DeleteDataSourceResponse
    */
   async deleteDataSource(request: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27389,11 +46400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request DeleteDatabasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDatabasesResponse
+   * The request ID.
+   * 
+   * @param request - DeleteDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatabasesResponse
    */
   async deleteDatabasesWithOptions(request: DeleteDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabasesResponse> {
     Util.validateModel(request);
@@ -27428,10 +46439,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request DeleteDatabasesRequest
-   * @return DeleteDatabasesResponse
+   * The request ID.
+   * 
+   * @param request - DeleteDatabasesRequest
+   * @returns DeleteDatabasesResponse
    */
   async deleteDatabases(request: DeleteDatabasesRequest): Promise<DeleteDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27439,15 +46450,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to release an OceanBase cluster.
-   *
-   * @description Before you call this operation, ensure that the following requirements are met:
+   * You can call this operation to release an OceanBase cluster.
+   * 
+   * @remarks
+   * Before you call this operation, ensure that the following requirements are met:
    * - The cluster is in the Running state.
    * - The cluster is a primary cluster and the billing method is pay-as-you-go.
-   *
-   * @param request DeleteInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstancesResponse
+   * 
+   * @param request - DeleteInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstancesResponse
    */
   async deleteInstancesWithOptions(request: DeleteInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstancesResponse> {
     Util.validateModel(request);
@@ -27482,14 +46494,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to release an OceanBase cluster.
-   *
-   * @description Before you call this operation, ensure that the following requirements are met:
+   * You can call this operation to release an OceanBase cluster.
+   * 
+   * @remarks
+   * Before you call this operation, ensure that the following requirements are met:
    * - The cluster is in the Running state.
    * - The cluster is a primary cluster and the billing method is pay-as-you-go.
-   *
-   * @param request DeleteInstancesRequest
-   * @return DeleteInstancesResponse
+   * 
+   * @param request - DeleteInstancesRequest
+   * @returns DeleteInstancesResponse
    */
   async deleteInstances(request: DeleteInstancesRequest): Promise<DeleteInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27497,11 +46510,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除项目
-   *
-   * @param request DeleteProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteProjectResponse
+   * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
    */
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
@@ -27528,10 +46541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除项目
-   *
-   * @param request DeleteProjectRequest
-   * @return DeleteProjectResponse
+   * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
    */
   async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27539,11 +46552,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the deleted IP address whitelist group.
-   *
-   * @param request DeleteSecurityIpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSecurityIpGroupResponse
+   * The name of the deleted IP address whitelist group.
+   * 
+   * @param request - DeleteSecurityIpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityIpGroupResponse
    */
   async deleteSecurityIpGroupWithOptions(request: DeleteSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityIpGroupResponse> {
     Util.validateModel(request);
@@ -27574,10 +46587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the deleted IP address whitelist group.
-   *
-   * @param request DeleteSecurityIpGroupRequest
-   * @return DeleteSecurityIpGroupResponse
+   * The name of the deleted IP address whitelist group.
+   * 
+   * @param request - DeleteSecurityIpGroupRequest
+   * @returns DeleteSecurityIpGroupResponse
    */
   async deleteSecurityIpGroup(request: DeleteSecurityIpGroupRequest): Promise<DeleteSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27585,11 +46598,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete a tag group.
-   *
-   * @param request DeleteTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTagResponse
+   * You can call this operation to delete a tag group.
+   * 
+   * @param request - DeleteTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagResponse
    */
   async deleteTagWithOptions(request: DeleteTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResponse> {
     Util.validateModel(request);
@@ -27616,10 +46629,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete a tag group.
-   *
-   * @param request DeleteTagRequest
-   * @return DeleteTagResponse
+   * You can call this operation to delete a tag group.
+   * 
+   * @param request - DeleteTagRequest
+   * @returns DeleteTagResponse
    */
   async deleteTag(request: DeleteTagRequest): Promise<DeleteTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27627,11 +46640,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete a tag from a tag group.
-   *
-   * @param request DeleteTagValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTagValueResponse
+   * You can call this operation to delete a tag from a tag group.
+   * 
+   * @param request - DeleteTagValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagValueResponse
    */
   async deleteTagValueWithOptions(request: DeleteTagValueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagValueResponse> {
     Util.validateModel(request);
@@ -27662,10 +46675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete a tag from a tag group.
-   *
-   * @param request DeleteTagValueRequest
-   * @return DeleteTagValueResponse
+   * You can call this operation to delete a tag from a tag group.
+   * 
+   * @param request - DeleteTagValueRequest
+   * @returns DeleteTagValueResponse
    */
   async deleteTagValue(request: DeleteTagValueRequest): Promise<DeleteTagValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27673,11 +46686,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete the information on the whitelist group of the tenant.
-   *
-   * @param request DeleteTenantSecurityIpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTenantSecurityIpGroupResponse
+   * You can call this operation to delete the information on the whitelist group of the tenant.
+   * 
+   * @param request - DeleteTenantSecurityIpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTenantSecurityIpGroupResponse
    */
   async deleteTenantSecurityIpGroupWithOptions(request: DeleteTenantSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTenantSecurityIpGroupResponse> {
     Util.validateModel(request);
@@ -27712,10 +46725,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete the information on the whitelist group of the tenant.
-   *
-   * @param request DeleteTenantSecurityIpGroupRequest
-   * @return DeleteTenantSecurityIpGroupResponse
+   * You can call this operation to delete the information on the whitelist group of the tenant.
+   * 
+   * @param request - DeleteTenantSecurityIpGroupRequest
+   * @returns DeleteTenantSecurityIpGroupResponse
    */
   async deleteTenantSecurityIpGroup(request: DeleteTenantSecurityIpGroupRequest): Promise<DeleteTenantSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27723,11 +46736,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete one or more database accounts.
-   *
-   * @param request DeleteTenantUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTenantUsersResponse
+   * You can call this operation to delete one or more database accounts.
+   * 
+   * @param request - DeleteTenantUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTenantUsersResponse
    */
   async deleteTenantUsersWithOptions(request: DeleteTenantUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTenantUsersResponse> {
     Util.validateModel(request);
@@ -27762,10 +46775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to delete one or more database accounts.
-   *
-   * @param request DeleteTenantUsersRequest
-   * @return DeleteTenantUsersResponse
+   * You can call this operation to delete one or more database accounts.
+   * 
+   * @param request - DeleteTenantUsersRequest
+   * @returns DeleteTenantUsersResponse
    */
   async deleteTenantUsers(request: DeleteTenantUsersRequest): Promise<DeleteTenantUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27773,11 +46786,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request DeleteTenantsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTenantsResponse
+   * The return result of the request.
+   * 
+   * @param request - DeleteTenantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTenantsResponse
    */
   async deleteTenantsWithOptions(request: DeleteTenantsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTenantsResponse> {
     Util.validateModel(request);
@@ -27808,10 +46821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request DeleteTenantsRequest
-   * @return DeleteTenantsResponse
+   * The return result of the request.
+   * 
+   * @param request - DeleteTenantsRequest
+   * @returns DeleteTenantsResponse
    */
   async deleteTenants(request: DeleteTenantsRequest): Promise<DeleteTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27819,11 +46832,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
-   *
-   * @param tmpReq DescribeAnomalySQLListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAnomalySQLListResponse
+   * You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
+   * 
+   * @param tmpReq - DescribeAnomalySQLListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAnomalySQLListResponse
    */
   async describeAnomalySQLListWithOptions(tmpReq: DescribeAnomalySQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnomalySQLListResponse> {
     Util.validateModel(tmpReq);
@@ -27920,10 +46933,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
-   *
-   * @param request DescribeAnomalySQLListRequest
-   * @return DescribeAnomalySQLListResponse
+   * You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
+   * 
+   * @param request - DescribeAnomalySQLListRequest
+   * @returns DescribeAnomalySQLListResponse
    */
   async describeAnomalySQLList(request: DescribeAnomalySQLListRequest): Promise<DescribeAnomalySQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27931,11 +46944,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The maximum number of CPU cores per resource unit.
-   *
-   * @param request DescribeAvailableCpuResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAvailableCpuResourceResponse
+   * The maximum number of CPU cores per resource unit.
+   * 
+   * @param request - DescribeAvailableCpuResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableCpuResourceResponse
    */
   async describeAvailableCpuResourceWithOptions(request: DescribeAvailableCpuResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableCpuResourceResponse> {
     Util.validateModel(request);
@@ -27970,10 +46983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The maximum number of CPU cores per resource unit.
-   *
-   * @param request DescribeAvailableCpuResourceRequest
-   * @return DescribeAvailableCpuResourceResponse
+   * The maximum number of CPU cores per resource unit.
+   * 
+   * @param request - DescribeAvailableCpuResourceRequest
+   * @returns DescribeAvailableCpuResourceResponse
    */
   async describeAvailableCpuResource(request: DescribeAvailableCpuResourceRequest): Promise<DescribeAvailableCpuResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27981,11 +46994,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the available memory resource of an OceanBase Database tenant.
-   *
-   * @param request DescribeAvailableMemResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAvailableMemResourceResponse
+   * You can call this operation to query the available memory resource of an OceanBase Database tenant.
+   * 
+   * @param request - DescribeAvailableMemResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableMemResourceResponse
    */
   async describeAvailableMemResourceWithOptions(request: DescribeAvailableMemResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableMemResourceResponse> {
     Util.validateModel(request);
@@ -28024,10 +47037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the available memory resource of an OceanBase Database tenant.
-   *
-   * @param request DescribeAvailableMemResourceRequest
-   * @return DescribeAvailableMemResourceResponse
+   * You can call this operation to query the available memory resource of an OceanBase Database tenant.
+   * 
+   * @param request - DescribeAvailableMemResourceRequest
+   * @returns DescribeAvailableMemResourceResponse
    */
   async describeAvailableMemResource(request: DescribeAvailableMemResourceRequest): Promise<DescribeAvailableMemResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28035,11 +47048,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取集群变配页可选配置
-   *
-   * @param request DescribeAvailableSpecRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAvailableSpecResponse
+   * 获取集群变配页可选配置
+   * 
+   * @param request - DescribeAvailableSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableSpecResponse
    */
   async describeAvailableSpecWithOptions(request: DescribeAvailableSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableSpecResponse> {
     Util.validateModel(request);
@@ -28074,10 +47087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取集群变配页可选配置
-   *
-   * @param request DescribeAvailableSpecRequest
-   * @return DescribeAvailableSpecResponse
+   * 获取集群变配页可选配置
+   * 
+   * @param request - DescribeAvailableSpecRequest
+   * @returns DescribeAvailableSpecResponse
    */
   async describeAvailableSpec(request: DescribeAvailableSpecRequest): Promise<DescribeAvailableSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28085,11 +47098,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取集群售卖页可选配置
-   *
-   * @param request DescribeAvailableZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAvailableZoneResponse
+   * 获取集群售卖页可选配置
+   * 
+   * @param request - DescribeAvailableZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableZoneResponse
    */
   async describeAvailableZoneWithOptions(request: DescribeAvailableZoneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableZoneResponse> {
     Util.validateModel(request);
@@ -28136,10 +47149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取集群售卖页可选配置
-   *
-   * @param request DescribeAvailableZoneRequest
-   * @return DescribeAvailableZoneResponse
+   * 获取集群售卖页可选配置
+   * 
+   * @param request - DescribeAvailableZoneRequest
+   * @returns DescribeAvailableZoneResponse
    */
   async describeAvailableZone(request: DescribeAvailableZoneRequest): Promise<DescribeAvailableZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28147,11 +47160,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
-   *
-   * @param request DescribeBackupSetDownloadLinkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupSetDownloadLinkResponse
+   * You can call this operation to query the link for downloading a backup set of OceanBase Database.
+   * 
+   * @param request - DescribeBackupSetDownloadLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupSetDownloadLinkResponse
    */
   async describeBackupSetDownloadLinkWithOptions(request: DescribeBackupSetDownloadLinkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetDownloadLinkResponse> {
     Util.validateModel(request);
@@ -28182,10 +47195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
-   *
-   * @param request DescribeBackupSetDownloadLinkRequest
-   * @return DescribeBackupSetDownloadLinkResponse
+   * You can call this operation to query the link for downloading a backup set of OceanBase Database.
+   * 
+   * @param request - DescribeBackupSetDownloadLinkRequest
+   * @returns DescribeBackupSetDownloadLinkResponse
    */
   async describeBackupSetDownloadLink(request: DescribeBackupSetDownloadLinkRequest): Promise<DescribeBackupSetDownloadLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28193,11 +47206,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the character sets of an OceanBase Database tenant.
-   *
-   * @param request DescribeCharsetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCharsetResponse
+   * You can call this operation to query the character sets of an OceanBase Database tenant.
+   * 
+   * @param request - DescribeCharsetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCharsetResponse
    */
   async describeCharsetWithOptions(request: DescribeCharsetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharsetResponse> {
     Util.validateModel(request);
@@ -28232,10 +47245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the character sets of an OceanBase Database tenant.
-   *
-   * @param request DescribeCharsetRequest
-   * @return DescribeCharsetResponse
+   * You can call this operation to query the character sets of an OceanBase Database tenant.
+   * 
+   * @param request - DescribeCharsetRequest
+   * @returns DescribeCharsetResponse
    */
   async describeCharset(request: DescribeCharsetRequest): Promise<DescribeCharsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28243,11 +47256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询备份集信息
-   *
-   * @param request DescribeDataBackupSetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataBackupSetResponse
+   * 查询备份集信息
+   * 
+   * @param request - DescribeDataBackupSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataBackupSetResponse
    */
   async describeDataBackupSetWithOptions(request: DescribeDataBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataBackupSetResponse> {
     Util.validateModel(request);
@@ -28298,10 +47311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询备份集信息
-   *
-   * @param request DescribeDataBackupSetRequest
-   * @return DescribeDataBackupSetResponse
+   * 查询备份集信息
+   * 
+   * @param request - DescribeDataBackupSetRequest
+   * @returns DescribeDataBackupSetResponse
    */
   async describeDataBackupSet(request: DescribeDataBackupSetRequest): Promise<DescribeDataBackupSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28309,11 +47322,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query databases in a tenant.
-   *
-   * @param request DescribeDatabasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDatabasesResponse
+   * You can call this operation to query databases in a tenant.
+   * 
+   * @param request - DescribeDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDatabasesResponse
    */
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
@@ -28364,10 +47377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query databases in a tenant.
-   *
-   * @param request DescribeDatabasesRequest
-   * @return DescribeDatabasesResponse
+   * You can call this operation to query databases in a tenant.
+   * 
+   * @param request - DescribeDatabasesRequest
+   * @returns DescribeDatabasesResponse
    */
   async describeDatabases(request: DescribeDatabasesRequest): Promise<DescribeDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28375,11 +47388,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The size of used memory in the cluster, in GB.
-   *
-   * @param request DescribeInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceResponse
+   * The size of used memory in the cluster, in GB.
+   * 
+   * @param request - DescribeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceResponse
    */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
@@ -28414,10 +47427,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The size of used memory in the cluster, in GB.
-   *
-   * @param request DescribeInstanceRequest
-   * @return DescribeInstanceResponse
+   * The size of used memory in the cluster, in GB.
+   * 
+   * @param request - DescribeInstanceRequest
+   * @returns DescribeInstanceResponse
    */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28425,11 +47438,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the zone.
-   *
-   * @param request DescribeInstanceCreatableZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceCreatableZoneResponse
+   * The ID of the zone.
+   * 
+   * @param request - DescribeInstanceCreatableZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceCreatableZoneResponse
    */
   async describeInstanceCreatableZoneWithOptions(request: DescribeInstanceCreatableZoneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceCreatableZoneResponse> {
     Util.validateModel(request);
@@ -28456,10 +47469,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the zone.
-   *
-   * @param request DescribeInstanceCreatableZoneRequest
-   * @return DescribeInstanceCreatableZoneResponse
+   * The ID of the zone.
+   * 
+   * @param request - DescribeInstanceCreatableZoneRequest
+   * @returns DescribeInstanceCreatableZoneResponse
    */
   async describeInstanceCreatableZone(request: DescribeInstanceCreatableZoneRequest): Promise<DescribeInstanceCreatableZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28467,11 +47480,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询集群SSL配置
-   *
-   * @param request DescribeInstanceSSLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceSSLResponse
+   * 查询集群SSL配置
+   * 
+   * @param request - DescribeInstanceSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSSLResponse
    */
   async describeInstanceSSLWithOptions(request: DescribeInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSSLResponse> {
     Util.validateModel(request);
@@ -28498,10 +47511,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询集群SSL配置
-   *
-   * @param request DescribeInstanceSSLRequest
-   * @return DescribeInstanceSSLResponse
+   * 查询集群SSL配置
+   * 
+   * @param request - DescribeInstanceSSLRequest
+   * @returns DescribeInstanceSSLResponse
    */
   async describeInstanceSSL(request: DescribeInstanceSSLRequest): Promise<DescribeInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28509,11 +47522,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query security check items of an OceanBase cluster.
-   *
-   * @param request DescribeInstanceSecurityConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceSecurityConfigsResponse
+   * You can call this operation to query security check items of an OceanBase cluster.
+   * 
+   * @param request - DescribeInstanceSecurityConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSecurityConfigsResponse
    */
   async describeInstanceSecurityConfigsWithOptions(request: DescribeInstanceSecurityConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSecurityConfigsResponse> {
     Util.validateModel(request);
@@ -28544,10 +47557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query security check items of an OceanBase cluster.
-   *
-   * @param request DescribeInstanceSecurityConfigsRequest
-   * @return DescribeInstanceSecurityConfigsResponse
+   * You can call this operation to query security check items of an OceanBase cluster.
+   * 
+   * @param request - DescribeInstanceSecurityConfigsRequest
+   * @returns DescribeInstanceSecurityConfigsResponse
    */
   async describeInstanceSecurityConfigs(request: DescribeInstanceSecurityConfigsRequest): Promise<DescribeInstanceSecurityConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28555,11 +47568,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the tags of clusters.
-   *
-   * @param request DescribeInstanceTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceTagsResponse
+   * You can call this operation to query the tags of clusters.
+   * 
+   * @param request - DescribeInstanceTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceTagsResponse
    */
   async describeInstanceTagsWithOptions(request: DescribeInstanceTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTagsResponse> {
     Util.validateModel(request);
@@ -28590,10 +47603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the tags of clusters.
-   *
-   * @param request DescribeInstanceTagsRequest
-   * @return DescribeInstanceTagsResponse
+   * You can call this operation to query the tags of clusters.
+   * 
+   * @param request - DescribeInstanceTagsRequest
+   * @returns DescribeInstanceTagsResponse
    */
   async describeInstanceTags(request: DescribeInstanceTagsRequest): Promise<DescribeInstanceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28601,11 +47614,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request DescribeInstanceTenantModesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceTenantModesResponse
+   * The return result of the request.
+   * 
+   * @param request - DescribeInstanceTenantModesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceTenantModesResponse
    */
   async describeInstanceTenantModesWithOptions(request: DescribeInstanceTenantModesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTenantModesResponse> {
     Util.validateModel(request);
@@ -28632,10 +47645,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request DescribeInstanceTenantModesRequest
-   * @return DescribeInstanceTenantModesResponse
+   * The return result of the request.
+   * 
+   * @param request - DescribeInstanceTenantModesRequest
+   * @returns DescribeInstanceTenantModesResponse
    */
   async describeInstanceTenantModes(request: DescribeInstanceTenantModesRequest): Promise<DescribeInstanceTenantModesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28643,11 +47656,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the zone.
-   *
-   * @param request DescribeInstanceTopologyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceTopologyResponse
+   * The ID of the zone.
+   * 
+   * @param request - DescribeInstanceTopologyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceTopologyResponse
    */
   async describeInstanceTopologyWithOptions(request: DescribeInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTopologyResponse> {
     Util.validateModel(request);
@@ -28674,10 +47687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the zone.
-   *
-   * @param request DescribeInstanceTopologyRequest
-   * @return DescribeInstanceTopologyResponse
+   * The ID of the zone.
+   * 
+   * @param request - DescribeInstanceTopologyRequest
+   * @returns DescribeInstanceTopologyResponse
    */
   async describeInstanceTopology(request: DescribeInstanceTopologyRequest): Promise<DescribeInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28685,11 +47698,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the list of OceanBase clusters.
-   *
-   * @param request DescribeInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstancesResponse
+   * You can call this operation to obtain the list of OceanBase clusters.
+   * 
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -28736,10 +47749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the list of OceanBase clusters.
-   *
-   * @param request DescribeInstancesRequest
-   * @return DescribeInstancesResponse
+   * You can call this operation to obtain the list of OceanBase clusters.
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28747,11 +47760,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询监控指标数据
-   *
-   * @param request DescribeMetricsDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMetricsDataResponse
+   * 查询监控指标数据
+   * 
+   * @param request - DescribeMetricsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetricsDataResponse
    */
   async describeMetricsDataWithOptions(request: DescribeMetricsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricsDataResponse> {
     Util.validateModel(request);
@@ -28816,10 +47829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询监控指标数据
-   *
-   * @param request DescribeMetricsDataRequest
-   * @return DescribeMetricsDataResponse
+   * 查询监控指标数据
+   * 
+   * @param request - DescribeMetricsDataRequest
+   * @returns DescribeMetricsDataResponse
    */
   async describeMetricsData(request: DescribeMetricsDataRequest): Promise<DescribeMetricsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28827,11 +47840,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The list of nodes.
-   *
-   * @param request DescribeNodeMetricsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNodeMetricsResponse
+   * The list of nodes.
+   * 
+   * @param request - DescribeNodeMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNodeMetricsResponse
    */
   async describeNodeMetricsWithOptions(request: DescribeNodeMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeMetricsResponse> {
     Util.validateModel(request);
@@ -28890,10 +47903,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The list of nodes.
-   *
-   * @param request DescribeNodeMetricsRequest
-   * @return DescribeNodeMetricsResponse
+   * The list of nodes.
+   * 
+   * @param request - DescribeNodeMetricsRequest
+   * @returns DescribeNodeMetricsResponse
    */
   async describeNodeMetrics(request: DescribeNodeMetricsRequest): Promise<DescribeNodeMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28901,11 +47914,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
-   *
-   * @param request DescribeOasAnomalySQLListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOasAnomalySQLListResponse
+   * You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
+   * 
+   * @param request - DescribeOasAnomalySQLListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOasAnomalySQLListResponse
    */
   async describeOasAnomalySQLListWithOptions(request: DescribeOasAnomalySQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasAnomalySQLListResponse> {
     Util.validateModel(request);
@@ -29000,10 +48013,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
-   *
-   * @param request DescribeOasAnomalySQLListRequest
-   * @return DescribeOasAnomalySQLListResponse
+   * You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
+   * 
+   * @param request - DescribeOasAnomalySQLListRequest
+   * @returns DescribeOasAnomalySQLListResponse
    */
   async describeOasAnomalySQLList(request: DescribeOasAnomalySQLListRequest): Promise<DescribeOasAnomalySQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29011,11 +48024,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
-   *
-   * @param request DescribeOasSQLDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOasSQLDetailsResponse
+   * You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
+   * 
+   * @param request - DescribeOasSQLDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOasSQLDetailsResponse
    */
   async describeOasSQLDetailsWithOptions(request: DescribeOasSQLDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSQLDetailsResponse> {
     Util.validateModel(request);
@@ -29066,10 +48079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
-   *
-   * @param request DescribeOasSQLDetailsRequest
-   * @return DescribeOasSQLDetailsResponse
+   * You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
+   * 
+   * @param request - DescribeOasSQLDetailsRequest
+   * @returns DescribeOasSQLDetailsResponse
    */
   async describeOasSQLDetails(request: DescribeOasSQLDetailsRequest): Promise<DescribeOasSQLDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29077,11 +48090,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view the SQL execution history.
-   *
-   * @param request DescribeOasSQLHistoryListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOasSQLHistoryListResponse
+   * You can call this API to view the SQL execution history.
+   * 
+   * @param request - DescribeOasSQLHistoryListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOasSQLHistoryListResponse
    */
   async describeOasSQLHistoryListWithOptions(request: DescribeOasSQLHistoryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSQLHistoryListResponse> {
     Util.validateModel(request);
@@ -29140,10 +48153,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view the SQL execution history.
-   *
-   * @param request DescribeOasSQLHistoryListRequest
-   * @return DescribeOasSQLHistoryListResponse
+   * You can call this API to view the SQL execution history.
+   * 
+   * @param request - DescribeOasSQLHistoryListRequest
+   * @returns DescribeOasSQLHistoryListResponse
    */
   async describeOasSQLHistoryList(request: DescribeOasSQLHistoryListRequest): Promise<DescribeOasSQLHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29151,11 +48164,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
-   *
-   * @param request DescribeOasSQLPlansRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOasSQLPlansResponse
+   * You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
+   * 
+   * @param request - DescribeOasSQLPlansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOasSQLPlansResponse
    */
   async describeOasSQLPlansWithOptions(request: DescribeOasSQLPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSQLPlansResponse> {
     Util.validateModel(request);
@@ -29218,10 +48231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
-   *
-   * @param request DescribeOasSQLPlansRequest
-   * @return DescribeOasSQLPlansResponse
+   * You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
+   * 
+   * @param request - DescribeOasSQLPlansRequest
+   * @returns DescribeOasSQLPlansResponse
    */
   async describeOasSQLPlans(request: DescribeOasSQLPlansRequest): Promise<DescribeOasSQLPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29229,11 +48242,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view a list of slow queries.
-   *
-   * @param request DescribeOasSlowSQLListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOasSlowSQLListResponse
+   * You can call this API to view a list of slow queries.
+   * 
+   * @param request - DescribeOasSlowSQLListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOasSlowSQLListResponse
    */
   async describeOasSlowSQLListWithOptions(request: DescribeOasSlowSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasSlowSQLListResponse> {
     Util.validateModel(request);
@@ -29320,10 +48333,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view a list of slow queries.
-   *
-   * @param request DescribeOasSlowSQLListRequest
-   * @return DescribeOasSlowSQLListResponse
+   * You can call this API to view a list of slow queries.
+   * 
+   * @param request - DescribeOasSlowSQLListRequest
+   * @returns DescribeOasSlowSQLListResponse
    */
   async describeOasSlowSQLList(request: DescribeOasSlowSQLListRequest): Promise<DescribeOasSlowSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29331,11 +48344,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
-   *
-   * @param request DescribeOasTopSQLListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOasTopSQLListResponse
+   * You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
+   * 
+   * @param request - DescribeOasTopSQLListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOasTopSQLListResponse
    */
   async describeOasTopSQLListWithOptions(request: DescribeOasTopSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOasTopSQLListResponse> {
     Util.validateModel(request);
@@ -29422,10 +48435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
-   *
-   * @param request DescribeOasTopSQLListRequest
-   * @return DescribeOasTopSQLListResponse
+   * You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
+   * 
+   * @param request - DescribeOasTopSQLListRequest
+   * @returns DescribeOasTopSQLListResponse
    */
   async describeOasTopSQLList(request: DescribeOasTopSQLListRequest): Promise<DescribeOasTopSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29433,11 +48446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
-   *
-   * @param request DescribeOutlineBindingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOutlineBindingResponse
+   * You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
+   * 
+   * @param request - DescribeOutlineBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOutlineBindingResponse
    */
   async describeOutlineBindingWithOptions(request: DescribeOutlineBindingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutlineBindingResponse> {
     Util.validateModel(request);
@@ -29484,10 +48497,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
-   *
-   * @param request DescribeOutlineBindingRequest
-   * @return DescribeOutlineBindingResponse
+   * You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
+   * 
+   * @param request - DescribeOutlineBindingRequest
+   * @returns DescribeOutlineBindingResponse
    */
   async describeOutlineBinding(request: DescribeOutlineBindingRequest): Promise<DescribeOutlineBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29495,11 +48508,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
-   *
-   * @param request DescribeParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParametersResponse
+   * Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
+   * 
+   * @param request - DescribeParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParametersResponse
    */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
@@ -29534,10 +48547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
-   *
-   * @param request DescribeParametersRequest
-   * @return DescribeParametersResponse
+   * Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
+   * 
+   * @param request - DescribeParametersRequest
+   * @returns DescribeParametersResponse
    */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29545,11 +48558,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the modification history of cluster or tenant parameters.
-   *
-   * @param request DescribeParametersHistoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParametersHistoryResponse
+   * You can call this operation to query the modification history of cluster or tenant parameters.
+   * 
+   * @param request - DescribeParametersHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParametersHistoryResponse
    */
   async describeParametersHistoryWithOptions(request: DescribeParametersHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersHistoryResponse> {
     Util.validateModel(request);
@@ -29600,10 +48613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the modification history of cluster or tenant parameters.
-   *
-   * @param request DescribeParametersHistoryRequest
-   * @return DescribeParametersHistoryResponse
+   * You can call this operation to query the modification history of cluster or tenant parameters.
+   * 
+   * @param request - DescribeParametersHistoryRequest
+   * @returns DescribeParametersHistoryResponse
    */
   async describeParametersHistory(request: DescribeParametersHistoryRequest): Promise<DescribeParametersHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29611,11 +48624,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query session information.
-   *
-   * @param request DescribeProcessStatsCompositionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProcessStatsCompositionResponse
+   * You can call this operation to query session information.
+   * 
+   * @param request - DescribeProcessStatsCompositionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProcessStatsCompositionResponse
    */
   async describeProcessStatsCompositionWithOptions(request: DescribeProcessStatsCompositionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProcessStatsCompositionResponse> {
     Util.validateModel(request);
@@ -29670,10 +48683,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query session information.
-   *
-   * @param request DescribeProcessStatsCompositionRequest
-   * @return DescribeProcessStatsCompositionResponse
+   * You can call this operation to query session information.
+   * 
+   * @param request - DescribeProcessStatsCompositionRequest
+   * @returns DescribeProcessStatsCompositionResponse
    */
   async describeProcessStatsComposition(request: DescribeProcessStatsCompositionRequest): Promise<DescribeProcessStatsCompositionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29681,11 +48694,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目详情
-   *
-   * @param request DescribeProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProjectResponse
+   * 查询项目详情
+   * 
+   * @param request - DescribeProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectResponse
    */
   async describeProjectWithOptions(request: DescribeProjectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectResponse> {
     Util.validateModel(request);
@@ -29712,10 +48725,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目详情
-   *
-   * @param request DescribeProjectRequest
-   * @return DescribeProjectResponse
+   * 查询项目详情
+   * 
+   * @param request - DescribeProjectRequest
+   * @returns DescribeProjectResponse
    */
   async describeProject(request: DescribeProjectRequest): Promise<DescribeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29723,11 +48736,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目的组件信息
-   *
-   * @param request DescribeProjectComponentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProjectComponentsResponse
+   * 获取项目的组件信息
+   * 
+   * @param request - DescribeProjectComponentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectComponentsResponse
    */
   async describeProjectComponentsWithOptions(request: DescribeProjectComponentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectComponentsResponse> {
     Util.validateModel(request);
@@ -29754,10 +48767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目的组件信息
-   *
-   * @param request DescribeProjectComponentsRequest
-   * @return DescribeProjectComponentsResponse
+   * 获取项目的组件信息
+   * 
+   * @param request - DescribeProjectComponentsRequest
+   * @returns DescribeProjectComponentsResponse
    */
   async describeProjectComponents(request: DescribeProjectComponentsRequest): Promise<DescribeProjectComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29765,11 +48778,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取迁移/同步项目 Progress 信息
-   *
-   * @param request DescribeProjectProgressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProjectProgressResponse
+   * 获取迁移/同步项目 Progress 信息
+   * 
+   * @param request - DescribeProjectProgressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectProgressResponse
    */
   async describeProjectProgressWithOptions(request: DescribeProjectProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectProgressResponse> {
     Util.validateModel(request);
@@ -29796,10 +48809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取迁移/同步项目 Progress 信息
-   *
-   * @param request DescribeProjectProgressRequest
-   * @return DescribeProjectProgressResponse
+   * 获取迁移/同步项目 Progress 信息
+   * 
+   * @param request - DescribeProjectProgressRequest
+   * @returns DescribeProjectProgressResponse
    */
   async describeProjectProgress(request: DescribeProjectProgressRequest): Promise<DescribeProjectProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29807,11 +48820,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目步骤指标
-   *
-   * @param request DescribeProjectStepMetricRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProjectStepMetricResponse
+   * 查询项目步骤指标
+   * 
+   * @param request - DescribeProjectStepMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectStepMetricResponse
    */
   async describeProjectStepMetricWithOptions(request: DescribeProjectStepMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectStepMetricResponse> {
     Util.validateModel(request);
@@ -29862,10 +48875,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目步骤指标
-   *
-   * @param request DescribeProjectStepMetricRequest
-   * @return DescribeProjectStepMetricResponse
+   * 查询项目步骤指标
+   * 
+   * @param request - DescribeProjectStepMetricRequest
+   * @returns DescribeProjectStepMetricResponse
    */
   async describeProjectStepMetric(request: DescribeProjectStepMetricRequest): Promise<DescribeProjectStepMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29873,11 +48886,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目步骤
-   *
-   * @param request DescribeProjectStepsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProjectStepsResponse
+   * 查询项目步骤
+   * 
+   * @param request - DescribeProjectStepsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectStepsResponse
    */
   async describeProjectStepsWithOptions(request: DescribeProjectStepsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectStepsResponse> {
     Util.validateModel(request);
@@ -29904,10 +48917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目步骤
-   *
-   * @param request DescribeProjectStepsRequest
-   * @return DescribeProjectStepsResponse
+   * 查询项目步骤
+   * 
+   * @param request - DescribeProjectStepsRequest
+   * @returns DescribeProjectStepsResponse
    */
   async describeProjectSteps(request: DescribeProjectStepsRequest): Promise<DescribeProjectStepsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29915,13 +48928,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The tenant mode.   Valid values:  
+   * The tenant mode.   Valid values:  
    * Oracle   
    * MySQL
-   *
-   * @param request DescribeRecommendIndexRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecommendIndexResponse
+   * 
+   * @param request - DescribeRecommendIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecommendIndexResponse
    */
   async describeRecommendIndexWithOptions(request: DescribeRecommendIndexRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecommendIndexResponse> {
     Util.validateModel(request);
@@ -29956,12 +48969,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The tenant mode.   Valid values:  
+   * The tenant mode.   Valid values:  
    * Oracle   
    * MySQL
-   *
-   * @param request DescribeRecommendIndexRequest
-   * @return DescribeRecommendIndexResponse
+   * 
+   * @param request - DescribeRecommendIndexRequest
+   * @returns DescribeRecommendIndexResponse
    */
   async describeRecommendIndex(request: DescribeRecommendIndexRequest): Promise<DescribeRecommendIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29969,11 +48982,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The username.
-   *
-   * @param request DescribeSQLDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSQLDetailsResponse
+   * The username.
+   * 
+   * @param request - DescribeSQLDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLDetailsResponse
    */
   async describeSQLDetailsWithOptions(request: DescribeSQLDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLDetailsResponse> {
     Util.validateModel(request);
@@ -30004,10 +49017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The username.
-   *
-   * @param request DescribeSQLDetailsRequest
-   * @return DescribeSQLDetailsResponse
+   * The username.
+   * 
+   * @param request - DescribeSQLDetailsRequest
+   * @returns DescribeSQLDetailsResponse
    */
   async describeSQLDetails(request: DescribeSQLDetailsRequest): Promise<DescribeSQLDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30015,11 +49028,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
-   *
-   * @param request DescribeSQLHistoryListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSQLHistoryListResponse
+   * You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
+   * 
+   * @param request - DescribeSQLHistoryListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLHistoryListResponse
    */
   async describeSQLHistoryListWithOptions(request: DescribeSQLHistoryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLHistoryListResponse> {
     Util.validateModel(request);
@@ -30066,10 +49079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
-   *
-   * @param request DescribeSQLHistoryListRequest
-   * @return DescribeSQLHistoryListResponse
+   * You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
+   * 
+   * @param request - DescribeSQLHistoryListRequest
+   * @returns DescribeSQLHistoryListResponse
    */
   async describeSQLHistoryList(request: DescribeSQLHistoryListRequest): Promise<DescribeSQLHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30077,11 +49090,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
-   *
-   * @param request DescribeSQLPlansRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSQLPlansResponse
+   * You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
+   * 
+   * @param request - DescribeSQLPlansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLPlansResponse
    */
   async describeSQLPlansWithOptions(request: DescribeSQLPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLPlansResponse> {
     Util.validateModel(request);
@@ -30112,10 +49125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
-   *
-   * @param request DescribeSQLPlansRequest
-   * @return DescribeSQLPlansResponse
+   * You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
+   * 
+   * @param request - DescribeSQLPlansRequest
+   * @returns DescribeSQLPlansResponse
    */
   async describeSQLPlans(request: DescribeSQLPlansRequest): Promise<DescribeSQLPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30123,11 +49136,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view the sample data of the execution details of the slow queries.
-   *
-   * @param request DescribeSQLSamplesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSQLSamplesResponse
+   * You can call this API to view the sample data of the execution details of the slow queries.
+   * 
+   * @param request - DescribeSQLSamplesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLSamplesResponse
    */
   async describeSQLSamplesWithOptions(request: DescribeSQLSamplesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLSamplesResponse> {
     Util.validateModel(request);
@@ -30178,10 +49191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this API to view the sample data of the execution details of the slow queries.
-   *
-   * @param request DescribeSQLSamplesRequest
-   * @return DescribeSQLSamplesResponse
+   * You can call this API to view the sample data of the execution details of the slow queries.
+   * 
+   * @param request - DescribeSQLSamplesRequest
+   * @returns DescribeSQLSamplesResponse
    */
   async describeSQLSamples(request: DescribeSQLSamplesRequest): Promise<DescribeSQLSamplesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30189,11 +49202,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
-   *
-   * @param request DescribeSQLTuningAdvicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSQLTuningAdvicesResponse
+   * 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
+   * 
+   * @param request - DescribeSQLTuningAdvicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLTuningAdvicesResponse
    */
   async describeSQLTuningAdvicesWithOptions(request: DescribeSQLTuningAdvicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLTuningAdvicesResponse> {
     Util.validateModel(request);
@@ -30244,10 +49257,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
-   *
-   * @param request DescribeSQLTuningAdvicesRequest
-   * @return DescribeSQLTuningAdvicesResponse
+   * 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
+   * 
+   * @param request - DescribeSQLTuningAdvicesRequest
+   * @returns DescribeSQLTuningAdvicesResponse
    */
   async describeSQLTuningAdvices(request: DescribeSQLTuningAdvicesRequest): Promise<DescribeSQLTuningAdvicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30255,11 +49268,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询采样SQL的原始文本
-   *
-   * @param request DescribeSampleSqlRawTextsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSampleSqlRawTextsResponse
+   * 查询采样SQL的原始文本
+   * 
+   * @param request - DescribeSampleSqlRawTextsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSampleSqlRawTextsResponse
    */
   async describeSampleSqlRawTextsWithOptions(request: DescribeSampleSqlRawTextsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSampleSqlRawTextsResponse> {
     Util.validateModel(request);
@@ -30314,10 +49327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询采样SQL的原始文本
-   *
-   * @param request DescribeSampleSqlRawTextsRequest
-   * @return DescribeSampleSqlRawTextsResponse
+   * 查询采样SQL的原始文本
+   * 
+   * @param request - DescribeSampleSqlRawTextsRequest
+   * @returns DescribeSampleSqlRawTextsResponse
    */
   async describeSampleSqlRawTexts(request: DescribeSampleSqlRawTextsRequest): Promise<DescribeSampleSqlRawTextsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30325,11 +49338,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the security group.
-   *
-   * @param request DescribeSecurityIpGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSecurityIpGroupsResponse
+   * The name of the security group.
+   * 
+   * @param request - DescribeSecurityIpGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityIpGroupsResponse
    */
   async describeSecurityIpGroupsWithOptions(request: DescribeSecurityIpGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpGroupsResponse> {
     Util.validateModel(request);
@@ -30356,10 +49369,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the security group.
-   *
-   * @param request DescribeSecurityIpGroupsRequest
-   * @return DescribeSecurityIpGroupsResponse
+   * The name of the security group.
+   * 
+   * @param request - DescribeSecurityIpGroupsRequest
+   * @returns DescribeSecurityIpGroupsResponse
    */
   async describeSecurityIpGroups(request: DescribeSecurityIpGroupsRequest): Promise<DescribeSecurityIpGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30367,11 +49380,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
-   *
-   * @param request DescribeSessionListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSessionListResponse
+   * You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
+   * 
+   * @param request - DescribeSessionListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSessionListResponse
    */
   async describeSessionListWithOptions(request: DescribeSessionListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSessionListResponse> {
     Util.validateModel(request);
@@ -30402,10 +49415,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
-   *
-   * @param request DescribeSessionListRequest
-   * @return DescribeSessionListResponse
+   * You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
+   * 
+   * @param request - DescribeSessionListRequest
+   * @returns DescribeSessionListResponse
    */
   async describeSessionList(request: DescribeSessionListRequest): Promise<DescribeSessionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30413,11 +49426,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
-   *
-   * @param request DescribeSlowSQLHistoryListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlowSQLHistoryListResponse
+   * You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
+   * 
+   * @param request - DescribeSlowSQLHistoryListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowSQLHistoryListResponse
    */
   async describeSlowSQLHistoryListWithOptions(request: DescribeSlowSQLHistoryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowSQLHistoryListResponse> {
     Util.validateModel(request);
@@ -30464,10 +49477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
-   *
-   * @param request DescribeSlowSQLHistoryListRequest
-   * @return DescribeSlowSQLHistoryListResponse
+   * You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
+   * 
+   * @param request - DescribeSlowSQLHistoryListRequest
+   * @returns DescribeSlowSQLHistoryListResponse
    */
   async describeSlowSQLHistoryList(request: DescribeSlowSQLHistoryListRequest): Promise<DescribeSlowSQLHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30475,11 +49488,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the list of slow SQL statements
-   *
-   * @param tmpReq DescribeSlowSQLListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlowSQLListResponse
+   * You can call this operation to query the list of slow SQL statements
+   * 
+   * @param tmpReq - DescribeSlowSQLListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowSQLListResponse
    */
   async describeSlowSQLListWithOptions(tmpReq: DescribeSlowSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowSQLListResponse> {
     Util.validateModel(tmpReq);
@@ -30568,10 +49581,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the list of slow SQL statements
-   *
-   * @param request DescribeSlowSQLListRequest
-   * @return DescribeSlowSQLListResponse
+   * You can call this operation to query the list of slow SQL statements
+   * 
+   * @param request - DescribeSlowSQLListRequest
+   * @returns DescribeSlowSQLListResponse
    */
   async describeSlowSQLList(request: DescribeSlowSQLListRequest): Promise<DescribeSlowSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30579,11 +49592,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query tags.
-   *
-   * @param request DescribeTagValuesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTagValuesResponse
+   * You can call this operation to query tags.
+   * 
+   * @param request - DescribeTagValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagValuesResponse
    */
   async describeTagValuesWithOptions(request: DescribeTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagValuesResponse> {
     Util.validateModel(request);
@@ -30610,10 +49623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query tags.
-   *
-   * @param request DescribeTagValuesRequest
-   * @return DescribeTagValuesResponse
+   * You can call this operation to query tags.
+   * 
+   * @param request - DescribeTagValuesRequest
+   * @returns DescribeTagValuesResponse
    */
   async describeTagValues(request: DescribeTagValuesRequest): Promise<DescribeTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30621,11 +49634,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the VPC.
-   *
-   * @param request DescribeTenantRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantResponse
+   * The ID of the VPC.
+   * 
+   * @param request - DescribeTenantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantResponse
    */
   async describeTenantWithOptions(request: DescribeTenantRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantResponse> {
     Util.validateModel(request);
@@ -30656,10 +49669,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the VPC.
-   *
-   * @param request DescribeTenantRequest
-   * @return DescribeTenantResponse
+   * The ID of the VPC.
+   * 
+   * @param request - DescribeTenantRequest
+   * @returns DescribeTenantResponse
    */
   async describeTenant(request: DescribeTenantRequest): Promise<DescribeTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30667,11 +49680,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询租户加密信息
-   *
-   * @param request DescribeTenantEncryptionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantEncryptionResponse
+   * 查询租户加密信息
+   * 
+   * @param request - DescribeTenantEncryptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantEncryptionResponse
    */
   async describeTenantEncryptionWithOptions(request: DescribeTenantEncryptionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantEncryptionResponse> {
     Util.validateModel(request);
@@ -30714,10 +49727,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询租户加密信息
-   *
-   * @param request DescribeTenantEncryptionRequest
-   * @return DescribeTenantEncryptionResponse
+   * 查询租户加密信息
+   * 
+   * @param request - DescribeTenantEncryptionRequest
+   * @returns DescribeTenantEncryptionResponse
    */
   async describeTenantEncryption(request: DescribeTenantEncryptionRequest): Promise<DescribeTenantEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30725,11 +49738,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The list of tenant IDs.
-   *
-   * @param request DescribeTenantMetricsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantMetricsResponse
+   * The list of tenant IDs.
+   * 
+   * @param request - DescribeTenantMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantMetricsResponse
    */
   async describeTenantMetricsWithOptions(request: DescribeTenantMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantMetricsResponse> {
     Util.validateModel(request);
@@ -30788,10 +49801,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The list of tenant IDs.
-   *
-   * @param request DescribeTenantMetricsRequest
-   * @return DescribeTenantMetricsResponse
+   * The list of tenant IDs.
+   * 
+   * @param request - DescribeTenantMetricsRequest
+   * @returns DescribeTenantMetricsResponse
    */
   async describeTenantMetrics(request: DescribeTenantMetricsRequest): Promise<DescribeTenantMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30799,11 +49812,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the maximum readable timestamp of a tenant.
-   *
-   * @param request DescribeTenantReadableScnRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantReadableScnResponse
+   * You can call this operation to query the maximum readable timestamp of a tenant.
+   * 
+   * @param request - DescribeTenantReadableScnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantReadableScnResponse
    */
   async describeTenantReadableScnWithOptions(request: DescribeTenantReadableScnRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantReadableScnResponse> {
     Util.validateModel(request);
@@ -30834,10 +49847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the maximum readable timestamp of a tenant.
-   *
-   * @param request DescribeTenantReadableScnRequest
-   * @return DescribeTenantReadableScnResponse
+   * You can call this operation to query the maximum readable timestamp of a tenant.
+   * 
+   * @param request - DescribeTenantReadableScnRequest
+   * @returns DescribeTenantReadableScnResponse
    */
   async describeTenantReadableScn(request: DescribeTenantReadableScnRequest): Promise<DescribeTenantReadableScnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30845,11 +49858,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query security check items of an OceanBase Database tenant.
-   *
-   * @param request DescribeTenantSecurityConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantSecurityConfigsResponse
+   * You can call this operation to query security check items of an OceanBase Database tenant.
+   * 
+   * @param request - DescribeTenantSecurityConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantSecurityConfigsResponse
    */
   async describeTenantSecurityConfigsWithOptions(request: DescribeTenantSecurityConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantSecurityConfigsResponse> {
     Util.validateModel(request);
@@ -30884,10 +49897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query security check items of an OceanBase Database tenant.
-   *
-   * @param request DescribeTenantSecurityConfigsRequest
-   * @return DescribeTenantSecurityConfigsResponse
+   * You can call this operation to query security check items of an OceanBase Database tenant.
+   * 
+   * @param request - DescribeTenantSecurityConfigsRequest
+   * @returns DescribeTenantSecurityConfigsResponse
    */
   async describeTenantSecurityConfigs(request: DescribeTenantSecurityConfigsRequest): Promise<DescribeTenantSecurityConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30895,11 +49908,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to view the list of whitelist groups of the tenant.
-   *
-   * @param request DescribeTenantSecurityIpGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantSecurityIpGroupsResponse
+   * You can call this operation to view the list of whitelist groups of the tenant.
+   * 
+   * @param request - DescribeTenantSecurityIpGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantSecurityIpGroupsResponse
    */
   async describeTenantSecurityIpGroupsWithOptions(request: DescribeTenantSecurityIpGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantSecurityIpGroupsResponse> {
     Util.validateModel(request);
@@ -30930,10 +49943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to view the list of whitelist groups of the tenant.
-   *
-   * @param request DescribeTenantSecurityIpGroupsRequest
-   * @return DescribeTenantSecurityIpGroupsResponse
+   * You can call this operation to view the list of whitelist groups of the tenant.
+   * 
+   * @param request - DescribeTenantSecurityIpGroupsRequest
+   * @returns DescribeTenantSecurityIpGroupsResponse
    */
   async describeTenantSecurityIpGroups(request: DescribeTenantSecurityIpGroupsRequest): Promise<DescribeTenantSecurityIpGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30941,11 +49954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the tags of tenants in a cluster.
-   *
-   * @param request DescribeTenantTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantTagsResponse
+   * You can call this operation to query the tags of tenants in a cluster.
+   * 
+   * @param request - DescribeTenantTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantTagsResponse
    */
   async describeTenantTagsWithOptions(request: DescribeTenantTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantTagsResponse> {
     Util.validateModel(request);
@@ -30980,10 +49993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the tags of tenants in a cluster.
-   *
-   * @param request DescribeTenantTagsRequest
-   * @return DescribeTenantTagsResponse
+   * You can call this operation to query the tags of tenants in a cluster.
+   * 
+   * @param request - DescribeTenantTagsRequest
+   * @returns DescribeTenantTagsResponse
    */
   async describeTenantTags(request: DescribeTenantTagsRequest): Promise<DescribeTenantTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30991,11 +50004,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the account authorization information of the tenant.
-   *
-   * @param request DescribeTenantUserRolesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantUserRolesResponse
+   * You can call this operation to obtain the account authorization information of the tenant.
+   * 
+   * @param request - DescribeTenantUserRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantUserRolesResponse
    */
   async describeTenantUserRolesWithOptions(request: DescribeTenantUserRolesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantUserRolesResponse> {
     Util.validateModel(request);
@@ -31022,10 +50035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to obtain the account authorization information of the tenant.
-   *
-   * @param request DescribeTenantUserRolesRequest
-   * @return DescribeTenantUserRolesResponse
+   * You can call this operation to obtain the account authorization information of the tenant.
+   * 
+   * @param request - DescribeTenantUserRolesRequest
+   * @returns DescribeTenantUserRolesResponse
    */
   async describeTenantUserRoles(request: DescribeTenantUserRolesRequest): Promise<DescribeTenantUserRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31033,11 +50046,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request DescribeTenantUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantUsersResponse
+   * The return result of the request.
+   * 
+   * @param request - DescribeTenantUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantUsersResponse
    */
   async describeTenantUsersWithOptions(request: DescribeTenantUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantUsersResponse> {
     Util.validateModel(request);
@@ -31080,10 +50093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request DescribeTenantUsersRequest
-   * @return DescribeTenantUsersResponse
+   * The return result of the request.
+   * 
+   * @param request - DescribeTenantUsersRequest
+   * @returns DescribeTenantUsersResponse
    */
   async describeTenantUsers(request: DescribeTenantUsersRequest): Promise<DescribeTenantUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31091,11 +50104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether a read-only connection has been created.
-   *
-   * @param request DescribeTenantZonesReadRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantZonesReadResponse
+   * Indicates whether a read-only connection has been created.
+   * 
+   * @param request - DescribeTenantZonesReadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantZonesReadResponse
    */
   async describeTenantZonesReadWithOptions(request: DescribeTenantZonesReadRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantZonesReadResponse> {
     Util.validateModel(request);
@@ -31126,10 +50139,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether a read-only connection has been created.
-   *
-   * @param request DescribeTenantZonesReadRequest
-   * @return DescribeTenantZonesReadResponse
+   * Indicates whether a read-only connection has been created.
+   * 
+   * @param request - DescribeTenantZonesReadRequest
+   * @returns DescribeTenantZonesReadResponse
    */
   async describeTenantZonesRead(request: DescribeTenantZonesReadRequest): Promise<DescribeTenantZonesReadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31137,11 +50150,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The total memory size of the tenant, in GB.
-   *
-   * @param request DescribeTenantsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTenantsResponse
+   * The total memory size of the tenant, in GB.
+   * 
+   * @param request - DescribeTenantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTenantsResponse
    */
   async describeTenantsWithOptions(request: DescribeTenantsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTenantsResponse> {
     Util.validateModel(request);
@@ -31188,10 +50201,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The total memory size of the tenant, in GB.
-   *
-   * @param request DescribeTenantsRequest
-   * @return DescribeTenantsResponse
+   * The total memory size of the tenant, in GB.
+   * 
+   * @param request - DescribeTenantsRequest
+   * @returns DescribeTenantsResponse
    */
   async describeTenants(request: DescribeTenantsRequest): Promise<DescribeTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31199,11 +50212,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The time zones supported by the tenant.
-   *
-   * @param request DescribeTimeZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTimeZonesResponse
+   * The time zones supported by the tenant.
+   * 
+   * @param request - DescribeTimeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTimeZonesResponse
    */
   async describeTimeZonesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeTimeZonesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -31222,9 +50235,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The time zones supported by the tenant.
-   *
-   * @return DescribeTimeZonesResponse
+   * The time zones supported by the tenant.
+   * @returns DescribeTimeZonesResponse
    */
   async describeTimeZones(): Promise<DescribeTimeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31232,11 +50244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the database.
-   *
-   * @param tmpReq DescribeTopSQLListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTopSQLListResponse
+   * The name of the database.
+   * 
+   * @param tmpReq - DescribeTopSQLListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTopSQLListResponse
    */
   async describeTopSQLListWithOptions(tmpReq: DescribeTopSQLListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTopSQLListResponse> {
     Util.validateModel(tmpReq);
@@ -31325,10 +50337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the database.
-   *
-   * @param request DescribeTopSQLListRequest
-   * @return DescribeTopSQLListResponse
+   * The name of the database.
+   * 
+   * @param request - DescribeTopSQLListRequest
+   * @returns DescribeTopSQLListResponse
    */
   async describeTopSQLList(request: DescribeTopSQLListRequest): Promise<DescribeTopSQLListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31336,11 +50348,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The deployment mode.
-   *
-   * @param request DescribeZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeZonesResponse
+   * The deployment mode.
+   * 
+   * @param request - DescribeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesResponse
    */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
@@ -31375,10 +50387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The deployment mode.
-   *
-   * @param request DescribeZonesRequest
-   * @return DescribeZonesResponse
+   * The deployment mode.
+   * 
+   * @param request - DescribeZonesRequest
+   * @returns DescribeZonesResponse
    */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31386,11 +50398,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 公有云上传OSS 获取一个临时上传url
-   *
-   * @param request GetUploadOssUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUploadOssUrlResponse
+   * 公有云上传OSS 获取一个临时上传url
+   * 
+   * @param request - GetUploadOssUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadOssUrlResponse
    */
   async getUploadOssUrlWithOptions(request: GetUploadOssUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadOssUrlResponse> {
     Util.validateModel(request);
@@ -31421,10 +50433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 公有云上传OSS 获取一个临时上传url
-   *
-   * @param request GetUploadOssUrlRequest
-   * @return GetUploadOssUrlResponse
+   * 公有云上传OSS 获取一个临时上传url
+   * 
+   * @param request - GetUploadOssUrlRequest
+   * @returns GetUploadOssUrlResponse
    */
   async getUploadOssUrl(request: GetUploadOssUrlRequest): Promise<GetUploadOssUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31432,11 +50444,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to close a session.
-   *
-   * @param request KillProcessListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return KillProcessListResponse
+   * You can call this operation to close a session.
+   * 
+   * @param request - KillProcessListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns KillProcessListResponse
    */
   async killProcessListWithOptions(request: KillProcessListRequest, runtime: $Util.RuntimeOptions): Promise<KillProcessListResponse> {
     Util.validateModel(request);
@@ -31471,10 +50483,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to close a session.
-   *
-   * @param request KillProcessListRequest
-   * @return KillProcessListResponse
+   * You can call this operation to close a session.
+   * 
+   * @param request - KillProcessListRequest
+   * @returns KillProcessListResponse
    */
   async killProcessList(request: KillProcessListRequest): Promise<KillProcessListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31482,11 +50494,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询标签列表
-   *
-   * @param request ListAllLabelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAllLabelsResponse
+   * 查询标签列表
+   * 
+   * @param request - ListAllLabelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllLabelsResponse
    */
   async listAllLabelsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListAllLabelsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -31505,9 +50517,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询标签列表
-   *
-   * @return ListAllLabelsResponse
+   * 查询标签列表
+   * @returns ListAllLabelsResponse
    */
   async listAllLabels(): Promise<ListAllLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31515,11 +50526,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
-   *
-   * @param tmpReq ListDataSourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDataSourceResponse
+   * 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
+   * 
+   * @param tmpReq - ListDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourceResponse
    */
   async listDataSourceWithOptions(tmpReq: ListDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourceResponse> {
     Util.validateModel(tmpReq);
@@ -31572,10 +50583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
-   *
-   * @param request ListDataSourceRequest
-   * @return ListDataSourceResponse
+   * 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
+   * 
+   * @param request - ListDataSourceRequest
+   * @returns ListDataSourceResponse
    */
   async listDataSource(request: ListDataSourceRequest): Promise<ListDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31583,11 +50594,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目的全量校验结果
-   *
-   * @param tmpReq ListProjectFullVerifyResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectFullVerifyResultResponse
+   * 查询项目的全量校验结果
+   * 
+   * @param tmpReq - ListProjectFullVerifyResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectFullVerifyResultResponse
    */
   async listProjectFullVerifyResultWithOptions(tmpReq: ListProjectFullVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectFullVerifyResultResponse> {
     Util.validateModel(tmpReq);
@@ -31644,10 +50655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目的全量校验结果
-   *
-   * @param request ListProjectFullVerifyResultRequest
-   * @return ListProjectFullVerifyResultResponse
+   * 查询项目的全量校验结果
+   * 
+   * @param request - ListProjectFullVerifyResultRequest
+   * @returns ListProjectFullVerifyResultResponse
    */
   async listProjectFullVerifyResult(request: ListProjectFullVerifyResultRequest): Promise<ListProjectFullVerifyResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31655,11 +50666,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据项目 ID 查询项目的修改记录
-   *
-   * @param request ListProjectModifyRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectModifyRecordsResponse
+   * 根据项目 ID 查询项目的修改记录
+   * 
+   * @param request - ListProjectModifyRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectModifyRecordsResponse
    */
   async listProjectModifyRecordsWithOptions(request: ListProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectModifyRecordsResponse> {
     Util.validateModel(request);
@@ -31686,10 +50697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据项目 ID 查询项目的修改记录
-   *
-   * @param request ListProjectModifyRecordsRequest
-   * @return ListProjectModifyRecordsResponse
+   * 根据项目 ID 查询项目的修改记录
+   * 
+   * @param request - ListProjectModifyRecordsRequest
+   * @returns ListProjectModifyRecordsResponse
    */
   async listProjectModifyRecords(request: ListProjectModifyRecordsRequest): Promise<ListProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31697,11 +50708,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目列表
-   *
-   * @param tmpReq ListProjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectsResponse
+   * 查询项目列表
+   * 
+   * @param tmpReq - ListProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
    */
   async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
@@ -31790,10 +50801,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询项目列表
-   *
-   * @param request ListProjectsRequest
-   * @return ListProjectsResponse
+   * 查询项目列表
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
    */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31801,11 +50812,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询传输实例列表
-   *
-   * @param tmpReq ListWorkerInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWorkerInstancesResponse
+   * 查询传输实例列表
+   * 
+   * @param tmpReq - ListWorkerInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkerInstancesResponse
    */
   async listWorkerInstancesWithOptions(tmpReq: ListWorkerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkerInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -31862,10 +50873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询传输实例列表
-   *
-   * @param request ListWorkerInstancesRequest
-   * @return ListWorkerInstancesResponse
+   * 查询传输实例列表
+   * 
+   * @param request - ListWorkerInstancesRequest
+   * @returns ListWorkerInstancesResponse
    */
   async listWorkerInstances(request: ListWorkerInstancesRequest): Promise<ListWorkerInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31873,11 +50884,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request ModifyDatabaseDescriptionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDatabaseDescriptionResponse
+   * The request ID.
+   * 
+   * @param request - ModifyDatabaseDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDatabaseDescriptionResponse
    */
   async modifyDatabaseDescriptionWithOptions(request: ModifyDatabaseDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseDescriptionResponse> {
     Util.validateModel(request);
@@ -31916,10 +50927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request ModifyDatabaseDescriptionRequest
-   * @return ModifyDatabaseDescriptionResponse
+   * The request ID.
+   * 
+   * @param request - ModifyDatabaseDescriptionRequest
+   * @returns ModifyDatabaseDescriptionResponse
    */
   async modifyDatabaseDescription(request: ModifyDatabaseDescriptionRequest): Promise<ModifyDatabaseDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31927,11 +50938,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The accounts that have privileges on the database.
-   *
-   * @param request ModifyDatabaseUserRolesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDatabaseUserRolesResponse
+   * The accounts that have privileges on the database.
+   * 
+   * @param request - ModifyDatabaseUserRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDatabaseUserRolesResponse
    */
   async modifyDatabaseUserRolesWithOptions(request: ModifyDatabaseUserRolesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseUserRolesResponse> {
     Util.validateModel(request);
@@ -31970,10 +50981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The accounts that have privileges on the database.
-   *
-   * @param request ModifyDatabaseUserRolesRequest
-   * @return ModifyDatabaseUserRolesResponse
+   * The accounts that have privileges on the database.
+   * 
+   * @param request - ModifyDatabaseUserRolesRequest
+   * @returns ModifyDatabaseUserRolesResponse
    */
   async modifyDatabaseUserRoles(request: ModifyDatabaseUserRolesRequest): Promise<ModifyDatabaseUserRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31981,11 +50992,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the OceanBase cluster.
-   *
-   * @param request ModifyInstanceNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceNameResponse
+   * The name of the OceanBase cluster.
+   * 
+   * @param request - ModifyInstanceNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceNameResponse
    */
   async modifyInstanceNameWithOptions(request: ModifyInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNameResponse> {
     Util.validateModel(request);
@@ -32016,10 +51027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the OceanBase cluster.
-   *
-   * @param request ModifyInstanceNameRequest
-   * @return ModifyInstanceNameResponse
+   * The name of the OceanBase cluster.
+   * 
+   * @param request - ModifyInstanceNameRequest
+   * @returns ModifyInstanceNameResponse
    */
   async modifyInstanceName(request: ModifyInstanceNameRequest): Promise<ModifyInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32027,11 +51038,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the number of nodes in a cluster.
-   *
-   * @param request ModifyInstanceNodeNumRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceNodeNumResponse
+   * You can call this operation to modify the number of nodes in a cluster.
+   * 
+   * @param request - ModifyInstanceNodeNumRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceNodeNumResponse
    */
   async modifyInstanceNodeNumWithOptions(request: ModifyInstanceNodeNumRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNodeNumResponse> {
     Util.validateModel(request);
@@ -32066,10 +51077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the number of nodes in a cluster.
-   *
-   * @param request ModifyInstanceNodeNumRequest
-   * @return ModifyInstanceNodeNumResponse
+   * You can call this operation to modify the number of nodes in a cluster.
+   * 
+   * @param request - ModifyInstanceNodeNumRequest
+   * @returns ModifyInstanceNodeNumResponse
    */
   async modifyInstanceNodeNum(request: ModifyInstanceNodeNumRequest): Promise<ModifyInstanceNodeNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32077,13 +51088,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
-   *
-   * @description There is currently no authorization information disclosed in the API.
-   *
-   * @param request ModifyInstanceSSLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceSSLResponse
+   * You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
+   * 
+   * @remarks
+   * There is currently no authorization information disclosed in the API.
+   * 
+   * @param request - ModifyInstanceSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceSSLResponse
    */
   async modifyInstanceSSLWithOptions(request: ModifyInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSSLResponse> {
     Util.validateModel(request);
@@ -32114,12 +51126,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
-   *
-   * @description There is currently no authorization information disclosed in the API.
-   *
-   * @param request ModifyInstanceSSLRequest
-   * @return ModifyInstanceSSLResponse
+   * You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
+   * 
+   * @remarks
+   * There is currently no authorization information disclosed in the API.
+   * 
+   * @param request - ModifyInstanceSSLRequest
+   * @returns ModifyInstanceSSLResponse
    */
   async modifyInstanceSSL(request: ModifyInstanceSSLRequest): Promise<ModifyInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32127,11 +51140,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the cluster specifications and storage space.
-   *
-   * @param request ModifyInstanceSpecRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceSpecResponse
+   * You can call this operation to modify the cluster specifications and storage space.
+   * 
+   * @param request - ModifyInstanceSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceSpecResponse
    */
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
@@ -32178,10 +51191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the cluster specifications and storage space.
-   *
-   * @param request ModifyInstanceSpecRequest
-   * @return ModifyInstanceSpecResponse
+   * You can call this operation to modify the cluster specifications and storage space.
+   * 
+   * @param request - ModifyInstanceSpecRequest
+   * @returns ModifyInstanceSpecResponse
    */
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32189,11 +51202,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the tags of a cluster.
-   *
-   * @param request ModifyInstanceTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceTagsResponse
+   * You can call this operation to modify the tags of a cluster.
+   * 
+   * @param request - ModifyInstanceTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceTagsResponse
    */
   async modifyInstanceTagsWithOptions(request: ModifyInstanceTagsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTagsResponse> {
     Util.validateModel(request);
@@ -32224,10 +51237,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the tags of a cluster.
-   *
-   * @param request ModifyInstanceTagsRequest
-   * @return ModifyInstanceTagsResponse
+   * You can call this operation to modify the tags of a cluster.
+   * 
+   * @param request - ModifyInstanceTagsRequest
+   * @returns ModifyInstanceTagsResponse
    */
   async modifyInstanceTags(request: ModifyInstanceTagsRequest): Promise<ModifyInstanceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32235,11 +51248,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the temporary capacity of the OceanBase cluster.
-   *
-   * @param request ModifyInstanceTemporaryCapacityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceTemporaryCapacityResponse
+   * You can call this operation to modify the temporary capacity of the OceanBase cluster.
+   * 
+   * @param request - ModifyInstanceTemporaryCapacityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceTemporaryCapacityResponse
    */
   async modifyInstanceTemporaryCapacityWithOptions(request: ModifyInstanceTemporaryCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTemporaryCapacityResponse> {
     Util.validateModel(request);
@@ -32278,10 +51291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the temporary capacity of the OceanBase cluster.
-   *
-   * @param request ModifyInstanceTemporaryCapacityRequest
-   * @return ModifyInstanceTemporaryCapacityResponse
+   * You can call this operation to modify the temporary capacity of the OceanBase cluster.
+   * 
+   * @param request - ModifyInstanceTemporaryCapacityRequest
+   * @returns ModifyInstanceTemporaryCapacityResponse
    */
   async modifyInstanceTemporaryCapacity(request: ModifyInstanceTemporaryCapacityRequest): Promise<ModifyInstanceTemporaryCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32289,11 +51302,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The modification results.
-   *
-   * @param request ModifyParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyParametersResponse
+   * The modification results.
+   * 
+   * @param request - ModifyParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyParametersResponse
    */
   async modifyParametersWithOptions(request: ModifyParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParametersResponse> {
     Util.validateModel(request);
@@ -32332,10 +51345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The modification results.
-   *
-   * @param request ModifyParametersRequest
-   * @return ModifyParametersResponse
+   * The modification results.
+   * 
+   * @param request - ModifyParametersRequest
+   * @returns ModifyParametersResponse
    */
   async modifyParameters(request: ModifyParametersRequest): Promise<ModifyParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32343,11 +51356,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the security group.
-   *
-   * @param request ModifySecurityIpsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySecurityIpsResponse
+   * The name of the security group.
+   * 
+   * @param request - ModifySecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityIpsResponse
    */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
@@ -32382,10 +51395,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The name of the security group.
-   *
-   * @param request ModifySecurityIpsRequest
-   * @return ModifySecurityIpsResponse
+   * The name of the security group.
+   * 
+   * @param request - ModifySecurityIpsRequest
+   * @returns ModifySecurityIpsResponse
    */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32393,9 +51406,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyTagNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTagNameResponse
+   * @param request - ModifyTagNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTagNameResponse
    */
   async modifyTagNameWithOptions(request: ModifyTagNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagNameResponse> {
     Util.validateModel(request);
@@ -32426,8 +51439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyTagNameRequest
-   * @return ModifyTagNameResponse
+   * @param request - ModifyTagNameRequest
+   * @returns ModifyTagNameResponse
    */
   async modifyTagName(request: ModifyTagNameRequest): Promise<ModifyTagNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32435,11 +51448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to rename a tag.
-   *
-   * @param request ModifyTagValueNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTagValueNameResponse
+   * You can call this operation to rename a tag.
+   * 
+   * @param request - ModifyTagValueNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTagValueNameResponse
    */
   async modifyTagValueNameWithOptions(request: ModifyTagValueNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagValueNameResponse> {
     Util.validateModel(request);
@@ -32474,10 +51487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to rename a tag.
-   *
-   * @param request ModifyTagValueNameRequest
-   * @return ModifyTagValueNameResponse
+   * You can call this operation to rename a tag.
+   * 
+   * @param request - ModifyTagValueNameRequest
+   * @returns ModifyTagValueNameResponse
    */
   async modifyTagValueName(request: ModifyTagValueNameRequest): Promise<ModifyTagValueNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32485,11 +51498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 租户加密变更
-   *
-   * @param request ModifyTenantEncryptionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantEncryptionResponse
+   * 租户加密变更
+   * 
+   * @param request - ModifyTenantEncryptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantEncryptionResponse
    */
   async modifyTenantEncryptionWithOptions(request: ModifyTenantEncryptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantEncryptionResponse> {
     Util.validateModel(request);
@@ -32528,10 +51541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 租户加密变更
-   *
-   * @param request ModifyTenantEncryptionRequest
-   * @return ModifyTenantEncryptionResponse
+   * 租户加密变更
+   * 
+   * @param request - ModifyTenantEncryptionRequest
+   * @returns ModifyTenantEncryptionResponse
    */
   async modifyTenantEncryption(request: ModifyTenantEncryptionRequest): Promise<ModifyTenantEncryptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32539,11 +51552,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request ModifyTenantPrimaryZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantPrimaryZoneResponse
+   * The return result of the request.
+   * 
+   * @param request - ModifyTenantPrimaryZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantPrimaryZoneResponse
    */
   async modifyTenantPrimaryZoneWithOptions(request: ModifyTenantPrimaryZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantPrimaryZoneResponse> {
     Util.validateModel(request);
@@ -32606,10 +51619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The return result of the request.
-   *
-   * @param request ModifyTenantPrimaryZoneRequest
-   * @return ModifyTenantPrimaryZoneResponse
+   * The return result of the request.
+   * 
+   * @param request - ModifyTenantPrimaryZoneRequest
+   * @returns ModifyTenantPrimaryZoneResponse
    */
   async modifyTenantPrimaryZone(request: ModifyTenantPrimaryZoneRequest): Promise<ModifyTenantPrimaryZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32617,11 +51630,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
-   *
-   * @param request ModifyTenantResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantResourceResponse
+   * You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
+   * 
+   * @param request - ModifyTenantResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantResourceResponse
    */
   async modifyTenantResourceWithOptions(request: ModifyTenantResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantResourceResponse> {
     Util.validateModel(request);
@@ -32668,10 +51681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
-   *
-   * @param request ModifyTenantResourceRequest
-   * @return ModifyTenantResourceResponse
+   * You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
+   * 
+   * @param request - ModifyTenantResourceRequest
+   * @returns ModifyTenantResourceResponse
    */
   async modifyTenantResource(request: ModifyTenantResourceRequest): Promise<ModifyTenantResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32679,11 +51692,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the information on the whitelist group of the tenant.
-   *
-   * @param request ModifyTenantSecurityIpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantSecurityIpGroupResponse
+   * You can call this operation to modify the information on the whitelist group of the tenant.
+   * 
+   * @param request - ModifyTenantSecurityIpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantSecurityIpGroupResponse
    */
   async modifyTenantSecurityIpGroupWithOptions(request: ModifyTenantSecurityIpGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantSecurityIpGroupResponse> {
     Util.validateModel(request);
@@ -32722,10 +51735,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the information on the whitelist group of the tenant.
-   *
-   * @param request ModifyTenantSecurityIpGroupRequest
-   * @return ModifyTenantSecurityIpGroupResponse
+   * You can call this operation to modify the information on the whitelist group of the tenant.
+   * 
+   * @param request - ModifyTenantSecurityIpGroupRequest
+   * @returns ModifyTenantSecurityIpGroupResponse
    */
   async modifyTenantSecurityIpGroup(request: ModifyTenantSecurityIpGroupRequest): Promise<ModifyTenantSecurityIpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32733,11 +51746,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the tags of a tenant.
-   *
-   * @param request ModifyTenantTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantTagsResponse
+   * You can call this operation to modify the tags of a tenant.
+   * 
+   * @param request - ModifyTenantTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantTagsResponse
    */
   async modifyTenantTagsWithOptions(request: ModifyTenantTagsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantTagsResponse> {
     Util.validateModel(request);
@@ -32772,10 +51785,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to modify the tags of a tenant.
-   *
-   * @param request ModifyTenantTagsRequest
-   * @return ModifyTenantTagsResponse
+   * You can call this operation to modify the tags of a tenant.
+   * 
+   * @param request - ModifyTenantTagsRequest
+   * @returns ModifyTenantTagsResponse
    */
   async modifyTenantTags(request: ModifyTenantTagsRequest): Promise<ModifyTenantTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32783,11 +51796,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The description of the database.
-   *
-   * @param request ModifyTenantUserDescriptionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantUserDescriptionResponse
+   * The description of the database.
+   * 
+   * @param request - ModifyTenantUserDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantUserDescriptionResponse
    */
   async modifyTenantUserDescriptionWithOptions(request: ModifyTenantUserDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserDescriptionResponse> {
     Util.validateModel(request);
@@ -32826,10 +51839,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The description of the database.
-   *
-   * @param request ModifyTenantUserDescriptionRequest
-   * @return ModifyTenantUserDescriptionResponse
+   * The description of the database.
+   * 
+   * @param request - ModifyTenantUserDescriptionRequest
+   * @returns ModifyTenantUserDescriptionResponse
    */
   async modifyTenantUserDescription(request: ModifyTenantUserDescriptionRequest): Promise<ModifyTenantUserDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32837,11 +51850,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request ModifyTenantUserPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantUserPasswordResponse
+   * The request ID.
+   * 
+   * @param request - ModifyTenantUserPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantUserPasswordResponse
    */
   async modifyTenantUserPasswordWithOptions(request: ModifyTenantUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserPasswordResponse> {
     Util.validateModel(request);
@@ -32884,10 +51897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The request ID.
-   *
-   * @param request ModifyTenantUserPasswordRequest
-   * @return ModifyTenantUserPasswordResponse
+   * The request ID.
+   * 
+   * @param request - ModifyTenantUserPasswordRequest
+   * @returns ModifyTenantUserPasswordResponse
    */
   async modifyTenantUserPassword(request: ModifyTenantUserPasswordRequest): Promise<ModifyTenantUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32895,11 +51908,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether the privilege was granted to the role.
-   *
-   * @param request ModifyTenantUserRolesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantUserRolesResponse
+   * Indicates whether the privilege was granted to the role.
+   * 
+   * @param request - ModifyTenantUserRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantUserRolesResponse
    */
   async modifyTenantUserRolesWithOptions(request: ModifyTenantUserRolesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserRolesResponse> {
     Util.validateModel(request);
@@ -32942,10 +51955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether the privilege was granted to the role.
-   *
-   * @param request ModifyTenantUserRolesRequest
-   * @return ModifyTenantUserRolesResponse
+   * Indicates whether the privilege was granted to the role.
+   * 
+   * @param request - ModifyTenantUserRolesRequest
+   * @returns ModifyTenantUserRolesResponse
    */
   async modifyTenantUserRoles(request: ModifyTenantUserRolesRequest): Promise<ModifyTenantUserRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32953,11 +51966,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the tenant.
-   *
-   * @param request ModifyTenantUserStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantUserStatusResponse
+   * The ID of the tenant.
+   * 
+   * @param request - ModifyTenantUserStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantUserStatusResponse
    */
   async modifyTenantUserStatusWithOptions(request: ModifyTenantUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantUserStatusResponse> {
     Util.validateModel(request);
@@ -32996,10 +52009,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the tenant.
-   *
-   * @param request ModifyTenantUserStatusRequest
-   * @return ModifyTenantUserStatusResponse
+   * The ID of the tenant.
+   * 
+   * @param request - ModifyTenantUserStatusRequest
+   * @returns ModifyTenantUserStatusResponse
    */
   async modifyTenantUserStatus(request: ModifyTenantUserStatusRequest): Promise<ModifyTenantUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33007,11 +52020,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 释放项目
-   *
-   * @param request ReleaseProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseProjectResponse
+   * 释放项目
+   * 
+   * @param request - ReleaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseProjectResponse
    */
   async releaseProjectWithOptions(request: ReleaseProjectRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseProjectResponse> {
     Util.validateModel(request);
@@ -33038,10 +52051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 释放项目
-   *
-   * @param request ReleaseProjectRequest
-   * @return ReleaseProjectResponse
+   * 释放项目
+   * 
+   * @param request - ReleaseProjectRequest
+   * @returns ReleaseProjectResponse
    */
   async releaseProject(request: ReleaseProjectRequest): Promise<ReleaseProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33049,11 +52062,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 释放传输实例 （未绑定项目时才可以释放）
-   *
-   * @param request ReleaseWorkerInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseWorkerInstanceResponse
+   * 释放传输实例 （未绑定项目时才可以释放）
+   * 
+   * @param request - ReleaseWorkerInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseWorkerInstanceResponse
    */
   async releaseWorkerInstanceWithOptions(request: ReleaseWorkerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkerInstanceResponse> {
     Util.validateModel(request);
@@ -33080,10 +52093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 释放传输实例 （未绑定项目时才可以释放）
-   *
-   * @param request ReleaseWorkerInstanceRequest
-   * @return ReleaseWorkerInstanceResponse
+   * 释放传输实例 （未绑定项目时才可以释放）
+   * 
+   * @param request - ReleaseWorkerInstanceRequest
+   * @returns ReleaseWorkerInstanceResponse
    */
   async releaseWorkerInstance(request: ReleaseWorkerInstanceRequest): Promise<ReleaseWorkerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33091,11 +52104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复项目
-   *
-   * @param request ResumeProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResumeProjectResponse
+   * 恢复项目
+   * 
+   * @param request - ResumeProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeProjectResponse
    */
   async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeProjectResponse> {
     Util.validateModel(request);
@@ -33122,10 +52135,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复项目
-   *
-   * @param request ResumeProjectRequest
-   * @return ResumeProjectResponse
+   * 恢复项目
+   * 
+   * @param request - ResumeProjectRequest
+   * @returns ResumeProjectResponse
    */
   async resumeProject(request: ResumeProjectRequest): Promise<ResumeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33133,11 +52146,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
-   *
-   * @param request RetryProjectModifyRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RetryProjectModifyRecordsResponse
+   * 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
+   * 
+   * @param request - RetryProjectModifyRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryProjectModifyRecordsResponse
    */
   async retryProjectModifyRecordsWithOptions(request: RetryProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<RetryProjectModifyRecordsResponse> {
     Util.validateModel(request);
@@ -33164,10 +52177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
-   *
-   * @param request RetryProjectModifyRecordsRequest
-   * @return RetryProjectModifyRecordsResponse
+   * 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
+   * 
+   * @param request - RetryProjectModifyRecordsRequest
+   * @returns RetryProjectModifyRecordsResponse
    */
   async retryProjectModifyRecords(request: RetryProjectModifyRecordsRequest): Promise<RetryProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33175,11 +52188,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动项目
-   *
-   * @param request StartProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartProjectResponse
+   * 启动项目
+   * 
+   * @param request - StartProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartProjectResponse
    */
   async startProjectWithOptions(request: StartProjectRequest, runtime: $Util.RuntimeOptions): Promise<StartProjectResponse> {
     Util.validateModel(request);
@@ -33206,10 +52219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动项目
-   *
-   * @param request StartProjectRequest
-   * @return StartProjectResponse
+   * 启动项目
+   * 
+   * @param request - StartProjectRequest
+   * @returns StartProjectResponse
    */
   async startProject(request: StartProjectRequest): Promise<StartProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33217,11 +52230,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动该label下的所有未启动项目
-   *
-   * @param request StartProjectsByLabelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartProjectsByLabelResponse
+   * 启动该label下的所有未启动项目
+   * 
+   * @param request - StartProjectsByLabelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartProjectsByLabelResponse
    */
   async startProjectsByLabelWithOptions(request: StartProjectsByLabelRequest, runtime: $Util.RuntimeOptions): Promise<StartProjectsByLabelResponse> {
     Util.validateModel(request);
@@ -33248,10 +52261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动该label下的所有未启动项目
-   *
-   * @param request StartProjectsByLabelRequest
-   * @return StartProjectsByLabelResponse
+   * 启动该label下的所有未启动项目
+   * 
+   * @param request - StartProjectsByLabelRequest
+   * @returns StartProjectsByLabelResponse
    */
   async startProjectsByLabel(request: StartProjectsByLabelRequest): Promise<StartProjectsByLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33259,11 +52272,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停项目
-   *
-   * @param request StopProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopProjectResponse
+   * 暂停项目
+   * 
+   * @param request - StopProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopProjectResponse
    */
   async stopProjectWithOptions(request: StopProjectRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectResponse> {
     Util.validateModel(request);
@@ -33290,10 +52303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停项目
-   *
-   * @param request StopProjectRequest
-   * @return StopProjectResponse
+   * 暂停项目
+   * 
+   * @param request - StopProjectRequest
+   * @returns StopProjectResponse
    */
   async stopProject(request: StopProjectRequest): Promise<StopProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33301,11 +52314,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
-   *
-   * @param request StopProjectModifyRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopProjectModifyRecordsResponse
+   * 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
+   * 
+   * @param request - StopProjectModifyRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopProjectModifyRecordsResponse
    */
   async stopProjectModifyRecordsWithOptions(request: StopProjectModifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectModifyRecordsResponse> {
     Util.validateModel(request);
@@ -33332,10 +52345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
-   *
-   * @param request StopProjectModifyRecordsRequest
-   * @return StopProjectModifyRecordsResponse
+   * 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
+   * 
+   * @param request - StopProjectModifyRecordsRequest
+   * @returns StopProjectModifyRecordsResponse
    */
   async stopProjectModifyRecords(request: StopProjectModifyRecordsRequest): Promise<StopProjectModifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33343,11 +52356,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停该label下的所有运行中项目
-   *
-   * @param request StopProjectsByLabelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopProjectsByLabelResponse
+   * 暂停该label下的所有运行中项目
+   * 
+   * @param request - StopProjectsByLabelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopProjectsByLabelResponse
    */
   async stopProjectsByLabelWithOptions(request: StopProjectsByLabelRequest, runtime: $Util.RuntimeOptions): Promise<StopProjectsByLabelResponse> {
     Util.validateModel(request);
@@ -33374,10 +52387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停该label下的所有运行中项目
-   *
-   * @param request StopProjectsByLabelRequest
-   * @return StopProjectsByLabelResponse
+   * 暂停该label下的所有运行中项目
+   * 
+   * @param request - StopProjectsByLabelRequest
+   * @returns StopProjectsByLabelResponse
    */
   async stopProjectsByLabel(request: StopProjectsByLabelRequest): Promise<StopProjectsByLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33385,11 +52398,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to switch between the primary and standby instances of OceanBase.
-   *
-   * @param request SwitchoverInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchoverInstanceResponse
+   * You can call this operation to switch between the primary and standby instances of OceanBase.
+   * 
+   * @param request - SwitchoverInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchoverInstanceResponse
    */
   async switchoverInstanceWithOptions(request: SwitchoverInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchoverInstanceResponse> {
     Util.validateModel(request);
@@ -33424,10 +52437,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to switch between the primary and standby instances of OceanBase.
-   *
-   * @param request SwitchoverInstanceRequest
-   * @return SwitchoverInstanceResponse
+   * You can call this operation to switch between the primary and standby instances of OceanBase.
+   * 
+   * @param request - SwitchoverInstanceRequest
+   * @returns SwitchoverInstanceResponse
    */
   async switchoverInstance(request: SwitchoverInstanceRequest): Promise<SwitchoverInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33435,11 +52448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新项目配置 Action=UpdateProjectConfig
-   *
-   * @param tmpReq UpdateProjectConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateProjectConfigResponse
+   * 更新项目配置 Action=UpdateProjectConfig
+   * 
+   * @param tmpReq - UpdateProjectConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectConfigResponse
    */
   async updateProjectConfigWithOptions(tmpReq: UpdateProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectConfigResponse> {
     Util.validateModel(tmpReq);
@@ -33500,10 +52513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新项目配置 Action=UpdateProjectConfig
-   *
-   * @param request UpdateProjectConfigRequest
-   * @return UpdateProjectConfigResponse
+   * 更新项目配置 Action=UpdateProjectConfig
+   * 
+   * @param request - UpdateProjectConfigRequest
+   * @returns UpdateProjectConfigResponse
    */
   async updateProjectConfig(request: UpdateProjectConfigRequest): Promise<UpdateProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
