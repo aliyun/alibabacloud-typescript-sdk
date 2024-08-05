@@ -3436,28 +3436,116 @@ export class CreateTrafficControlTargetResponse extends $tea.Model {
 }
 
 export class CreateTrafficControlTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   behaviorTableMetaId?: string;
+  /**
+   * @example
+   * Global
+   */
   controlGranularity?: string;
+  /**
+   * @example
+   * Guaranteed
+   */
   controlLogic?: string;
+  /**
+   * @example
+   * Percent
+   */
   controlType?: string;
+  /**
+   * @example
+   * this is a test task
+   */
   description?: string;
+  /**
+   * @example
+   * 2024-03-26
+   */
   endTime?: string;
+  /**
+   * @example
+   * TimeRange
+   */
   executionTime?: string;
+  /**
+   * @example
+   * pairec-cn-***test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * 3
+   */
   itemTableMetaId?: string;
+  /**
+   * @example
+   * task-1
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * [{\\"field\\":\\"click\\",\\"option\\":\\"<=\\",\\"value\\":\\"30\\"}]
+   */
   statisBehaviorConditionArray?: string;
+  /**
+   * @example
+   * click=30
+   */
   statisBehaviorConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   statisBehaviorConditionType?: string;
   trafficControlTargets?: CreateTrafficControlTaskRequestTrafficControlTargets[];
+  /**
+   * @example
+   * [{\\"field\\":\\"gender\\",\\"option\\":\\"=\\",\\"value\\":\\"male\\"}]
+   */
   userConditionArray?: string;
+  /**
+   * @example
+   * age<=30&&(3<=level<=6)&&gender=male
+   */
   userConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   userConditionType?: string;
+  /**
+   * @example
+   * 2
+   */
   userTableMetaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3521,7 +3609,15 @@ export class CreateTrafficControlTaskRequest extends $tea.Model {
 }
 
 export class CreateTrafficControlTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 42391E6D-822C-58F8-9F7E-D991BB86D6AD
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6421,6 +6517,7 @@ export class GetInstanceResponseBody extends $tea.Model {
    * pairec-test1
    */
   instanceId?: string;
+  operatingTool?: GetInstanceResponseBodyOperatingTool;
   /**
    * @example
    * cn-shenzhen
@@ -6450,6 +6547,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       instanceId: 'InstanceId',
+      operatingTool: 'OperatingTool',
       regionId: 'RegionId',
       requestId: 'RequestId',
       status: 'Status',
@@ -6466,6 +6564,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       instanceId: 'string',
+      operatingTool: GetInstanceResponseBodyOperatingTool,
       regionId: 'string',
       requestId: 'string',
       status: 'string',
@@ -14149,18 +14248,70 @@ export class CreateTableMetaRequestFields extends $tea.Model {
 }
 
 export class CreateTrafficControlTaskRequestTrafficControlTargets extends $tea.Model {
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * click
+   */
   event?: string;
+  /**
+   * @example
+   * [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * target_1
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   newProductRegulation?: boolean;
+  /**
+   * @example
+   * recall_1
+   */
   recallName?: string;
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * Daily
+   */
   statisPeriod?: string;
+  /**
+   * @example
+   * Opened
+   */
   status?: string;
+  /**
+   * @example
+   * 20
+   */
   toleranceValue?: number;
+  /**
+   * @example
+   * 100
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14319,6 +14470,25 @@ export class GetInstanceResponseBodyConfig extends $tea.Model {
       dataManagements: { 'type': 'array', 'itemType': GetInstanceResponseBodyConfigDataManagements },
       engines: { 'type': 'array', 'itemType': GetInstanceResponseBodyConfigEngines },
       monitors: { 'type': 'array', 'itemType': GetInstanceResponseBodyConfigMonitors },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyOperatingTool extends $tea.Model {
+  isEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isEnable: 'IsEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEnable: 'boolean',
     };
   }
 
@@ -15978,6 +16148,25 @@ export class ListInstancesResponseBodyInstancesConfig extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyInstancesOperatingTool extends $tea.Model {
+  isEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isEnable: 'IsEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstances extends $tea.Model {
   /**
    * @example
@@ -16010,6 +16199,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
    * pairec-test1
    */
   instanceId?: string;
+  operatingTool?: ListInstancesResponseBodyInstancesOperatingTool;
   /**
    * @example
    * cn-shenzhen
@@ -16034,6 +16224,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       instanceId: 'InstanceId',
+      operatingTool: 'OperatingTool',
       regionId: 'RegionId',
       status: 'Status',
       type: 'Type',
@@ -16049,6 +16240,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       instanceId: 'string',
+      operatingTool: ListInstancesResponseBodyInstancesOperatingTool,
       regionId: 'string',
       status: 'string',
       type: 'string',
