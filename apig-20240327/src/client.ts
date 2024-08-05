@@ -3962,6 +3962,7 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
    * GET
    */
   method?: string;
+  name?: string;
   /**
    * @example
    * GetUser
@@ -3985,6 +3986,7 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       method: 'method',
+      name: 'name',
       nameLike: 'nameLike',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
@@ -3995,6 +3997,7 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       method: 'string',
+      name: 'string',
       nameLike: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -4078,6 +4081,7 @@ export class ListHttpApisRequest extends $tea.Model {
    * test-
    */
   keyword?: string;
+  name?: string;
   /**
    * @example
    * 1
@@ -4092,6 +4096,7 @@ export class ListHttpApisRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       keyword: 'keyword',
+      name: 'name',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       publishedOnly: 'publishedOnly',
@@ -4101,6 +4106,7 @@ export class ListHttpApisRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       keyword: 'string',
+      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       publishedOnly: 'boolean',
@@ -10122,6 +10128,10 @@ export default class Client extends OpenApi {
       query["method"] = request.method;
     }
 
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
     if (!Util.isUnset(request.nameLike)) {
       query["nameLike"] = request.nameLike;
     }
@@ -10181,6 +10191,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.keyword)) {
       query["keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
