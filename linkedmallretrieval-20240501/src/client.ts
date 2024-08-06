@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,15 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AISearchQuery extends $tea.Model {
+  /**
+   * @example
+   * active
+   */
   card?: string;
+  /**
+   * @example
+   * 今年五一假期放假时间表
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +40,10 @@ export class AISearchQuery extends $tea.Model {
 export class AISearchResult extends $tea.Model {
   header?: EventHeader;
   payload?: string;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +67,25 @@ export class AISearchResult extends $tea.Model {
 }
 
 export class EventHeader extends $tea.Model {
+  /**
+   * @example
+   * on_common_search_stream
+   */
   event?: string;
+  /**
+   * @example
+   * ff3de49-cedc-47ea-ba3c-8456acd345d8
+   */
   eventId?: string;
+  /**
+   * @example
+   * 55c2349-cedc-47ea-ba3c-8456acd6c7d8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1403
+   */
   responseTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -84,7 +111,18 @@ export class EventHeader extends $tea.Model {
 }
 
 export class AISearchRequest extends $tea.Model {
+  /**
+   * @example
+   * active
+   */
   card?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 今年五一假期放假时间表
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,6 +146,10 @@ export class AISearchRequest extends $tea.Model {
 export class AISearchResponseBody extends $tea.Model {
   header?: AISearchResponseBodyHeader;
   payload?: string;
+  /**
+   * @example
+   * D016A23D-738A-5209-A91A-6145845C5A23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -156,9 +198,25 @@ export class AISearchResponse extends $tea.Model {
 }
 
 export class AISearchResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * on_common_search_stream
+   */
   event?: string;
+  /**
+   * @example
+   * ff3de49-cedc-47ea-ba3c-8456acd345d8
+   */
   eventId?: string;
+  /**
+   * @example
+   * D4F6D088-EDE9-5823-9E66-22603937A40B
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1403
+   */
   responseTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -207,12 +265,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AI搜索
-   *
-   * @param request AISearchRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AISearchResponse
+   * AI搜索
+   * 
+   * @param request - AISearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchResponse
    */
   async aISearchWithOptions(request: AISearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AISearchResponse> {
     Util.validateModel(request);
@@ -244,10 +302,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AI搜索
-   *
-   * @param request AISearchRequest
-   * @return AISearchResponse
+   * AI搜索
+   * 
+   * @param request - AISearchRequest
+   * @returns AISearchResponse
    */
   async aISearch(request: AISearchRequest): Promise<AISearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
