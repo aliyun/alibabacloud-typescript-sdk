@@ -197,6 +197,86 @@ export class AISearchResponse extends $tea.Model {
   }
 }
 
+export class AISearchV2Request extends $tea.Model {
+  query?: string;
+  /**
+   * @example
+   * 14199B5E-5906-52BD-800D-900268AEC9F6
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      query: 'query',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      query: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AISearchV2ResponseBody extends $tea.Model {
+  header?: AISearchV2ResponseBodyHeader;
+  payload?: string;
+  /**
+   * @example
+   * D016A23D-738A-5209-A91A-6145845C5A23
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: AISearchV2ResponseBodyHeader,
+      payload: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AISearchV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AISearchV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AISearchV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AISearchResponseBodyHeader extends $tea.Model {
   /**
    * @example
@@ -232,6 +312,43 @@ export class AISearchResponseBodyHeader extends $tea.Model {
       event: 'string',
       eventId: 'string',
       requestId: 'string',
+      responseTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AISearchV2ResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * on_common_search_stream
+   */
+  event?: string;
+  /**
+   * @example
+   * ff3de49-cedc-47ea-ba3c-8456acd345d8
+   */
+  eventId?: string;
+  /**
+   * @example
+   * 1403
+   */
+  responseTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'event',
+      eventId: 'eventId',
+      responseTime: 'responseTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventId: 'string',
       responseTime: 'string',
     };
   }
@@ -311,6 +428,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.aISearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 提供通用检索与检索后处理的多阶段优化结果，为开放域QA提供信源
+   * 
+   * @param request - AISearchV2Request
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AISearchV2Response
+   */
+  async aISearchV2WithOptions(request: AISearchV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AISearchV2Response> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AISearchV2",
+      version: "2024-05-01",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/aiSearch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AISearchV2Response>(await this.callApi(params, req, runtime), new AISearchV2Response({}));
+  }
+
+  /**
+   * 提供通用检索与检索后处理的多阶段优化结果，为开放域QA提供信源
+   * 
+   * @param request - AISearchV2Request
+   * @returns AISearchV2Response
+   */
+  async aISearchV2(request: AISearchV2Request): Promise<AISearchV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aISearchV2WithOptions(request, headers, runtime);
   }
 
 }
