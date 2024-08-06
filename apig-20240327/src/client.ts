@@ -8071,6 +8071,104 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $tea.Model {
   }
 }
 
+export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $tea.Model {
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewaysResponseBodyDataItemsVSwitch extends $tea.Model {
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'vSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewaysResponseBodyDataItemsVpc extends $tea.Model {
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewaysResponseBodyDataItemsZonesVSwitch extends $tea.Model {
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'vSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewaysResponseBodyDataItemsZones extends $tea.Model {
+  vSwitch?: ListGatewaysResponseBodyDataItemsZonesVSwitch;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitch: 'vSwitch',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitch: ListGatewaysResponseBodyDataItemsZonesVSwitch,
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewaysResponseBodyDataItems extends $tea.Model {
   /**
    * @example
@@ -8108,6 +8206,7 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
    * 2
    */
   replicas?: string;
+  securityGroup?: ListGatewaysResponseBodyDataItemsSecurityGroup;
   /**
    * @example
    * apigw.small.x1
@@ -8128,11 +8227,14 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
    * 1719386834548
    */
   updateTimestamp?: number;
+  vSwitch?: ListGatewaysResponseBodyDataItemsVSwitch;
   /**
    * @example
    * 2.0.2
    */
   version?: string;
+  vpc?: ListGatewaysResponseBodyDataItemsVpc;
+  zones?: ListGatewaysResponseBodyDataItemsZones[];
   static names(): { [key: string]: string } {
     return {
       chargeType: 'chargeType',
@@ -8143,11 +8245,15 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
       loadBalancers: 'loadBalancers',
       name: 'name',
       replicas: 'replicas',
+      securityGroup: 'securityGroup',
       spec: 'spec',
       status: 'status',
       targetVersion: 'targetVersion',
       updateTimestamp: 'updateTimestamp',
+      vSwitch: 'vSwitch',
       version: 'version',
+      vpc: 'vpc',
+      zones: 'zones',
     };
   }
 
@@ -8161,11 +8267,15 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
       loadBalancers: { 'type': 'array', 'itemType': ListGatewaysResponseBodyDataItemsLoadBalancers },
       name: 'string',
       replicas: 'string',
+      securityGroup: ListGatewaysResponseBodyDataItemsSecurityGroup,
       spec: 'string',
       status: 'string',
       targetVersion: 'string',
       updateTimestamp: 'number',
+      vSwitch: ListGatewaysResponseBodyDataItemsVSwitch,
       version: 'string',
+      vpc: ListGatewaysResponseBodyDataItemsVpc,
+      zones: { 'type': 'array', 'itemType': ListGatewaysResponseBodyDataItemsZones },
     };
   }
 
