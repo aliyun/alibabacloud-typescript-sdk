@@ -9337,6 +9337,7 @@ export class GetClusterAddonInstanceResponse extends $tea.Model {
 }
 
 export class GetClusterAuditProjectResponseBody extends $tea.Model {
+  auditEnabled?: boolean;
   /**
    * @example
    * k8s-log-cad1230511cbb4db4a488e58518******
@@ -9344,12 +9345,14 @@ export class GetClusterAuditProjectResponseBody extends $tea.Model {
   slsProjectName?: string;
   static names(): { [key: string]: string } {
     return {
+      auditEnabled: 'audit_enabled',
       slsProjectName: 'sls_project_name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      auditEnabled: 'boolean',
       slsProjectName: 'string',
     };
   }
