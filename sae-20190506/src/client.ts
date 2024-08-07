@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,13 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AclConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
   aclEntries?: AclEntryConfig[];
   static names(): { [key: string]: string } {
     return {
@@ -28,6 +34,13 @@ export class AclConfig extends $tea.Model {
 }
 
 export class AclEntryConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.2.3.4/32
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,13 +60,37 @@ export class AclEntryConfig extends $tea.Model {
 }
 
 export class AppStackInstance extends $tea.Model {
+  /**
+   * @example
+   * 1706518652
+   */
   createTime?: number;
   endpoints?: AppStackInstanceEndpoints[];
+  /**
+   * @example
+   * i-789y
+   */
   instanceId?: string;
+  /**
+   * @example
+   * palworld
+   */
   instanceName?: string;
   parameters?: AppStackInstanceParameters[];
+  /**
+   * @example
+   * palworld
+   */
   stackId?: string;
+  /**
+   * @example
+   * WAIT
+   */
   status?: string;
+  /**
+   * @example
+   * 1706518652
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -87,13 +124,45 @@ export class AppStackInstance extends $tea.Model {
 }
 
 export class AppStackResource extends $tea.Model {
+  /**
+   * @example
+   * 1706518652000
+   */
   createTime?: number;
+  /**
+   * @example
+   * i-78yt
+   */
   instanceId?: string;
+  /**
+   * @example
+   * VPC
+   */
   productCode?: string;
+  /**
+   * @example
+   * vsw-qwe112233
+   */
   resourceId?: string;
+  /**
+   * @example
+   * vsw-palworld-a
+   */
   resourceName?: string;
+  /**
+   * @example
+   * VSWITCH
+   */
   resourceType?: string;
+  /**
+   * @example
+   * palworld
+   */
   stackId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -127,13 +196,41 @@ export class AppStackResource extends $tea.Model {
 }
 
 export class AppStackTask extends $tea.Model {
+  /**
+   * @example
+   * 1706518652
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1706518652
+   */
   endTime?: number;
+  /**
+   * @example
+   * i-789y
+   */
   instanceId?: string;
+  /**
+   * @example
+   * palworld
+   */
   stackId?: string;
+  /**
+   * @example
+   * 1706518652
+   */
   startTime?: number;
+  /**
+   * @example
+   * WAIT
+   */
   status?: string;
   steps?: AppStackTaskSteps[];
+  /**
+   * @example
+   * t-789y-deploy
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,6 +277,7 @@ export class Application extends $tea.Model {
   customDNS?: CustomDNS;
   customDomainName?: string;
   customHealthCheckConfig?: CustomHealthCheckConfig;
+  customHostAlias?: CustomHostAlias;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   diskSize?: number;
@@ -233,6 +331,7 @@ export class Application extends $tea.Model {
       customDNS: 'customDNS',
       customDomainName: 'customDomainName',
       customHealthCheckConfig: 'customHealthCheckConfig',
+      customHostAlias: 'customHostAlias',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       diskSize: 'diskSize',
@@ -289,6 +388,7 @@ export class Application extends $tea.Model {
       customDNS: CustomDNS,
       customDomainName: 'string',
       customHealthCheckConfig: CustomHealthCheckConfig,
+      customHostAlias: CustomHostAlias,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       diskSize: 'number',
@@ -405,14 +505,34 @@ export class ArmsConfig extends $tea.Model {
 }
 
 export class BuildPipeline extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   buildConfig?: BuildPipelineBuildConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   codeConfig?: BuildPipelineCodeConfig;
   deployConfig?: BuildPipelineDeployConfig;
   enabled?: boolean;
   imageConfig?: BuildPipelineImageConfig;
   packageConfig?: BuildPipelinePackageConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   triggerConfig?: BuildPipelineTriggerConfig;
   static names(): { [key: string]: string } {
     return {
@@ -562,14 +682,45 @@ export class CertConfig extends $tea.Model {
 }
 
 export class Container extends $tea.Model {
+  /**
+   * @example
+   * ["abc", ">", "file0"]
+   */
   args?: string;
+  /**
+   * @example
+   * ["/bin/sh"]
+   */
   command?: string;
   environmentVariables?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/serverless_devsxxxxx
+   */
   image?: string;
   metricsCollectConfig?: MetricsCollectConfig;
+  /**
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @example
+   * 100
+   */
   requestConcurrency?: number;
+  /**
+   * @example
+   * 60
+   */
   requestTimeout?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resources?: ContainerResources;
   SLSCollectConfigs?: SLSCollectConfigs;
   startupProbe?: StartupProbe;
@@ -617,7 +768,21 @@ export class Container extends $tea.Model {
 }
 
 export class ContainerResources extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2048
+   */
   memory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -647,6 +812,7 @@ export class CreateApplicationInput extends $tea.Model {
   cpu?: number;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
+  customHostAlias?: CustomHostAlias;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   diskSize?: number;
@@ -686,6 +852,7 @@ export class CreateApplicationInput extends $tea.Model {
       cpu: 'cpu',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
+      customHostAlias: 'customHostAlias',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       diskSize: 'diskSize',
@@ -728,6 +895,7 @@ export class CreateApplicationInput extends $tea.Model {
       cpu: 'number',
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
+      customHostAlias: CustomHostAlias,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       diskSize: 'number',
@@ -878,8 +1046,23 @@ export class CreateSlsResourceResponse extends $tea.Model {
 }
 
 export class CreateWebApplicationInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sae-app
+   */
   applicationName?: string;
+  /**
+   * @example
+   * my sae app
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   revisionConfig?: RevisionConfig;
   webNetworkConfig?: WebNetworkConfig;
   webScalingConfig?: WebScalingConfig;
@@ -913,7 +1096,18 @@ export class CreateWebApplicationInput extends $tea.Model {
 
 export class CreateWebCustomDomainInput extends $tea.Model {
   defaultForwardingAppName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
   webCertConfig?: WebCertConfig;
   webTLSConfig?: WebTLSConfig;
@@ -1054,6 +1248,25 @@ export class CustomHealthCheckConfig extends $tea.Model {
       periodSeconds: 'number',
       successThreshold: 'number',
       timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CustomHostAlias extends $tea.Model {
+  hostAliases?: HostAlias[];
+  static names(): { [key: string]: string } {
+    return {
+      hostAliases: 'hostAliases',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostAliases: { 'type': 'array', 'itemType': HostAlias },
     };
   }
 
@@ -1243,6 +1456,10 @@ export class GRPCAction extends $tea.Model {
 
 export class GetApplicationLogsInput extends $tea.Model {
   backwardLine?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: number;
   forwardLine?: number;
   instanceID?: string;
@@ -1252,6 +1469,10 @@ export class GetApplicationLogsInput extends $tea.Model {
   offset?: number;
   packID?: string;
   packMeta?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: number;
   timestamp?: string;
   versionID?: string;
@@ -1323,6 +1544,10 @@ export class GetApplicationLogsOutput extends $tea.Model {
 
 export class GetInstanceLogsInput extends $tea.Model {
   backwardLine?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: number;
   forwardLine?: number;
   isTail?: boolean;
@@ -1331,6 +1556,10 @@ export class GetInstanceLogsInput extends $tea.Model {
   offset?: number;
   packID?: string;
   packMeta?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: number;
   timestamp?: string;
   versionID?: string;
@@ -1396,12 +1625,24 @@ export class GetInstanceLogsOutput extends $tea.Model {
 }
 
 export class GetPerRequestLogsInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: number;
   errorType?: string;
   forwardLine?: number;
   instanceID?: string;
   isColdStart?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   requestID?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: number;
   timestamp?: string;
   static names(): { [key: string]: string } {
@@ -1558,6 +1799,28 @@ export class HTTPTriggerConfig extends $tea.Model {
       authType: 'string',
       disableURLInternet: 'boolean',
       safeMode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HostAlias extends $tea.Model {
+  hostnames?: string[];
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'hostnames',
+      ip: 'ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      ip: 'string',
     };
   }
 
@@ -1751,12 +2014,40 @@ export class InstanceLifecycleConfig extends $tea.Model {
 }
 
 export class InstanceMetricInfo extends $tea.Model {
+  /**
+   * @example
+   * a03aa9f9-3d32-4655-8394-05fd10dcbd8a
+   */
   applicationID?: string;
+  /**
+   * @example
+   * 1.98
+   */
   cpuPercent?: number;
+  /**
+   * @example
+   * 35.0
+   */
   cpuQuotaPercent?: number;
+  /**
+   * @example
+   * c-6498f0fe-33bb4f9249b54789a023
+   */
   instanceID?: string;
+  /**
+   * @example
+   * 512.0
+   */
   memoryLimitMB?: number;
+  /**
+   * @example
+   * 8.81
+   */
   memoryUsageMB?: number;
+  /**
+   * @example
+   * 1686568800000
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1934,8 +2225,20 @@ export class ListCustomDomainOutput extends $tea.Model {
 export class ListInstancesMetricsOutput extends $tea.Model {
   requestId?: string;
   metricsList?: InstanceMetricInfo[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1234
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2327,12 +2630,40 @@ export class LogEntry extends $tea.Model {
 }
 
 export class MetricInfo extends $tea.Model {
+  /**
+   * @example
+   * 1234.5
+   */
   average?: number;
+  /**
+   * @example
+   * 1234.5
+   */
   count?: number;
+  /**
+   * @example
+   * 1234.5
+   */
   maximum?: number;
+  /**
+   * @example
+   * 1234.5
+   */
   minimum?: number;
+  /**
+   * @example
+   * 1234.5
+   */
   sum?: number;
+  /**
+   * @example
+   * 1686568800000
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 1234.5
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2365,7 +2696,15 @@ export class MetricInfo extends $tea.Model {
 
 export class MetricsCollectConfig extends $tea.Model {
   enablePushToUserSLS?: boolean;
+  /**
+   * @example
+   * my-sls-logstorename
+   */
   logstoreName?: string;
+  /**
+   * @example
+   * my-sls-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2561,23 +2900,113 @@ export class PolicyItem extends $tea.Model {
 }
 
 export class PriceEstimateFeature extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Web/MicroService
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   cpuCore?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Request/Always
+   */
   cpuStrategy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Test/Production
+   */
   envType?: string;
+  /**
+   * @example
+   * 3
+   */
   highLoadInstanceCount?: number;
+  /**
+   * @example
+   * 5
+   */
   highLoadQps?: number;
+  /**
+   * @example
+   * 3600
+   */
   highLoadSeconds?: number;
+  /**
+   * @example
+   * 2
+   */
   instanceQps?: number;
+  /**
+   * @example
+   * 24
+   */
   internetOutboundGiB?: number;
+  /**
+   * @example
+   * 1
+   */
   lowLoadInstanceCount?: number;
+  /**
+   * @example
+   * 2
+   */
   lowLoadQps?: number;
+  /**
+   * @example
+   * 3600
+   */
   lowLoadSeconds?: number;
+  /**
+   * @example
+   * 10
+   */
   maxInstanceCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   memoryGiB?: number;
+  /**
+   * @example
+   * 1
+   */
   minInstanceCount?: number;
+  /**
+   * @example
+   * 0
+   */
   noneLoadInstanceCount?: number;
+  /**
+   * @example
+   * 79200
+   */
   noneLoadSeconds?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2633,6 +3062,10 @@ export class PriceEstimateFeature extends $tea.Model {
 export class PriceEstimateOutput extends $tea.Model {
   apps?: PriceEstimateOutputApps[];
   items?: PriceEstimateOutputItems[];
+  /**
+   * @example
+   * 235.66
+   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2728,7 +3161,15 @@ export class PublishApplicationVersionInput extends $tea.Model {
 }
 
 export class PublishWebApplicationRevisionInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   containers?: Container[];
+  /**
+   * @example
+   * test version
+   */
   description?: string;
   enableArmsMetrics?: boolean;
   takeEffect?: boolean;
@@ -2787,6 +3228,10 @@ export class Revision extends $tea.Model {
 }
 
 export class RevisionConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   containers?: Container[];
   enableArmsMetrics?: boolean;
   webNetworkConfig?: WebNetworkConfig;
@@ -3292,6 +3737,7 @@ export class UpdateApplicationInput extends $tea.Model {
   cpu?: number;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
+  customHostAlias?: CustomHostAlias;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   diskSize?: number;
@@ -3331,6 +3777,7 @@ export class UpdateApplicationInput extends $tea.Model {
       cpu: 'cpu',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
+      customHostAlias: 'customHostAlias',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       diskSize: 'diskSize',
@@ -3373,6 +3820,7 @@ export class UpdateApplicationInput extends $tea.Model {
       cpu: 'number',
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
+      customHostAlias: CustomHostAlias,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       diskSize: 'number',
@@ -3530,6 +3978,10 @@ export class UpdateCustomDomainInput extends $tea.Model {
 }
 
 export class UpdateWebApplicationInput extends $tea.Model {
+  /**
+   * @example
+   * sae-app
+   */
   description?: string;
   webNetworkConfig?: WebNetworkConfig;
   static names(): { [key: string]: string } {
@@ -3552,7 +4004,18 @@ export class UpdateWebApplicationInput extends $tea.Model {
 }
 
 export class UpdateWebApplicationScalingConfigInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   maximumInstanceCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   minimumInstanceCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3574,6 +4037,10 @@ export class UpdateWebApplicationScalingConfigInput extends $tea.Model {
 }
 
 export class UpdateWebApplicationTrafficConfigInput extends $tea.Model {
+  /**
+   * @example
+   * Anonymous
+   */
   authType?: string;
   disableURLInternet?: boolean;
   revisionsTrafficWeight?: { [key: string]: number };
@@ -3603,6 +4070,10 @@ export class UpdateWebApplicationTrafficConfigInput extends $tea.Model {
 
 export class UpdateWebCustomDomainInput extends $tea.Model {
   defaultForwardingAppName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
   webCertConfig?: WebCertConfig;
   webTLSConfig?: WebTLSConfig;
@@ -3742,6 +4213,13 @@ export class WAFConfig extends $tea.Model {
 }
 
 export class WebAclConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
   webAclEntries?: WebAclEntryConfig[];
   static names(): { [key: string]: string } {
     return {
@@ -3761,6 +4239,13 @@ export class WebAclConfig extends $tea.Model {
 }
 
 export class WebAclEntryConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.2.3.4/32
+   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3780,7 +4265,15 @@ export class WebAclEntryConfig extends $tea.Model {
 }
 
 export class WebApplication extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationName?: string;
   createdTime?: string;
   description?: string;
@@ -4109,12 +4602,36 @@ export class WebCertConfig extends $tea.Model {
 }
 
 export class WebCustomDomain extends $tea.Model {
+  /**
+   * @example
+   * 123xxxxxx
+   */
   accountId?: string;
+  /**
+   * @example
+   * 2023-03-30T08:02:19Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * appxxxxx
+   */
   defaultForwardingAppName?: string;
+  /**
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 2023-03-30T08:02:19Z
+   */
   lastModifiedTime?: string;
   namespaceId?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
   webCertConfig?: WebCertConfig;
   webTLSConfig?: WebTLSConfig;
@@ -4187,8 +4704,16 @@ export class WebCustomDomainBody extends $tea.Model {
 
 export class WebInstanceInfo extends $tea.Model {
   imageUrl?: string;
+  /**
+   * @example
+   * c-66691780-1522405d-3021e147e0c3
+   */
   instanceId?: string;
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4277,7 +4802,15 @@ export class WebNASMountPoint extends $tea.Model {
 }
 
 export class WebNetworkConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   internetAccess?: boolean;
+  /**
+   * @example
+   * sg-bp18hj1wtxgy3b0***
+   */
   securityGroupId?: string;
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -4349,6 +4882,10 @@ export class WebOSSMountPoint extends $tea.Model {
 }
 
 export class WebScalingConfig extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maximumInstanceCount?: number;
   minimumInstanceCount?: number;
   static names(): { [key: string]: string } {
@@ -4424,6 +4961,10 @@ export class WebTLSConfig extends $tea.Model {
 }
 
 export class WebTrafficConfig extends $tea.Model {
+  /**
+   * @example
+   * Anonymous
+   */
   authType?: string;
   disableInternetURL?: boolean;
   revisionsTrafficWeight?: { [key: string]: number };
@@ -4493,6 +5034,15 @@ export class WebWAFConfig extends $tea.Model {
 }
 
 export class AbortAndRollbackChangeOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ba386059-69b1-4e65-b1e5-0682d9fa****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4512,12 +5062,63 @@ export class AbortAndRollbackChangeOrderRequest extends $tea.Model {
 }
 
 export class AbortAndRollbackChangeOrderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the change order was terminated or the application was rolled back. Valid values:
+   * 
+   * *   **true**: The change order was terminated or the application was rolled back.
+   * *   **false**: The change order could not be terminated or the application could not be rolled back.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the change order.
+   */
   data?: AbortAndRollbackChangeOrderResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * success
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the change order.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4574,6 +5175,15 @@ export class AbortAndRollbackChangeOrderResponse extends $tea.Model {
 }
 
 export class AbortChangeOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * be2e1c76-682b-4897-98d3-1d8d6478****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4593,12 +5203,60 @@ export class AbortChangeOrderRequest extends $tea.Model {
 }
 
 export class AbortChangeOrderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the change order was terminated. Valid values:
+   * 
+   * *   **true**: The change order was terminated.
+   * *   **false**: The change order could not be terminated.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the change order.
+   */
   data?: AbortChangeOrderResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4655,8 +5313,34 @@ export class AbortChangeOrderResponse extends $tea.Model {
 }
 
 export class BatchStartApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * ebf491f0-c1a5-45e2-b2c4-710dbe2a****
+   */
   appIds?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The application version.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4680,12 +5364,72 @@ export class BatchStartApplicationsRequest extends $tea.Model {
 }
 
 export class BatchStartApplicationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * - **2xx**: The call was successful.
+   * - **3xx**: The call was redirected.
+   * - **4xx**: The call failed.
+   * - **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   */
   data?: BatchStartApplicationsResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * - The ErrorCode parameter is not returned if the request succeeds.
+   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+   * 
+   * @example
+   * NULL
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application deployment is successful. Take note of the following rules:
+   * 
+   * - **true**
+   * - **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4742,8 +5486,31 @@ export class BatchStartApplicationsResponse extends $tea.Model {
 }
 
 export class BatchStopApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ebf491f0-c1a5-45e2-b2c4-710dbe2a****，ebf491f0-c1a5-45e2-b2c4-71025e2a****
+   */
   appIds?: string;
+  /**
+   * @remarks
+   * ebf491f0-c1a5-45e2-b2c4-710dbe2a\\*\\*\\*\\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The application version.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4767,12 +5534,72 @@ export class BatchStopApplicationsRequest extends $tea.Model {
 }
 
 export class BatchStopApplicationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * - **2xx**: The call was successful.
+   * - **3xx**: The call was redirected.
+   * - **4xx**: The call failed.
+   * - **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the change order.
+   */
   data?: BatchStopApplicationsResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * - The ErrorCode parameter is not returned if the request succeeds.
+   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 7BD8F4C7-D84C-4D46-9885-8212997E****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is created. Valid values
+   * 
+   * - **true**
+   * - **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 0bc3b6e215637275918588187d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4829,17 +5656,58 @@ export class BatchStopApplicationsResponse extends $tea.Model {
 }
 
 export class BindSlbRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * [{"port":80,"targetPort":8080,"protocol":"TCP"}]
+   * 
+   * @example
+   * [{"port":80,"targetPort":8080,"protocol":"TCP"}]
+   */
   internet?: string;
+  internetSlbChargeType?: string;
+  /**
+   * @remarks
+   * lb-bp1tg0k6d9nqaw7l1\\*\\*\\*\\*
+   * 
+   * @example
+   * lb-bp1tg0k6d9nqaw7l1****
+   */
   internetSlbId?: string;
+  /**
+   * @remarks
+   * [{"port":80,"targetPort":8080,"protocol":"TCP"}]
+   * 
+   * @example
+   * [{"port":80,"targetPort":8080,"protocol":"TCP"}]
+   */
   intranet?: string;
+  intranetSlbChargeType?: string;
+  /**
+   * @remarks
+   * lb-bp1tg0k6d9nqaw7l1\\*\\*\\*\\*
+   * 
+   * @example
+   * lb-bp1tg0k6d9nqaw7l1****
+   */
   intranetSlbId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       internet: 'Internet',
+      internetSlbChargeType: 'InternetSlbChargeType',
       internetSlbId: 'InternetSlbId',
       intranet: 'Intranet',
+      intranetSlbChargeType: 'IntranetSlbChargeType',
       intranetSlbId: 'IntranetSlbId',
     };
   }
@@ -4848,8 +5716,10 @@ export class BindSlbRequest extends $tea.Model {
     return {
       appId: 'string',
       internet: 'string',
+      internetSlbChargeType: 'string',
       internetSlbId: 'string',
       intranet: 'string',
+      intranetSlbChargeType: 'string',
       intranetSlbId: 'string',
     };
   }
@@ -4860,12 +5730,66 @@ export class BindSlbRequest extends $tea.Model {
 }
 
 export class BindSlbResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: BindSlbResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the SLB instance was successfully associated with the application. Valid values:
+   * 
+   * *   **true**: The SLB instance was successfully associated with the application.
+   * *   **false**: The SLB instance could not be associated with the application.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4922,7 +5846,25 @@ export class BindSlbResponse extends $tea.Model {
 }
 
 export class ConfirmPipelineBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * true
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   confirm?: boolean;
+  /**
+   * @remarks
+   * e2e-vds-feh-\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e2e-vds-feh-***
+   */
   pipelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4944,12 +5886,66 @@ export class ConfirmPipelineBatchRequest extends $tea.Model {
 }
 
 export class ConfirmPipelineBatchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The batch information.
+   */
   data?: ConfirmPipelineBatchResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the processing of the next batch started as required. Valid values:
+   * 
+   * *   **true**: The processing started.
+   * *   **false**: The processing could not start.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5006,66 +6002,430 @@ export class ConfirmPipelineBatchResponse extends $tea.Model {
 }
 
 export class CreateApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * acs:ram::123456789012\\*\\*\\*\\*:role/adminrole
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
   acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * cri-xxxxxx
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * This is a test description.
+   * 
+   * @example
+   * This is a test description.
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * test
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   appName?: string;
   appSource?: string;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
   associateEip?: boolean;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
   autoConfig?: boolean;
   baseAppId?: string;
+  /**
+   * @remarks
+   * sleep
+   * 
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @remarks
+   * 1d
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
   configMapMountDesc?: string;
+  /**
+   * @remarks
+   * 1000
+   * 
+   * @example
+   * 1000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   * 
+   * @example
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
   deploy?: boolean;
+  /**
+   * @remarks
+   * 3.5.3
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
   enableEbpf?: string;
+  /**
+   * @remarks
+   * [{"name":"envtmp","value":"0"}]
+   * 
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
   envs?: string;
+  /**
+   * @example
+   * 10
+   */
   imagePullSecrets?: string;
+  /**
+   * @remarks
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * custom-args
+   * 
+   * @example
+   * custom-args
+   */
   jarStartArgs?: string;
+  /**
+   * @remarks
+   * \\-Xms4G -Xmx4G
+   * 
+   * @example
+   * -Xms4G -Xmx4G
+   */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * Open JDK 8
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @example
+   * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
+   */
   kafkaConfigs?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   */
   liveness?: string;
+  /**
+   * @remarks
+   * 1024
+   * 
+   * @example
+   * 1024
+   */
   memory?: number;
+  /**
+   * @example
+   * "0"
+   */
   microRegistration?: string;
   microRegistrationConfig?: string;
+  /**
+   * @remarks
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   * 
+   * @example
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   */
   mountDesc?: string;
+  /**
+   * @remarks
+   * example.com
+   * 
+   * @example
+   * example.com
+   */
   mountHost?: string;
+  /**
+   * @remarks
+   * cn-beijing:test
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @example
+   * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
+   */
   nasConfigs?: string;
+  /**
+   * @remarks
+   * KSAK\\*\\*\\*\\*
+   * 
+   * @example
+   * KSAK****
+   */
   nasId?: string;
+  /**
+   * @remarks
+   * xxxxxx
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkId?: string;
+  /**
+   * @remarks
+   * xxxxxx
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkSecret?: string;
+  /**
+   * @remarks
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   * 
+   * @example
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   */
   ossMountDescs?: string;
+  /**
+   * @remarks
+   * FatJar
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FatJar
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * http://myoss.oss-cn-\\*\\*\\*\\*.aliyuncs.com/my-buc/2019-06-30/\\*\\*\\*\\*.jar
+   * 
+   * @example
+   * http://myoss.oss-cn-****.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * 1.0.0
+   * 
+   * @example
+   * 1.0.0
+   */
   packageVersion?: string;
+  /**
+   * @example
+   * PHP-FPM 7.0
+   */
   php?: string;
+  /**
+   * @remarks
+   * /usr/local/etc/php/conf.d/arms.ini
+   * 
+   * @example
+   * /usr/local/etc/php/conf.d/arms.ini
+   */
   phpArmsConfigLocation?: string;
+  /**
+   * @remarks
+   * k1=v1
+   * 
+   * @example
+   * k1=v1
+   */
   phpConfig?: string;
+  /**
+   * @remarks
+   * /usr/local/etc/php/php.ini
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
   phpConfigLocation?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["cat","/etc/group"]}}
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["cat","/etc/group"]}}
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
   preStop?: string;
+  /**
+   * @example
+   * java
+   */
   programmingLanguage?: string;
+  /**
+   * @example
+   * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true}
+   */
   pvtzDiscoverySvc?: string;
+  /**
+   * @example
+   * PYTHON 3.9.15
+   */
   python?: string;
+  /**
+   * @example
+   * Flask==2.0
+   */
   pythonModules?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   */
   readiness?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   replicas?: number;
   saeVersion?: string;
+  /**
+   * @remarks
+   * sg-wz969ngg2e49q5i4\\*\\*\\*\\*
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
   serviceTags?: string;
+  /**
+   * @remarks
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * 30
+   * 
+   * @example
+   * 30
+   */
   terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * Asia/Shanghai
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
   tomcatConfig?: string;
+  /**
+   * @remarks
+   * vsw-bp12mw1f8k3jgygk9\\*\\*\\*\\*
+   * 
+   * @example
+   * vsw-bp12mw1f8k3jgygk9****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * vpc-bp1aevy8sofi8mh1q\\*\\*\\*\\*
+   * 
+   * @example
+   * vpc-bp1aevy8sofi8mh1q****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * CATALINA_OPTS=\\\\"$CATALINA_OPTS $Options\\\\" catalina.sh run
+   * 
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
   warStartOptions?: string;
+  /**
+   * @remarks
+   * apache-tomcat-7.0.91
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
   webContainer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5205,12 +6565,66 @@ export class CreateApplicationRequest extends $tea.Model {
 }
 
 export class CreateApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is created. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5267,13 +6681,54 @@ export class CreateApplicationResponse extends $tea.Model {
 }
 
 export class CreateApplicationScalingRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @example
+   * 3
+   */
   minReadyInstances?: number;
+  /**
+   * @example
+   * true
+   */
   scalingRuleEnable?: boolean;
+  /**
+   * @example
+   * {"maxReplicas":3,"minReplicas":1,"metrics":[{"metricType":"CPU","metricTargetAverageUtilization":20},{"metricType":"MEMORY","metricTargetAverageUtilization":30},{"metricType":"tcpActiveConn","metricTargetAverageUtilization":20},{"metricType":"SLB_QPS","MetricTargetAverageUtilization":25,"SlbProject":"aliyun-fc-cn-hangzhou-d95881d9-5d3c-5f26-a6b8-************","SlbLogstore":"function-log","Vport":"80"},{"metricType":"SLB_RT","MetricTargetAverageUtilization":35,"SlbProject":"aliyun-fc-cn-hangzhou-d95881d9-5d3c-5f26-a6b8-************","SlbLogstore":"function-log","Vport":"80"}],"scaleUpRules":{"step":"100","disabled":false,"stabilizationWindowSeconds":0},"scaleDownRules":{"step":"100","disabled":false,"stabilizationWindowSeconds":300}}
+   */
   scalingRuleMetric?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * timer-0800-2100
+   */
   scalingRuleName?: string;
+  /**
+   * @example
+   * {"beginDate":null,"endDate":null,"period":"* * *","schedules":[{"atTime":"08:00","targetReplicas":10},{"atTime":"20:00","targetReplicas":3}]}
+   */
   scalingRuleTimer?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * timing
+   */
   scalingRuleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5307,12 +6762,32 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
 }
 
 export class CreateApplicationScalingRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: CreateApplicationScalingRuleResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5369,9 +6844,38 @@ export class CreateApplicationScalingRuleResponse extends $tea.Model {
 }
 
 export class CreateConfigMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"env.shell": "/bin/sh"}
+   */
   data?: string;
+  /**
+   * @example
+   * test-desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * cn-hangzhou
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5397,12 +6901,60 @@ export class CreateConfigMapRequest extends $tea.Model {
 }
 
 export class CreateConfigMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the ConfigMap instance was created. Valid values:
+   * 
+   * *   **true**: The instance was created.
+   * *   **false**: The call failed to be created.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the ConfigMap instance that was created.
+   */
   data?: CreateConfigMapResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5459,11 +7011,54 @@ export class CreateConfigMapResponse extends $tea.Model {
 }
 
 export class CreateGreyTagRouteRequest extends $tea.Model {
+  /**
+   * @example
+   * [{"condition":"AND","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"sourceIp","value":"127.0.0.1"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   */
   albRules?: string;
+  /**
+   * @remarks
+   * dubbo-echo
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7802c49a-67bc-4167-8369-9a9c003c****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   * 
+   * @example
+   * 灰度发布-地域灰度
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
+   */
   dubboRules?: string;
+  /**
+   * @remarks
+   * Canary Release - Regions
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dubbo-echo
+   */
   name?: string;
+  /**
+   * @remarks
+   * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
+   * 
+   * @example
+   * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   */
   scRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5493,12 +7088,60 @@ export class CreateGreyTagRouteRequest extends $tea.Model {
 }
 
 export class CreateGreyTagRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the canary release rule. The ID is globally unique.
+   */
   data?: CreateGreyTagRouteResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * 9D29CBD0-45D3-410B-9826-52F86F90****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The information about the canary release rule.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5555,15 +7198,70 @@ export class CreateGreyTagRouteResponse extends $tea.Model {
 }
 
 export class CreateIngressRequest extends $tea.Model {
+  /**
+   * @example
+   * 188077086902****_176993d****_181437****_108724****
+   */
   certId?: string;
+  /**
+   * @example
+   * 87***35-cn-hangzhou,812***3-cn-hangzhou
+   */
   certIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080}
+   */
   defaultRule?: string;
+  /**
+   * @example
+   * ingress-for-sae-test
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: number;
+  /**
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @example
+   * clb
+   */
   loadBalanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:sae-test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
+   */
   rules?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lb-uf6hucc7inlqrtcq5****
+   */
   slbId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5601,12 +7299,32 @@ export class CreateIngressRequest extends $tea.Model {
 }
 
 export class CreateIngressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: CreateIngressResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5663,59 +7381,544 @@ export class CreateIngressResponse extends $tea.Model {
 }
 
 export class CreateJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) required for a RAM role to obtain images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
   acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The ID of Container Registry Enterprise Edition instance N. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the template. The description cannot exceed 1,024 characters in length.
+   * 
+   * @example
+   * This is a test description.
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * The name of the job template. The name can contain digits, letters, and hyphens (-). The name must start with a letter and cannot exceed 36 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   appName?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically configure the network environment. Take note of the following rules:
+   * 
+   * *   **true**: The network environment is automatically configured by SAE when the application is created. In this case, the values of the **NamespaceId**, **VpcId**, **vSwitchId**, and **SecurityGroupId** parameters are ignored.
+   * *   **false**: The network environment is manually configured based on your settings when the application is created.
+   * 
+   * @example
+   * false
+   */
   autoConfig?: boolean;
+  /**
+   * @remarks
+   * The number of times the job is retried.
+   * 
+   * @example
+   * 3
+   */
   backoffLimit?: number;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The concurrency policy of the job. Take note of the following rules:
+   * 
+   * *   **Forbid**: Prohibits concurrent running. If the previous job is not completed, no new job is created.
+   * *   **Allow**: Allows concurrent running.
+   * *   **Replace**: If the previous job is not completed when the time to create a new job is reached, the new job replaces the previous job.
+   * 
+   * @example
+   * Allow
+   */
   concurrencyPolicy?: string;
+  /**
+   * @remarks
+   * The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
+   * *   **key**: the key.
+   * 
+   * > You can use the `sae-sys-configmap-all` key to mount all keys.
+   * 
+   * *   **mountPath**: the mount path in the container.
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
   configMapMountDesc?: string;
+  /**
+   * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. You cannot set this parameter to 0. Valid values:
+   * 
+   * *   500
+   * *   1000
+   * *   2000
+   * *   4000
+   * *   8000
+   * *   16000
+   * *   32000
+   * 
+   * @example
+   * 1000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The custom mappings between hostnames and IP addresses in the container. Take note of the following rules:
+   * 
+   * *   **hostName**: the domain name or hostname.
+   * *   **ip**: the IP address.
+   * 
+   * @example
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
   enableImageAccl?: boolean;
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+   * 
+   * *   Customize
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The ID of the corresponding Secret.
+   * 
+   * @example
+   * 10
+   */
   imagePullSecrets?: string;
+  /**
+   * @remarks
+   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * -Xms4G -Xmx4G
+   */
   jarStartArgs?: string;
+  /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the application container. The default startup command for application deployment is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * custom-option
+   */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * 
+   * *   **Open JDK 8**
+   * *   **Open JDK 7**
+   * *   **Dragonwell 11**
+   * *   **Dragonwell 8**
+   * *   **openjdk-8u191-jdk-alpine3.9**
+   * *   **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @remarks
+   * The size of memory required by each instance. Unit: MB. You cannot set this parameter to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   Set the value to 1024 when Cpu is set to 500 or 1000.
+   * *   Set the value to 2048 when Cpu is set to 500, 1000 or 2000.
+   * *   Set the value to 4096 when Cpu is set to 1000, 2000, or 4000.
+   * *   Set the value to 8192 when Cpu is set to 2000, 4000, or 8000.
+   * *   Set the value to 12288 when Cpu is set to 12000.
+   * *   Set the value to 16384 when Cpu is set to 4000, 8000, or 16000.
+   * *   Set the value to 24576 when Cpu is set to 12000.
+   * *   Set the value to 32768 when Cpu is set to 16000.
+   * *   Set the value to 65536 when Cpu is set to 8000, 16000, or 32000.
+   * *   Set the value to 131072 when Cpu is set to 32000.
+   * 
+   * @example
+   * 1024
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The configurations for mounting the NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **MountDesc** parameter in the requests. If you want to unmount the NAS file system, you must set the **MountDesc** values in the subsequent requests to an empty string ("").
+   * 
+   * @example
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   */
   mountDesc?: string;
+  /**
+   * @remarks
+   * The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+   * 
+   * @example
+   * 10d3b4bc9****.com
+   */
   mountHost?: string;
+  /**
+   * @remarks
+   * The ID of the Serverless App Engine (SAE) namespace. The ID can contain only lowercase letters and hyphens (-). It must start with a lowercase letter.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the Apsara File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
+   * 
+   * @example
+   * 10d3b4****
+   */
   nasId?: string;
+  /**
+   * @remarks
+   * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to read data from and write data to OSS buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkSecret?: string;
+  /**
+   * @remarks
+   * Information of the Object Storage Service (OSS) bucket mounted to the application. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **bucketName**: the name of the OSS bucket.
+   * 
+   * *   **bucketPath**: the directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * 
+   * *   **mountPath**: the directory of the container in SAE. If the path already exists, the newly specified path overwrites the previous one. If the path does not exist, it is created.
+   * 
+   * *   **readOnly**: specifies whether to only allow the container path to read data from the OSS directory. Valid values:
+   * 
+   *     *   **true**: The container path only has read permission on the OSS directory.
+   *     *   **false**: The application has read and write permissions.
+   * 
+   * @example
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   */
   ossMountDescs?: string;
+  /**
+   * @remarks
+   * The type of the deployment package. Take note of the following rules:
+   * 
+   * *   If you deploy the application by using a Java Archive (JAR) package, you can set this parameter to **FatJar**, **War**, or **Image**.
+   * *   If you deploy the application by using a PHP package, you can set this parameter to one of the following values:
+   * 
+   * **PhpZip** **IMAGE_PHP_5_4** **IMAGE_PHP_5_4_ALPINE** **IMAGE_PHP_5_5** **IMAGE_PHP_5_5_ALPINE** **IMAGE_PHP_5_6** **IMAGE_PHP_5_6_ALPINE** **IMAGE_PHP_7_0** **IMAGE_PHP_7_0_ALPINE** **IMAGE_PHP_7_1** **IMAGE_PHP_7_1_ALPINE** **IMAGE_PHP_7_2** **IMAGE_PHP_7_2_ALPINE** **IMAGE_PHP_7_3** **IMAGE_PHP_7_3_ALPINE**
+   * 
+   * *   If you deploy the application by using a **Python** package, you can set this parameter to **PythonZip** or **Image**:
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FatJar
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The address of the deployment package. This parameter is required if you set **PackageType** to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * http://myoss.oss-cn-hangzhou.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is required if you set **PackageType** to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * 1.0.1
+   */
   packageVersion?: string;
+  /**
+   * @remarks
+   * The details of the PHP configuration file.
+   * 
+   * @example
+   * k1=v1
+   */
   phpConfig?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
   phpConfigLocation?: string;
+  /**
+   * @remarks
+   * The script that is run immediately after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
   preStop?: string;
+  /**
+   * @remarks
+   * The programming language. Valid values: **java**, **php**, **python**, and **shell**.
+   * 
+   * @example
+   * java
+   */
   programmingLanguage?: string;
+  /**
+   * @remarks
+   * The Python environment. Set the value to **PYTHON 3.9.15**.
+   * 
+   * @example
+   * PYTHON 3.9.15
+   */
   python?: string;
+  /**
+   * @remarks
+   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If the package does not contain this file and you do not configure custom dependencies in the package, specify the dependencies that you want to install in the text box.
+   * 
+   * @example
+   * Flask==2.0
+   */
   pythonModules?: string;
+  /**
+   * @remarks
+   * The ID of the job that you reference.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   refAppId?: string;
+  /**
+   * @remarks
+   * The number of concurrent instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   replicas?: number;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable job sharding.
+   * 
+   * @example
+   * true
+   */
   slice?: boolean;
+  /**
+   * @remarks
+   * The parameters of job sharding.
+   * 
+   * @example
+   * [0,1,2]
+   */
   sliceEnvs?: string;
+  /**
+   * @remarks
+   * The logging configurations of Log Service.
+   * 
+   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **projectName**: the name of the Log Service project.
+   * *   **logDir**: the path in which logs are stored.
+   * *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
+   * *   **logstoreName**: the name of the Logstore in Log Service.
+   * *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+   * 
+   * If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+   * 
+   * > A Log Service project that is automatically created by SAE when you create an application is deleted when the application is deleted. Therefore, when you create an application, you cannot select a Log Service project that is automatically created by SAE for log collection.
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * 
+   * @example
+   * 10
+   */
   terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The time zone. Default value: **Asia/Shanghai**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The Tomcat configuration. If you want to cancel this configuration, set this parameter to "" or "{}". The following variables are included in the configuration: Take note of the following rules:
+   * 
+   * *   **port**: the port number. The port number ranges from 1024 to 65535. Though the admin permissions are configured for the container, the root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not specify this parameter, the default port number 8080 is used.
+   * *   **contextPath**: the path. Default value: /. This value indicates the root directory.
+   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: UTF-8, ISO-8859-1, GBK, and GB2312.************ If you do not specify this parameter, the default value **ISO-8859-1** is used.
+   * *   **useBodyEncoding**: specifies whether to use the encoding scheme specified in the request body for URI query parameters. Default value: true.
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
   tomcatConfig?: string;
   triggerConfig?: string;
+  /**
+   * @remarks
+   * The vSwitch to which the elastic network interface (ENI) of the application instance is connected. The vSwitch must be located in the VPC specified by the VpcId parameter. The SAE namespace is bound with this vSwitch. The default value is the ID of the vSwitch that is bound to the namespace.
+   * 
+   * @example
+   * vsw-bp12mw1f8k3jgygk9****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) that corresponds to the SAE namespace. In SAE, once correspondence is configured between a namespace and a VPC, the namespace cannot correspond to other VPCs. When the SAE application is created within the namespace, the application is bound with the VPC. Multiple namespaces can correspond to the same VPC. The default value is the ID of the VPC that is bound to the namespace.
+   * 
+   * @example
+   * vpc-bp1aevy8sofi8mh1q****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
+   * 
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
   warStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Tomcat container on which the deployment package depends. Valid values:
+   * 
+   * *   **apache-tomcat-7.0.91**
+   * *   **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
   webContainer?: string;
+  /**
+   * @remarks
+   * Set the value to `job`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * job
+   */
   workload?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5841,12 +8044,72 @@ export class CreateJobRequest extends $tea.Model {
 }
 
 export class CreateJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: CreateJobResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Take note of the following rules:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application deployment is successful. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * ac1a0b2215622246421415014e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5904,9 +8167,39 @@ export class CreateJobResponse extends $tea.Model {
 
 export class CreateNamespaceRequest extends $tea.Model {
   enableMicroRegistration?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The message returned for the operation.
+   * 
+   * @example
+   * desc
+   */
   namespaceDescription?: string;
+  /**
+   * @remarks
+   * The data returned.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5934,12 +8227,58 @@ export class CreateNamespaceRequest extends $tea.Model {
 }
 
 export class CreateNamespaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * bucketPath
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The region where the namespace resides.
+   */
   data?: CreateNamespaceResponseBodyData;
+  /**
+   * @remarks
+   * http://sae_pop_pre/#vpc
+   * 
+   * @example
+   * bucketName
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The description of the custom namespace.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * mountDir
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * 0a981dd515966966104121683d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5996,9 +8335,34 @@ export class CreateNamespaceResponse extends $tea.Model {
 }
 
 export class CreateSecretRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   secretData?: CreateSecretRequestSecretData;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registry-auth-acree
+   */
   secretName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * kubernetes.io/dockerconfigjson
+   */
   secretType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6024,9 +8388,34 @@ export class CreateSecretRequest extends $tea.Model {
 }
 
 export class CreateSecretShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   secretDataShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registry-auth-acree
+   */
   secretName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * kubernetes.io/dockerconfigjson
+   */
   secretType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6052,12 +8441,32 @@ export class CreateSecretShrinkRequest extends $tea.Model {
 }
 
 export class CreateSecretResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: CreateSecretResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6114,7 +8523,18 @@ export class CreateSecretResponse extends $tea.Model {
 }
 
 export class CreateWebApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: CreateWebApplicationInput;
   static names(): { [key: string]: string } {
     return {
@@ -6161,7 +8581,18 @@ export class CreateWebApplicationResponse extends $tea.Model {
 }
 
 export class CreateWebCustomDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: CreateWebCustomDomainInput;
   static names(): { [key: string]: string } {
     return {
@@ -6208,6 +8639,15 @@ export class CreateWebCustomDomainResponse extends $tea.Model {
 }
 
 export class DeleteApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6227,12 +8667,63 @@ export class DeleteApplicationRequest extends $tea.Model {
 }
 
 export class DeleteApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the application is deleted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the change order that is used to query the task execution status.
+   */
   data?: DeleteApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request is successful.
+   * *   **3xx**: A redirection message is returned.
+   * *   **4xx**: The request is invalid.
+   * *   **5xx**: A server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The trace ID that is used to query details of the request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   If the request is successful, **success** is returned.
+   * *   If an error occurred, the error code is returned.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned results.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6289,7 +8780,25 @@ export class DeleteApplicationResponse extends $tea.Model {
 }
 
 export class DeleteApplicationScalingRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * timer-0800-2100
+   */
   scalingRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6314,8 +8823,16 @@ export class DeleteApplicationScalingRuleResponseBody extends $tea.Model {
   code?: string;
   errorCode?: string;
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6370,6 +8887,15 @@ export class DeleteApplicationScalingRuleResponse extends $tea.Model {
 }
 
 export class DeleteConfigMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6389,12 +8915,69 @@ export class DeleteConfigMapRequest extends $tea.Model {
 }
 
 export class DeleteConfigMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DeleteConfigMapResponseBodyData;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the ConfigMap instance was deleted. Valid values:
+   * 
+   * *   **true**: The instance was deleted.
+   * *   **false**: The instance failed to be deleted.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6451,6 +9034,15 @@ export class DeleteConfigMapResponse extends $tea.Model {
 }
 
 export class DeleteGreyTagRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   greyTagRouteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6470,12 +9062,63 @@ export class DeleteGreyTagRouteRequest extends $tea.Model {
 }
 
 export class DeleteGreyTagRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the canary release rule. The ID is globally unique.
+   */
   data?: DeleteGreyTagRouteResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * 9D29CBD0-45D3-410B-9826-52F86F90****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The information about the canary release rule.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6532,7 +9175,25 @@ export class DeleteGreyTagRouteResponse extends $tea.Model {
 }
 
 export class DeleteHistoryJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job template to which the job that you want to delete belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * manual-3db7a8fa-5d40-4edc-92e4-49d50eab****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6554,12 +9215,75 @@ export class DeleteHistoryJobRequest extends $tea.Model {
 }
 
 export class DeleteHistoryJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * {msg: "", code: 200, success: true}
+   */
   data?: string;
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the job was deleted. Valid values:
+   * 
+   * *   **true**: The job was deleted.
+   * *   **false**: The job failed to be deleted.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6616,6 +9340,15 @@ export class DeleteHistoryJobResponse extends $tea.Model {
 }
 
 export class DeleteIngressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 87
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 87
+   */
   ingressId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6635,12 +9368,66 @@ export class DeleteIngressRequest extends $tea.Model {
 }
 
 export class DeleteIngressResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request failed.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteIngressResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the routing rule was deleted. Valid values:
+   * 
+   * *   **true**: indicates that the routing rule was deleted.
+   * *   **false**: indicates that the routing rule could not be deleted.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6697,6 +9484,15 @@ export class DeleteIngressResponse extends $tea.Model {
 }
 
 export class DeleteJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job template that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6716,12 +9512,75 @@ export class DeleteJobRequest extends $tea.Model {
 }
 
 export class DeleteJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * {msg: "", code: 200, success: true}
+   */
   data?: string;
+  /**
+   * @remarks
+   * The error code that is returned. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request is successful.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is deleted. Valid values:
+   * 
+   * *   **true**: The namespaces were obtained.
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6778,7 +9637,18 @@ export class DeleteJobResponse extends $tea.Model {
 }
 
 export class DeleteNamespaceRequest extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * cn-beijing:test
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6800,11 +9670,61 @@ export class DeleteNamespaceRequest extends $tea.Model {
 }
 
 export class DeleteNamespaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the namespace was deleted. Valid values:
+   * 
+   * *   **true**: indicates that the namespace was deleted.
+   * *   **false**: indicates that the namespace could not be deleted.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * 0a981dd515966966104121683d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6859,7 +9779,25 @@ export class DeleteNamespaceResponse extends $tea.Model {
 }
 
 export class DeleteSecretRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the namespace in which the Secret resides. By default, the namespace ID is the same as the region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the Secret to be deleted. You can call the [ListSecrets](https://help.aliyun.com/document_detail/466929.html) operation to view the Secret IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6881,12 +9819,72 @@ export class DeleteSecretRequest extends $tea.Model {
 }
 
 export class DeleteSecretResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: DeleteSecretResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Valid values:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the Secret is successfully deleted. Valid values:
+   * 
+   * *   **true**: The instance was deleted.
+   * *   **false**: The instance failed to be deleted.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6943,6 +9941,13 @@ export class DeleteSecretResponse extends $tea.Model {
 }
 
 export class DeleteWebApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6987,6 +9992,13 @@ export class DeleteWebApplicationResponse extends $tea.Model {
 }
 
 export class DeleteWebApplicationRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7031,6 +10043,13 @@ export class DeleteWebApplicationRevisionResponse extends $tea.Model {
 }
 
 export class DeleteWebCustomDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7075,65 +10094,592 @@ export class DeleteWebCustomDomainResponse extends $tea.Model {
 }
 
 export class DeployApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) required for a RAM role to obtain images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
   acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The ID of Container Registry Enterprise Edition instance N. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to associate an EIP with the node pool. Take note of the following rules:
+   * 
+   * *   **true**: The EIP is associated with the application instance.
+   * *   **false**: The EIP is not associated with the application instance.
+   * 
+   * @example
+   * true
+   */
   associateEip?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to automatically enable an auto scaling policy for the application. Take note of the following rules:
+   * 
+   * *   **true**: turns on Logon-free Sharing
+   * *   **false**: turns off Logon-free Sharing
+   * 
+   * @example
+   * true
+   */
   autoEnableApplicationScalingRule?: boolean;
+  /**
+   * @remarks
+   * The interval between batches during a batch release. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
   batchWaitTime?: number;
+  /**
+   * @remarks
+   * The description of the change order.
+   * 
+   * @example
+   * Start the application
+   */
   changeOrderDesc?: string;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
+   * *   **key**: the key.
+   * 
+   * > You can use `sae-sys-configmap-all` to mount all keys.
+   * 
+   * *   **mountPath**: the mount path in the container.
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
   configMapMountDesc?: string;
   cpu?: number;
+  /**
+   * @remarks
+   * The custom mappings between hostnames and IP addresses in the container. Take note of the following rules:
+   * 
+   * *   **hostName**: the domain name or hostname.
+   * *   **ip**: the IP address.
+   * 
+   * @example
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * This parameter takes effect only for applications that are in the Stopped state. If you call the **DeployApplication** operation to manage a running application, the application is immediately redeployed.
+   * 
+   * *   **true** (default): specifies that the system immediately deploys the application, enables new configurations, and pulls application instances.
+   * *   **false**: specifies that the system only enables the new configurations.
+   * 
+   * @example
+   * true
+   */
   deploy?: string;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether access to Application High Availability Service (AHAS) is enabled. Take note of the following rules:
+   * 
+   * *   **true**: Access to AHAS is enabled.
+   * *   **false**: Access to AHAS is disabled.
+   * 
+   * @example
+   * false
+   */
   enableAhas?: string;
+  /**
+   * @remarks
+   * Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Take note of the following rules:
+   * 
+   * *   **true**: The canary release rules are enabled.
+   * *   **false**: The canary release rules are disabled.
+   * 
+   * @example
+   * false
+   */
   enableGreyTagRoute?: boolean;
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+   * 
+   * *   Customize
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The ID of the corresponding Secret.
+   * 
+   * @example
+   * 10
+   */
   imagePullSecrets?: string;
+  /**
+   * @remarks
+   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * -Xms4G -Xmx4G
+   */
   jarStartArgs?: string;
+  /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the application container. The default startup command for application deployment is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * custom-option
+   */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * 
+   * *   **Open JDK 8**
+   * *   **Open JDK 7**
+   * *   **Dragonwell 11**
+   * *   **Dragonwell 8**
+   * *   **openjdk-8u191-jdk-alpine3.9**
+   * *   **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @remarks
+   * The logging configurations of Message Queue for Apache Kafka. Take note of the following rules:
+   * 
+   * *   **kafkaEndpoint**: the endpoint of the Message Queue for Apache Kafka API.
+   * *   **kafkaInstanceId**: the ID of the Message Queue for Apache Kafka instance.
+   * *   **kafkaConfigs**: One or more logging configurations of Message Queue for Apache Kafka. For information about sample values and parameters, see the request parameter **KafkaLogfileConfig** in this topic.
+   * 
+   * @example
+   * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
+   */
   kafkaConfigs?: string;
+  /**
+   * @remarks
+   * The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
+   * 
+   * *   Example of **exec**: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
+   * *   Sample code of the **httpGet** method: `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * *   Sample code of the **tcpSocket** method: `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * 
+   * > You can use only one method to perform the health check.
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **exec.command**: the health check command.
+   * *   **httpGet.path**: the request path.
+   * *   **httpGet.scheme**: the protocol that is used to perform the health check. Valid values: **HTTP** and **HTTPS**.
+   * *   **httpGet.isContainKeyWord**: indicates whether the response contains keywords. Valid values: **true** and **false**. If this field is not returned, the advanced settings are not used.
+   * *   **httpGet.keyWord**: the custom keyword. This parameter is available only if the **isContainKeyWord** field is returned.
+   * *   **tcpSocket.port**: the port that is used to check the status of TCP connections.
+   * *   **initialDelaySeconds**: the delay of the health check. Default value: 10. Unit: seconds.
+   * *   **periodSeconds**: the interval at which health checks are performed. Default value: 30. Unit: seconds.
+   * *   **timeoutSeconds**: the timeout period of the health check. Default value: 1. Unit: seconds. If you set this parameter to 0 or leave this parameter empty, the timeout period is automatically set to 1 second.
+   * 
+   * @example
+   * {"exec":{"command":["sleep","5s"]},"initialDelaySeconds":10,"timeoutSeconds":11}
+   */
   liveness?: string;
   memory?: number;
+  /**
+   * @remarks
+   * The Nacos registry. Valid values:
+   * 
+   * *   **0**: SAE built-in Nacos registry
+   * *   **1**: self-managed Nacos registry
+   * *   **2** : MSE Nacos registry
+   * 
+   * @example
+   * "0"
+   */
   microRegistration?: string;
   microRegistrationConfig?: string;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. Default value: -1.
+   * *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+   * 
+   * > When both **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of **MinReadyInstanceRatio**** takes precedence. For example, if **MinReadyInstances** is set to **5, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+   * 
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Special values:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the application is updated.
+   * *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * The configurations for mounting the NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **MountDesc** parameter in the requests. If you want to unmount the NAS file system, you must set the **MountDesc** values in the subsequent requests to an empty string ("").
+   * 
+   * @example
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   */
   mountDesc?: string;
+  /**
+   * @remarks
+   * The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+   * 
+   * @example
+   * 10d3b4bc9****.com
+   */
   mountHost?: string;
+  /**
+   * @remarks
+   * The configurations of mounting the NAS file system. Take note of the following rules:
+   * 
+   * *   **mountPath**: the mount path of the container.
+   * *   **readOnly**: If you set the value to **false**, the application has the read and write permissions.
+   * *   **nasId**: the ID of the NAS file system.
+   * *   **mountDomain**: the domain name of the mount target. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
+   * *   **nasPath**: the directory in the NAS file system.
+   * 
+   * @example
+   * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
+   */
   nasConfigs?: string;
+  /**
+   * @remarks
+   * The ID of the Apsara File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
+   * 
+   * @example
+   * 10d3b4****
+   */
   nasId?: string;
+  /**
+   * @remarks
+   * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to read data from and write data to OSS buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkSecret?: string;
+  /**
+   * @remarks
+   * Information of the Object Storage Service (OSS) bucket mounted to the application. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **bucketName**: the name of the OSS bucket.
+   * 
+   * *   **bucketPath**: the directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * 
+   * *   **mountPath**: the directory of the container in SAE. If the path already exists, the newly specified path overwrites the previous one. If the path does not exist, it is created.
+   * 
+   * *   **readOnly**: specifies whether to only allow the container path to read data from the OSS directory. Valid values:
+   * 
+   *     *   **true**: The container path only has read permission on the OSS directory.
+   *     *   **false**: The application has read and write permissions.
+   * 
+   * @example
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   */
   ossMountDescs?: string;
+  /**
+   * @example
+   * FatJar
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The address of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * http://myoss.oss-cn-hangzhou.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * 1.0.1
+   */
   packageVersion?: string;
+  /**
+   * @example
+   * PHP-FPM 7.0
+   */
   php?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application monitoring is mounted. Make sure that the PHP server loads the configuration file. SAE automatically generates the corresponding configuration file. No manual operations are required.
+   * 
+   * @example
+   * /usr/local/etc/php/conf.d/arms.ini
+   */
   phpArmsConfigLocation?: string;
+  /**
+   * @remarks
+   * The details of the PHP configuration file.
+   * 
+   * @example
+   * k1=v1
+   */
   phpConfig?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
   phpConfigLocation?: string;
+  /**
+   * @remarks
+   * The script that is run immediately after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
   preStop?: string;
+  /**
+   * @remarks
+   * The configurations of Kubernetes Service-based service registration and discovery. Take note of the following rules:
+   * 
+   * *   **serviceName**: the name of the Alibaba Cloud service. Format: `<Custom content>-<Namespace ID>`. `-<Namespace ID>` is automatically specified based on the namespace in which an application resides and cannot be changed. For example, if you select the default namespace in the China (Beijing) region, `-cn-beijing-default` is automatically specified.
+   * *   **namespaceId**: the namespace ID.
+   * *   **portAndProtocol**: the port number and protocol. Valid values of the port number: 1 to 65535. Valid values of the protocol: **TCP** and **UDP**.
+   * *   **enable**: enables the Kubernetes Service-based registration and discovery feature.
+   * 
+   * @example
+   * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true}
+   */
   pvtzDiscoverySvc?: string;
+  /**
+   * @remarks
+   * The Python environment. Set the value to **PYTHON 3.9.15**.
+   * 
+   * @example
+   * PYTHON 3.9.15
+   */
   python?: string;
+  /**
+   * @remarks
+   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If the package does not contain this file and you do not configure custom dependencies in the package, specify the dependencies that you want to install in the text box.
+   * 
+   * @example
+   * Flask==2.0
+   */
   pythonModules?: string;
+  /**
+   * @remarks
+   * The details of the health check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. Containers that fail health checks cannot receive traffic from Server Load Balancer (SLB) instances. You can use the **exec**, **httpGet**, or **tcpSocket** method to perform health checks. For more information, see the description of the **Liveness** parameter.
+   * 
+   * > You can use only one method to perform the health check.
+   * 
+   * @example
+   * {"exec":{"command":["sleep","6s"]},"initialDelaySeconds":15,"timeoutSeconds":12}
+   */
   readiness?: string;
   replicas?: number;
   securityGroupId?: string;
   serviceTags?: string;
+  /**
+   * @remarks
+   * The logging configurations of Log Service.
+   * 
+   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **projectName**: the name of the Log Service project.
+   * *   **logDir**: the path in which logs are stored.
+   * *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
+   * *   **logstoreName**: the name of the Logstore in Log Service.
+   * *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+   * 
+   * If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+   * 
+   * > A Log Service project that is automatically created by SAE when you create an application is deleted when the application is deleted. Therefore, when you create an application, you cannot select a Log Service project that is automatically created by SAE for log collection.
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * 
+   * @example
+   * 10
+   */
   terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The time zone. Default value: **Asia/Shanghai**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The Tomcat configuration. If you want to cancel this configuration, set this parameter to "" or "{}". The following variables are included in the configuration: Take note of the following rules:
+   * 
+   * *   **port**: the port number. The port number ranges from 1024 to 65535. Though the admin permissions are configured for the container, the root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not specify this parameter, the default port number 8080 is used.
+   * *   **contextPath**: the path. Default value: /. This value indicates the root directory.
+   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: UTF-8, ISO-8859-1, GBK, and GB2312.************ If you do not specify this parameter, the default value **ISO-8859-1** is used.
+   * *   **useBodyEncoding**: specifies whether to use the encoding scheme specified in the request body for URI query parameters. Default value: true.
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
   tomcatConfig?: string;
+  /**
+   * @remarks
+   * The deployment policy. If the minimum number of available instances is 1, the value of the **UpdateStrategy** parameter is an empty string (""). If the minimum number of available instances is greater than 1, the following strategies can be configured:
+   * 
+   * *   The application is deployed on an instance. The remaining instances are automatically classified into two release batches whose interval is set to 1. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`.
+   * *   The application is deployed on an instance. The remaining instances are manually classified into two release batches. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`.
+   * *   All instances are automatically classified into two release batches. The application is deployed on the instances of the two batches in parallel. In this case, the parameter is set to `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **type**: the type of the release policy. Valid values: **GrayBatchUpdate** and **BatchUpdate**.
+   * 
+   * *   **batchUpdate**: the phased release policy.
+   * 
+   *     *   **batch**: the number of release batches.
+   *     *   **releaseType**: the processing method for the batches. Valid values: **auto** and **manual**.
+   *     *   **batchWaitTime**: the interval between release batches. Unit: seconds.
+   * 
+   * *   **grayUpdate**: the number of release batches in the phased release after a canary release. This parameter is returned only if the **type** parameter is set to **GrayBatchUpdate**.
+   * 
+   * @example
+   * {"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}
+   */
   updateStrategy?: string;
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
+   * 
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
   warStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Tomcat container on which the deployment package depends. Valid values:
+   * 
+   * *   **apache-tomcat-7.0.91**
+   * *   **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
   webContainer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7271,12 +10817,72 @@ export class DeployApplicationRequest extends $tea.Model {
 }
 
 export class DeployApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: DeployApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Take note of the following rules:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application deployment is successful. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * ac1a0b2215622246421415014e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7333,12 +10939,49 @@ export class DeployApplicationResponse extends $tea.Model {
 }
 
 export class DescribeAppServiceDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6dcc8c9e-d3da-478a-a066-86dcf820****
+   */
   appId?: string;
   nacosInstanceId?: string;
   nacosNamespaceId?: string;
+  /**
+   * @remarks
+   * springCloud
+   * 
+   * @example
+   * springCloud
+   */
   serviceGroup?: string;
+  /**
+   * @remarks
+   * edas.service.provider
+   * 
+   * @example
+   * edas.service.provider
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * springCloud
+   * 
+   * @example
+   * springCloud
+   */
   serviceType?: string;
+  /**
+   * @remarks
+   * 1.0.0
+   * 
+   * @example
+   * 1.0.0
+   */
   serviceVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7370,12 +11013,66 @@ export class DescribeAppServiceDetailRequest extends $tea.Model {
 }
 
 export class DescribeAppServiceDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * - **2xx**: indicates that the call was successful.
+   * - **3xx**: indicates that the call was redirected.
+   * - **4xx**: indicates that the call failed.
+   * - **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeAppServiceDetailResponseBodyData;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B2C7874F-F109-5B34-8618-2C10BBA2****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the meta data was obtained. Valid values:
+   * 
+   * *   **true**: The metadata was obtained.
+   * *   **false**: The metadata failed to be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 0b16399316402420740034918e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7432,7 +11129,23 @@ export class DescribeAppServiceDetailResponse extends $tea.Model {
 }
 
 export class DescribeApplicationConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * 0026ff7f-2b57-4127-bdd0-9bf202bb\\*\\*\\*\\*
+   * 
+   * @example
+   * 0026ff7f-2b57-4127-bdd0-9bf202bb****
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7454,12 +11167,66 @@ export class DescribeApplicationConfigRequest extends $tea.Model {
 }
 
 export class DescribeApplicationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the application.
+   */
   data?: DescribeApplicationConfigResponseBodyData;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the configurations of an application were obtained. Valid values:
+   * 
+   * *   **true**: The configurations were obtained.
+   * *   **false**: The configurations failed to be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * ac1a0b2215622246421415014e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7516,8 +11283,31 @@ export class DescribeApplicationConfigResponse extends $tea.Model {
 }
 
 export class DescribeApplicationGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * d700e680-aa4d-4ec1-afc2-6566b5ff\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d700e680-aa4d-4ec1-afc2-6566b5ff****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7541,12 +11331,66 @@ export class DescribeApplicationGroupsRequest extends $tea.Model {
 }
 
 export class DescribeApplicationGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the instance groups of the application.
+   */
   data?: DescribeApplicationGroupsResponseBodyData[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information about instance groups of an application was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the information was obtained.
+   * *   **false**: indicates that the information could not be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7603,7 +11447,25 @@ export class DescribeApplicationGroupsResponse extends $tea.Model {
 }
 
 export class DescribeApplicationImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d700e680-aa4d-4ec1-afc2-6566b5ff****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The URL of the image.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/demo/demo:latest
+   */
   imageUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7625,12 +11487,69 @@ export class DescribeApplicationImageRequest extends $tea.Model {
 }
 
 export class DescribeApplicationImageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the image of the application.
+   */
   data?: DescribeApplicationImageResponseBodyData;
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information about the image was obtained. Valid values:
+   * 
+   * *   **true**: The information was obtained.
+   * *   **false**: The information failed to be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7687,10 +11606,49 @@ export class DescribeApplicationImageResponse extends $tea.Model {
 }
 
 export class DescribeApplicationInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * d700e680-aa4d-4ec1-afc2-6566b5ff\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d700e680-aa4d-4ec1-afc2-6566b5ff****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * 10
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
   reverse?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7718,12 +11676,66 @@ export class DescribeApplicationInstancesRequest extends $tea.Model {
 }
 
 export class DescribeApplicationInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of the application instances.
+   */
   data?: DescribeApplicationInstancesResponseBodyData;
+  /**
+   * @remarks
+   * The error code. 
+   * 
+   * - The **ErrorCode** parameter is not returned when the request succeeds.
+   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of application instances was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the list was obtained.
+   * *   **false**: indicates that the list could not be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7780,7 +11792,25 @@ export class DescribeApplicationInstancesResponse extends $tea.Model {
 }
 
 export class DescribeApplicationScalingRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * a0d2e04c-159d-40a8-b240-d2f2c263\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a0d2e04c-159d-40a8-b240-d2f2c263****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * test
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   scalingRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7803,11 +11833,29 @@ export class DescribeApplicationScalingRuleRequest extends $tea.Model {
 
 export class DescribeApplicationScalingRuleResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeApplicationScalingRuleResponseBodyData;
   errorCode?: string;
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 73404D3D-EE4F-4CB2-B197-5C46F6A1****
+   */
   requestId?: string;
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 0b57ff7e16243300839193068e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7864,6 +11912,15 @@ export class DescribeApplicationScalingRuleResponse extends $tea.Model {
 }
 
 export class DescribeApplicationScalingRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7884,11 +11941,29 @@ export class DescribeApplicationScalingRulesRequest extends $tea.Model {
 
 export class DescribeApplicationScalingRulesResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeApplicationScalingRulesResponseBodyData;
   errorCode?: string;
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7945,6 +12020,15 @@ export class DescribeApplicationScalingRulesResponse extends $tea.Model {
 }
 
 export class DescribeApplicationSlbsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7964,12 +12048,63 @@ export class DescribeApplicationSlbsRequest extends $tea.Model {
 }
 
 export class DescribeApplicationSlbsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the information about the SLB instances that are associated with an application was obtained successfully. Valid values:
+   * 
+   * *   **true**: indicates that the information was obtained successfully.
+   * *   **false**: indicates that the information failed to be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * Configurations of internal-facing SLB instances.
+   */
   data?: DescribeApplicationSlbsResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8026,6 +12161,15 @@ export class DescribeApplicationSlbsResponse extends $tea.Model {
 }
 
 export class DescribeApplicationStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8045,12 +12189,69 @@ export class DescribeApplicationStatusRequest extends $tea.Model {
 }
 
 export class DescribeApplicationStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeApplicationStatusResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether information of the application is successfully obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8107,6 +12308,15 @@ export class DescribeApplicationStatusResponse extends $tea.Model {
 }
 
 export class DescribeChangeOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 76fa5c0-9ebb-4bb4-b383-1f885447\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 76fa5c0-9ebb-4bb4-b383-1f885447****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8126,12 +12336,66 @@ export class DescribeChangeOrderRequest extends $tea.Model {
 }
 
 export class DescribeChangeOrderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of the change order.
+   */
   data?: DescribeChangeOrderResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information of a change order was obtained. Valid values:
+   * 
+   * *   **true**: The information was obtained.
+   * *   **false**: The information could not be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8188,7 +12452,23 @@ export class DescribeChangeOrderResponse extends $tea.Model {
 }
 
 export class DescribeComponentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * TOMCAT
+   * 
+   * @example
+   * d700e680-aa4d-4ec1-afc2-6566b5ff****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TOMCAT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8210,12 +12490,60 @@ export class DescribeComponentsRequest extends $tea.Model {
 }
 
 export class DescribeComponentsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the component version was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the component version was obtained.
+   * *   **false**: indicates that the component version could not be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The component type.
+   */
   data?: DescribeComponentsResponseBodyData[];
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the component.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8272,6 +12600,15 @@ export class DescribeComponentsResponse extends $tea.Model {
 }
 
 export class DescribeConfigMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8291,12 +12628,63 @@ export class DescribeConfigMapRequest extends $tea.Model {
 }
 
 export class DescribeConfigMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the details of the ConfigMap instance were obtained. Valid values:
+   * 
+   * *   **true**: The details were obtained.
+   * *   **false**: The details failed to be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the instance was last modified.
+   */
   data?: DescribeConfigMapResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8353,8 +12741,26 @@ export class DescribeConfigMapResponse extends $tea.Model {
 }
 
 export class DescribeConfigurationPriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4096
+   */
   memory?: number;
+  /**
+   * @example
+   * Web
+   */
   workload?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8378,12 +12784,32 @@ export class DescribeConfigurationPriceRequest extends $tea.Model {
 }
 
 export class DescribeConfigurationPriceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: DescribeConfigurationPriceResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * ADCEC067-86AD-19E2-BD43-E83F3841****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1a0dcc771722848598056771******
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8440,12 +12866,66 @@ export class DescribeConfigurationPriceResponse extends $tea.Model {
 }
 
 export class DescribeEdasContainersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The list of components.
+   */
   data?: DescribeEdasContainersResponseBodyData[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of container components of a microservice application was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the list was obtained.
+   * *   **false**: indicates that the list could not be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8502,6 +12982,15 @@ export class DescribeEdasContainersResponse extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the canary release rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   greyTagRouteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8521,12 +13010,66 @@ export class DescribeGreyTagRouteRequest extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the canary release rule.
+   */
   data?: DescribeGreyTagRouteResponseBodyData;
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9D29CBD0-45D3-410B-9826-52F86F90****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8583,6 +13126,15 @@ export class DescribeGreyTagRouteResponse extends $tea.Model {
 }
 
 export class DescribeIngressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 87
+   */
   ingressId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8602,12 +13154,45 @@ export class DescribeIngressRequest extends $tea.Model {
 }
 
 export class DescribeIngressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The port specified for the SLB listener.
+   */
   data?: DescribeIngressResponseBodyData;
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the SLB instance.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The name of the routing rule.
+   * 
+   * @example
+   * 0a981dd515966966104121683d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8664,6 +13249,15 @@ export class DescribeIngressResponse extends $tea.Model {
 }
 
 export class DescribeInstanceLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ******-d700e680-aa4d-4ec1-afc2-6566b5ff4d7a-85d44d4bfc-*****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8683,12 +13277,69 @@ export class DescribeInstanceLogRequest extends $tea.Model {
 }
 
 export class DescribeInstanceLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the log of the instance was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the log was obtained.
+   * *   **false**: indicates that the log could not be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * hello\\nsae\\n
+   */
   data?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The log of the instance.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8745,12 +13396,69 @@ export class DescribeInstanceLogResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSpecificationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * Information of instance types.
+   */
   data?: DescribeInstanceSpecificationsResponseBodyData[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether information of the instance types is successfully obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8807,7 +13515,23 @@ export class DescribeInstanceSpecificationsResponse extends $tea.Model {
 }
 
 export class DescribeJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * event-b798157b-40a2-4388-b578-71fb897103**-**
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8829,12 +13553,69 @@ export class DescribeJobRequest extends $tea.Model {
 }
 
 export class DescribeJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the application.
+   */
   data?: DescribeJobResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, **ErrorCode** is not returned.
+   * *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the configurations of an application were obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * ac1a0b2215622246421415014e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8891,9 +13672,44 @@ export class DescribeJobResponse extends $tea.Model {
 }
 
 export class DescribeJobHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e1a7a07-abcb-4652-a1d3-2d57f415****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 0 to 10000.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **0**: The job is not executed.
+   * *   **1**: The job is executed.
+   * *   **2**: The job fails to be executed.
+   * *   **3**: The job is being executed.
+   * 
+   * @example
+   * 1
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8919,12 +13735,72 @@ export class DescribeJobHistoryRequest extends $tea.Model {
 }
 
 export class DescribeJobHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeJobHistoryResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The message returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 53F15A18-8079-5992-810C-0211A5AE****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0b1639af16575057857241351e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8981,7 +13857,23 @@ export class DescribeJobHistoryResponse extends $tea.Model {
 }
 
 export class DescribeJobStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e1a7a07-abcb-4652-a1d3-2d57f415****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * event-b798157b-40a2-4388-b578-71fb897103**-**
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9003,12 +13895,72 @@ export class DescribeJobStatusRequest extends $tea.Model {
 }
 
 export class DescribeJobStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeJobStatusResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   **ErrorCode** is not returned if the request succeeds.
+   * *   **ErrorCode** is returned if the request fails. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Take note of the following rules:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 53F15A18-8079-5992-810C-0211A5AE****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0b1639af16575057857241351e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9065,7 +14017,21 @@ export class DescribeJobStatusResponse extends $tea.Model {
 }
 
 export class DescribeNamespaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The short ID of the namespace. You do not need to specify a region ID. The value of this parameter can be up to 20 characters in length and can contain only lowercase letters and digits.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The ID of the namespace. The information about the default namespace cannot be queried or modified. The default namespace cannot be deleted.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9087,12 +14053,72 @@ export class DescribeNamespaceRequest extends $tea.Model {
 }
 
 export class DescribeNamespaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the namespace.
+   */
   data?: DescribeNamespaceResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information about the namespace was queried successfully. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The image failed to be found.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a981dd515966966104121683d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9149,7 +14175,27 @@ export class DescribeNamespaceResponse extends $tea.Model {
 }
 
 export class DescribeNamespaceListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to return custom namespaces. Valid values:
+   * 
+   * *   **true**: The system returns custom namespaces.
+   * *   **false**: The system does not return custom namespaces.
+   * 
+   * @example
+   * true
+   */
   containCustom?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to exclude hybrid cloud namespaces from the result. Valid values:
+   * 
+   * - **true**: The system excludes hybrid cloud namespaces from the result.
+   * - **false**: The system does not exclude hybrid cloud namespaces from the result.
+   * 
+   * @example
+   * true
+   */
   hybridCloudExclude?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9171,12 +14217,72 @@ export class DescribeNamespaceListRequest extends $tea.Model {
 }
 
 export class DescribeNamespaceListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The namespaces.
+   */
   data?: DescribeNamespaceListResponseBodyData[];
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * NULL
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 30375C38-F4ED-4135-A0AE-5C75DC7F****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of namespaces was queried. Valid values:
+   * 
+   * *   **true**: The list was queried.
+   * *   **false**: The list failed to be queried.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * ac1a0b2215622920113732501e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9233,7 +14339,18 @@ export class DescribeNamespaceListResponse extends $tea.Model {
 }
 
 export class DescribeNamespaceResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * cn-shanghai:test
+   * 
+   * @example
+   * cn-shanghai:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9255,12 +14372,69 @@ export class DescribeNamespaceResourcesRequest extends $tea.Model {
 }
 
 export class DescribeNamespaceResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request failed.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeNamespaceResourcesResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information about resources in the namespace was queried successfully. Valid values:
+   * 
+   * *   **true**: indicates that the query was successful.
+   * *   **false**: indicates that the query failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9317,7 +14491,25 @@ export class DescribeNamespaceResourcesResponse extends $tea.Model {
 }
 
 export class DescribeNamespacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * 10
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9339,12 +14531,69 @@ export class DescribeNamespacesRequest extends $tea.Model {
 }
 
 export class DescribeNamespacesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request failed.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information of namespaces.
+   */
   data?: DescribeNamespacesResponseBodyData;
+  /**
+   * @remarks
+   * The error code. 
+   * 
+   * - The **ErrorCode** parameter is not returned when the request succeeds.
+   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error message is returned when the request fails.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the details of namespaces were queried successfully. Valid values:
+   * 
+   * *   **true**: indicates that the query was successful.
+   * *   **false**: indicates that the query failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * 0a981dd515966966104121683d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9401,6 +14650,15 @@ export class DescribeNamespacesResponse extends $tea.Model {
 }
 
 export class DescribePipelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the batch. You can call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 917660ba-5092-44ca-b8e0-80012c96****
+   */
   pipelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9420,12 +14678,69 @@ export class DescribePipelineRequest extends $tea.Model {
 }
 
 export class DescribePipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The batch information.
+   */
   data?: DescribePipelineResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The message returned for the operation.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 559B4247-C41C-4D9E-B866-B55D360B****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the batch information was obtained. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The image failed to be found.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0be3e0c316390414649128666e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9482,9 +14797,39 @@ export class DescribePipelineResponse extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * - **2xx**: The call was successful.
+   * - **3xx**: The call was redirected.
+   * - **4xx**: The call failed.
+   * - **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * No request parameters are required.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   regions?: DescribeRegionsResponseBodyRegions;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * DDE85827-B0B3-4E56-86E8-17C42009****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9535,7 +14880,25 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeSecretRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the namespace in which the Secret instance resides. By default, the namespace ID is the same as the region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the Secret instance to be queried. You can call the [ListSecrets](https://help.aliyun.com/document_detail/466929.html) operation to view the IDs of Secrete instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9557,12 +14920,72 @@ export class DescribeSecretRequest extends $tea.Model {
 }
 
 export class DescribeSecretResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: DescribeSecretResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Valid values:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the details of the Secret instance are successfully queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The image failed to be found.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9619,6 +15042,13 @@ export class DescribeSecretResponse extends $tea.Model {
 }
 
 export class DescribeWebApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9663,9 +15093,28 @@ export class DescribeWebApplicationResponse extends $tea.Model {
 }
 
 export class DescribeWebApplicationResourceStaticsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1687832980387
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * 1562831689704
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9716,6 +15165,13 @@ export class DescribeWebApplicationResourceStaticsResponse extends $tea.Model {
 }
 
 export class DescribeWebApplicationRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9760,6 +15216,13 @@ export class DescribeWebApplicationRevisionResponse extends $tea.Model {
 }
 
 export class DescribeWebApplicationScalingConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:sae-test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9804,6 +15267,13 @@ export class DescribeWebApplicationScalingConfigResponse extends $tea.Model {
 }
 
 export class DescribeWebApplicationTrafficConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9848,6 +15318,13 @@ export class DescribeWebApplicationTrafficConfigResponse extends $tea.Model {
 }
 
 export class DescribeWebCustomDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9892,6 +15369,13 @@ export class DescribeWebCustomDomainResponse extends $tea.Model {
 }
 
 export class DescribeWebInstanceLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9936,7 +15420,25 @@ export class DescribeWebInstanceLogsResponse extends $tea.Model {
 }
 
 export class DisableApplicationScalingRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * timer-0800-2100
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * timer-0800-2100
+   */
   scalingRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9961,8 +15463,19 @@ export class DisableApplicationScalingRuleResponseBody extends $tea.Model {
   code?: string;
   errorCode?: string;
   message?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10017,7 +15530,25 @@ export class DisableApplicationScalingRuleResponse extends $tea.Model {
 }
 
 export class EnableApplicationScalingRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the auto scaling policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * timer-0800-2100
+   */
   scalingRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10039,11 +15570,67 @@ export class EnableApplicationScalingRuleRequest extends $tea.Model {
 }
 
 export class EnableApplicationScalingRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Take note of the following rules:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Specifies whether the instances are successfully restarted. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**: The restart failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10098,15 +15685,50 @@ export class EnableApplicationScalingRuleResponse extends $tea.Model {
 }
 
 export class ExecJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ee1a7a07-abcb-4652-a1d3-2d57f415****
+   */
   appId?: string;
+  /**
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
   envs?: string;
+  /**
+   * @example
+   * custom
+   */
   eventId?: string;
+  /**
+   * @example
+   * custom-args
+   */
   jarStartArgs?: string;
+  /**
+   * @example
+   * -Xms4G -Xmx4G
+   */
   jarStartOptions?: string;
   replicas?: string;
   time?: string;
+  /**
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
   warStartOptions?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10144,12 +15766,32 @@ export class ExecJobRequest extends $tea.Model {
 }
 
 export class ExecJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ExecJobResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 67DD9A98-9CCC-5BE8-8C9E-B45E72F4****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0b87b7e716575071334387401e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10206,12 +15848,78 @@ export class ExecJobResponse extends $tea.Model {
 }
 
 export class GetArmsTopNMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SAE application type. Valid values:
+   * 
+   * *   **micro_service**
+   * *   **web**
+   * *   **job**
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * The CPU allocation policy. Valid values:
+   * 
+   * *   **request**: CPU cores are allocated only when a request is initiated.
+   * *   **always**: Fixed CPU cores are always allocated.
+   * 
+   * @example
+   * always
+   */
   cpuStrategy?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1675824035951
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of entries to return. Valid values: 0 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The field based on which you want to sort the returned entries.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * count
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1675823135951
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10243,10 +15951,53 @@ export class GetArmsTopNMetricRequest extends $tea.Model {
 }
 
 export class GetArmsTopNMetricResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The following limits are imposed on the ID:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of applications.
+   */
   data?: GetArmsTopNMetricResponseBodyData[];
+  /**
+   * @remarks
+   * The additional information that is returned. The following limits are imposed on the ID:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of applications was obtained. The following limits are imposed on the ID:
+   * 
+   * *   **true**: The namespaces were obtained.
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10299,9 +16050,46 @@ export class GetArmsTopNMetricResponse extends $tea.Model {
 }
 
 export class GetAvailabilityMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SAE application type. Valid values:
+   * 
+   * *   **micro_service**
+   * *   **web**
+   * *   **job**
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * The CPU allocation policy. Valid values:
+   * 
+   * *   **request**: CPU cores are allocated only when a request is initiated.
+   * *   **always**: Fixed CPU cores are always allocated.
+   * 
+   * @example
+   * always
+   */
   cpuStrategy?: string;
+  /**
+   * @remarks
+   * The number of entries to return. Valid values: 0 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10327,10 +16115,53 @@ export class GetAvailabilityMetricRequest extends $tea.Model {
 }
 
 export class GetAvailabilityMetricResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The following limits are imposed on the ID:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data entries returned.
+   */
   data?: GetAvailabilityMetricResponseBodyData[];
+  /**
+   * @remarks
+   * The additional information that is returned. The following limits are imposed on the ID:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3A92C4EA-4C53-5A1C-8AEB-F2DB11982D5F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of applications was obtained. The following limits are imposed on the ID:
+   * 
+   * *   **true**: The namespaces were obtained.
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10383,11 +16214,66 @@ export class GetAvailabilityMetricResponse extends $tea.Model {
 }
 
 export class GetChangeOrderMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SAE application type. Valid values:
+   * 
+   * *   **micro_service**
+   * *   **web**
+   * *   **job**
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * The CPU allocation policy. Valid values:
+   * 
+   * *   **request**: CPU cores are allocated only when a request is initiated.
+   * *   **always**: Fixed CPU cores are always allocated.
+   * 
+   * @example
+   * always
+   */
   cpuStrategy?: string;
+  /**
+   * @remarks
+   * The start time when the change order was created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1661152748883
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The number of entries to return. Valid values: 0 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The field based on which you want to sort the returned entries.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * errorPercent
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10417,10 +16303,53 @@ export class GetChangeOrderMetricRequest extends $tea.Model {
 }
 
 export class GetChangeOrderMetricResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The following limits are imposed on the ID:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of applications.
+   */
   data?: GetChangeOrderMetricResponseBodyData[];
+  /**
+   * @remarks
+   * The additional information that is returned. The following limits are imposed on the ID:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the microservice list was obtained. The following limits are imposed on the ID:
+   * 
+   * *   **true**: The namespaces were obtained.
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10473,9 +16402,46 @@ export class GetChangeOrderMetricResponse extends $tea.Model {
 }
 
 export class GetScaleAppMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SAE application type. Valid values:
+   * 
+   * *   **micro_service**
+   * *   **web**
+   * *   **job**
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * The CPU allocation policy. Valid values:
+   * 
+   * *   **request**: CPU cores are allocated only when a request is initiated.
+   * *   **always**: Fixed CPU cores are always allocated.
+   * 
+   * @example
+   * always
+   */
   cpuStrategy?: string;
+  /**
+   * @remarks
+   * The number of entries to return. Valid values: 0 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10501,10 +16467,53 @@ export class GetScaleAppMetricRequest extends $tea.Model {
 }
 
 export class GetScaleAppMetricResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The following limits are imposed on the ID:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of applications.
+   */
   data?: GetScaleAppMetricResponseBodyData[];
+  /**
+   * @remarks
+   * The additional information that is returned. The following limits are imposed on the ID:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the microservice list was obtained. The following limits are imposed on the ID:
+   * 
+   * *   **true**: The namespaces were obtained.
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10557,11 +16566,68 @@ export class GetScaleAppMetricResponse extends $tea.Model {
 }
 
 export class GetWarningEventMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SAE application type. Valid values:
+   * 
+   * *   **micro_service**
+   * *   **web**
+   * *   **job**
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * The CPU allocation policy. Valid values:
+   * 
+   * *   **request**: CPU cores are allocated only when a request is initiated.
+   * *   **always**: Fixed CPU cores are always allocated.
+   * 
+   * @example
+   * always
+   */
   cpuStrategy?: string;
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1675824035951
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of entries to return. Valid values: 0 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1675823135951
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10591,10 +16657,53 @@ export class GetWarningEventMetricRequest extends $tea.Model {
 }
 
 export class GetWarningEventMetricResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The following limits are imposed on the ID:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of applications.
+   */
   data?: GetWarningEventMetricResponseBodyData[];
+  /**
+   * @remarks
+   * The additional information that is returned. The following limits are imposed on the ID:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of applications was obtained. The following limits are imposed on the ID:
+   * 
+   * *   **true**: The namespaces were obtained.
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10647,13 +16756,80 @@ export class GetWarningEventMetricResponse extends $tea.Model {
 }
 
 export class ListAppEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * f7730764-d88f-4b9a-8d8e-cd8efbfe****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The type of the event. Valid values:
+   * 
+   * *   **Warning**: an alert.
+   * *   **Normal**: a normal event.
+   * 
+   * @example
+   * Warning
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The type of the object. Valid values:
+   * 
+   * *   **Deployment**: an application.
+   * *   **Pod**: an application instance.
+   * *   **Service**: a Server Load Balancer (SLB) instance.
+   * *   **HorizontalPodAutoscaler**: an auto scaling policy.
+   * *   **CloneSet**: an application.
+   * 
+   * @example
+   * Pod
+   */
   objectKind?: string;
+  /**
+   * @remarks
+   * The name of the object. Fuzzy search by prefix is supported.
+   * 
+   * @example
+   * errew-b86bf540-b4dc-47d8-a42f-b4997c14bd8f-5595cbddd6-x****
+   */
   objectName?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 0 to 10000.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The cause of the event. Fuzzy search by prefix is supported.
+   * 
+   * @example
+   * Started
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10687,11 +16863,58 @@ export class ListAppEventsRequest extends $tea.Model {
 }
 
 export class ListAppEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The events.
+   */
   data?: ListAppEventsResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the call failed. Take note of the following rules:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B4D805CA-926D-41B1-8E63-7AD0C1ED****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the events that occurred in the application were queried. Valid values:
+   * 
+   * *   **true**: The events were queried.
+   * *   **false**: The events failed to be queried.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10746,9 +16969,41 @@ export class ListAppEventsResponse extends $tea.Model {
 }
 
 export class ListAppServicesPageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6dcc8c9e-d3da-478a-a066-86dcf820****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * 9999
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * 9999
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * springCloud
+   */
   serviceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10774,12 +17029,52 @@ export class ListAppServicesPageRequest extends $tea.Model {
 }
 
 export class ListAppServicesPageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   */
   data?: ListAppServicesPageResponseBodyData[];
+  /**
+   * @remarks
+   * Indicates whether the microservice list was obtained. Valid values:
+   * 
+   * *   **true**: The list was obtained.
+   * *   **false**: The list failed to be obtained.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The details of microservices.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 2583E089-99C2-562E-8B7E-73512136****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The page number of the current page.
+   * 
+   * @example
+   * 0be3e0c816394483660457498e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10836,6 +17131,15 @@ export class ListAppServicesPageResponse extends $tea.Model {
 }
 
 export class ListAppVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10855,11 +17159,56 @@ export class ListAppVersionsRequest extends $tea.Model {
 }
 
 export class ListAppVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the historical versions of the application were obtained. Valid values:
+   * 
+   * *   **true**: indicates that the historical versions of the application were obtained.
+   * *   **false**: indicates that the historical versions of the application could not be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The deployment method of the application. Valid values:
+   * 
+   * *   **image**: indicates that the application was deployed by using an image.
+   * *   **upload**: indicates that the application was deployed by uploading a WAR or JAR package.
+   * *   **url**: indicates that the application was deployed by specifying the URL of a WAR or JAR package.
+   */
   data?: ListAppVersionsResponseBodyData[];
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The information about the versions.
+   * 
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10914,15 +17263,97 @@ export class ListAppVersionsResponse extends $tea.Model {
 }
 
 export class ListApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * demo-app
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The SAE application type. Valid values:
+   * 
+   * - **micro_service**
+   * - **web**
+   * - **job**
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * appName
+   */
   fieldType?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * demo-app
+   */
   fieldValue?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * cn-beijing:demo
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * runnings
+   * 
+   * @example
+   * running
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is being deleted. Valid values:
+   * 
+   * *   **true**: The application is being deleted.
+   * *   **false**: The application is not being deleted.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * true
+   */
   reverse?: boolean;
+  /**
+   * @remarks
+   * The list of applications.
+   * 
+   * @example
+   * [{"key":"key","value":"value"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10960,14 +17391,74 @@ export class ListApplicationsRequest extends $tea.Model {
 }
 
 export class ListApplicationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Queries applications.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * 20
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The queried applications.
+   */
   data?: ListApplicationsResponseBodyData;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * The ID of the request.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * 20
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * cn-beijing:demo
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * B4D805CA-926D-41B1-8E63-7AD0C1ED****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * demo-app
+   * 
+   * @example
+   * 2
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11028,11 +17519,55 @@ export class ListApplicationsResponse extends $tea.Model {
 }
 
 export class ListChangeOrdersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 145341c-9708-4967-b3ec-24933767****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2
+   */
   coStatus?: string;
+  /**
+   * @remarks
+   * 2
+   * 
+   * @example
+   * CoCreateApp
+   */
   coType?: string;
+  /**
+   * @remarks
+   * 20
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * CoCreateApp
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * test
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11062,12 +17597,60 @@ export class ListChangeOrdersRequest extends $tea.Model {
 }
 
 export class ListChangeOrdersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the list of change orders was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the list was obtained.
+   * *   **false**: indicates that the list could not be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The number of the returned page.
+   */
   data?: ListChangeOrdersResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * 65E1F-43BA-4D0C-8E61-E4D1337F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The information about change orders.
+   * 
+   * @example
+   * 0bb6f815638568884597879d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11124,6 +17707,15 @@ export class ListChangeOrdersResponse extends $tea.Model {
 }
 
 export class ListConsumedServicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11143,12 +17735,63 @@ export class ListConsumedServicesRequest extends $tea.Model {
 }
 
 export class ListConsumedServicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the microservice list was obtained. Valid values:
+   * 
+   * *   **true**: The list was obtained.
+   * *   **false**: The list failed to be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The type of the published service.
+   */
   data?: ListConsumedServicesResponseBodyData[];
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the microservices.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11205,6 +17848,15 @@ export class ListConsumedServicesResponse extends $tea.Model {
 }
 
 export class ListGreyTagRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11224,12 +17876,69 @@ export class ListGreyTagRouteRequest extends $tea.Model {
 }
 
 export class ListGreyTagRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * - **2xx**: The call was successful.
+   * - **3xx**: The call was redirected.
+   * - **4xx**: The call failed.
+   * - **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the canary release rule.
+   */
   data?: ListGreyTagRouteResponseBodyData;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9D29CBD0-45D3-410B-9826-52F86F90****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * - **true**: The information was queried.
+   * - **false**: The information failed to be queried.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11286,7 +17995,23 @@ export class ListGreyTagRouteResponse extends $tea.Model {
 }
 
 export class ListIngressesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of routing rules.
+   * 
+   * @example
+   * bbf3a590-6d13-46fe-8ca9-c947a20b****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11308,12 +18033,45 @@ export class ListIngressesRequest extends $tea.Model {
 }
 
 export class ListIngressesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The port specified for the SLB listener.
+   */
   data?: ListIngressesResponseBodyData;
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the SLB instance.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The name of the routing rule.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11370,15 +18128,97 @@ export class ListIngressesResponse extends $tea.Model {
 }
 
 export class ListJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the job template.
+   * 
+   * @example
+   * demo-app
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The number of the page to return. The parameter value is a positive integer that is greater than or equal to 1.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The dimension by which applications are filtered. Valid values:
+   * 
+   * *   **appName**: Applications are filtered by job template name.
+   * *   **appIds**: Applications are filtered by job template ID.
+   * 
+   * @example
+   * appName
+   */
   fieldType?: string;
+  /**
+   * @remarks
+   * Enter the name and ID of the job template.
+   * 
+   * @example
+   * demo-app
+   */
   fieldValue?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-beijing:demo
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * Specifies how applications are sorted. Valid values:
+   * 
+   * *   **running**: The applications are sorted based on the number of running instances.
+   * *   **instances**: The applications are sorted based on the number of destination instances.
+   * 
+   * @example
+   * running
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid value: 0 to 200.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to sort the field names that are passed by **OrderBy** in ascending order. Valid values:
+   * 
+   * *   **true**: in ascending order
+   * *   **false**: in descending order
+   * 
+   * @example
+   * true
+   */
   reverse?: boolean;
+  /**
+   * @remarks
+   * The tags that are displayed in a JSON string. Valid values:
+   * 
+   * *   **key**: the tag key
+   * *   **value**: the tag value
+   * 
+   * @example
+   * [{"key":"key","value":"value"}]
+   */
   tags?: string;
+  /**
+   * @remarks
+   * Set the value to `job`.
+   * 
+   * @example
+   * job
+   */
   workload?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11416,14 +18256,85 @@ export class ListJobsRequest extends $tea.Model {
 }
 
 export class ListJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The job templates.
+   */
   data?: ListJobsResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, **ErrorCode** is not returned.
+   * *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B4D805CA-926D-41B1-8E63-7AD0C1ED****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the applications were obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of job templates.
+   * 
+   * @example
+   * 2
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11484,8 +18395,35 @@ export class ListJobsResponse extends $tea.Model {
 }
 
 export class ListLogConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 10
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 56f77b65-788d-442a-9885-7f20d91f****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11509,12 +18447,63 @@ export class ListLogConfigsRequest extends $tea.Model {
 }
 
 export class ListLogConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the logging configurations of an application were obtained. Valid values:
+   * 
+   * *   **true**: indicates that the configurations were obtained.
+   * *   **false**: indicates that the configurations could not be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of logging configurations.
+   */
   data?: ListLogConfigsResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The logging configurations.
+   * 
+   * @example
+   * ac1d5e2c15671581252413581d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11571,11 +18560,55 @@ export class ListLogConfigsResponse extends $tea.Model {
 }
 
 export class ListNamespaceChangeOrdersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 2
+   * 
+   * @example
+   * 2
+   */
   coStatus?: string;
+  /**
+   * @remarks
+   * CoBatchStartApplication
+   * 
+   * @example
+   * CoBatchStartApplication
+   */
   coType?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * test
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * cn-shanghai:test
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * 20
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11605,12 +18638,66 @@ export class ListNamespaceChangeOrdersRequest extends $tea.Model {
 }
 
 export class ListNamespaceChangeOrdersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListNamespaceChangeOrdersResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bc3915638507554994370d****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of change orders was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the list was obtained.
+   * *   **false**: indicates that the list could not be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * 0bc3915638507554994370d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11667,6 +18754,15 @@ export class ListNamespaceChangeOrdersResponse extends $tea.Model {
 }
 
 export class ListNamespacedConfigMapsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * cn-hangzhou
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11686,12 +18782,69 @@ export class ListNamespacedConfigMapsRequest extends $tea.Model {
 }
 
 export class ListNamespacedConfigMapsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: ListNamespacedConfigMapsResponseBodyData;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the ConfigMap instances were obtained. Valid values:
+   * 
+   * *   **true**: The instances were obtained.
+   * *   **false**: The instances failed to be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11748,6 +18901,15 @@ export class ListNamespacedConfigMapsResponse extends $tea.Model {
 }
 
 export class ListPublishedServicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11767,12 +18929,63 @@ export class ListPublishedServicesRequest extends $tea.Model {
 }
 
 export class ListPublishedServicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the microservice list was obtained. Valid values:
+   * 
+   * *   **true**: The list was obtained.
+   * *   **false**: The list failed to be obtained.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The type of the published service.
+   */
   data?: ListPublishedServicesResponseBodyData[];
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information. Valid values:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the microservices.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11829,6 +19042,15 @@ export class ListPublishedServicesResponse extends $tea.Model {
 }
 
 export class ListSecretsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the namespace in which the Secrets reside. By default, the namespace ID is the same as the region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11848,12 +19070,72 @@ export class ListSecretsRequest extends $tea.Model {
 }
 
 export class ListSecretsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListSecretsResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Take note of the following rules:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11910,10 +19192,49 @@ export class ListSecretsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * A2RN
+   * 
+   * @example
+   * A2RN
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * cn-beijing
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
+   * 
+   * @example
+   * ["d42921c4-5433-4abd-8075-0e536f8b****"]
+   */
   resourceIds?: string;
+  /**
+   * @remarks
+   * application
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * application
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * [{"key":"k1","value":"v1"}]
+   * 
+   * @example
+   * [{"key":"k1","value":"v1"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11941,12 +19262,66 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListTagResourcesResponseBodyData;
+  /**
+   * @remarks
+   * The error code. 
+   * 
+   * - The **ErrorCode** parameter is not returned when the request succeeds.
+   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7414187F-4F59-4585-9BCF-5F0804E4****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether mapping relationships between applications and tags were queried successfully. Valid values:
+   * 
+   * *   **true**: The query was successful.
+   * *   **false**: The query failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * 0bc5f84e15916043198032146d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12004,11 +19379,30 @@ export class ListTagResourcesResponse extends $tea.Model {
 
 export class ListWebApplicationInstancesRequest extends $tea.Model {
   endTime?: number;
+  /**
+   * @example
+   * c-667d143a-17b4e0fa-46d3a2******
+   */
   instanceIds?: string[];
+  /**
+   * @example
+   * 10
+   */
   limit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
   startTime?: number;
   statuses?: string[];
+  /**
+   * @example
+   * 001
+   */
   versionIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12041,11 +19435,30 @@ export class ListWebApplicationInstancesRequest extends $tea.Model {
 
 export class ListWebApplicationInstancesShrinkRequest extends $tea.Model {
   endTime?: number;
+  /**
+   * @example
+   * c-667d143a-17b4e0fa-46d3a2******
+   */
   instanceIdsShrink?: string;
+  /**
+   * @example
+   * 10
+   */
   limit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
   startTime?: number;
   statusesShrink?: string;
+  /**
+   * @example
+   * 001
+   */
   versionIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12102,8 +19515,23 @@ export class ListWebApplicationInstancesResponse extends $tea.Model {
 }
 
 export class ListWebApplicationRevisionsRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
+  /**
+   * @example
+   * A2RN
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12152,9 +19580,25 @@ export class ListWebApplicationRevisionsResponse extends $tea.Model {
 }
 
 export class ListWebApplicationsRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @example
+   * MTIzNCNhYmM
+   */
   nextToken?: string;
+  /**
+   * @example
+   * my-application
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12205,10 +19649,33 @@ export class ListWebApplicationsResponse extends $tea.Model {
 }
 
 export class ListWebCustomDomainsRequest extends $tea.Model {
+  /**
+   * @example
+   * 7e41aff0-9eca-45c9-ac48-675e09******
+   */
   applicationId?: string;
+  /**
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
+  /**
+   * @example
+   * A2RN
+   */
   nextToken?: string;
+  /**
+   * @example
+   * remoteresult
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12261,7 +19728,21 @@ export class ListWebCustomDomainsResponse extends $tea.Model {
 }
 
 export class OpenSaeServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 20485646575****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 559B4247-C41C-4D9E-B866-B55D378B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12308,7 +19789,18 @@ export class OpenSaeServiceResponse extends $tea.Model {
 }
 
 export class PublishWebApplicationRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: PublishWebApplicationRevisionInput;
   static names(): { [key: string]: string } {
     return {
@@ -12355,6 +19847,15 @@ export class PublishWebApplicationRevisionResponse extends $tea.Model {
 }
 
 export class QueryResourceStaticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12374,12 +19875,69 @@ export class QueryResourceStaticsRequest extends $tea.Model {
 }
 
 export class QueryResourceStaticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The resource usage.
+   */
   data?: QueryResourceStaticsResponseBodyData;
+  /**
+   * @remarks
+   * The error code. 
+   * 
+   * - The **ErrorCode** parameter is not returned when the request succeeds.
+   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7CCF7092-72CA-4431-90D6-C7D98752****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the resource usage of an application was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the resource usage was obtained.
+   * *   **false**: indicates that the resource usage could not be obtained.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * ac1a08a015623098794277264e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12436,7 +19994,25 @@ export class QueryResourceStaticsResponse extends $tea.Model {
 }
 
 export class ReduceApplicationCapacityByInstanceIdsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the instance. Separate multiple instances with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   instanceIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12458,12 +20034,72 @@ export class ReduceApplicationCapacityByInstanceIdsRequest extends $tea.Model {
 }
 
 export class ReduceApplicationCapacityByInstanceIdsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the change process.
+   */
   data?: ReduceApplicationCapacityByInstanceIdsResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Take note of the following rules:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A8E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Take note of the following rules:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The image failed to be found.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12520,10 +20156,62 @@ export class ReduceApplicationCapacityByInstanceIdsResponse extends $tea.Model {
 }
 
 export class RescaleApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically enable an auto scaling policy for the application. Take note of the following rules:
+   * 
+   * *   **true**: turns on Logon-free Sharing
+   * *   **false**: turns off Logon-free Sharing
+   * 
+   * @example
+   * true
+   */
   autoEnableApplicationScalingRule?: boolean;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. Default value: -1.
+   * *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+   * 
+   * > When **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of MinReadyInstanceRatio** takes precedence.**** For example, if **MinReadyInstances** is set to **5, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+   * 
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Special values:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the application is updated.
+   * *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   replicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12551,11 +20239,61 @@ export class RescaleApplicationRequest extends $tea.Model {
 }
 
 export class RescaleApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: RescaleApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The message returned for the operation.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is successfully scaled. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12610,8 +20348,35 @@ export class RescaleApplicationResponse extends $tea.Model {
 }
 
 export class RescaleApplicationVerticallyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The destination CPU specification. Unit: millicore.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   cpu?: string;
+  /**
+   * @remarks
+   * The destination memory size. Unit: MB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2048
+   */
   memory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12635,12 +20400,69 @@ export class RescaleApplicationVerticallyRequest extends $tea.Model {
 }
 
 export class RescaleApplicationVerticallyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: RescaleApplicationVerticallyResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The message returned for the operation.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AB521DBB-FA78-42E6-803F-A862EA4F****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance specifications are changed. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0bc3b6f315637273629117900d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12697,9 +20519,42 @@ export class RescaleApplicationVerticallyResponse extends $tea.Model {
 }
 
 export class RestartApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
   autoEnableApplicationScalingRule?: boolean;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. Default value: -1.
+   * *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+   * 
+   * > When **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of \\*\\*MinReadyInstanceRatio** takes precedence.**** For example, if **MinReadyInstances** is set to **5\\*\\*, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+   * 
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Special values:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the application is updated.
+   * *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12725,12 +20580,72 @@ export class RestartApplicationRequest extends $tea.Model {
 }
 
 export class RestartApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: RestartApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Take note of the following rules:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance is successfully restarted. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12787,7 +20702,25 @@ export class RestartApplicationResponse extends $tea.Model {
 }
 
 export class RestartInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1daa7236-3844-4f36-b39a-605b0cc0****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to be restarted. Separate multiple instance IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mysae-1daa7236-3844-4f36-b39a-605b0cc0caa6-*****
+   */
   instanceIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12809,12 +20742,72 @@ export class RestartInstancesRequest extends $tea.Model {
 }
 
 export class RestartInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of the application.
+   */
   data?: RestartInstancesResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Take note of the following rules:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Specifies whether the instances are successfully restarted. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12871,12 +20864,102 @@ export class RestartInstancesResponse extends $tea.Model {
 }
 
 export class RollbackApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically enable an auto scaling policy for the application. Take note of the following rules:
+   * 
+   * *   **true**: turns on Logon-free Sharing
+   * *   **false**: turns off Logon-free Sharing
+   * 
+   * @example
+   * true
+   */
   autoEnableApplicationScalingRule?: string;
+  /**
+   * @remarks
+   * The wait time between batches. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   batchWaitTime?: number;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. Default value: -1.
+   * *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+   * 
+   * > When both **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of **MinReadyInstanceRatio** takes precedence.** For example, if **MinReadyInstances** is set to **5, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+   * 
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the application is updated.
+   * *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * The deployment policy. If the minimum number of available instances is 1, the value of the **UpdateStrategy** parameter is an empty string (""). If the minimum number of available instances is larger than 1, specify this parameter based on your requirements. Examples:
+   * 
+   * *   Perform canary release for one instance and release the remaining instances in two batches automatically with a one-minute interval between the deployment of each instance:
+   * 
+   *     `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`
+   * 
+   * *   Perform canary release for one instance and release the remaining instances in two batches manually:
+   * 
+   *     `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`
+   * 
+   * *   Release the instances in two batches automatically with no interval between the deployment of each instance:
+   * 
+   *     `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **type**: the type of the release policy. Valid values: **GrayBatchUpdate** and **BatchUpdate**.
+   * 
+   * *   **batchUpdate**: the phased release policy.
+   * 
+   *     *   **batch**: the number of release batches.
+   *     *   **releaseType**: the processing method for the batches. Valid values: **auto** and **manual**.
+   *     *   **batchWaitTime**: the interval between release batches. Unit: seconds.
+   * 
+   * *   **grayUpdate**: the number of release batches in the phased release after a canary release. This parameter is returned only if the **type** parameter is set to **GrayBatchUpdate**.
+   * 
+   * @example
+   * {"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}
+   */
   updateStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the application version. Call the [ListAppVersions](https://help.aliyun.com/document_detail/162054.html) operation to obtain the version ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0026ff7f-2b57-4127-bdd0-9bf202bb9****
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12908,12 +20991,69 @@ export class RollbackApplicationRequest extends $tea.Model {
 }
 
 export class RollbackApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: RollbackApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The message returned for the operation.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is successfully rolled back. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12970,6 +21110,15 @@ export class RollbackApplicationResponse extends $tea.Model {
 }
 
 export class StartApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12989,12 +21138,72 @@ export class StartApplicationRequest extends $tea.Model {
 }
 
 export class StartApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: StartApplicationResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, **ErrorCode** is not returned.
+   * *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Take note of the following rules:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7BD8F4C7-D84C-4D46-9885-8212997E****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application is started. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0bc3b6e215637275918588187d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13051,6 +21260,13 @@ export class StartApplicationResponse extends $tea.Model {
 }
 
 export class StartWebApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13095,6 +21311,18 @@ export class StartWebApplicationResponse extends $tea.Model {
 }
 
 export class StopApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13114,12 +21342,55 @@ export class StopApplicationRequest extends $tea.Model {
 }
 
 export class StopApplicationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   */
   data?: StopApplicationResponseBodyData;
+  /**
+   * @remarks
+   * Indicates whether the specified application is stopped. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 0bc3b6e215637275918588187d****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13176,6 +21447,13 @@ export class StopApplicationResponse extends $tea.Model {
 }
 
 export class StopWebApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13220,7 +21498,25 @@ export class StopWebApplicationResponse extends $tea.Model {
 }
 
 export class SuspendJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ee1a7a07-abcb-4652-a1d3-2d57f415****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to suspend the job template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   suspend?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13242,12 +21538,75 @@ export class SuspendJobRequest extends $tea.Model {
 }
 
 export class SuspendJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * Whether the execution is successful.
+   * 
+   * @example
+   * {success: true}
+   */
   data?: string;
+  /**
+   * @remarks
+   * The error code returned. Valid values:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 67DD9A98-9CCC-5BE8-8C9E-B45E72F4****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the job was executed. Valid values:
+   * 
+   * *   **true**: The job was executed.
+   * *   **false**: The job failed to be executed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0b87b7e716575071334387401e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13304,9 +21663,41 @@ export class SuspendJobResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * application
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["d42921c4-5433-4abd-8075-0e536f8b****"]
+   */
   resourceIds?: string;
+  /**
+   * @remarks
+   * [{"key":"k1","value":"v1"}]
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * application
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
+   * 
+   * @example
+   * [{"key":"k1","value":"v1"}]
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13332,12 +21723,66 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether tags were added to the specified resources successfully. Valid values:
+   * 
+   * *   **true**: indicates that tags were added to the specified resources successfully.
+   * *   **false**: indicates that tags could not be added to the specified resources.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * Indicates that the operation was successful.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13394,8 +21839,31 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UnbindSlbRequest extends $tea.Model {
+  /**
+   * @remarks
+   * true
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
   internet?: boolean;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * true
+   */
   intranet?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13419,12 +21887,63 @@ export class UnbindSlbRequest extends $tea.Model {
 }
 
 export class UnbindSlbResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the internal-facing or Internet-facing SLB instance was disassociated successfully. Valid values:
+   * 
+   * *   **true**: The SLB instance was disassociated successfully.
+   * *   **false**: The SLB instance could not be disassociated.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the change order. It can be used to query the task status.
+   */
   data?: UnbindSlbResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13481,10 +22000,51 @@ export class UnbindSlbResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * false
+   * 
+   * @example
+   * false
+   */
   deleteAll?: boolean;
+  /**
+   * @remarks
+   * cn-beijing
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["d42921c4-5433-4abd-8075-0e536f8b****"]
+   */
   resourceIds?: string;
+  /**
+   * @remarks
+   * application
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * application
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * ["k1","k2"]
+   * 
+   * @example
+   * ["k1","k2"]
+   */
   tagKeys?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13512,12 +22072,69 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the tags were removed. Valid values:
+   * 
+   * *   **true**: The tags were removed.
+   * *   **false**: The tags could not be removed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query details of a request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13574,7 +22191,25 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateAppSecurityGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * sg-wz969ngg2e49q5i4\\*\\*\\*\\*
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13596,11 +22231,61 @@ export class UpdateAppSecurityGroupRequest extends $tea.Model {
 }
 
 export class UpdateAppSecurityGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the security group of the application is successfully updated. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   If the request is successful, **success** is returned.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13655,7 +22340,21 @@ export class UpdateAppSecurityGroupResponse extends $tea.Model {
 }
 
 export class UpdateApplicationDescriptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * newdesc
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13677,11 +22376,31 @@ export class UpdateApplicationDescriptionRequest extends $tea.Model {
 }
 
 export class UpdateApplicationDescriptionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * ac1a0b2215622246421415014e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13736,11 +22455,145 @@ export class UpdateApplicationDescriptionResponse extends $tea.Model {
 }
 
 export class UpdateApplicationScalingRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. This is the default value.
+   * *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if you set this parameter to **50**, and five instances are available, the minimum number of available instances is 3.
+   * 
+   * > When **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of \\*\\*MinReadyInstanceRatio** takes precedence.**** For example, if **MinReadyInstances** is set to **5\\*\\*, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+   * 
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the auto-scaling policy is updated.
+   * *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 3
+   */
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * The configurations of the metric-based auto scaling policy. This parameter is required if you set the ScalingRuleType parameter to metric.
+   * 
+   * Parameter description:
+   * 
+   * *   **maxReplicas**: the maximum number of instances in the application.
+   * 
+   * *   **minReplicas**: the minimum number of instances in the application.
+   * 
+   * *   **metricType**: the metric that is used to trigger the auto scaling policy.
+   * 
+   *     *   **CPU**: the CPU utilization.
+   *     *   **MEMORY**: the memory usage.
+   *     *   **tcpActiveConn**: the average number of active TCP connections in an application instance within 30 seconds.
+   *     *   **SLB_QPS**: the average queries per second (QPS) of the Internet-facing Server Load Balancer (SLB) instance associated with an application instance within 15 seconds.
+   *     *   **SLB_RT**: the average response time of the Internet-facing SLB instance within 15 seconds.
+   * 
+   * *   **metricTargetAverageUtilization**: the limit on the metric specified by the **metricType** parameter.
+   * 
+   *     *   The limit on the CPU utilization. Unit: percentage.
+   *     *   The limit on the memory usage. Unit: percentage.
+   *     *   The limit on the average number of active TCP connections per second.
+   *     *   The limit on the QPS of the Internet-facing SLB instance.
+   *     *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+   * 
+   * *   **SlbProject**: the Log Service project.
+   * 
+   * *   **SlbLogstore**: the Log Service Logstore.
+   * 
+   * *   **Vport**: the listener port for the SLB instance. HTTP and HTTPS are supported.
+   * 
+   * *   **scaleUpRules**: the scale-out rule.
+   * 
+   * *   **scaleDownRules**: the scale-in rule.
+   * 
+   * *   **step**: the scale-out or scale-in step size. The maximum number of instances that can be added or removed per unit time.
+   * 
+   * *   **disabled**: specifies whether to disable the application scale-in. If you set this parameter to true, the application instances are never scaled in. This prevents business risks during peak hours.
+   * 
+   *     *   **true**: disables the application scale-in.
+   *     *   **false**: enables the application scale-in. Default value: false.
+   * 
+   * *   **stabilizationWindowSeconds**: the cooldown period during which the system is stable and does not perform scale-out or scale-in operations. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
+   * 
+   * > You can specify one or more metrics as the trigger conditions of the auto scaling policy. If you specify multiple metrics, the application is scaled out when the value of a metric is greater than or equal to the limit. The number of application instances after the scale-out cannot exceed the configured maximum number of application instances. If the values of all the metrics are less than the limits, the application is scaled in. The number of instances after the scale-in cannot be less than the configured minimum number of application instances.
+   * 
+   * @example
+   * {"maxReplicas":3,"minReplicas":1,"metrics":[{"metricType":"CPU","metricTargetAverageUtilization":20},{"metricType":"MEMORY","metricTargetAverageUtilization":30},{"metricType":"tcpActiveConn","metricTargetAverageUtilization":20},{"metricType":"SLB_QPS","MetricTargetAverageUtilization":25,"SlbProject":"aliyun-fc-cn-hangzhou-d95881d9-5d3c-5f26-a6b8-************","SlbLogstore":"function-log","Vport":"80"},{"metricType":"SLB_RT","MetricTargetAverageUtilization":35,"SlbProject":"aliyun-fc-cn-hangzhou-d95881d9-5d3c-5f26-a6b8-************","SlbLogstore":"function-log","Vport":"80"}],"scaleUpRules":{"step":"100","disabled":false,"stabilizationWindowSeconds":0},"scaleDownRules":{"step":"100","disabled":false,"stabilizationWindowSeconds":300}}
+   */
   scalingRuleMetric?: string;
+  /**
+   * @remarks
+   * The name of the auto scaling policy. The name must start with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-). The name cannot exceed 32 characters in length.
+   * 
+   * > You cannot change the names of created policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * timer-0800-2100
+   */
   scalingRuleName?: string;
+  /**
+   * @remarks
+   * The configurations of the scheduled auto scaling policy. This parameter is required when you set the ScalingRuleType parameter to timing or when you want to create a scheduled auto scaling policy by using an SDK.
+   * 
+   * Parameter description:
+   * 
+   * *   **beginDate** and **endDate**: specify the validity period of the scheduled auto scaling policy. **beginDate** specifies the start date and **endDate** specifies the end date. Take note of the following rules:
+   * 
+   *     *   If you set the two parameters to **null**, the scheduled auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
+   *     *   If you set the two parameters to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if you set **beginDate** to **2021-03-25** and **endDate** to **2021-04-25**, the auto scaling policy is valid for one month.
+   * 
+   * *   **period**: specifies the frequency at which the scheduled auto scaling policy is executed. Valid values:
+   * 
+   *     *   **\\* \\* \\***: The scheduled auto scaling policy is executed at a specified point in time every day.
+   * 
+   *     *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more specified days of each week. GMT+8 is used. Valid values:
+   * 
+   *         *   **Sun**
+   *         *   **Mon**
+   *         *   **Tue**
+   *         *   **Wed**
+   *         *   **Thu**
+   *         *   **Fri**
+   *         *   **Sat**
+   * 
+   *     *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
+   * 
+   * *   **schedules**: specifies the points in time at which the auto scaling policy is triggered and the number of application instances that are retained during the corresponding period of time. You can specify up to 20 points in time. Parameter description:
+   * 
+   *     *   **atTime**: the point in time at which the policy is triggered. Format: **Hour:Minute**. Example: **08:00**.
+   * 
+   *     *   **targetReplicas**: specifies the number of application instances that you want to maintain by using this policy. You can also set the value to the minimum number of available instances required for each application release. Valid values: 1 to 50.
+   * 
+   *         **
+   * 
+   *         **Note**Make sure that at least **one** instance is available during the application deployment and rollback to prevent your business from being interrupted. If you set the value to **0**, business interruptions occur when the application is updated.
+   * 
+   * @example
+   * {"beginDate":null,"endDate":null,"period":"* * *","schedules":[{"atTime":"08:00","targetReplicas":10},{"atTime":"20:00","targetReplicas":3}]}
+   */
   scalingRuleTimer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13770,12 +22623,72 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
 }
 
 export class UpdateApplicationScalingRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: UpdateApplicationScalingRuleResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   If the call is successful, **ErrorCode** is not returned.
+   * *   If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned message. Take note of the following rules:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Specifies whether the instances are successfully restarted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13832,7 +22745,21 @@ export class UpdateApplicationScalingRuleResponse extends $tea.Model {
 }
 
 export class UpdateApplicationVswitchesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-2ze559r1z1bpwqxwp****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13854,11 +22781,31 @@ export class UpdateApplicationVswitchesRequest extends $tea.Model {
 }
 
 export class UpdateApplicationVswitchesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13913,8 +22860,28 @@ export class UpdateApplicationVswitchesResponse extends $tea.Model {
 }
 
 export class UpdateConfigMapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"env.shell": "/bin/sh"}
+   */
   data?: string;
+  /**
+   * @example
+   * test-desc
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13938,12 +22905,60 @@ export class UpdateConfigMapRequest extends $tea.Model {
 }
 
 export class UpdateConfigMapResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the ConfigMap instance was updated. Valid values:
+   * 
+   * *   **true**: The instance was updated.
+   * *   **false**: The instance failed to be updated.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the ConfigMap instance.
+   */
   data?: UpdateConfigMapResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx:**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14000,10 +23015,44 @@ export class UpdateConfigMapResponse extends $tea.Model {
 }
 
 export class UpdateGreyTagRouteRequest extends $tea.Model {
+  /**
+   * @example
+   * [{"condition":"AND","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"sourceIp","value":"127.0.0.1"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   */
   albRules?: string;
+  /**
+   * @remarks
+   * Canary Release - Regions
+   * 
+   * @example
+   * 灰度发布-地域灰度
+   */
   description?: string;
+  /**
+   * @remarks
+   * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
+   * 
+   * @example
+   * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
+   */
   dubboRules?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   greyTagRouteId?: number;
+  /**
+   * @remarks
+   * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   * 
+   * @example
+   * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   */
   scRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14031,12 +23080,66 @@ export class UpdateGreyTagRouteRequest extends $tea.Model {
 }
 
 export class UpdateGreyTagRouteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information about the canary release rule.
+   */
   data?: UpdateGreyTagRouteResponseBodyData;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The returned information.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9D29CBD0-45D3-410B-9826-52F86F90****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14093,14 +23196,53 @@ export class UpdateGreyTagRouteResponse extends $tea.Model {
 }
 
 export class UpdateIngressRequest extends $tea.Model {
+  /**
+   * @example
+   * 188077086902****_176993d****_181437****_108724****
+   */
   certId?: string;
+  /**
+   * @example
+   * 87***35-cn-hangzhou,812***3-cn-hangzhou
+   */
   certIds?: string;
+  /**
+   * @example
+   * {"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080}
+   */
   defaultRule?: string;
+  /**
+   * @example
+   * ingress-sae-test
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 87
+   */
   ingressId?: number;
+  /**
+   * @example
+   * 443
+   */
   listenerPort?: string;
+  /**
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @example
+   * clb
+   */
   loadBalanceType?: string;
+  /**
+   * @example
+   * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
+   */
   rules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14136,12 +23278,32 @@ export class UpdateIngressRequest extends $tea.Model {
 }
 
 export class UpdateIngressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: UpdateIngressResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14198,50 +23360,437 @@ export class UpdateIngressResponse extends $tea.Model {
 }
 
 export class UpdateJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
   acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The ID of Container Registry Enterprise Edition instance N. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The number of times the job is retried.
+   * 
+   * @example
+   * 3
+   */
   backoffLimit?: number;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Example:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. The name must meet the following format requirements:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The concurrency policy of the job. Valid values:
+   * 
+   * *   **Forbid**: Prohibits concurrent running. If the previous job is not completed, no new job is created.
+   * *   **Allow**: Allows concurrent running.
+   * *   **Replace**: If the previous job is not completed when the time to create a new job is reached, the new job replaces the previous job.
+   * 
+   * @example
+   * Allow
+   */
   concurrencyPolicy?: string;
+  /**
+   * @remarks
+   * The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following parameters are involved:
+   * 
+   * *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
+   * *   **key**: the key.
+   * 
+   * > You can use the `sae-sys-configmap-all` key to mount all keys.
+   * 
+   * *   **mountPath**: the mount path.
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
   configMapMountDesc?: string;
+  /**
+   * @remarks
+   * The custom mappings between hostnames and IP addresses in the container. Valid values:
+   * 
+   * *   **hostName**: the domain name or hostname.
+   * *   **ip**: the IP address.
+   * 
+   * @example
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
   enableImageAccl?: boolean;
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
+   * 
+   * *   Configure custom environment variables
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The ID of the corresponding Secret.
+   * 
+   * @example
+   * 10
+   */
   imagePullSecrets?: string;
+  /**
+   * @remarks
+   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * -Xms4G -Xmx4G
+   */
   jarStartArgs?: string;
+  /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the application container. The default startup command for application deployment is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * custom-option
+   */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * 
+   * *   **Open JDK 8**
+   * *   **Open JDK 7**
+   * *   **Dragonwell 11**
+   * *   **Dragonwell 8**
+   * *   **openjdk-8u191-jdk-alpine3.9**
+   * *   **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @remarks
+   * The configurations for mounting the NAS file system. If you do not need to modify the NAS configurations when you deploy the application, configure **MountDesc** only in the first request. If you no longer need to use NAS, leave **MountDesc** empty in the request.
+   * 
+   * @example
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   */
   mountDesc?: string;
+  /**
+   * @remarks
+   * The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+   * 
+   * @example
+   * 10d3b4bc9****.com
+   */
   mountHost?: string;
+  /**
+   * @remarks
+   * The ID of the Apsara File Storage NAS file system. If you do not need to modify the NAS configurations when you deploy the application, configure **NasId** only in the first request. If you no longer need to use NAS, leave **NasId** empty in the request.
+   * 
+   * @example
+   * 10d3b4****
+   */
   nasId?: string;
+  /**
+   * @remarks
+   * The AccessKey ID that is used to read data from and write data to OSS.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to read data from and write data to OSS.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkSecret?: string;
+  /**
+   * @remarks
+   * The information about the mounted Object Storage Service (OSS) bucket. The following parameters are involved:
+   * 
+   * *   **bucketName**: the name of the OSS bucket.
+   * 
+   * *   **bucketPath**: the directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * 
+   * *   **mountPath**: the directory of the container in SAE. If the path already exists, the newly specified path overwrites the previous one. If the path does not exist, it is created.
+   * 
+   * *   **readOnly**: specifies whether to only allow the container path to read data from the OSS directory. Valid values:
+   * 
+   *     *   **true**: The container path only has read permission on the OSS directory.
+   *     *   **false**: The application has read and write permissions.
+   * 
+   * @example
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   */
   ossMountDescs?: string;
+  /**
+   * @remarks
+   * The address of the deployment package. This parameter is required if you set **PackageType** to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * http://myoss.oss-cn-hangzhou.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is required if you set **PackageType** to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * 1.0.1
+   */
   packageVersion?: string;
+  /**
+   * @remarks
+   * The ID of Container Registry Enterprise Edition instance N.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   php?: string;
+  /**
+   * @remarks
+   * The details of the PHP configuration file.
+   * 
+   * @example
+   * k1=v1
+   */
   phpConfig?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
   phpConfigLocation?: string;
+  /**
+   * @remarks
+   * The script to be run after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
   preStop?: string;
+  /**
+   * @remarks
+   * The programming language. Valid values: **java**, **php**, **python**, and **shell**.
+   * 
+   * @example
+   * java
+   */
   programmingLanguage?: string;
+  /**
+   * @remarks
+   * The Python environment. Set the value to **PYTHON 3.9.15**.
+   * 
+   * @example
+   * PYTHON 3.9.15
+   */
   python?: string;
+  /**
+   * @remarks
+   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If the package does not contain this file and you do not configure custom dependencies in the package, specify the dependencies that you want to install in the text box.
+   * 
+   * @example
+   * Flask==2.0
+   */
   pythonModules?: string;
+  /**
+   * @remarks
+   * The ID of the job that you reference.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   refAppId?: string;
+  /**
+   * @remarks
+   * The number of concurrent instances.
+   * 
+   * @example
+   * 3
+   */
   replicas?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable job sharding.
+   * 
+   * @example
+   * true
+   */
   slice?: boolean;
+  /**
+   * @remarks
+   * The parameters of job sharding.
+   * 
+   * @example
+   * [0,1,2]
+   */
   sliceEnvs?: string;
+  /**
+   * @remarks
+   * The configurations of Log Service.
+   * 
+   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * The following parameters are involved:
+   * 
+   * *   **projectName**: the name of the Log Service project.
+   * *   **logDir**: the path in which logs are stored.
+   * *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
+   * *   **logstoreName**: the name of the Logstore in Log Service.
+   * *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+   * 
+   * If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+   * 
+   * > A Log Service project that is automatically created by SAE when you create an application is deleted when the application is deleted. Therefore, when you create an application, you cannot select a Log Service project that is automatically created by SAE for log collection.
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * 
+   * @example
+   * 10
+   */
   terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The time zone. Default value: **Asia/Shanghai**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The Tomcat configuration. If you want to delete the configuration, set this parameter to {} or leave this parameter empty. Valid values:
+   * 
+   * *   **port**: the port number. The port number ranges from 1024 to 65535. Though the admin permissions are configured for the container, the root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not specify this parameter, the default port number 8080 is used.
+   * *   **contextPath**: the path. Default value: /. This value indicates the root directory.
+   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and GB2312. If you do not specify this parameter, the default value **ISO-8859-1** is used.
+   * *   **useBodyEncoding**: specifies whether to use the encoding scheme that is specified by **BodyEncoding for URL**. Default value: **true**.
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
   tomcatConfig?: string;
   triggerConfig?: string;
+  /**
+   * @remarks
+   * The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
+   * 
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
   warStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Tomcat container on which the deployment package depends. The following versions are supported:
+   * 
+   * *   **apache-tomcat-7.0.91**
+   * *   **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
   webContainer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14349,12 +23898,72 @@ export class UpdateJobRequest extends $tea.Model {
 }
 
 export class UpdateJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response.
+   */
   data?: UpdateJobResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Valid values:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The additional information that is returned. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application deployment is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * ac1a0b2215622246421415014e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14412,9 +24021,39 @@ export class UpdateJobResponse extends $tea.Model {
 
 export class UpdateNamespaceRequest extends $tea.Model {
   enableMicroRegistration?: boolean;
+  /**
+   * @remarks
+   * The short ID of the namespace. You do not need to specify a region ID. We recommend that you configure this parameter. The value of this parameter can be up to 20 characters in length and can contain only lowercase letters and digits.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The description of the namespace. The description cannot exceed 100 characters in length.
+   * 
+   * @example
+   * desc
+   */
   namespaceDescription?: string;
+  /**
+   * @remarks
+   * The long ID of the namespace. If you configure this parameter, the long ID take effects and the value of the NameSpaceShortId parameter is ignored. To ensure compatibility, we recommend that you specify a short namespace ID. A long namespace ID follows the `<RegionId>:<NamespaceId>` format. The `NamespaceId` variable can contain only lowercase letters and digits. Example: `cn-beijing:test`. The value of the NamespaceId variable cannot exceed 32 characters in length. For more information about **RegionId**, you can call the [DescribeRegions](https://help.aliyun.com/document_detail/126213.html) operation to obtain the IDs of regions supported by SAE.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace. The name cannot exceed 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14442,12 +24081,69 @@ export class UpdateNamespaceRequest extends $tea.Model {
 }
 
 export class UpdateNamespaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The information of the namespace.
+   */
   data?: UpdateNamespaceResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The message returned for the operation.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the information about the namespace was updated. Valid values:
+   * 
+   * *   **true**: The instance was updated.
+   * *   **false**: The instance failed to be updated.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14504,8 +24200,28 @@ export class UpdateNamespaceResponse extends $tea.Model {
 }
 
 export class UpdateNamespaceVpcRequest extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * vpc-2ze0i263cnn311nvj\\*\\*\\*\\*
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-2ze0i263cnn311nvj****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14529,11 +24245,61 @@ export class UpdateNamespaceVpcRequest extends $tea.Model {
 }
 
 export class UpdateNamespaceVpcResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the VPC information was updated. Valid values:
+   * 
+   * *   **true**: indicates that the information was updated.
+   * *   **false**: indicates that the information could not be updated.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the trace. It can be used to query the details of a request.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * *   **success** is returned when the request succeeds.
+   * *   An error code is returned when the request fails.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14588,8 +24354,26 @@ export class UpdateNamespaceVpcResponse extends $tea.Model {
 }
 
 export class UpdateSecretRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   secretData?: UpdateSecretRequestSecretData;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14613,8 +24397,26 @@ export class UpdateSecretRequest extends $tea.Model {
 }
 
 export class UpdateSecretShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   secretDataShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14638,12 +24440,32 @@ export class UpdateSecretShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSecretResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: UpdateSecretResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14700,7 +24522,18 @@ export class UpdateSecretResponse extends $tea.Model {
 }
 
 export class UpdateWebApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: UpdateWebApplicationInput;
   static names(): { [key: string]: string } {
     return {
@@ -14747,7 +24580,18 @@ export class UpdateWebApplicationResponse extends $tea.Model {
 }
 
 export class UpdateWebApplicationScalingConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: UpdateWebApplicationScalingConfigInput;
   static names(): { [key: string]: string } {
     return {
@@ -14794,7 +24638,18 @@ export class UpdateWebApplicationScalingConfigResponse extends $tea.Model {
 }
 
 export class UpdateWebApplicationTrafficConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: UpdateWebApplicationTrafficConfigInput;
   static names(): { [key: string]: string } {
     return {
@@ -14841,7 +24696,18 @@ export class UpdateWebApplicationTrafficConfigResponse extends $tea.Model {
 }
 
 export class UpdateWebCustomDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: UpdateWebCustomDomainInput;
   static names(): { [key: string]: string } {
     return {
@@ -14888,8 +24754,20 @@ export class UpdateWebCustomDomainResponse extends $tea.Model {
 }
 
 export class AppStackInstanceEndpoints extends $tea.Model {
+  /**
+   * @example
+   * 127.0.0.1:8211
+   */
   address?: string;
+  /**
+   * @example
+   * game
+   */
   name?: string;
+  /**
+   * @example
+   * UDP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14913,7 +24791,15 @@ export class AppStackInstanceEndpoints extends $tea.Model {
 }
 
 export class AppStackInstanceParameters extends $tea.Model {
+  /**
+   * @example
+   * regionId
+   */
   name?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14935,13 +24821,45 @@ export class AppStackInstanceParameters extends $tea.Model {
 }
 
 export class AppStackTaskSteps extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 0
+   */
   duration?: number;
+  /**
+   * @example
+   * 1706518652
+   */
   endTime?: number;
+  /**
+   * @example
+   * VPC_CREATE_NETWORK
+   */
   id?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 初始化 VPC 网络
+   */
   name?: string;
+  /**
+   * @example
+   * 1706518652
+   */
   startTime?: number;
+  /**
+   * @example
+   * WAIT
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14975,13 +24893,36 @@ export class AppStackTaskSteps extends $tea.Model {
 }
 
 export class BuildPipelineBuildConfig extends $tea.Model {
+  /**
+   * @example
+   * mvn clean package
+   */
   beforeBuildCommand?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * buildpacks/dockerfile
+   */
   buildType?: string;
+  /**
+   * @example
+   * code/Dockerfile
+   */
   dockerfilePath?: string;
+  /**
+   * @example
+   * java -jar target/app.jar
+   */
   runCommand?: string;
   runtimeType?: string;
   runtimeVersion?: string;
   tomcatConfig?: TomcatConfig;
+  /**
+   * @example
+   * code
+   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15015,13 +24956,48 @@ export class BuildPipelineBuildConfig extends $tea.Model {
 }
 
 export class BuildPipelineCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * master
+   */
   branchName?: string;
   commitId?: string;
   commitUrl?: string;
   organizationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * github/gitee/gitlab等
+   */
   provider?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sae-samples/java-maven-demo
+   */
   repoFullName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3001
+   */
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15086,6 +25062,10 @@ export class BuildPipelineDeployConfig extends $tea.Model {
 }
 
 export class BuildPipelineImageConfig extends $tea.Model {
+  /**
+   * @example
+   * ACR/ACREE
+   */
   instanceType?: string;
   namespace?: string;
   repository?: string;
@@ -15112,8 +25092,20 @@ export class BuildPipelineImageConfig extends $tea.Model {
 
 export class BuildPipelinePackageConfig extends $tea.Model {
   packageName?: string;
+  /**
+   * @example
+   * war/jar/zip
+   */
   packageType?: string;
+  /**
+   * @example
+   * http://myoss.oss-cn-****.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
   packageUrl?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   packageVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15139,8 +25131,23 @@ export class BuildPipelinePackageConfig extends $tea.Model {
 }
 
 export class BuildPipelineTriggerConfig extends $tea.Model {
+  /**
+   * @example
+   * master
+   */
   branchName?: string;
+  /**
+   * @example
+   * v1
+   */
   tagName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PUSH
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15164,8 +25171,23 @@ export class BuildPipelineTriggerConfig extends $tea.Model {
 }
 
 export class BuildPipelineRunBuildConfigTrigger extends $tea.Model {
+  /**
+   * @example
+   * master
+   */
   branchName?: string;
+  /**
+   * @example
+   * v1
+   */
   tagName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PUSH
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15189,14 +25211,41 @@ export class BuildPipelineRunBuildConfigTrigger extends $tea.Model {
 }
 
 export class BuildPipelineRunBuildConfig extends $tea.Model {
+  /**
+   * @example
+   * mvn clean package
+   */
   beforeBuildCommand?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * buildpacks/dockerfile
+   */
   buildType?: string;
+  /**
+   * @example
+   * code/Dockerfile
+   */
   dockerfilePath?: string;
+  /**
+   * @example
+   * java -jar target/app.jar
+   */
   runCommand?: string;
   runtimeType?: string;
   runtimeVersion?: string;
   tomcatConfig?: TomcatConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   trigger?: BuildPipelineRunBuildConfigTrigger;
+  /**
+   * @example
+   * code
+   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15232,13 +25281,48 @@ export class BuildPipelineRunBuildConfig extends $tea.Model {
 }
 
 export class BuildPipelineRunCodeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * master
+   */
   branchName?: string;
   commitId?: string;
   commitUrl?: string;
   organizationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * github/gitee/gitlab等
+   */
   provider?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sae-samples/java-maven-demo
+   */
   repoFullName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3001
+   */
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15421,8 +25505,20 @@ export class BuildPipelineRunTriggerConfig extends $tea.Model {
 }
 
 export class PriceEstimateOutputAppsUsages extends $tea.Model {
+  /**
+   * @example
+   * 3600.00
+   */
   amount?: number;
+  /**
+   * @example
+   * Microservice_cpuUsage
+   */
   id?: string;
+  /**
+   * @example
+   * 核*秒
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15447,6 +25543,10 @@ export class PriceEstimateOutputAppsUsages extends $tea.Model {
 
 export class PriceEstimateOutputApps extends $tea.Model {
   feature?: PriceEstimateFeature;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
   usages?: PriceEstimateOutputAppsUsages[];
   static names(): { [key: string]: string } {
@@ -15471,10 +25571,26 @@ export class PriceEstimateOutputApps extends $tea.Model {
 }
 
 export class PriceEstimateOutputItemsSteps extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   begin?: number;
+  /**
+   * @example
+   * 10000
+   */
   end?: number;
+  /**
+   * @example
+   * 0.0001
+   */
   price?: number;
   regionIds?: string[];
+  /**
+   * @example
+   * 核*秒
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15502,12 +25618,36 @@ export class PriceEstimateOutputItemsSteps extends $tea.Model {
 }
 
 export class PriceEstimateOutputItems extends $tea.Model {
+  /**
+   * @example
+   * 3600.00
+   */
   amount?: number;
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @example
+   * p_micro_service_cpu
+   */
   id?: string;
+  /**
+   * @example
+   * 1.00
+   */
   price?: number;
   steps?: PriceEstimateOutputItemsSteps[];
+  /**
+   * @example
+   * pack/post
+   */
   type?: string;
+  /**
+   * @example
+   * 核*秒
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15711,6 +25851,16 @@ export class SubmenuItems extends $tea.Model {
 }
 
 export class AbortAndRollbackChangeOrderResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * ba386059-69b1-4e65-b1e5-0682d9fa****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15730,6 +25880,16 @@ export class AbortAndRollbackChangeOrderResponseBodyData extends $tea.Model {
 }
 
 export class AbortChangeOrderResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * be2e1c76-682b-4897-98d3-1d8d6478****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15749,6 +25909,18 @@ export class AbortChangeOrderResponseBodyData extends $tea.Model {
 }
 
 export class BatchStartApplicationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15768,6 +25940,16 @@ export class BatchStartApplicationsResponseBodyData extends $tea.Model {
 }
 
 export class BatchStopApplicationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * 4a815998-b468-4bea-b7d8-59f52a44****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15787,6 +25969,13 @@ export class BatchStopApplicationsResponseBodyData extends $tea.Model {
 }
 
 export class BindSlbResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change order. It can be used to query the task status.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15806,6 +25995,13 @@ export class BindSlbResponseBodyData extends $tea.Model {
 }
 
 export class ConfirmPipelineBatchResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the batch.
+   * 
+   * @example
+   * e2e-vds-feh-***
+   */
   pipelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15825,7 +26021,21 @@ export class ConfirmPipelineBatchResponseBodyData extends $tea.Model {
 }
 
 export class CreateApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application that is created.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the change order. It can be used to query the task status.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15847,7 +26057,15 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
 }
 
 export class CreateApplicationScalingRuleResponseBodyDataMetricMetrics extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   metricTargetAverageUtilization?: number;
+  /**
+   * @example
+   * CPU
+   */
   metricType?: string;
   slbId?: string;
   slbLogstore?: string;
@@ -15881,8 +26099,16 @@ export class CreateApplicationScalingRuleResponseBodyDataMetricMetrics extends $
 }
 
 export class CreateApplicationScalingRuleResponseBodyDataMetric extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   maxReplicas?: number;
   metrics?: CreateApplicationScalingRuleResponseBodyDataMetricMetrics[];
+  /**
+   * @example
+   * 1
+   */
   minReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15906,9 +26132,17 @@ export class CreateApplicationScalingRuleResponseBodyDataMetric extends $tea.Mod
 }
 
 export class CreateApplicationScalingRuleResponseBodyDataTimerSchedules extends $tea.Model {
+  /**
+   * @example
+   * 08:00
+   */
   atTime?: string;
   maxReplicas?: number;
   minReplicas?: number;
+  /**
+   * @example
+   * 3
+   */
   targetReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15934,8 +26168,20 @@ export class CreateApplicationScalingRuleResponseBodyDataTimerSchedules extends 
 }
 
 export class CreateApplicationScalingRuleResponseBodyDataTimer extends $tea.Model {
+  /**
+   * @example
+   * 2021-03-25
+   */
   beginDate?: string;
+  /**
+   * @example
+   * 2021-04-25
+   */
   endDate?: string;
+  /**
+   * @example
+   * * * *
+   */
   period?: string;
   schedules?: CreateApplicationScalingRuleResponseBodyDataTimerSchedules[];
   static names(): { [key: string]: string } {
@@ -15962,14 +26208,42 @@ export class CreateApplicationScalingRuleResponseBodyDataTimer extends $tea.Mode
 }
 
 export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @example
+   * 1616642248938
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1641882854484
+   */
   lastDisableTime?: number;
   metric?: CreateApplicationScalingRuleResponseBodyDataMetric;
+  /**
+   * @example
+   * true
+   */
   scaleRuleEnabled?: boolean;
+  /**
+   * @example
+   * test
+   */
   scaleRuleName?: string;
+  /**
+   * @example
+   * timing
+   */
   scaleRuleType?: string;
   timer?: CreateApplicationScalingRuleResponseBodyDataTimer;
+  /**
+   * @example
+   * 1616642248938
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16005,6 +26279,16 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
 }
 
 export class CreateConfigMapResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16024,6 +26308,16 @@ export class CreateConfigMapResponseBodyData extends $tea.Model {
 }
 
 export class CreateGreyTagRouteResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * 16
+   */
   greyTagRouteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16043,6 +26337,10 @@ export class CreateGreyTagRouteResponseBodyData extends $tea.Model {
 }
 
 export class CreateIngressResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 87
+   */
   ingressId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16062,7 +26360,21 @@ export class CreateIngressResponseBodyData extends $tea.Model {
 }
 
 export class CreateJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the change order. It can be used to query the task status.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16085,10 +26397,56 @@ export class CreateJobResponseBodyData extends $tea.Model {
 
 export class CreateNamespaceResponseBodyData extends $tea.Model {
   enableMicroRegistration?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the namespace was created. Valid values:
+   * 
+   * *   **true**: The instance was created.
+   * *   **false**: The call failed to be created.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The short ID of the namespace.
+   * 
+   * @example
+   * desc
+   */
   namespaceDescription?: string;
+  /**
+   * @remarks
+   * The error code returned. Take note of the following rules:
+   * 
+   * *   The **ErrorCode** parameter is not returned if the request succeeds.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * Null
+   * 
+   * @example
+   * name
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16118,6 +26476,10 @@ export class CreateNamespaceResponseBodyData extends $tea.Model {
 }
 
 export class CreateSecretRequestSecretData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   secretData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16137,6 +26499,10 @@ export class CreateSecretRequestSecretData extends $tea.Model {
 }
 
 export class CreateSecretResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16156,6 +26522,16 @@ export class CreateSecretResponseBodyData extends $tea.Model {
 }
 
 export class DeleteApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned if the request fails.
+   * 
+   * *   If the request is successful, this parameter is not returned.****
+   * *   This parameter is returned only if the request failed.**** For more information about the values of this parameter, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16175,6 +26551,13 @@ export class DeleteApplicationResponseBodyData extends $tea.Model {
 }
 
 export class DeleteConfigMapResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the deleted ConfigMap instance.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16194,6 +26577,16 @@ export class DeleteConfigMapResponseBodyData extends $tea.Model {
 }
 
 export class DeleteGreyTagRouteResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * 16
+   */
   greyTagRouteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16213,6 +26606,13 @@ export class DeleteGreyTagRouteResponseBodyData extends $tea.Model {
 }
 
 export class DeleteIngressResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the routing rule that you want to delete.
+   * 
+   * @example
+   * 87
+   */
   ingressId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16232,6 +26632,13 @@ export class DeleteIngressResponseBodyData extends $tea.Model {
 }
 
 export class DeleteSecretResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the deleted Secret.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16251,8 +26658,32 @@ export class DeleteSecretResponseBodyData extends $tea.Model {
 }
 
 export class DeployApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the change order. It can be used to query the task status.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
+  /**
+   * @remarks
+   * Specifies whether approval is required when a RAM user performs release. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isNeedApproval?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16276,8 +26707,29 @@ export class DeployApplicationResponseBodyData extends $tea.Model {
 }
 
 export class DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * arg0
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * java.lang.String
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16301,15 +26753,75 @@ export class DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions
 }
 
 export class DescribeAppServiceDetailResponseBodyDataMethods extends $tea.Model {
+  /**
+   * @remarks
+   * The class to which the method belongs.
+   * 
+   * @example
+   * com.serverless.sae.controller.EchoController
+   */
   methodController?: string;
+  /**
+   * @remarks
+   * The name of the method.
+   * 
+   * @example
+   * echo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The details of the method.
+   * 
+   * @example
+   * description
+   */
   nameDetail?: string;
+  /**
+   * @remarks
+   * The definition of the parameter.
+   */
   parameterDefinitions?: DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions[];
+  /**
+   * @remarks
+   * The details of the parameters.
+   */
   parameterDetails?: string[];
+  /**
+   * @remarks
+   * The types of the parameters.
+   */
   parameterTypes?: string[];
+  /**
+   * @remarks
+   * The request paths. Format:
+   * 
+   * `/path`
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The request methods. Valid values:
+   * 
+   * *   **GET**
+   * *   **ALL**
+   */
   requestMethods?: string[];
+  /**
+   * @remarks
+   * The details of the response.
+   * 
+   * @example
+   * test
+   */
   returnDetails?: string;
+  /**
+   * @remarks
+   * The data format of the response.
+   * 
+   * @example
+   * java.lang.String
+   */
   returnType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16347,17 +26859,80 @@ export class DescribeAppServiceDetailResponseBodyDataMethods extends $tea.Model 
 }
 
 export class DescribeAppServiceDetailResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Dubbo application.
+   * 
+   * @example
+   * service-consumer
+   */
   dubboApplicationName?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * cn-zhangjiakou-micro-service-******
+   */
   edasAppName?: string;
+  /**
+   * @remarks
+   * The group to which the service belongs. You can create a custom group.
+   * 
+   * @example
+   * springCloud
+   */
   group?: string;
+  /**
+   * @remarks
+   * The metadata. Example: `{side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}`.
+   * 
+   * @example
+   * {side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}
+   */
   metadata?: { [key: string]: any };
+  /**
+   * @remarks
+   * The methods.
+   */
   methods?: DescribeAppServiceDetailResponseBodyDataMethods[];
+  /**
+   * @remarks
+   * The name of the service.
+   * 
+   * @example
+   * service-provider
+   */
   serviceName?: string;
   servicePorts?: number[];
   serviceProtocol?: string;
   serviceTags?: string[];
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   **dubbo**
+   * *   **springCloud**
+   * 
+   * @example
+   * springCloud
+   */
   serviceType?: string;
+  /**
+   * @remarks
+   * The name of the Spring Cloud application.
+   * 
+   * @example
+   * service-provider
+   */
   springApplicationName?: string;
+  /**
+   * @remarks
+   * The version of the service. You can create a custom version.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16399,9 +26974,37 @@ export class DescribeAppServiceDetailResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationConfigResponseBodyDataConfigMapMountDesc extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ConfigMap.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * The name of the ConfigMap.
+   * 
+   * @example
+   * test
+   */
   configMapName?: string;
+  /**
+   * @remarks
+   * The key-value pair that is stored in the ConfigMap.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The path on which the ConfigMap is mounted.
+   * 
+   * @example
+   * /tmp
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16427,7 +27030,21 @@ export class DescribeApplicationConfigResponseBodyDataConfigMapMountDesc extends
 }
 
 export class DescribeApplicationConfigResponseBodyDataMountDesc extends $tea.Model {
+  /**
+   * @remarks
+   * The path on which the NAS file system is mounted.
+   * 
+   * @example
+   * /tmp
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * The directory in the NAS file system.
+   * 
+   * @example
+   * /
+   */
   nasPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16449,9 +27066,40 @@ export class DescribeApplicationConfigResponseBodyDataMountDesc extends $tea.Mod
 }
 
 export class DescribeApplicationConfigResponseBodyDataOssMountDescs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * oss-bucket
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * 
+   * @example
+   * data/user.data
+   */
   bucketPath?: string;
+  /**
+   * @remarks
+   * The path of the container in SAE. The parameter value that you specified overwrites the original value. If the specified path does not exist, SAE automatically creates the path.
+   * 
+   * @example
+   * /usr/data/user.data
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * Indicates whether the application can use the container path to read data from or write data to resources in the directory of the OSS bucket. Valid values:
+   * 
+   * *   **true**: The application has the read-only permissions.
+   * *   **false**: The application has the read and write permissions.
+   * 
+   * @example
+   * true
+   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16477,7 +27125,21 @@ export class DescribeApplicationConfigResponseBodyDataOssMountDescs extends $tea
 }
 
 export class DescribeApplicationConfigResponseBodyDataTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16499,71 +27161,654 @@ export class DescribeApplicationConfigResponseBodyDataTags extends $tea.Model {
 }
 
 export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Pull images across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/190675.html) and [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
   acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The ID of the Container Registry Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * demo-app
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The SAE application type.
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
+  /**
+   * @remarks
+   * Indicates whether an elastic IP address (EIP) is associated with the application instance. Valid values:
+   * 
+   * *   **true**: The EIP is associated with the application instance.
+   * *   **false**: The EIP is not associated with the application instance.
+   * 
+   * @example
+   * true
+   */
   associateEip?: boolean;
+  /**
+   * @remarks
+   * The interval between batches in a phased release. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   batchWaitTime?: number;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Example:
+   * 
+   * ```
+   * 
+   * command:
+   *       - echo
+   *       - abc
+   *       - >
+   *       - file0
+   * ```
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter contains the parameters that are required for the **Command** parameter. Format:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding **Command** example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. You do not need to configure this parameter if it does not exist in the Command parameter.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The details of the ConfigMap.
+   */
   configMapMountDesc?: DescribeApplicationConfigResponseBodyDataConfigMapMountDesc[];
+  /**
+   * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. You cannot set this parameter to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **16000**
+   * *   **32000**
+   * 
+   * @example
+   * 1000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The custom mappings between hostnames and IP addresses in the container. Valid values:
+   * 
+   * *   **hostName**: the domain name or hostname.
+   * *   **ip**: the IP address.
+   * 
+   * @example
+   * [{"hostName":"test.host.name","ip":"0.0.0.0"}]
+   */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether access to Application High Availability Service (AHAS) is enabled. Valid values:
+   * 
+   * *   **true**: Access to AHAS is enabled.
+   * *   **false**: Access to AHAS is disabled.
+   * 
+   * @example
+   * true
+   */
   enableAhas?: string;
+  /**
+   * @remarks
+   * Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Valid values:
+   * 
+   * *   **true**: The canary release rules are enabled.
+   * *   **false**: The canary release rules are disabled.
+   * 
+   * @example
+   * false
+   */
   enableGreyTagRoute?: boolean;
+  /**
+   * @remarks
+   * The environment variables. Variable description:
+   * 
+   * *   **name**: the name of the environment variable.
+   * *   **value**: the value or reference of the environment variable.
+   * 
+   * @example
+   * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
+   */
   envs?: string;
+  /**
+   * @example
+   * 10
+   */
   imagePullSecrets?: string;
+  /**
+   * @remarks
+   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * docker.io/library/nginx:1.14.2
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * start
+   */
   jarStartArgs?: string;
+  /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * -Dtest=true
+   */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * 
+   * *   **Open JDK 8**
+   * *   **Open JDK 7**
+   * *   **Dragonwell 11**
+   * *   **Dragonwell 8**
+   * *   **openjdk-8u191-jdk-alpine3.9**
+   * *   **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @remarks
+   * The logging configurations of Message Queue for Apache Kafka. The following parameters are involved:
+   * 
+   * *   **KafkaConfigs**: the configurations of Message Queue for Apache Kafka.
+   * 
+   * *   **createTime**: the time when the Message Queue for Apache Kafka instance was created.
+   * 
+   * *   **kafkaTopic**: the message topic that is used to classify messages.
+   * 
+   * *   **logDir**: the path in which logs are stored.
+   * 
+   * *   **logType**: the type of collected logs. Valid values:
+   * 
+   *     *   **file_log**: the file log that is stored in the container. The path of the file logs in the container is returned.
+   *     *   **stdout**: the standard output log of the container. You can specify only one stdout value.
+   * 
+   * *   **kafkaEndpoint**: the endpoint of the Message Queue for Apache Kafka service.
+   * 
+   * *   **kafkaInstanceId**: the ID of the Message Queue for Apache Kafka instance.
+   * 
+   * *   **region**: the region where the Message Queue for Apache Kafka instance resides.
+   */
   kafkaConfigs?: string;
+  /**
+   * @remarks
+   * The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
+   * 
+   * *   Sample code of the **exec** method: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
+   * *   Sample code of the **httpGet** method: `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * *   Sample code of the **tcpSocket** method: `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * 
+   * >  You can use only one method to perform the health check.
+   * 
+   * The following parameters are involved:
+   * 
+   * *   **exec.command**: the health check command.
+   * *   **httpGet.path**: the request path.
+   * *   **httpGet.scheme**: the protocol that is used to perform the health check. Valid values: **HTTP** and **HTTPS**.
+   * *   **httpGet.isContainKeyWord**: indicates whether the response contains keywords. Valid values: **true** and **false**. If this field is not returned, the advanced settings are not used.
+   * *   **httpGet.keyWord**: the custom keyword. This parameter is available only if the **isContainKeyWord** field is returned.
+   * *   **tcpSocket.port**: the port that is used to check the status of TCP connections.
+   * *   **initialDelaySeconds**: the delay of the health check. Default value: 10. Unit: seconds.
+   * *   **periodSeconds**: the interval at which health checks are performed. Default value: 30. Unit: seconds.
+   * *   **timeoutSeconds**: the timeout period of the health check. Default value: 1. Unit: seconds. If you set this parameter to 0 or leave this parameter empty, the timeout period is automatically set to 1 second.
+   * 
+   * @example
+   * {"exec":{"command":["curl http://localhost:8080"]},"initialDelaySeconds":20,"timeoutSeconds":3}
+   */
   liveness?: string;
+  /**
+   * @remarks
+   * The size of memory required by each instance. Unit: MB. You cannot set this parameter to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 1000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24567** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
+   * @example
+   * 2048
+   */
   memory?: number;
+  /**
+   * @example
+   * "0"
+   */
   microRegistration?: string;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Valid values:
+   * 
+   * *   **-1**: the default value. This value indicates that the minimum number of available instances is not measured by percentage. If you do not configure this parameter, the default value **-1** is used.
+   * *   **0 to 100**: indicates that the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). If the calculated result is not an integer, the result is rounded up to the nearest integer. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+   * 
+   * >  If the **MinReadyInstance** and **MinReadyInstanceRatio** parameters are returned and the value of the **MinReadyInstanceRatio** parameter is not **-1**, the value of the **MinReadyInstanceRatio** parameter takes effect. If the **MinReadyInstances** parameter is set to **5** and the **MinReadyInstanceRatio** parameter is set to **50**, the value of the **MinReadyInstanceRatio** parameter determines the minimum number of available instances.
+   * 
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Valid values:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the application is updated.
+   * *   If you set the value to **-1**, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * >  Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * The details of the mounted NAS file system.
+   */
   mountDesc?: DescribeApplicationConfigResponseBodyDataMountDesc[];
+  /**
+   * @remarks
+   * The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+   * 
+   * @example
+   * example.com
+   */
   mountHost?: string;
+  /**
+   * @remarks
+   * The ID of the microservice application.
+   * 
+   * @example
+   * xxxxxxx@xxxxx
+   */
   mseApplicationId?: string;
+  /**
+   * @example
+   * cn-shenzhen-alb-demo-5c****
+   */
   mseApplicationName?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @example
+   * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
+   */
   nasConfigs?: string;
+  /**
+   * @remarks
+   * The ID of the NAS file system.
+   * 
+   * @example
+   * AKSN89**
+   */
   nasId?: string;
+  /**
+   * @remarks
+   * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to read data from and write data to OSS buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkSecret?: string;
+  /**
+   * @remarks
+   * The description of the mounted OSS bucket.
+   */
   ossMountDescs?: DescribeApplicationConfigResponseBodyDataOssMountDescs[];
+  /**
+   * @remarks
+   * The type of the deployment package. Valid values:
+   * 
+   * *   If you deploy the application by using a Java Archive (JAR) package, you can set this parameter to **FatJar**, **War**, or **Image**.
+   * 
+   * *   If you deploy the application by using a PHP package, you can set this parameter to one of the following values:
+   * 
+   *     *   **PhpZip**
+   *     *   **IMAGE_PHP_5_4**
+   *     *   **IMAGE_PHP_5_4_ALPINE**
+   *     *   **IMAGE_PHP_5_5**
+   *     *   **IMAGE_PHP_5_5_ALPINE**
+   *     *   **IMAGE_PHP_5_6**
+   *     *   **IMAGE_PHP_5_6_ALPINE**
+   *     *   **IMAGE_PHP_7_0**
+   *     *   **IMAGE_PHP_7_0_ALPINE**
+   *     *   **IMAGE_PHP_7_1**
+   *     *   **IMAGE_PHP_7_1_ALPINE**
+   *     *   **IMAGE_PHP_7_2**
+   *     *   **IMAGE_PHP_7_2_ALPINE**
+   *     *   **IMAGE_PHP_7_3**
+   *     *   **IMAGE_PHP_7_3_ALPINE**
+   * 
+   * @example
+   * War
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The URL of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar** or **War**.
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar** or **War**.
+   * 
+   * @example
+   * 1.0
+   */
   packageVersion?: string;
+  /**
+   * @example
+   * PHP-FPM 7.0
+   */
   php?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application monitoring is mounted. Make sure that the PHP server loads the configuration file.
+   * 
+   * SAE automatically generates the corresponding configuration file. No manual operations are required.
+   * 
+   * @example
+   * /usr/local/etc/php/conf.d/arms.ini
+   */
   phpArmsConfigLocation?: string;
+  /**
+   * @remarks
+   * The details of the PHP configuration file.
+   * 
+   * @example
+   * k1=v1
+   */
   phpConfig?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
   phpConfigLocation?: string;
+  /**
+   * @remarks
+   * The script that is run immediately after the container is started. Example: `{"exec":{"command":["cat","/etc/group"]}}`
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The script that is run before the container is stopped. Example: `{"exec":{"command":["cat","/etc/group"]}}`
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
   preStop?: string;
+  /**
+   * @remarks
+   * The programming language that is used to create the application. Valid values:
+   * 
+   * *   **java**: Java
+   * *   **php**: PHP
+   * *   **other**: Other programming languages, such as Python, C++, Go, .NET, and Node.js.
+   * 
+   * @example
+   * java
+   */
   programmingLanguage?: string;
+  /**
+   * @example
+   * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true}
+   */
   pvtzDiscovery?: string;
+  /**
+   * @example
+   * PYTHON 3.9.15
+   */
   python?: string;
+  /**
+   * @example
+   * Flask==2.0
+   */
   pythonModules?: string;
+  /**
+   * @remarks
+   * The details of the health check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. Containers that fail health checks cannot receive traffic from Server Load Balancer (SLB) instances. You can use the **exec**, **httpGet**, or **tcpSocket** method to perform health checks. For more information, see the description of the **Liveness** parameter.
+   * 
+   * >  You can use only one method to perform the health check.
+   * 
+   * @example
+   * {"exec":{"command":["curl http://localhost:8080"]},"initialDelaySeconds":20,"timeoutSeconds":5}
+   */
   readiness?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of application instances.
+   * 
+   * @example
+   * 2
+   */
   replicas?: number;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
   serviceTags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The logging configurations of Log Service.
+   * 
+   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * The following parameters are involved:
+   * 
+   * *   **projectName**: the name of the Log Service project.
+   * *   **logDir**: the path in which logs are stored.
+   * *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
+   * *   **logstoreName**: the name of the Logstore in Log Service.
+   * *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+   * 
+   * If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * The details of the tags.
+   */
   tags?: DescribeApplicationConfigResponseBodyDataTags[];
+  /**
+   * @remarks
+   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * 
+   * @example
+   * 10
+   */
   terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The time zone. Default value: **Asia/Shanghai**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The Tomcat configuration. If you want to delete the configuration, set this parameter to {} or leave this parameter empty. The following parameters are involved:
+   * 
+   * *   **port**: the port number. Valid values: 1024 to 65535. The root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not configure this parameter, the default port number 8080 is used.
+   * *   **contextPath**: the path. Default value: /. This value indicates the root directory.
+   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If you do not configure this parameter, the default value **ISO-8859-1** is used.
+   * *   **useBodyEncoding**: indicates whether to use the encoding scheme that is specified by **BodyEncoding for URL**. Default value: **true**.
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
   tomcatConfig?: string;
+  /**
+   * @remarks
+   * The deployment policy. If the minimum number of available instances is 1, the value of the **UpdateStrategy** parameter is an empty string (""). If the minimum number of available instances is greater than 1, the following strategies can be configured:
+   * 
+   * *   The application is deployed on an instance. The remaining instances are automatically classified into two release batches whose interval is set to 1. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`.
+   * *   The application is deployed on an instance. The remaining instances are manually classified into two release batches. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`.
+   * *   All instances are automatically classified into two release batches. The application is deployed on the instances of the two batches in parallel. In this case, the parameter is set to `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
+   * 
+   * The following parameters are involved:
+   * 
+   * *   **type**: the type of the release policy. Valid values: **GrayBatchUpdate** and **BatchUpdate**.
+   * 
+   * *   **batchUpdate**: the phased release policy.
+   * 
+   *     *   **batch**: the number of release batches.
+   *     *   **releaseType**: the processing method for the batches. Valid values: **auto** and **manual**.
+   *     *   **batchWaitTime**: the interval between release batches. Unit: seconds.
+   * 
+   * *   **grayUpdate**: the number of release batches in the phased release after a canary release. This parameter is returned only if the **type** parameter is set to **GrayBatchUpdate**.
+   * 
+   * @example
+   * {"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}
+   */
   updateStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-2ze559r1z1bpwqxwp****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-2ze0i263cnn311nvj****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The option settings in the WAR package. The settings are used to start the application container. The default startup command is `java $JAVA_OPTS $CATALINA_OPTS -Options org.apache.catalina.startup.Bootstrap "$@" start`.
+   * 
+   * @example
+   * custom-option
+   */
   warStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Tomcat container on which the deployment package depends. Valid values:
+   * 
+   * *   **apache-tomcat-7.0.91**
+   * *   **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
   webContainer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16713,17 +27958,121 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationGroupsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which a High-speed Service Framework (HSF) application runs.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * b2a8a925-477a-eswa-b823-d5e22500****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the group.
+   * 
+   * @example
+   * _DEFAULT_GROUP
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The type of the group.
+   * 
+   * @example
+   * 0
+   */
   groupType?: number;
+  /**
+   * @remarks
+   * The address of the image. This parameter is required when the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The version of the Java development kit (JDK) on which the deployment package of the application depends. This parameter is invalid when the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @remarks
+   * The type of the application deployment package. Valid values:
+   * 
+   * *   When you use a Java package, set this value to **FatJar**, **War**, or **Image**.
+   * 
+   * *   When you use a PHP package, the following values are valid:
+   * 
+   *     *   **PhpZip**
+   *     *   **IMAGE_PHP_5_4**
+   *     *   **IMAGE_PHP_5_4_ALPINE**
+   *     *   **IMAGE_PHP_5_5**
+   *     *   **IMAGE_PHP_5_5_ALPINE**
+   *     *   **IMAGE_PHP_5_6**
+   *     *   **IMAGE_PHP_5_6_ALPINE**
+   *     *   **IMAGE_PHP_7_0**
+   *     *   **IMAGE_PHP_7_0_ALPINE**
+   *     *   **IMAGE_PHP_7_1**
+   *     *   **IMAGE_PHP_7_1_ALPINE**
+   *     *   **IMAGE_PHP_7_2**
+   *     *   **IMAGE_PHP_7_2_ALPINE**
+   *     *   **IMAGE_PHP_7_3**
+   *     *   **IMAGE_PHP_7_3_ALPINE**
+   * 
+   * @example
+   * Image
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The address of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PhpZip**.
+   * 
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PhpZip**. The parameter value will be automatically generated when you use an image to deploy the application and specify the **ImageUrl** parameter.
+   * 
+   * @example
+   * 1.0.0
+   */
   packageVersion?: string;
+  /**
+   * @remarks
+   * The total number of instances.
+   * 
+   * @example
+   * 10
+   */
   replicas?: number;
+  /**
+   * @remarks
+   * The number of running instances.
+   * 
+   * @example
+   * 1
+   */
   runningInstances?: number;
+  /**
+   * @remarks
+   * The version of the Apache Tomcat container on which the deployment package of the application depends. This parameter is invalid when the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Apache Tomcat 7
+   */
   webContainer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16765,13 +28114,60 @@ export class DescribeApplicationGroupsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationImageResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is reserved.
+   */
   crUrl?: string;
+  /**
+   * @remarks
+   * This parameter is reserved.
+   */
   logo?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the repository.
+   * 
+   * @example
+   * demo
+   */
   repoName?: string;
+  /**
+   * @remarks
+   * The name of the namespace to which the image repository belongs.
+   * 
+   * @example
+   * demo
+   */
   repoNamespace?: string;
+  /**
+   * @remarks
+   * The type of the repository. Only Container Registry is supported.
+   * 
+   * @example
+   * ALI_HUB
+   */
   repoOriginType?: string;
+  /**
+   * @remarks
+   * The tag of the image.
+   * 
+   * @example
+   * latest
+   */
   repoTag?: string;
+  /**
+   * @remarks
+   * This parameter is reserved.
+   */
   repoType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16805,18 +28201,125 @@ export class DescribeApplicationImageResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The start time of the instance creation process. Unit: milliseconds.
+   * 
+   * @example
+   * 1558442609000
+   */
   createTimeStamp?: number;
   debugStatus?: boolean;
+  /**
+   * @remarks
+   * The elastic IP address (EIP).
+   * 
+   * @example
+   * 8.129.XX.XXX
+   */
   eip?: string;
+  /**
+   * @remarks
+   * The end time of the instance creation process. Unit: milliseconds.
+   * 
+   * @example
+   * 1642757283000
+   */
   finishTimeStamp?: number;
+  /**
+   * @remarks
+   * The ID of the group to which the instance belongs.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The address of the repository.
+   * 
+   * >  If you deploy the application by using a JAR or WAR package, the image generated by SAE is not available for download.
+   * 
+   * @example
+   * registry-vpc.cn-beijing.aliyuncs.com/sae-demo-image/cartservice:1.0
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The internal IP address of the instance.
+   * 
+   * @example
+   * 192.168.X.X
+   */
   instanceContainerIp?: string;
+  /**
+   * @remarks
+   * The number of times that the instance restarted.
+   * 
+   * @example
+   * 0
+   */
   instanceContainerRestarts?: number;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Error**: An error occurred during the instance startup.
+   * *   **CrashLoopBackOff**: The container failed to start. An error occurred during the startup process and persisted after the restart.
+   * *   **ErrImagePull**: An error occurred while the container image was being pulled from the instance.
+   * *   **ImagePullBackOff**: The container image could not be obtained.
+   * *   **Pending**: The instance is waiting to be scheduled.
+   * *   **Unknown**: An unknown exception occurred.
+   * *   **Terminating**: The instance creation process is being terminated.
+   * *   **NotFound**: The instance cannot be found.
+   * *   **PodInitializing**: The instance is being initialized.
+   * *   **Init:0/1**: The instance is initialized.
+   * *   **Running**: The instance is running.
+   * 
+   * @example
+   * Running
+   */
   instanceContainerStatus?: string;
+  /**
+   * @remarks
+   * The configurations of health checks. Valid values:
+   * 
+   * *   **WithoutHealthCheckConfig**: Liveness and readiness checks are not configured.
+   * *   **WithoutLivenessConfig**: The liveness check is not configured.
+   * *   **WithoutReadinessConfig**: The readiness check is not configured.
+   * *   **NotCheckedYet**: The health checks are not performed or are in progress.
+   * *   **LivenessUnhealthy**: The instance failed the liveness check.
+   * *   **ReadinessUnhealthy**: The instance failed the readiness check.
+   * *   **Unhealthy**: The instance failed both liveness and readiness checks.
+   * *   **Healthy**: The instance passed both liveness and readiness checks.
+   * 
+   * @example
+   * WithoutHealthCheckConfig
+   */
   instanceHealthStatus?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The version of the package.
+   * 
+   * @example
+   * 1609939496200
+   */
   packageVersion?: string;
+  /**
+   * @remarks
+   * The ID of the zone where the instance is deployed.
+   * 
+   * @example
+   * vsw-***
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16860,9 +28363,34 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
 }
 
 export class DescribeApplicationInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The list of application instances.
+   */
   instances?: DescribeApplicationInstancesResponseBodyDataInstances[];
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of returned instances.
+   * 
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16888,7 +28416,33 @@ export class DescribeApplicationInstancesResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetricMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The limit on the metric.
+   * 
+   * *   The limit on the CPU utilization. Unit: percentage.
+   * *   The limit on the memory usage. Unit: percentage.
+   * *   The limit on the average number of active TCP connections per second.
+   * *   The limit on the QPS of the Internet-facing SLB instance.
+   * *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+   * 
+   * @example
+   * 20
+   */
   metricTargetAverageUtilization?: number;
+  /**
+   * @remarks
+   * The metric that is used to trigger the auto scaling policy. Valid values:
+   * 
+   * *   **CPU**: the CPU utilization.
+   * *   **MEMORY**: the memory usage.
+   * *   **tcpActiveConn**: the average number of active TCP connections for an instance in 30 seconds.
+   * *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance in 15 seconds.
+   * *   **SLB_RT**: the average response time of the Internet-facing SLB instance in 15 seconds.
+   * 
+   * @example
+   * CPU
+   */
   metricType?: string;
   slbId?: string;
   slbLogstore?: string;
@@ -16922,8 +28476,39 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricMetrics extends
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The current value of the metric.
+   * 
+   * @example
+   * 0
+   */
   currentValue?: number;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * *   **cpu**: the CPU utilization.
+   * *   **memory**: the memory usage.
+   * *   **tcpActiveConn**: the number of active TCP connections.
+   * *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
+   * *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+   * 
+   * @example
+   * cpu
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the data. This parameter corresponds to the metric.
+   * 
+   * *   **Resource**: used when the metric is the **CPU utilization** or **memory usage**.
+   * *   **Pods**: used when the metric is the **number of active TCP connections**.
+   * *   **External**: used when the metric is about the **SLB** instance or from **Application Real-Time Monitoring Service (ARMS)**.
+   * 
+   * @example
+   * Resource
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16947,8 +28532,35 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCu
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * *   **cpu**: the CPU utilization.
+   * *   **memory**: the memory usage.
+   * *   **tcpActiveConn**: the number of active TCP connections.
+   * *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
+   * *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+   * 
+   * @example
+   * cpu
+   */
   name?: string;
+  /**
+   * @remarks
+   * The metric value as a percentage that triggers the application scale-in next time.
+   * 
+   * @example
+   * 10
+   */
   nextScaleInAverageUtilization?: number;
+  /**
+   * @remarks
+   * The metric value as a percentage that triggers the application scale-out next time.
+   * 
+   * @example
+   * 21
+   */
   nextScaleOutAverageUtilization?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16972,11 +28584,47 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNe
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics that is used to trigger the current auto scaling policy.
+   */
   currentMetrics?: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics[];
+  /**
+   * @remarks
+   * The current number of instances.
+   * 
+   * @example
+   * 2
+   */
   currentReplicas?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * @example
+   * 2
+   */
   desiredReplicas?: number;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was last triggered.
+   * 
+   * @example
+   * 2022-01-11T08:14:32Z
+   */
   lastScaleTime?: string;
+  /**
+   * @remarks
+   * The metrics that are used to trigger the auto scaling policy next time.
+   */
   nextScaleMetrics?: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics[];
+  /**
+   * @remarks
+   * The duration for which the metric-based auto scaling policy takes effect next time.
+   * 
+   * @example
+   * 3
+   */
   nextScaleTimePeriod?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17006,8 +28654,34 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatus e
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetricScaleDownRules extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the application scale-in is disabled. Valid values:
+   * 
+   * *   **true**: disabled.
+   * *   **false**: enabled.
+   * 
+   * >  When this parameter is set to true, the application instances are never reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+   * 
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The cooldown time of the scale-in. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
+   * 
+   * @example
+   * 300
+   */
   stabilizationWindowSeconds?: number;
+  /**
+   * @remarks
+   * The step size for the scale-in. The maximum number of instances that can be reduced within a specific period of time.
+   * 
+   * @example
+   * 100
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17031,8 +28705,34 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricScaleDownRules 
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetricScaleUpRules extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the application scale-in is disabled. Valid values:
+   * 
+   * *   **true**: The application scale-in is disabled.
+   * *   **false**: The application scale-in is enabled.
+   * 
+   * >  When this parameter is set to true, the application instances are never reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+   * 
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The cooldown time of the scale-out. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
+   * 
+   * @example
+   * 300
+   */
   stabilizationWindowSeconds?: number;
+  /**
+   * @remarks
+   * The step size for the scale-out. The maximum number of instances that can be added within a specific period of time.
+   * 
+   * @example
+   * 100
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17056,11 +28756,41 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricScaleUpRules ex
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataMetric extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of instances.
+   * 
+   * @example
+   * 3
+   */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The list of metrics that are used to trigger the auto scaling policy.
+   */
   metrics?: DescribeApplicationScalingRuleResponseBodyDataMetricMetrics[];
+  /**
+   * @remarks
+   * The execution status of the metric-based auto scaling policy.
+   */
   metricsStatus?: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatus;
+  /**
+   * @remarks
+   * The minimum number of instances.
+   * 
+   * @example
+   * 1
+   */
   minReplicas?: number;
+  /**
+   * @remarks
+   * Rules that determine the application scale-in.
+   */
   scaleDownRules?: DescribeApplicationScalingRuleResponseBodyDataMetricScaleDownRules;
+  /**
+   * @remarks
+   * Rules that determine the application scale-out.
+   */
   scaleUpRules?: DescribeApplicationScalingRuleResponseBodyDataMetricScaleUpRules;
   static names(): { [key: string]: string } {
     return {
@@ -17090,9 +28820,23 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetric extends $tea.M
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataTimerSchedules extends $tea.Model {
+  /**
+   * @remarks
+   * The point in time. Format: **Hour:Minute**.
+   * 
+   * @example
+   * 08:00
+   */
   atTime?: string;
   maxReplicas?: number;
   minReplicas?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * @example
+   * 2
+   */
   targetReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17118,9 +28862,54 @@ export class DescribeApplicationScalingRuleResponseBodyDataTimerSchedules extend
 }
 
 export class DescribeApplicationScalingRuleResponseBodyDataTimer extends $tea.Model {
+  /**
+   * @remarks
+   * The start date of the validity period of the scheduled auto scaling policy. Valid values:
+   * 
+   * *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
+   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is **2021-03-25** and **EndDate** is **2021-04-25**, the auto scaling policy is valid for one month.
+   * 
+   * @example
+   * 2021-03-25
+   */
   beginDate?: string;
+  /**
+   * @remarks
+   * The end date of the validity period of the scheduled auto scaling policy. Valid values:
+   * 
+   * *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
+   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is **2021-03-25** and **EndDate** is **2021-04-25**, the auto scaling policy is valid for one month.
+   * 
+   * @example
+   * 2021-04-25
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The days on which the scheduled auto scaling policy takes effect. Valid values:
+   * 
+   * *   **\\* \\* \\***: The scheduled auto scaling policy takes effect at a specified time every day.
+   * 
+   * *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a week. The specified time is in the GMT+8 time zone. Valid values:
+   * 
+   *     *   **Sun**: Sunday
+   *     *   **Mon**: Monday
+   *     *   **Tue**: Tuesday
+   *     *   **Wed**: Wednesday
+   *     *   **Thu**: Thursday
+   *     *   **Fri**: Friday
+   *     *   **Sat**: Saturday
+   * 
+   * *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy takes effect on the specified days other than the 31st day.
+   * 
+   * @example
+   * * * *
+   */
   period?: string;
+  /**
+   * @remarks
+   * The points in time when the auto scaling policy is triggered within one day.
+   */
   schedules?: DescribeApplicationScalingRuleResponseBodyDataTimerSchedules[];
   static names(): { [key: string]: string } {
     return {
@@ -17146,16 +28935,80 @@ export class DescribeApplicationScalingRuleResponseBodyDataTimer extends $tea.Mo
 }
 
 export class DescribeApplicationScalingRuleResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * a0d2e04c-159d-40a8-b240-d2f2c263****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1624329843790
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was last disabled.
+   * 
+   * @example
+   * 1641882854484
+   */
   lastDisableTime?: number;
+  /**
+   * @remarks
+   * The details of the metric-based auto scaling policy.
+   */
   metric?: DescribeApplicationScalingRuleResponseBodyDataMetric;
   minReadyInstanceRatio?: number;
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * Indicates whether the auto scaling policy is enabled. Valid values:
+   * 
+   * *   **true**: enabled
+   * *   **false**: disabled
+   * 
+   * @example
+   * true
+   */
   scaleRuleEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the auto scaling policy.
+   * 
+   * @example
+   * test
+   */
   scaleRuleName?: string;
+  /**
+   * @remarks
+   * The type of the auto scaling policy. Valid values:
+   * 
+   * *   **timing**: the scheduled auto scaling policy.
+   * *   **metric**: the metric-based auto scaling policy.
+   * *   **mix**: the hybrid auto scaling policy.
+   * 
+   * @example
+   * timing
+   */
   scaleRuleType?: string;
+  /**
+   * @remarks
+   * The details of the scheduled auto scaling policy.
+   */
   timer?: DescribeApplicationScalingRuleResponseBodyDataTimer;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1624330075827
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17195,7 +29048,33 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The limit on the metric.
+   * 
+   * *   The limit on the CPU utilization. Unit: percentage.
+   * *   The limit on the memory usage. Unit: percentage.
+   * *   The limit on the average number of active TCP connections per second.
+   * *   The limit on the queries per second (QPS) of the Internet-facing Server Load Balancer (SLB) instance.
+   * *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+   * 
+   * @example
+   * 20
+   */
   metricTargetAverageUtilization?: number;
+  /**
+   * @remarks
+   * The metric that is used to trigger the auto scaling policy. Valid values:
+   * 
+   * *   **CPU**: the CPU utilization.
+   * *   **MEMORY**: the memory usage.
+   * *   **tcpActiveConn**: the average number of active TCP connections per second of an application instance in 30 seconds.
+   * *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance in 15 seconds.
+   * *   **SLB_RT**: the average response time of the Internet-facing SLB instance in 15 seconds.
+   * 
+   * @example
+   * CPU
+   */
   metricType?: string;
   slbId?: string;
   slbLogstore?: string;
@@ -17229,8 +29108,39 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The current value of the metric.
+   * 
+   * @example
+   * 0
+   */
   currentValue?: number;
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * *   **cpu**: the CPU utilization.
+   * *   **memory**: the memory usage.
+   * *   **tcpActiveConn**: the number of active TCP connections.
+   * *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
+   * *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+   * 
+   * @example
+   * cpu
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the data. This parameter corresponds to the metric.
+   * 
+   * *   **Resource**: used when the metric is the **CPU utilization** or **memory usage**.
+   * *   **Pods**: used when the metric is the **number of active TCP connections**.
+   * *   **External**: used when the metric is about the **SLB** instance or from **Application Real-Time Monitoring Service (ARMS)**.
+   * 
+   * @example
+   * Resource
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17254,8 +29164,35 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the metric.
+   * 
+   * *   **cpu**: the CPU utilization.
+   * *   **memory**: the memory usage.
+   * *   **tcpActiveConn**: the number of active TCP connections.
+   * *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
+   * *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+   * 
+   * @example
+   * cpu
+   */
   name?: string;
+  /**
+   * @remarks
+   * The metric value as a percentage that triggers the application scale-in next time.
+   * 
+   * @example
+   * 10
+   */
   nextScaleInAverageUtilization?: number;
+  /**
+   * @remarks
+   * The metric value as a percentage that triggers the application scale-out next time.
+   * 
+   * @example
+   * 21
+   */
   nextScaleOutAverageUtilization?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17279,13 +29216,63 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics that are used to trigger the auto scaling policy this time.
+   */
   currentMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics[];
+  /**
+   * @remarks
+   * The current number of instances.
+   * 
+   * @example
+   * 2
+   */
   currentReplicas?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * @example
+   * 2
+   */
   desiredReplicas?: number;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was last triggered.
+   * 
+   * @example
+   * 2022-01-11T08:14:32Z
+   */
   lastScaleTime?: string;
+  /**
+   * @remarks
+   * The maximum number of instances.
+   * 
+   * @example
+   * 3
+   */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The minimum number of instances.
+   * 
+   * @example
+   * 1
+   */
   minReplicas?: number;
+  /**
+   * @remarks
+   * The metrics that are used to trigger the auto scaling policy next time.
+   */
   nextScaleMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics[];
+  /**
+   * @remarks
+   * The duration for which the metric-based auto scaling policy takes effect next time.
+   * 
+   * @example
+   * 3
+   */
   nextScaleTimePeriod?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17319,8 +29306,34 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the application scale-in was disabled. Valid values:
+   * 
+   * *   **true**: The application scale-in was disabled.
+   * *   **false**: The application scale-in was enabled.
+   * 
+   * >  When this parameter is set to true, the application instances will never be reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+   * 
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The cooldown time of the scale-in. Valid values: 0 to 3600. Unit: seconds. The default value is 0.
+   * 
+   * @example
+   * 300
+   */
   stabilizationWindowSeconds?: number;
+  /**
+   * @remarks
+   * The step size for the scale-in. The maximum number of instances that can be reduced in a unit of time.
+   * 
+   * @example
+   * 100
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17344,8 +29357,34 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the application scale-in was disabled. Valid values:
+   * 
+   * *   **true**: The application scale-in was disabled.
+   * *   **false**: The application scale-in was enabled.
+   * 
+   * >  When this parameter is set to true, the application instances will never be reduced. This prevents risks to your business in peak hours. By default, this parameter is set to false.
+   * 
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The cooldown time of the scale-out. Valid values: 0 to 3600. Unit: seconds. The default value is 0.
+   * 
+   * @example
+   * 300
+   */
   stabilizationWindowSeconds?: number;
+  /**
+   * @remarks
+   * The step size for the scale-out. The maximum number of instances that can be added in a unit of time.
+   * 
+   * @example
+   * 100
+   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17369,11 +29408,41 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of instances.
+   * 
+   * @example
+   * 3
+   */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The list of metrics that are used to trigger the auto scaling policy.
+   */
   metrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics[];
+  /**
+   * @remarks
+   * The execution status of the metric-based auto scaling policy.
+   */
   metricsStatus?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus;
+  /**
+   * @remarks
+   * The minimum number of instances.
+   * 
+   * @example
+   * 1
+   */
   minReplicas?: number;
+  /**
+   * @remarks
+   * Rules that determine the application scale-in.
+   */
   scaleDownRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules;
+  /**
+   * @remarks
+   * Rules that determine the application scale-out.
+   */
   scaleUpRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules;
   static names(): { [key: string]: string } {
     return {
@@ -17403,9 +29472,37 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules extends $tea.Model {
+  /**
+   * @remarks
+   * The point in time. Format: **Hour:Minute**.
+   * 
+   * @example
+   * 08:00
+   */
   atTime?: string;
+  /**
+   * @remarks
+   * The maximum number of instances.
+   * 
+   * @example
+   * 50
+   */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The minimum number of instances.
+   * 
+   * @example
+   * 1
+   */
   minReplicas?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * @example
+   * 3
+   */
   targetReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17431,9 +29528,54 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimer extends $tea.Model {
+  /**
+   * @remarks
+   * The start date of the validity period of the scheduled auto scaling policy. Valid values:
+   * 
+   * *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
+   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is 2021-03-25 and **EndDate** is 2021-04-25, the auto scaling policy is valid for one month.
+   * 
+   * @example
+   * 2021-03-25
+   */
   beginDate?: string;
+  /**
+   * @remarks
+   * The end date of the validity period of the scheduled auto scaling policy. Valid values:
+   * 
+   * *   If both the **BeginDate** and **EndDate** parameters are set to **null**, the auto scaling policy can always be triggered. The default value for these parameters is null.
+   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is 2021-03-25 and **EndDate** is 2021-04-25, the auto scaling policy is valid for one month.
+   * 
+   * @example
+   * 2021-04-25
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The days on which the scheduled auto scaling policy takes effect. Valid values:
+   * 
+   * *   **\\* \\* \\***: The scheduled auto scaling policy takes effect at a specified time every day.
+   * 
+   * *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a week. The specified time is in the GMT+8 time zone. Valid values:
+   * 
+   *     *   **Sun**: Sunday
+   *     *   **Mon**: Monday
+   *     *   **Tue**: Tuesday
+   *     *   **Wed**: Wednesday
+   *     *   **Thu**: Thursday
+   *     *   **Fri**: Friday
+   *     *   **Sat**: Saturday
+   * 
+   * *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy takes effect at a specified time on one or multiple days of a month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy takes effect on the specified days other than the 31st day.
+   * 
+   * @example
+   * * * *
+   */
   period?: string;
+  /**
+   * @remarks
+   * The points in time when the auto scaling policy is triggered within one day.
+   */
   schedules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules[];
   static names(): { [key: string]: string } {
     return {
@@ -17459,16 +29601,80 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRules extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1616642248938
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was last disabled.
+   * 
+   * @example
+   * 1641882854484
+   */
   lastDisableTime?: number;
+  /**
+   * @remarks
+   * The details of the metric-based auto scaling policy.
+   */
   metric?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric;
   minReadyInstanceRatio?: number;
   minReadyInstances?: number;
+  /**
+   * @remarks
+   * Indicates whether the auto scaling policy is enabled. Valid values:
+   * 
+   * *   **true**: enabled
+   * *   **false**: disabled
+   * 
+   * @example
+   * true
+   */
   scaleRuleEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the auto scaling policy.
+   * 
+   * @example
+   * test
+   */
   scaleRuleName?: string;
+  /**
+   * @remarks
+   * The type of the auto scaling policy. Valid values:
+   * 
+   * *   **timing**: the scheduled auto scaling policy.
+   * *   **metric**: the metric-based auto scaling policy.
+   * *   **mix**: the hybrid auto scaling policy.
+   * 
+   * @example
+   * timing
+   */
   scaleRuleType?: string;
+  /**
+   * @remarks
+   * The details of the scheduled auto scaling policy.
+   */
   timer?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimer;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1616642248938
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17508,9 +29714,34 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 }
 
 export class DescribeApplicationScalingRulesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The auto scaling policies of the application.
+   */
   applicationScalingRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRules[];
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of auto scaling policies.
+   * 
+   * @example
+   * 3
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17539,11 +29770,39 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $tea.Model 
   cookie?: string;
   cookieTimeout?: number;
   httpsCaCertId?: string;
+  /**
+   * @remarks
+   * The supported protocol.
+   * 
+   * @example
+   * 1513561019707729_16f37aae5f3_-375882821_-169099****
+   */
   httpsCertId?: string;
+  /**
+   * @remarks
+   * The ID of the internal-facing SLB instance.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The container port.
+   * 
+   * @example
+   * TCP
+   */
   protocol?: string;
   stickySession?: boolean;
   stickySessionType?: string;
+  /**
+   * @remarks
+   * The port specified for the SLB listener.
+   * 
+   * @example
+   * 8080
+   */
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17582,11 +29841,39 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $tea.Model 
   cookie?: string;
   cookieTimeout?: number;
   httpsCaCertId?: string;
+  /**
+   * @remarks
+   * The supported protocol.
+   * 
+   * @example
+   * 1513561019707729_16f37aae5f3_-375882821_-169099****
+   */
   httpsCertId?: string;
+  /**
+   * @remarks
+   * The IP address of the Internet-facing SLB instance.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The container port.
+   * 
+   * @example
+   * TCP
+   */
   protocol?: string;
   stickySession?: boolean;
   stickySessionType?: string;
+  /**
+   * @remarks
+   * The port specified for the SLB listener.
+   * 
+   * @example
+   * 8080
+   */
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17622,22 +29909,65 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $tea.Model 
 }
 
 export class DescribeApplicationSlbsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the SSL certificate issued by Alibaba Cloud.
+   */
   internet?: DescribeApplicationSlbsResponseBodyDataInternet[];
+  /**
+   * @remarks
+   * The ID of the Internet-facing SLB instance.
+   * 
+   * @example
+   * 59.74.\*\*.**
+   */
   internetIp?: string;
+  internetSlbChargeType?: string;
   internetSlbExpired?: boolean;
+  /**
+   * @remarks
+   * Configurations of Internet-facing SLB instances.
+   * 
+   * @example
+   * lb-uf6xc7wybefehnv45****
+   */
   internetSlbId?: string;
+  /**
+   * @remarks
+   * The ID of the SSL certificate issued by Alibaba Cloud.
+   */
   intranet?: DescribeApplicationSlbsResponseBodyDataIntranet[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 192.168.0.0
+   */
   intranetIp?: string;
+  intranetSlbChargeType?: string;
   intranetSlbExpired?: boolean;
+  /**
+   * @remarks
+   * The IP address of the internal-facing SLB instance.
+   * 
+   * @example
+   * lb-uf6xc7wybefehnv45****
+   */
   intranetSlbId?: string;
   static names(): { [key: string]: string } {
     return {
       internet: 'Internet',
       internetIp: 'InternetIp',
+      internetSlbChargeType: 'InternetSlbChargeType',
       internetSlbExpired: 'InternetSlbExpired',
       internetSlbId: 'InternetSlbId',
       intranet: 'Intranet',
       intranetIp: 'IntranetIp',
+      intranetSlbChargeType: 'IntranetSlbChargeType',
       intranetSlbExpired: 'IntranetSlbExpired',
       intranetSlbId: 'IntranetSlbId',
     };
@@ -17647,10 +29977,12 @@ export class DescribeApplicationSlbsResponseBodyData extends $tea.Model {
     return {
       internet: { 'type': 'array', 'itemType': DescribeApplicationSlbsResponseBodyDataInternet },
       internetIp: 'string',
+      internetSlbChargeType: 'string',
       internetSlbExpired: 'boolean',
       internetSlbId: 'string',
       intranet: { 'type': 'array', 'itemType': DescribeApplicationSlbsResponseBodyDataIntranet },
       intranetIp: 'string',
+      intranetSlbChargeType: 'string',
       intranetSlbExpired: 'boolean',
       intranetSlbId: 'string',
     };
@@ -17662,17 +29994,128 @@ export class DescribeApplicationSlbsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeApplicationStatusResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 0099b7be-5f5b-4512-a7fc-56049ef1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * Indicates whether Application Real-Time Monitoring Service (ARMS) advanced monitoring is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   armsAdvancedEnabled?: string;
+  /**
+   * @remarks
+   * The metadata of the application in ARMS.
+   * 
+   * @example
+   * {"appId":"0099b7be-5f5b-4512-a7fc-56049ef1****","licenseKey":"d5cgdt5pu0@7303f55292a****"}
+   */
   armsApmInfo?: string;
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * 1563373372746
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The current state of the application. Valid values:
+   * 
+   * *   **RUNNING**
+   * *   **STOPPED**
+   * *   **UNKNOWN**
+   * 
+   * @example
+   * RUNNING
+   */
   currentStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether SAE agent is enabled.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   enableAgent?: boolean;
+  /**
+   * @remarks
+   * The file size limit. Unit: KB. Valid values: 0 to 10240.
+   * 
+   * @example
+   * 10240
+   */
   fileSizeLimit?: number;
+  /**
+   * @remarks
+   * The ID of the latest change order that is executed. If no change orders have been executed or if change orders have expired, an empty parameter is returned.
+   * 
+   * @example
+   * 1ccc2339-fc19-49aa-bda0-1e7b8497****
+   */
   lastChangeOrderId?: string;
+  /**
+   * @remarks
+   * Indicates whether the latest change order is being executed. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   lastChangeOrderRunning?: boolean;
+  /**
+   * @remarks
+   * The state of the latest change order. Valid values:
+   * 
+   * *   **READY**: The change order is ready.
+   * *   **RUNNING**: The change order is being executed.
+   * *   **SUCCESS**: The change order was executed successfully.
+   * *   **FAIL**: The change order failed to be executed.
+   * *   **ABORT**: The change order is stopped.
+   * *   **WAIT_BATCH_CONFIRM**: The change order is pending execution. You must manually confirm the release batch.
+   * *   **AUTO_BATCH_WAIT**: The change order is pending execution. SAE will automatically confirm the release batch.
+   * *   **SYSTEM_FAIL**: A system exception occurred.
+   * *   **WAIT_APPROVAL**: The change order is pending approval.
+   * *   **APPROVED**: The change order is approved and is pending execution.
+   * 
+   * @example
+   * SUCCESS
+   */
   lastChangeOrderStatus?: string;
+  /**
+   * @remarks
+   * The number of running instances of the application.
+   * 
+   * @example
+   * 1
+   */
   runningInstances?: number;
+  /**
+   * @remarks
+   * Indicates whether an error occurred while the change order was being executed. Valid values:
+   * 
+   * *   **NORMAL**
+   * *   **RUNNING_BUT_HAS_ERROR** If an error occurs during a batch release, you must manually perform a rollback. In this case, the change order is still running because the task is not completed, but the state of the change order is RUNNING_BUT_HAS_ERROR.
+   * 
+   * @example
+   * NORMAL
+   */
   subStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17714,12 +30157,72 @@ export class DescribeApplicationStatusResponseBodyData extends $tea.Model {
 }
 
 export class DescribeChangeOrderResponseBodyDataPipelines extends $tea.Model {
+  /**
+   * @remarks
+   * The batch type.
+   * 
+   * @example
+   * 0
+   */
   batchType?: number;
+  /**
+   * @remarks
+   * The number of parallel tasks in a batch.
+   * 
+   * @example
+   * 0
+   */
   parallelCount?: number;
+  /**
+   * @remarks
+   * The ID of the batch.
+   * 
+   * @example
+   * 0e4acf82-c9b1-4c1e-ac28-55776338****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The name of the batch.
+   * 
+   * @example
+   * Batch 1 Change
+   */
   pipelineName?: string;
+  /**
+   * @remarks
+   * The time when the batch processing starts.
+   * 
+   * @example
+   * 1562831689704
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the batch. Valid values:
+   * 
+   * *   **0**: The batch is being prepared.
+   * *   **1**: The batch is being processed.
+   * *   **2**: The batch was processed.
+   * *   **3**: The batch could not be processed.
+   * *   **6**: The batch processing was terminated.
+   * *   **8**: The execution process is pending. You must manually determine the release batch.
+   * *   **9**: The execution process is pending. SAE will automatically determine the release batch.
+   * *   **10**: The batch could not be processed due to a system exception.
+   * *   **11**: The change order is pending approval.
+   * *   **12**: The change order is approved and is pending execution.
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * The time when the batch information is last modified.
+   * 
+   * @example
+   * 1562847178007
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17751,23 +30254,187 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $tea.Model {
 }
 
 export class DescribeChangeOrderResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * bbbbb-3fd370b2-3646-4ba6-91f9-9423e19ab0cd-*****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * app-test
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The approval ID of the change order.
+   * 
+   * @example
+   * 67de0b39-a9d4-4c09-a170-cf438208****
+   */
   approvalId?: string;
+  /**
+   * @remarks
+   * Indicates whether SAE automatically determines the release batches. Valid values:
+   * 
+   * *   **true**: SAE automatically determines the release batches.
+   * *   **false**: SAE does not automatically determine the release batches.
+   * 
+   * @example
+   * true
+   */
   auto?: boolean;
+  /**
+   * @remarks
+   * The number of release batches.
+   * 
+   * @example
+   * 1
+   */
   batchCount?: number;
+  /**
+   * @remarks
+   * The mode in which the release batches are determined. Valid values:
+   * 
+   * *   **auto**: SAE automatically determines the release batches.
+   * *   **Manual**: You must manually determine the release batches.
+   * 
+   * @example
+   * auto
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The interval between batches when SAE automatically determines the release batches in a phased release. Unit: minutes.
+   * 
+   * @example
+   * 0
+   */
   batchWaitTime?: number;
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 765fa5c0-9ebb-4bb4-b383-1f885447**
+   */
   changeOrderId?: string;
+  /**
+   * @remarks
+   * The description about the change type, which corresponds to the **CoTypeCode** parameter.
+   */
   coType?: string;
+  /**
+   * @remarks
+   * The code of the change type. Valid values:
+   * 
+   * *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
+   * *   **CoUnbindSlb**: disassociates the SLB instance from the application.
+   * *   **CoCreateApp**: creates the application.
+   * *   **CoDeleteApp**: deletes the application.
+   * *   **CoDeploy**: deploys the application.
+   * *   **CoRestartApplication**: restarts the application.
+   * *   **CoRollback**: rolls back the application.
+   * *   **CoScaleIn**: scales in the application.
+   * *   **CoScaleOut**: scales out the application.
+   * *   **CoStart**: starts the application.
+   * *   **CoStop**: stops the application.
+   * *   **CoRescaleApplicationVertically**: modifies the instance specifications.
+   * *   **CoDeployHistroy**: rolls back the application to a historical version.
+   * *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
+   * *   **CoUnbindNas**: disassociates the NAS file system from the application.
+   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
+   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
+   * *   **CoRestartInstances**: restarts the instances.
+   * *   **CoDeleteInstances**: deletes the instances.
+   * *   **CoScaleInAppWithInstances**: reduces the number of specified application instances.
+   * 
+   * @example
+   * CoRestartInstances
+   */
   coTypeCode?: string;
+  /**
+   * @remarks
+   * The time when the change order was created.
+   * 
+   * @example
+   * 2020-12-17 21:06:45
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The ID of the current batch.
+   * 
+   * @example
+   * 0e4acf82-c9b1-4c1e-ac28-55776338****
+   */
   currentPipelineId?: string;
+  /**
+   * @remarks
+   * The description of the change order.
+   * 
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The batch information.
+   */
   pipelines?: DescribeChangeOrderResponseBodyDataPipelines[];
+  /**
+   * @remarks
+   * The status of the change order. Valid values:
+   * 
+   * *   **0**: The change order is being prepared.
+   * *   **1**: The change order is being executed.
+   * *   **2**: The change order was executed.
+   * *   **3**: The change order could not be executed.
+   * *   **6**: The change order was terminated.
+   * *   **8**: The execution process is pending. You must manually determine the release batch.
+   * *   **9**: The execution process is pending. SAE will automatically determine the release batches.
+   * *   **10**: The execution failed due to a system exception.
+   * *   **11**: The change order is pending approval.
+   * *   **12**: The change order is approved and is pending execution.
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * The substatus of the change order. This parameter indicates whether an exception occurred while the change order was being executed. Valid values:
+   * 
+   * *   **0**: No exception occurred.
+   * *   **1**: An exception occurred. For example, when an error occurred during a phased release, you must manually roll back the application. In this case, the change order cannot be completed, so the Status parameter is still displayed as "1", which indicates that the change order is being executed. You can check the value of this parameter to determine whether an exception occurs.
+   * 
+   * @example
+   * 0
+   */
   subStatus?: number;
+  /**
+   * @remarks
+   * Indicates whether the application can be rolled back. Valid values:
+   * 
+   * *   **true**: The application can be rolled back.
+   * *   **false**: The application cannot be rolled back.
+   * 
+   * @example
+   * false
+   */
   supportRollback?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17821,9 +30488,43 @@ export class DescribeChangeOrderResponseBodyData extends $tea.Model {
 }
 
 export class DescribeComponentsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the component is expired. Valid values:
+   * 
+   * *   **true**: The component is expired.
+   * *   **false**: The component is not expired.
+   * 
+   * @example
+   * Open JDK 8
+   */
   componentDescription?: string;
+  /**
+   * @remarks
+   * The description of the component.
+   * 
+   * @example
+   * Open JDK 8
+   */
   componentKey?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * false
+   */
   expired?: boolean;
+  /**
+   * @remarks
+   * The ID of the component.
+   * 
+   * @example
+   * JDK
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17849,7 +30550,21 @@ export class DescribeComponentsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeConfigMapResponseBodyDataRelateApps extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ConfigMap instance.
+   * 
+   * @example
+   * f16b4000-9058-4c22-a49d-49a28f0b****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * test-app
+   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17871,13 +30586,73 @@ export class DescribeConfigMapResponseBodyDataRelateApps extends $tea.Model {
 }
 
 export class DescribeConfigMapResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the ConfigMap instance.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * The application that is associated with the instance.
+   * 
+   * @example
+   * 1593746835111
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the namespace to which the instance belongs.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   data?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * test-desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * test-configmap
+   */
   name?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   */
   relateApps?: DescribeConfigMapResponseBodyDataRelateApps[];
+  /**
+   * @remarks
+   * The data of ConfigMap key-value pairs. Format:
+   * 
+   * {"k1":"v1", "k2":"v2"}
+   * 
+   * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
+   * 
+   * @example
+   * 1593747274195
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17911,7 +30686,15 @@ export class DescribeConfigMapResponseBodyData extends $tea.Model {
 }
 
 export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $tea.Model {
+  /**
+   * @example
+   * 497570.450009
+   */
   cpu?: number;
+  /**
+   * @example
+   * 989802.563546
+   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17933,9 +30716,21 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $tea.Mod
 }
 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends $tea.Model {
+  /**
+   * @example
+   * 0.0009259
+   */
   discountAmount?: number;
+  /**
+   * @example
+   * 0.0046296
+   */
   originalAmount?: number;
   ruleIds?: string[];
+  /**
+   * @example
+   * 0.0037037
+   */
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17962,6 +30757,10 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends 
 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 2000010******
+   */
   ruleDescId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18005,9 +30804,21 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPrice extends $tea.
 }
 
 export class DescribeConfigurationPriceResponseBodyDataOrder extends $tea.Model {
+  /**
+   * @example
+   * 0.0018518
+   */
   discountAmount?: number;
+  /**
+   * @example
+   * 0.0092592
+   */
   originalAmount?: number;
   ruleIds?: string[];
+  /**
+   * @example
+   * 0.0074074
+   */
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18033,9 +30844,21 @@ export class DescribeConfigurationPriceResponseBodyDataOrder extends $tea.Model 
 }
 
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends $tea.Model {
+  /**
+   * @example
+   * 0.0009259
+   */
   discountAmount?: number;
+  /**
+   * @example
+   * 0.0046296
+   */
   originalAmount?: number;
   ruleIds?: string[];
+  /**
+   * @example
+   * 0.0037037
+   */
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18062,6 +30885,10 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends
 
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceRules extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 2000010******
+   */
   ruleDescId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18106,6 +30933,10 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $tea
 
 export class DescribeConfigurationPriceResponseBodyDataRules extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 2000010******
+   */
   ruleDescId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18127,9 +30958,21 @@ export class DescribeConfigurationPriceResponseBodyDataRules extends $tea.Model 
 }
 
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends $tea.Model {
+  /**
+   * @example
+   * 0.0009259
+   */
   discountAmount?: number;
+  /**
+   * @example
+   * 0.0046296
+   */
   originalAmount?: number;
   ruleIds?: string[];
+  /**
+   * @example
+   * 0.0037037
+   */
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18156,6 +30999,10 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends
 
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceRules extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 2000010******
+   */
   ruleDescId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18233,7 +31080,24 @@ export class DescribeConfigurationPriceResponseBodyData extends $tea.Model {
 }
 
 export class DescribeEdasContainersResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the component is disabled. Valid values:
+   * 
+   * *   **true**: indicates that the component is disabled.
+   * *   **false**: indicates that the component is not disabled.
+   * 
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which a High-speed Service Framework (HSF) application runs.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18255,12 +31119,65 @@ export class DescribeEdasContainersResponseBodyData extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteResponseBodyDataAlbRulesItems extends $tea.Model {
+  /**
+   * @remarks
+   * Valid value: ==.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for applications that are associated with ALB instances.
+   * 
+   * @example
+   * N/A
+   */
   expr?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for applications that are associated with Application Load Balancer (ALB) instances.
+   * 
+   * @example
+   * N/A
+   */
   index?: number;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operator. Valid value: **rawvalue**. This value indicates direct comparison.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The type of the comparison. Valid values:
+   * 
+   * *   **sourceIp**: SourceIp
+   * *   **cookie**: cookie
+   * *   **header**: header
+   * 
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the parameter. This value is compared with the value that is obtained based on the type and name parameters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18292,9 +31209,30 @@ export class DescribeGreyTagRouteResponseBodyDataAlbRulesItems extends $tea.Mode
 }
 
 export class DescribeGreyTagRouteResponseBodyDataAlbRules extends $tea.Model {
+  /**
+   * @remarks
+   * The condition mode of the canary release rule. Valid value: AND. This value indicates that that all conditions must be met.
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The ID of the gateway routing rule.
+   * 
+   * @example
+   * 23
+   */
   ingressId?: string;
   items?: DescribeGreyTagRouteResponseBodyDataAlbRulesItems[];
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * 22
+   */
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18320,12 +31258,73 @@ export class DescribeGreyTagRouteResponseBodyDataAlbRules extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteResponseBodyDataDubboRulesItems extends $tea.Model {
+  /**
+   * @remarks
+   * The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The expression that is used to obtain the value of the parameter. Valid values:
+   * 
+   * *   **Empty**: obtains the value of the parameter.
+   * *   **.name**: obtains the name property of the parameter. This expression works the same way as args0.getName().
+   * *   **.isEnabled()**: obtains the enabled property of the parameter. This expression works the same way as args0.isEnabled().
+   * *   **[0]**: indicates that the value of the parameter is an array and obtains the first value of the array. This expression works the same way as args0[0]. This expression does not start with a period (.).
+   * *   **.get(0)**: indicates that the value of the parameter is a list and obtains the first value of the list. This expression works the same way as args0.get(0).
+   * *   **.get("key")**: indicates that the value of the parameter is a map and obtains the value of the key in the map. This expression works the same way as args0.get("key").
+   * 
+   * @example
+   * .name
+   */
   expr?: string;
+  /**
+   * @remarks
+   * The index of the parameter. The value 0 indicates the first parameter.
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * This parameter is not returned for Dubbo services.
+   * 
+   * @example
+   * N/A
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operator. Valid values:
+   * 
+   * *   **rawvalue**: direct comparison.
+   * *   **list**: whitelist.
+   * *   **mod**: mods 100.
+   * *   **deterministic_proportional_steaming_division**: percentage.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for Dubbo services.
+   * 
+   * @example
+   * N/A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the parameter. This value is compared with the value that is obtained based on the **expr** and **index** parameters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18357,11 +31356,53 @@ export class DescribeGreyTagRouteResponseBodyDataDubboRulesItems extends $tea.Mo
 }
 
 export class DescribeGreyTagRouteResponseBodyDataDubboRules extends $tea.Model {
+  /**
+   * @remarks
+   * The relationship between the conditions in the canary release rule. Valid values:
+   * 
+   * *   **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
+   * *   **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+   * 
+   * @example
+   * OR
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The group of the Dubbo service that corresponds to the canary release rule.
+   * 
+   * @example
+   * DUBBO
+   */
   group?: string;
+  /**
+   * @remarks
+   * The conditions.
+   */
   items?: DescribeGreyTagRouteResponseBodyDataDubboRulesItems[];
+  /**
+   * @remarks
+   * The method name of the Dubbo service.
+   * 
+   * @example
+   * echo
+   */
   methodName?: string;
+  /**
+   * @remarks
+   * The name of the Dubbo service.
+   * 
+   * @example
+   * com.alibaba.edas.boot.EchoService
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The version of the Dubbo service.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18391,12 +31432,70 @@ export class DescribeGreyTagRouteResponseBodyDataDubboRules extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteResponseBodyDataScRulesItems extends $tea.Model {
+  /**
+   * @remarks
+   * The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for Spring Cloud applications.
+   * 
+   * @example
+   * N/A
+   */
   expr?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for Spring Cloud applications.
+   * 
+   * @example
+   * N/A
+   */
   index?: number;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operator. Valid values:
+   * 
+   * *   **rawvalue**: direct comparison.
+   * *   **list**: whitelist.
+   * *   **mod**: mods 100.
+   * *   **deterministic_proportional_steaming_division**: percentage.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The type of the comparison. Valid values:
+   * 
+   * *   **param**: parameter
+   * *   **cookie**: cookie
+   * *   **header**: header
+   * 
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the parameter. This value is compared with the value that is obtained based on the **type** and **name** parameters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18428,8 +31527,29 @@ export class DescribeGreyTagRouteResponseBodyDataScRulesItems extends $tea.Model
 }
 
 export class DescribeGreyTagRouteResponseBodyDataScRules extends $tea.Model {
+  /**
+   * @remarks
+   * The relationship between the conditions in the canary release rule. Valid values:
+   * 
+   * *   **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
+   * *   **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+   * 
+   * @example
+   * OR
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The conditions.
+   */
   items?: DescribeGreyTagRouteResponseBodyDataScRulesItems[];
+  /**
+   * @remarks
+   * The path of the canary release rule of the Spring Cloud application.
+   * 
+   * @example
+   * /path
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18454,13 +31574,63 @@ export class DescribeGreyTagRouteResponseBodyDataScRules extends $tea.Model {
 
 export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
   albRules?: DescribeGreyTagRouteResponseBodyDataAlbRules[];
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 3faaf993-7aed-4bcd-b189-625e6a5a****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The timestamp when the canary release rule was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1619007592013
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The description of the canary release rule.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The canary release rule of the Dubbo service.
+   */
   dubboRules?: DescribeGreyTagRouteResponseBodyDataDubboRules[];
+  /**
+   * @remarks
+   * The ID of the canary release rule. The ID is globally unique.
+   * 
+   * @example
+   * 16
+   */
   greyTagRouteId?: number;
+  /**
+   * @remarks
+   * The name of the canary release rule.
+   * 
+   * @example
+   * rule-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The canary release rule of the Spring Cloud application.
+   */
   scRules?: DescribeGreyTagRouteResponseBodyDataScRules[];
+  /**
+   * @remarks
+   * The timestamp when the canary release rule was updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1609434061000
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18496,9 +31666,34 @@ export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
 }
 
 export class DescribeIngressResponseBodyDataDefaultRule extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the application.
+   * 
+   * @example
+   * 395b60e4-0550-458d-9c54-a265d036****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The container port of the application specified in the forwarding rule.
+   * 
+   * @example
+   * app1
+   */
   appName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   backendProtocol?: string;
+  /**
+   * @remarks
+   * The name of the application specified in the forwarding rule.
+   * 
+   * @example
+   * 8080
+   */
   containerPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18524,11 +31719,59 @@ export class DescribeIngressResponseBodyDataDefaultRule extends $tea.Model {
 }
 
 export class DescribeIngressResponseBodyDataRules extends $tea.Model {
+  /**
+   * @remarks
+   * The protocol used to forward requests. Valid values:
+   * 
+   * *   **HTTP**: used when the application needs to identify the transmitted data.
+   * *   **HTTPS**: used when the application requires encrypted data transmission.
+   * 
+   * @example
+   * 395b60e4-0550-458d-9c54-a265d036****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The path of the URL.
+   * 
+   * @example
+   * app1
+   */
   appName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   backendProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the routing rule.
+   * 
+   * @example
+   * 8080
+   */
   containerPort?: number;
+  /**
+   * @remarks
+   * The type of the SLB instance based on the processing capabilities. Valid values:
+   * 
+   * *   **clb**: the Classic Load Balancer (CLB) instance.
+   * *   **alb**: the Application Load Balancer (ALB) instance.
+   * 
+   * @example
+   * edas.site
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * /path1
+   */
   path?: string;
   rewritePath?: string;
   static names(): { [key: string]: string } {
@@ -18561,18 +31804,108 @@ export class DescribeIngressResponseBodyDataRules extends $tea.Model {
 }
 
 export class DescribeIngressResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application specified in the default rule.
+   * 
+   * @example
+   * 13623****809_16cad216b32_845_-419427029
+   */
   certId?: string;
+  /**
+   * @example
+   * 87***35-cn-hangzhou,812***3-cn-hangzhou
+   */
   certIds?: string;
+  /**
+   * @remarks
+   * The forwarding rules.
+   */
   defaultRule?: DescribeIngressResponseBodyDataDefaultRule;
+  /**
+   * @remarks
+   * The name of the routing rule.
+   * 
+   * @example
+   * ingress-sae-test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 87
+   */
   id?: number;
+  /**
+   * @remarks
+   * The default rule.
+   * 
+   * @example
+   * 443
+   */
   listenerPort?: number;
+  /**
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @remarks
+   * Indicates whether the configurations of the routing rule were queried successfully. Valid values:
+   * 
+   * *   **true**: indicates that the query was successful.
+   * *   **false**: indicates that the query failed.
+   * 
+   * @example
+   * clb
+   */
   loadBalanceType?: string;
+  /**
+   * @remarks
+   * The ID of the application specified in the default rule.
+   * 
+   * @example
+   * lb-uf6jt0nu4z6ior943****-80-f5****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * cn-beijing:sae-test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the application specified in the forwarding rule.
+   */
   rules?: DescribeIngressResponseBodyDataRules[];
+  /**
+   * @remarks
+   * The type of the SLB instance based on the IP address. Valid values:
+   * 
+   * *   **internet**: the Internet-facing SLB instance.
+   * *   **intranet**: the internal-facing SLB instance.
+   * 
+   * @example
+   * lb-uf62****6d13tq2u5
+   */
   slbId?: string;
+  /**
+   * @remarks
+   * The container port of the application specified in the default rule.
+   * 
+   * @example
+   * internet
+   */
   slbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18616,11 +31949,53 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
 }
 
 export class DescribeInstanceSpecificationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The CPU specification of the instance type. Unit: millicore.
+   * 
+   * @example
+   * 2000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance type is available. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance type.
+   * 
+   * @example
+   * 4
+   */
   id?: number;
+  /**
+   * @remarks
+   * The memory size of the instance type. Unit: MB.
+   * 
+   * @example
+   * 4096
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The name of the instance type.
+   */
   specInfo?: string;
+  /**
+   * @remarks
+   * The version number of the instance type.
+   * 
+   * @example
+   * 0
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18650,9 +32025,37 @@ export class DescribeInstanceSpecificationsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeJobResponseBodyDataConfigMapMountDesc extends $tea.Model {
+  /**
+   * @remarks
+   * The ConfigMap ID.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * The ConfigMap name.
+   * 
+   * @example
+   * test
+   */
   configMapName?: string;
+  /**
+   * @remarks
+   * The key-value pair that is stored in the ConfigMap.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The path on which the NAS file system is mounted.
+   * 
+   * @example
+   * /tmp
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18678,7 +32081,21 @@ export class DescribeJobResponseBodyDataConfigMapMountDesc extends $tea.Model {
 }
 
 export class DescribeJobResponseBodyDataMountDesc extends $tea.Model {
+  /**
+   * @remarks
+   * The path on which the NAS file system is mounted.
+   * 
+   * @example
+   * /tmp
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * The directory in the NAS file system.
+   * 
+   * @example
+   * /
+   */
   nasPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18700,9 +32117,40 @@ export class DescribeJobResponseBodyDataMountDesc extends $tea.Model {
 }
 
 export class DescribeJobResponseBodyDataOssMountDescs extends $tea.Model {
+  /**
+   * @remarks
+   * The bucket name.
+   * 
+   * @example
+   * oss-bucket
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * 
+   * @example
+   * data/user.data
+   */
   bucketPath?: string;
+  /**
+   * @remarks
+   * The path of the container in SAE. The parameter value that you specified overwrites the original value. If the specified path does not exist, SAE automatically creates the path.
+   * 
+   * @example
+   * /usr/data/user.data
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * Indicates whether the application can use the container path to read data from or write data to resources in the directory of the OSS bucket. Valid values:
+   * 
+   * *   **true**: The application has the read-only permission.
+   * *   **false**: The application has read and write permissions.
+   * 
+   * @example
+   * true
+   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -18728,7 +32176,21 @@ export class DescribeJobResponseBodyDataOssMountDescs extends $tea.Model {
 }
 
 export class DescribeJobResponseBodyDataTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18750,64 +32212,556 @@ export class DescribeJobResponseBodyDataTags extends $tea.Model {
 }
 
 export class DescribeJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Pull images across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/190675.html) and [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
   acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The ID of the Container Registry Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * Sample application
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * demo-app
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The number of times that the job was retried.
+   * 
+   * @example
+   * 3
+   */
   backoffLimit?: number;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Example:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * echo
+   */
   command?: string;
+  /**
+   * @remarks
+   * The arguments of the image startup command. This parameter contains the arguments that are required for **Command**. Format:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding **Command** example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. If this parameter does not exist in the Command parameter, you do not need to configure it.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The concurrency policy of the job. Valid values:
+   * 
+   * *   **Forbid**: Concurrent running is prohibited. If the previous job is not completed, no new job is created.
+   * *   **Allow**: Concurrent running is allowed.
+   * *   **Replace**: If the previous job is not completed when the time to create a new job is reached, the new job replaces the previous job.
+   * 
+   * @example
+   * Allow
+   */
   concurrencyPolicy?: string;
+  /**
+   * @remarks
+   * The details of the ConfigMap.
+   */
   configMapMountDesc?: DescribeJobResponseBodyDataConfigMapMountDesc[];
+  /**
+   * @remarks
+   * The CPU specifications required for each instance. Unit: millicore. This parameter cannot be set to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **16000**
+   * *   **32000**
+   * 
+   * @example
+   * 1000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The custom mapping between the hostname and IP address in the container. Valid values:
+   * 
+   * *   **hostName**: the domain name or hostname.
+   * *   **ip**: the IP address.
+   * 
+   * @example
+   * [{"hostName":"test.host.name","ip":"0.0.0.0"}]
+   */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * 
+   * @example
+   * 3.5.3
+   */
   edasContainerVersion?: string;
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
+   * 
+   * *   Custom configuration
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference a ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. To reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ID of the ConfigMap.
+   *     *   **key**: the key. If you want to reference all keys, you do not need to configure this parameter.
+   * 
+   * @example
+   * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The ID of the corresponding secret.
+   * 
+   * @example
+   * 10
+   */
   imagePullSecrets?: string;
+  /**
+   * @remarks
+   * The URL of the image. This parameter is returned only if **PackageType** is set to **Image**.
+   * 
+   * @example
+   * docker.io/library/nginx:1.14.2
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * start
+   */
   jarStartArgs?: string;
+  /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * -Dtest=true
+   */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Java Development Kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * 
+   * *   **Open JDK 8**
+   * *   **Open JDK 7**
+   * *   **Dragonwell 11**
+   * *   **Dragonwell 8**
+   * *   **openjdk-8u191-jdk-alpine3.9**
+   * *   **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not returned if **PackageType** is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
   jdk?: string;
+  /**
+   * @remarks
+   * The size of memory that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24567** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
+   * @example
+   * 2048
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The details of the mounted NAS file system.
+   */
   mountDesc?: DescribeJobResponseBodyDataMountDesc[];
+  /**
+   * @remarks
+   * The mount target of the NAS file system in the VPC in which the application is deployed. If you do not need to modify this configuration during the deployment, configure **MountHost** only in the first request. If you need to remove this configuration, leave **MountHost** empty in the request.
+   * 
+   * @example
+   * example.com
+   */
   mountHost?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The configurations for mounting the NAS file system.
+   * 
+   * @example
+   * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
+   */
   nasConfigs?: string;
+  /**
+   * @remarks
+   * The ID of the NAS file system.
+   * 
+   * @example
+   * AKSN89**
+   */
   nasId?: string;
+  /**
+   * @remarks
+   * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS).
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to read data from and write data to OSS.
+   * 
+   * @example
+   * xxxxxx
+   */
   ossAkSecret?: string;
+  /**
+   * @remarks
+   * The description of mounted OSS buckets.
+   */
   ossMountDescs?: DescribeJobResponseBodyDataOssMountDescs[];
+  /**
+   * @remarks
+   * The type of the deployment package. Valid values:
+   * 
+   * *   If you deploy the application by using a Java Archive (JAR) package, this parameter is set to **FatJar**, **War**, or **Image**.
+   * 
+   * *   If you deploy the application by using a PHP package, this parameter is set to one of the following values:
+   * 
+   *     *   **PhpZip**
+   *     *   **IMAGE_PHP_5_4**
+   *     *   **IMAGE_PHP_5_4_ALPINE**
+   *     *   **IMAGE_PHP_5_5**
+   *     *   **IMAGE_PHP_5_5_ALPINE**
+   *     *   **IMAGE_PHP_5_6**
+   *     *   **IMAGE_PHP_5_6_ALPINE**
+   *     *   **IMAGE_PHP_7_0**
+   *     *   **IMAGE_PHP_7_0_ALPINE**
+   *     *   **IMAGE_PHP_7_1**
+   *     *   **IMAGE_PHP_7_1_ALPINE**
+   *     *   **IMAGE_PHP_7_2**
+   *     *   **IMAGE_PHP_7_2_ALPINE**
+   *     *   **IMAGE_PHP_7_3**
+   *     *   **IMAGE_PHP_7_3_ALPINE**
+   * 
+   * *   If you deploy the application by using a Pythhon package, this parameter is set to **PythonZip** or **Image**.
+   * 
+   * @example
+   * War
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The URL of the deployment package. This parameter is returned only if **PackageType** is set to **FatJar** or **War**.
+   */
   packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is required only if **PackageType** is set to **FatJar** or **War**.
+   * 
+   * @example
+   * 1.0
+   */
   packageVersion?: string;
+  /**
+   * @remarks
+   * The details of the PHP configuration file.
+   * 
+   * @example
+   * k1=v1
+   */
   phpConfig?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
   phpConfigLocation?: string;
+  /**
+   * @remarks
+   * The script that is run immediately after the container is started. Example: `{"exec":{"command":["cat","/etc/group"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The script that is run before the container is stopped. Example: `{"exec":{"command":["cat","/etc/group"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
   preStop?: string;
+  /**
+   * @remarks
+   * The programming language that is used to create the application. Valid values:
+   * 
+   * *   **java**: Java
+   * *   **php**: PHP
+   * *   **python**: Python
+   * *   **other**: other programming languages, such as C++, Go, .NET, and Node.js.
+   * 
+   * @example
+   * java
+   */
   programmingLanguage?: string;
+  /**
+   * @remarks
+   * The Internet request URLs of one-time jobs.
+   */
   publicWebHookUrls?: string[];
+  /**
+   * @remarks
+   * The Python environment. PYTHON 3.9.15 is supported.
+   * 
+   * @example
+   * PYTHON 3.9.15
+   */
   python?: string;
+  /**
+   * @remarks
+   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If no software package is configured, you can specify dependencies based on your business requirements.
+   * 
+   * @example
+   * Flask==2.0
+   */
   pythonModules?: string;
+  /**
+   * @remarks
+   * The ID of the job template that you reference.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   refAppId?: string;
+  /**
+   * @remarks
+   * The IDs of the referenced job templates.
+   */
   refedAppIds?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of application instances.
+   * 
+   * @example
+   * 2
+   */
   replicas?: number;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether job sharding is enabled.
+   * 
+   * @example
+   * true
+   */
   slice?: boolean;
+  /**
+   * @remarks
+   * The parameters of job sharding.
+   * 
+   * @example
+   * SliceEnvs
+   */
   sliceEnvs?: string;
+  /**
+   * @remarks
+   * The logging configurations of Log Service.
+   * 
+   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * Parameter description:
+   * 
+   * *   **projectName**: the name of the Log Service project.
+   * *   **logDir**: the path in which logs are stored.
+   * *   **logType**: the log type. **stdout**: the standard output (stdout) log of the container. Only one stdout value for this parameter can be specified. If this parameter is not configured, file logs are collected.
+   * *   **logstoreName**: the name of the Logstore in Log Service.
+   * *   **logtailName**: the name of the Logtail in Log Service. If this parameter is not configured, a new Logtail is created.
+   * 
+   * If you do not need to modify the logging configurations when you deploy the application, configure **SlsConfigs** only in the first request. If you no longer need to use Log Service, leave **SlsConfigs** empty in the request.
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * Indicates whether the job template is suspended.
+   * 
+   * @example
+   * false
+   */
   suspend?: boolean;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: DescribeJobResponseBodyDataTags[];
+  /**
+   * @remarks
+   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * 
+   * @example
+   * 10
+   */
   terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The timeout period for the job. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The time zone. Default value: **Asia/Shanghai**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The Tomcat configuration. If you want to delete the configuration, set this parameter to {} or leave this parameter empty. Parameter description:
+   * 
+   * *   **port**: the port number. Valid values: 1024 to 65535. The root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If this parameter is not configured, the default value 8080 is used.
+   * *   **contextPath**: the path. Default value: /. The value indicates the root directory.
+   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If this parameter is not configured, the default value **ISO-8859-1** is used.
+   * *   **useBodyEncoding**: indicates whether to use the encoding scheme that is specified by **BodyEncoding for URL**. Default value: **true**.
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
   tomcatConfig?: string;
   triggerConfig?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-2ze559r1z1bpwqxwp****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-2ze0i263cnn311nvj****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The internal request URLs for one-time jobs.
+   */
   vpcWebHookUrls?: string[];
+  /**
+   * @remarks
+   * The option settings in the WAR package. The settings are used to start the application container. The default startup command is `java $JAVA_OPTS $CATALINA_OPTS -Options org.apache.catalina.startup.Bootstrap "$@" start`.
+   * 
+   * @example
+   * custom-option
+   */
   warStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Tomcat container on which the deployment package depends. The following versions are supported:
+   * 
+   * *   **apache-tomcat-7.0.91**
+   * *   **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not returned if **PackageType** is set to **Image**.
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
   webContainer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18943,13 +32897,74 @@ export class DescribeJobResponseBodyData extends $tea.Model {
 }
 
 export class DescribeJobHistoryResponseBodyDataJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The number of running instances.
+   * 
+   * @example
+   * 0
+   */
   active?: number;
+  /**
+   * @remarks
+   * The time when the job was executed.
+   * 
+   * @example
+   * 1657522839
+   */
   completionTime?: number;
+  /**
+   * @remarks
+   * The number of instances that failed to run.
+   * 
+   * @example
+   * 0
+   */
   failed?: number;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * manual-3db7a8fa-5d40-4edc-92e4-49d50eab****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message returned if exceptions occur during job running.
+   * 
+   * @example
+   * Null
+   */
   message?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 1657522800
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **0**: The job was not executed.
+   * *   **1**: The job was executed.
+   * *   **2**: The job failed to be executed.
+   * *   **3**: The job is being executed.
+   * 
+   * @example
+   * 1
+   */
   state?: string;
+  /**
+   * @remarks
+   * The number of instances that are successfully run.
+   * 
+   * @example
+   * 3
+   */
   succeeded?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18983,9 +32998,34 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $tea.Model {
 }
 
 export class DescribeJobHistoryResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The jobs.
+   */
   jobs?: DescribeJobHistoryResponseBodyDataJobs[];
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 0 to 10000.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of jobs.
+   * 
+   * @example
+   * 20
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19011,13 +33051,77 @@ export class DescribeJobHistoryResponseBodyData extends $tea.Model {
 }
 
 export class DescribeJobStatusResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of running instances.
+   * 
+   * @example
+   * 0
+   */
   active?: number;
+  /**
+   * @remarks
+   * The time when the job was executed.
+   * 
+   * @example
+   * 1657522839
+   */
   completionTime?: number;
+  /**
+   * @remarks
+   * The number of instances that failed to run.
+   * 
+   * @example
+   * 0
+   */
   failed?: number;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * event-b798157b-40a2-4388-b578-71fb897103**-**
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The returned message. Take note of the following rules:
+   * 
+   * *   If the call is successful, **success** is returned.
+   * *   If the call fails, an error code is returned.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 1657522800
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **0**: The job is not executed.
+   * *   **1**: The job was executed.
+   * *   **2**: The job failed to be executed.
+   * *   **3**: The job is being executed.
+   * 
+   * @example
+   * 1
+   */
   state?: string;
+  /**
+   * @remarks
+   * The number of instances that are successfully run.
+   * 
+   * @example
+   * 3
+   */
   succeeded?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19051,11 +33155,56 @@ export class DescribeJobStatusResponseBodyData extends $tea.Model {
 }
 
 export class DescribeNamespaceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the SAE built-in registry is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enableMicroRegistration?: boolean;
+  /**
+   * @remarks
+   * The short ID of the namespace.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The description of the namespace.
+   * 
+   * @example
+   * desc
+   */
   namespaceDescription?: string;
+  /**
+   * @remarks
+   * The ID of the namespace. The information about the default namespace cannot be queried or modified. The default namespace cannot be deleted.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * name
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19085,16 +33234,99 @@ export class DescribeNamespaceResponseBodyData extends $tea.Model {
 }
 
 export class DescribeNamespaceListResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The command that was run to install the agent.
+   * 
+   * @example
+   * http://edas-bj.oss-cn-beijing-internal.aliyuncs.com/test/install.sh
+   */
   agentInstall?: string;
+  /**
+   * @remarks
+   * This parameter is no longer valid.
+   * 
+   * @example
+   * false
+   */
   current?: boolean;
+  /**
+   * @remarks
+   * Indicates whether custom namespaces are returned. Valid values:
+   * 
+   * *   **true**: Custom namespaces are returned.
+   * *   **false**: Custom namespaces are not returned.
+   * 
+   * @example
+   * true
+   */
   custom?: boolean;
+  /**
+   * @remarks
+   * Indicates whether hybrid cloud namespaces are excluded. Valid values:
+   * 
+   * *   **true**: Hybrid cloud namespaces are excluded.
+   * *   **false**: Hybrid cloud namespaces are included.
+   * 
+   * @example
+   * false
+   */
   hybridCloudEnable?: boolean;
+  /**
+   * @remarks
+   * The short ID of the namespace.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * test
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The region to which the namespace belongs.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-2ze559r1z1bpwqxwp****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-2ze0i263cnn311nvj****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19134,24 +33366,171 @@ export class DescribeNamespaceListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeNamespaceResourcesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of applications.
+   * 
+   * @example
+   * 1
+   */
   appCount?: number;
+  /**
+   * @remarks
+   * The region to which the namespace belongs.
+   * 
+   * @example
+   * cn-shanghai
+   */
   belongRegion?: string;
+  /**
+   * @remarks
+   * The description of the namespace.
+   * 
+   * @example
+   * decs
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the jump server application.
+   * 
+   * @example
+   * 5ec46468-6b26-4a3c-9f7c-bf88761a****
+   */
   jumpServerAppId?: string;
+  /**
+   * @remarks
+   * The IP address of the jump server.
+   * 
+   * @example
+   * 120.78.XXX.XX
+   */
   jumpServerIp?: string;
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * afedb3c4-63f8-4a3d-aaa3-2c30363f****
+   */
   lastChangeOrderId?: string;
+  /**
+   * @remarks
+   * Indicates whether a change order is being executed in the namespace. Valid values:
+   * 
+   * *   **true**: indicates that a change order is being executed in the namespace.
+   * *   **false**: indicates that no change orders are being executed in the namespace.
+   * 
+   * @example
+   * true
+   */
   lastChangeOrderRunning?: boolean;
+  /**
+   * @remarks
+   * The status of the latest change order. Valid values:
+   * 
+   * *   **READY**: The change order is ready.
+   * *   **RUNNING**: The change order is being executed.
+   * *   **SUCCESS**: The change order was executed.
+   * *   **FAIL**: The change order could not be executed.
+   * *   **ABORT**: The change order was terminated.
+   * *   **WAIT_BATCH_CONFIRM**: The change order is pending execution. You must manually confirm the release batch.
+   * *   **AUTO_BATCH_WAIT**: The change order is pending execution. SAE will automatically confirm the release batch.
+   * *   **SYSTEM_FAIL**: A system exception occurred.
+   * *   **WAIT_APPROVAL**: The change order is pending approval.
+   * *   **APPROVED**: The change order is approved and is pending execution.
+   * 
+   * @example
+   * SUCCESS
+   */
   lastChangeOrderStatus?: string;
+  /**
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-shangha:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * test
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * Indicates whether the notification of a change order is expired. Valid values:
+   * 
+   * *   **true**: indicates that the notification is expired.
+   * *   **false**: indicates that the notification is not expired.
+   * 
+   * @example
+   * true
+   */
   notificationExpired?: boolean;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the tenant in the SAE namespace.
+   * 
+   * @example
+   * 838cad95-973f-48fe-830b-2a8546d7****
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * test@aliyun.com
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-2ze559r1z1bpwqxwp****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The name of the vSwitch.
+   * 
+   * @example
+   * test
+   */
   vSwitchName?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-2ze0i263cnn311nvj****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The name of the VPC.
+   * 
+   * @example
+   * test
+   */
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19207,14 +33586,71 @@ export class DescribeNamespaceResourcesResponseBodyData extends $tea.Model {
 }
 
 export class DescribeNamespacesResponseBodyDataNamespaces extends $tea.Model {
+  /**
+   * @remarks
+   * The ACM-specific AccessKey ID. It can be used to manage data in an Application Configuration Management (ACM) namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](~~~~).
+   * 
+   * @example
+   * b34dbe3315c64f9f99b58ea447ec****
+   */
   accessKey?: string;
+  /**
+   * @example
+   * addr-bj-internal.edas.aliyun.com
+   */
   addressServerHost?: string;
+  /**
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The description of the namespace.
+   * 
+   * @example
+   * desc
+   */
   namespaceDescription?: string;
+  /**
+   * @remarks
+   * The ID of the namespace. The information of the default namespace cannot be queried or modified. The default namespace cannot be deleted.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * name
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ACM-specific AccessKey secret. It can be used to manage data in an ACM namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](~~~~).
+   * 
+   * @example
+   * G/w6sseK7+nb3S6HBmANDBMD****
+   */
   secretKey?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 838cad95-973f-48fe-830b-2a8546d7****
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19250,9 +33686,34 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $tea.Model {
 }
 
 export class DescribeNamespacesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The list of namespaces.
+   */
   namespaces?: DescribeNamespacesResponseBodyDataNamespaces[];
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of namespaces.
+   * 
+   * @example
+   * 100
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19278,14 +33739,90 @@ export class DescribeNamespacesResponseBodyData extends $tea.Model {
 }
 
 export class DescribePipelineResponseBodyDataStageListTaskList extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
+   * 
+   * @example
+   * EDAS-10022
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether to execute the subsequent tasks when the task failed. Valid values:
+   * 
+   * *   **0**: The subsequent tasks cannot be executed.
+   * *   **1**: The subsequent tasks can be executed.
+   * 
+   * @example
+   * 0
+   */
   errorIgnore?: number;
+  /**
+   * @remarks
+   * The error message returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
+   * 
+   * @example
+   * EDAS-10022 \\<a target=\\"_blank\\" href=\\"https://help.aliyun.com/knowledge_detail/106573.html#EDAS-10022\\">READINESS check failed during the application startup.\\</a>
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The returned message indicating the task execution result.
+   * 
+   * @example
+   * init Namespace success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether a running task can be manually skipped. Valid values:
+   * 
+   * *   **true**: The running task can be skipped.
+   * *   **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
+   * 
+   * @example
+   * false
+   */
   showManualIgnore?: boolean;
+  /**
+   * @remarks
+   * The ID of the stage.
+   * 
+   * @example
+   * c3a55592-4c30-4d84-ac2d-e98c18ec****
+   */
   stageId?: string;
+  /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   **0**: The task is prepared for execution.
+   * *   **1**: The task is being executed.
+   * *   **2**: successful
+   * *   **3**: The task could not be executed.
+   * *   **5**: The task is pending retry.
+   * *   **6**: The task was terminated.
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * bef0122f-de9a-4ab0-8223-b88bf8ad****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Environment initialization
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19321,10 +33858,51 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $tea.Mode
 }
 
 export class DescribePipelineResponseBodyDataStageList extends $tea.Model {
+  /**
+   * @remarks
+   * The execution type of the stage. Valid values:
+   * 
+   * *   **0**: in sequence.
+   * *   **1**: in parallel.
+   * 
+   * @example
+   * 0
+   */
   executorType?: number;
+  /**
+   * @remarks
+   * The ID of the stage.
+   * 
+   * @example
+   * c3a55592-4c30-4d84-ac2d-e98c18ec****
+   */
   stageId?: string;
+  /**
+   * @remarks
+   * The name of the stage.
+   * 
+   * @example
+   * Deploy an application
+   */
   stageName?: string;
+  /**
+   * @remarks
+   * The status of the batch processing stage. Valid values:
+   * 
+   * *   **0**: The batch is prepared for this processing stage.
+   * *   **1**: The task is being executed.
+   * *   **2**: successful
+   * *   **3**: The processing failed in this stage.
+   * *   **6**: The processing stage was terminated.
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * The list of task statuses.
+   */
   taskList?: DescribePipelineResponseBodyDataStageListTaskList[];
   static names(): { [key: string]: string } {
     return {
@@ -19352,13 +33930,76 @@ export class DescribePipelineResponseBodyDataStageList extends $tea.Model {
 }
 
 export class DescribePipelineResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the change order for the batch.
+   * 
+   * @example
+   * Successful
+   */
   coStatus?: string;
+  /**
+   * @remarks
+   * The ID of the batch processing stage.
+   * 
+   * @example
+   * c3a55592-4c30-4d84-ac2d-e98c18ec****
+   */
   currentStageId?: string;
+  /**
+   * @remarks
+   * The ID of the next batch.
+   * 
+   * @example
+   * b77b1c98-5772-4f05-95fc-c7bee5fa****
+   */
   nextPipelineId?: string;
+  /**
+   * @remarks
+   * The ID of the batch.
+   * 
+   * @example
+   * 917660ba-5092-44ca-b8e0-80012c96****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The name of the batch.
+   * 
+   * @example
+   * First batch
+   */
   pipelineName?: string;
+  /**
+   * @remarks
+   * The batch status. Valid values:
+   * 
+   * *   **0**: The batch is prepared for processing.
+   * *   **1**: The task is being executed.
+   * *   **2**: successful
+   * *   **3**: The processing failed in this stage.
+   * *   **6**: The batch processing was terminated.
+   * *   **10**: The batch could not be processed due to a system exception.
+   * 
+   * @example
+   * 2
+   */
   pipelineStatus?: number;
+  /**
+   * @remarks
+   * Indicates whether to start processing the next batch. Valid values:
+   * 
+   * *   **false**: indicates that the next batch cannot be processed yet.
+   * *   **true**: indicates that the next batch can be processed now.
+   * 
+   * @example
+   * false
+   */
   showBatch?: boolean;
+  /**
+   * @remarks
+   * The list of batch processing stages.
+   */
   stageList?: DescribePipelineResponseBodyDataStageList[];
   static names(): { [key: string]: string } {
     return {
@@ -19411,9 +34052,61 @@ export class DescribeRegionsResponseBodyRegionsRegionRecommendZones extends $tea
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
+  /**
+   * @remarks
+   * The list of regions.
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The ID of the region. Valid values:
+   * 
+   * *   **cn-hangzhou**: the ID of the China (Hangzhou) region
+   * *   **cn-shanghai**: the ID of the China (Shanghai) region
+   * *   **cn-beijing**: the ID of the China (Beijing) region
+   * *   **cn-zhangjiakou**: the ID of the China (Zhangjiakou) region
+   * *   **cn-shenzhen**: the ID of the China (Shenzhen) region
+   * *   **cn-guangzhou**: the ID of the China (Guangzhou) region
+   * *   **cn-hongkong**: the ID of the China (Hong Kong) region
+   * *   **ap-southeast-1**: the ID of the Singapore region
+   * *   **us-west-1**: the ID of the US (Silicon Valley) region
+   */
   recommendZones?: DescribeRegionsResponseBodyRegionsRegionRecommendZones;
+  /**
+   * @remarks
+   * The name of the region. Valid values:
+   * 
+   * *   **China (Hangzhou)**
+   * *   **China (Shanghai)**
+   * *   **China (Beijing)**
+   * *   **China (Zhangjiakou)**
+   * *   **China (Shenzhen)**
+   * *   **China (Guangzhou)**
+   * *   **China (Hong Kong)**
+   * *   **Singapore (Singapore)**
+   * *   **US (Silicon Valley)**
+   * 
+   * @example
+   * sae.cn-shanghai.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @remarks
+   * The endpoint of the region. Valid values:
+   * 
+   * *   **sae.cn-hangzhou.aliyuncs.com**
+   * *   **sae.cn-shanghai.aliyuncs.com**
+   * *   **sae.cn-beijing.aliyuncs.com**
+   * *   **sae.cn-zhangjiakou.aliyuncs.com**
+   * *   **sae.cn-shenzhen.aliyuncs.com**
+   * *   **sae.cn-guangzhou.aliyuncs.com**
+   * *   **sae.cn-hongkong.aliyuncs.com**
+   * *   **sae.ap-southeast-1.aliyuncs.com**
+   * *   **sae.us-west-1.aliyuncs.com**
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19458,7 +34151,21 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeSecretResponseBodyDataRelateApps extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * f16b4000-9058-4c22-a49d-49a28f0b****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * test-app
+   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19480,13 +34187,63 @@ export class DescribeSecretResponseBodyDataRelateApps extends $tea.Model {
 }
 
 export class DescribeSecretResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 1593746835111
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The associated application.
+   */
   relateApps?: DescribeSecretResponseBodyDataRelateApps[];
+  /**
+   * @remarks
+   * Secret key-value pair data.
+   */
   secretData?: { [key: string]: string };
+  /**
+   * @remarks
+   * The ID of the Secret instance.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
+  /**
+   * @remarks
+   * The name of the Secret instance.
+   * 
+   * @example
+   * registry-auth
+   */
   secretName?: string;
+  /**
+   * @remarks
+   * The type of the Secret instance.
+   * 
+   * @example
+   * kubernetes.io/dockerconfigjson
+   */
   secretType?: string;
+  /**
+   * @remarks
+   * The time when the task was updated.
+   * 
+   * @example
+   * 1593746835111
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19520,9 +34277,25 @@ export class DescribeSecretResponseBodyData extends $tea.Model {
 }
 
 export class ExecJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * manual-3db7a8fa-5d40-4edc-92e4-49d50eab****
+   */
   data?: string;
+  /**
+   * @example
+   * success
+   */
   msg?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19548,11 +34321,53 @@ export class ExecJobResponseBodyData extends $tea.Model {
 }
 
 export class GetArmsTopNMetricResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 100
+   */
   count?: number;
+  /**
+   * @remarks
+   * The number of errors.
+   * 
+   * @example
+   * 0
+   */
   error?: number;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The average response time. Unit: milliseconds.
+   * 
+   * @example
+   * 100
+   */
   rt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19582,12 +34397,64 @@ export class GetArmsTopNMetricResponseBodyData extends $tea.Model {
 }
 
 export class GetAvailabilityMetricResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * Indicates whether an auto scaling policy is enabled. Valid values:
+   * 
+   * *   **1**: An auto scaling policy is enabled.
+   * *   **0**: No auto scaling policy is enabled.
+   * 
+   * @example
+   * 0
+   */
   enableAutoscale?: number;
+  /**
+   * @remarks
+   * The number of abnormal instances.
+   * 
+   * @example
+   * 0
+   */
   errorInstances?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * @example
+   * 0
+   */
   instances?: number;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The current number of instances.
+   * 
+   * @example
+   * 1
+   */
   runnings?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19619,11 +34486,53 @@ export class GetAvailabilityMetricResponseBodyData extends $tea.Model {
 }
 
 export class GetChangeOrderMetricResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The number of abnormal change orders.
+   * 
+   * @example
+   * 1
+   */
   error?: number;
+  /**
+   * @remarks
+   * The percentage of change failures.
+   * 
+   * @example
+   * 0.25
+   */
   errorPercent?: number;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The total number of change orders.
+   * 
+   * @example
+   * 4
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19653,10 +34562,45 @@ export class GetChangeOrderMetricResponseBodyData extends $tea.Model {
 }
 
 export class GetScaleAppMetricResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The maximum number of instances.
+   * 
+   * @example
+   * 10
+   */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The current number of instances.
+   * 
+   * @example
+   * 10
+   */
   runnings?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19684,9 +34628,37 @@ export class GetScaleAppMetricResponseBodyData extends $tea.Model {
 }
 
 export class GetWarningEventMetricResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of Warning events.
+   * 
+   * @example
+   * 10
+   */
   warningCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19712,12 +34684,61 @@ export class GetWarningEventMetricResponseBodyData extends $tea.Model {
 }
 
 export class ListAppEventsResponseBodyDataAppEventEntity extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the event. Valid values:
+   * 
+   * @example
+   * Normal
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The timestamp of the first occurrence of the event.
+   * 
+   * @example
+   * 2020-02-19T05:01:28Z
+   */
   firstTimestamp?: string;
+  /**
+   * @remarks
+   * The timestamp of the last occurrence of the event.
+   * 
+   * @example
+   * 2020-02-19T05:01:28Z
+   */
   lastTimestamp?: string;
+  /**
+   * @remarks
+   * The information about the event.
+   * 
+   * @example
+   * Created container
+   */
   message?: string;
+  /**
+   * @remarks
+   * The type of the object.
+   * 
+   * @example
+   * Pod
+   */
   objectKind?: string;
+  /**
+   * @remarks
+   * The name of the object.
+   * 
+   * @example
+   * errew-b86bf540-b4dc-47d8-a42f-b4997c14bd8f-5595cbddd6-2****
+   */
   objectName?: string;
+  /**
+   * @remarks
+   * The cause of the event.
+   * 
+   * @example
+   * Created
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19749,9 +34770,34 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $tea.Model {
 }
 
 export class ListAppEventsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The events.
+   */
   appEventEntity?: ListAppEventsResponseBodyDataAppEventEntity[];
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of events that occurred in an application.
+   * 
+   * @example
+   * 20
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19777,11 +34823,61 @@ export class ListAppEventsResponseBodyData extends $tea.Model {
 }
 
 export class ListAppServicesPageResponseBodyDataResult extends $tea.Model {
+  /**
+   * @remarks
+   * The group to which the service belongs. You can create a custom group.
+   * 
+   * @example
+   * hc4fs1****@98314c8790b****
+   */
   edasAppId?: string;
+  /**
+   * @remarks
+   * The total number of instances.
+   * 
+   * @example
+   * cn-zhangjiakou-micro-service-******
+   */
   edasAppName?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the call was successful.
+   * *   **3xx**: indicates that the call was redirected.
+   * *   **4xx**: indicates that the call failed.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * springCloud
+   */
   group?: string;
+  /**
+   * @remarks
+   * The name of the service.
+   * 
+   * @example
+   * 1
+   */
   instanceNum?: number;
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * - If the call is successful, the **ErrorCode** parameter is not returned.
+   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * edas.service.provider
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19811,10 +34907,42 @@ export class ListAppServicesPageResponseBodyDataResult extends $tea.Model {
 }
 
 export class ListAppServicesPageResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * 9999
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The version of the service. You can create a custom version.
+   */
   result?: ListAppServicesPageResponseBodyDataResult[];
+  /**
+   * @remarks
+   * The number of entries returned per page. Valid values: 0 to 9999.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19842,10 +34970,43 @@ export class ListAppServicesPageResponseBodyData extends $tea.Model {
 }
 
 export class ListAppVersionsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * *   The address of the image. This parameter is returned when the **Type** parameter is set to **image**.
+   * *   The download link of the WAR or JAR package. This parameter is returned when the **Type** parameter is set to **upload**.
+   */
   buildPackageUrl?: string;
+  /**
+   * @remarks
+   * The download link of the WAR or JAR package. This parameter is returned when the **Type** parameter is set to **url**.
+   * 
+   * @example
+   * 1590124643553
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * a0ce266c-d354-423a-9bd6-4083405a****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the version.
+   */
   warUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19959,7 +35120,21 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $tea.M
 }
 
 export class ListApplicationsResponseBodyDataApplicationsTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19981,21 +35156,117 @@ export class ListApplicationsResponseBodyDataApplicationsTags extends $tea.Model
 }
 
 export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the application is being deleted. Valid values:
+   * 
+   * *   **true**: The application is being deleted.
+   * *   **false**: The application is not being deleted.
+   * 
+   * @example
+   * false
+   */
   appDeletingStatus?: boolean;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * description
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * f7730764-d88f-4b9a-8d8e-cd8efbfe****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * demo-app
+   */
   appName?: string;
   baseAppId?: string;
   children?: ListApplicationsResponseBodyDataApplicationsChildren[];
+  /**
+   * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **16000**
+   * *   **32000**
+   * 
+   * @example
+   * 1000
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The number of application instances.
+   * 
+   * @example
+   * 2
+   */
   instances?: number;
+  /**
+   * @remarks
+   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
+   * @example
+   * 1024
+   */
   mem?: number;
   mseEnabled?: boolean;
   mseNamespaceId?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-beijing:demo
+   */
   namespaceId?: string;
   programmingLanguage?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of running instances.
+   * 
+   * @example
+   * 2
+   */
   runningInstances?: number;
+  /**
+   * @remarks
+   * The tags of the application.
+   */
   tags?: ListApplicationsResponseBodyDataApplicationsTags[];
   static names(): { [key: string]: string } {
     return {
@@ -20045,9 +35316,34 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
 }
 
 export class ListApplicationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The applications.
+   */
   applications?: ListApplicationsResponseBodyDataApplications[];
+  /**
+   * @remarks
+   * The number of application instances.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The tags of the application.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The information about applications.
+   * 
+   * @example
+   * 2
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20073,19 +35369,135 @@ export class ListApplicationsResponseBodyData extends $tea.Model {
 }
 
 export class ListChangeOrdersResponseBodyDataChangeOrderList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 164341c-9708-4967-b3ec-24933767****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the user who created the change order.
+   * 
+   * @example
+   * 1
+   */
   batchCount?: number;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * auto
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The mode in which the release batches are determined. Valid values:
+   * 
+   * *   **auto**: SAE automatically determines the release batches.
+   * *   **manual**: You must manually determine the release batches.
+   * 
+   * @example
+   * 7fa5c0-9ebb-4bb4-b383-1f885447****
+   */
   changeOrderId?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   */
   coType?: string;
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * CoCreateApp
+   */
   coTypeCode?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 2019-07-11 15:54:49
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The code of the change type. Valid values:
+   * 
+   * *   **CoBindSlb**: associates an SLB instance with the application.
+   * *   **CoUnbindSlb**: disassociates the SLB instance from the application.
+   * *   **CoCreateApp**: creates the application.
+   * *   **CoDeleteApp**: deletes the application.
+   * *   **CoDeploy**: deploys the application.
+   * *   **CoRestartApplication**: restarts the application.
+   * *   **CoRollback**: rolls back the application.
+   * *   **CoScaleIn**: scales in the application.
+   * *   **CoScaleOut**: scales out the application.
+   * *   **CoStart**: starts the application.
+   * *   **CoStop**: stops the application.
+   * *   **CoRescaleApplicationVertically**: modifies the instance specifications.
+   * *   **CoDeployHistroy**: rolls back the application to a historical version.
+   * *   **CoBindNas**: associates a NAS file system with the application.
+   * *   **CoUnbindNas**: disassociates the NAS file system from the application.
+   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
+   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
+   * *   **CoRestartInstances**: restarts the instances.
+   * *   **CoDeleteInstances**: deletes the instances.
+   * *   **CoScaleInAppWithInstances**: reduces the number of the specified application instances.
+   * 
+   * @example
+   * sae-beta-test
+   */
   createUserId?: string;
+  /**
+   * @remarks
+   * The change type, which corresponds to the **CoTypeCode** parameter.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the change order was created.
+   * 
+   * @example
+   * 2019-07-11 20:12:58
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The description about the application.
+   * 
+   * @example
+   * c9ecd2-cf6c-46c3-9f20-525de202****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The number of release batches.
+   * 
+   * @example
+   * console
+   */
   source?: string;
+  /**
+   * @remarks
+   * The time when the change order was completed.
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * The source of the change order.
+   * 
+   * @example
+   * sae-beta-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20131,9 +35543,48 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $tea.Model 
 }
 
 export class ListChangeOrdersResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the change order. Valid values:
+   * 
+   * *   **0**: The change order is being prepared.
+   * *   **1**: The change order is being executed.
+   * *   **2**: The change order was executed.
+   * *   **3**: The change order could not be executed.
+   * *   **6**: The change order was terminated.
+   * *   **8**: The execution process is pending. You must manually determine the release batch.
+   * *   **9**: The execution process is pending. SAE will automatically determine the release batch.
+   * *   **10**: The change order could not be executed due to a system exception.
+   * *   **11**: The change order is pending approval.
+   * *   **12**: The change order is approved and is pending execution.
+   */
   changeOrderList?: ListChangeOrdersResponseBodyDataChangeOrderList[];
+  /**
+   * @remarks
+   * The total number of change orders.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of change orders.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20159,12 +35610,58 @@ export class ListChangeOrdersResponseBodyData extends $tea.Model {
 }
 
 export class ListConsumedServicesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The subscription address of the service.
+   * 
+   * @example
+   * {}
+   */
   group2Ip?: string;
+  /**
+   * @remarks
+   * The version of the published service
+   */
   groups?: string[];
+  /**
+   * @remarks
+   * The name of the published service.
+   */
   ips?: string[];
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * com.alibaba.nodejs.ItemService
+   */
   name?: string;
+  /**
+   * @remarks
+   * The service group that corresponds to the published service.
+   * 
+   * @example
+   * RPC
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20196,12 +35693,40 @@ export class ListConsumedServicesResponseBodyData extends $tea.Model {
 }
 
 export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $tea.Model {
+  /**
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @example
+   * N/A
+   */
   expr?: string;
+  /**
+   * @example
+   * N/A
+   */
   index?: number;
+  /**
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20233,7 +35758,15 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $tea.Mo
 }
 
 export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $tea.Model {
+  /**
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @example
+   * 23
+   */
   ingressId?: string;
   items?: ListGreyTagRouteResponseBodyDataResultAlbRulesItems[];
   serviceName?: string;
@@ -20261,12 +35794,73 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $tea.Model {
 }
 
 export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $tea.Model {
+  /**
+   * @remarks
+   * The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The expression that is used to obtain the value of the parameter. The syntax of the expression must follow the standard of the SpEL. Valid values:
+   * 
+   * - **Empty**: obtains the value of the parameter.
+   * - **.name**: obtains the name property of the parameter. This expression works the same way as args0.getName().
+   * - **.isEnabled()**: obtains the enabled property of the parameter. This expression works the same way as args0.isEnabled().
+   * - **[0]**: indicates that the value of the parameter is an array and obtains the first value of the array. This expression works the same way as args0[0]. This expression does not start with a period (.).
+   * - **.get(0)**: indicates that the value of the parameter is a list and obtains the first value of the list. This expression works the same way as args0.get(0).
+   * - **.get("key")**: indicates that the value of the parameter is a map and obtains the value of the key in the map. This expression works the same way as args0.get("key").  >  For more information about the expressions that are used to obtain parameter values, see  [Spring Expression Language (SpEL)](https://docs.spring.io/spring-integration/docs/current/reference/html/spel.html).
+   * 
+   * @example
+   * .name
+   */
   expr?: string;
+  /**
+   * @remarks
+   * The index of the parameter. The value 0 indicates the first parameter.
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * This parameter is not returned for Dubbo services.
+   * 
+   * @example
+   * N/A
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operator. Valid values:
+   * 
+   * - **rawvalue**: direct comparison.
+   * - **list**: whitelist.
+   * - **mod**: mods 100.
+   * - **deterministic_proportional_steaming_division**: percentage.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for Dubbo services.
+   * 
+   * @example
+   * N/A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the parameter. This value is compared with the value that is obtained based on the **expr** and **index** parameters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20298,11 +35892,53 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $tea.
 }
 
 export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $tea.Model {
+  /**
+   * @remarks
+   * The relationship between the conditions in the canary release rule. Valid values:
+   * 
+   * - **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
+   * - **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+   * 
+   * @example
+   * OR
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The group of the Dubbo service that corresponds to the canary release rule.
+   * 
+   * @example
+   * DUBBO
+   */
   group?: string;
+  /**
+   * @remarks
+   * The conditions.
+   */
   items?: ListGreyTagRouteResponseBodyDataResultDubboRulesItems[];
+  /**
+   * @remarks
+   * The method name of the Dubbo service.
+   * 
+   * @example
+   * echo
+   */
   methodName?: string;
+  /**
+   * @remarks
+   * The name of the Dubbo service.
+   * 
+   * @example
+   * com.alibaba.edas.boot.EchoService
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The version of the Dubbo service.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20332,12 +35968,70 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $tea.Model
 }
 
 export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $tea.Model {
+  /**
+   * @remarks
+   * The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for Spring Cloud applications.
+   * 
+   * @example
+   * N/A
+   */
   expr?: string;
+  /**
+   * @remarks
+   * This parameter is not returned for Spring Cloud applications.
+   * 
+   * @example
+   * N/A
+   */
   index?: number;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operator. Valid values:
+   * 
+   * *   **rawvalue**: direct comparison.
+   * *   **list**: whitelist.
+   * *   **mod**: mods 100.
+   * *   **deterministic_proportional_steaming_division**: percentage.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The type of the comparison. Valid values:
+   * 
+   * *   **param**: parameter
+   * *   **cookie**: cookie
+   * *   **header**: header
+   * 
+   * @example
+   * cookie
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the parameter. This value is compared with the value that is obtained based on the **type** and **name** parameters.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20369,8 +36063,29 @@ export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $tea.Mod
 }
 
 export class ListGreyTagRouteResponseBodyDataResultScRules extends $tea.Model {
+  /**
+   * @remarks
+   * The relationship between the conditions in the canary release rule. Valid values:
+   * 
+   * *   **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
+   * *   **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+   * 
+   * @example
+   * OR
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The conditions.
+   */
   items?: ListGreyTagRouteResponseBodyDataResultScRulesItems[];
+  /**
+   * @remarks
+   * The path of the canary release rule of the Spring Cloud application.
+   * 
+   * @example
+   * /path
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20395,12 +36110,55 @@ export class ListGreyTagRouteResponseBodyDataResultScRules extends $tea.Model {
 
 export class ListGreyTagRouteResponseBodyDataResult extends $tea.Model {
   albRules?: ListGreyTagRouteResponseBodyDataResultAlbRules[];
+  /**
+   * @remarks
+   * The timestamp when the canary release rule was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1619007592013
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The description of the canary release rule.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The canary release rule of the Dubbo service.
+   */
   dubboRules?: ListGreyTagRouteResponseBodyDataResultDubboRules[];
+  /**
+   * @remarks
+   * The ID of the canary release rule.
+   * 
+   * @example
+   * 1
+   */
   greyTagRouteId?: number;
+  /**
+   * @remarks
+   * The name of the canary release rule.
+   * 
+   * @example
+   * rule-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The canary release rule of the Spring Cloud application.
+   */
   scRules?: ListGreyTagRouteResponseBodyDataResultScRules[];
+  /**
+   * @remarks
+   * The timestamp when the canary release rule was updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1609434061000
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20434,9 +36192,34 @@ export class ListGreyTagRouteResponseBodyDataResult extends $tea.Model {
 }
 
 export class ListGreyTagRouteResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page. Valid value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: ListGreyTagRouteResponseBodyDataResult[];
+  /**
+   * @remarks
+   * The total number of canary release rules. Valid value: **1**.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20462,19 +36245,104 @@ export class ListGreyTagRouteResponseBodyData extends $tea.Model {
 }
 
 export class ListIngressesResponseBodyDataIngressList extends $tea.Model {
+  /**
+   * @remarks
+   * The error code. 
+   * 
+   * - The **ErrorCode** parameter is not returned when the request succeeds.
+   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 13624*****73809_16f8e549a20_1175189789_12****3210
+   */
   certId?: string;
+  /**
+   * @example
+   * 87***35-cn-hangzhou,812***3-cn-hangzhou
+   */
   certIds?: string;
+  /**
+   * @remarks
+   * The ID of the routing rule.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the list of routing rules was obtained. Valid values:
+   * 
+   * *   **true**: indicates that the list was obtained.
+   * *   **false**: indicates that the list could not be obtained.
+   * 
+   * @example
+   * 18
+   */
   id?: number;
+  /**
+   * @remarks
+   * The type of the SLB instance based on the processing capabilities. Valid values:
+   * 
+   * *   **clb**: the Classic Load Balancer (CLB) instance.
+   * *   **alb**: the Application Load Balancer (ALB) instance.
+   * 
+   * @example
+   * 80
+   */
   listenerPort?: string;
+  /**
+   * @example
+   * HTTP
+   */
   listenerProtocol?: string;
+  /**
+   * @example
+   * clb
+   */
   loadBalanceType?: string;
   mseGatewayId?: string;
   mseGatewayPort?: string;
   mseGatewayProtocol?: string;
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * lb-uf6jt0nu4z6ior943****-80-f5****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the routing rule.
+   * 
+   * @example
+   * cn-shanghai
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * lb-uf62****6d13tq2u5
+   */
   slbId?: string;
+  /**
+   * @remarks
+   * The protocol used to forward requests. Valid values:
+   * 
+   * *   **HTTP**: used when the application needs to identify the transmitted data.
+   * *   **HTTPS**: used when the application requires encrypted data transmission.
+   * 
+   * @example
+   * internet
+   */
   slbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20520,6 +36388,13 @@ export class ListIngressesResponseBodyDataIngressList extends $tea.Model {
 }
 
 export class ListIngressesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the SLB instance based on the IP address. Valid values:
+   * 
+   * *   **internet**: the Internet-facing SLB instance.
+   * *   **intranet**: the internal-facing SLB instance.
+   */
   ingressList?: ListIngressesResponseBodyDataIngressList[];
   static names(): { [key: string]: string } {
     return {
@@ -20539,7 +36414,21 @@ export class ListIngressesResponseBodyData extends $tea.Model {
 }
 
 export class ListJobsResponseBodyDataApplicationsTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20561,22 +36450,125 @@ export class ListJobsResponseBodyDataApplicationsTags extends $tea.Model {
 }
 
 export class ListJobsResponseBodyDataApplications extends $tea.Model {
+  /**
+   * @remarks
+   * The number of running instances.
+   * 
+   * @example
+   * 0
+   */
   active?: number;
+  /**
+   * @remarks
+   * The description of the job template.
+   * 
+   * @example
+   * description
+   */
   appDescription?: string;
+  /**
+   * @remarks
+   * The ID of the job template.
+   * 
+   * @example
+   * f7730764-d88f-4b9a-8d8e-cd8efbfe****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the job template.
+   * 
+   * @example
+   * demo-app
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The time when the job was last completed.
+   * 
+   * @example
+   * 1657522839
+   */
   completionTime?: number;
   cpu?: number;
+  /**
+   * @remarks
+   * The number of instances that failed to run.
+   * 
+   * @example
+   * 0
+   */
   failed?: number;
+  /**
+   * @remarks
+   * Indicates whether the latest change order was executed. Valid values:
+   * 
+   * *   **0**: The latest change order failed to be executed.
+   * *   **1**: The latest change order was executed.
+   * 
+   * @example
+   * 1
+   */
   lastChangeorderState?: string;
+  /**
+   * @remarks
+   * The running status of the latest job. Valid values:
+   * 
+   * *   **0**: The job is not executed.
+   * *   **1**: The job was executed.
+   * *   **2**: The job failed to be executed.
+   * *   **3**: The job is being executed.
+   * 
+   * @example
+   * 0
+   */
   lastJobState?: string;
+  /**
+   * @remarks
+   * The time when the job was last started.
+   * 
+   * @example
+   * 1657522800
+   */
   lastStartTime?: number;
   mem?: number;
   message?: string;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-beijing:demo
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of instances that were successfully run.
+   * 
+   * @example
+   * 3
+   */
   succeeded?: number;
+  /**
+   * @remarks
+   * Indicates whether the job template is suspended.
+   * 
+   * @example
+   * false
+   */
   suspend?: boolean;
+  /**
+   * @remarks
+   * The tag of the job template.
+   */
   tags?: ListJobsResponseBodyDataApplicationsTags[];
   triggerConfig?: string;
   static names(): { [key: string]: string } {
@@ -20631,9 +36623,34 @@ export class ListJobsResponseBodyDataApplications extends $tea.Model {
 }
 
 export class ListJobsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The job templates.
+   */
   applications?: ListJobsResponseBodyDataApplications[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of job templates.
+   * 
+   * @example
+   * 2
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20659,13 +36676,69 @@ export class ListJobsResponseBodyData extends $tea.Model {
 }
 
 export class ListLogConfigsResponseBodyDataLogConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The path of logs.
+   * 
+   * @example
+   * sae-1f240907a6faf58c653f09e81b7e****
+   */
   configName?: string;
+  /**
+   * @remarks
+   * The storage type of logs.
+   * 
+   * @example
+   * 2019-08-29 17:18:00
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The name of the Logstore in Log Service.
+   * 
+   * @example
+   * /root/logs/hsf/hsf.log
+   */
   logDir?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * file_log
+   */
   logType?: string;
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The time when the configuration was created.
+   * 
+   * @example
+   * sae-1f240907a6faf58c653f09e81b7e****
+   */
   slsLogStore?: string;
+  /**
+   * @remarks
+   * The type of the log. Set this value to **file_log**.
+   * 
+   * @example
+   * sae-56f77b65-788d-442a-9885-7f20d91f****
+   */
   slsProject?: string;
+  /**
+   * @remarks
+   * The ID of the Log Service project.
+   * 
+   * @example
+   * sls
+   */
   storeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20699,9 +36772,37 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $tea.Model {
 }
 
 export class ListLogConfigsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The name of the Log Service configuration.
+   */
   logConfigs?: ListLogConfigsResponseBodyDataLogConfigs[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20727,20 +36828,132 @@ export class ListLogConfigsResponseBodyData extends $tea.Model {
 }
 
 export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of release batches.
+   * 
+   * @example
+   * 1
+   */
   batchCount?: number;
+  /**
+   * @remarks
+   * The mode in which the release batches are determined. Valid values:
+   * 
+   * *   **auto**: SAE automatically determines the release batches.
+   * *   **manual**: You must manually determine the release batches.
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 7fa5c0-9ebb-4bb4-b383-1f885447****
+   */
   changeOrderId?: string;
+  /**
+   * @remarks
+   * The type of the change order, which corresponds the **CoTypeCode** parameter.
+   * 
+   * @example
+   * msg.docker.app.actions.CoBatchStartApplication
+   */
   coType?: string;
+  /**
+   * @remarks
+   * The code of the change order type. Valid values:
+   * 
+   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
+   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
+   * 
+   * @example
+   * CoBatchStartApplication
+   */
   coTypeCode?: string;
+  /**
+   * @remarks
+   * The time when the change order was created.
+   * 
+   * @example
+   * 2019-07-11 15:54:49
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The ID of the user who created the change order.
+   * 
+   * @example
+   * test@aliyun.com
+   */
   createUserId?: string;
+  /**
+   * @remarks
+   * The description of the change order.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the change order was completed.
+   * 
+   * @example
+   * 2019-07-11 20:12:58
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * c9ecd2-cf6c-46c3-9f20-525de202****
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-shanghai:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The information about release batches.
+   * 
+   * @example
+   * xxxx
+   */
   pipelines?: string;
+  /**
+   * @remarks
+   * The source of the change order.
+   * 
+   * @example
+   * console
+   */
   source?: string;
+  /**
+   * @remarks
+   * The status of the change order. Valid values:
+   * 
+   * *   **0**: The change order is being prepared.
+   * *   **1**: The change order is being executed.
+   * *   **2**: The change order was executed.
+   * *   **3**: The change order could not be executed.
+   * *   **6**: The change order was terminated.
+   * *   **10**: The change order could not be executed due to a system exception.
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * test_sae
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20788,9 +37001,34 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $t
 }
 
 export class ListNamespaceChangeOrdersResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of change orders.
+   */
   changeOrderList?: ListNamespaceChangeOrdersResponseBodyDataChangeOrderList[];
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of change orders.
+   * 
+   * @example
+   * 32
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20816,7 +37054,21 @@ export class ListNamespaceChangeOrdersResponseBodyData extends $tea.Model {
 }
 
 export class ListNamespacedConfigMapsResponseBodyDataConfigMapsRelateApps extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * f16b4000-9058-4c22-a49d-49a28f0b****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * test-app
+   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20838,13 +37090,70 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMapsRelateApps extend
 }
 
 export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ConfigMap instance.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 1593760185111
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The data of ConfigMap key-value pairs. Format:
+   * 
+   * {"k1":"v1", "k2":"v2"}
+   * 
+   * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   data?: { [key: string]: any };
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * test-desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the ConfigMap instance.
+   * 
+   * @example
+   * test-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The application that is associated with the instance.
+   */
   relateApps?: ListNamespacedConfigMapsResponseBodyDataConfigMapsRelateApps[];
+  /**
+   * @remarks
+   * The time when the instance was last modified.
+   * 
+   * @example
+   * 1593760185111
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20878,6 +37187,10 @@ export class ListNamespacedConfigMapsResponseBodyDataConfigMaps extends $tea.Mod
 }
 
 export class ListNamespacedConfigMapsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ConfigMap instances.
+   */
   configMaps?: ListNamespacedConfigMapsResponseBodyDataConfigMaps[];
   static names(): { [key: string]: string } {
     return {
@@ -20897,12 +37210,58 @@ export class ListNamespacedConfigMapsResponseBodyData extends $tea.Model {
 }
 
 export class ListPublishedServicesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The reserved parameter. This parameter does not take effect.
+   * 
+   * @example
+   * b2a8a925-477a-4ed7-b825-d5e22500****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The subscription address of the service.
+   * 
+   * @example
+   * {}
+   */
   group2Ip?: string;
+  /**
+   * @remarks
+   * The version of the published services.
+   */
   groups?: string[];
+  /**
+   * @remarks
+   * The name of the published service.
+   */
   ips?: string[];
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * com.alibaba.nodejs.ItemService
+   */
   name?: string;
+  /**
+   * @remarks
+   * The service group that corresponds to the consumed service.
+   * 
+   * @example
+   * RPC
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20934,7 +37293,21 @@ export class ListPublishedServicesResponseBodyData extends $tea.Model {
 }
 
 export class ListSecretsResponseBodyDataSecretsRelateApps extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * f16b4000-9058-4c22-a49d-49a28f0b****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * test-app
+   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20956,12 +37329,60 @@ export class ListSecretsResponseBodyDataSecretsRelateApps extends $tea.Model {
 }
 
 export class ListSecretsResponseBodyDataSecrets extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the Secret was created.
+   * 
+   * @example
+   * 1593760185111
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The namespace ID.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The associated applications.
+   */
   relateApps?: ListSecretsResponseBodyDataSecretsRelateApps[];
+  /**
+   * @remarks
+   * The Secret ID.
+   * 
+   * @example
+   * 16
+   */
   secretId?: number;
+  /**
+   * @remarks
+   * The Secret name.
+   * 
+   * @example
+   * registry-auth
+   */
   secretName?: string;
+  /**
+   * @remarks
+   * The Secret type.
+   * 
+   * Set the value to **kubernetes.io/dockerconfigjson**. The value indicates the secret for the username and password of the image repository and is used for authentication when images are pulled during application deployment.
+   * 
+   * @example
+   * kubernetes.io/dockerconfigjson
+   */
   secretType?: string;
+  /**
+   * @remarks
+   * The time when the Secret was updated.
+   * 
+   * @example
+   * 1593760185111
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20993,6 +37414,10 @@ export class ListSecretsResponseBodyDataSecrets extends $tea.Model {
 }
 
 export class ListSecretsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The Secrets.
+   */
   secrets?: ListSecretsResponseBodyDataSecrets[];
   static names(): { [key: string]: string } {
     return {
@@ -21012,9 +37437,37 @@ export class ListSecretsResponseBodyData extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyDataTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * d42921c4-5433-4abd-8075-0e536f8b****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to `application`.
+   * 
+   * @example
+   * ALIYUN::SAE::APPLICATION
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21040,7 +37493,18 @@ export class ListTagResourcesResponseBodyDataTagResources extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * A maximum of 50 entries can be returned for a query. If a query generates more than 50 entries, the NextToken parameter is returned with the first 50 entries. You can use the NextToken parameter value to retrieve the subsequent entries that are not returned in the current query result.
+   * 
+   * @example
+   * ""
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The mapping relationships between applications and tags.
+   */
   tagResources?: ListTagResourcesResponseBodyDataTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -21062,7 +37526,21 @@ export class ListTagResourcesResponseBodyData extends $tea.Model {
 }
 
 export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $tea.Model {
+  /**
+   * @remarks
+   * The CPU usage. Unit: core per minute.
+   * 
+   * @example
+   * 13
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The memory usage. Unit: GiB per minute.
+   * 
+   * @example
+   * 26
+   */
   memory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21084,7 +37562,21 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $tea.Model 
 }
 
 export class QueryResourceStaticsResponseBodyDataSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The CPU usage. Unit: core per minute.
+   * 
+   * @example
+   * 3354
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The memory usage. Unit: GiB per minute.
+   * 
+   * @example
+   * 6708
+   */
   memory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21106,7 +37598,15 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $tea.Model {
 }
 
 export class QueryResourceStaticsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The real-time resource usage.
+   */
   realTimeRes?: QueryResourceStaticsResponseBodyDataRealTimeRes;
+  /**
+   * @remarks
+   * The resource usage of the current month.
+   */
   summary?: QueryResourceStaticsResponseBodyDataSummary;
   static names(): { [key: string]: string } {
     return {
@@ -21128,6 +37628,13 @@ export class QueryResourceStaticsResponseBodyData extends $tea.Model {
 }
 
 export class ReduceApplicationCapacityByInstanceIdsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change process.
+   * 
+   * @example
+   * 76fa5c0-9ebb-4bb4-b383-1f885447****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21147,6 +37654,13 @@ export class ReduceApplicationCapacityByInstanceIdsResponseBodyData extends $tea
 }
 
 export class RescaleApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 0e09829f-4914-4612-bc88-6f52fd81****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21166,6 +37680,13 @@ export class RescaleApplicationResponseBodyData extends $tea.Model {
 }
 
 export class RescaleApplicationVerticallyResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * ffd8cd45-2b5f-415d-b4d0-1003e80b****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21185,6 +37706,13 @@ export class RescaleApplicationVerticallyResponseBodyData extends $tea.Model {
 }
 
 export class RestartApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change process.
+   * 
+   * @example
+   * 4a815998-b468-4bea-b7d8-59f52a44****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21204,6 +37732,13 @@ export class RestartApplicationResponseBodyData extends $tea.Model {
 }
 
 export class RestartInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 5afa5b98-0c64-4637-983f-15eaa888****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21223,7 +37758,24 @@ export class RestartInstancesResponseBodyData extends $tea.Model {
 }
 
 export class RollbackApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change process.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
+  /**
+   * @remarks
+   * Specifies whether approval is required when a RAM user performs release. Take note of the following rules:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isNeedApproval?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -21245,6 +37797,13 @@ export class RollbackApplicationResponseBodyData extends $tea.Model {
 }
 
 export class StartApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the change order.
+   * 
+   * @example
+   * 4a815998-b468-4bea-b7d8-59f52a44****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21264,6 +37823,18 @@ export class StartApplicationResponseBodyData extends $tea.Model {
 }
 
 export class StopApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: indicates that the request was successful.
+   * *   **3xx**: indicates that the request was redirected.
+   * *   **4xx**: indicates that the request was invalid.
+   * *   **5xx**: indicates that a server error occurred.
+   * 
+   * @example
+   * 4a815998-b468-4bea-b7d8-59f52a44****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21283,6 +37854,16 @@ export class StopApplicationResponseBodyData extends $tea.Model {
 }
 
 export class UnbindSlbResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   The **ErrorCode** parameter is not returned when the request succeeds.
+   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * 4a815998-b468-4bea-b7d8-59f52a44****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21302,7 +37883,33 @@ export class UnbindSlbResponseBodyData extends $tea.Model {
 }
 
 export class UpdateApplicationScalingRuleResponseBodyDataMetricMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The limit on the metric.
+   * 
+   * *   The limit on the CPU utilization. Unit: percentage.
+   * *   The limit on the memory usage. Unit: percentage.
+   * *   The limit on the average number of active TCP connections per second.
+   * *   The limit on the QPS of the Internet-facing SLB instance.
+   * *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+   * 
+   * @example
+   * 20
+   */
   metricTargetAverageUtilization?: number;
+  /**
+   * @remarks
+   * The metric that is used to trigger the auto scaling policy. Valid values:
+   * 
+   * *   **CPU**: the CPU utilization.
+   * *   **MEMORY**: the memory usage.
+   * *   **tcpActiveConn**: the average number of active TCP connections of an application instance within 30 seconds.
+   * *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance associated with an application instance within 15 seconds.
+   * *   **SLB_RT**: the average response time of the Internet-facing SLB instance within 15 seconds.
+   * 
+   * @example
+   * CPU
+   */
   metricType?: string;
   slbId?: string;
   slbLogstore?: string;
@@ -21336,8 +37943,26 @@ export class UpdateApplicationScalingRuleResponseBodyDataMetricMetrics extends $
 }
 
 export class UpdateApplicationScalingRuleResponseBodyDataMetric extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of instances.
+   * 
+   * @example
+   * 3
+   */
   maxReplicas?: number;
+  /**
+   * @remarks
+   * The metrics that are used to trigger the auto scaling policy.
+   */
   metrics?: UpdateApplicationScalingRuleResponseBodyDataMetricMetrics[];
+  /**
+   * @remarks
+   * The minimum number of instances.
+   * 
+   * @example
+   * 1
+   */
   minReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21361,9 +37986,23 @@ export class UpdateApplicationScalingRuleResponseBodyDataMetric extends $tea.Mod
 }
 
 export class UpdateApplicationScalingRuleResponseBodyDataTimerSchedules extends $tea.Model {
+  /**
+   * @remarks
+   * The point in time. Format: **Hour:Minute**.
+   * 
+   * @example
+   * 08:00
+   */
   atTime?: string;
   maxReplicas?: number;
   minReplicas?: number;
+  /**
+   * @remarks
+   * The expected number of instances.
+   * 
+   * @example
+   * 3
+   */
   targetReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21389,9 +38028,54 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimerSchedules extends 
 }
 
 export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $tea.Model {
+  /**
+   * @remarks
+   * The start date of the validity period of the scheduled auto scaling policy. Parameter description:
+   * 
+   * *   If **BeginDate** and **EndDate** are set to **null**, the auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
+   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
+   * 
+   * @example
+   * 2021-03-25
+   */
   beginDate?: string;
+  /**
+   * @remarks
+   * The end date of the validity period of the scheduled auto scaling policy. Take note of the following rules:
+   * 
+   * *   If **BeginDate** and **EndDate** are set to **null**, the auto scaling policy is a long-term policy. Default values of the beginDate and endDate parameters: null.
+   * *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
+   * 
+   * @example
+   * 2021-04-25
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The frequency at which the scheduled auto scaling policy is executed. Valid values:
+   * 
+   * *   **\\* \\* \\***: The scheduled auto scaling policy is executed at a specified point in time every day.
+   * 
+   * *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each week. GMT+8 is used. Valid values:
+   * 
+   *     *   **Sun**
+   *     *   **Mon**
+   *     *   **Tue**
+   *     *   **Wed**
+   *     *   **Thu**
+   *     *   **Fri**
+   *     *   **Sat**
+   * 
+   * *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
+   * 
+   * @example
+   * * * *
+   */
   period?: string;
+  /**
+   * @remarks
+   * The points in time at which the auto scaling policy is triggered within one day.
+   */
   schedules?: UpdateApplicationScalingRuleResponseBodyDataTimerSchedules[];
   static names(): { [key: string]: string } {
     return {
@@ -21417,14 +38101,78 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $tea.Mode
 }
 
 export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1616642248938
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was last disabled.
+   * 
+   * @example
+   * 1641882854484
+   */
   lastDisableTime?: number;
+  /**
+   * @remarks
+   * The details of the metric-based auto scaling policy.
+   */
   metric?: UpdateApplicationScalingRuleResponseBodyDataMetric;
+  /**
+   * @remarks
+   * Specifies whether to enable the auto scaling policy. Valid values:
+   * 
+   * *   **true**: The auto scaling policy is enabled.
+   * *   **false**: The auto scaling policy is disabled.
+   * 
+   * @example
+   * true
+   */
   scaleRuleEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the auto scaling policy.
+   * 
+   * @example
+   * test
+   */
   scaleRuleName?: string;
+  /**
+   * @remarks
+   * The type of the auto scaling policy. Valid values:
+   * 
+   * *   **timing**: a scheduled auto scaling policy
+   * *   **metric**: a metric-based auto scaling policy
+   * *   **mix**: a hybrid auto scaling policy
+   * 
+   * @example
+   * timing
+   */
   scaleRuleType?: string;
+  /**
+   * @remarks
+   * The details of the scheduled auto scaling policy.
+   */
   timer?: UpdateApplicationScalingRuleResponseBodyDataTimer;
+  /**
+   * @remarks
+   * The time when the auto scaling policy was updated. Unit: milliseconds.
+   * 
+   * @example
+   * 1616642248938
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21460,6 +38208,16 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
 }
 
 export class UpdateConfigMapResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The returned error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * 1
+   */
   configMapId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21479,6 +38237,13 @@ export class UpdateConfigMapResponseBodyData extends $tea.Model {
 }
 
 export class UpdateGreyTagRouteResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the canary release rule. The ID is globally unique.
+   * 
+   * @example
+   * 1
+   */
   greyTagRouteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21498,6 +38263,10 @@ export class UpdateGreyTagRouteResponseBodyData extends $tea.Model {
 }
 
 export class UpdateIngressResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 87
+   */
   ingressId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21517,7 +38286,21 @@ export class UpdateIngressResponseBodyData extends $tea.Model {
 }
 
 export class UpdateJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the change order. It can be used to query the task status.
+   * 
+   * @example
+   * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21540,10 +38323,45 @@ export class UpdateJobResponseBodyData extends $tea.Model {
 
 export class UpdateNamespaceResponseBodyData extends $tea.Model {
   enableMicroRegistration?: boolean;
+  /**
+   * @remarks
+   * The short ID of the namespace.
+   * 
+   * @example
+   * test
+   */
   nameSpaceShortId?: string;
+  /**
+   * @remarks
+   * The description of the namespace.
+   * 
+   * @example
+   * desc
+   */
   namespaceDescription?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * cn-beijing:test
+   */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * name
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The region where the namespace resides.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21573,6 +38391,10 @@ export class UpdateNamespaceResponseBodyData extends $tea.Model {
 }
 
 export class UpdateSecretRequestSecretData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   secretData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21592,6 +38414,10 @@ export class UpdateSecretRequestSecretData extends $tea.Model {
 }
 
 export class UpdateSecretResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 16
+   */
   secretId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21634,12 +38460,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
-   *
-   * @param request AbortAndRollbackChangeOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AbortAndRollbackChangeOrderResponse
+   * ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
+   * 
+   * @param request - AbortAndRollbackChangeOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortAndRollbackChangeOrderResponse
    */
   async abortAndRollbackChangeOrderWithOptions(request: AbortAndRollbackChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortAndRollbackChangeOrderResponse> {
     Util.validateModel(request);
@@ -21667,10 +38493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
-   *
-   * @param request AbortAndRollbackChangeOrderRequest
-   * @return AbortAndRollbackChangeOrderResponse
+   * ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
+   * 
+   * @param request - AbortAndRollbackChangeOrderRequest
+   * @returns AbortAndRollbackChangeOrderResponse
    */
   async abortAndRollbackChangeOrder(request: AbortAndRollbackChangeOrderRequest): Promise<AbortAndRollbackChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21679,10 +38505,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AbortChangeOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AbortChangeOrderResponse
+   * @param request - AbortChangeOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortChangeOrderResponse
    */
   async abortChangeOrderWithOptions(request: AbortChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortChangeOrderResponse> {
     Util.validateModel(request);
@@ -21710,8 +38536,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AbortChangeOrderRequest
-   * @return AbortChangeOrderResponse
+   * @param request - AbortChangeOrderRequest
+   * @returns AbortChangeOrderResponse
    */
   async abortChangeOrder(request: AbortChangeOrderRequest): Promise<AbortChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21720,12 +38546,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary cn-shanghai
-   *
-   * @param request BatchStartApplicationsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchStartApplicationsResponse
+   * cn-shanghai
+   * 
+   * @param request - BatchStartApplicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchStartApplicationsResponse
    */
   async batchStartApplicationsWithOptions(request: BatchStartApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchStartApplicationsResponse> {
     Util.validateModel(request);
@@ -21761,10 +38587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary cn-shanghai
-   *
-   * @param request BatchStartApplicationsRequest
-   * @return BatchStartApplicationsResponse
+   * cn-shanghai
+   * 
+   * @param request - BatchStartApplicationsRequest
+   * @returns BatchStartApplicationsResponse
    */
   async batchStartApplications(request: BatchStartApplicationsRequest): Promise<BatchStartApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21773,10 +38599,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BatchStopApplicationsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchStopApplicationsResponse
+   * Stops multiple applications at a time.
+   * 
+   * @param request - BatchStopApplicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchStopApplicationsResponse
    */
   async batchStopApplicationsWithOptions(request: BatchStopApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchStopApplicationsResponse> {
     Util.validateModel(request);
@@ -21812,8 +38640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BatchStopApplicationsRequest
-   * @return BatchStopApplicationsResponse
+   * Stops multiple applications at a time.
+   * 
+   * @param request - BatchStopApplicationsRequest
+   * @returns BatchStopApplicationsResponse
    */
   async batchStopApplications(request: BatchStopApplicationsRequest): Promise<BatchStopApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21822,10 +38652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindSlbRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindSlbResponse
+   * @param request - BindSlbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindSlbResponse
    */
   async bindSlbWithOptions(request: BindSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BindSlbResponse> {
     Util.validateModel(request);
@@ -21838,12 +38668,20 @@ export default class Client extends OpenApi {
       query["Internet"] = request.internet;
     }
 
+    if (!Util.isUnset(request.internetSlbChargeType)) {
+      query["InternetSlbChargeType"] = request.internetSlbChargeType;
+    }
+
     if (!Util.isUnset(request.internetSlbId)) {
       query["InternetSlbId"] = request.internetSlbId;
     }
 
     if (!Util.isUnset(request.intranet)) {
       query["Intranet"] = request.intranet;
+    }
+
+    if (!Util.isUnset(request.intranetSlbChargeType)) {
+      query["IntranetSlbChargeType"] = request.intranetSlbChargeType;
     }
 
     if (!Util.isUnset(request.intranetSlbId)) {
@@ -21869,8 +38707,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindSlbRequest
-   * @return BindSlbResponse
+   * @param request - BindSlbRequest
+   * @returns BindSlbResponse
    */
   async bindSlb(request: BindSlbRequest): Promise<BindSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21879,10 +38717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ConfirmPipelineBatchRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfirmPipelineBatchResponse
+   * @param request - ConfirmPipelineBatchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmPipelineBatchResponse
    */
   async confirmPipelineBatchWithOptions(request: ConfirmPipelineBatchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConfirmPipelineBatchResponse> {
     Util.validateModel(request);
@@ -21914,8 +38752,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ConfirmPipelineBatchRequest
-   * @return ConfirmPipelineBatchResponse
+   * @param request - ConfirmPipelineBatchRequest
+   * @returns ConfirmPipelineBatchResponse
    */
   async confirmPipelineBatch(request: ConfirmPipelineBatchRequest): Promise<ConfirmPipelineBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21924,10 +38762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateApplicationResponse
+   * @param request - CreateApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationResponse
    */
   async createApplicationWithOptions(request: CreateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
@@ -22197,8 +39035,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateApplicationRequest
-   * @return CreateApplicationResponse
+   * @param request - CreateApplicationRequest
+   * @returns CreateApplicationResponse
    */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22207,18 +39045,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Null
-   *
-   * @description The HTTP status code. Take note of the following rules:
+   * Null
+   * 
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
    * *   **2xx**: The call was successful.
    * *   **3xx**: The call was redirected.
    * *   **4xx**: The call failed.
    * *   **5xx**: A server error occurred.
-   *
-   * @param request CreateApplicationScalingRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateApplicationScalingRuleResponse
+   * 
+   * @param request - CreateApplicationScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationScalingRuleResponse
    */
   async createApplicationScalingRuleWithOptions(request: CreateApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationScalingRuleResponse> {
     Util.validateModel(request);
@@ -22274,16 +39113,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Null
-   *
-   * @description The HTTP status code. Take note of the following rules:
+   * Null
+   * 
+   * @remarks
+   * The HTTP status code. Take note of the following rules:
    * *   **2xx**: The call was successful.
    * *   **3xx**: The call was redirected.
    * *   **4xx**: The call failed.
    * *   **5xx**: A server error occurred.
-   *
-   * @param request CreateApplicationScalingRuleRequest
-   * @return CreateApplicationScalingRuleResponse
+   * 
+   * @param request - CreateApplicationScalingRuleRequest
+   * @returns CreateApplicationScalingRuleResponse
    */
   async createApplicationScalingRule(request: CreateApplicationScalingRuleRequest): Promise<CreateApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22292,12 +39132,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary name
-   *
-   * @param request CreateConfigMapRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConfigMapResponse
+   * name
+   * 
+   * @param request - CreateConfigMapRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigMapResponse
    */
   async createConfigMapWithOptions(request: CreateConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigMapResponse> {
     Util.validateModel(request);
@@ -22339,10 +39179,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary name
-   *
-   * @param request CreateConfigMapRequest
-   * @return CreateConfigMapResponse
+   * name
+   * 
+   * @param request - CreateConfigMapRequest
+   * @returns CreateConfigMapResponse
    */
   async createConfigMap(request: CreateConfigMapRequest): Promise<CreateConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22351,14 +39191,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
-   *
-   * @description >  You can configure only one canary release rule for each application.
-   *
-   * @param request CreateGreyTagRouteRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGreyTagRouteResponse
+   * Creates a canary release rule for a Spring Cloud or Dubbo application.
+   * 
+   * @remarks
+   * >  You can configure only one canary release rule for each application.
+   * 
+   * @param request - CreateGreyTagRouteRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGreyTagRouteResponse
    */
   async createGreyTagRouteWithOptions(request: CreateGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGreyTagRouteResponse> {
     Util.validateModel(request);
@@ -22406,12 +39247,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
-   *
-   * @description >  You can configure only one canary release rule for each application.
-   *
-   * @param request CreateGreyTagRouteRequest
-   * @return CreateGreyTagRouteResponse
+   * Creates a canary release rule for a Spring Cloud or Dubbo application.
+   * 
+   * @remarks
+   * >  You can configure only one canary release rule for each application.
+   * 
+   * @param request - CreateGreyTagRouteRequest
+   * @returns CreateGreyTagRouteResponse
    */
   async createGreyTagRoute(request: CreateGreyTagRouteRequest): Promise<CreateGreyTagRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22420,12 +39262,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
-   *
-   * @param request CreateIngressRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIngressResponse
+   * {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+   * 
+   * @param request - CreateIngressRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIngressResponse
    */
   async createIngressWithOptions(request: CreateIngressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIngressResponse> {
     Util.validateModel(request);
@@ -22491,10 +39333,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
-   *
-   * @param request CreateIngressRequest
-   * @return CreateIngressResponse
+   * {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+   * 
+   * @param request - CreateIngressRequest
+   * @returns CreateIngressResponse
    */
   async createIngress(request: CreateIngressRequest): Promise<CreateIngressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22503,12 +39345,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a job template.
-   *
-   * @param request CreateJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateJobResponse
+   * Updates a job template.
+   * 
+   * @param request - CreateJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateJobResponse
    */
   async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(request);
@@ -22750,10 +39592,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a job template.
-   *
-   * @param request CreateJobRequest
-   * @return CreateJobResponse
+   * Updates a job template.
+   * 
+   * @param request - CreateJobRequest
+   * @returns CreateJobResponse
    */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22762,12 +39604,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary desc
-   *
-   * @param request CreateNamespaceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateNamespaceResponse
+   * Creates a namespace.
+   * 
+   * @param request - CreateNamespaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNamespaceResponse
    */
   async createNamespaceWithOptions(request: CreateNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
@@ -22811,10 +39653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary desc
-   *
-   * @param request CreateNamespaceRequest
-   * @return CreateNamespaceResponse
+   * Creates a namespace.
+   * 
+   * @param request - CreateNamespaceRequest
+   * @returns CreateNamespaceResponse
    */
   async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22823,12 +39665,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Null
-   *
-   * @param tmpReq CreateSecretRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSecretResponse
+   * Null
+   * 
+   * @param tmpReq - CreateSecretRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecretResponse
    */
   async createSecretWithOptions(tmpReq: CreateSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSecretResponse> {
     Util.validateModel(tmpReq);
@@ -22874,10 +39716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Null
-   *
-   * @param request CreateSecretRequest
-   * @return CreateSecretResponse
+   * Null
+   * 
+   * @param request - CreateSecretRequest
+   * @returns CreateSecretResponse
    */
   async createSecret(request: CreateSecretRequest): Promise<CreateSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22886,12 +39728,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建应用
-   *
-   * @param request CreateWebApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWebApplicationResponse
+   * 创建应用
+   * 
+   * @param request - CreateWebApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWebApplicationResponse
    */
   async createWebApplicationWithOptions(request: CreateWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWebApplicationResponse> {
     Util.validateModel(request);
@@ -22920,10 +39762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建应用
-   *
-   * @param request CreateWebApplicationRequest
-   * @return CreateWebApplicationResponse
+   * 创建应用
+   * 
+   * @param request - CreateWebApplicationRequest
+   * @returns CreateWebApplicationResponse
    */
   async createWebApplication(request: CreateWebApplicationRequest): Promise<CreateWebApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22932,12 +39774,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建自定义域名
-   *
-   * @param request CreateWebCustomDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWebCustomDomainResponse
+   * 新建自定义域名
+   * 
+   * @param request - CreateWebCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWebCustomDomainResponse
    */
   async createWebCustomDomainWithOptions(request: CreateWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWebCustomDomainResponse> {
     Util.validateModel(request);
@@ -22966,10 +39808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建自定义域名
-   *
-   * @param request CreateWebCustomDomainRequest
-   * @return CreateWebCustomDomainResponse
+   * 新建自定义域名
+   * 
+   * @param request - CreateWebCustomDomainRequest
+   * @returns CreateWebCustomDomainResponse
    */
   async createWebCustomDomain(request: CreateWebCustomDomainRequest): Promise<CreateWebCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22978,10 +39820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteApplicationResponse
+   * @param request - DeleteApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationResponse
    */
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
@@ -23009,8 +39851,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteApplicationRequest
-   * @return DeleteApplicationResponse
+   * @param request - DeleteApplicationRequest
+   * @returns DeleteApplicationResponse
    */
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23019,12 +39861,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
-   *
-   * @param request DeleteApplicationScalingRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteApplicationScalingRuleResponse
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * @param request - DeleteApplicationScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationScalingRuleResponse
    */
   async deleteApplicationScalingRuleWithOptions(request: DeleteApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationScalingRuleResponse> {
     Util.validateModel(request);
@@ -23056,10 +39898,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
-   *
-   * @param request DeleteApplicationScalingRuleRequest
-   * @return DeleteApplicationScalingRuleResponse
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * @param request - DeleteApplicationScalingRuleRequest
+   * @returns DeleteApplicationScalingRuleResponse
    */
   async deleteApplicationScalingRule(request: DeleteApplicationScalingRuleRequest): Promise<DeleteApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23068,10 +39910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteConfigMapRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConfigMapResponse
+   * @param request - DeleteConfigMapRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigMapResponse
    */
   async deleteConfigMapWithOptions(request: DeleteConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigMapResponse> {
     Util.validateModel(request);
@@ -23099,8 +39941,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteConfigMapRequest
-   * @return DeleteConfigMapResponse
+   * @param request - DeleteConfigMapRequest
+   * @returns DeleteConfigMapResponse
    */
   async deleteConfigMap(request: DeleteConfigMapRequest): Promise<DeleteConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23109,12 +39951,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 1
-   *
-   * @param request DeleteGreyTagRouteRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGreyTagRouteResponse
+   * 1
+   * 
+   * @param request - DeleteGreyTagRouteRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGreyTagRouteResponse
    */
   async deleteGreyTagRouteWithOptions(request: DeleteGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGreyTagRouteResponse> {
     Util.validateModel(request);
@@ -23142,10 +39984,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 1
-   *
-   * @param request DeleteGreyTagRouteRequest
-   * @return DeleteGreyTagRouteResponse
+   * 1
+   * 
+   * @param request - DeleteGreyTagRouteRequest
+   * @returns DeleteGreyTagRouteResponse
    */
   async deleteGreyTagRoute(request: DeleteGreyTagRouteRequest): Promise<DeleteGreyTagRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23154,12 +39996,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a job.
-   *
-   * @param request DeleteHistoryJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteHistoryJobResponse
+   * Deletes a job.
+   * 
+   * @param request - DeleteHistoryJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHistoryJobResponse
    */
   async deleteHistoryJobWithOptions(request: DeleteHistoryJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteHistoryJobResponse> {
     Util.validateModel(request);
@@ -23191,10 +40033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a job.
-   *
-   * @param request DeleteHistoryJobRequest
-   * @return DeleteHistoryJobResponse
+   * Deletes a job.
+   * 
+   * @param request - DeleteHistoryJobRequest
+   * @returns DeleteHistoryJobResponse
    */
   async deleteHistoryJob(request: DeleteHistoryJobRequest): Promise<DeleteHistoryJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23203,10 +40045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIngressRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIngressResponse
+   * @param request - DeleteIngressRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIngressResponse
    */
   async deleteIngressWithOptions(request: DeleteIngressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIngressResponse> {
     Util.validateModel(request);
@@ -23234,8 +40076,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIngressRequest
-   * @return DeleteIngressResponse
+   * @param request - DeleteIngressRequest
+   * @returns DeleteIngressResponse
    */
   async deleteIngress(request: DeleteIngressRequest): Promise<DeleteIngressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23244,12 +40086,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a job template.
-   *
-   * @param request DeleteJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteJobResponse
+   * Deletes a job template.
+   * 
+   * @param request - DeleteJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobResponse
    */
   async deleteJobWithOptions(request: DeleteJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     Util.validateModel(request);
@@ -23277,10 +40119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a job template.
-   *
-   * @param request DeleteJobRequest
-   * @return DeleteJobResponse
+   * Deletes a job template.
+   * 
+   * @param request - DeleteJobRequest
+   * @returns DeleteJobResponse
    */
   async deleteJob(request: DeleteJobRequest): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23289,10 +40131,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteNamespaceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteNamespaceResponse
+   * @param request - DeleteNamespaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNamespaceResponse
    */
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
@@ -23324,8 +40166,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteNamespaceRequest
-   * @return DeleteNamespaceResponse
+   * @param request - DeleteNamespaceRequest
+   * @returns DeleteNamespaceResponse
    */
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23334,12 +40176,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a Secret.
-   *
-   * @param request DeleteSecretRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSecretResponse
+   * Deletes a Secret.
+   * 
+   * @param request - DeleteSecretRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecretResponse
    */
   async deleteSecretWithOptions(request: DeleteSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSecretResponse> {
     Util.validateModel(request);
@@ -23371,10 +40213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a Secret.
-   *
-   * @param request DeleteSecretRequest
-   * @return DeleteSecretResponse
+   * Deletes a Secret.
+   * 
+   * @param request - DeleteSecretRequest
+   * @returns DeleteSecretResponse
    */
   async deleteSecret(request: DeleteSecretRequest): Promise<DeleteSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23383,12 +40225,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除应用
-   *
-   * @param request DeleteWebApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebApplicationResponse
+   * 删除应用
+   * 
+   * @param request - DeleteWebApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebApplicationResponse
    */
   async deleteWebApplicationWithOptions(ApplicationId: string, request: DeleteWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWebApplicationResponse> {
     Util.validateModel(request);
@@ -23416,10 +40258,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除应用
-   *
-   * @param request DeleteWebApplicationRequest
-   * @return DeleteWebApplicationResponse
+   * 删除应用
+   * 
+   * @param request - DeleteWebApplicationRequest
+   * @returns DeleteWebApplicationResponse
    */
   async deleteWebApplication(ApplicationId: string, request: DeleteWebApplicationRequest): Promise<DeleteWebApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23428,12 +40270,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除应用版本
-   *
-   * @param request DeleteWebApplicationRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebApplicationRevisionResponse
+   * 删除应用版本
+   * 
+   * @param request - DeleteWebApplicationRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebApplicationRevisionResponse
    */
   async deleteWebApplicationRevisionWithOptions(ApplicationId: string, RevisionId: string, request: DeleteWebApplicationRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWebApplicationRevisionResponse> {
     Util.validateModel(request);
@@ -23461,10 +40303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除应用版本
-   *
-   * @param request DeleteWebApplicationRevisionRequest
-   * @return DeleteWebApplicationRevisionResponse
+   * 删除应用版本
+   * 
+   * @param request - DeleteWebApplicationRevisionRequest
+   * @returns DeleteWebApplicationRevisionResponse
    */
   async deleteWebApplicationRevision(ApplicationId: string, RevisionId: string, request: DeleteWebApplicationRevisionRequest): Promise<DeleteWebApplicationRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23473,12 +40315,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除自定义域名
-   *
-   * @param request DeleteWebCustomDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebCustomDomainResponse
+   * 删除自定义域名
+   * 
+   * @param request - DeleteWebCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebCustomDomainResponse
    */
   async deleteWebCustomDomainWithOptions(DomainName: string, request: DeleteWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWebCustomDomainResponse> {
     Util.validateModel(request);
@@ -23506,10 +40348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除自定义域名
-   *
-   * @param request DeleteWebCustomDomainRequest
-   * @return DeleteWebCustomDomainResponse
+   * 删除自定义域名
+   * 
+   * @param request - DeleteWebCustomDomainRequest
+   * @returns DeleteWebCustomDomainResponse
    */
   async deleteWebCustomDomain(DomainName: string, request: DeleteWebCustomDomainRequest): Promise<DeleteWebCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23518,12 +40360,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deploys an application.
-   *
-   * @param request DeployApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeployApplicationResponse
+   * Deploys an application.
+   * 
+   * @param request - DeployApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployApplicationResponse
    */
   async deployApplicationWithOptions(request: DeployApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployApplicationResponse> {
     Util.validateModel(request);
@@ -23789,10 +40631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deploys an application.
-   *
-   * @param request DeployApplicationRequest
-   * @return DeployApplicationResponse
+   * Deploys an application.
+   * 
+   * @param request - DeployApplicationRequest
+   * @returns DeployApplicationResponse
    */
   async deployApplication(request: DeployApplicationRequest): Promise<DeployApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23801,12 +40643,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the metadata details of the service of an application.
-   *
-   * @param request DescribeAppServiceDetailRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAppServiceDetailResponse
+   * Queries the metadata details of the service of an application.
+   * 
+   * @param request - DescribeAppServiceDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppServiceDetailResponse
    */
   async describeAppServiceDetailWithOptions(request: DescribeAppServiceDetailRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAppServiceDetailResponse> {
     Util.validateModel(request);
@@ -23858,10 +40700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the metadata details of the service of an application.
-   *
-   * @param request DescribeAppServiceDetailRequest
-   * @return DescribeAppServiceDetailResponse
+   * Queries the metadata details of the service of an application.
+   * 
+   * @param request - DescribeAppServiceDetailRequest
+   * @returns DescribeAppServiceDetailResponse
    */
   async describeAppServiceDetail(request: DescribeAppServiceDetailRequest): Promise<DescribeAppServiceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23870,10 +40712,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationConfigResponse
+   * Queries the configurations of an application.
+   * 
+   * @param request - DescribeApplicationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationConfigResponse
    */
   async describeApplicationConfigWithOptions(request: DescribeApplicationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationConfigResponse> {
     Util.validateModel(request);
@@ -23905,8 +40749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationConfigRequest
-   * @return DescribeApplicationConfigResponse
+   * Queries the configurations of an application.
+   * 
+   * @param request - DescribeApplicationConfigRequest
+   * @returns DescribeApplicationConfigResponse
    */
   async describeApplicationConfig(request: DescribeApplicationConfigRequest): Promise<DescribeApplicationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23915,10 +40761,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationGroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationGroupsResponse
+   * @param request - DescribeApplicationGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationGroupsResponse
    */
   async describeApplicationGroupsWithOptions(request: DescribeApplicationGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationGroupsResponse> {
     Util.validateModel(request);
@@ -23954,8 +40800,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationGroupsRequest
-   * @return DescribeApplicationGroupsResponse
+   * @param request - DescribeApplicationGroupsRequest
+   * @returns DescribeApplicationGroupsResponse
    */
   async describeApplicationGroups(request: DescribeApplicationGroupsRequest): Promise<DescribeApplicationGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23964,10 +40810,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationImageRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationImageResponse
+   * Queries the information about the image of an application.
+   * 
+   * @param request - DescribeApplicationImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationImageResponse
    */
   async describeApplicationImageWithOptions(request: DescribeApplicationImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationImageResponse> {
     Util.validateModel(request);
@@ -23999,8 +40847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationImageRequest
-   * @return DescribeApplicationImageResponse
+   * Queries the information about the image of an application.
+   * 
+   * @param request - DescribeApplicationImageRequest
+   * @returns DescribeApplicationImageResponse
    */
   async describeApplicationImage(request: DescribeApplicationImageRequest): Promise<DescribeApplicationImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24009,12 +40859,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries application instances.
-   *
-   * @param request DescribeApplicationInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationInstancesResponse
+   * Queries application instances.
+   * 
+   * @param request - DescribeApplicationInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationInstancesResponse
    */
   async describeApplicationInstancesWithOptions(request: DescribeApplicationInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationInstancesResponse> {
     Util.validateModel(request);
@@ -24058,10 +40908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries application instances.
-   *
-   * @param request DescribeApplicationInstancesRequest
-   * @return DescribeApplicationInstancesResponse
+   * Queries application instances.
+   * 
+   * @param request - DescribeApplicationInstancesRequest
+   * @returns DescribeApplicationInstancesResponse
    */
   async describeApplicationInstances(request: DescribeApplicationInstancesRequest): Promise<DescribeApplicationInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24070,12 +40920,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a specified auto scaling policy of an application.
-   *
-   * @param request DescribeApplicationScalingRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationScalingRuleResponse
+   * Queries a specified auto scaling policy of an application.
+   * 
+   * @param request - DescribeApplicationScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationScalingRuleResponse
    */
   async describeApplicationScalingRuleWithOptions(request: DescribeApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationScalingRuleResponse> {
     Util.validateModel(request);
@@ -24107,10 +40957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a specified auto scaling policy of an application.
-   *
-   * @param request DescribeApplicationScalingRuleRequest
-   * @return DescribeApplicationScalingRuleResponse
+   * Queries a specified auto scaling policy of an application.
+   * 
+   * @param request - DescribeApplicationScalingRuleRequest
+   * @returns DescribeApplicationScalingRuleResponse
    */
   async describeApplicationScalingRule(request: DescribeApplicationScalingRuleRequest): Promise<DescribeApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24119,12 +40969,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the auto scaling policies of an application.
-   *
-   * @param request DescribeApplicationScalingRulesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationScalingRulesResponse
+   * Queries the auto scaling policies of an application.
+   * 
+   * @param request - DescribeApplicationScalingRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationScalingRulesResponse
    */
   async describeApplicationScalingRulesWithOptions(request: DescribeApplicationScalingRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationScalingRulesResponse> {
     Util.validateModel(request);
@@ -24152,10 +41002,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the auto scaling policies of an application.
-   *
-   * @param request DescribeApplicationScalingRulesRequest
-   * @return DescribeApplicationScalingRulesResponse
+   * Queries the auto scaling policies of an application.
+   * 
+   * @param request - DescribeApplicationScalingRulesRequest
+   * @returns DescribeApplicationScalingRulesResponse
    */
   async describeApplicationScalingRules(request: DescribeApplicationScalingRulesRequest): Promise<DescribeApplicationScalingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24164,12 +41014,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
-   *
-   * @param request DescribeApplicationSlbsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationSlbsResponse
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * 
+   * @param request - DescribeApplicationSlbsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationSlbsResponse
    */
   async describeApplicationSlbsWithOptions(request: DescribeApplicationSlbsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationSlbsResponse> {
     Util.validateModel(request);
@@ -24197,10 +41047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
-   *
-   * @param request DescribeApplicationSlbsRequest
-   * @return DescribeApplicationSlbsResponse
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * 
+   * @param request - DescribeApplicationSlbsRequest
+   * @returns DescribeApplicationSlbsResponse
    */
   async describeApplicationSlbs(request: DescribeApplicationSlbsRequest): Promise<DescribeApplicationSlbsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24209,10 +41059,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationStatusResponse
+   * @param request - DescribeApplicationStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationStatusResponse
    */
   async describeApplicationStatusWithOptions(request: DescribeApplicationStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationStatusResponse> {
     Util.validateModel(request);
@@ -24240,8 +41090,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeApplicationStatusRequest
-   * @return DescribeApplicationStatusResponse
+   * @param request - DescribeApplicationStatusRequest
+   * @returns DescribeApplicationStatusResponse
    */
   async describeApplicationStatus(request: DescribeApplicationStatusRequest): Promise<DescribeApplicationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24250,10 +41100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeChangeOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChangeOrderResponse
+   * @param request - DescribeChangeOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChangeOrderResponse
    */
   async describeChangeOrderWithOptions(request: DescribeChangeOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeChangeOrderResponse> {
     Util.validateModel(request);
@@ -24281,8 +41131,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeChangeOrderRequest
-   * @return DescribeChangeOrderResponse
+   * @param request - DescribeChangeOrderRequest
+   * @returns DescribeChangeOrderResponse
    */
   async describeChangeOrder(request: DescribeChangeOrderRequest): Promise<DescribeChangeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24291,10 +41141,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeComponentsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeComponentsResponse
+   * @param request - DescribeComponentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComponentsResponse
    */
   async describeComponentsWithOptions(request: DescribeComponentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeComponentsResponse> {
     Util.validateModel(request);
@@ -24326,8 +41176,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeComponentsRequest
-   * @return DescribeComponentsResponse
+   * @param request - DescribeComponentsRequest
+   * @returns DescribeComponentsResponse
    */
   async describeComponents(request: DescribeComponentsRequest): Promise<DescribeComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24336,10 +41186,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeConfigMapRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeConfigMapResponse
+   * @param request - DescribeConfigMapRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConfigMapResponse
    */
   async describeConfigMapWithOptions(request: DescribeConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConfigMapResponse> {
     Util.validateModel(request);
@@ -24367,8 +41217,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeConfigMapRequest
-   * @return DescribeConfigMapResponse
+   * @param request - DescribeConfigMapRequest
+   * @returns DescribeConfigMapResponse
    */
   async describeConfigMap(request: DescribeConfigMapRequest): Promise<DescribeConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24377,10 +41227,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeConfigurationPriceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeConfigurationPriceResponse
+   * @param request - DescribeConfigurationPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConfigurationPriceResponse
    */
   async describeConfigurationPriceWithOptions(request: DescribeConfigurationPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConfigurationPriceResponse> {
     Util.validateModel(request);
@@ -24416,8 +41266,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeConfigurationPriceRequest
-   * @return DescribeConfigurationPriceResponse
+   * @param request - DescribeConfigurationPriceRequest
+   * @returns DescribeConfigurationPriceResponse
    */
   async describeConfigurationPrice(request: DescribeConfigurationPriceRequest): Promise<DescribeConfigurationPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24426,9 +41276,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEdasContainersResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEdasContainersResponse
    */
   async describeEdasContainersWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdasContainersResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -24449,7 +41299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DescribeEdasContainersResponse
+   * @returns DescribeEdasContainersResponse
    */
   async describeEdasContainers(): Promise<DescribeEdasContainersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24458,12 +41308,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a canary release rule based on the specified rule ID.
-   *
-   * @param request DescribeGreyTagRouteRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGreyTagRouteResponse
+   * Queries the details of a canary release rule based on the specified rule ID.
+   * 
+   * @param request - DescribeGreyTagRouteRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGreyTagRouteResponse
    */
   async describeGreyTagRouteWithOptions(request: DescribeGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGreyTagRouteResponse> {
     Util.validateModel(request);
@@ -24491,10 +41341,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a canary release rule based on the specified rule ID.
-   *
-   * @param request DescribeGreyTagRouteRequest
-   * @return DescribeGreyTagRouteResponse
+   * Queries the details of a canary release rule based on the specified rule ID.
+   * 
+   * @param request - DescribeGreyTagRouteRequest
+   * @returns DescribeGreyTagRouteResponse
    */
   async describeGreyTagRoute(request: DescribeGreyTagRouteRequest): Promise<DescribeGreyTagRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24503,10 +41353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeIngressRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIngressResponse
+   * @param request - DescribeIngressRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIngressResponse
    */
   async describeIngressWithOptions(request: DescribeIngressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIngressResponse> {
     Util.validateModel(request);
@@ -24534,8 +41384,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeIngressRequest
-   * @return DescribeIngressResponse
+   * @param request - DescribeIngressRequest
+   * @returns DescribeIngressResponse
    */
   async describeIngress(request: DescribeIngressRequest): Promise<DescribeIngressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24544,10 +41394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstanceLogRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceLogResponse
+   * @param request - DescribeInstanceLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceLogResponse
    */
   async describeInstanceLogWithOptions(request: DescribeInstanceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceLogResponse> {
     Util.validateModel(request);
@@ -24575,8 +41425,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstanceLogRequest
-   * @return DescribeInstanceLogResponse
+   * @param request - DescribeInstanceLogRequest
+   * @returns DescribeInstanceLogResponse
    */
   async describeInstanceLog(request: DescribeInstanceLogRequest): Promise<DescribeInstanceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24585,9 +41435,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceSpecificationsResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSpecificationsResponse
    */
   async describeInstanceSpecificationsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecificationsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -24608,7 +41458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DescribeInstanceSpecificationsResponse
+   * @returns DescribeInstanceSpecificationsResponse
    */
   async describeInstanceSpecifications(): Promise<DescribeInstanceSpecificationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24617,12 +41467,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of a job template.
-   *
-   * @param request DescribeJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeJobResponse
+   * Queries the configurations of a job template.
+   * 
+   * @param request - DescribeJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJobResponse
    */
   async describeJobWithOptions(request: DescribeJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeJobResponse> {
     Util.validateModel(request);
@@ -24654,10 +41504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of a job template.
-   *
-   * @param request DescribeJobRequest
-   * @return DescribeJobResponse
+   * Queries the configurations of a job template.
+   * 
+   * @param request - DescribeJobRequest
+   * @returns DescribeJobResponse
    */
   async describeJob(request: DescribeJobRequest): Promise<DescribeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24666,12 +41516,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the information about jobs.
-   *
-   * @param request DescribeJobHistoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeJobHistoryResponse
+   * Query the information about jobs.
+   * 
+   * @param request - DescribeJobHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJobHistoryResponse
    */
   async describeJobHistoryWithOptions(request: DescribeJobHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeJobHistoryResponse> {
     Util.validateModel(request);
@@ -24711,10 +41561,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the information about jobs.
-   *
-   * @param request DescribeJobHistoryRequest
-   * @return DescribeJobHistoryResponse
+   * Query the information about jobs.
+   * 
+   * @param request - DescribeJobHistoryRequest
+   * @returns DescribeJobHistoryResponse
    */
   async describeJobHistory(request: DescribeJobHistoryRequest): Promise<DescribeJobHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24723,12 +41573,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a job.
-   *
-   * @param request DescribeJobStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeJobStatusResponse
+   * Queries the status of a job.
+   * 
+   * @param request - DescribeJobStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJobStatusResponse
    */
   async describeJobStatusWithOptions(request: DescribeJobStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeJobStatusResponse> {
     Util.validateModel(request);
@@ -24760,10 +41610,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a job.
-   *
-   * @param request DescribeJobStatusRequest
-   * @return DescribeJobStatusResponse
+   * Queries the status of a job.
+   * 
+   * @param request - DescribeJobStatusRequest
+   * @returns DescribeJobStatusResponse
    */
   async describeJobStatus(request: DescribeJobStatusRequest): Promise<DescribeJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24772,12 +41622,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a namespace.
-   *
-   * @param request DescribeNamespaceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNamespaceResponse
+   * Queries the details of a namespace.
+   * 
+   * @param request - DescribeNamespaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNamespaceResponse
    */
   async describeNamespaceWithOptions(request: DescribeNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResponse> {
     Util.validateModel(request);
@@ -24809,10 +41659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a namespace.
-   *
-   * @param request DescribeNamespaceRequest
-   * @return DescribeNamespaceResponse
+   * Queries the details of a namespace.
+   * 
+   * @param request - DescribeNamespaceRequest
+   * @returns DescribeNamespaceResponse
    */
   async describeNamespace(request: DescribeNamespaceRequest): Promise<DescribeNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24821,10 +41671,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeNamespaceListRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNamespaceListResponse
+   * Queries a list of namespaces.
+   * 
+   * @param request - DescribeNamespaceListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNamespaceListResponse
    */
   async describeNamespaceListWithOptions(request: DescribeNamespaceListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceListResponse> {
     Util.validateModel(request);
@@ -24856,8 +41708,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeNamespaceListRequest
-   * @return DescribeNamespaceListResponse
+   * Queries a list of namespaces.
+   * 
+   * @param request - DescribeNamespaceListRequest
+   * @returns DescribeNamespaceListResponse
    */
   async describeNamespaceList(request: DescribeNamespaceListRequest): Promise<DescribeNamespaceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24866,10 +41720,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeNamespaceResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNamespaceResourcesResponse
+   * @param request - DescribeNamespaceResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNamespaceResourcesResponse
    */
   async describeNamespaceResourcesWithOptions(request: DescribeNamespaceResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResourcesResponse> {
     Util.validateModel(request);
@@ -24901,8 +41755,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeNamespaceResourcesRequest
-   * @return DescribeNamespaceResourcesResponse
+   * @param request - DescribeNamespaceResourcesRequest
+   * @returns DescribeNamespaceResourcesResponse
    */
   async describeNamespaceResources(request: DescribeNamespaceResourcesRequest): Promise<DescribeNamespaceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24911,12 +41765,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of namespaces.
-   *
-   * @param request DescribeNamespacesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNamespacesResponse
+   * Queries the details of namespaces.
+   * 
+   * @param request - DescribeNamespacesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNamespacesResponse
    */
   async describeNamespacesWithOptions(request: DescribeNamespacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesResponse> {
     Util.validateModel(request);
@@ -24948,10 +41802,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of namespaces.
-   *
-   * @param request DescribeNamespacesRequest
-   * @return DescribeNamespacesResponse
+   * Queries the details of namespaces.
+   * 
+   * @param request - DescribeNamespacesRequest
+   * @returns DescribeNamespacesResponse
    */
   async describeNamespaces(request: DescribeNamespacesRequest): Promise<DescribeNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24960,12 +41814,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a batch.
-   *
-   * @param request DescribePipelineRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePipelineResponse
+   * Queries the information of a batch.
+   * 
+   * @param request - DescribePipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePipelineResponse
    */
   async describePipelineWithOptions(request: DescribePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineResponse> {
     Util.validateModel(request);
@@ -24993,10 +41847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a batch.
-   *
-   * @param request DescribePipelineRequest
-   * @return DescribePipelineResponse
+   * Queries the information of a batch.
+   * 
+   * @param request - DescribePipelineRequest
+   * @returns DescribePipelineResponse
    */
   async describePipeline(request: DescribePipelineRequest): Promise<DescribePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25005,11 +41859,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available regions.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * Queries available regions.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -25030,9 +41884,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available regions.
-   *
-   * @return DescribeRegionsResponse
+   * Queries available regions.
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25041,12 +41894,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a Secret instance.
-   *
-   * @param request DescribeSecretRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSecretResponse
+   * Queries the details of a Secret instance.
+   * 
+   * @param request - DescribeSecretRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecretResponse
    */
   async describeSecretWithOptions(request: DescribeSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSecretResponse> {
     Util.validateModel(request);
@@ -25078,10 +41931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a Secret instance.
-   *
-   * @param request DescribeSecretRequest
-   * @return DescribeSecretResponse
+   * Queries the details of a Secret instance.
+   * 
+   * @param request - DescribeSecretRequest
+   * @returns DescribeSecretResponse
    */
   async describeSecret(request: DescribeSecretRequest): Promise<DescribeSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25090,12 +41943,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用信息
-   *
-   * @param request DescribeWebApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebApplicationResponse
+   * 获取应用信息
+   * 
+   * @param request - DescribeWebApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebApplicationResponse
    */
   async describeWebApplicationWithOptions(ApplicationId: string, request: DescribeWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationResponse> {
     Util.validateModel(request);
@@ -25123,10 +41976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用信息
-   *
-   * @param request DescribeWebApplicationRequest
-   * @return DescribeWebApplicationResponse
+   * 获取应用信息
+   * 
+   * @param request - DescribeWebApplicationRequest
+   * @returns DescribeWebApplicationResponse
    */
   async describeWebApplication(ApplicationId: string, request: DescribeWebApplicationRequest): Promise<DescribeWebApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25135,12 +41988,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用资源用量统计
-   *
-   * @param request DescribeWebApplicationResourceStaticsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebApplicationResourceStaticsResponse
+   * 应用资源用量统计
+   * 
+   * @param request - DescribeWebApplicationResourceStaticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebApplicationResourceStaticsResponse
    */
   async describeWebApplicationResourceStaticsWithOptions(ApplicationId: string, request: DescribeWebApplicationResourceStaticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationResourceStaticsResponse> {
     Util.validateModel(request);
@@ -25180,10 +42033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用资源用量统计
-   *
-   * @param request DescribeWebApplicationResourceStaticsRequest
-   * @return DescribeWebApplicationResourceStaticsResponse
+   * 应用资源用量统计
+   * 
+   * @param request - DescribeWebApplicationResourceStaticsRequest
+   * @returns DescribeWebApplicationResourceStaticsResponse
    */
   async describeWebApplicationResourceStatics(ApplicationId: string, request: DescribeWebApplicationResourceStaticsRequest): Promise<DescribeWebApplicationResourceStaticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25192,12 +42045,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用版本
-   *
-   * @param request DescribeWebApplicationRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebApplicationRevisionResponse
+   * 获取应用版本
+   * 
+   * @param request - DescribeWebApplicationRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebApplicationRevisionResponse
    */
   async describeWebApplicationRevisionWithOptions(ApplicationId: string, RevisionId: string, request: DescribeWebApplicationRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationRevisionResponse> {
     Util.validateModel(request);
@@ -25225,10 +42078,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用版本
-   *
-   * @param request DescribeWebApplicationRevisionRequest
-   * @return DescribeWebApplicationRevisionResponse
+   * 获取应用版本
+   * 
+   * @param request - DescribeWebApplicationRevisionRequest
+   * @returns DescribeWebApplicationRevisionResponse
    */
   async describeWebApplicationRevision(ApplicationId: string, RevisionId: string, request: DescribeWebApplicationRevisionRequest): Promise<DescribeWebApplicationRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25237,12 +42090,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 弹性配置详情
-   *
-   * @param request DescribeWebApplicationScalingConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebApplicationScalingConfigResponse
+   * 弹性配置详情
+   * 
+   * @param request - DescribeWebApplicationScalingConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebApplicationScalingConfigResponse
    */
   async describeWebApplicationScalingConfigWithOptions(ApplicationId: string, request: DescribeWebApplicationScalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationScalingConfigResponse> {
     Util.validateModel(request);
@@ -25270,10 +42123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 弹性配置详情
-   *
-   * @param request DescribeWebApplicationScalingConfigRequest
-   * @return DescribeWebApplicationScalingConfigResponse
+   * 弹性配置详情
+   * 
+   * @param request - DescribeWebApplicationScalingConfigRequest
+   * @returns DescribeWebApplicationScalingConfigResponse
    */
   async describeWebApplicationScalingConfig(ApplicationId: string, request: DescribeWebApplicationScalingConfigRequest): Promise<DescribeWebApplicationScalingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25282,12 +42135,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 流量配置详情
-   *
-   * @param request DescribeWebApplicationTrafficConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebApplicationTrafficConfigResponse
+   * 流量配置详情
+   * 
+   * @param request - DescribeWebApplicationTrafficConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebApplicationTrafficConfigResponse
    */
   async describeWebApplicationTrafficConfigWithOptions(ApplicationId: string, request: DescribeWebApplicationTrafficConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebApplicationTrafficConfigResponse> {
     Util.validateModel(request);
@@ -25315,10 +42168,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 流量配置详情
-   *
-   * @param request DescribeWebApplicationTrafficConfigRequest
-   * @return DescribeWebApplicationTrafficConfigResponse
+   * 流量配置详情
+   * 
+   * @param request - DescribeWebApplicationTrafficConfigRequest
+   * @returns DescribeWebApplicationTrafficConfigResponse
    */
   async describeWebApplicationTrafficConfig(ApplicationId: string, request: DescribeWebApplicationTrafficConfigRequest): Promise<DescribeWebApplicationTrafficConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25327,12 +42180,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取域名.
-   *
-   * @param request DescribeWebCustomDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebCustomDomainResponse
+   * 获取域名.
+   * 
+   * @param request - DescribeWebCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebCustomDomainResponse
    */
   async describeWebCustomDomainWithOptions(DomainName: string, request: DescribeWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebCustomDomainResponse> {
     Util.validateModel(request);
@@ -25360,10 +42213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取域名.
-   *
-   * @param request DescribeWebCustomDomainRequest
-   * @return DescribeWebCustomDomainResponse
+   * 获取域名.
+   * 
+   * @param request - DescribeWebCustomDomainRequest
+   * @returns DescribeWebCustomDomainResponse
    */
   async describeWebCustomDomain(DomainName: string, request: DescribeWebCustomDomainRequest): Promise<DescribeWebCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25372,12 +42225,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用实例日志
-   *
-   * @param request DescribeWebInstanceLogsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebInstanceLogsResponse
+   * 应用实例日志
+   * 
+   * @param request - DescribeWebInstanceLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebInstanceLogsResponse
    */
   async describeWebInstanceLogsWithOptions(ApplicationId: string, InstanceId: string, request: DescribeWebInstanceLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWebInstanceLogsResponse> {
     Util.validateModel(request);
@@ -25405,10 +42258,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用实例日志
-   *
-   * @param request DescribeWebInstanceLogsRequest
-   * @return DescribeWebInstanceLogsResponse
+   * 应用实例日志
+   * 
+   * @param request - DescribeWebInstanceLogsRequest
+   * @returns DescribeWebInstanceLogsResponse
    */
   async describeWebInstanceLogs(ApplicationId: string, InstanceId: string, request: DescribeWebInstanceLogsRequest): Promise<DescribeWebInstanceLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25417,10 +42270,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableApplicationScalingRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableApplicationScalingRuleResponse
+   * @param request - DisableApplicationScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApplicationScalingRuleResponse
    */
   async disableApplicationScalingRuleWithOptions(request: DisableApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableApplicationScalingRuleResponse> {
     Util.validateModel(request);
@@ -25452,8 +42305,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableApplicationScalingRuleRequest
-   * @return DisableApplicationScalingRuleResponse
+   * @param request - DisableApplicationScalingRuleRequest
+   * @returns DisableApplicationScalingRuleResponse
    */
   async disableApplicationScalingRule(request: DisableApplicationScalingRuleRequest): Promise<DisableApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25462,12 +42315,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables an auto scaling policy for an application.
-   *
-   * @param request EnableApplicationScalingRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableApplicationScalingRuleResponse
+   * Enables an auto scaling policy for an application.
+   * 
+   * @param request - EnableApplicationScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApplicationScalingRuleResponse
    */
   async enableApplicationScalingRuleWithOptions(request: EnableApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableApplicationScalingRuleResponse> {
     Util.validateModel(request);
@@ -25499,10 +42352,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables an auto scaling policy for an application.
-   *
-   * @param request EnableApplicationScalingRuleRequest
-   * @return EnableApplicationScalingRuleResponse
+   * Enables an auto scaling policy for an application.
+   * 
+   * @param request - EnableApplicationScalingRuleRequest
+   * @returns EnableApplicationScalingRuleResponse
    */
   async enableApplicationScalingRule(request: EnableApplicationScalingRuleRequest): Promise<EnableApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25511,10 +42364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ExecJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecJobResponse
+   * @param request - ExecJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecJobResponse
    */
   async execJobWithOptions(request: ExecJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecJobResponse> {
     Util.validateModel(request);
@@ -25578,8 +42431,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ExecJobRequest
-   * @return ExecJobResponse
+   * @param request - ExecJobRequest
+   * @returns ExecJobResponse
    */
   async execJob(request: ExecJobRequest): Promise<ExecJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25588,12 +42441,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in Application Monitoring.
-   *
-   * @param request GetArmsTopNMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetArmsTopNMetricResponse
+   * Queries the top N applications in Application Monitoring.
+   * 
+   * @param request - GetArmsTopNMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetArmsTopNMetricResponse
    */
   async getArmsTopNMetricWithOptions(request: GetArmsTopNMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetArmsTopNMetricResponse> {
     Util.validateModel(request);
@@ -25645,10 +42498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in Application Monitoring.
-   *
-   * @param request GetArmsTopNMetricRequest
-   * @return GetArmsTopNMetricResponse
+   * Queries the top N applications in Application Monitoring.
+   * 
+   * @param request - GetArmsTopNMetricRequest
+   * @returns GetArmsTopNMetricResponse
    */
   async getArmsTopNMetric(request: GetArmsTopNMetricRequest): Promise<GetArmsTopNMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25657,12 +42510,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in which abnormal instances exist. The applications are sorted by the total number of abnormal instances.
-   *
-   * @param request GetAvailabilityMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAvailabilityMetricResponse
+   * Queries the top N applications in which abnormal instances exist. The applications are sorted by the total number of abnormal instances.
+   * 
+   * @param request - GetAvailabilityMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAvailabilityMetricResponse
    */
   async getAvailabilityMetricWithOptions(request: GetAvailabilityMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAvailabilityMetricResponse> {
     Util.validateModel(request);
@@ -25702,10 +42555,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in which abnormal instances exist. The applications are sorted by the total number of abnormal instances.
-   *
-   * @param request GetAvailabilityMetricRequest
-   * @return GetAvailabilityMetricResponse
+   * Queries the top N applications in which abnormal instances exist. The applications are sorted by the total number of abnormal instances.
+   * 
+   * @param request - GetAvailabilityMetricRequest
+   * @returns GetAvailabilityMetricResponse
    */
   async getAvailabilityMetric(request: GetAvailabilityMetricRequest): Promise<GetAvailabilityMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25714,12 +42567,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries top N applications in abnormal change orders.
-   *
-   * @param request GetChangeOrderMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetChangeOrderMetricResponse
+   * Queries top N applications in abnormal change orders.
+   * 
+   * @param request - GetChangeOrderMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChangeOrderMetricResponse
    */
   async getChangeOrderMetricWithOptions(request: GetChangeOrderMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetChangeOrderMetricResponse> {
     Util.validateModel(request);
@@ -25767,10 +42620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries top N applications in abnormal change orders.
-   *
-   * @param request GetChangeOrderMetricRequest
-   * @return GetChangeOrderMetricResponse
+   * Queries top N applications in abnormal change orders.
+   * 
+   * @param request - GetChangeOrderMetricRequest
+   * @returns GetChangeOrderMetricResponse
    */
   async getChangeOrderMetric(request: GetChangeOrderMetricRequest): Promise<GetChangeOrderMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25779,12 +42632,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in which auto scaling takes effect.
-   *
-   * @param request GetScaleAppMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetScaleAppMetricResponse
+   * Queries the top N applications in which auto scaling takes effect.
+   * 
+   * @param request - GetScaleAppMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScaleAppMetricResponse
    */
   async getScaleAppMetricWithOptions(request: GetScaleAppMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetScaleAppMetricResponse> {
     Util.validateModel(request);
@@ -25824,10 +42677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in which auto scaling takes effect.
-   *
-   * @param request GetScaleAppMetricRequest
-   * @return GetScaleAppMetricResponse
+   * Queries the top N applications in which auto scaling takes effect.
+   * 
+   * @param request - GetScaleAppMetricRequest
+   * @returns GetScaleAppMetricResponse
    */
   async getScaleAppMetric(request: GetScaleAppMetricRequest): Promise<GetScaleAppMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25836,12 +42689,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in which Warning events occur.
-   *
-   * @param request GetWarningEventMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWarningEventMetricResponse
+   * Queries the top N applications in which Warning events occur.
+   * 
+   * @param request - GetWarningEventMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWarningEventMetricResponse
    */
   async getWarningEventMetricWithOptions(request: GetWarningEventMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWarningEventMetricResponse> {
     Util.validateModel(request);
@@ -25889,10 +42742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N applications in which Warning events occur.
-   *
-   * @param request GetWarningEventMetricRequest
-   * @return GetWarningEventMetricResponse
+   * Queries the top N applications in which Warning events occur.
+   * 
+   * @param request - GetWarningEventMetricRequest
+   * @returns GetWarningEventMetricResponse
    */
   async getWarningEventMetric(request: GetWarningEventMetricRequest): Promise<GetWarningEventMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25901,12 +42754,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the events that occurred in an application.
-   *
-   * @param request ListAppEventsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAppEventsResponse
+   * Queries the events that occurred in an application.
+   * 
+   * @param request - ListAppEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppEventsResponse
    */
   async listAppEventsWithOptions(request: ListAppEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppEventsResponse> {
     Util.validateModel(request);
@@ -25962,10 +42815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the events that occurred in an application.
-   *
-   * @param request ListAppEventsRequest
-   * @return ListAppEventsResponse
+   * Queries the events that occurred in an application.
+   * 
+   * @param request - ListAppEventsRequest
+   * @returns ListAppEventsResponse
    */
   async listAppEvents(request: ListAppEventsRequest): Promise<ListAppEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25974,12 +42827,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
-   *
-   * @param request ListAppServicesPageRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAppServicesPageResponse
+   * 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+   * 
+   * @param request - ListAppServicesPageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppServicesPageResponse
    */
   async listAppServicesPageWithOptions(request: ListAppServicesPageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppServicesPageResponse> {
     Util.validateModel(request);
@@ -26019,10 +42872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
-   *
-   * @param request ListAppServicesPageRequest
-   * @return ListAppServicesPageResponse
+   * 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+   * 
+   * @param request - ListAppServicesPageRequest
+   * @returns ListAppServicesPageResponse
    */
   async listAppServicesPage(request: ListAppServicesPageRequest): Promise<ListAppServicesPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26031,12 +42884,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
-   *
-   * @param request ListAppVersionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAppVersionsResponse
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * @param request - ListAppVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppVersionsResponse
    */
   async listAppVersionsWithOptions(request: ListAppVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppVersionsResponse> {
     Util.validateModel(request);
@@ -26064,10 +42917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
-   *
-   * @param request ListAppVersionsRequest
-   * @return ListAppVersionsResponse
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * 
+   * @param request - ListAppVersionsRequest
+   * @returns ListAppVersionsResponse
    */
   async listAppVersions(request: ListAppVersionsRequest): Promise<ListAppVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26076,12 +42929,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the namespace.
-   *
-   * @param request ListApplicationsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationsResponse
+   * The ID of the namespace.
+   * 
+   * @param request - ListApplicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsResponse
    */
   async listApplicationsWithOptions(request: ListApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(request);
@@ -26145,10 +42998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the namespace.
-   *
-   * @param request ListApplicationsRequest
-   * @return ListApplicationsResponse
+   * The ID of the namespace.
+   * 
+   * @param request - ListApplicationsRequest
+   * @returns ListApplicationsResponse
    */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26157,10 +43010,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListChangeOrdersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListChangeOrdersResponse
+   * @param request - ListChangeOrdersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChangeOrdersResponse
    */
   async listChangeOrdersWithOptions(request: ListChangeOrdersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChangeOrdersResponse> {
     Util.validateModel(request);
@@ -26208,8 +43061,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListChangeOrdersRequest
-   * @return ListChangeOrdersResponse
+   * @param request - ListChangeOrdersRequest
+   * @returns ListChangeOrdersResponse
    */
   async listChangeOrders(request: ListChangeOrdersRequest): Promise<ListChangeOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26218,12 +43071,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
-   *
-   * @param request ListConsumedServicesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConsumedServicesResponse
+   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * 
+   * @param request - ListConsumedServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumedServicesResponse
    */
   async listConsumedServicesWithOptions(request: ListConsumedServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumedServicesResponse> {
     Util.validateModel(request);
@@ -26251,10 +43104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
-   *
-   * @param request ListConsumedServicesRequest
-   * @return ListConsumedServicesResponse
+   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * 
+   * @param request - ListConsumedServicesRequest
+   * @returns ListConsumedServicesResponse
    */
   async listConsumedServices(request: ListConsumedServicesRequest): Promise<ListConsumedServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26263,14 +43116,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a canary release rule based on an application ID.
-   *
-   * @description >  You can configure only one canary release rule for each application.
-   *
-   * @param request ListGreyTagRouteRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGreyTagRouteResponse
+   * Queries the details of a canary release rule based on an application ID.
+   * 
+   * @remarks
+   * >  You can configure only one canary release rule for each application.
+   * 
+   * @param request - ListGreyTagRouteRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGreyTagRouteResponse
    */
   async listGreyTagRouteWithOptions(request: ListGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGreyTagRouteResponse> {
     Util.validateModel(request);
@@ -26298,12 +43152,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a canary release rule based on an application ID.
-   *
-   * @description >  You can configure only one canary release rule for each application.
-   *
-   * @param request ListGreyTagRouteRequest
-   * @return ListGreyTagRouteResponse
+   * Queries the details of a canary release rule based on an application ID.
+   * 
+   * @remarks
+   * >  You can configure only one canary release rule for each application.
+   * 
+   * @param request - ListGreyTagRouteRequest
+   * @returns ListGreyTagRouteResponse
    */
   async listGreyTagRoute(request: ListGreyTagRouteRequest): Promise<ListGreyTagRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26312,14 +43167,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The returned message.
+   * The returned message.
    * *   **success** is returned when the request succeeds.
    * *   An error code is returned when the request fails.
-   *
-   * @param request ListIngressesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIngressesResponse
+   * 
+   * @param request - ListIngressesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIngressesResponse
    */
   async listIngressesWithOptions(request: ListIngressesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIngressesResponse> {
     Util.validateModel(request);
@@ -26351,12 +43206,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The returned message.
+   * The returned message.
    * *   **success** is returned when the request succeeds.
    * *   An error code is returned when the request fails.
-   *
-   * @param request ListIngressesRequest
-   * @return ListIngressesResponse
+   * 
+   * @param request - ListIngressesRequest
+   * @returns ListIngressesResponse
    */
   async listIngresses(request: ListIngressesRequest): Promise<ListIngressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26365,12 +43220,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about job templates.
-   *
-   * @param request ListJobsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobsResponse
+   * Queries the information about job templates.
+   * 
+   * @param request - ListJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobsResponse
    */
   async listJobsWithOptions(request: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(request);
@@ -26434,10 +43289,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about job templates.
-   *
-   * @param request ListJobsRequest
-   * @return ListJobsResponse
+   * Queries the information about job templates.
+   * 
+   * @param request - ListJobsRequest
+   * @returns ListJobsResponse
    */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26446,12 +43301,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
-   *
-   * @param request ListLogConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLogConfigsResponse
+   * 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
+   * 
+   * @param request - ListLogConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLogConfigsResponse
    */
   async listLogConfigsWithOptions(request: ListLogConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogConfigsResponse> {
     Util.validateModel(request);
@@ -26487,10 +43342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
-   *
-   * @param request ListLogConfigsRequest
-   * @return ListLogConfigsResponse
+   * 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
+   * 
+   * @param request - ListLogConfigsRequest
+   * @returns ListLogConfigsResponse
    */
   async listLogConfigs(request: ListLogConfigsRequest): Promise<ListLogConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26499,10 +43354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListNamespaceChangeOrdersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNamespaceChangeOrdersResponse
+   * @param request - ListNamespaceChangeOrdersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNamespaceChangeOrdersResponse
    */
   async listNamespaceChangeOrdersWithOptions(request: ListNamespaceChangeOrdersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNamespaceChangeOrdersResponse> {
     Util.validateModel(request);
@@ -26550,8 +43405,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListNamespaceChangeOrdersRequest
-   * @return ListNamespaceChangeOrdersResponse
+   * @param request - ListNamespaceChangeOrdersRequest
+   * @returns ListNamespaceChangeOrdersResponse
    */
   async listNamespaceChangeOrders(request: ListNamespaceChangeOrdersRequest): Promise<ListNamespaceChangeOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26560,12 +43415,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the ConfigMap instances in a namespace.
-   *
-   * @param request ListNamespacedConfigMapsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNamespacedConfigMapsResponse
+   * Queries the ConfigMap instances in a namespace.
+   * 
+   * @param request - ListNamespacedConfigMapsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNamespacedConfigMapsResponse
    */
   async listNamespacedConfigMapsWithOptions(request: ListNamespacedConfigMapsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNamespacedConfigMapsResponse> {
     Util.validateModel(request);
@@ -26593,10 +43448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the ConfigMap instances in a namespace.
-   *
-   * @param request ListNamespacedConfigMapsRequest
-   * @return ListNamespacedConfigMapsResponse
+   * Queries the ConfigMap instances in a namespace.
+   * 
+   * @param request - ListNamespacedConfigMapsRequest
+   * @returns ListNamespacedConfigMapsResponse
    */
   async listNamespacedConfigMaps(request: ListNamespacedConfigMapsRequest): Promise<ListNamespacedConfigMapsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26605,12 +43460,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
-   *
-   * @param request ListPublishedServicesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPublishedServicesResponse
+   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * 
+   * @param request - ListPublishedServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublishedServicesResponse
    */
   async listPublishedServicesWithOptions(request: ListPublishedServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPublishedServicesResponse> {
     Util.validateModel(request);
@@ -26638,10 +43493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
-   *
-   * @param request ListPublishedServicesRequest
-   * @return ListPublishedServicesResponse
+   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * 
+   * @param request - ListPublishedServicesRequest
+   * @returns ListPublishedServicesResponse
    */
   async listPublishedServices(request: ListPublishedServicesRequest): Promise<ListPublishedServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26650,12 +43505,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about Secrets in a namespace.
-   *
-   * @param request ListSecretsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSecretsResponse
+   * Queries the information about Secrets in a namespace.
+   * 
+   * @param request - ListSecretsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecretsResponse
    */
   async listSecretsWithOptions(request: ListSecretsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSecretsResponse> {
     Util.validateModel(request);
@@ -26683,10 +43538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about Secrets in a namespace.
-   *
-   * @param request ListSecretsRequest
-   * @return ListSecretsResponse
+   * Queries the information about Secrets in a namespace.
+   * 
+   * @param request - ListSecretsRequest
+   * @returns ListSecretsResponse
    */
   async listSecrets(request: ListSecretsRequest): Promise<ListSecretsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26695,12 +43550,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mapping relationships between applications and tags.
-   *
-   * @param request ListTagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the mapping relationships between applications and tags.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -26744,10 +43599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mapping relationships between applications and tags.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the mapping relationships between applications and tags.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26756,12 +43611,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用实例列表
-   *
-   * @param tmpReq ListWebApplicationInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWebApplicationInstancesResponse
+   * 应用实例列表
+   * 
+   * @param tmpReq - ListWebApplicationInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebApplicationInstancesResponse
    */
   async listWebApplicationInstancesWithOptions(ApplicationId: string, tmpReq: ListWebApplicationInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebApplicationInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -26827,10 +43682,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用实例列表
-   *
-   * @param request ListWebApplicationInstancesRequest
-   * @return ListWebApplicationInstancesResponse
+   * 应用实例列表
+   * 
+   * @param request - ListWebApplicationInstancesRequest
+   * @returns ListWebApplicationInstancesResponse
    */
   async listWebApplicationInstances(ApplicationId: string, request: ListWebApplicationInstancesRequest): Promise<ListWebApplicationInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26839,12 +43694,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 版本列表
-   *
-   * @param request ListWebApplicationRevisionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWebApplicationRevisionsResponse
+   * 版本列表
+   * 
+   * @param request - ListWebApplicationRevisionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebApplicationRevisionsResponse
    */
   async listWebApplicationRevisionsWithOptions(ApplicationId: string, request: ListWebApplicationRevisionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebApplicationRevisionsResponse> {
     Util.validateModel(request);
@@ -26880,10 +43735,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 版本列表
-   *
-   * @param request ListWebApplicationRevisionsRequest
-   * @return ListWebApplicationRevisionsResponse
+   * 版本列表
+   * 
+   * @param request - ListWebApplicationRevisionsRequest
+   * @returns ListWebApplicationRevisionsResponse
    */
   async listWebApplicationRevisions(ApplicationId: string, request: ListWebApplicationRevisionsRequest): Promise<ListWebApplicationRevisionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26892,12 +43747,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用列表
-   *
-   * @param request ListWebApplicationsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWebApplicationsResponse
+   * 应用列表
+   * 
+   * @param request - ListWebApplicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebApplicationsResponse
    */
   async listWebApplicationsWithOptions(request: ListWebApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebApplicationsResponse> {
     Util.validateModel(request);
@@ -26937,10 +43792,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用列表
-   *
-   * @param request ListWebApplicationsRequest
-   * @return ListWebApplicationsResponse
+   * 应用列表
+   * 
+   * @param request - ListWebApplicationsRequest
+   * @returns ListWebApplicationsResponse
    */
   async listWebApplications(request: ListWebApplicationsRequest): Promise<ListWebApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26949,12 +43804,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 自定义域名列表.
-   *
-   * @param request ListWebCustomDomainsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWebCustomDomainsResponse
+   * 自定义域名列表.
+   * 
+   * @param request - ListWebCustomDomainsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebCustomDomainsResponse
    */
   async listWebCustomDomainsWithOptions(request: ListWebCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWebCustomDomainsResponse> {
     Util.validateModel(request);
@@ -26998,10 +43853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 自定义域名列表.
-   *
-   * @param request ListWebCustomDomainsRequest
-   * @return ListWebCustomDomainsResponse
+   * 自定义域名列表.
+   * 
+   * @param request - ListWebCustomDomainsRequest
+   * @returns ListWebCustomDomainsResponse
    */
   async listWebCustomDomains(request: ListWebCustomDomainsRequest): Promise<ListWebCustomDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27010,13 +43865,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Activates the Serverless App Engine (SAE) service for free.
-   *
-   * @description > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenSaeServiceResponse
+   * Activates the Serverless App Engine (SAE) service for free.
+   * 
+   * @remarks
+   * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenSaeServiceResponse
    */
   async openSaeServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenSaeServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -27037,11 +43893,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Activates the Serverless App Engine (SAE) service for free.
-   *
-   * @description > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
-   *
-   * @return OpenSaeServiceResponse
+   * Activates the Serverless App Engine (SAE) service for free.
+   * 
+   * @remarks
+   * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
+   * @returns OpenSaeServiceResponse
    */
   async openSaeService(): Promise<OpenSaeServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27050,12 +43906,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建版本
-   *
-   * @param request PublishWebApplicationRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishWebApplicationRevisionResponse
+   * 新建版本
+   * 
+   * @param request - PublishWebApplicationRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishWebApplicationRevisionResponse
    */
   async publishWebApplicationRevisionWithOptions(ApplicationId: string, request: PublishWebApplicationRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishWebApplicationRevisionResponse> {
     Util.validateModel(request);
@@ -27084,10 +43940,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建版本
-   *
-   * @param request PublishWebApplicationRevisionRequest
-   * @return PublishWebApplicationRevisionResponse
+   * 新建版本
+   * 
+   * @param request - PublishWebApplicationRevisionRequest
+   * @returns PublishWebApplicationRevisionResponse
    */
   async publishWebApplicationRevision(ApplicationId: string, request: PublishWebApplicationRevisionRequest): Promise<PublishWebApplicationRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27096,12 +43952,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource usage of an application.
-   *
-   * @param request QueryResourceStaticsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryResourceStaticsResponse
+   * Queries the resource usage of an application.
+   * 
+   * @param request - QueryResourceStaticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryResourceStaticsResponse
    */
   async queryResourceStaticsWithOptions(request: QueryResourceStaticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryResourceStaticsResponse> {
     Util.validateModel(request);
@@ -27129,10 +43985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resource usage of an application.
-   *
-   * @param request QueryResourceStaticsRequest
-   * @return QueryResourceStaticsResponse
+   * Queries the resource usage of an application.
+   * 
+   * @param request - QueryResourceStaticsRequest
+   * @returns QueryResourceStaticsResponse
    */
   async queryResourceStatics(request: QueryResourceStaticsRequest): Promise<QueryResourceStaticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27141,12 +43997,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reduces capacity by instance IDs.
-   *
-   * @param request ReduceApplicationCapacityByInstanceIdsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReduceApplicationCapacityByInstanceIdsResponse
+   * Reduces capacity by instance IDs.
+   * 
+   * @param request - ReduceApplicationCapacityByInstanceIdsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReduceApplicationCapacityByInstanceIdsResponse
    */
   async reduceApplicationCapacityByInstanceIdsWithOptions(request: ReduceApplicationCapacityByInstanceIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReduceApplicationCapacityByInstanceIdsResponse> {
     Util.validateModel(request);
@@ -27178,10 +44034,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reduces capacity by instance IDs.
-   *
-   * @param request ReduceApplicationCapacityByInstanceIdsRequest
-   * @return ReduceApplicationCapacityByInstanceIdsResponse
+   * Reduces capacity by instance IDs.
+   * 
+   * @param request - ReduceApplicationCapacityByInstanceIdsRequest
+   * @returns ReduceApplicationCapacityByInstanceIdsResponse
    */
   async reduceApplicationCapacityByInstanceIds(request: ReduceApplicationCapacityByInstanceIdsRequest): Promise<ReduceApplicationCapacityByInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27190,12 +44046,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Scales an application.
-   *
-   * @param request RescaleApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RescaleApplicationResponse
+   * Scales an application.
+   * 
+   * @param request - RescaleApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RescaleApplicationResponse
    */
   async rescaleApplicationWithOptions(request: RescaleApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RescaleApplicationResponse> {
     Util.validateModel(request);
@@ -27239,10 +44095,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Scales an application.
-   *
-   * @param request RescaleApplicationRequest
-   * @return RescaleApplicationResponse
+   * Scales an application.
+   * 
+   * @param request - RescaleApplicationRequest
+   * @returns RescaleApplicationResponse
    */
   async rescaleApplication(request: RescaleApplicationRequest): Promise<RescaleApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27251,12 +44107,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the instance specifications of an application.
-   *
-   * @param request RescaleApplicationVerticallyRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RescaleApplicationVerticallyResponse
+   * Changes the instance specifications of an application.
+   * 
+   * @param request - RescaleApplicationVerticallyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RescaleApplicationVerticallyResponse
    */
   async rescaleApplicationVerticallyWithOptions(request: RescaleApplicationVerticallyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RescaleApplicationVerticallyResponse> {
     Util.validateModel(request);
@@ -27292,10 +44148,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the instance specifications of an application.
-   *
-   * @param request RescaleApplicationVerticallyRequest
-   * @return RescaleApplicationVerticallyResponse
+   * Changes the instance specifications of an application.
+   * 
+   * @param request - RescaleApplicationVerticallyRequest
+   * @returns RescaleApplicationVerticallyResponse
    */
   async rescaleApplicationVertically(request: RescaleApplicationVerticallyRequest): Promise<RescaleApplicationVerticallyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27304,12 +44160,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts an application.
-   *
-   * @param request RestartApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestartApplicationResponse
+   * Restarts an application.
+   * 
+   * @param request - RestartApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartApplicationResponse
    */
   async restartApplicationWithOptions(request: RestartApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartApplicationResponse> {
     Util.validateModel(request);
@@ -27349,10 +44205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts an application.
-   *
-   * @param request RestartApplicationRequest
-   * @return RestartApplicationResponse
+   * Restarts an application.
+   * 
+   * @param request - RestartApplicationRequest
+   * @returns RestartApplicationResponse
    */
   async restartApplication(request: RestartApplicationRequest): Promise<RestartApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27361,12 +44217,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts one or more instances in an application.
-   *
-   * @param request RestartInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestartInstancesResponse
+   * Restarts one or more instances in an application.
+   * 
+   * @param request - RestartInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartInstancesResponse
    */
   async restartInstancesWithOptions(request: RestartInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartInstancesResponse> {
     Util.validateModel(request);
@@ -27398,10 +44254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts one or more instances in an application.
-   *
-   * @param request RestartInstancesRequest
-   * @return RestartInstancesResponse
+   * Restarts one or more instances in an application.
+   * 
+   * @param request - RestartInstancesRequest
+   * @returns RestartInstancesResponse
    */
   async restartInstances(request: RestartInstancesRequest): Promise<RestartInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27410,12 +44266,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Rolls back an application.
-   *
-   * @param request RollbackApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RollbackApplicationResponse
+   * Rolls back an application.
+   * 
+   * @param request - RollbackApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackApplicationResponse
    */
   async rollbackApplicationWithOptions(request: RollbackApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RollbackApplicationResponse> {
     Util.validateModel(request);
@@ -27467,10 +44323,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Rolls back an application.
-   *
-   * @param request RollbackApplicationRequest
-   * @return RollbackApplicationResponse
+   * Rolls back an application.
+   * 
+   * @param request - RollbackApplicationRequest
+   * @returns RollbackApplicationResponse
    */
   async rollbackApplication(request: RollbackApplicationRequest): Promise<RollbackApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27479,12 +44335,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts an application.
-   *
-   * @param request StartApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartApplicationResponse
+   * Starts an application.
+   * 
+   * @param request - StartApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartApplicationResponse
    */
   async startApplicationWithOptions(request: StartApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApplicationResponse> {
     Util.validateModel(request);
@@ -27512,10 +44368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts an application.
-   *
-   * @param request StartApplicationRequest
-   * @return StartApplicationResponse
+   * Starts an application.
+   * 
+   * @param request - StartApplicationRequest
+   * @returns StartApplicationResponse
    */
   async startApplication(request: StartApplicationRequest): Promise<StartApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27524,12 +44380,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动应用
-   *
-   * @param request StartWebApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartWebApplicationResponse
+   * 启动应用
+   * 
+   * @param request - StartWebApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartWebApplicationResponse
    */
   async startWebApplicationWithOptions(ApplicationId: string, request: StartWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWebApplicationResponse> {
     Util.validateModel(request);
@@ -27557,10 +44413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动应用
-   *
-   * @param request StartWebApplicationRequest
-   * @return StartWebApplicationResponse
+   * 启动应用
+   * 
+   * @param request - StartWebApplicationRequest
+   * @returns StartWebApplicationResponse
    */
   async startWebApplication(ApplicationId: string, request: StartWebApplicationRequest): Promise<StartWebApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27569,12 +44425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
-   *
-   * @param request StopApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopApplicationResponse
+   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * 
+   * @param request - StopApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopApplicationResponse
    */
   async stopApplicationWithOptions(request: StopApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApplicationResponse> {
     Util.validateModel(request);
@@ -27602,10 +44458,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
-   *
-   * @param request StopApplicationRequest
-   * @return StopApplicationResponse
+   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * 
+   * @param request - StopApplicationRequest
+   * @returns StopApplicationResponse
    */
   async stopApplication(request: StopApplicationRequest): Promise<StopApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27614,12 +44470,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止应用
-   *
-   * @param request StopWebApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopWebApplicationResponse
+   * 停止应用
+   * 
+   * @param request - StopWebApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopWebApplicationResponse
    */
   async stopWebApplicationWithOptions(ApplicationId: string, request: StopWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopWebApplicationResponse> {
     Util.validateModel(request);
@@ -27647,10 +44503,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止应用
-   *
-   * @param request StopWebApplicationRequest
-   * @return StopWebApplicationResponse
+   * 停止应用
+   * 
+   * @param request - StopWebApplicationRequest
+   * @returns StopWebApplicationResponse
    */
   async stopWebApplication(ApplicationId: string, request: StopWebApplicationRequest): Promise<StopWebApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27659,12 +44515,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Suspends a job.
-   *
-   * @param request SuspendJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SuspendJobResponse
+   * Suspends a job.
+   * 
+   * @param request - SuspendJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendJobResponse
    */
   async suspendJobWithOptions(request: SuspendJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SuspendJobResponse> {
     Util.validateModel(request);
@@ -27696,10 +44552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Suspends a job.
-   *
-   * @param request SuspendJobRequest
-   * @return SuspendJobResponse
+   * Suspends a job.
+   * 
+   * @param request - SuspendJobRequest
+   * @returns SuspendJobResponse
    */
   async suspendJob(request: SuspendJobRequest): Promise<SuspendJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27708,12 +44564,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary cn-beijing
-   *
-   * @param request TagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * cn-beijing
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -27753,10 +44609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary cn-beijing
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * cn-beijing
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27765,12 +44621,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
-   *
-   * @param request UnbindSlbRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindSlbResponse
+   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * 
+   * @param request - UnbindSlbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindSlbResponse
    */
   async unbindSlbWithOptions(request: UnbindSlbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnbindSlbResponse> {
     Util.validateModel(request);
@@ -27806,10 +44662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
-   *
-   * @param request UnbindSlbRequest
-   * @return UnbindSlbResponse
+   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * 
+   * @param request - UnbindSlbRequest
+   * @returns UnbindSlbResponse
    */
   async unbindSlb(request: UnbindSlbRequest): Promise<UnbindSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27818,10 +44674,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UntagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * @param request - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -27865,8 +44721,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27875,12 +44731,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
-   *
-   * @param request UpdateAppSecurityGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAppSecurityGroupResponse
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * 
+   * @param request - UpdateAppSecurityGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppSecurityGroupResponse
    */
   async updateAppSecurityGroupWithOptions(request: UpdateAppSecurityGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppSecurityGroupResponse> {
     Util.validateModel(request);
@@ -27912,10 +44768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
-   *
-   * @param request UpdateAppSecurityGroupRequest
-   * @return UpdateAppSecurityGroupResponse
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * 
+   * @param request - UpdateAppSecurityGroupRequest
+   * @returns UpdateAppSecurityGroupResponse
    */
   async updateAppSecurityGroup(request: UpdateAppSecurityGroupRequest): Promise<UpdateAppSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27924,12 +44780,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新应用描述信息
-   *
-   * @param request UpdateApplicationDescriptionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApplicationDescriptionResponse
+   * 更新应用描述信息
+   * 
+   * @param request - UpdateApplicationDescriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationDescriptionResponse
    */
   async updateApplicationDescriptionWithOptions(request: UpdateApplicationDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationDescriptionResponse> {
     Util.validateModel(request);
@@ -27961,10 +44817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新应用描述信息
-   *
-   * @param request UpdateApplicationDescriptionRequest
-   * @return UpdateApplicationDescriptionResponse
+   * 更新应用描述信息
+   * 
+   * @param request - UpdateApplicationDescriptionRequest
+   * @returns UpdateApplicationDescriptionResponse
    */
   async updateApplicationDescription(request: UpdateApplicationDescriptionRequest): Promise<UpdateApplicationDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27973,15 +44829,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the auto scaling policy of an application.
-   *
-   * @description ##
+   * Updates the auto scaling policy of an application.
+   * 
+   * @remarks
+   * ##
    * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
-   *
-   * @param request UpdateApplicationScalingRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApplicationScalingRuleResponse
+   * 
+   * @param request - UpdateApplicationScalingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationScalingRuleResponse
    */
   async updateApplicationScalingRuleWithOptions(request: UpdateApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationScalingRuleResponse> {
     Util.validateModel(request);
@@ -28029,13 +44886,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the auto scaling policy of an application.
-   *
-   * @description ##
+   * Updates the auto scaling policy of an application.
+   * 
+   * @remarks
+   * ##
    * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
-   *
-   * @param request UpdateApplicationScalingRuleRequest
-   * @return UpdateApplicationScalingRuleResponse
+   * 
+   * @param request - UpdateApplicationScalingRuleRequest
+   * @returns UpdateApplicationScalingRuleResponse
    */
   async updateApplicationScalingRule(request: UpdateApplicationScalingRuleRequest): Promise<UpdateApplicationScalingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28044,10 +44902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateApplicationVswitchesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApplicationVswitchesResponse
+   * @param request - UpdateApplicationVswitchesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationVswitchesResponse
    */
   async updateApplicationVswitchesWithOptions(request: UpdateApplicationVswitchesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationVswitchesResponse> {
     Util.validateModel(request);
@@ -28079,8 +44937,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateApplicationVswitchesRequest
-   * @return UpdateApplicationVswitchesResponse
+   * @param request - UpdateApplicationVswitchesRequest
+   * @returns UpdateApplicationVswitchesResponse
    */
   async updateApplicationVswitches(request: UpdateApplicationVswitchesRequest): Promise<UpdateApplicationVswitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28089,12 +44947,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 1
-   *
-   * @param request UpdateConfigMapRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateConfigMapResponse
+   * 1
+   * 
+   * @param request - UpdateConfigMapRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigMapResponse
    */
   async updateConfigMapWithOptions(request: UpdateConfigMapRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConfigMapResponse> {
     Util.validateModel(request);
@@ -28132,10 +44990,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 1
-   *
-   * @param request UpdateConfigMapRequest
-   * @return UpdateConfigMapResponse
+   * 1
+   * 
+   * @param request - UpdateConfigMapRequest
+   * @returns UpdateConfigMapResponse
    */
   async updateConfigMap(request: UpdateConfigMapRequest): Promise<UpdateConfigMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28144,12 +45002,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a canary release rule.
-   *
-   * @param request UpdateGreyTagRouteRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGreyTagRouteResponse
+   * Updates a canary release rule.
+   * 
+   * @param request - UpdateGreyTagRouteRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGreyTagRouteResponse
    */
   async updateGreyTagRouteWithOptions(request: UpdateGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGreyTagRouteResponse> {
     Util.validateModel(request);
@@ -28193,10 +45051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a canary release rule.
-   *
-   * @param request UpdateGreyTagRouteRequest
-   * @return UpdateGreyTagRouteResponse
+   * Updates a canary release rule.
+   * 
+   * @param request - UpdateGreyTagRouteRequest
+   * @returns UpdateGreyTagRouteResponse
    */
   async updateGreyTagRoute(request: UpdateGreyTagRouteRequest): Promise<UpdateGreyTagRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28205,10 +45063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateIngressRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIngressResponse
+   * @param request - UpdateIngressRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIngressResponse
    */
   async updateIngressWithOptions(request: UpdateIngressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIngressResponse> {
     Util.validateModel(request);
@@ -28270,8 +45128,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateIngressRequest
-   * @return UpdateIngressResponse
+   * @param request - UpdateIngressRequest
+   * @returns UpdateIngressResponse
    */
   async updateIngress(request: UpdateIngressRequest): Promise<UpdateIngressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28280,12 +45138,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a job template.
-   *
-   * @param request UpdateJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateJobResponse
+   * Updates a job template.
+   * 
+   * @param request - UpdateJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobResponse
    */
   async updateJobWithOptions(request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
@@ -28491,10 +45349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a job template.
-   *
-   * @param request UpdateJobRequest
-   * @return UpdateJobResponse
+   * Updates a job template.
+   * 
+   * @param request - UpdateJobRequest
+   * @returns UpdateJobResponse
    */
   async updateJob(request: UpdateJobRequest): Promise<UpdateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28503,12 +45361,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about a namespace.
-   *
-   * @param request UpdateNamespaceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateNamespaceResponse
+   * Updates the information about a namespace.
+   * 
+   * @param request - UpdateNamespaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNamespaceResponse
    */
   async updateNamespaceWithOptions(request: UpdateNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceResponse> {
     Util.validateModel(request);
@@ -28552,10 +45410,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about a namespace.
-   *
-   * @param request UpdateNamespaceRequest
-   * @return UpdateNamespaceResponse
+   * Updates the information about a namespace.
+   * 
+   * @param request - UpdateNamespaceRequest
+   * @returns UpdateNamespaceResponse
    */
   async updateNamespace(request: UpdateNamespaceRequest): Promise<UpdateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28564,12 +45422,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary cn-beijing:test
-   *
-   * @param request UpdateNamespaceVpcRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateNamespaceVpcResponse
+   * cn-beijing:test
+   * 
+   * @param request - UpdateNamespaceVpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNamespaceVpcResponse
    */
   async updateNamespaceVpcWithOptions(request: UpdateNamespaceVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceVpcResponse> {
     Util.validateModel(request);
@@ -28605,10 +45463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary cn-beijing:test
-   *
-   * @param request UpdateNamespaceVpcRequest
-   * @return UpdateNamespaceVpcResponse
+   * cn-beijing:test
+   * 
+   * @param request - UpdateNamespaceVpcRequest
+   * @returns UpdateNamespaceVpcResponse
    */
   async updateNamespaceVpc(request: UpdateNamespaceVpcRequest): Promise<UpdateNamespaceVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28617,16 +45475,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The HTTP status code. Valid values:
+   * The HTTP status code. Valid values:
    * *   **2xx**: The call was successful.
    * *   **3xx**: The call was redirected.
    * *   **4xx**: The call failed.
    * *   **5xx**: A server error occurred.
-   *
-   * @param tmpReq UpdateSecretRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSecretResponse
+   * 
+   * @param tmpReq - UpdateSecretRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecretResponse
    */
   async updateSecretWithOptions(tmpReq: UpdateSecretRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSecretResponse> {
     Util.validateModel(tmpReq);
@@ -28668,14 +45526,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The HTTP status code. Valid values:
+   * The HTTP status code. Valid values:
    * *   **2xx**: The call was successful.
    * *   **3xx**: The call was redirected.
    * *   **4xx**: The call failed.
    * *   **5xx**: A server error occurred.
-   *
-   * @param request UpdateSecretRequest
-   * @return UpdateSecretResponse
+   * 
+   * @param request - UpdateSecretRequest
+   * @returns UpdateSecretResponse
    */
   async updateSecret(request: UpdateSecretRequest): Promise<UpdateSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28684,12 +45542,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新应用
-   *
-   * @param request UpdateWebApplicationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWebApplicationResponse
+   * 更新应用
+   * 
+   * @param request - UpdateWebApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWebApplicationResponse
    */
   async updateWebApplicationWithOptions(ApplicationId: string, request: UpdateWebApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebApplicationResponse> {
     Util.validateModel(request);
@@ -28718,10 +45576,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新应用
-   *
-   * @param request UpdateWebApplicationRequest
-   * @return UpdateWebApplicationResponse
+   * 更新应用
+   * 
+   * @param request - UpdateWebApplicationRequest
+   * @returns UpdateWebApplicationResponse
    */
   async updateWebApplication(ApplicationId: string, request: UpdateWebApplicationRequest): Promise<UpdateWebApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28730,12 +45588,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新弹性配置
-   *
-   * @param request UpdateWebApplicationScalingConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWebApplicationScalingConfigResponse
+   * 更新弹性配置
+   * 
+   * @param request - UpdateWebApplicationScalingConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWebApplicationScalingConfigResponse
    */
   async updateWebApplicationScalingConfigWithOptions(ApplicationId: string, request: UpdateWebApplicationScalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebApplicationScalingConfigResponse> {
     Util.validateModel(request);
@@ -28764,10 +45622,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新弹性配置
-   *
-   * @param request UpdateWebApplicationScalingConfigRequest
-   * @return UpdateWebApplicationScalingConfigResponse
+   * 更新弹性配置
+   * 
+   * @param request - UpdateWebApplicationScalingConfigRequest
+   * @returns UpdateWebApplicationScalingConfigResponse
    */
   async updateWebApplicationScalingConfig(ApplicationId: string, request: UpdateWebApplicationScalingConfigRequest): Promise<UpdateWebApplicationScalingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28776,12 +45634,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量配置
-   *
-   * @param request UpdateWebApplicationTrafficConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWebApplicationTrafficConfigResponse
+   * 更新流量配置
+   * 
+   * @param request - UpdateWebApplicationTrafficConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWebApplicationTrafficConfigResponse
    */
   async updateWebApplicationTrafficConfigWithOptions(ApplicationId: string, request: UpdateWebApplicationTrafficConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebApplicationTrafficConfigResponse> {
     Util.validateModel(request);
@@ -28810,10 +45668,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量配置
-   *
-   * @param request UpdateWebApplicationTrafficConfigRequest
-   * @return UpdateWebApplicationTrafficConfigResponse
+   * 更新流量配置
+   * 
+   * @param request - UpdateWebApplicationTrafficConfigRequest
+   * @returns UpdateWebApplicationTrafficConfigResponse
    */
   async updateWebApplicationTrafficConfig(ApplicationId: string, request: UpdateWebApplicationTrafficConfigRequest): Promise<UpdateWebApplicationTrafficConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28822,12 +45680,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新自定义域名.
-   *
-   * @param request UpdateWebCustomDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWebCustomDomainResponse
+   * 更新自定义域名.
+   * 
+   * @param request - UpdateWebCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWebCustomDomainResponse
    */
   async updateWebCustomDomainWithOptions(DomainName: string, request: UpdateWebCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWebCustomDomainResponse> {
     Util.validateModel(request);
@@ -28856,10 +45714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新自定义域名.
-   *
-   * @param request UpdateWebCustomDomainRequest
-   * @return UpdateWebCustomDomainResponse
+   * 更新自定义域名.
+   * 
+   * @param request - UpdateWebCustomDomainRequest
+   * @returns UpdateWebCustomDomainResponse
    */
   async updateWebCustomDomain(DomainName: string, request: UpdateWebCustomDomainRequest): Promise<UpdateWebCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
