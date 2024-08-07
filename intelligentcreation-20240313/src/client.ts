@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -64,7 +63,15 @@ export class AnchorResponse extends $tea.Model {
 }
 
 export class GetOssUploadTokenResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   uploadInfo?: UploadInfo;
   static names(): { [key: string]: string } {
     return {
@@ -109,6 +116,10 @@ export class Illustration extends $tea.Model {
 
 export class IllustrationResult extends $tea.Model {
   illustration?: Illustration;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,6 +145,10 @@ export class IllustrationTask extends $tea.Model {
   gmtModified?: string;
   illustrationIds?: number[];
   illustrationTaskId?: number;
+  /**
+   * @example
+   * Success
+   */
   taskStatus?: string;
   textId?: number;
   static names(): { [key: string]: string } {
@@ -164,10 +179,30 @@ export class IllustrationTask extends $tea.Model {
 }
 
 export class IllustrationTaskCreateCmd extends $tea.Model {
+  /**
+   * @example
+   * 0-不换背景，1-换背景
+   */
   backgroundType?: number;
+  /**
+   * @example
+   * 1024
+   */
   dstHeight?: number;
+  /**
+   * @example
+   * 1024
+   */
   dstWidth?: number;
+  /**
+   * @example
+   * 28274623764834
+   */
   idempotentId?: string;
+  /**
+   * @example
+   * 4
+   */
   nums?: number;
   ossPaths?: string[];
   stickerText?: string;
@@ -202,6 +237,10 @@ export class IllustrationTaskCreateCmd extends $tea.Model {
 
 export class IllustrationTaskResult extends $tea.Model {
   illustrationTask?: IllustrationTask;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,21 +286,71 @@ export class ReferenceTag extends $tea.Model {
 export class Text extends $tea.Model {
   agentId?: string;
   agentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   desc?: string;
   gmtCreate?: string;
   gmtModified?: string;
   illustrationTaskIdList?: number[];
   publishStatus?: string;
   textContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   textId?: number;
+  /**
+   * @example
+   * true
+   */
   textIllustrationTag?: boolean;
   textModeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Generating
+   */
   textStatus?: string;
   textStyleType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   textTaskId?: number;
   textThemes?: string[];
+  /**
+   * @example
+   * xxx
+   */
   title?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   userNameCreate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   userNameModified?: string;
   static names(): { [key: string]: string } {
     return {
@@ -317,6 +406,10 @@ export class Text extends $tea.Model {
 export class TextQueryResult extends $tea.Model {
   requestId?: string;
   texts?: Text[];
+  /**
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -340,7 +433,15 @@ export class TextQueryResult extends $tea.Model {
 }
 
 export class TextResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   text?: Text;
   static names(): { [key: string]: string } {
     return {
@@ -364,21 +465,48 @@ export class TextResult extends $tea.Model {
 export class TextTask extends $tea.Model {
   agentId?: string;
   agentName?: string;
+  /**
+   * @example
+   * 九寨沟三日游攻略
+   */
   contentRequirement?: string;
   gmtCreate?: string;
   gmtModified?: string;
   introduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   nums?: number;
+  /**
+   * @example
+   * xxx
+   */
   point?: string;
   referenceTag?: ReferenceTag;
   relatedRagId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   style?: string;
   target?: string;
   textIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   textModeType?: string;
   textTaskId?: number;
   textTaskStatus?: string;
   texts?: Text[];
+  /**
+   * @example
+   * 旅游路线
+   */
   theme?: string;
   themeDesc?: string;
   static names(): { [key: string]: string } {
@@ -436,17 +564,56 @@ export class TextTask extends $tea.Model {
 
 export class TextTaskCreateCmd extends $tea.Model {
   agentId?: string;
+  /**
+   * @example
+   * 极氪007新车上市
+   */
   contentRequirement?: string;
+  /**
+   * @example
+   * 28274623764834
+   */
   idempotentId?: string;
   industry?: string;
+  /**
+   * @example
+   * xxx
+   */
   introduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   number?: number;
+  /**
+   * @example
+   * 超强续航
+   */
   point?: string;
   referenceTag?: ReferenceTag;
+  /**
+   * @example
+   * 1
+   */
   relatedRagIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   style?: string;
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   textModeType?: string;
+  /**
+   * @example
+   * 旅游路线
+   */
   theme?: string;
   themes?: string[];
   static names(): { [key: string]: string } {
@@ -534,7 +701,15 @@ export class TextTheme extends $tea.Model {
 }
 
 export class TextThemeListResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   textThemeList?: TextTheme[];
   static names(): { [key: string]: string } {
     return {
@@ -556,11 +731,50 @@ export class TextThemeListResult extends $tea.Model {
 }
 
 export class UploadInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxxx
+   */
   accessId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yic-pre.oss-cn-hangzhou.aliyuncs.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234/temp-novels/xxxx-xxx-xx.txt
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxxxxx
+   */
   policy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxxxx
+   */
   policySignature?: string;
+  /**
+   * @example
+   * xxxxxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -637,7 +851,15 @@ export class VoiceModelResponse extends $tea.Model {
 
 export class AddTextFeedbackRequest extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 1
+   */
   quality?: number;
+  /**
+   * @example
+   * 8478
+   */
   textId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -661,7 +883,15 @@ export class AddTextFeedbackRequest extends $tea.Model {
 }
 
 export class AddTextFeedbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -708,7 +938,15 @@ export class AddTextFeedbackResponse extends $tea.Model {
 }
 
 export class CheckSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * 11111
+   */
   projectId?: string;
+  /**
+   * @example
+   * 121dlsga4o7golrl1hoja
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -730,7 +968,15 @@ export class CheckSessionRequest extends $tea.Model {
 }
 
 export class CheckSessionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5389BE87-571B-573C-90ED-F07C5E68760B
+   */
   requestId?: string;
+  /**
+   * @example
+   * FREE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,6 +1014,104 @@ export class CheckSessionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CheckSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * API
+   * 
+   * @example
+   * PLATFORM
+   */
+  generationSource?: string;
+  /**
+   * @example
+   * Garment
+   */
+  industry?: string;
+  /**
+   * @example
+   * 1
+   */
+  publishStatus?: string;
+  /**
+   * @example
+   * RED_BOOK
+   */
+  style?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generationSource: 'generationSource',
+      industry: 'industry',
+      publishStatus: 'publishStatus',
+      style: 'style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generationSource: 'string',
+      industry: 'string',
+      publishStatus: 'string',
+      style: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6C9CB64D-E2D3-5BF2-A9E6-2445F952F178
+   */
+  requestId?: string;
+  countTextCmdList?: CountTextResponseBodyCountTextCmdList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      countTextCmdList: 'countTextCmdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      countTextCmdList: { 'type': 'array', 'itemType': CountTextResponseBodyCountTextCmdList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CountTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CountTextResponseBody,
     };
   }
 
@@ -915,7 +1259,21 @@ export class GetIllustrationTaskResponse extends $tea.Model {
 }
 
 export class GetOssUploadTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 8021678.png
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ProductImage
+   */
   fileType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -962,7 +1320,15 @@ export class GetOssUploadTokenResponse extends $tea.Model {
 }
 
 export class GetProjectTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 20230823218109326025-1200
+   */
   idempotentId?: string;
+  /**
+   * @example
+   * 313123123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -984,11 +1350,35 @@ export class GetProjectTaskRequest extends $tea.Model {
 }
 
 export class GetProjectTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * error
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 5389BE87-571B-573C-90ED-F07C5E68760B
+   */
   requestId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * www.ali.com
+   */
   videoDownloadUrl?: string;
+  /**
+   * @example
+   * 111
+   */
   videoDuration?: number;
+  /**
+   * @example
+   * www.ali.com
+   */
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1093,6 +1483,10 @@ export class GetTextTaskResponse extends $tea.Model {
 }
 
 export class GetTextTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * Car
+   */
   industry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1113,6 +1507,10 @@ export class GetTextTemplateRequest extends $tea.Model {
 
 export class GetTextTemplateResponseBody extends $tea.Model {
   availableIndustry?: GetTextTemplateResponseBodyAvailableIndustry;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1159,11 +1557,35 @@ export class GetTextTemplateResponse extends $tea.Model {
 }
 
 export class ListAnchorRequest extends $tea.Model {
+  /**
+   * @example
+   * PUBLIC_MODEL
+   */
   anchorType?: string;
+  /**
+   * @example
+   * 9:16
+   */
   coverRate?: string;
+  /**
+   * @example
+   * staticTransparency
+   */
   digitalHumanType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * offlineSynthesis
+   */
   useScene?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1193,12 +1615,42 @@ export class ListAnchorRequest extends $tea.Model {
 }
 
 export class ListAnchorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * code
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * Deduct.DeductTaskAlreadySuccess
+   */
   errorCode?: string;
+  /**
+   * @example
+   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
+   */
   errorMessage?: string;
   list?: AnchorResponse[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 5389BE87-571B-573C-90ED-F07C5E68760B
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
+  /**
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1299,17 +1751,47 @@ export class ListTextThemesResponse extends $tea.Model {
 }
 
 export class ListTextsRequest extends $tea.Model {
+  /**
+   * @example
+   * API
+   */
   generationSource?: string;
+  /**
+   * @example
+   * Common
+   */
   industry?: string;
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * PUBLISH
+   */
   publishStatus?: string;
+  /**
+   * @example
+   * WECHAT_MOMENT
+   */
   textStyleType?: string;
+  /**
+   * @example
+   * xxx
+   */
   textTheme?: string;
   static names(): { [key: string]: string } {
     return {
       generationSource: 'generationSource',
       industry: 'industry',
+      keyword: 'keyword',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       publishStatus: 'publishStatus',
@@ -1322,6 +1804,7 @@ export class ListTextsRequest extends $tea.Model {
     return {
       generationSource: 'string',
       industry: 'string',
+      keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       publishStatus: 'string',
@@ -1361,9 +1844,25 @@ export class ListTextsResponse extends $tea.Model {
 }
 
 export class ListVoiceModelsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * offlineSynthesis
+   */
   useScene?: string;
+  /**
+   * @example
+   * PRIVATE_VOICE
+   */
   voiceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1389,12 +1888,39 @@ export class ListVoiceModelsRequest extends $tea.Model {
 }
 
 export class ListVoiceModelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 040002
+   */
   errorCode?: string;
+  /**
+   * @example
+   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
+   */
   errorMessage?: string;
   list?: VoiceModelResponse[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 14878724-A835-578D-9DD5-4779ADCE9221
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
+  /**
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1451,6 +1977,10 @@ export class ListVoiceModelsResponse extends $tea.Model {
 }
 
 export class QueryAvatarProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * 11111
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1470,10 +2000,30 @@ export class QueryAvatarProjectRequest extends $tea.Model {
 }
 
 export class QueryAvatarProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1000222
+   */
   agentId?: string;
+  /**
+   * @example
+   * error
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * doc_test_3
+   */
   projectName?: string;
+  /**
+   * @example
+   * 2C331582-7390-5949-8D9A-AC8239185B37
+   */
   requestId?: string;
+  /**
+   * @example
+   * DEPLOYING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1526,6 +2076,10 @@ export class QueryAvatarProjectResponse extends $tea.Model {
 }
 
 export class QueryAvatarResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * 11111
+   */
   idempotentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1546,6 +2100,10 @@ export class QueryAvatarResourceRequest extends $tea.Model {
 
 export class QueryAvatarResourceResponseBody extends $tea.Model {
   queryResourceInfoList?: QueryAvatarResourceResponseBodyQueryResourceInfoList[];
+  /**
+   * @example
+   * D5798660-1531-5D12-9C20-16FEE9D22351
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1592,6 +2150,10 @@ export class QueryAvatarResourceResponse extends $tea.Model {
 }
 
 export class SelectResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * 1111
+   */
   idempotentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1611,6 +2173,10 @@ export class SelectResourceRequest extends $tea.Model {
 }
 
 export class SelectResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
+   */
   requestId?: string;
   resourceInfoList?: SelectResourceResponseBodyResourceInfoList[];
   static names(): { [key: string]: string } {
@@ -1658,10 +2224,26 @@ export class SelectResourceResponse extends $tea.Model {
 }
 
 export class SendTextMsgRequest extends $tea.Model {
+  /**
+   * @example
+   * 126000030
+   */
   projectId?: string;
+  /**
+   * @example
+   * 52775239-1575-5C07-A4AE-1835D120E4A6
+   */
   requestId?: string;
+  /**
+   * @example
+   * tcm9xac9dsfbfgm8hf5k94l3cqybwh9o3mn0iuyytdgd9qoejxf1crxsdvuvr8fu0zudk5px4vsa3e3fgcclplkiuo7kyy3sqgscvhejmooblaiv64ww8cvlxvin2urzyhooqj33y7gvodef0sxn22n9q58o7xlupabiknxsv46qe7kof8nuc4be8kyhi01
+   */
   sessionId?: string;
   text?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1689,7 +2271,15 @@ export class SendTextMsgRequest extends $tea.Model {
 }
 
 export class SendTextMsgResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 827BF714-19E7-51B5-A434-C21BFEE05983
+   */
   requestId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1736,7 +2326,15 @@ export class SendTextMsgResponse extends $tea.Model {
 }
 
 export class StartAvatarSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * 13534711288320
+   */
   projectId?: string;
+  /**
+   * @example
+   * 15ED6083-B0B8-5B2A-BEDB-94A5C687C812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1759,7 +2357,15 @@ export class StartAvatarSessionRequest extends $tea.Model {
 
 export class StartAvatarSessionResponseBody extends $tea.Model {
   channelToken?: string;
+  /**
+   * @example
+   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
+   */
   requestId?: string;
+  /**
+   * @example
+   * 121dlsga4o7golrl1hoja
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1808,7 +2414,15 @@ export class StartAvatarSessionResponse extends $tea.Model {
 }
 
 export class StopAvatarSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * 124900036
+   */
   projectId?: string;
+  /**
+   * @example
+   * 121dlsga4o7golrl1hojazg0u9lvysk0uyczgd79be2a4hkr9ijrblmb5qohi5iaja3p5j633doqj4t2uu3sek2i49hzkao0bli4bch4tnloyx22odd7sot9dxl5xfd0hbp7fl9dehnqofkb9csebf0nuezj8bwgec8ei6dby0encu5y88ky6oqensuqnj
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1830,7 +2444,15 @@ export class StopAvatarSessionRequest extends $tea.Model {
 }
 
 export class StopAvatarSessionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 725E87CD-F2DE-5FC4-8A09-2EBDFBF26DAA
+   */
   requestId?: string;
+  /**
+   * @example
+   * Stopped
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1877,6 +2499,10 @@ export class StopAvatarSessionResponse extends $tea.Model {
 }
 
 export class StopProjectTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 1111111
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1896,7 +2522,15 @@ export class StopProjectTaskRequest extends $tea.Model {
 }
 
 export class StopProjectTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1943,14 +2577,28 @@ export class StopProjectTaskResponse extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * frame
+   */
   frames?: SubmitProjectTaskRequestFrames[];
+  /**
+   * @example
+   * 9:16
+   */
   scaleType?: string;
+  /**
+   * @example
+   * 1
+   */
   subtitleTag?: number;
+  transparentBackground?: number;
   static names(): { [key: string]: string } {
     return {
       frames: 'frames',
       scaleType: 'scaleType',
       subtitleTag: 'subtitleTag',
+      transparentBackground: 'transparentBackground',
     };
   }
 
@@ -1959,6 +2607,7 @@ export class SubmitProjectTaskRequest extends $tea.Model {
       frames: { 'type': 'array', 'itemType': SubmitProjectTaskRequestFrames },
       scaleType: 'string',
       subtitleTag: 'number',
+      transparentBackground: 'number',
     };
   }
 
@@ -1968,7 +2617,15 @@ export class SubmitProjectTaskRequest extends $tea.Model {
 }
 
 export class SubmitProjectTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 551FF252-6CFC-5DDA-9F84-9B07302385C2
+   */
   requestId?: string;
+  /**
+   * @example
+   * 313123123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2014,10 +2671,52 @@ export class SubmitProjectTaskResponse extends $tea.Model {
   }
 }
 
+export class CountTextResponseBodyCountTextCmdList extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
+  count?: number;
+  /**
+   * @example
+   * RED_BOOK
+   */
+  theme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      theme: 'theme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      theme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles extends $tea.Model {
   desc?: string;
+  /**
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @example
+   * RED_BOOK
+   */
   name?: string;
+  /**
+   * @example
+   * 111
+   */
   templateKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2043,6 +2742,10 @@ export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles
 }
 
 export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypes extends $tea.Model {
+  /**
+   * @example
+   * Rewrite
+   */
   name?: string;
   textStyles?: GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles[];
   static names(): { [key: string]: string } {
@@ -2065,6 +2768,10 @@ export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypes extends $
 }
 
 export class GetTextTemplateResponseBodyAvailableIndustry extends $tea.Model {
+  /**
+   * @example
+   * Car
+   */
   name?: string;
   textModeTypes?: GetTextTemplateResponseBodyAvailableIndustryTextModeTypes[];
   static names(): { [key: string]: string } {
@@ -2087,8 +2794,20 @@ export class GetTextTemplateResponseBodyAvailableIndustry extends $tea.Model {
 }
 
 export class QueryAvatarResourceResponseBodyQueryResourceInfoList extends $tea.Model {
+  /**
+   * @example
+   * 21275
+   */
   resourceId?: string;
+  /**
+   * @example
+   * STANDARD
+   */
   type?: string;
+  /**
+   * @example
+   * 1719904342237
+   */
   validPeriodTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2112,10 +2831,30 @@ export class QueryAvatarResourceResponseBodyQueryResourceInfoList extends $tea.M
 }
 
 export class SelectResourceResponseBodyResourceInfoList extends $tea.Model {
+  /**
+   * @example
+   * 111
+   */
   expireTime?: string;
+  /**
+   * @example
+   * 11
+   */
   lastExpire?: number;
+  /**
+   * @example
+   * 1249
+   */
   remainCount?: number;
+  /**
+   * @example
+   * 2
+   */
   resourceType?: number;
+  /**
+   * @example
+   * second
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2143,8 +2882,20 @@ export class SelectResourceResponseBodyResourceInfoList extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
+  /**
+   * @example
+   * video/mp4
+   */
   format?: string;
+  /**
+   * @example
+   * 38863
+   */
   id?: string;
+  /**
+   * @example
+   * https://meeting.dingtalk.com/j/1COFppy0POR
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2168,12 +2919,36 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequestFramesLayers extends $tea.Model {
+  /**
+   * @example
+   * 222
+   */
   height?: number;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
   material?: SubmitProjectTaskRequestFramesLayersMaterial;
+  /**
+   * @example
+   * 11
+   */
   positionX?: number;
+  /**
+   * @example
+   * 22
+   */
   positionY?: number;
+  /**
+   * @example
+   * ANCHOR
+   */
   type?: string;
+  /**
+   * @example
+   * 111
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2205,15 +2980,55 @@ export class SubmitProjectTaskRequestFramesLayers extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequestFramesSubtitle extends $tea.Model {
+  /**
+   * @example
+   * BottomLeft
+   */
   alignment?: string;
+  /**
+   * @example
+   * #ffffff
+   */
   backgroundColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   font?: string;
+  /**
+   * @example
+   * #ffffff
+   */
   fontColor?: string;
+  /**
+   * @example
+   * 32
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 11
+   */
   maxCharLength?: number;
+  /**
+   * @example
+   * 2
+   */
   positionX?: number;
+  /**
+   * @example
+   * 1
+   */
   positionY?: number;
+  /**
+   * @example
+   * 22
+   */
   textHeight?: number;
+  /**
+   * @example
+   * 11
+   */
   textWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2251,11 +3066,31 @@ export class SubmitProjectTaskRequestFramesSubtitle extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequestFramesVideoScript extends $tea.Model {
+  /**
+   * @example
+   * https://meeting.dingtalk.com/j/1COFppy0POR
+   */
   audioUrl?: string;
+  /**
+   * @example
+   * 2.0
+   */
   speedRate?: string;
   textContent?: string;
+  /**
+   * @example
+   * TEXT
+   */
   type?: string;
+  /**
+   * @example
+   * 11
+   */
   voiceTemplateId?: number;
+  /**
+   * @example
+   * 20
+   */
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2285,6 +3120,10 @@ export class SubmitProjectTaskRequestFramesVideoScript extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequestFrames extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   index?: number;
   layers?: SubmitProjectTaskRequestFramesLayers[];
   subtitle?: SubmitProjectTaskRequestFramesSubtitle;
@@ -2336,12 +3175,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加文案反馈
-   *
-   * @param request AddTextFeedbackRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddTextFeedbackResponse
+   * 添加文案反馈
+   * 
+   * @param request - AddTextFeedbackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTextFeedbackResponse
    */
   async addTextFeedbackWithOptions(request: AddTextFeedbackRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddTextFeedbackResponse> {
     Util.validateModel(request);
@@ -2377,10 +3216,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加文案反馈
-   *
-   * @param request AddTextFeedbackRequest
-   * @return AddTextFeedbackResponse
+   * 添加文案反馈
+   * 
+   * @param request - AddTextFeedbackRequest
+   * @returns AddTextFeedbackResponse
    */
   async addTextFeedback(request: AddTextFeedbackRequest): Promise<AddTextFeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2389,12 +3228,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检查会话状态
-   *
-   * @param request CheckSessionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckSessionResponse
+   * 检查会话状态
+   * 
+   * @param request - CheckSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckSessionResponse
    */
   async checkSessionWithOptions(request: CheckSessionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckSessionResponse> {
     Util.validateModel(request);
@@ -2426,10 +3265,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检查会话状态
-   *
-   * @param request CheckSessionRequest
-   * @return CheckSessionResponse
+   * 检查会话状态
+   * 
+   * @param request - CheckSessionRequest
+   * @returns CheckSessionResponse
    */
   async checkSession(request: CheckSessionRequest): Promise<CheckSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2438,12 +3277,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建配图生成任务
-   *
-   * @param request CreateIllustrationTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIllustrationTaskResponse
+   * 文本数量统计
+   * 
+   * @param request - CountTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CountTextResponse
+   */
+  async countTextWithOptions(request: CountTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CountTextResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.generationSource)) {
+      query["generationSource"] = request.generationSource;
+    }
+
+    if (!Util.isUnset(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
+    if (!Util.isUnset(request.publishStatus)) {
+      query["publishStatus"] = request.publishStatus;
+    }
+
+    if (!Util.isUnset(request.style)) {
+      query["style"] = request.style;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CountText",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/countText`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CountTextResponse>(await this.callApi(params, req, runtime), new CountTextResponse({}));
+  }
+
+  /**
+   * 文本数量统计
+   * 
+   * @param request - CountTextRequest
+   * @returns CountTextResponse
+   */
+  async countText(request: CountTextRequest): Promise<CountTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.countTextWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建配图生成任务
+   * 
+   * @param request - CreateIllustrationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIllustrationTaskResponse
    */
   async createIllustrationTaskWithOptions(textId: string, request: CreateIllustrationTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIllustrationTaskResponse> {
     Util.validateModel(request);
@@ -2466,10 +3362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建配图生成任务
-   *
-   * @param request CreateIllustrationTaskRequest
-   * @return CreateIllustrationTaskResponse
+   * 创建配图生成任务
+   * 
+   * @param request - CreateIllustrationTaskRequest
+   * @returns CreateIllustrationTaskResponse
    */
   async createIllustrationTask(textId: string, request: CreateIllustrationTaskRequest): Promise<CreateIllustrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2478,12 +3374,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文案生成任务
-   *
-   * @param request CreateTextTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTextTaskResponse
+   * 创建文案生成任务
+   * 
+   * @param request - CreateTextTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTextTaskResponse
    */
   async createTextTaskWithOptions(request: CreateTextTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTextTaskResponse> {
     Util.validateModel(request);
@@ -2506,10 +3402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文案生成任务
-   *
-   * @param request CreateTextTaskRequest
-   * @return CreateTextTaskResponse
+   * 创建文案生成任务
+   * 
+   * @param request - CreateTextTaskRequest
+   * @returns CreateTextTaskResponse
    */
   async createTextTask(request: CreateTextTaskRequest): Promise<CreateTextTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2518,11 +3414,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询配图
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIllustrationResponse
+   * 查询配图
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIllustrationResponse
    */
   async getIllustrationWithOptions(textId: string, illustrationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIllustrationResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2543,9 +3439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询配图
-   *
-   * @return GetIllustrationResponse
+   * 查询配图
+   * @returns GetIllustrationResponse
    */
   async getIllustration(textId: string, illustrationId: string): Promise<GetIllustrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2554,11 +3449,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询配图任务
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIllustrationTaskResponse
+   * 查询配图任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIllustrationTaskResponse
    */
   async getIllustrationTaskWithOptions(textId: string, illustrationTaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIllustrationTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2579,9 +3474,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询配图任务
-   *
-   * @return GetIllustrationTaskResponse
+   * 查询配图任务
+   * @returns GetIllustrationTaskResponse
    */
   async getIllustrationTask(textId: string, illustrationTaskId: string): Promise<GetIllustrationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2590,12 +3484,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片上传oss token
-   *
-   * @param request GetOssUploadTokenRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOssUploadTokenResponse
+   * 获取图片上传oss token
+   * 
+   * @param request - GetOssUploadTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOssUploadTokenResponse
    */
   async getOssUploadTokenWithOptions(request: GetOssUploadTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOssUploadTokenResponse> {
     Util.validateModel(request);
@@ -2627,10 +3521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片上传oss token
-   *
-   * @param request GetOssUploadTokenRequest
-   * @return GetOssUploadTokenResponse
+   * 获取图片上传oss token
+   * 
+   * @param request - GetOssUploadTokenRequest
+   * @returns GetOssUploadTokenResponse
    */
   async getOssUploadToken(request: GetOssUploadTokenRequest): Promise<GetOssUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2639,12 +3533,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据人合成信息
-   *
-   * @param request GetProjectTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectTaskResponse
+   * 获取数据人合成信息
+   * 
+   * @param request - GetProjectTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectTaskResponse
    */
   async getProjectTaskWithOptions(request: GetProjectTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectTaskResponse> {
     Util.validateModel(request);
@@ -2676,10 +3570,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据人合成信息
-   *
-   * @param request GetProjectTaskRequest
-   * @return GetProjectTaskResponse
+   * 获取数据人合成信息
+   * 
+   * @param request - GetProjectTaskRequest
+   * @returns GetProjectTaskResponse
    */
   async getProjectTask(request: GetProjectTaskRequest): Promise<GetProjectTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2688,11 +3582,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文案
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTextResponse
+   * 查询文案
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTextResponse
    */
   async getTextWithOptions(textId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTextResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2713,9 +3607,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文案
-   *
-   * @return GetTextResponse
+   * 查询文案
+   * @returns GetTextResponse
    */
   async getText(textId: string): Promise<GetTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2724,11 +3617,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文案任务
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTextTaskResponse
+   * 查询文案任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTextTaskResponse
    */
   async getTextTaskWithOptions(textTaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTextTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2749,9 +3642,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文案任务
-   *
-   * @return GetTextTaskResponse
+   * 查询文案任务
+   * @returns GetTextTaskResponse
    */
   async getTextTask(textTaskId: string): Promise<GetTextTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2760,12 +3652,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询表单配置
-   *
-   * @param request GetTextTemplateRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTextTemplateResponse
+   * 查询表单配置
+   * 
+   * @param request - GetTextTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTextTemplateResponse
    */
   async getTextTemplateWithOptions(request: GetTextTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTextTemplateResponse> {
     Util.validateModel(request);
@@ -2793,10 +3685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询表单配置
-   *
-   * @param request GetTextTemplateRequest
-   * @return GetTextTemplateResponse
+   * 查询表单配置
+   * 
+   * @param request - GetTextTemplateRequest
+   * @returns GetTextTemplateResponse
    */
   async getTextTemplate(request: GetTextTemplateRequest): Promise<GetTextTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2805,12 +3697,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数字人模特列表
-   *
-   * @param request ListAnchorRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAnchorResponse
+   * 获取数字人模特列表
+   * 
+   * @param request - ListAnchorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAnchorResponse
    */
   async listAnchorWithOptions(request: ListAnchorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAnchorResponse> {
     Util.validateModel(request);
@@ -2858,10 +3750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数字人模特列表
-   *
-   * @param request ListAnchorRequest
-   * @return ListAnchorResponse
+   * 获取数字人模特列表
+   * 
+   * @param request - ListAnchorRequest
+   * @returns ListAnchorResponse
    */
   async listAnchor(request: ListAnchorRequest): Promise<ListAnchorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2870,12 +3762,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文案主题列表
-   *
-   * @param request ListTextThemesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTextThemesResponse
+   * 查询文案主题列表
+   * 
+   * @param request - ListTextThemesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTextThemesResponse
    */
   async listTextThemesWithOptions(request: ListTextThemesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTextThemesResponse> {
     Util.validateModel(request);
@@ -2903,10 +3795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文案主题列表
-   *
-   * @param request ListTextThemesRequest
-   * @return ListTextThemesResponse
+   * 查询文案主题列表
+   * 
+   * @param request - ListTextThemesRequest
+   * @returns ListTextThemesResponse
    */
   async listTextThemes(request: ListTextThemesRequest): Promise<ListTextThemesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2915,12 +3807,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举文案
-   *
-   * @param request ListTextsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTextsResponse
+   * 列举文案
+   * 
+   * @param request - ListTextsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTextsResponse
    */
   async listTextsWithOptions(request: ListTextsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTextsResponse> {
     Util.validateModel(request);
@@ -2931,6 +3823,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.industry)) {
       query["industry"] = request.industry;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -2972,10 +3868,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举文案
-   *
-   * @param request ListTextsRequest
-   * @return ListTextsResponse
+   * 列举文案
+   * 
+   * @param request - ListTextsRequest
+   * @returns ListTextsResponse
    */
   async listTexts(request: ListTextsRequest): Promise<ListTextsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2984,12 +3880,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取声音模版列表
-   *
-   * @param request ListVoiceModelsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVoiceModelsResponse
+   * 获取声音模版列表
+   * 
+   * @param request - ListVoiceModelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVoiceModelsResponse
    */
   async listVoiceModelsWithOptions(request: ListVoiceModelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVoiceModelsResponse> {
     Util.validateModel(request);
@@ -3029,10 +3925,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取声音模版列表
-   *
-   * @param request ListVoiceModelsRequest
-   * @return ListVoiceModelsResponse
+   * 获取声音模版列表
+   * 
+   * @param request - ListVoiceModelsRequest
+   * @returns ListVoiceModelsResponse
    */
   async listVoiceModels(request: ListVoiceModelsRequest): Promise<ListVoiceModelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3041,12 +3937,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数字人项目信息
-   *
-   * @param request QueryAvatarProjectRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAvatarProjectResponse
+   * 查询数字人项目信息
+   * 
+   * @param request - QueryAvatarProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAvatarProjectResponse
    */
   async queryAvatarProjectWithOptions(request: QueryAvatarProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryAvatarProjectResponse> {
     Util.validateModel(request);
@@ -3074,10 +3970,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数字人项目信息
-   *
-   * @param request QueryAvatarProjectRequest
-   * @return QueryAvatarProjectResponse
+   * 查询数字人项目信息
+   * 
+   * @param request - QueryAvatarProjectRequest
+   * @returns QueryAvatarProjectResponse
    */
   async queryAvatarProject(request: QueryAvatarProjectRequest): Promise<QueryAvatarProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3086,12 +3982,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找资源
-   *
-   * @param request QueryAvatarResourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAvatarResourceResponse
+   * 查找资源
+   * 
+   * @param request - QueryAvatarResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAvatarResourceResponse
    */
   async queryAvatarResourceWithOptions(request: QueryAvatarResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryAvatarResourceResponse> {
     Util.validateModel(request);
@@ -3119,10 +4015,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找资源
-   *
-   * @param request QueryAvatarResourceRequest
-   * @return QueryAvatarResourceResponse
+   * 查找资源
+   * 
+   * @param request - QueryAvatarResourceRequest
+   * @returns QueryAvatarResourceResponse
    */
   async queryAvatarResource(request: QueryAvatarResourceRequest): Promise<QueryAvatarResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3131,12 +4027,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询离线数字人剩余资源
-   *
-   * @param request SelectResourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SelectResourceResponse
+   * 查询离线数字人剩余资源
+   * 
+   * @param request - SelectResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SelectResourceResponse
    */
   async selectResourceWithOptions(request: SelectResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SelectResourceResponse> {
     Util.validateModel(request);
@@ -3164,10 +4060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询离线数字人剩余资源
-   *
-   * @param request SelectResourceRequest
-   * @return SelectResourceResponse
+   * 查询离线数字人剩余资源
+   * 
+   * @param request - SelectResourceRequest
+   * @returns SelectResourceResponse
    */
   async selectResource(request: SelectResourceRequest): Promise<SelectResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3176,12 +4072,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送文本消息
-   *
-   * @param request SendTextMsgRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendTextMsgResponse
+   * 发送文本消息
+   * 
+   * @param request - SendTextMsgRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendTextMsgResponse
    */
   async sendTextMsgWithOptions(request: SendTextMsgRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendTextMsgResponse> {
     Util.validateModel(request);
@@ -3225,10 +4121,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送文本消息
-   *
-   * @param request SendTextMsgRequest
-   * @return SendTextMsgResponse
+   * 发送文本消息
+   * 
+   * @param request - SendTextMsgRequest
+   * @returns SendTextMsgResponse
    */
   async sendTextMsg(request: SendTextMsgRequest): Promise<SendTextMsgResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3237,12 +4133,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动会话
-   *
-   * @param request StartAvatarSessionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartAvatarSessionResponse
+   * 启动会话
+   * 
+   * @param request - StartAvatarSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAvatarSessionResponse
    */
   async startAvatarSessionWithOptions(request: StartAvatarSessionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAvatarSessionResponse> {
     Util.validateModel(request);
@@ -3274,10 +4170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动会话
-   *
-   * @param request StartAvatarSessionRequest
-   * @return StartAvatarSessionResponse
+   * 启动会话
+   * 
+   * @param request - StartAvatarSessionRequest
+   * @returns StartAvatarSessionResponse
    */
   async startAvatarSession(request: StartAvatarSessionRequest): Promise<StartAvatarSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3286,12 +4182,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止会话
-   *
-   * @param request StopAvatarSessionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopAvatarSessionResponse
+   * 停止会话
+   * 
+   * @param request - StopAvatarSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAvatarSessionResponse
    */
   async stopAvatarSessionWithOptions(request: StopAvatarSessionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAvatarSessionResponse> {
     Util.validateModel(request);
@@ -3323,10 +4219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止会话
-   *
-   * @param request StopAvatarSessionRequest
-   * @return StopAvatarSessionResponse
+   * 停止会话
+   * 
+   * @param request - StopAvatarSessionRequest
+   * @returns StopAvatarSessionResponse
    */
   async stopAvatarSession(request: StopAvatarSessionRequest): Promise<StopAvatarSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3335,12 +4231,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视频合成任务停止
-   *
-   * @param request StopProjectTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopProjectTaskResponse
+   * 视频合成任务停止
+   * 
+   * @param request - StopProjectTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopProjectTaskResponse
    */
   async stopProjectTaskWithOptions(request: StopProjectTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopProjectTaskResponse> {
     Util.validateModel(request);
@@ -3368,10 +4264,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视频合成任务停止
-   *
-   * @param request StopProjectTaskRequest
-   * @return StopProjectTaskResponse
+   * 视频合成任务停止
+   * 
+   * @param request - StopProjectTaskRequest
+   * @returns StopProjectTaskResponse
    */
   async stopProjectTask(request: StopProjectTaskRequest): Promise<StopProjectTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3380,12 +4276,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交离线数字人合成任务
-   *
-   * @param request SubmitProjectTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitProjectTaskResponse
+   * 提交离线数字人合成任务
+   * 
+   * @param request - SubmitProjectTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitProjectTaskResponse
    */
   async submitProjectTaskWithOptions(request: SubmitProjectTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitProjectTaskResponse> {
     Util.validateModel(request);
@@ -3400,6 +4296,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.subtitleTag)) {
       body["subtitleTag"] = request.subtitleTag;
+    }
+
+    if (!Util.isUnset(request.transparentBackground)) {
+      body["transparentBackground"] = request.transparentBackground;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3421,10 +4321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交离线数字人合成任务
-   *
-   * @param request SubmitProjectTaskRequest
-   * @return SubmitProjectTaskResponse
+   * 提交离线数字人合成任务
+   * 
+   * @param request - SubmitProjectTaskRequest
+   * @returns SubmitProjectTaskResponse
    */
   async submitProjectTask(request: SubmitProjectTaskRequest): Promise<SubmitProjectTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });

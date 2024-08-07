@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/intelligentcreation20240313",
-  "version": "2.1.4",
+  "version": "2.2.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
