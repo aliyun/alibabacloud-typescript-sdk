@@ -17226,6 +17226,7 @@ export class UpdateLogstashSettingsResponse extends $tea.Model {
 
 export class UpdatePipelineManagementConfigRequest extends $tea.Model {
   endpoints?: string[];
+  esInstanceId?: string;
   /**
    * @example
    * ******
@@ -17250,6 +17251,7 @@ export class UpdatePipelineManagementConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endpoints: 'endpoints',
+      esInstanceId: 'esInstanceId',
       password: 'password',
       pipelineIds: 'pipelineIds',
       pipelineManagementType: 'pipelineManagementType',
@@ -17261,6 +17263,7 @@ export class UpdatePipelineManagementConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endpoints: { 'type': 'array', 'itemType': 'string' },
+      esInstanceId: 'string',
       password: 'string',
       pipelineIds: { 'type': 'array', 'itemType': 'string' },
       pipelineManagementType: 'string',
@@ -41848,6 +41851,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endpoints)) {
       body["endpoints"] = request.endpoints;
+    }
+
+    if (!Util.isUnset(request.esInstanceId)) {
+      body["esInstanceId"] = request.esInstanceId;
     }
 
     if (!Util.isUnset(request.password)) {
