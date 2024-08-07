@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ApplyForStreamAccessTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,9 +31,28 @@ export class ApplyForStreamAccessTokenRequest extends $tea.Model {
 }
 
 export class ApplyForStreamAccessTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 63ba97b4f18a4a04f715c81e8e643938
+   */
   accessToken?: string;
+  /**
+   * @example
+   * cc9e88c0-4f41-4f1d-a1a9-91a72d2aa27d
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 736994BD-AA35-4742-88C9-E64BE4BAA14B
+   */
   requestId?: string;
+  /**
+   * @example
+   * cc9e88c0-4f41-4f1d-a1a9-91a72d2aa27d
+   */
   streamSecret?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,11 +103,35 @@ export class ApplyForStreamAccessTokenResponse extends $tea.Model {
 }
 
 export class AssociateRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["qyzzVfyFfa"]
+   */
   perspective?: string[];
+  /**
+   * @example
+   * 8
+   */
   recommendNum?: number;
+  /**
+   * @example
+   * 7c3cec23cc8940bc9db4a318c8f4f0aa
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 公积金提取
+   */
   utterance?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,11 +161,35 @@ export class AssociateRequest extends $tea.Model {
 }
 
 export class AssociateShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["qyzzVfyFfa"]
+   */
   perspectiveShrink?: string;
+  /**
+   * @example
+   * 8
+   */
   recommendNum?: number;
+  /**
+   * @example
+   * 7c3cec23cc8940bc9db4a318c8f4f0aa
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 公积金提取
+   */
   utterance?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,8 +220,20 @@ export class AssociateShrinkRequest extends $tea.Model {
 
 export class AssociateResponseBody extends $tea.Model {
   associate?: AssociateResponseBodyAssociate[];
+  /**
+   * @example
+   * 5ADF0EBD-7C50-1922-A28B-43215B47CC1A
+   */
   messageId?: string;
+  /**
+   * @example
+   * 5C20F0D4-9721-178A-8236-3BF990634962
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1531ded6b3df4afca4be63943f708bb7
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -202,7 +284,15 @@ export class AssociateResponse extends $tea.Model {
 }
 
 export class BeginSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -226,8 +316,23 @@ export class BeginSessionRequest extends $tea.Model {
 export class BeginSessionResponseBody extends $tea.Model {
   asrMaxEndSilence?: number;
   interruptible?: boolean;
+  /**
+   * @example
+   * 149C7528-C104-1B50-A4F9-0C5907A8AD9D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 静默超时时间
+   * 
+   * @example
+   * 5
+   */
   silenceReplyTimeout?: number;
+  /**
+   * @example
+   * 智能对话机器人为您服务，请问有什么可以帮您？
+   */
   welcomeMessage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -280,8 +385,20 @@ export class BeginSessionResponse extends $tea.Model {
 }
 
 export class CancelInstancePublishTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 8521
+   */
   id?: number;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -306,12 +423,36 @@ export class CancelInstancePublishTaskRequest extends $tea.Model {
 
 export class CancelInstancePublishTaskResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_ABORTED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -370,7 +511,15 @@ export class CancelInstancePublishTaskResponse extends $tea.Model {
 }
 
 export class CancelPublishTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 8521
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -393,12 +542,36 @@ export class CancelPublishTaskRequest extends $tea.Model {
 
 export class CancelPublishTaskResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_ABORTED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -457,16 +630,44 @@ export class CancelPublishTaskResponse extends $tea.Model {
 }
 
 export class ChatRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   intentName?: string;
+  /**
+   * @example
+   * 30002406051
+   */
   knowledgeId?: string;
   perspective?: string[];
+  /**
+   * @example
+   * true
+   */
   sandBox?: boolean;
+  /**
+   * @example
+   * custumer_123456
+   */
   senderId?: string;
   senderNick?: string;
+  /**
+   * @example
+   * 9c6ebdc6e66f46ecadab3434314f6959
+   */
   sessionId?: string;
   utterance?: string;
+  /**
+   * @example
+   * {"phone":123456789}
+   */
   vendorParam?: string;
   static names(): { [key: string]: string } {
     return {
@@ -506,16 +707,44 @@ export class ChatRequest extends $tea.Model {
 }
 
 export class ChatShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   intentName?: string;
+  /**
+   * @example
+   * 30002406051
+   */
   knowledgeId?: string;
   perspectiveShrink?: string;
+  /**
+   * @example
+   * true
+   */
   sandBox?: boolean;
+  /**
+   * @example
+   * custumer_123456
+   */
   senderId?: string;
   senderNick?: string;
+  /**
+   * @example
+   * 9c6ebdc6e66f46ecadab3434314f6959
+   */
   sessionId?: string;
   utterance?: string;
+  /**
+   * @example
+   * {"phone":123456789}
+   */
   vendorParam?: string;
   static names(): { [key: string]: string } {
     return {
@@ -555,10 +784,22 @@ export class ChatShrinkRequest extends $tea.Model {
 }
 
 export class ChatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
+   */
   messageId?: string;
   messages?: ChatResponseBodyMessages[];
   querySegList?: string[];
+  /**
+   * @example
+   * A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
+   */
   requestId?: string;
+  /**
+   * @example
+   * a6f216a0685c4c8baa0e8beb6d5ec6db
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -611,8 +852,20 @@ export class ChatResponse extends $tea.Model {
 }
 
 export class ContinueInstancePublishTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 8521
+   */
   id?: number;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -637,14 +890,46 @@ export class ContinueInstancePublishTaskRequest extends $tea.Model {
 
 export class ContinueInstancePublishTaskResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
+  /**
+   * @example
+   * {}
+   */
   errors?: { [key: string]: any };
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * {         "category_bind_faq": [             "以下类目没有发布到正式环境: 项目交付信息汇总"         ]     }
+   */
   warnings?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -707,10 +992,22 @@ export class ContinueInstancePublishTaskResponse extends $tea.Model {
 }
 
 export class CreateCategoryRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   bizCode?: string;
   knowledgeType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -739,6 +1036,10 @@ export class CreateCategoryRequest extends $tea.Model {
 
 export class CreateCategoryResponseBody extends $tea.Model {
   category?: CreateCategoryResponseBodyCategory;
+  /**
+   * @example
+   * A629A28F-F25E-5572-A679-FA46FB0151D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -785,8 +1086,26 @@ export class CreateCategoryResponse extends $tea.Model {
 }
 
 export class CreateConnQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30002654628
+   */
   connQuestionId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30002174773
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -810,7 +1129,15 @@ export class CreateConnQuestionRequest extends $tea.Model {
 }
 
 export class CreateConnQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1000002123
+   */
   outlineId?: number;
+  /**
+   * @example
+   * C191B48B-9268-4FB1-A3C2-5143B4A91D0C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -857,9 +1184,31 @@ export class CreateConnQuestionResponse extends $tea.Model {
 }
 
 export class CreateDSEntityRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 实体名称
+   */
   entityName?: string;
+  /**
+   * @example
+   * synonyms
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -885,7 +1234,15 @@ export class CreateDSEntityRequest extends $tea.Model {
 }
 
 export class CreateDSEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 23436345
+   */
   entityId?: number;
+  /**
+   * @example
+   * adfad2343f1f2r
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -932,9 +1289,34 @@ export class CreateDSEntityResponse extends $tea.Model {
 }
 
 export class CreateDSEntityValueRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ada
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   synonyms?: string[];
   static names(): { [key: string]: string } {
@@ -963,9 +1345,34 @@ export class CreateDSEntityValueRequest extends $tea.Model {
 }
 
 export class CreateDSEntityValueShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ada
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   synonymsShrink?: string;
   static names(): { [key: string]: string } {
@@ -994,7 +1401,15 @@ export class CreateDSEntityValueShrinkRequest extends $tea.Model {
 }
 
 export class CreateDSEntityValueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2434543453
+   */
   entityValueId?: number;
+  /**
+   * @example
+   * g763hg48j3f3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1041,15 +1456,50 @@ export class CreateDSEntityValueResponse extends $tea.Model {
 }
 
 export class CreateDocRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
+  /**
+   * @example
+   * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":""}
+   */
   config?: string;
   content?: string;
+  /**
+   * @example
+   * 2032-05-25T16:28:36Z
+   */
   endDate?: string;
+  /**
+   * @example
+   * {"code":"xxx"}
+   */
   meta?: string;
+  /**
+   * @example
+   * 2022-05-25T16:28:36Z
+   */
   startDate?: string;
   tagIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
+  /**
+   * @example
+   * https://example.com/example.pdf
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1087,15 +1537,50 @@ export class CreateDocRequest extends $tea.Model {
 }
 
 export class CreateDocShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
+  /**
+   * @example
+   * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":""}
+   */
   config?: string;
   content?: string;
+  /**
+   * @example
+   * 2032-05-25T16:28:36Z
+   */
   endDate?: string;
+  /**
+   * @example
+   * {"code":"xxx"}
+   */
   meta?: string;
+  /**
+   * @example
+   * 2022-05-25T16:28:36Z
+   */
   startDate?: string;
   tagIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
+  /**
+   * @example
+   * https://example.com/example.pdf
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1133,7 +1618,15 @@ export class CreateDocShrinkRequest extends $tea.Model {
 }
 
 export class CreateDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * 07B270A4-61D8-57F6-A609-A3C216CFB872
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1180,12 +1673,39 @@ export class CreateDocResponse extends $tea.Model {
 }
 
 export class CreateFaqRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000053274
+   */
   categoryId?: number;
+  /**
+   * @example
+   * 2030-12-31T16:00:00Z
+   */
   endDate?: string;
   solutionContent?: string;
+  /**
+   * @example
+   * 0
+   */
   solutionType?: number;
+  /**
+   * @example
+   * 2022-05-25T16:28:36Z
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1217,7 +1737,15 @@ export class CreateFaqRequest extends $tea.Model {
 }
 
 export class CreateFaqResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30001979424
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * 28805A7C-D695-548C-A31B-67E52C2C274F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1264,10 +1792,30 @@ export class CreateFaqResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 用于手机app的小蜜机器人
+   */
   introduction?: string;
+  /**
+   * @example
+   * zh-cn
+   */
   languageCode?: string;
+  /**
+   * @example
+   * 小蜜机器人
+   */
   name?: string;
+  /**
+   * @example
+   * scenario_im
+   */
   robotType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1295,7 +1843,18 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F2E2C40D-AB09-45A1-B5C5-EB9F5C4E4E4A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1342,7 +1901,15 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateInstancePublishTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1365,12 +1932,36 @@ export class CreateInstancePublishTaskRequest extends $tea.Model {
 
 export class CreateInstancePublishTaskResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1429,7 +2020,18 @@ export class CreateInstancePublishTaskResponse extends $tea.Model {
 }
 
 export class CreateIntentRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   intentDefinition?: CreateIntentRequestIntentDefinition;
   static names(): { [key: string]: string } {
@@ -1454,7 +2056,18 @@ export class CreateIntentRequest extends $tea.Model {
 }
 
 export class CreateIntentShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   intentDefinitionShrink?: string;
   static names(): { [key: string]: string } {
@@ -1479,7 +2092,15 @@ export class CreateIntentShrinkRequest extends $tea.Model {
 }
 
 export class CreateIntentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 43546474
+   */
   intentId?: number;
+  /**
+   * @example
+   * df56gjh5et34g3g3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1526,7 +2147,18 @@ export class CreateIntentResponse extends $tea.Model {
 }
 
 export class CreateLgfRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   lgfDefinition?: CreateLgfRequestLgfDefinition;
   static names(): { [key: string]: string } {
@@ -1551,7 +2183,18 @@ export class CreateLgfRequest extends $tea.Model {
 }
 
 export class CreateLgfShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   lgfDefinitionShrink?: string;
   static names(): { [key: string]: string } {
@@ -1576,7 +2219,18 @@ export class CreateLgfShrinkRequest extends $tea.Model {
 }
 
 export class CreateLgfResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * LGF ID
+   * 
+   * @example
+   * 123453433453
+   */
   lgfId?: number;
+  /**
+   * @example
+   * af5fg3sdf457j5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1623,8 +2277,20 @@ export class CreateLgfResponse extends $tea.Model {
 }
 
 export class CreatePerspectiveRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 用于购物APP的移动端视角
+   */
   description?: string;
+  /**
+   * @example
+   * 移动端视角
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1648,7 +2314,15 @@ export class CreatePerspectiveRequest extends $tea.Model {
 }
 
 export class CreatePerspectiveResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3001
+   */
   perspectiveId?: string;
+  /**
+   * @example
+   * F285D735-D580-18A8-B97F-B2E72B00F101
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1695,8 +2369,20 @@ export class CreatePerspectiveResponse extends $tea.Model {
 }
 
 export class CreatePublishTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * faq
+   */
   bizType?: string;
+  /**
+   * @example
+   * ["8521"]
+   */
   dataIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1720,8 +2406,20 @@ export class CreatePublishTaskRequest extends $tea.Model {
 }
 
 export class CreatePublishTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * faq
+   */
   bizType?: string;
+  /**
+   * @example
+   * ["8521"]
+   */
   dataIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1746,12 +2444,36 @@ export class CreatePublishTaskShrinkRequest extends $tea.Model {
 
 export class CreatePublishTaskResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1810,8 +2532,23 @@ export class CreatePublishTaskResponse extends $tea.Model {
 }
 
 export class CreateSimQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1835,7 +2572,15 @@ export class CreateSimQuestionRequest extends $tea.Model {
 }
 
 export class CreateSimQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16AC1B3C-66E0-438B-BB7C-71B692407B67
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000002788
+   */
   simQuestionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1882,10 +2627,33 @@ export class CreateSimQuestionResponse extends $tea.Model {
 }
 
 export class CreateSolutionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @example
+   * 1
+   */
   contentType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   perspectiveCodes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1913,7 +2681,15 @@ export class CreateSolutionRequest extends $tea.Model {
 }
 
 export class CreateSolutionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100001089003
+   */
   solutionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1960,7 +2736,18 @@ export class CreateSolutionResponse extends $tea.Model {
 }
 
 export class CreateUserSayRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   userSayDefinition?: CreateUserSayRequestUserSayDefinition;
   static names(): { [key: string]: string } {
@@ -1985,7 +2772,18 @@ export class CreateUserSayRequest extends $tea.Model {
 }
 
 export class CreateUserSayShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   userSayDefinitionShrink?: string;
   static names(): { [key: string]: string } {
@@ -2010,7 +2808,15 @@ export class CreateUserSayShrinkRequest extends $tea.Model {
 }
 
 export class CreateUserSayResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8g4n8bnd236fg79
+   */
   requestId?: string;
+  /**
+   * @example
+   * 46456176856
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2057,7 +2863,18 @@ export class CreateUserSayResponse extends $tea.Model {
 }
 
 export class DeleteCategoryRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2079,6 +2896,10 @@ export class DeleteCategoryRequest extends $tea.Model {
 }
 
 export class DeleteCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4B3E0DE3-DC57-5BFE-88D4-ADD8ED024F55
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2123,7 +2944,18 @@ export class DeleteCategoryResponse extends $tea.Model {
 }
 
 export class DeleteConnQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 877397683
+   */
   outlineId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2145,6 +2977,10 @@ export class DeleteConnQuestionRequest extends $tea.Model {
 }
 
 export class DeleteConnQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FC323352-3AD7-59A1-9088-A64470BAFC9D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2189,8 +3025,26 @@ export class DeleteConnQuestionResponse extends $tea.Model {
 }
 
 export class DeleteDSEntityRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2214,7 +3068,15 @@ export class DeleteDSEntityRequest extends $tea.Model {
 }
 
 export class DeleteDSEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   entityId?: number;
+  /**
+   * @example
+   * 4dfghf56235asdf452
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2261,9 +3123,34 @@ export class DeleteDSEntityResponse extends $tea.Model {
 }
 
 export class DeleteDSEntityValueRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 345346223452
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3453453452
+   */
   entityValueId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2289,7 +3176,15 @@ export class DeleteDSEntityValueRequest extends $tea.Model {
 }
 
 export class DeleteDSEntityValueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3453453452
+   */
   entityValueId?: number;
+  /**
+   * @example
+   * dfdf2t3rfvb45y
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2336,7 +3231,21 @@ export class DeleteDSEntityValueResponse extends $tea.Model {
 }
 
 export class DeleteDocRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   * 
+   * **if can be null:**
+   * false
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2358,7 +3267,15 @@ export class DeleteDocRequest extends $tea.Model {
 }
 
 export class DeleteDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30002406051
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * DFB71B34-4188-4EA2-9988-EF3014E75910
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2405,7 +3322,18 @@ export class DeleteDocResponse extends $tea.Model {
 }
 
 export class DeleteFaqRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2427,6 +3355,10 @@ export class DeleteFaqRequest extends $tea.Model {
 }
 
 export class DeleteFaqResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F79E7305-5314-5069-A701-9591AD051902
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2471,7 +3403,15 @@ export class DeleteFaqResponse extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2494,13 +3434,41 @@ export class DeleteInstanceRequest extends $tea.Model {
 
 export class DeleteInstanceResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2021-09-11T09:26:14Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 9052
+   */
   createUserId?: number;
+  /**
+   * @example
+   * xuqiang_test
+   */
   createUserName?: string;
   error?: string;
+  /**
+   * @example
+   * 8521
+   */
   id?: number;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8521
+   */
   response?: number;
+  /**
+   * @example
+   * FE_RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2561,8 +3529,26 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteIntentRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2586,7 +3572,15 @@ export class DeleteIntentRequest extends $tea.Model {
 }
 
 export class DeleteIntentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12345
+   */
   intentId?: number;
+  /**
+   * @example
+   * 3464dfg3qwr34tf34
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2633,9 +3627,36 @@ export class DeleteIntentResponse extends $tea.Model {
 }
 
 export class DeleteLgfRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23242342
+   */
   intentId?: number;
+  /**
+   * @remarks
+   * lgf Id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2342424
+   */
   lgfId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2661,7 +3682,18 @@ export class DeleteLgfRequest extends $tea.Model {
 }
 
 export class DeleteLgfResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * LGF ID
+   * 
+   * @example
+   * 2342424
+   */
   lgfId?: number;
+  /**
+   * @example
+   * dgw2342424qw42
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2708,7 +3740,15 @@ export class DeleteLgfResponse extends $tea.Model {
 }
 
 export class DeletePerspectiveRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 3001
+   */
   perspectiveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2730,7 +3770,15 @@ export class DeletePerspectiveRequest extends $tea.Model {
 }
 
 export class DeletePerspectiveResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FC384CE1-8D42-1900-84E1-F33F990F2B5E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2777,7 +3825,18 @@ export class DeletePerspectiveResponse extends $tea.Model {
 }
 
 export class DeleteSimQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000002788
+   */
   simQuestionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2799,6 +3858,10 @@ export class DeleteSimQuestionRequest extends $tea.Model {
 }
 
 export class DeleteSimQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6419BA93-D111-5225-8998-13E63E6D3940
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2843,7 +3906,18 @@ export class DeleteSimQuestionResponse extends $tea.Model {
 }
 
 export class DeleteSolutionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100001321580
+   */
   solutionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2865,6 +3939,10 @@ export class DeleteSolutionRequest extends $tea.Model {
 }
 
 export class DeleteSolutionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F79E7305-5314-5069-A701-9591AD051902
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2909,9 +3987,34 @@ export class DeleteSolutionResponse extends $tea.Model {
 }
 
 export class DeleteUserSayRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 343df2sdf23
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5564564546
+   */
   intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4562121234
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2937,7 +4040,15 @@ export class DeleteUserSayRequest extends $tea.Model {
 }
 
 export class DeleteUserSayResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dfgdg324gf34t34g34g3
+   */
   requestId?: string;
+  /**
+   * @example
+   * 4562121234
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2984,7 +4095,18 @@ export class DeleteUserSayResponse extends $tea.Model {
 }
 
 export class DescribeCategoryRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3007,6 +4129,10 @@ export class DescribeCategoryRequest extends $tea.Model {
 
 export class DescribeCategoryResponseBody extends $tea.Model {
   category?: DescribeCategoryResponseBodyCategory;
+  /**
+   * @example
+   * 2B0304FD-3804-5C06-9A83-77F5523664AF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3053,8 +4179,26 @@ export class DescribeCategoryResponse extends $tea.Model {
 }
 
 export class DescribeDSEntityRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3078,15 +4222,51 @@ export class DescribeDSEntityRequest extends $tea.Model {
 }
 
 export class DescribeDSEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   createUserId?: string;
+  /**
+   * @example
+   * test
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 123
+   */
   entityId?: number;
   entityName?: string;
+  /**
+   * @example
+   * synonyms
+   */
   entityType?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   modifyUserId?: string;
+  /**
+   * @example
+   * test
+   */
   modifyUserName?: string;
+  /**
+   * @example
+   * ad23234dsf234fga
+   */
   requestId?: string;
   sysEntityCode?: string;
   static names(): { [key: string]: string } {
@@ -3152,8 +4332,23 @@ export class DescribeDSEntityResponse extends $tea.Model {
 }
 
 export class DescribeDocRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001979424
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * false
+   */
   showDetail?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3177,27 +4372,94 @@ export class DescribeDocRequest extends $tea.Model {
 }
 
 export class DescribeDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * bizcode123
+   */
   bizCode?: string;
+  /**
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
+  /**
+   * @example
+   * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":"docName"}
+   */
   config?: string;
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1111111111
+   */
   createUserId?: number;
   createUserName?: string;
   docInfo?: DescribeDocResponseBodyDocInfo;
   docName?: string;
   docTags?: DescribeDocResponseBodyDocTags[];
+  /**
+   * @example
+   * 20
+   */
   effectStatus?: number;
+  /**
+   * @example
+   * 2023-04-27T06:08:54Z
+   */
   endDate?: string;
+  /**
+   * @example
+   * 30001979424
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * {"code":"xxx"}
+   */
   meta?: string;
+  /**
+   * @example
+   * 2020-11-25T08:56:55Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 2222222222
+   */
   modifyUserId?: number;
   modifyUserName?: string;
+  /**
+   * @example
+   * true
+   */
   processCanRetry?: boolean;
   processMessage?: string;
+  /**
+   * @example
+   * 0
+   */
   processStatus?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7F132693-212A-40A9-8A81-11E7694E478B
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1979-12-31T16:00:00Z
+   */
   startDate?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   title?: string;
   url?: string;
@@ -3290,7 +4552,18 @@ export class DescribeDocResponse extends $tea.Model {
 }
 
 export class DescribeFaqRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001979424
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3312,19 +4585,63 @@ export class DescribeFaqRequest extends $tea.Model {
 }
 
 export class DescribeFaqResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30000055617
+   */
   categoryId?: number;
+  /**
+   * @example
+   * 2020-11-30T03:03:37Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * test01
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 20
+   */
   effectStatus?: number;
+  /**
+   * @example
+   * 2023-04-27T06:08:54Z
+   */
   endDate?: string;
+  /**
+   * @example
+   * 30001979424
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * 2020-12-02T06:35:50Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * test01
+   */
   modifyUserName?: string;
   outlines?: DescribeFaqResponseBodyOutlines[];
+  /**
+   * @example
+   * 8AD9FA10-7780-5E12-B701-13C928524F32
+   */
   requestId?: string;
   simQuestions?: DescribeFaqResponseBodySimQuestions[];
   solutions?: DescribeFaqResponseBodySolutions[];
+  /**
+   * @example
+   * 2022-04-27T07:04:39Z
+   */
   startDate?: string;
+  /**
+   * @example
+   * 3
+   */
   status?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -3398,7 +4715,15 @@ export class DescribeFaqResponse extends $tea.Model {
 }
 
 export class DescribeInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3420,16 +4745,56 @@ export class DescribeInstanceRequest extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * /alimefe/meebot/robot/0.0.5/img/xxx-90-97.png
+   */
   avatar?: string;
   categories?: DescribeInstanceResponseBodyCategories[];
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * PUBLISHED
+   */
   editStatus?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 用于C端问答的机器人
+   */
   introduction?: string;
+  /**
+   * @example
+   * zh-cn
+   */
   languageCode?: string;
+  /**
+   * @example
+   * 智能客服-小C
+   */
   name?: string;
+  /**
+   * @example
+   * 907AA5F2-0521-49AB-80AB-1ADEFAB2B901
+   */
   requestId?: string;
+  /**
+   * @example
+   * scenario_im
+   */
   robotType?: string;
+  /**
+   * @example
+   * Asia/Chongqing
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3494,8 +4859,26 @@ export class DescribeInstanceResponse extends $tea.Model {
 }
 
 export class DescribeIntentRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3520,14 +4903,46 @@ export class DescribeIntentRequest extends $tea.Model {
 
 export class DescribeIntentResponseBody extends $tea.Model {
   aliasName?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   createUserId?: string;
+  /**
+   * @example
+   * test
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 84243341
+   */
   intentId?: number;
   intentName?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   modifyUserId?: string;
+  /**
+   * @example
+   * test
+   */
   modifyUserName?: string;
+  /**
+   * @example
+   * a22afaf2adfasf2gr345fga45ada
+   */
   requestId?: string;
   slotInfos?: DescribeIntentResponseBodySlotInfos[];
   static names(): { [key: string]: string } {
@@ -3593,7 +5008,15 @@ export class DescribeIntentResponse extends $tea.Model {
 }
 
 export class DescribePerspectiveRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 3001
+   */
   perspectiveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3615,13 +5038,45 @@ export class DescribePerspectiveRequest extends $tea.Model {
 }
 
 export class DescribePerspectiveResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2021-07-27T07:05:37Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2021-07-26T07:05:37Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 移动端视角
+   */
   name?: string;
+  /**
+   * @example
+   * FZJBY3raWr
+   */
   perspectiveCode?: string;
+  /**
+   * @example
+   * 3001
+   */
   perspectiveId?: string;
+  /**
+   * @example
+   * F285D735-D580-18A8-B97F-B2E72B00F101
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   selfDefine?: boolean;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3680,11 +5135,35 @@ export class DescribePerspectiveResponse extends $tea.Model {
 }
 
 export class FeedbackRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * good
+   */
   feedback?: string;
+  /**
+   * @example
+   * 这个回答很棒
+   */
   feedbackContent?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 5ca40988-4f99-47ad-ac96-9060d0f81db9
+   */
   messageId?: string;
+  /**
+   * @example
+   * 7c3cec23cc8940bc9db4a318c8f4f0aa
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3714,8 +5193,20 @@ export class FeedbackRequest extends $tea.Model {
 }
 
 export class FeedbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * good
+   */
   feedback?: string;
+  /**
+   * @example
+   * 5ca40988-4f99-47ad-ac96-9060d0f81db9
+   */
   messageId?: string;
+  /**
+   * @example
+   * 4e5eea71-f326-450c-8849-49515473ef64
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3764,12 +5255,39 @@ export class FeedbackResponse extends $tea.Model {
 }
 
 export class GenerateUserAccessTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * a***bcx@gmail.com
+   */
   email?: string;
+  /**
+   * @example
+   * 1000
+   */
   expireTime?: number;
   extraInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 8882022040000000171
+   */
   foreignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   nick?: string;
+  /**
+   * @example
+   * 1381111****
+   */
   telephone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3801,10 +5319,33 @@ export class GenerateUserAccessTokenRequest extends $tea.Model {
 }
 
 export class GenerateUserAccessTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * DDEXEDAFWAGASDFWAEFFAWEFAWFWEAFWAFWAEF
+   */
   data?: string;
+  /**
+   * @example
+   * Parameter.Invalid
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E6988CE6-41CF-1103-9BEC-2B20D26C0B51
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3857,6 +5398,10 @@ export class GenerateUserAccessTokenResponse extends $tea.Model {
 }
 
 export class GetAgentInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * beebot_bot_public_cn-ca36x8v3n1x
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3877,8 +5422,23 @@ export class GetAgentInfoRequest extends $tea.Model {
 
 export class GetAgentInfoResponseBody extends $tea.Model {
   data?: GetAgentInfoResponseBodyData;
+  /**
+   * @example
+   * Parameter.Invalid
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FC384CE1-8D42-1900-84E1-F33F990F2B5E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3929,7 +5489,15 @@ export class GetAgentInfoResponse extends $tea.Model {
 }
 
 export class GetAsyncResultRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3952,7 +5520,15 @@ export class GetAsyncResultRequest extends $tea.Model {
 
 export class GetAsyncResultResponseBody extends $tea.Model {
   data?: string;
+  /**
+   * @example
+   * F79E7305-5314-5069-A701-9591AD051902
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4001,9 +5577,34 @@ export class GetAsyncResultResponse extends $tea.Model {
 }
 
 export class GetBotSessionDataRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20240605
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-7QuUfaqMQe
+   */
   robotInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20240505
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4029,8 +5630,16 @@ export class GetBotSessionDataRequest extends $tea.Model {
 }
 
 export class GetBotSessionDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 116
+   */
   costTime?: string;
   datas?: { [key: string]: any }[];
+  /**
+   * @example
+   * 15CD94CC-CBEB-4189-806C-A132D1F45D51
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4079,8 +5688,20 @@ export class GetBotSessionDataResponse extends $tea.Model {
 }
 
 export class GetInstancePublishTaskStateRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 8521
+   */
   id?: number;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4105,13 +5726,37 @@ export class GetInstancePublishTaskStateRequest extends $tea.Model {
 
 export class GetInstancePublishTaskStateResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
   errors?: { [key: string]: any };
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_RUNNING
+   */
   status?: string;
   warnings?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -4175,7 +5820,15 @@ export class GetInstancePublishTaskStateResponse extends $tea.Model {
 }
 
 export class GetPublishTaskStateRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 8521
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4198,13 +5851,37 @@ export class GetPublishTaskStateRequest extends $tea.Model {
 
 export class GetPublishTaskStateResponseBody extends $tea.Model {
   bizTypeList?: string[];
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
   error?: string;
   errors?: { [key: string]: any };
+  /**
+   * @example
+   * 8522
+   */
   id?: number;
+  /**
+   * @example
+   * 2022-04-12T06:30:33Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 8522
+   */
   response?: string;
+  /**
+   * @example
+   * FE_RUNNING
+   */
   status?: string;
   warnings?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -4268,8 +5945,23 @@ export class GetPublishTaskStateResponse extends $tea.Model {
 }
 
 export class InitIMConnectRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 8XNBzDucJv
+   */
   from?: string;
+  /**
+   * @example
+   * QUM4SndaY3VPMjhkQldDZUNOR0ZaTmZ5R3NBY0FKWHJ4OGc4dERZbEJzcjNIKzFiS1RyTjhXRUpBYmVpQlpsakprNDRFVkdxcy9HWVk2RXZvalU3bHhxRkJlc1NBUXZwdHFKOTE2UTNwamQ4b1U4N3dEbmhyRjc4R2hOQStvMnMrYkV2dlVpSHNvWC96SEVNZWRqMjBuMXdjNklpamJzaDNWYllnUldDZGhJPQ==
+   */
   userAccessToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4293,10 +5985,33 @@ export class InitIMConnectRequest extends $tea.Model {
 }
 
 export class InitIMConnectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * {     "imDomain": "im.alimebot.com",     "appKey": "WDg2VfNv",     "token": "QUM4SndaY3VPMjhkQldDZUNOR0ZaTmZ5R3NBY0FKWHJ4OGc4dERZbEJzcjNIKzFiS1RyTjhXRUpBYmVpQlpsakprNDRFVkdxcy9HWVk2RXZvalU3bHhxRkJlc1NBUXZwdHFKOTE2UTNwamQ4b1U4N3dEbmhyRjc4R2hOQStvMnMrYkV2dlVpSHNvWC96SEVNZWRqMjBuMXdjNklpamJzaDNWYllnUldDZGhJPQ=="   }
+   */
   data?: string;
+  /**
+   * @example
+   * Parameter.Invalid
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E6988CE6-41CF-1103-9BEC-2B20D26C0B52
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4349,8 +6064,20 @@ export class InitIMConnectResponse extends $tea.Model {
 }
 
 export class LinkInstanceCategoryRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * [\\"30000065789\\"]
+   */
   categoryIds?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4374,6 +6101,10 @@ export class LinkInstanceCategoryRequest extends $tea.Model {
 }
 
 export class LinkInstanceCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D8C96601-E645-1BD7-99F3-04EADAB84E29
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4420,7 +6151,15 @@ export class LinkInstanceCategoryResponse extends $tea.Model {
 export class ListAgentRequest extends $tea.Model {
   agentName?: string;
   goodsCodes?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4447,9 +6186,28 @@ export class ListAgentRequest extends $tea.Model {
 
 export class ListAgentResponseBody extends $tea.Model {
   data?: ListAgentResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
+   */
   requestId?: string;
+  /**
+   * @example
+   * 6
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4502,8 +6260,16 @@ export class ListAgentResponse extends $tea.Model {
 }
 
 export class ListCategoryRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   knowledgeType?: number;
+  /**
+   * @example
+   * -1
+   */
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4528,6 +6294,10 @@ export class ListCategoryRequest extends $tea.Model {
 
 export class ListCategoryResponseBody extends $tea.Model {
   categories?: ListCategoryResponseBodyCategories[];
+  /**
+   * @example
+   * 9C5F8186-2D22-433E-9545-606D344F30B5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4574,7 +6344,18 @@ export class ListCategoryResponse extends $tea.Model {
 }
 
 export class ListConnQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4597,6 +6378,10 @@ export class ListConnQuestionRequest extends $tea.Model {
 
 export class ListConnQuestionResponseBody extends $tea.Model {
   outlines?: ListConnQuestionResponseBodyOutlines[];
+  /**
+   * @example
+   * 92B81548-42B9-4B34-924B-4E778AEB412B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4643,11 +6428,38 @@ export class ListConnQuestionResponse extends $tea.Model {
 }
 
 export class ListDSEntityRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * system
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 实体
+   */
   keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4678,9 +6490,25 @@ export class ListDSEntityRequest extends $tea.Model {
 
 export class ListDSEntityResponseBody extends $tea.Model {
   entities?: ListDSEntityResponseBodyEntities[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ga4h345defgwet2sdf223
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4733,12 +6561,42 @@ export class ListDSEntityResponse extends $tea.Model {
 }
 
 export class ListDSEntityValueRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   entityId?: number;
+  /**
+   * @example
+   * 234
+   */
   entityValueId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4771,9 +6629,25 @@ export class ListDSEntityValueRequest extends $tea.Model {
 
 export class ListDSEntityValueResponseBody extends $tea.Model {
   entityValues?: ListDSEntityValueResponseBodyEntityValues[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * n3fg34gbfj8adf2gj923
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4826,10 +6700,30 @@ export class ListDSEntityValueResponse extends $tea.Model {
 }
 
 export class ListInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * scenario_im
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * scenario_im
+   */
   robotType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4858,9 +6752,25 @@ export class ListInstanceRequest extends $tea.Model {
 
 export class ListInstanceResponseBody extends $tea.Model {
   instances?: ListInstanceResponseBodyInstances[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 92B81548-42B9-4B34-924B-4E778AEB412B
+   */
   requestId?: string;
+  /**
+   * @example
+   * 23
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4913,10 +6823,33 @@ export class ListInstanceResponse extends $tea.Model {
 }
 
 export class ListIntentRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 查天气
+   */
   intentName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4945,9 +6878,25 @@ export class ListIntentRequest extends $tea.Model {
 
 export class ListIntentResponseBody extends $tea.Model {
   intents?: ListIntentResponseBodyIntents[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 23dsfa34r2s2s2sd12
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5000,11 +6949,41 @@ export class ListIntentResponse extends $tea.Model {
 }
 
 export class ListLgfRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   intentId?: number;
+  /**
+   * @example
+   * .{0,5}北京天气
+   */
   lgfText?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5035,9 +7014,25 @@ export class ListLgfRequest extends $tea.Model {
 
 export class ListLgfResponseBody extends $tea.Model {
   lgfs?: ListLgfResponseBodyLgfs[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 34fg57h2gh5783
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5090,8 +7085,23 @@ export class ListLgfResponse extends $tea.Model {
 }
 
 export class ListSaasInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * DS,FAQ
+   */
   saasGroupCodes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * userTest
+   */
   saasName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5116,7 +7126,18 @@ export class ListSaasInfoRequest extends $tea.Model {
 
 export class ListSaasInfoResponseBody extends $tea.Model {
   data?: ListSaasInfoResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A629A28F-F25E-5572-A679-FA46FB0151D6
+   */
   requestId?: string;
+  /**
+   * @example
+   * 06614fdb-c72f-436e-8003-dfe8a2854a15
+   */
   saasToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5165,6 +7186,13 @@ export class ListSaasInfoResponse extends $tea.Model {
 }
 
 export class ListSaasPermissionGroupInfosRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5185,6 +7213,13 @@ export class ListSaasPermissionGroupInfosRequest extends $tea.Model {
 
 export class ListSaasPermissionGroupInfosResponseBody extends $tea.Model {
   data?: ListSaasPermissionGroupInfosResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8AD9FA10-7780-5E12-B701-13C928524F32
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5231,7 +7266,18 @@ export class ListSaasPermissionGroupInfosResponse extends $tea.Model {
 }
 
 export class ListSimQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30002299537
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5253,6 +7299,10 @@ export class ListSimQuestionRequest extends $tea.Model {
 }
 
 export class ListSimQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 15CD94CC-CBEB-4189-806C-A132D1F45D51
+   */
   requestId?: string;
   simQuestions?: ListSimQuestionResponseBodySimQuestions[];
   static names(): { [key: string]: string } {
@@ -5300,7 +7350,18 @@ export class ListSimQuestionResponse extends $tea.Model {
 }
 
 export class ListSolutionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5322,6 +7383,10 @@ export class ListSolutionRequest extends $tea.Model {
 }
 
 export class ListSolutionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5B29DB5E-251D-5A73-84B5-A12DF795F231
+   */
   requestId?: string;
   solutions?: ListSolutionResponseBodySolutions[];
   static names(): { [key: string]: string } {
@@ -5369,10 +7434,39 @@ export class ListSolutionResponse extends $tea.Model {
 }
 
 export class ListTongyiChatHistorysRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-04-01 08:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 30
+   */
   limit?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-7QuUfaqMQe
+   */
   robotInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-04-01 00:00:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5400,8 +7494,16 @@ export class ListTongyiChatHistorysRequest extends $tea.Model {
 }
 
 export class ListTongyiChatHistorysResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 116
+   */
   costTime?: string;
   datas?: { [key: string]: any }[];
+  /**
+   * @example
+   * D0DDFC4C-D66D-4787-9AE4-4D757481EDEE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5450,11 +7552,41 @@ export class ListTongyiChatHistorysResponse extends $tea.Model {
 }
 
 export class ListUserSayRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 您做核酸了嘛
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 232
+   */
   intentId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5484,9 +7616,25 @@ export class ListUserSayRequest extends $tea.Model {
 }
 
 export class ListUserSayResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * fs1fg4512v43572v23
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   userSays?: ListUserSayResponseBodyUserSays[];
   static names(): { [key: string]: string } {
@@ -5540,8 +7688,20 @@ export class ListUserSayResponse extends $tea.Model {
 }
 
 export class NluRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 北京的天气怎么样
+   */
   utterance?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5565,8 +7725,16 @@ export class NluRequest extends $tea.Model {
 }
 
 export class NluResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2828708A-2C7A-1BAE-B810-87DB9DA9C661
+   */
   messageId?: string;
   messages?: NluResponseBodyMessages[];
+  /**
+   * @example
+   * A6357C1B-1D79-1382-B259-BD9E80751B42
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5615,6 +7783,10 @@ export class NluResponse extends $tea.Model {
 }
 
 export class QueryPerspectivesRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5635,6 +7807,10 @@ export class QueryPerspectivesRequest extends $tea.Model {
 
 export class QueryPerspectivesResponseBody extends $tea.Model {
   perspectives?: QueryPerspectivesResponseBodyPerspectives[];
+  /**
+   * @example
+   * F285D735-D580-18A8-B97F-B2E72B00F101
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5681,7 +7857,18 @@ export class QueryPerspectivesResponse extends $tea.Model {
 }
 
 export class RetryDocRequest extends $tea.Model {
+  /**
+   * @example
+   * e2a20f74cd9042558002c0f7dc873739_p_outbound_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5703,7 +7890,18 @@ export class RetryDocRequest extends $tea.Model {
 }
 
 export class RetryDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6419BA93-D111-5225-8998-13E63E6D3940
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5750,23 +7948,79 @@ export class RetryDocResponse extends $tea.Model {
 }
 
 export class SearchDocRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   categoryIds?: number[];
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   createTimeBegin?: string;
+  /**
+   * @example
+   * 2022-05-02T03:09:30Z
+   */
   createTimeEnd?: string;
   createUserName?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   endTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   endTimeEnd?: string;
   keyword?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   modifyTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   modifyTimeEnd?: string;
   modifyUserName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
   processStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   searchScope?: number;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   startTimeBegin?: string;
+  /**
+   * @example
+   * 2022-04-03T03:09:30Z
+   */
   startTimeEnd?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   tagIds?: number[];
   static names(): { [key: string]: string } {
@@ -5823,23 +8077,79 @@ export class SearchDocRequest extends $tea.Model {
 }
 
 export class SearchDocShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   categoryIdsShrink?: string;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   createTimeBegin?: string;
+  /**
+   * @example
+   * 2022-05-02T03:09:30Z
+   */
   createTimeEnd?: string;
   createUserName?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   endTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   endTimeEnd?: string;
   keyword?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   modifyTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   modifyTimeEnd?: string;
   modifyUserName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
   processStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   searchScope?: number;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   startTimeBegin?: string;
+  /**
+   * @example
+   * 2022-04-03T03:09:30Z
+   */
   startTimeEnd?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   tagIdsShrink?: string;
   static names(): { [key: string]: string } {
@@ -5897,9 +8207,28 @@ export class SearchDocShrinkRequest extends $tea.Model {
 
 export class SearchDocResponseBody extends $tea.Model {
   docHits?: SearchDocResponseBodyDocHits[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E3E5C779-A630-45AC-B0F2-A4506A4212F1
+   */
   requestId?: string;
+  /**
+   * @example
+   * 141
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5952,22 +8281,82 @@ export class SearchDocResponse extends $tea.Model {
 }
 
 export class SearchFaqRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   categoryIds?: number[];
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   createTimeBegin?: string;
+  /**
+   * @example
+   * 2022-05-02T03:09:30Z
+   */
   createTimeEnd?: string;
+  /**
+   * @example
+   * test01
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   endTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   endTimeEnd?: string;
   keyword?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   modifyTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   modifyTimeEnd?: string;
+  /**
+   * @example
+   * test01
+   */
   modifyUserName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   searchScope?: number;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   startTimeBegin?: string;
+  /**
+   * @example
+   * 2022-04-03T03:09:30Z
+   */
   startTimeEnd?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6019,22 +8408,82 @@ export class SearchFaqRequest extends $tea.Model {
 }
 
 export class SearchFaqShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   categoryIdsShrink?: string;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   createTimeBegin?: string;
+  /**
+   * @example
+   * 2022-05-02T03:09:30Z
+   */
   createTimeEnd?: string;
+  /**
+   * @example
+   * test01
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   endTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   endTimeEnd?: string;
   keyword?: string;
+  /**
+   * @example
+   * 2023-04-02T03:09:30Z
+   */
   modifyTimeBegin?: string;
+  /**
+   * @example
+   * 2023-05-02T03:09:30Z
+   */
   modifyTimeEnd?: string;
+  /**
+   * @example
+   * test01
+   */
   modifyUserName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   searchScope?: number;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   startTimeBegin?: string;
+  /**
+   * @example
+   * 2022-04-03T03:09:30Z
+   */
   startTimeEnd?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6087,9 +8536,25 @@ export class SearchFaqShrinkRequest extends $tea.Model {
 
 export class SearchFaqResponseBody extends $tea.Model {
   faqHits?: SearchFaqResponseBodyFaqHits[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * E45491D5-7E0A-42C6-9B21-91D1066B1475
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1075
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6142,9 +8607,24 @@ export class SearchFaqResponse extends $tea.Model {
 }
 
 export class UpdateCategoryRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
   bizCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 231001028593
+   */
   categoryId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6170,6 +8650,10 @@ export class UpdateCategoryRequest extends $tea.Model {
 }
 
 export class UpdateCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F79E7305-5314-5069-A701-9591AD051902
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6214,8 +8698,26 @@ export class UpdateCategoryResponse extends $tea.Model {
 }
 
 export class UpdateConnQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000000295
+   */
   connQuestionId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 877397683
+   */
   outlineId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6239,6 +8741,10 @@ export class UpdateConnQuestionRequest extends $tea.Model {
 }
 
 export class UpdateConnQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 004EB5C0-9DEB-53BF-A57A-0407A6D6B3C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6283,10 +8789,39 @@ export class UpdateConnQuestionResponse extends $tea.Model {
 }
 
 export class UpdateDSEntityRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 实体名称
+   */
   entityName?: string;
+  /**
+   * @example
+   * synonyms
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6314,7 +8849,15 @@ export class UpdateDSEntityRequest extends $tea.Model {
 }
 
 export class UpdateDSEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   entityId?: number;
+  /**
+   * @example
+   * df23fgh4hyj67hn56
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6361,10 +8904,39 @@ export class UpdateDSEntityResponse extends $tea.Model {
 }
 
 export class UpdateDSEntityValueRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223423423
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2342377423
+   */
   entityValueId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   synonyms?: string[];
   static names(): { [key: string]: string } {
@@ -6395,10 +8967,39 @@ export class UpdateDSEntityValueRequest extends $tea.Model {
 }
 
 export class UpdateDSEntityValueShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223423423
+   */
   entityId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2342377423
+   */
   entityValueId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   synonymsShrink?: string;
   static names(): { [key: string]: string } {
@@ -6429,7 +9030,15 @@ export class UpdateDSEntityValueShrinkRequest extends $tea.Model {
 }
 
 export class UpdateDSEntityValueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2342377423
+   */
   entityValueId?: number;
+  /**
+   * @example
+   * sDag3g43wesf2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6476,14 +9085,45 @@ export class UpdateDSEntityValueResponse extends $tea.Model {
 }
 
 export class UpdateDocRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 231001028593
+   */
   categoryId?: number;
+  /**
+   * @example
+   * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":""}
+   */
   config?: string;
   content?: string;
   docName?: string;
+  /**
+   * @example
+   * 2023-03-11T23:59:59Z
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * {"code":"xxx"}
+   */
   meta?: string;
+  /**
+   * @example
+   * 2022-05-25T16:28:36Z
+   */
   startDate?: string;
   tagIds?: number[];
   title?: string;
@@ -6525,14 +9165,45 @@ export class UpdateDocRequest extends $tea.Model {
 }
 
 export class UpdateDocShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 231001028593
+   */
   categoryId?: number;
+  /**
+   * @example
+   * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":""}
+   */
   config?: string;
   content?: string;
   docName?: string;
+  /**
+   * @example
+   * 2023-03-11T23:59:59Z
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * {"code":"xxx"}
+   */
   meta?: string;
+  /**
+   * @example
+   * 2022-05-25T16:28:36Z
+   */
   startDate?: string;
   tagIdsShrink?: string;
   title?: string;
@@ -6574,7 +9245,18 @@ export class UpdateDocShrinkRequest extends $tea.Model {
 }
 
 export class UpdateDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30002406051
+   */
   knowledgeId?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0F9F136A-1BF6-5CC1-9D57-9717761F03B8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6621,11 +9303,41 @@ export class UpdateDocResponse extends $tea.Model {
 }
 
 export class UpdateFaqRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
+  /**
+   * @example
+   * 2030-12-31T16:00:00Z
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001905617
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * 2022-05-27T05:18:20Z
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6655,6 +9367,10 @@ export class UpdateFaqRequest extends $tea.Model {
 }
 
 export class UpdateFaqResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 736994BD-AA35-4742-88C9-E64BE4BAA14B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6699,9 +9415,25 @@ export class UpdateFaqResponse extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 用于C端问答的机器人
+   */
   introduction?: string;
+  /**
+   * @example
+   * 智能客服-小C
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6727,6 +9459,10 @@ export class UpdateInstanceRequest extends $tea.Model {
 }
 
 export class UpdateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C45BFEE4-F657-1332-8B47-2C757B94C972
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6771,9 +9507,27 @@ export class UpdateInstanceResponse extends $tea.Model {
 }
 
 export class UpdateIntentRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   intentDefinition?: UpdateIntentRequestIntentDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234234234534
+   */
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6799,9 +9553,27 @@ export class UpdateIntentRequest extends $tea.Model {
 }
 
 export class UpdateIntentShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   intentDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234234234534
+   */
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6827,7 +9599,15 @@ export class UpdateIntentShrinkRequest extends $tea.Model {
 }
 
 export class UpdateIntentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 234234234534
+   */
   intentId?: number;
+  /**
+   * @example
+   * dfaf23dfas234234234534
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6874,9 +9654,33 @@ export class UpdateIntentResponse extends $tea.Model {
 }
 
 export class UpdateLgfRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   lgfDefinition?: UpdateLgfRequestLgfDefinition;
+  /**
+   * @remarks
+   * LGF ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12121
+   */
   lgfId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6902,9 +9706,33 @@ export class UpdateLgfRequest extends $tea.Model {
 }
 
 export class UpdateLgfShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   lgfDefinitionShrink?: string;
+  /**
+   * @remarks
+   * LGF ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12121
+   */
   lgfId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6930,7 +9758,15 @@ export class UpdateLgfShrinkRequest extends $tea.Model {
 }
 
 export class UpdateLgfResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2342556223532
+   */
   lgfId?: number;
+  /**
+   * @example
+   * 289dfa131adf23wqe2r
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6977,8 +9813,20 @@ export class UpdateLgfResponse extends $tea.Model {
 }
 
 export class UpdatePerspectiveRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 客户端视角
+   */
   name?: string;
+  /**
+   * @example
+   * 3001
+   */
   perspectiveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7002,6 +9850,10 @@ export class UpdatePerspectiveRequest extends $tea.Model {
 }
 
 export class UpdatePerspectiveResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FC384CE1-8D42-1900-84E1-F33F990F2B5E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7046,8 +9898,23 @@ export class UpdatePerspectiveResponse extends $tea.Model {
 }
 
 export class UpdateSimQuestionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000002788
+   */
   simQuestionId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7071,6 +9938,10 @@ export class UpdateSimQuestionRequest extends $tea.Model {
 }
 
 export class UpdateSimQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DFB71B34-4188-4EA2-9988-EF3014E75910
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7115,10 +9986,33 @@ export class UpdateSimQuestionResponse extends $tea.Model {
 }
 
 export class UpdateSolutionRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @example
+   * 1
+   */
   contentType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   perspectiveCodes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100001333260
+   */
   solutionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7146,6 +10040,10 @@ export class UpdateSolutionRequest extends $tea.Model {
 }
 
 export class UpdateSolutionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8B8F098D-A338-54DD-B19C-24BBBCBD8498
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7190,9 +10088,27 @@ export class UpdateSolutionResponse extends $tea.Model {
 }
 
 export class UpdateUserSayRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   userSayDefinition?: UpdateUserSayRequestUserSayDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 34512323
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7218,9 +10134,27 @@ export class UpdateUserSayRequest extends $tea.Model {
 }
 
 export class UpdateUserSayShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chatbot-cn-yjzbyrEvqd
+   */
   instanceId?: string;
   userSayDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 34512323
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7246,7 +10180,15 @@ export class UpdateUserSayShrinkRequest extends $tea.Model {
 }
 
 export class UpdateUserSayResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2356fg3wf34634vdt23wef2
+   */
   requestId?: string;
+  /**
+   * @example
+   * 34512323
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7293,7 +10235,15 @@ export class UpdateUserSayResponse extends $tea.Model {
 }
 
 export class AssociateResponseBodyAssociate extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   meta?: string;
+  /**
+   * @example
+   * 公积金提取的政策
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7315,6 +10265,10 @@ export class AssociateResponseBodyAssociate extends $tea.Model {
 }
 
 export class ChatResponseBodyMessagesKnowledgeRelatedKnowledges extends $tea.Model {
+  /**
+   * @example
+   * 735899
+   */
   knowledgeId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -7337,13 +10291,29 @@ export class ChatResponseBodyMessagesKnowledgeRelatedKnowledges extends $tea.Mod
 }
 
 export class ChatResponseBodyMessagesKnowledge extends $tea.Model {
+  /**
+   * @example
+   * KnowledgeBase
+   */
   answerSource?: string;
   category?: string;
   content?: string;
+  /**
+   * @example
+   * PLAIN_TEXT
+   */
   contentType?: string;
   hitStatement?: string;
+  /**
+   * @example
+   * 735898
+   */
   id?: string;
   relatedKnowledges?: ChatResponseBodyMessagesKnowledgeRelatedKnowledges[];
+  /**
+   * @example
+   * 0.998
+   */
   score?: number;
   summary?: string;
   title?: string;
@@ -7383,8 +10353,20 @@ export class ChatResponseBodyMessagesKnowledge extends $tea.Model {
 }
 
 export class ChatResponseBodyMessagesRecommends extends $tea.Model {
+  /**
+   * @example
+   * KNOWLEDGE
+   */
   answerSource?: string;
+  /**
+   * @example
+   * 4548
+   */
   knowledgeId?: string;
+  /**
+   * @example
+   * 0.46
+   */
   score?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -7411,6 +10393,10 @@ export class ChatResponseBodyMessagesRecommends extends $tea.Model {
 }
 
 export class ChatResponseBodyMessagesTextSlots extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   hit?: boolean;
   name?: string;
   origin?: string;
@@ -7439,10 +10425,24 @@ export class ChatResponseBodyMessagesTextSlots extends $tea.Model {
 }
 
 export class ChatResponseBodyMessagesText extends $tea.Model {
+  /**
+   * @example
+   * BotFramework
+   */
   answerSource?: string;
   articleTitle?: string;
+  /**
+   * @example
+   * {
+   * 	"sysToAgent": "{\\"skillGroup\\":\\"12\\"}"
+   * }
+   */
   commands?: { [key: string]: any };
   content?: string;
+  /**
+   * @example
+   * PLAIN_TEXT
+   */
   contentType?: string;
   dialogName?: string;
   ext?: { [key: string]: any };
@@ -7450,9 +10450,21 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
   hitStatement?: string;
   intentName?: string;
   metaData?: string;
+  /**
+   * @example
+   * 1410-c7a72a78.__city
+   */
   nodeId?: string;
   nodeName?: string;
+  /**
+   * @example
+   * SSML
+   */
   responseType?: string;
+  /**
+   * @example
+   * 100.0
+   */
   score?: number;
   slots?: ChatResponseBodyMessagesTextSlots[];
   userDefinedChatTitle?: string;
@@ -7506,7 +10518,15 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
 }
 
 export class ChatResponseBodyMessages extends $tea.Model {
+  /**
+   * @example
+   * KNOWLEDGE
+   */
   answerSource?: string;
+  /**
+   * @example
+   * Text
+   */
   answerType?: string;
   knowledge?: ChatResponseBodyMessagesKnowledge;
   recommends?: ChatResponseBodyMessagesRecommends[];
@@ -7544,9 +10564,21 @@ export class ChatResponseBodyMessages extends $tea.Model {
 
 export class CreateCategoryResponseBodyCategory extends $tea.Model {
   bizCode?: string;
+  /**
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parentCategoryId?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7574,11 +10606,38 @@ export class CreateCategoryResponseBodyCategory extends $tea.Model {
 }
 
 export class CreateIntentRequestIntentDefinitionSlotInfos extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * false
+   */
   encrypt?: boolean;
+  /**
+   * @example
+   * false
+   */
   interactive?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fg452dfg3df23
+   */
   slotId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7609,6 +10668,10 @@ export class CreateIntentRequestIntentDefinitionSlotInfos extends $tea.Model {
 
 export class CreateIntentRequestIntentDefinition extends $tea.Model {
   aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   intentName?: string;
   slotInfos?: CreateIntentRequestIntentDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -7633,7 +10696,18 @@ export class CreateIntentRequestIntentDefinition extends $tea.Model {
 }
 
 export class CreateLgfRequestLgfDefinition extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4675678567
+   */
   intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7655,8 +10729,20 @@ export class CreateLgfRequestLgfDefinition extends $tea.Model {
 }
 
 export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $tea.Model {
+  /**
+   * @example
+   * 6
+   */
   endIndex?: number;
+  /**
+   * @example
+   * fb34adf2fv43f2
+   */
   slotId?: string;
+  /**
+   * @example
+   * 4
+   */
   startIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7680,7 +10766,18 @@ export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $tea.Model {
 }
 
 export class CreateUserSayRequestUserSayDefinition extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123232
+   */
   intentId?: number;
   slotInfos?: CreateUserSayRequestUserSayDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -7706,9 +10803,21 @@ export class CreateUserSayRequestUserSayDefinition extends $tea.Model {
 
 export class DescribeCategoryResponseBodyCategory extends $tea.Model {
   bizCode?: string;
+  /**
+   * @example
+   * 30000049006
+   */
   categoryId?: number;
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parentCategoryId?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7736,9 +10845,21 @@ export class DescribeCategoryResponseBodyCategory extends $tea.Model {
 }
 
 export class DescribeDocResponseBodyDocInfoDocParas extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   paraLevel?: number;
+  /**
+   * @example
+   * 1
+   */
   paraNo?: number;
   paraText?: string;
+  /**
+   * @example
+   * text
+   */
   paraType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7814,9 +10935,25 @@ export class DescribeDocResponseBodyDocTags extends $tea.Model {
 }
 
 export class DescribeFaqResponseBodyOutlines extends $tea.Model {
+  /**
+   * @example
+   * 1000098002
+   */
   connQuestionId?: number;
+  /**
+   * @example
+   * 2022-05-26T10:24:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-05-26T18:12:02Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 797
+   */
   outlineId?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -7845,8 +10982,20 @@ export class DescribeFaqResponseBodyOutlines extends $tea.Model {
 }
 
 export class DescribeFaqResponseBodySimQuestions extends $tea.Model {
+  /**
+   * @example
+   * 2022-05-26T10:24:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-05-29T03:55:07Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 10000000581
+   */
   simQuestionId?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -7874,11 +11023,27 @@ export class DescribeFaqResponseBodySimQuestions extends $tea.Model {
 
 export class DescribeFaqResponseBodySolutions extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 0
+   */
   contentType?: number;
+  /**
+   * @example
+   * 2022-05-26T10:24:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-05-29T07:07:13Z
+   */
   modifyTime?: string;
   perspectiveCodes?: string[];
   plainText?: string;
+  /**
+   * @example
+   * 10000003071
+   */
   solutionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7910,8 +11075,20 @@ export class DescribeFaqResponseBodySolutions extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBodyCategories extends $tea.Model {
+  /**
+   * @example
+   * 30000066832
+   */
   categoryId?: number;
+  /**
+   * @example
+   * 杭州市防疫政策
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7935,10 +11112,26 @@ export class DescribeInstanceResponseBodyCategories extends $tea.Model {
 }
 
 export class DescribeIntentResponseBodySlotInfos extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * false
+   */
   encrypt?: boolean;
+  /**
+   * @example
+   * false
+   */
   interactive?: boolean;
   name?: string;
+  /**
+   * @example
+   * aa4d2a343a3ad4afad
+   */
   slotId?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -7969,6 +11162,10 @@ export class DescribeIntentResponseBodySlotInfos extends $tea.Model {
 }
 
 export class GetAgentInfoResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 4e7400028e6f4a7393ed3acf6a7b8927_p_beebot_public
+   */
   agentKey?: string;
   agentName?: string;
   static names(): { [key: string]: string } {
@@ -7991,7 +11188,15 @@ export class GetAgentInfoResponseBodyData extends $tea.Model {
 }
 
 export class ListAgentResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 881
+   */
   agentId?: number;
+  /**
+   * @example
+   * 4e7400028e6f4a7393ed3acf6a7b8927_p_beebot_public
+   */
   agentKey?: string;
   agentName?: string;
   instanceInfos?: { [key: string]: any };
@@ -8020,9 +11225,21 @@ export class ListAgentResponseBodyData extends $tea.Model {
 
 export class ListCategoryResponseBodyCategories extends $tea.Model {
   bizCode?: string;
+  /**
+   * @example
+   * 231001028593
+   */
   categoryId?: number;
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parentCategoryId?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8050,9 +11267,25 @@ export class ListCategoryResponseBodyCategories extends $tea.Model {
 }
 
 export class ListConnQuestionResponseBodyOutlines extends $tea.Model {
+  /**
+   * @example
+   * 30001979424
+   */
   connQuestionId?: number;
+  /**
+   * @example
+   * 2022-02-25T02:47:18Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-05-26T10:18:15Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 797
+   */
   outlineId?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -8081,14 +11314,46 @@ export class ListConnQuestionResponseBodyOutlines extends $tea.Model {
 }
 
 export class ListDSEntityResponseBodyEntities extends $tea.Model {
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   createUserId?: string;
+  /**
+   * @example
+   * test
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 234564567445
+   */
   entityId?: number;
   entityName?: string;
+  /**
+   * @example
+   * synonyms
+   */
   entityType?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   modifyUserId?: string;
+  /**
+   * @example
+   * test
+   */
   modifyUserName?: string;
   sysEntityCode?: string;
   static names(): { [key: string]: string } {
@@ -8128,9 +11393,25 @@ export class ListDSEntityResponseBodyEntities extends $tea.Model {
 
 export class ListDSEntityValueResponseBodyEntityValues extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 34313785463
+   */
   entityId?: number;
+  /**
+   * @example
+   * 3467858234534534532
+   */
   entityValueId?: number;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
   synonyms?: string[];
   static names(): { [key: string]: string } {
@@ -8161,12 +11442,40 @@ export class ListDSEntityValueResponseBodyEntityValues extends $tea.Model {
 }
 
 export class ListInstanceResponseBodyInstances extends $tea.Model {
+  /**
+   * @example
+   * /alimefe/meebot/robot/0.0.5/img/xxx-90-97.png
+   */
   avatar?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * chatbot-cn-mp90s2lrk00050
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 用于C端问答的机器人
+   */
   introduction?: string;
+  /**
+   * @example
+   * zh-cn
+   */
   languageCode?: string;
+  /**
+   * @example
+   * 智能客服-小C
+   */
   name?: string;
+  /**
+   * @example
+   * scenario_im
+   */
   robotType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8198,10 +11507,26 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
 }
 
 export class ListIntentResponseBodyIntentsSlotInfos extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * false
+   */
   encrypt?: boolean;
+  /**
+   * @example
+   * false
+   */
   interactive?: boolean;
   name?: string;
+  /**
+   * @example
+   * 12134223
+   */
   slotId?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -8233,13 +11558,41 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $tea.Model {
 
 export class ListIntentResponseBodyIntents extends $tea.Model {
   aliasName?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   createUserId?: string;
+  /**
+   * @example
+   * test
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 234234234234
+   */
   intentId?: number;
   intentName?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 123231
+   */
   modifyUserId?: string;
+  /**
+   * @example
+   * test
+   */
   modifyUserName?: string;
   slotInfos?: ListIntentResponseBodyIntentsSlotInfos[];
   static names(): { [key: string]: string } {
@@ -8278,9 +11631,28 @@ export class ListIntentResponseBodyIntents extends $tea.Model {
 }
 
 export class ListLgfResponseBodyLgfs extends $tea.Model {
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 256756734345
+   */
   intentId?: number;
+  /**
+   * @remarks
+   * LGF ID
+   * 
+   * @example
+   * 123
+   */
   lgfId?: number;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
   ruleText?: string;
   static names(): { [key: string]: string } {
@@ -8309,10 +11681,26 @@ export class ListLgfResponseBodyLgfs extends $tea.Model {
 }
 
 export class ListSaasInfoResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * GLOBAL_SERVICE
+   */
   code?: string;
+  /**
+   * @example
+   * GLOBAL SERVICE
+   */
   enName?: string;
   name?: string;
+  /**
+   * @example
+   * https://pre-alime4service.console.aliyun.com/?productCode=p_beebot_public&switchAgent=1204001&saasCode=Robot&saasToken=06614fdb-c72f-436e-8003-dfe8a2854a15&saasName=123#/robot
+   */
   serviceUrl?: string;
+  /**
+   * @example
+   * https://alime.console.aliyun.com/?productCode=p_beebot_public&switchAgent=1204001&saasCode=Robot&saasToken=06614fdb-c72f-436e-8003-dfe8a2854a15&saasName=123#/robot
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8340,7 +11728,15 @@ export class ListSaasInfoResponseBodyData extends $tea.Model {
 }
 
 export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $tea.Model {
+  /**
+   * @example
+   * FAQ
+   */
   pgCode?: string;
+  /**
+   * @example
+   * FAQ
+   */
   pgEnName?: string;
   pgName?: string;
   static names(): { [key: string]: string } {
@@ -8365,9 +11761,17 @@ export class ListSaasPermissionGroupInfosResponseBodyDataPgInfos extends $tea.Mo
 }
 
 export class ListSaasPermissionGroupInfosResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Release Center
+   */
   enName?: string;
   name?: string;
   pgInfos?: ListSaasPermissionGroupInfosResponseBodyDataPgInfos[];
+  /**
+   * @example
+   * FAQ
+   */
   saasCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8393,8 +11797,20 @@ export class ListSaasPermissionGroupInfosResponseBodyData extends $tea.Model {
 }
 
 export class ListSimQuestionResponseBodySimQuestions extends $tea.Model {
+  /**
+   * @example
+   * 2022-05-30T02:08:33Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-05-13T03:49:28Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 30001979424
+   */
   simQuestionId?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -8422,11 +11838,27 @@ export class ListSimQuestionResponseBodySimQuestions extends $tea.Model {
 
 export class ListSolutionResponseBodySolutions extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 1
+   */
   contentType?: number;
+  /**
+   * @example
+   * 2022-03-29T03:55:04Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-03-29T06:23:53Z
+   */
   modifyTime?: string;
   perspectiveCodes?: string[];
   plainText?: string;
+  /**
+   * @example
+   * 496
+   */
   solutionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8458,8 +11890,20 @@ export class ListSolutionResponseBodySolutions extends $tea.Model {
 }
 
 export class ListUserSayResponseBodyUserSaysSlotInfos extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   endIndex?: number;
+  /**
+   * @example
+   * 3456sdfg3tu
+   */
   slotId?: string;
+  /**
+   * @example
+   * 2
+   */
   startIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8484,10 +11928,26 @@ export class ListUserSayResponseBodyUserSaysSlotInfos extends $tea.Model {
 
 export class ListUserSayResponseBodyUserSays extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 235564564
+   */
   intentId?: number;
+  /**
+   * @example
+   * 2021-08-12T16:00:01Z
+   */
   modifyTime?: string;
   slotInfos?: ListUserSayResponseBodyUserSaysSlotInfos[];
+  /**
+   * @example
+   * 3453452138
+   */
   userSayId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8517,7 +11977,15 @@ export class ListUserSayResponseBodyUserSays extends $tea.Model {
 }
 
 export class NluResponseBodyMessagesDialogHubNluInfoGlobalDictList extends $tea.Model {
+  /**
+   * @example
+   * 天气
+   */
   standardWord?: string;
+  /**
+   * @example
+   * 天气
+   */
   word?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8539,7 +12007,15 @@ export class NluResponseBodyMessagesDialogHubNluInfoGlobalDictList extends $tea.
 }
 
 export class NluResponseBodyMessagesDialogHubNluInfoGlobalSensitiveWordList extends $tea.Model {
+  /**
+   * @example
+   * 天气
+   */
   standardWord?: string;
+  /**
+   * @example
+   * 天气
+   */
   word?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8583,9 +12059,25 @@ export class NluResponseBodyMessagesDialogHubNluInfo extends $tea.Model {
 }
 
 export class NluResponseBodyMessagesDsNluInfoEntityList extends $tea.Model {
+  /**
+   * @example
+   * @城市
+   */
   name?: string;
+  /**
+   * @example
+   * 北京
+   */
   origin?: string;
+  /**
+   * @example
+   * text
+   */
   type?: string;
+  /**
+   * @example
+   * 首都
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8611,9 +12103,25 @@ export class NluResponseBodyMessagesDsNluInfoEntityList extends $tea.Model {
 }
 
 export class NluResponseBodyMessagesDsNluInfoIntentListSlotList extends $tea.Model {
+  /**
+   * @example
+   * @城市
+   */
   name?: string;
+  /**
+   * @example
+   * 北京
+   */
   origin?: string;
+  /**
+   * @example
+   * text
+   */
   type?: string;
+  /**
+   * @example
+   * 首都
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8639,10 +12147,30 @@ export class NluResponseBodyMessagesDsNluInfoIntentListSlotList extends $tea.Mod
 }
 
 export class NluResponseBodyMessagesDsNluInfoIntentList extends $tea.Model {
+  /**
+   * @example
+   * 724387
+   */
   intentId?: number;
+  /**
+   * @example
+   * classifierType=Fewshot,from=Fewshot,content=[我要查北京的天气, 帮我查北京的天气, 北京天气怎么样, 北京今天下雨吗, 北京今天多少度]
+   */
   matchDetail?: string;
+  /**
+   * @example
+   * FewShotLearning
+   */
   matchType?: string;
+  /**
+   * @example
+   * 查天气意图
+   */
   name?: string;
+  /**
+   * @example
+   * 0.995
+   */
   score?: number;
   slotList?: NluResponseBodyMessagesDsNluInfoIntentListSlotList[];
   static names(): { [key: string]: string } {
@@ -8717,12 +12245,40 @@ export class NluResponseBodyMessages extends $tea.Model {
 }
 
 export class QueryPerspectivesResponseBodyPerspectives extends $tea.Model {
+  /**
+   * @example
+   * 2022-04-12T06:30:17Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-04-29T03:38:54Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 移动端视角
+   */
   name?: string;
+  /**
+   * @example
+   * FZJBY3raWr
+   */
   perspectiveCode?: string;
+  /**
+   * @example
+   * 3001
+   */
   perspectiveId?: string;
+  /**
+   * @example
+   * true
+   */
   selfDefine?: boolean;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8785,25 +12341,85 @@ export class SearchDocResponseBodyDocHitsDocTags extends $tea.Model {
 }
 
 export class SearchDocResponseBodyDocHits extends $tea.Model {
+  /**
+   * @example
+   * cn_dytns
+   */
   bizCode?: string;
+  /**
+   * @example
+   * 30000135654
+   */
   categoryId?: number;
+  /**
+   * @example
+   * {"Splitter":"treeSplitter","ChunkSize":500,"TreePatterns":["^# .*","^## .*","^### .*","^#### .*"],"TitleSource":"docName"}
+   */
   config?: string;
+  /**
+   * @example
+   * 2023-06-22T03:53:41Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 111111111
+   */
   createUserId?: number;
   createUserName?: string;
   docName?: string;
   docTags?: SearchDocResponseBodyDocHitsDocTags[];
+  /**
+   * @example
+   * 20
+   */
   effectStatus?: number;
+  /**
+   * @example
+   * 2099-12-31T16:00:00Z
+   */
   endDate?: string;
+  /**
+   * @example
+   * 30002692007
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * {"code":"xxx"}
+   */
   meta?: string;
+  /**
+   * @example
+   * 2023-06-25T02:27:42Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 222222222
+   */
   modifyUserId?: number;
   modifyUserName?: string;
+  /**
+   * @example
+   * true
+   */
   processCanRetry?: boolean;
   processMessage?: string;
+  /**
+   * @example
+   * 0
+   */
   processStatus?: number;
+  /**
+   * @example
+   * 2023-02-28T11:40:18Z
+   */
   startDate?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   url?: string;
   static names(): { [key: string]: string } {
@@ -8864,17 +12480,57 @@ export class SearchDocResponseBodyDocHits extends $tea.Model {
 }
 
 export class SearchFaqResponseBodyFaqHits extends $tea.Model {
+  /**
+   * @example
+   * 30000055639
+   */
   categoryId?: number;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 18453
+   */
   createUserId?: number;
+  /**
+   * @example
+   * test01
+   */
   createUserName?: string;
+  /**
+   * @example
+   * 20
+   */
   effectStatus?: number;
   hitSimilarTitles?: string[];
   hitSolutions?: string[];
+  /**
+   * @example
+   * 30002145804
+   */
   knowledgeId?: number;
+  /**
+   * @example
+   * 2022-04-02T03:09:30Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * 18453
+   */
   modifyUserId?: number;
+  /**
+   * @example
+   * test01
+   */
   modifyUserName?: string;
+  /**
+   * @example
+   * 3
+   */
   status?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -8919,11 +12575,38 @@ export class SearchFaqResponseBodyFaqHits extends $tea.Model {
 }
 
 export class UpdateIntentRequestIntentDefinitionSlotInfos extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * false
+   */
   encrypt?: boolean;
+  /**
+   * @example
+   * false
+   */
   interactive?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dgadf23dfg2f
+   */
   slotId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8954,6 +12637,10 @@ export class UpdateIntentRequestIntentDefinitionSlotInfos extends $tea.Model {
 
 export class UpdateIntentRequestIntentDefinition extends $tea.Model {
   aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   intentName?: string;
   slotInfos?: UpdateIntentRequestIntentDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -8978,7 +12665,18 @@ export class UpdateIntentRequestIntentDefinition extends $tea.Model {
 }
 
 export class UpdateLgfRequestLgfDefinition extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23234523522
+   */
   intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9000,8 +12698,20 @@ export class UpdateLgfRequestLgfDefinition extends $tea.Model {
 }
 
 export class UpdateUserSayRequestUserSayDefinitionSlotInfos extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   endIndex?: number;
+  /**
+   * @example
+   * 346ffg3q23dv
+   */
   slotId?: string;
+  /**
+   * @example
+   * 1
+   */
   startIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9025,7 +12735,18 @@ export class UpdateUserSayRequestUserSayDefinitionSlotInfos extends $tea.Model {
 }
 
 export class UpdateUserSayRequestUserSayDefinition extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   intentId?: number;
   slotInfos?: UpdateUserSayRequestUserSayDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
@@ -9073,11 +12794,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 申请流式网关AccessToken
-   *
-   * @param request ApplyForStreamAccessTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ApplyForStreamAccessTokenResponse
+   * 申请流式网关AccessToken
+   * 
+   * @param request - ApplyForStreamAccessTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyForStreamAccessTokenResponse
    */
   async applyForStreamAccessTokenWithOptions(request: ApplyForStreamAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<ApplyForStreamAccessTokenResponse> {
     Util.validateModel(request);
@@ -9104,10 +12825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 申请流式网关AccessToken
-   *
-   * @param request ApplyForStreamAccessTokenRequest
-   * @return ApplyForStreamAccessTokenResponse
+   * 申请流式网关AccessToken
+   * 
+   * @param request - ApplyForStreamAccessTokenRequest
+   * @returns ApplyForStreamAccessTokenResponse
    */
   async applyForStreamAccessToken(request: ApplyForStreamAccessTokenRequest): Promise<ApplyForStreamAccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9115,11 +12836,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话-联想API
-   *
-   * @param tmpReq AssociateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AssociateResponse
+   * 会话-联想API
+   * 
+   * @param tmpReq - AssociateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateResponse
    */
   async associateWithOptions(tmpReq: AssociateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResponse> {
     Util.validateModel(tmpReq);
@@ -9172,10 +12893,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话-联想API
-   *
-   * @param request AssociateRequest
-   * @return AssociateResponse
+   * 会话-联想API
+   * 
+   * @param request - AssociateRequest
+   * @returns AssociateResponse
    */
   async associate(request: AssociateRequest): Promise<AssociateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9183,11 +12904,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取欢迎语
-   *
-   * @param request BeginSessionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BeginSessionResponse
+   * 获取欢迎语
+   * 
+   * @param request - BeginSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginSessionResponse
    */
   async beginSessionWithOptions(request: BeginSessionRequest, runtime: $Util.RuntimeOptions): Promise<BeginSessionResponse> {
     Util.validateModel(request);
@@ -9218,10 +12939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取欢迎语
-   *
-   * @param request BeginSessionRequest
-   * @return BeginSessionResponse
+   * 获取欢迎语
+   * 
+   * @param request - BeginSessionRequest
+   * @returns BeginSessionResponse
    */
   async beginSession(request: BeginSessionRequest): Promise<BeginSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9229,11 +12950,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消机器人发布
-   *
-   * @param request CancelInstancePublishTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelInstancePublishTaskResponse
+   * 取消机器人发布
+   * 
+   * @param request - CancelInstancePublishTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelInstancePublishTaskResponse
    */
   async cancelInstancePublishTaskWithOptions(request: CancelInstancePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelInstancePublishTaskResponse> {
     Util.validateModel(request);
@@ -9268,10 +12989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消机器人发布
-   *
-   * @param request CancelInstancePublishTaskRequest
-   * @return CancelInstancePublishTaskResponse
+   * 取消机器人发布
+   * 
+   * @param request - CancelInstancePublishTaskRequest
+   * @returns CancelInstancePublishTaskResponse
    */
   async cancelInstancePublishTask(request: CancelInstancePublishTaskRequest): Promise<CancelInstancePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9279,11 +13000,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消发布任务
-   *
-   * @param request CancelPublishTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelPublishTaskResponse
+   * 取消发布任务
+   * 
+   * @param request - CancelPublishTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelPublishTaskResponse
    */
   async cancelPublishTaskWithOptions(request: CancelPublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelPublishTaskResponse> {
     Util.validateModel(request);
@@ -9314,10 +13035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消发布任务
-   *
-   * @param request CancelPublishTaskRequest
-   * @return CancelPublishTaskResponse
+   * 取消发布任务
+   * 
+   * @param request - CancelPublishTaskRequest
+   * @returns CancelPublishTaskResponse
    */
   async cancelPublishTask(request: CancelPublishTaskRequest): Promise<CancelPublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9325,11 +13046,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话API
-   *
-   * @param tmpReq ChatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChatResponse
+   * 会话API
+   * 
+   * @param tmpReq - ChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatResponse
    */
   async chatWithOptions(tmpReq: ChatRequest, runtime: $Util.RuntimeOptions): Promise<ChatResponse> {
     Util.validateModel(tmpReq);
@@ -9402,10 +13123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话API
-   *
-   * @param request ChatRequest
-   * @return ChatResponse
+   * 会话API
+   * 
+   * @param request - ChatRequest
+   * @returns ChatResponse
    */
   async chat(request: ChatRequest): Promise<ChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9413,11 +13134,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 继续机器人发布
-   *
-   * @param request ContinueInstancePublishTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ContinueInstancePublishTaskResponse
+   * 继续机器人发布
+   * 
+   * @param request - ContinueInstancePublishTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContinueInstancePublishTaskResponse
    */
   async continueInstancePublishTaskWithOptions(request: ContinueInstancePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<ContinueInstancePublishTaskResponse> {
     Util.validateModel(request);
@@ -9452,10 +13173,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 继续机器人发布
-   *
-   * @param request ContinueInstancePublishTaskRequest
-   * @return ContinueInstancePublishTaskResponse
+   * 继续机器人发布
+   * 
+   * @param request - ContinueInstancePublishTaskRequest
+   * @returns ContinueInstancePublishTaskResponse
    */
   async continueInstancePublishTask(request: ContinueInstancePublishTaskRequest): Promise<ContinueInstancePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9463,11 +13184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增类目
-   *
-   * @param request CreateCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCategoryResponse
+   * 新增类目
+   * 
+   * @param request - CreateCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCategoryResponse
    */
   async createCategoryWithOptions(request: CreateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateCategoryResponse> {
     Util.validateModel(request);
@@ -9512,10 +13233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增类目
-   *
-   * @param request CreateCategoryRequest
-   * @return CreateCategoryResponse
+   * 新增类目
+   * 
+   * @param request - CreateCategoryRequest
+   * @returns CreateCategoryResponse
    */
   async createCategory(request: CreateCategoryRequest): Promise<CreateCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9523,11 +13244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ关联问
-   *
-   * @param request CreateConnQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConnQuestionResponse
+   * 新建FAQ关联问
+   * 
+   * @param request - CreateConnQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConnQuestionResponse
    */
   async createConnQuestionWithOptions(request: CreateConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnQuestionResponse> {
     Util.validateModel(request);
@@ -9564,10 +13285,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ关联问
-   *
-   * @param request CreateConnQuestionRequest
-   * @return CreateConnQuestionResponse
+   * 新建FAQ关联问
+   * 
+   * @param request - CreateConnQuestionRequest
+   * @returns CreateConnQuestionResponse
    */
   async createConnQuestion(request: CreateConnQuestionRequest): Promise<CreateConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9575,11 +13296,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-创建
-   *
-   * @param request CreateDSEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDSEntityResponse
+   * 实体-创建
+   * 
+   * @param request - CreateDSEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDSEntityResponse
    */
   async createDSEntityWithOptions(request: CreateDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityResponse> {
     Util.validateModel(request);
@@ -9618,10 +13339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-创建
-   *
-   * @param request CreateDSEntityRequest
-   * @return CreateDSEntityResponse
+   * 实体-创建
+   * 
+   * @param request - CreateDSEntityRequest
+   * @returns CreateDSEntityResponse
    */
   async createDSEntity(request: CreateDSEntityRequest): Promise<CreateDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9629,11 +13350,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-创建
-   *
-   * @param tmpReq CreateDSEntityValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDSEntityValueResponse
+   * 实体成员-创建
+   * 
+   * @param tmpReq - CreateDSEntityValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDSEntityValueResponse
    */
   async createDSEntityValueWithOptions(tmpReq: CreateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityValueResponse> {
     Util.validateModel(tmpReq);
@@ -9684,10 +13405,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-创建
-   *
-   * @param request CreateDSEntityValueRequest
-   * @return CreateDSEntityValueResponse
+   * 实体成员-创建
+   * 
+   * @param request - CreateDSEntityValueRequest
+   * @returns CreateDSEntityValueResponse
    */
   async createDSEntityValue(request: CreateDSEntityValueRequest): Promise<CreateDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9695,11 +13416,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文档
-   *
-   * @param tmpReq CreateDocRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDocResponse
+   * 创建文档
+   * 
+   * @param tmpReq - CreateDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDocResponse
    */
   async createDocWithOptions(tmpReq: CreateDocRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocResponse> {
     Util.validateModel(tmpReq);
@@ -9768,10 +13489,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文档
-   *
-   * @param request CreateDocRequest
-   * @return CreateDocResponse
+   * 创建文档
+   * 
+   * @param request - CreateDocRequest
+   * @returns CreateDocResponse
    */
   async createDoc(request: CreateDocRequest): Promise<CreateDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9779,11 +13500,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ
-   *
-   * @param request CreateFaqRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFaqResponse
+   * 新建FAQ
+   * 
+   * @param request - CreateFaqRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFaqResponse
    */
   async createFaqWithOptions(request: CreateFaqRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaqResponse> {
     Util.validateModel(request);
@@ -9836,10 +13557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ
-   *
-   * @param request CreateFaqRequest
-   * @return CreateFaqResponse
+   * 新建FAQ
+   * 
+   * @param request - CreateFaqRequest
+   * @returns CreateFaqResponse
    */
   async createFaq(request: CreateFaqRequest): Promise<CreateFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9847,11 +13568,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-创建
-   *
-   * @param request CreateInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * 机器人-创建
+   * 
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -9894,10 +13615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-创建
-   *
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * 机器人-创建
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9905,11 +13626,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建机器人发布任务
-   *
-   * @param request CreateInstancePublishTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstancePublishTaskResponse
+   * 创建机器人发布任务
+   * 
+   * @param request - CreateInstancePublishTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstancePublishTaskResponse
    */
   async createInstancePublishTaskWithOptions(request: CreateInstancePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstancePublishTaskResponse> {
     Util.validateModel(request);
@@ -9940,10 +13661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建机器人发布任务
-   *
-   * @param request CreateInstancePublishTaskRequest
-   * @return CreateInstancePublishTaskResponse
+   * 创建机器人发布任务
+   * 
+   * @param request - CreateInstancePublishTaskRequest
+   * @returns CreateInstancePublishTaskResponse
    */
   async createInstancePublishTask(request: CreateInstancePublishTaskRequest): Promise<CreateInstancePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9951,11 +13672,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-创建
-   *
-   * @param tmpReq CreateIntentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIntentResponse
+   * 意图-创建
+   * 
+   * @param tmpReq - CreateIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIntentResponse
    */
   async createIntentWithOptions(tmpReq: CreateIntentRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntentResponse> {
     Util.validateModel(tmpReq);
@@ -9996,10 +13717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-创建
-   *
-   * @param request CreateIntentRequest
-   * @return CreateIntentResponse
+   * 意图-创建
+   * 
+   * @param request - CreateIntentRequest
+   * @returns CreateIntentResponse
    */
   async createIntent(request: CreateIntentRequest): Promise<CreateIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10007,11 +13728,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-创建
-   *
-   * @param tmpReq CreateLgfRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLgfResponse
+   * 意图-LGF-创建
+   * 
+   * @param tmpReq - CreateLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLgfResponse
    */
   async createLgfWithOptions(tmpReq: CreateLgfRequest, runtime: $Util.RuntimeOptions): Promise<CreateLgfResponse> {
     Util.validateModel(tmpReq);
@@ -10052,10 +13773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-创建
-   *
-   * @param request CreateLgfRequest
-   * @return CreateLgfResponse
+   * 意图-LGF-创建
+   * 
+   * @param request - CreateLgfRequest
+   * @returns CreateLgfResponse
    */
   async createLgf(request: CreateLgfRequest): Promise<CreateLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10063,11 +13784,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-创建
-   *
-   * @param request CreatePerspectiveRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePerspectiveResponse
+   * 视角-创建
+   * 
+   * @param request - CreatePerspectiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePerspectiveResponse
    */
   async createPerspectiveWithOptions(request: CreatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<CreatePerspectiveResponse> {
     Util.validateModel(request);
@@ -10102,10 +13823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-创建
-   *
-   * @param request CreatePerspectiveRequest
-   * @return CreatePerspectiveResponse
+   * 视角-创建
+   * 
+   * @param request - CreatePerspectiveRequest
+   * @returns CreatePerspectiveResponse
    */
   async createPerspective(request: CreatePerspectiveRequest): Promise<CreatePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10113,11 +13834,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建发布任务
-   *
-   * @param tmpReq CreatePublishTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePublishTaskResponse
+   * 创建发布任务
+   * 
+   * @param tmpReq - CreatePublishTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePublishTaskResponse
    */
   async createPublishTaskWithOptions(tmpReq: CreatePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublishTaskResponse> {
     Util.validateModel(tmpReq);
@@ -10158,10 +13879,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建发布任务
-   *
-   * @param request CreatePublishTaskRequest
-   * @return CreatePublishTaskResponse
+   * 创建发布任务
+   * 
+   * @param request - CreatePublishTaskRequest
+   * @returns CreatePublishTaskResponse
    */
   async createPublishTask(request: CreatePublishTaskRequest): Promise<CreatePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10169,11 +13890,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ相似问
-   *
-   * @param request CreateSimQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSimQuestionResponse
+   * 新建FAQ相似问
+   * 
+   * @param request - CreateSimQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSimQuestionResponse
    */
   async createSimQuestionWithOptions(request: CreateSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimQuestionResponse> {
     Util.validateModel(request);
@@ -10210,10 +13931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ相似问
-   *
-   * @param request CreateSimQuestionRequest
-   * @return CreateSimQuestionResponse
+   * 新建FAQ相似问
+   * 
+   * @param request - CreateSimQuestionRequest
+   * @returns CreateSimQuestionResponse
    */
   async createSimQuestion(request: CreateSimQuestionRequest): Promise<CreateSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10221,11 +13942,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ答案
-   *
-   * @param request CreateSolutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSolutionResponse
+   * 新建FAQ答案
+   * 
+   * @param request - CreateSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSolutionResponse
    */
   async createSolutionWithOptions(request: CreateSolutionRequest, runtime: $Util.RuntimeOptions): Promise<CreateSolutionResponse> {
     Util.validateModel(request);
@@ -10268,10 +13989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建FAQ答案
-   *
-   * @param request CreateSolutionRequest
-   * @return CreateSolutionResponse
+   * 新建FAQ答案
+   * 
+   * @param request - CreateSolutionRequest
+   * @returns CreateSolutionResponse
    */
   async createSolution(request: CreateSolutionRequest): Promise<CreateSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10279,11 +14000,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-话术-创建
-   *
-   * @param tmpReq CreateUserSayRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserSayResponse
+   * 意图-话术-创建
+   * 
+   * @param tmpReq - CreateUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserSayResponse
    */
   async createUserSayWithOptions(tmpReq: CreateUserSayRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserSayResponse> {
     Util.validateModel(tmpReq);
@@ -10324,10 +14045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-话术-创建
-   *
-   * @param request CreateUserSayRequest
-   * @return CreateUserSayResponse
+   * 意图-话术-创建
+   * 
+   * @param request - CreateUserSayRequest
+   * @returns CreateUserSayResponse
    */
   async createUserSay(request: CreateUserSayRequest): Promise<CreateUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10335,11 +14056,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除类目
-   *
-   * @param request DeleteCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCategoryResponse
+   * 删除类目
+   * 
+   * @param request - DeleteCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCategoryResponse
    */
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
@@ -10372,10 +14093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除类目
-   *
-   * @param request DeleteCategoryRequest
-   * @return DeleteCategoryResponse
+   * 删除类目
+   * 
+   * @param request - DeleteCategoryRequest
+   * @returns DeleteCategoryResponse
    */
   async deleteCategory(request: DeleteCategoryRequest): Promise<DeleteCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10383,11 +14104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ关联问
-   *
-   * @param request DeleteConnQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConnQuestionResponse
+   * 删除FAQ关联问
+   * 
+   * @param request - DeleteConnQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConnQuestionResponse
    */
   async deleteConnQuestionWithOptions(request: DeleteConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnQuestionResponse> {
     Util.validateModel(request);
@@ -10420,10 +14141,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ关联问
-   *
-   * @param request DeleteConnQuestionRequest
-   * @return DeleteConnQuestionResponse
+   * 删除FAQ关联问
+   * 
+   * @param request - DeleteConnQuestionRequest
+   * @returns DeleteConnQuestionResponse
    */
   async deleteConnQuestion(request: DeleteConnQuestionRequest): Promise<DeleteConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10431,11 +14152,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-删除
-   *
-   * @param request DeleteDSEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDSEntityResponse
+   * 实体-删除
+   * 
+   * @param request - DeleteDSEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDSEntityResponse
    */
   async deleteDSEntityWithOptions(request: DeleteDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDSEntityResponse> {
     Util.validateModel(request);
@@ -10470,10 +14191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-删除
-   *
-   * @param request DeleteDSEntityRequest
-   * @return DeleteDSEntityResponse
+   * 实体-删除
+   * 
+   * @param request - DeleteDSEntityRequest
+   * @returns DeleteDSEntityResponse
    */
   async deleteDSEntity(request: DeleteDSEntityRequest): Promise<DeleteDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10481,11 +14202,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-删除
-   *
-   * @param request DeleteDSEntityValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDSEntityValueResponse
+   * 实体成员-删除
+   * 
+   * @param request - DeleteDSEntityValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDSEntityValueResponse
    */
   async deleteDSEntityValueWithOptions(request: DeleteDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDSEntityValueResponse> {
     Util.validateModel(request);
@@ -10524,10 +14245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-删除
-   *
-   * @param request DeleteDSEntityValueRequest
-   * @return DeleteDSEntityValueResponse
+   * 实体成员-删除
+   * 
+   * @param request - DeleteDSEntityValueRequest
+   * @returns DeleteDSEntityValueResponse
    */
   async deleteDSEntityValue(request: DeleteDSEntityValueRequest): Promise<DeleteDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10535,11 +14256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档删除
-   *
-   * @param request DeleteDocRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDocResponse
+   * 文档删除
+   * 
+   * @param request - DeleteDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocResponse
    */
   async deleteDocWithOptions(request: DeleteDocRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocResponse> {
     Util.validateModel(request);
@@ -10570,10 +14291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档删除
-   *
-   * @param request DeleteDocRequest
-   * @return DeleteDocResponse
+   * 文档删除
+   * 
+   * @param request - DeleteDocRequest
+   * @returns DeleteDocResponse
    */
   async deleteDoc(request: DeleteDocRequest): Promise<DeleteDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10581,11 +14302,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
-   *
-   * @param request DeleteFaqRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFaqResponse
+   * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+   * 
+   * @param request - DeleteFaqRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaqResponse
    */
   async deleteFaqWithOptions(request: DeleteFaqRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaqResponse> {
     Util.validateModel(request);
@@ -10618,10 +14339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
-   *
-   * @param request DeleteFaqRequest
-   * @return DeleteFaqResponse
+   * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+   * 
+   * @param request - DeleteFaqRequest
+   * @returns DeleteFaqResponse
    */
   async deleteFaq(request: DeleteFaqRequest): Promise<DeleteFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10629,11 +14350,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-删除
-   *
-   * @param request DeleteInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResponse
+   * 机器人-删除
+   * 
+   * @param request - DeleteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -10664,10 +14385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-删除
-   *
-   * @param request DeleteInstanceRequest
-   * @return DeleteInstanceResponse
+   * 机器人-删除
+   * 
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10675,11 +14396,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-删除
-   *
-   * @param request DeleteIntentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIntentResponse
+   * 意图-删除
+   * 
+   * @param request - DeleteIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIntentResponse
    */
   async deleteIntentWithOptions(request: DeleteIntentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIntentResponse> {
     Util.validateModel(request);
@@ -10714,10 +14435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-删除
-   *
-   * @param request DeleteIntentRequest
-   * @return DeleteIntentResponse
+   * 意图-删除
+   * 
+   * @param request - DeleteIntentRequest
+   * @returns DeleteIntentResponse
    */
   async deleteIntent(request: DeleteIntentRequest): Promise<DeleteIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10725,11 +14446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-删除
-   *
-   * @param request DeleteLgfRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLgfResponse
+   * 意图-LGF-删除
+   * 
+   * @param request - DeleteLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLgfResponse
    */
   async deleteLgfWithOptions(request: DeleteLgfRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLgfResponse> {
     Util.validateModel(request);
@@ -10768,10 +14489,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-删除
-   *
-   * @param request DeleteLgfRequest
-   * @return DeleteLgfResponse
+   * 意图-LGF-删除
+   * 
+   * @param request - DeleteLgfRequest
+   * @returns DeleteLgfResponse
    */
   async deleteLgf(request: DeleteLgfRequest): Promise<DeleteLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10779,11 +14500,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-删除
-   *
-   * @param request DeletePerspectiveRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePerspectiveResponse
+   * 视角-删除
+   * 
+   * @param request - DeletePerspectiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePerspectiveResponse
    */
   async deletePerspectiveWithOptions(request: DeletePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<DeletePerspectiveResponse> {
     Util.validateModel(request);
@@ -10814,10 +14535,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-删除
-   *
-   * @param request DeletePerspectiveRequest
-   * @return DeletePerspectiveResponse
+   * 视角-删除
+   * 
+   * @param request - DeletePerspectiveRequest
+   * @returns DeletePerspectiveResponse
    */
   async deletePerspective(request: DeletePerspectiveRequest): Promise<DeletePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10825,11 +14546,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ相似问
-   *
-   * @param request DeleteSimQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSimQuestionResponse
+   * 删除FAQ相似问
+   * 
+   * @param request - DeleteSimQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSimQuestionResponse
    */
   async deleteSimQuestionWithOptions(request: DeleteSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSimQuestionResponse> {
     Util.validateModel(request);
@@ -10862,10 +14583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ相似问
-   *
-   * @param request DeleteSimQuestionRequest
-   * @return DeleteSimQuestionResponse
+   * 删除FAQ相似问
+   * 
+   * @param request - DeleteSimQuestionRequest
+   * @returns DeleteSimQuestionResponse
    */
   async deleteSimQuestion(request: DeleteSimQuestionRequest): Promise<DeleteSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10873,11 +14594,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ答案
-   *
-   * @param request DeleteSolutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSolutionResponse
+   * 删除FAQ答案
+   * 
+   * @param request - DeleteSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSolutionResponse
    */
   async deleteSolutionWithOptions(request: DeleteSolutionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSolutionResponse> {
     Util.validateModel(request);
@@ -10910,10 +14631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除FAQ答案
-   *
-   * @param request DeleteSolutionRequest
-   * @return DeleteSolutionResponse
+   * 删除FAQ答案
+   * 
+   * @param request - DeleteSolutionRequest
+   * @returns DeleteSolutionResponse
    */
   async deleteSolution(request: DeleteSolutionRequest): Promise<DeleteSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10921,11 +14642,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-用户话术-删除
-   *
-   * @param request DeleteUserSayRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserSayResponse
+   * 意图-用户话术-删除
+   * 
+   * @param request - DeleteUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserSayResponse
    */
   async deleteUserSayWithOptions(request: DeleteUserSayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserSayResponse> {
     Util.validateModel(request);
@@ -10964,10 +14685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-用户话术-删除
-   *
-   * @param request DeleteUserSayRequest
-   * @return DeleteUserSayResponse
+   * 意图-用户话术-删除
+   * 
+   * @param request - DeleteUserSayRequest
+   * @returns DeleteUserSayResponse
    */
   async deleteUserSay(request: DeleteUserSayRequest): Promise<DeleteUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10975,11 +14696,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看单个类目信息
-   *
-   * @param request DescribeCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCategoryResponse
+   * 查看单个类目信息
+   * 
+   * @param request - DescribeCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCategoryResponse
    */
   async describeCategoryWithOptions(request: DescribeCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryResponse> {
     Util.validateModel(request);
@@ -11012,10 +14733,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看单个类目信息
-   *
-   * @param request DescribeCategoryRequest
-   * @return DescribeCategoryResponse
+   * 查看单个类目信息
+   * 
+   * @param request - DescribeCategoryRequest
+   * @returns DescribeCategoryResponse
    */
   async describeCategory(request: DescribeCategoryRequest): Promise<DescribeCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11023,11 +14744,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-详情
-   *
-   * @param request DescribeDSEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDSEntityResponse
+   * 实体-详情
+   * 
+   * @param request - DescribeDSEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDSEntityResponse
    */
   async describeDSEntityWithOptions(request: DescribeDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDSEntityResponse> {
     Util.validateModel(request);
@@ -11062,10 +14783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-详情
-   *
-   * @param request DescribeDSEntityRequest
-   * @return DescribeDSEntityResponse
+   * 实体-详情
+   * 
+   * @param request - DescribeDSEntityRequest
+   * @returns DescribeDSEntityResponse
    */
   async describeDSEntity(request: DescribeDSEntityRequest): Promise<DescribeDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11073,11 +14794,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档详情
-   *
-   * @param request DescribeDocRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDocResponse
+   * 文档详情
+   * 
+   * @param request - DescribeDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDocResponse
    */
   async describeDocWithOptions(request: DescribeDocRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocResponse> {
     Util.validateModel(request);
@@ -11112,10 +14833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档详情
-   *
-   * @param request DescribeDocRequest
-   * @return DescribeDocResponse
+   * 文档详情
+   * 
+   * @param request - DescribeDocRequest
+   * @returns DescribeDocResponse
    */
   async describeDoc(request: DescribeDocRequest): Promise<DescribeDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11123,11 +14844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 知识详情
-   *
-   * @param request DescribeFaqRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFaqResponse
+   * 知识详情
+   * 
+   * @param request - DescribeFaqRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaqResponse
    */
   async describeFaqWithOptions(request: DescribeFaqRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaqResponse> {
     Util.validateModel(request);
@@ -11160,10 +14881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 知识详情
-   *
-   * @param request DescribeFaqRequest
-   * @return DescribeFaqResponse
+   * 知识详情
+   * 
+   * @param request - DescribeFaqRequest
+   * @returns DescribeFaqResponse
    */
   async describeFaq(request: DescribeFaqRequest): Promise<DescribeFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11171,11 +14892,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-详情
-   *
-   * @param request DescribeInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceResponse
+   * 机器人-详情
+   * 
+   * @param request - DescribeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceResponse
    */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
@@ -11206,10 +14927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-详情
-   *
-   * @param request DescribeInstanceRequest
-   * @return DescribeInstanceResponse
+   * 机器人-详情
+   * 
+   * @param request - DescribeInstanceRequest
+   * @returns DescribeInstanceResponse
    */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11217,11 +14938,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-详情
-   *
-   * @param request DescribeIntentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIntentResponse
+   * 意图-详情
+   * 
+   * @param request - DescribeIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIntentResponse
    */
   async describeIntentWithOptions(request: DescribeIntentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIntentResponse> {
     Util.validateModel(request);
@@ -11258,10 +14979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-详情
-   *
-   * @param request DescribeIntentRequest
-   * @return DescribeIntentResponse
+   * 意图-详情
+   * 
+   * @param request - DescribeIntentRequest
+   * @returns DescribeIntentResponse
    */
   async describeIntent(request: DescribeIntentRequest): Promise<DescribeIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11269,11 +14990,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-详情
-   *
-   * @param request DescribePerspectiveRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePerspectiveResponse
+   * 视角-详情
+   * 
+   * @param request - DescribePerspectiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePerspectiveResponse
    */
   async describePerspectiveWithOptions(request: DescribePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<DescribePerspectiveResponse> {
     Util.validateModel(request);
@@ -11304,10 +15025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-详情
-   *
-   * @param request DescribePerspectiveRequest
-   * @return DescribePerspectiveResponse
+   * 视角-详情
+   * 
+   * @param request - DescribePerspectiveRequest
+   * @returns DescribePerspectiveResponse
    */
   async describePerspective(request: DescribePerspectiveRequest): Promise<DescribePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11315,11 +15036,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 问答点赞、点踩API
-   *
-   * @param request FeedbackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FeedbackResponse
+   * 问答点赞、点踩API
+   * 
+   * @param request - FeedbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FeedbackResponse
    */
   async feedbackWithOptions(request: FeedbackRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackResponse> {
     Util.validateModel(request);
@@ -11366,10 +15087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 问答点赞、点踩API
-   *
-   * @param request FeedbackRequest
-   * @return FeedbackResponse
+   * 问答点赞、点踩API
+   * 
+   * @param request - FeedbackRequest
+   * @returns FeedbackResponse
    */
   async feedback(request: FeedbackRequest): Promise<FeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11377,11 +15098,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成用户免登Token
-   *
-   * @param request GenerateUserAccessTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateUserAccessTokenResponse
+   * 生成用户免登Token
+   * 
+   * @param request - GenerateUserAccessTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateUserAccessTokenResponse
    */
   async generateUserAccessTokenWithOptions(request: GenerateUserAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUserAccessTokenResponse> {
     Util.validateModel(request);
@@ -11432,10 +15153,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成用户免登Token
-   *
-   * @param request GenerateUserAccessTokenRequest
-   * @return GenerateUserAccessTokenResponse
+   * 生成用户免登Token
+   * 
+   * @param request - GenerateUserAccessTokenRequest
+   * @returns GenerateUserAccessTokenResponse
    */
   async generateUserAccessToken(request: GenerateUserAccessTokenRequest): Promise<GenerateUserAccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11443,11 +15164,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间信息
-   *
-   * @param request GetAgentInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAgentInfoResponse
+   * 获取业务空间信息
+   * 
+   * @param request - GetAgentInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentInfoResponse
    */
   async getAgentInfoWithOptions(request: GetAgentInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentInfoResponse> {
     Util.validateModel(request);
@@ -11474,10 +15195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间信息
-   *
-   * @param request GetAgentInfoRequest
-   * @return GetAgentInfoResponse
+   * 获取业务空间信息
+   * 
+   * @param request - GetAgentInfoRequest
+   * @returns GetAgentInfoResponse
    */
   async getAgentInfo(request: GetAgentInfoRequest): Promise<GetAgentInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11485,11 +15206,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异步函数执行结果接口
-   *
-   * @param request GetAsyncResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAsyncResultResponse
+   * 获取异步函数执行结果接口
+   * 
+   * @param request - GetAsyncResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAsyncResultResponse
    */
   async getAsyncResultWithOptions(request: GetAsyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncResultResponse> {
     Util.validateModel(request);
@@ -11520,10 +15241,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异步函数执行结果接口
-   *
-   * @param request GetAsyncResultRequest
-   * @return GetAsyncResultResponse
+   * 获取异步函数执行结果接口
+   * 
+   * @param request - GetAsyncResultRequest
+   * @returns GetAsyncResultResponse
    */
   async getAsyncResult(request: GetAsyncResultRequest): Promise<GetAsyncResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11531,11 +15252,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询机器人接待人次和对话轮次
-   *
-   * @param request GetBotSessionDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetBotSessionDataResponse
+   * 查询机器人接待人次和对话轮次
+   * 
+   * @param request - GetBotSessionDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBotSessionDataResponse
    */
   async getBotSessionDataWithOptions(request: GetBotSessionDataRequest, runtime: $Util.RuntimeOptions): Promise<GetBotSessionDataResponse> {
     Util.validateModel(request);
@@ -11574,10 +15295,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询机器人接待人次和对话轮次
-   *
-   * @param request GetBotSessionDataRequest
-   * @return GetBotSessionDataResponse
+   * 查询机器人接待人次和对话轮次
+   * 
+   * @param request - GetBotSessionDataRequest
+   * @returns GetBotSessionDataResponse
    */
   async getBotSessionData(request: GetBotSessionDataRequest): Promise<GetBotSessionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11585,11 +15306,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询机器人发布进度
-   *
-   * @param request GetInstancePublishTaskStateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstancePublishTaskStateResponse
+   * 查询机器人发布进度
+   * 
+   * @param request - GetInstancePublishTaskStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstancePublishTaskStateResponse
    */
   async getInstancePublishTaskStateWithOptions(request: GetInstancePublishTaskStateRequest, runtime: $Util.RuntimeOptions): Promise<GetInstancePublishTaskStateResponse> {
     Util.validateModel(request);
@@ -11624,10 +15345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询机器人发布进度
-   *
-   * @param request GetInstancePublishTaskStateRequest
-   * @return GetInstancePublishTaskStateResponse
+   * 查询机器人发布进度
+   * 
+   * @param request - GetInstancePublishTaskStateRequest
+   * @returns GetInstancePublishTaskStateResponse
    */
   async getInstancePublishTaskState(request: GetInstancePublishTaskStateRequest): Promise<GetInstancePublishTaskStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11635,11 +15356,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询发布进度
-   *
-   * @param request GetPublishTaskStateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPublishTaskStateResponse
+   * 查询发布进度
+   * 
+   * @param request - GetPublishTaskStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublishTaskStateResponse
    */
   async getPublishTaskStateWithOptions(request: GetPublishTaskStateRequest, runtime: $Util.RuntimeOptions): Promise<GetPublishTaskStateResponse> {
     Util.validateModel(request);
@@ -11670,10 +15391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询发布进度
-   *
-   * @param request GetPublishTaskStateRequest
-   * @return GetPublishTaskStateResponse
+   * 查询发布进度
+   * 
+   * @param request - GetPublishTaskStateRequest
+   * @returns GetPublishTaskStateResponse
    */
   async getPublishTaskState(request: GetPublishTaskStateRequest): Promise<GetPublishTaskStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11681,11 +15402,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 初始化im连接信息
-   *
-   * @param request InitIMConnectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InitIMConnectResponse
+   * 初始化im连接信息
+   * 
+   * @param request - InitIMConnectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitIMConnectResponse
    */
   async initIMConnectWithOptions(request: InitIMConnectRequest, runtime: $Util.RuntimeOptions): Promise<InitIMConnectResponse> {
     Util.validateModel(request);
@@ -11720,10 +15441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 初始化im连接信息
-   *
-   * @param request InitIMConnectRequest
-   * @return InitIMConnectResponse
+   * 初始化im连接信息
+   * 
+   * @param request - InitIMConnectRequest
+   * @returns InitIMConnectResponse
    */
   async initIMConnect(request: InitIMConnectRequest): Promise<InitIMConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11731,11 +15452,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-绑定类目
-   *
-   * @param request LinkInstanceCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LinkInstanceCategoryResponse
+   * 机器人-绑定类目
+   * 
+   * @param request - LinkInstanceCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LinkInstanceCategoryResponse
    */
   async linkInstanceCategoryWithOptions(request: LinkInstanceCategoryRequest, runtime: $Util.RuntimeOptions): Promise<LinkInstanceCategoryResponse> {
     Util.validateModel(request);
@@ -11772,10 +15493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-绑定类目
-   *
-   * @param request LinkInstanceCategoryRequest
-   * @return LinkInstanceCategoryResponse
+   * 机器人-绑定类目
+   * 
+   * @param request - LinkInstanceCategoryRequest
+   * @returns LinkInstanceCategoryResponse
    */
   async linkInstanceCategory(request: LinkInstanceCategoryRequest): Promise<LinkInstanceCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11783,11 +15504,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间列表
-   *
-   * @param request ListAgentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAgentResponse
+   * 获取业务空间列表
+   * 
+   * @param request - ListAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentResponse
    */
   async listAgentWithOptions(request: ListAgentRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentResponse> {
     Util.validateModel(request);
@@ -11826,10 +15547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间列表
-   *
-   * @param request ListAgentRequest
-   * @return ListAgentResponse
+   * 获取业务空间列表
+   * 
+   * @param request - ListAgentRequest
+   * @returns ListAgentResponse
    */
   async listAgent(request: ListAgentRequest): Promise<ListAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11837,11 +15558,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 类目列表
-   *
-   * @param request ListCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCategoryResponse
+   * 类目列表
+   * 
+   * @param request - ListCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCategoryResponse
    */
   async listCategoryWithOptions(request: ListCategoryRequest, runtime: $Util.RuntimeOptions): Promise<ListCategoryResponse> {
     Util.validateModel(request);
@@ -11878,10 +15599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 类目列表
-   *
-   * @param request ListCategoryRequest
-   * @return ListCategoryResponse
+   * 类目列表
+   * 
+   * @param request - ListCategoryRequest
+   * @returns ListCategoryResponse
    */
   async listCategory(request: ListCategoryRequest): Promise<ListCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11889,11 +15610,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询FAQ关联问列表
-   *
-   * @param request ListConnQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConnQuestionResponse
+   * 查询FAQ关联问列表
+   * 
+   * @param request - ListConnQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConnQuestionResponse
    */
   async listConnQuestionWithOptions(request: ListConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<ListConnQuestionResponse> {
     Util.validateModel(request);
@@ -11926,10 +15647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询FAQ关联问列表
-   *
-   * @param request ListConnQuestionRequest
-   * @return ListConnQuestionResponse
+   * 查询FAQ关联问列表
+   * 
+   * @param request - ListConnQuestionRequest
+   * @returns ListConnQuestionResponse
    */
   async listConnQuestion(request: ListConnQuestionRequest): Promise<ListConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11937,11 +15658,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-列表
-   *
-   * @param request ListDSEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDSEntityResponse
+   * 实体-列表
+   * 
+   * @param request - ListDSEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDSEntityResponse
    */
   async listDSEntityWithOptions(request: ListDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListDSEntityResponse> {
     Util.validateModel(request);
@@ -11988,10 +15709,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-列表
-   *
-   * @param request ListDSEntityRequest
-   * @return ListDSEntityResponse
+   * 实体-列表
+   * 
+   * @param request - ListDSEntityRequest
+   * @returns ListDSEntityResponse
    */
   async listDSEntity(request: ListDSEntityRequest): Promise<ListDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11999,11 +15720,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-列表
-   *
-   * @param request ListDSEntityValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDSEntityValueResponse
+   * 实体成员-列表
+   * 
+   * @param request - ListDSEntityValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDSEntityValueResponse
    */
   async listDSEntityValueWithOptions(request: ListDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<ListDSEntityValueResponse> {
     Util.validateModel(request);
@@ -12056,10 +15777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-列表
-   *
-   * @param request ListDSEntityValueRequest
-   * @return ListDSEntityValueResponse
+   * 实体成员-列表
+   * 
+   * @param request - ListDSEntityValueRequest
+   * @returns ListDSEntityValueResponse
    */
   async listDSEntityValue(request: ListDSEntityValueRequest): Promise<ListDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12067,11 +15788,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-修改
-   *
-   * @param request ListInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceResponse
+   * 机器人-修改
+   * 
+   * @param request - ListInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceResponse
    */
   async listInstanceWithOptions(request: ListInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
@@ -12114,10 +15835,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-修改
-   *
-   * @param request ListInstanceRequest
-   * @return ListInstanceResponse
+   * 机器人-修改
+   * 
+   * @param request - ListInstanceRequest
+   * @returns ListInstanceResponse
    */
   async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12125,11 +15846,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-列表
-   *
-   * @param request ListIntentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntentResponse
+   * 意图-列表
+   * 
+   * @param request - ListIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntentResponse
    */
   async listIntentWithOptions(request: ListIntentRequest, runtime: $Util.RuntimeOptions): Promise<ListIntentResponse> {
     Util.validateModel(request);
@@ -12172,10 +15893,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-列表
-   *
-   * @param request ListIntentRequest
-   * @return ListIntentResponse
+   * 意图-列表
+   * 
+   * @param request - ListIntentRequest
+   * @returns ListIntentResponse
    */
   async listIntent(request: ListIntentRequest): Promise<ListIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12183,11 +15904,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-列表
-   *
-   * @param request ListLgfRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLgfResponse
+   * 意图-LGF-列表
+   * 
+   * @param request - ListLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLgfResponse
    */
   async listLgfWithOptions(request: ListLgfRequest, runtime: $Util.RuntimeOptions): Promise<ListLgfResponse> {
     Util.validateModel(request);
@@ -12234,10 +15955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-列表
-   *
-   * @param request ListLgfRequest
-   * @return ListLgfResponse
+   * 意图-LGF-列表
+   * 
+   * @param request - ListLgfRequest
+   * @returns ListLgfResponse
    */
   async listLgf(request: ListLgfRequest): Promise<ListLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12245,11 +15966,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间下可集成的SaaS信息列表
-   *
-   * @param request ListSaasInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSaasInfoResponse
+   * 获取业务空间下可集成的SaaS信息列表
+   * 
+   * @param request - ListSaasInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSaasInfoResponse
    */
   async listSaasInfoWithOptions(request: ListSaasInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListSaasInfoResponse> {
     Util.validateModel(request);
@@ -12284,10 +16005,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间下可集成的SaaS信息列表
-   *
-   * @param request ListSaasInfoRequest
-   * @return ListSaasInfoResponse
+   * 获取业务空间下可集成的SaaS信息列表
+   * 
+   * @param request - ListSaasInfoRequest
+   * @returns ListSaasInfoResponse
    */
   async listSaasInfo(request: ListSaasInfoRequest): Promise<ListSaasInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12295,11 +16016,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间下可集成的权限组信息
-   *
-   * @param request ListSaasPermissionGroupInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSaasPermissionGroupInfosResponse
+   * 获取业务空间下可集成的权限组信息
+   * 
+   * @param request - ListSaasPermissionGroupInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSaasPermissionGroupInfosResponse
    */
   async listSaasPermissionGroupInfosWithOptions(request: ListSaasPermissionGroupInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListSaasPermissionGroupInfosResponse> {
     Util.validateModel(request);
@@ -12326,10 +16047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取业务空间下可集成的权限组信息
-   *
-   * @param request ListSaasPermissionGroupInfosRequest
-   * @return ListSaasPermissionGroupInfosResponse
+   * 获取业务空间下可集成的权限组信息
+   * 
+   * @param request - ListSaasPermissionGroupInfosRequest
+   * @returns ListSaasPermissionGroupInfosResponse
    */
   async listSaasPermissionGroupInfos(request: ListSaasPermissionGroupInfosRequest): Promise<ListSaasPermissionGroupInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12337,11 +16058,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary FAQ相似问列表
-   *
-   * @param request ListSimQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSimQuestionResponse
+   * FAQ相似问列表
+   * 
+   * @param request - ListSimQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSimQuestionResponse
    */
   async listSimQuestionWithOptions(request: ListSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<ListSimQuestionResponse> {
     Util.validateModel(request);
@@ -12374,10 +16095,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary FAQ相似问列表
-   *
-   * @param request ListSimQuestionRequest
-   * @return ListSimQuestionResponse
+   * FAQ相似问列表
+   * 
+   * @param request - ListSimQuestionRequest
+   * @returns ListSimQuestionResponse
    */
   async listSimQuestion(request: ListSimQuestionRequest): Promise<ListSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12385,11 +16106,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary FAQ答案列表
-   *
-   * @param request ListSolutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSolutionResponse
+   * FAQ答案列表
+   * 
+   * @param request - ListSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSolutionResponse
    */
   async listSolutionWithOptions(request: ListSolutionRequest, runtime: $Util.RuntimeOptions): Promise<ListSolutionResponse> {
     Util.validateModel(request);
@@ -12422,10 +16143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary FAQ答案列表
-   *
-   * @param request ListSolutionRequest
-   * @return ListSolutionResponse
+   * FAQ答案列表
+   * 
+   * @param request - ListSolutionRequest
+   * @returns ListSolutionResponse
    */
   async listSolution(request: ListSolutionRequest): Promise<ListSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12433,11 +16154,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Tongyi对话明细查询接口
-   *
-   * @param request ListTongyiChatHistorysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTongyiChatHistorysResponse
+   * Tongyi对话明细查询接口
+   * 
+   * @param request - ListTongyiChatHistorysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTongyiChatHistorysResponse
    */
   async listTongyiChatHistorysWithOptions(request: ListTongyiChatHistorysRequest, runtime: $Util.RuntimeOptions): Promise<ListTongyiChatHistorysResponse> {
     Util.validateModel(request);
@@ -12480,10 +16201,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Tongyi对话明细查询接口
-   *
-   * @param request ListTongyiChatHistorysRequest
-   * @return ListTongyiChatHistorysResponse
+   * Tongyi对话明细查询接口
+   * 
+   * @param request - ListTongyiChatHistorysRequest
+   * @returns ListTongyiChatHistorysResponse
    */
   async listTongyiChatHistorys(request: ListTongyiChatHistorysRequest): Promise<ListTongyiChatHistorysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12491,11 +16212,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 话术-列表
-   *
-   * @param request ListUserSayRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserSayResponse
+   * 话术-列表
+   * 
+   * @param request - ListUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserSayResponse
    */
   async listUserSayWithOptions(request: ListUserSayRequest, runtime: $Util.RuntimeOptions): Promise<ListUserSayResponse> {
     Util.validateModel(request);
@@ -12542,10 +16263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 话术-列表
-   *
-   * @param request ListUserSayRequest
-   * @return ListUserSayResponse
+   * 话术-列表
+   * 
+   * @param request - ListUserSayRequest
+   * @returns ListUserSayResponse
    */
   async listUserSay(request: ListUserSayRequest): Promise<ListUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12553,11 +16274,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 统一NLU接口
-   *
-   * @param request NluRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return NluResponse
+   * 统一NLU接口
+   * 
+   * @param request - NluRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns NluResponse
    */
   async nluWithOptions(request: NluRequest, runtime: $Util.RuntimeOptions): Promise<NluResponse> {
     Util.validateModel(request);
@@ -12592,10 +16313,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 统一NLU接口
-   *
-   * @param request NluRequest
-   * @return NluResponse
+   * 统一NLU接口
+   * 
+   * @param request - NluRequest
+   * @returns NluResponse
    */
   async nlu(request: NluRequest): Promise<NluResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12603,11 +16324,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-列表
-   *
-   * @param request QueryPerspectivesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPerspectivesResponse
+   * 视角-列表
+   * 
+   * @param request - QueryPerspectivesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPerspectivesResponse
    */
   async queryPerspectivesWithOptions(request: QueryPerspectivesRequest, runtime: $Util.RuntimeOptions): Promise<QueryPerspectivesResponse> {
     Util.validateModel(request);
@@ -12634,10 +16355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-列表
-   *
-   * @param request QueryPerspectivesRequest
-   * @return QueryPerspectivesResponse
+   * 视角-列表
+   * 
+   * @param request - QueryPerspectivesRequest
+   * @returns QueryPerspectivesResponse
    */
   async queryPerspectives(request: QueryPerspectivesRequest): Promise<QueryPerspectivesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12645,11 +16366,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档重试
-   *
-   * @param request RetryDocRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RetryDocResponse
+   * 文档重试
+   * 
+   * @param request - RetryDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryDocResponse
    */
   async retryDocWithOptions(request: RetryDocRequest, runtime: $Util.RuntimeOptions): Promise<RetryDocResponse> {
     Util.validateModel(request);
@@ -12680,10 +16401,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档重试
-   *
-   * @param request RetryDocRequest
-   * @return RetryDocResponse
+   * 文档重试
+   * 
+   * @param request - RetryDocRequest
+   * @returns RetryDocResponse
    */
   async retryDoc(request: RetryDocRequest): Promise<RetryDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12691,11 +16412,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档搜索
-   *
-   * @param tmpReq SearchDocRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchDocResponse
+   * 文档搜索
+   * 
+   * @param tmpReq - SearchDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchDocResponse
    */
   async searchDocWithOptions(tmpReq: SearchDocRequest, runtime: $Util.RuntimeOptions): Promise<SearchDocResponse> {
     Util.validateModel(tmpReq);
@@ -12804,10 +16525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档搜索
-   *
-   * @param request SearchDocRequest
-   * @return SearchDocResponse
+   * 文档搜索
+   * 
+   * @param request - SearchDocRequest
+   * @returns SearchDocResponse
    */
   async searchDoc(request: SearchDocRequest): Promise<SearchDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12815,11 +16536,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 知识搜索
-   *
-   * @param tmpReq SearchFaqRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchFaqResponse
+   * 知识搜索
+   * 
+   * @param tmpReq - SearchFaqRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFaqResponse
    */
   async searchFaqWithOptions(tmpReq: SearchFaqRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaqResponse> {
     Util.validateModel(tmpReq);
@@ -12918,10 +16639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 知识搜索
-   *
-   * @param request SearchFaqRequest
-   * @return SearchFaqResponse
+   * 知识搜索
+   * 
+   * @param request - SearchFaqRequest
+   * @returns SearchFaqResponse
    */
   async searchFaq(request: SearchFaqRequest): Promise<SearchFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12929,11 +16650,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑类目
-   *
-   * @param request UpdateCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCategoryResponse
+   * 编辑类目
+   * 
+   * @param request - UpdateCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCategoryResponse
    */
   async updateCategoryWithOptions(request: UpdateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCategoryResponse> {
     Util.validateModel(request);
@@ -12974,10 +16695,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑类目
-   *
-   * @param request UpdateCategoryRequest
-   * @return UpdateCategoryResponse
+   * 编辑类目
+   * 
+   * @param request - UpdateCategoryRequest
+   * @returns UpdateCategoryResponse
    */
   async updateCategory(request: UpdateCategoryRequest): Promise<UpdateCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12985,11 +16706,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ关联问
-   *
-   * @param request UpdateConnQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateConnQuestionResponse
+   * 更新FAQ关联问
+   * 
+   * @param request - UpdateConnQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConnQuestionResponse
    */
   async updateConnQuestionWithOptions(request: UpdateConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnQuestionResponse> {
     Util.validateModel(request);
@@ -13026,10 +16747,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ关联问
-   *
-   * @param request UpdateConnQuestionRequest
-   * @return UpdateConnQuestionResponse
+   * 更新FAQ关联问
+   * 
+   * @param request - UpdateConnQuestionRequest
+   * @returns UpdateConnQuestionResponse
    */
   async updateConnQuestion(request: UpdateConnQuestionRequest): Promise<UpdateConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13037,11 +16758,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-更新
-   *
-   * @param request UpdateDSEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDSEntityResponse
+   * 实体-更新
+   * 
+   * @param request - UpdateDSEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDSEntityResponse
    */
   async updateDSEntityWithOptions(request: UpdateDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDSEntityResponse> {
     Util.validateModel(request);
@@ -13084,10 +16805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体-更新
-   *
-   * @param request UpdateDSEntityRequest
-   * @return UpdateDSEntityResponse
+   * 实体-更新
+   * 
+   * @param request - UpdateDSEntityRequest
+   * @returns UpdateDSEntityResponse
    */
   async updateDSEntity(request: UpdateDSEntityRequest): Promise<UpdateDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13095,11 +16816,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-更新
-   *
-   * @param tmpReq UpdateDSEntityValueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDSEntityValueResponse
+   * 实体成员-更新
+   * 
+   * @param tmpReq - UpdateDSEntityValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDSEntityValueResponse
    */
   async updateDSEntityValueWithOptions(tmpReq: UpdateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDSEntityValueResponse> {
     Util.validateModel(tmpReq);
@@ -13154,10 +16875,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实体成员-更新
-   *
-   * @param request UpdateDSEntityValueRequest
-   * @return UpdateDSEntityValueResponse
+   * 实体成员-更新
+   * 
+   * @param request - UpdateDSEntityValueRequest
+   * @returns UpdateDSEntityValueResponse
    */
   async updateDSEntityValue(request: UpdateDSEntityValueRequest): Promise<UpdateDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13165,11 +16886,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档变更
-   *
-   * @param tmpReq UpdateDocRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDocResponse
+   * 文档变更
+   * 
+   * @param tmpReq - UpdateDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDocResponse
    */
   async updateDocWithOptions(tmpReq: UpdateDocRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDocResponse> {
     Util.validateModel(tmpReq);
@@ -13242,10 +16963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档变更
-   *
-   * @param request UpdateDocRequest
-   * @return UpdateDocResponse
+   * 文档变更
+   * 
+   * @param request - UpdateDocRequest
+   * @returns UpdateDocResponse
    */
   async updateDoc(request: UpdateDocRequest): Promise<UpdateDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13253,11 +16974,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ
-   *
-   * @param request UpdateFaqRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFaqResponse
+   * 更新FAQ
+   * 
+   * @param request - UpdateFaqRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFaqResponse
    */
   async updateFaqWithOptions(request: UpdateFaqRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaqResponse> {
     Util.validateModel(request);
@@ -13306,10 +17027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ
-   *
-   * @param request UpdateFaqRequest
-   * @return UpdateFaqResponse
+   * 更新FAQ
+   * 
+   * @param request - UpdateFaqRequest
+   * @returns UpdateFaqResponse
    */
   async updateFaq(request: UpdateFaqRequest): Promise<UpdateFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13317,11 +17038,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-修改
-   *
-   * @param request UpdateInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceResponse
+   * 机器人-修改
+   * 
+   * @param request - UpdateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceResponse
    */
   async updateInstanceWithOptions(request: UpdateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -13360,10 +17081,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 机器人-修改
-   *
-   * @param request UpdateInstanceRequest
-   * @return UpdateInstanceResponse
+   * 机器人-修改
+   * 
+   * @param request - UpdateInstanceRequest
+   * @returns UpdateInstanceResponse
    */
   async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13371,11 +17092,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-更新
-   *
-   * @param tmpReq UpdateIntentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIntentResponse
+   * 意图-更新
+   * 
+   * @param tmpReq - UpdateIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIntentResponse
    */
   async updateIntentWithOptions(tmpReq: UpdateIntentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntentResponse> {
     Util.validateModel(tmpReq);
@@ -13420,10 +17141,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-更新
-   *
-   * @param request UpdateIntentRequest
-   * @return UpdateIntentResponse
+   * 意图-更新
+   * 
+   * @param request - UpdateIntentRequest
+   * @returns UpdateIntentResponse
    */
   async updateIntent(request: UpdateIntentRequest): Promise<UpdateIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13431,11 +17152,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-更新
-   *
-   * @param tmpReq UpdateLgfRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLgfResponse
+   * 意图-LGF-更新
+   * 
+   * @param tmpReq - UpdateLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLgfResponse
    */
   async updateLgfWithOptions(tmpReq: UpdateLgfRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLgfResponse> {
     Util.validateModel(tmpReq);
@@ -13480,10 +17201,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-LGF-更新
-   *
-   * @param request UpdateLgfRequest
-   * @return UpdateLgfResponse
+   * 意图-LGF-更新
+   * 
+   * @param request - UpdateLgfRequest
+   * @returns UpdateLgfResponse
    */
   async updateLgf(request: UpdateLgfRequest): Promise<UpdateLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13491,11 +17212,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-修改
-   *
-   * @param request UpdatePerspectiveRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePerspectiveResponse
+   * 视角-修改
+   * 
+   * @param request - UpdatePerspectiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePerspectiveResponse
    */
   async updatePerspectiveWithOptions(request: UpdatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePerspectiveResponse> {
     Util.validateModel(request);
@@ -13530,10 +17251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角-修改
-   *
-   * @param request UpdatePerspectiveRequest
-   * @return UpdatePerspectiveResponse
+   * 视角-修改
+   * 
+   * @param request - UpdatePerspectiveRequest
+   * @returns UpdatePerspectiveResponse
    */
   async updatePerspective(request: UpdatePerspectiveRequest): Promise<UpdatePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13541,11 +17262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ相似问
-   *
-   * @param request UpdateSimQuestionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSimQuestionResponse
+   * 更新FAQ相似问
+   * 
+   * @param request - UpdateSimQuestionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSimQuestionResponse
    */
   async updateSimQuestionWithOptions(request: UpdateSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSimQuestionResponse> {
     Util.validateModel(request);
@@ -13582,10 +17303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ相似问
-   *
-   * @param request UpdateSimQuestionRequest
-   * @return UpdateSimQuestionResponse
+   * 更新FAQ相似问
+   * 
+   * @param request - UpdateSimQuestionRequest
+   * @returns UpdateSimQuestionResponse
    */
   async updateSimQuestion(request: UpdateSimQuestionRequest): Promise<UpdateSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13593,11 +17314,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ答案
-   *
-   * @param request UpdateSolutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSolutionResponse
+   * 更新FAQ答案
+   * 
+   * @param request - UpdateSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSolutionResponse
    */
   async updateSolutionWithOptions(request: UpdateSolutionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSolutionResponse> {
     Util.validateModel(request);
@@ -13642,10 +17363,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新FAQ答案
-   *
-   * @param request UpdateSolutionRequest
-   * @return UpdateSolutionResponse
+   * 更新FAQ答案
+   * 
+   * @param request - UpdateSolutionRequest
+   * @returns UpdateSolutionResponse
    */
   async updateSolution(request: UpdateSolutionRequest): Promise<UpdateSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13653,11 +17374,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-话术-更新
-   *
-   * @param tmpReq UpdateUserSayRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserSayResponse
+   * 意图-话术-更新
+   * 
+   * @param tmpReq - UpdateUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserSayResponse
    */
   async updateUserSayWithOptions(tmpReq: UpdateUserSayRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserSayResponse> {
     Util.validateModel(tmpReq);
@@ -13702,10 +17423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 意图-话术-更新
-   *
-   * @param request UpdateUserSayRequest
-   * @return UpdateUserSayResponse
+   * 意图-话术-更新
+   * 
+   * @param request - UpdateUserSayRequest
+   * @returns UpdateUserSayResponse
    */
   async updateUserSay(request: UpdateUserSayRequest): Promise<UpdateUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
