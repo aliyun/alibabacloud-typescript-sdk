@@ -37641,7 +37641,11 @@ export default class Client extends OpenApi {
    */
   async getAggregateConfigRuleSummaryByRiskLevelWithOptions(request: GetAggregateConfigRuleSummaryByRiskLevelRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigRuleSummaryByRiskLevelResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -37650,7 +37654,7 @@ export default class Client extends OpenApi {
       version: "2020-09-07",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -38596,7 +38600,7 @@ export default class Client extends OpenApi {
       version: "2020-09-07",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
