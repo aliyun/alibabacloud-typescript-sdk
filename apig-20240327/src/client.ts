@@ -5733,6 +5733,36 @@ export class HttpApiApiInfoEnvironmentsDnsConfigs extends $tea.Model {
   }
 }
 
+export class HttpApiApiInfoEnvironmentsGatewayInfo extends $tea.Model {
+  /**
+   * @example
+   * gw-xxx
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpApiApiInfoEnvironmentsServiceConfigs extends $tea.Model {
   /**
    * @example
@@ -5826,6 +5856,11 @@ export class HttpApiApiInfoEnvironmentsVipConfigs extends $tea.Model {
 export class HttpApiApiInfoEnvironments extends $tea.Model {
   /**
    * @example
+   * test
+   */
+  alias?: string;
+  /**
+   * @example
    * SingleService
    */
   backendScene?: string;
@@ -5835,21 +5870,38 @@ export class HttpApiApiInfoEnvironments extends $tea.Model {
    */
   backendType?: string;
   cloudProductConfig?: HttpApiApiInfoEnvironmentsCloudProductConfig;
+  customDomains?: HttpApiDomainInfo[];
   dnsConfigs?: HttpApiApiInfoEnvironmentsDnsConfigs[];
   /**
    * @example
    * env-xxx
    */
   environmentId?: string;
+  gatewayInfo?: HttpApiApiInfoEnvironmentsGatewayInfo;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * Published
+   */
+  publishStatus?: string;
   serviceConfigs?: HttpApiApiInfoEnvironmentsServiceConfigs[];
   vipConfigs?: HttpApiApiInfoEnvironmentsVipConfigs[];
   static names(): { [key: string]: string } {
     return {
+      alias: 'alias',
       backendScene: 'backendScene',
       backendType: 'backendType',
       cloudProductConfig: 'cloudProductConfig',
+      customDomains: 'customDomains',
       dnsConfigs: 'dnsConfigs',
       environmentId: 'environmentId',
+      gatewayInfo: 'gatewayInfo',
+      name: 'name',
+      publishStatus: 'publishStatus',
       serviceConfigs: 'serviceConfigs',
       vipConfigs: 'vipConfigs',
     };
@@ -5857,11 +5909,16 @@ export class HttpApiApiInfoEnvironments extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alias: 'string',
       backendScene: 'string',
       backendType: 'string',
       cloudProductConfig: HttpApiApiInfoEnvironmentsCloudProductConfig,
+      customDomains: { 'type': 'array', 'itemType': HttpApiDomainInfo },
       dnsConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsDnsConfigs },
       environmentId: 'string',
+      gatewayInfo: HttpApiApiInfoEnvironmentsGatewayInfo,
+      name: 'string',
+      publishStatus: 'string',
       serviceConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsServiceConfigs },
       vipConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsVipConfigs },
     };
