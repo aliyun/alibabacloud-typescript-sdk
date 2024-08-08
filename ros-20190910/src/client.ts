@@ -15792,10 +15792,12 @@ export class UpdateTemplateResponseBody extends $tea.Model {
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
    */
   templateId?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       templateId: 'TemplateId',
+      templateVersion: 'TemplateVersion',
     };
   }
 
@@ -15803,6 +15805,7 @@ export class UpdateTemplateResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       templateId: 'string',
+      templateVersion: 'string',
     };
   }
 
