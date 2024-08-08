@@ -4002,6 +4002,84 @@ export class DescribeTagsResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserServiceStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * en
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserServiceStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 99626905-678A-4E8A-984E-6AEB09993996
+   */
+  requestId?: string;
+  /**
+   * @example
+   * OPENED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserServiceStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserVpcAuthorizationsRequest extends $tea.Model {
   /**
    * @remarks
@@ -11501,6 +11579,44 @@ export default class Client extends OpenApi {
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeUserServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserServiceStatusResponse
+   */
+  async describeUserServiceStatusWithOptions(request: DescribeUserServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserServiceStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserServiceStatus",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserServiceStatusResponse({}));
+  }
+
+  /**
+   * @param request - DescribeUserServiceStatusRequest
+   * @returns DescribeUserServiceStatusResponse
+   */
+  async describeUserServiceStatus(request: DescribeUserServiceStatusRequest): Promise<DescribeUserServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserServiceStatusWithOptions(request, runtime);
   }
 
   /**
