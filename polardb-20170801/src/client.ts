@@ -6835,6 +6835,10 @@ export class DescribeDBClusterAttributeRequest extends $tea.Model {
 }
 
 export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-13T01:20:28Z
+   */
   aiCreatingTime?: string;
   /**
    * @remarks
@@ -6847,6 +6851,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * DLNode
    */
   aiType?: string;
+  /**
+   * @example
+   * X86
+   */
   architecture?: string;
   /**
    * @remarks
@@ -6882,7 +6890,15 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * Normal
    */
   category?: string;
+  /**
+   * @example
+   * ON
+   */
   compressStorageMode?: string;
+  /**
+   * @example
+   * 15529410560
+   */
   compressStorageUsed?: number;
   /**
    * @remarks
@@ -6926,7 +6942,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The details of the nodes.
+   * The information about the nodes.
    */
   DBNodes?: DescribeDBClusterAttributeResponseBodyDBNodes[];
   /**
@@ -7022,6 +7038,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * false
    */
   hasCompleteStandbyRes?: boolean;
+  /**
+   * @example
+   * StandbyClusterON
+   */
   hotStandbyCluster?: string;
   /**
    * @remarks
@@ -7081,6 +7101,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * 18:00Z-19:00Z
    */
   maintainTime?: string;
+  /**
+   * @example
+   * ON
+   */
   orca?: string;
   /**
    * @remarks
@@ -7093,6 +7117,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * Prepaid
    */
   payType?: string;
+  /**
+   * @example
+   * 2500
+   */
   provisionedIops?: string;
   /**
    * @remarks
@@ -7173,7 +7201,15 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * rg-***************
    */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2179639137
+   */
   restoreDataPoint?: string;
+  /**
+   * @example
+   * RestoreByTime
+   */
   restoreType?: string;
   /**
    * @remarks
@@ -7191,6 +7227,10 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * AgileServerless
    */
   serverlessType?: string;
+  /**
+   * @example
+   * pc-pz51ziv48317b2880
+   */
   sourceDBCluster?: string;
   /**
    * @remarks
@@ -10767,6 +10807,10 @@ export class DescribeDBProxyPerformanceResponse extends $tea.Model {
 export class DescribeDasConfigRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10812,11 +10856,19 @@ export class DescribeDasConfigResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the automatic storage expansion feature is enabled for the standard cluster.
+   * 
    * @example
    * Enable
    */
   storageAutoScale?: string;
   /**
+   * @remarks
+   * The maximum storage capacity of the standard cluster that is scaled up. Unit: GB.
+   * 
+   * >  This parameter is returned when the StorageAutoScale parameter is set to Enable.
+   * 
    * @example
    * 800
    */
@@ -15388,6 +15440,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
    * pi-***********
    */
   targetDBNodeId?: string;
+  targetZoneType?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -15398,6 +15451,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       rollBackForDisaster: 'RollBackForDisaster',
       targetDBNodeId: 'TargetDBNodeId',
+      targetZoneType: 'TargetZoneType',
     };
   }
 
@@ -15411,6 +15465,7 @@ export class FailoverDBClusterRequest extends $tea.Model {
       resourceOwnerId: 'number',
       rollBackForDisaster: 'boolean',
       targetDBNodeId: 'string',
+      targetZoneType: 'string',
     };
   }
 
@@ -24479,6 +24534,10 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
    * 6
    */
   addedCpuCores?: string;
+  /**
+   * @example
+   * 2
+   */
   cpuCores?: string;
   /**
    * @remarks
@@ -24591,9 +24650,21 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
    * 32000
    */
   maxIOPS?: number;
+  /**
+   * @example
+   * 8192
+   */
   memorySize?: string;
   mirrorInsName?: string;
+  /**
+   * @example
+   * off
+   */
   orca?: string;
+  /**
+   * @example
+   * 3072
+   */
   remoteMemorySize?: string;
   /**
    * @remarks
@@ -24626,6 +24697,10 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
    * AgileServerless
    */
   serverlessType?: string;
+  /**
+   * @example
+   * Primary
+   */
   subCluster?: string;
   /**
    * @remarks
@@ -35305,7 +35380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看实例的 DAS 配置
+   * Queries the configurations of a cluster in Database Autonomy Service (DAS).
    * 
    * @param request - DescribeDasConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35352,7 +35427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看实例的 DAS 配置
+   * Queries the configurations of a cluster in Database Autonomy Service (DAS).
    * 
    * @param request - DescribeDasConfigRequest
    * @returns DescribeDasConfigResponse
@@ -37342,6 +37417,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.targetDBNodeId)) {
       query["TargetDBNodeId"] = request.targetDBNodeId;
+    }
+
+    if (!Util.isUnset(request.targetZoneType)) {
+      query["TargetZoneType"] = request.targetZoneType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
