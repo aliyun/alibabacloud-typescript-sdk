@@ -13352,6 +13352,8 @@ export class UpdateApplicationGroupRequest extends $tea.Model {
    * UpdateMyApplicationGroup
    */
   newName?: string;
+  operationName?: string;
+  parameters?: { [key: string]: any };
   /**
    * @remarks
    * The region ID. Set the value to cn-hangzhou.
@@ -13365,6 +13367,8 @@ export class UpdateApplicationGroupRequest extends $tea.Model {
       applicationName: 'ApplicationName',
       name: 'Name',
       newName: 'NewName',
+      operationName: 'OperationName',
+      parameters: 'Parameters',
       regionId: 'RegionId',
     };
   }
@@ -13374,6 +13378,74 @@ export class UpdateApplicationGroupRequest extends $tea.Model {
       applicationName: 'string',
       name: 'string',
       newName: 'string',
+      operationName: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
+  applicationName?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The new name of the application group.
+   * 
+   * @example
+   * UpdateMyApplicationGroup
+   */
+  newName?: string;
+  operationName?: string;
+  parametersShrink?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      name: 'Name',
+      newName: 'NewName',
+      operationName: 'OperationName',
+      parametersShrink: 'Parameters',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      name: 'string',
+      newName: 'string',
+      operationName: 'string',
+      parametersShrink: 'string',
       regionId: 'string',
     };
   }
@@ -17163,6 +17235,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
    * MyApplicationGroup
    */
   name?: string;
+  operationMetadata?: string;
   /**
    * @remarks
    * The creation progress of the application instance.
@@ -17207,6 +17280,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
       name: 'Name',
+      operationMetadata: 'OperationMetadata',
       progress: 'Progress',
       status: 'Status',
       statusReason: 'StatusReason',
@@ -17226,6 +17300,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
       importTagKey: 'string',
       importTagValue: 'string',
       name: 'string',
+      operationMetadata: 'string',
       progress: 'string',
       status: 'string',
       statusReason: 'string',
@@ -28444,12 +28519,18 @@ export default class Client extends OpenApi {
   /**
    * Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
    * 
-   * @param request - UpdateApplicationGroupRequest
+   * @param tmpReq - UpdateApplicationGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateApplicationGroupResponse
    */
-  async updateApplicationGroupWithOptions(request: UpdateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationGroupResponse> {
-    Util.validateModel(request);
+  async updateApplicationGroupWithOptions(tmpReq: UpdateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateApplicationGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.applicationName)) {
       query["ApplicationName"] = request.applicationName;
@@ -28461,6 +28542,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.newName)) {
       query["NewName"] = request.newName;
+    }
+
+    if (!Util.isUnset(request.operationName)) {
+      query["OperationName"] = request.operationName;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
