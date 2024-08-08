@@ -46845,11 +46845,11 @@ export class ModifyDiskSpecRequest extends $tea.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
    * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
    * 
-   * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+   * >  This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
    * 
    * @example
    * 50000
@@ -48158,6 +48158,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
    * Test123456
    */
   password?: string;
+  privateDnsNameOptions?: ModifyInstanceAttributeRequestPrivateDnsNameOptions;
   /**
    * @remarks
    * >  This parameter is in invitational preview and is not publicly available.
@@ -48212,6 +48213,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       password: 'Password',
+      privateDnsNameOptions: 'PrivateDnsNameOptions',
       recyclable: 'Recyclable',
       remoteConnectionOptions: 'RemoteConnectionOptions',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -48235,6 +48237,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       password: 'string',
+      privateDnsNameOptions: ModifyInstanceAttributeRequestPrivateDnsNameOptions,
       recyclable: 'boolean',
       remoteConnectionOptions: ModifyInstanceAttributeRequestRemoteConnectionOptions,
       resourceOwnerAccount: 'string',
@@ -59344,6 +59347,7 @@ export class RunInstancesRequest extends $tea.Model {
    * Month
    */
   periodUnit?: string;
+  privateDnsNameOptions?: RunInstancesRequestPrivateDnsNameOptions;
   /**
    * @remarks
    * The private IP address to assign to the instance. To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by `VSwitchId`.
@@ -59626,6 +59630,7 @@ export class RunInstancesRequest extends $tea.Model {
       passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      privateDnsNameOptions: 'PrivateDnsNameOptions',
       privateIpAddress: 'PrivateIpAddress',
       ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
@@ -59707,6 +59712,7 @@ export class RunInstancesRequest extends $tea.Model {
       passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
+      privateDnsNameOptions: RunInstancesRequestPrivateDnsNameOptions,
       privateIpAddress: 'string',
       ramRoleName: 'string',
       regionId: 'string',
@@ -81800,6 +81806,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
    * true
    */
   primary?: boolean;
+  privateDnsName?: string;
   /**
    * @remarks
    * The private IP address of the ENI.
@@ -81811,6 +81818,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
   static names(): { [key: string]: string } {
     return {
       primary: 'Primary',
+      privateDnsName: 'PrivateDnsName',
       privateIpAddress: 'PrivateIpAddress',
     };
   }
@@ -81818,6 +81826,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
   static types(): { [key: string]: any } {
     return {
       primary: 'boolean',
+      privateDnsName: 'string',
       privateIpAddress: 'string',
     };
   }
@@ -82005,6 +82014,37 @@ export class DescribeInstancesResponseBodyInstancesInstanceOperationLocks extend
   static types(): { [key: string]: any } {
     return {
       lockReason: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceOperationLocksLockReason },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions extends $tea.Model {
+  enableInstanceIdDnsAAAARecord?: boolean;
+  enableInstanceIdDnsARecord?: boolean;
+  enableIpDnsARecord?: boolean;
+  enableIpDnsPtrRecord?: boolean;
+  hostnameType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'EnableInstanceIdDnsAAAARecord',
+      enableInstanceIdDnsARecord: 'EnableInstanceIdDnsARecord',
+      enableIpDnsARecord: 'EnableIpDnsARecord',
+      enableIpDnsPtrRecord: 'EnableIpDnsPtrRecord',
+      hostnameType: 'HostnameType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'boolean',
+      enableInstanceIdDnsARecord: 'boolean',
+      enableIpDnsARecord: 'boolean',
+      enableIpDnsPtrRecord: 'boolean',
+      hostnameType: 'string',
     };
   }
 
@@ -82553,6 +82593,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
    * The reasons why the instance was locked.
    */
   operationLocks?: DescribeInstancesResponseBodyInstancesInstanceOperationLocks;
+  privateDnsNameOptions?: DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions;
   /**
    * @remarks
    * The public IP addresses of the instance.
@@ -82757,6 +82798,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       OSNameEn: 'OSNameEn',
       OSType: 'OSType',
       operationLocks: 'OperationLocks',
+      privateDnsNameOptions: 'PrivateDnsNameOptions',
       publicIpAddress: 'PublicIpAddress',
       rdmaIpAddress: 'RdmaIpAddress',
       recyclable: 'Recyclable',
@@ -82826,6 +82868,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       OSNameEn: 'string',
       OSType: 'string',
       operationLocks: DescribeInstancesResponseBodyInstancesInstanceOperationLocks,
+      privateDnsNameOptions: DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions,
       publicIpAddress: DescribeInstancesResponseBodyInstancesInstancePublicIpAddress,
       rdmaIpAddress: DescribeInstancesResponseBodyInstancesInstanceRdmaIpAddress,
       recyclable: 'boolean',
@@ -87466,6 +87509,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
    * true
    */
   primary?: boolean;
+  privateDnsName?: string;
   /**
    * @remarks
    * The private IP address of the ENI.
@@ -87478,6 +87522,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
     return {
       associatedPublicIp: 'AssociatedPublicIp',
       primary: 'Primary',
+      privateDnsName: 'PrivateDnsName',
       privateIpAddress: 'PrivateIpAddress',
     };
   }
@@ -87486,6 +87531,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
     return {
       associatedPublicIp: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSetAssociatedPublicIp,
       primary: 'boolean',
+      privateDnsName: 'string',
       privateIpAddress: 'string',
     };
   }
@@ -97091,6 +97137,37 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $tea.Model {
   }
 }
 
+export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $tea.Model {
+  enableInstanceIdDnsAAAARecord?: boolean;
+  enableInstanceIdDnsARecord?: boolean;
+  enableIpDnsARecord?: boolean;
+  enableIpDnsPtrRecord?: boolean;
+  hostnameType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'EnableInstanceIdDnsAAAARecord',
+      enableInstanceIdDnsARecord: 'EnableInstanceIdDnsARecord',
+      enableIpDnsARecord: 'EnableIpDnsARecord',
+      enableIpDnsPtrRecord: 'EnableIpDnsPtrRecord',
+      hostnameType: 'HostnameType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'boolean',
+      enableInstanceIdDnsARecord: 'boolean',
+      enableIpDnsARecord: 'boolean',
+      enableIpDnsPtrRecord: 'boolean',
+      hostnameType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceAttributeRequestRemoteConnectionOptions extends $tea.Model {
   /**
    * @remarks
@@ -100077,6 +100154,37 @@ export class RunInstancesRequestNetworkOptions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       enableJumboFrame: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestPrivateDnsNameOptions extends $tea.Model {
+  enableInstanceIdDnsAAAARecord?: boolean;
+  enableInstanceIdDnsARecord?: boolean;
+  enableIpDnsARecord?: boolean;
+  enableIpDnsPtrRecord?: boolean;
+  hostnameType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'EnableInstanceIdDnsAAAARecord',
+      enableInstanceIdDnsARecord: 'EnableInstanceIdDnsARecord',
+      enableIpDnsARecord: 'EnableIpDnsARecord',
+      enableIpDnsPtrRecord: 'EnableIpDnsPtrRecord',
+      hostnameType: 'HostnameType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'boolean',
+      enableInstanceIdDnsARecord: 'boolean',
+      enableIpDnsARecord: 'boolean',
+      enableIpDnsPtrRecord: 'boolean',
+      hostnameType: 'string',
     };
   }
 
@@ -125762,6 +125870,10 @@ export default class Client extends OpenApi {
       query["Password"] = request.password;
     }
 
+    if (!Util.isUnset(request.privateDnsNameOptions)) {
+      query["PrivateDnsNameOptions"] = request.privateDnsNameOptions;
+    }
+
     if (!Util.isUnset(request.recyclable)) {
       query["Recyclable"] = request.recyclable;
     }
@@ -132036,6 +132148,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.privateDnsNameOptions)) {
+      query["PrivateDnsNameOptions"] = request.privateDnsNameOptions;
     }
 
     if (!Util.isUnset(request.privateIpAddress)) {
