@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -8,9 +7,50 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DentryAppPropertiesValue extends $tea.Model {
+  /**
+   * @example
+   * dentry_name
+   */
+  name?: string;
+  /**
+   * @example
+   * dentry_value
+   */
+  value?: string;
+  /**
+   * @example
+   * PUBLIC
+   */
+  visibility?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      visibility: 'Visibility',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      visibility: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DentriesAppPropertiesValue extends $tea.Model {
   name?: string;
   value?: string;
+  /**
+   * @example
+   * PRIVATE
+   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,8 +118,26 @@ export class AddAttendeeShrinkHeaders extends $tea.Model {
 }
 
 export class AddAttendeeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   attendeesToAdd?: AddAttendeeRequestAttendeesToAdd[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cnNTbW1YbU9sL2p6aFJZdEgvdlQrQT08
+   */
   eventId?: string;
   chatNotification?: boolean;
   pushNotification?: boolean;
@@ -109,8 +167,26 @@ export class AddAttendeeRequest extends $tea.Model {
 }
 
 export class AddAttendeeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   attendeesToAddShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cnNTbW1YbU9sL2p6aFJZdEgvdlQrQT08
+   */
   eventId?: string;
   chatNotification?: boolean;
   pushNotification?: boolean;
@@ -141,11 +217,34 @@ export class AddAttendeeShrinkRequest extends $tea.Model {
 
 export class AddAttendeeResponseBody extends $tea.Model {
   content?: AddAttendeeResponseBodyContent;
+  /**
+   * @example
+   * 200
+   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
+  /**
+   * @example
+   * error check permissions
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * 9BCC17ED-0187-54A0-BD31-56FDBE865447
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -203,6 +302,10 @@ export class AddAttendeeResponse extends $tea.Model {
 
 export class AddDriveSpaceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountContext?: AddDriveSpaceHeadersAccountContext;
   static names(): { [key: string]: string } {
     return {
@@ -225,6 +328,10 @@ export class AddDriveSpaceHeaders extends $tea.Model {
 
 export class AddDriveSpaceShrinkHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -246,6 +353,10 @@ export class AddDriveSpaceShrinkHeaders extends $tea.Model {
 }
 
 export class AddDriveSpaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   tenantContext?: AddDriveSpaceRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -268,6 +379,10 @@ export class AddDriveSpaceRequest extends $tea.Model {
 }
 
 export class AddDriveSpaceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -294,12 +409,24 @@ export class AddDriveSpaceResponseBody extends $tea.Model {
   modifyTime?: string;
   permissionMode?: string;
   quota?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   spaceId?: string;
   spaceName?: string;
   spaceType?: string;
   usedQuota?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -408,8 +535,26 @@ export class AddMeetingRoomsShrinkHeaders extends $tea.Model {
 }
 
 export class AddMeetingRoomsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * U5Kxxxxx
+   */
   eventId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   meetingRoomsToAdd?: AddMeetingRoomsRequestMeetingRoomsToAdd[];
   static names(): { [key: string]: string } {
     return {
@@ -433,8 +578,26 @@ export class AddMeetingRoomsRequest extends $tea.Model {
 }
 
 export class AddMeetingRoomsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * U5Kxxxxx
+   */
   eventId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   meetingRoomsToAddShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -458,7 +621,18 @@ export class AddMeetingRoomsShrinkRequest extends $tea.Model {
 }
 
 export class AddMeetingRoomsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -549,7 +723,21 @@ export class AddScenegroupMemberShrinkHeaders extends $tea.Model {
 }
 
 export class AddScenegroupMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidt*****Xa4K10w==
+   */
   openConversationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123xx,224xx
+   */
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -571,7 +759,18 @@ export class AddScenegroupMemberRequest extends $tea.Model {
 }
 
 export class AddScenegroupMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -662,6 +861,10 @@ export class AddWorkspaceShrinkHeaders extends $tea.Model {
 }
 
 export class AddWorkspaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   option?: AddWorkspaceRequestOption;
   tenantContext?: AddWorkspaceRequestTenantContext;
@@ -687,6 +890,10 @@ export class AddWorkspaceRequest extends $tea.Model {
 }
 
 export class AddWorkspaceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   optionShrink?: string;
   tenantContextShrink?: string;
@@ -712,6 +919,13 @@ export class AddWorkspaceShrinkRequest extends $tea.Model {
 }
 
 export class AddWorkspaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   workspace?: AddWorkspaceResponseBodyWorkspace;
   static names(): { [key: string]: string } {
@@ -803,9 +1017,27 @@ export class AddWorkspaceDocMembersShrinkHeaders extends $tea.Model {
 }
 
 export class AddWorkspaceDocMembersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   members?: AddWorkspaceDocMembersRequestMembers[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   nodeId?: string;
   tenantContext?: AddWorkspaceDocMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -831,9 +1063,27 @@ export class AddWorkspaceDocMembersRequest extends $tea.Model {
 }
 
 export class AddWorkspaceDocMembersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   membersShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   nodeId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -859,6 +1109,13 @@ export class AddWorkspaceDocMembersShrinkRequest extends $tea.Model {
 }
 
 export class AddWorkspaceDocMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -949,6 +1206,13 @@ export class AddWorkspaceMembersShrinkHeaders extends $tea.Model {
 export class AddWorkspaceMembersRequest extends $tea.Model {
   members?: AddWorkspaceMembersRequestMembers[];
   tenantContext?: AddWorkspaceMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -974,6 +1238,13 @@ export class AddWorkspaceMembersRequest extends $tea.Model {
 export class AddWorkspaceMembersShrinkRequest extends $tea.Model {
   membersShrink?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -998,6 +1269,13 @@ export class AddWorkspaceMembersShrinkRequest extends $tea.Model {
 
 export class AddWorkspaceMembersResponseBody extends $tea.Model {
   notInOrgList?: string[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1088,10 +1366,42 @@ export class BatchGetFormDataByIdListShrinkHeaders extends $tea.Model {
 }
 
 export class BatchGetFormDataByIdListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * true
+   */
   needFormInstanceValue?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1119,10 +1429,42 @@ export class BatchGetFormDataByIdListRequest extends $tea.Model {
 }
 
 export class BatchGetFormDataByIdListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formInstanceIdListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * true
+   */
   needFormInstanceValue?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1150,9 +1492,25 @@ export class BatchGetFormDataByIdListShrinkRequest extends $tea.Model {
 }
 
 export class BatchGetFormDataByIdListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * [ "FINST-SASNOO39NSIFF780" ]
+   */
   result?: BatchGetFormDataByIdListResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1247,11 +1605,47 @@ export class BatchRemovalByFormInstanceIdListShrinkHeaders extends $tea.Model {
 }
 
 export class BatchRemovalByFormInstanceIdListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_XCE0EVXS6DYG3YDYC5RD
+   */
   appType?: string;
+  /**
+   * @example
+   * false
+   */
   asynchronousExecution?: boolean;
+  /**
+   * @example
+   * false
+   */
   executeExpression?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * []
+   */
   formInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1281,11 +1675,47 @@ export class BatchRemovalByFormInstanceIdListRequest extends $tea.Model {
 }
 
 export class BatchRemovalByFormInstanceIdListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_XCE0EVXS6DYG3YDYC5RD
+   */
   appType?: string;
+  /**
+   * @example
+   * false
+   */
   asynchronousExecution?: boolean;
+  /**
+   * @example
+   * false
+   */
   executeExpression?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * []
+   */
   formInstanceIdListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1315,8 +1745,20 @@ export class BatchRemovalByFormInstanceIdListShrinkRequest extends $tea.Model {
 }
 
 export class BatchRemovalByFormInstanceIdListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1409,12 +1851,36 @@ export class BatchSaveFormDataShrinkHeaders extends $tea.Model {
 }
 
 export class BatchSaveFormDataRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_XCE0EVXS6DYG3YDYC5RD
+   */
   appType?: string;
+  /**
+   * @example
+   * false
+   */
   asynchronousExecution?: boolean;
   formDataJsonList?: string[];
+  /**
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * false
+   */
   keepRunningAfterException?: boolean;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
+  /**
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1446,12 +1912,36 @@ export class BatchSaveFormDataRequest extends $tea.Model {
 }
 
 export class BatchSaveFormDataShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_XCE0EVXS6DYG3YDYC5RD
+   */
   appType?: string;
+  /**
+   * @example
+   * false
+   */
   asynchronousExecution?: boolean;
   formDataJsonListShrink?: string;
+  /**
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * false
+   */
   keepRunningAfterException?: boolean;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
+  /**
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1483,9 +1973,25 @@ export class BatchSaveFormDataShrinkRequest extends $tea.Model {
 }
 
 export class BatchSaveFormDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * [ "FINST-SASNOO39NSIFF780" ]
+   */
   result?: string[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1580,14 +2086,62 @@ export class BatchUpdateFormDataByInstanceIdShrinkHeaders extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceIdRequest extends $tea.Model {
+  /**
+   * @example
+   * String
+   */
   appType?: string;
+  /**
+   * @example
+   * true
+   */
   asynchronousExecution?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24" ]
+   */
   formInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * true
+   */
   ignoreEmpty?: boolean;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}],\"addressField_l0c1cwiy\":{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}}
+   */
   updateFormDataJson?: string;
+  /**
+   * @example
+   * false
+   */
   useLatestFormSchemaVersion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1623,14 +2177,62 @@ export class BatchUpdateFormDataByInstanceIdRequest extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceIdShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * String
+   */
   appType?: string;
+  /**
+   * @example
+   * true
+   */
   asynchronousExecution?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24" ]
+   */
   formInstanceIdListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * true
+   */
   ignoreEmpty?: boolean;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}],\"addressField_l0c1cwiy\":{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}}
+   */
   updateFormDataJson?: string;
+  /**
+   * @example
+   * false
+   */
   useLatestFormSchemaVersion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1666,9 +2268,25 @@ export class BatchUpdateFormDataByInstanceIdShrinkRequest extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * [ "FINST-SASNOO39NSIFF780" ]
+   */
   result?: string[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1763,13 +2381,41 @@ export class BatchUpdateFormDataByInstanceMapShrinkHeaders extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceMapRequest extends $tea.Model {
+  /**
+   * @example
+   * String
+   */
   appType?: string;
+  /**
+   * @example
+   * false
+   */
   asynchronousExecution?: boolean;
+  /**
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * false
+   */
   ignoreEmpty?: boolean;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
+  /**
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
   updateFormDataJsonMap?: { [key: string]: any };
+  /**
+   * @example
+   * false
+   */
   useLatestFormSchemaVersion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1803,13 +2449,41 @@ export class BatchUpdateFormDataByInstanceMapRequest extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceMapShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * String
+   */
   appType?: string;
+  /**
+   * @example
+   * false
+   */
   asynchronousExecution?: boolean;
+  /**
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * false
+   */
   ignoreEmpty?: boolean;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
+  /**
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
   updateFormDataJsonMapShrink?: string;
+  /**
+   * @example
+   * false
+   */
   useLatestFormSchemaVersion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1843,9 +2517,25 @@ export class BatchUpdateFormDataByInstanceMapShrinkRequest extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceMapResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * [ "FINST-SASNOO39NSIFF780" ]
+   */
   result?: string[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1940,6 +2630,13 @@ export class CancelScheduleConferenceShrinkHeaders extends $tea.Model {
 }
 
 export class CancelScheduleConferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
   tenantContext?: CancelScheduleConferenceRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -1962,6 +2659,13 @@ export class CancelScheduleConferenceRequest extends $tea.Model {
 }
 
 export class CancelScheduleConferenceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -1984,7 +2688,18 @@ export class CancelScheduleConferenceShrinkRequest extends $tea.Model {
 }
 
 export class CancelScheduleConferenceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2075,6 +2790,10 @@ export class CheckAlibabaStaffShrinkHeaders extends $tea.Model {
 }
 
 export class CheckAlibabaStaffRequest extends $tea.Model {
+  /**
+   * @example
+   * 156****9665
+   */
   mobile?: string;
   tenantContext?: CheckAlibabaStaffRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -2097,6 +2816,10 @@ export class CheckAlibabaStaffRequest extends $tea.Model {
 }
 
 export class CheckAlibabaStaffShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 156****9665
+   */
   mobile?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -2119,9 +2842,25 @@ export class CheckAlibabaStaffShrinkRequest extends $tea.Model {
 }
 
 export class CheckAlibabaStaffResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   isAlibabaStaff?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2216,6 +2955,10 @@ export class CheckUserIsGroupMemberShrinkHeaders extends $tea.Model {
 }
 
 export class CheckUserIsGroupMemberRequest extends $tea.Model {
+  /**
+   * @example
+   * cidB8Pz*******FIWPv2PMA==
+   */
   openConversationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2235,9 +2978,25 @@ export class CheckUserIsGroupMemberRequest extends $tea.Model {
 }
 
 export class CheckUserIsGroupMemberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2332,9 +3091,30 @@ export class ClearShrinkHeaders extends $tea.Model {
 }
 
 export class ClearRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: ClearRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2360,9 +3140,30 @@ export class ClearRequest extends $tea.Model {
 }
 
 export class ClearShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2388,7 +3189,18 @@ export class ClearShrinkRequest extends $tea.Model {
 }
 
 export class ClearResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A1:B2
+   */
   a1Notation?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2479,9 +3291,30 @@ export class ClearDataShrinkHeaders extends $tea.Model {
 }
 
 export class ClearDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: ClearDataRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2507,9 +3340,30 @@ export class ClearDataRequest extends $tea.Model {
 }
 
 export class ClearDataShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2535,7 +3389,18 @@ export class ClearDataShrinkRequest extends $tea.Model {
 }
 
 export class ClearDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A1:B2
+   */
   a1Notation?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2627,6 +3492,13 @@ export class CloseVideoConferenceShrinkHeaders extends $tea.Model {
 
 export class CloseVideoConferenceRequest extends $tea.Model {
   tenantContext?: CloseVideoConferenceRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2649,6 +3521,13 @@ export class CloseVideoConferenceRequest extends $tea.Model {
 
 export class CloseVideoConferenceShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2670,10 +3549,30 @@ export class CloseVideoConferenceShrinkRequest extends $tea.Model {
 }
 
 export class CloseVideoConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
   cause?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2770,8 +3669,29 @@ export class CommentListReportShrinkHeaders extends $tea.Model {
 }
 
 export class CommentListReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContext?: CommentListReportRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -2798,8 +3718,29 @@ export class CommentListReportRequest extends $tea.Model {
 }
 
 export class CommentListReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -2827,8 +3768,23 @@ export class CommentListReportShrinkRequest extends $tea.Model {
 
 export class CommentListReportResponseBody extends $tea.Model {
   comments?: CommentListReportResponseBodyComments[];
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 1568442466000
+   */
   nextCursor?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2870,6 +3826,201 @@ export class CommentListReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CommentListReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CommitFileHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CommitFileHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileRequest extends $tea.Model {
+  /**
+   * @example
+   * None
+   */
+  name?: string;
+  option?: CommitFileRequestOption;
+  /**
+   * @example
+   * dentryUuid
+   */
+  parentDentryUuid?: string;
+  tenantContext?: CommitFileRequestTenantContext;
+  /**
+   * @example
+   * upload_key
+   */
+  uploadKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      option: 'Option',
+      parentDentryUuid: 'ParentDentryUuid',
+      tenantContext: 'TenantContext',
+      uploadKey: 'UploadKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      option: CommitFileRequestOption,
+      parentDentryUuid: 'string',
+      tenantContext: CommitFileRequestTenantContext,
+      uploadKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * None
+   */
+  name?: string;
+  optionShrink?: string;
+  /**
+   * @example
+   * dentryUuid
+   */
+  parentDentryUuid?: string;
+  tenantContextShrink?: string;
+  /**
+   * @example
+   * upload_key
+   */
+  uploadKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      optionShrink: 'Option',
+      parentDentryUuid: 'ParentDentryUuid',
+      tenantContextShrink: 'TenantContext',
+      uploadKey: 'UploadKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      optionShrink: 'string',
+      parentDentryUuid: 'string',
+      tenantContextShrink: 'string',
+      uploadKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileResponseBody extends $tea.Model {
+  dentry?: CommitFileResponseBodyDentry;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentry: 'dentry',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentry: CommitFileResponseBodyDentry,
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CommitFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CommitFileResponseBody,
     };
   }
 
@@ -2924,8 +4075,20 @@ export class CreateDeliveryPlanShrinkHeaders extends $tea.Model {
 
 export class CreateDeliveryPlanRequest extends $tea.Model {
   content?: { [key: string]: any };
+  /**
+   * @example
+   * 1699265024987
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1028
+   */
   resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   startTime?: number;
   tenantContext?: CreateDeliveryPlanRequestTenantContext;
   userIdList?: string[];
@@ -2958,8 +4121,20 @@ export class CreateDeliveryPlanRequest extends $tea.Model {
 
 export class CreateDeliveryPlanShrinkRequest extends $tea.Model {
   contentShrink?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1028
+   */
   resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   startTime?: number;
   tenantContextShrink?: string;
   userIdListShrink?: string;
@@ -2991,10 +4166,30 @@ export class CreateDeliveryPlanShrinkRequest extends $tea.Model {
 }
 
 export class CreateDeliveryPlanResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   arguments?: any[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3091,13 +4286,43 @@ export class CreateDingtalkPersonalTodoTaskShrinkHeaders extends $tea.Model {
 }
 
 export class CreateDingtalkPersonalTodoTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 待办备注信息
+   */
   description?: string;
+  /**
+   * @example
+   * 1703750708595
+   */
   dueTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "012345" ]
+   */
   executorIds?: string[];
   notifyConfigs?: CreateDingtalkPersonalTodoTaskRequestNotifyConfigs;
+  /**
+   * @example
+   * [ "012345" ]
+   */
   participantIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待办标题
+   */
   subject?: string;
   tenantContext?: CreateDingtalkPersonalTodoTaskRequestTenantContext;
+  /**
+   * @example
+   * 用户token
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3131,13 +4356,43 @@ export class CreateDingtalkPersonalTodoTaskRequest extends $tea.Model {
 }
 
 export class CreateDingtalkPersonalTodoTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 待办备注信息
+   */
   description?: string;
+  /**
+   * @example
+   * 1703750708595
+   */
   dueTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "012345" ]
+   */
   executorIdsShrink?: string;
   notifyConfigsShrink?: string;
+  /**
+   * @example
+   * [ "012345" ]
+   */
   participantIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待办标题
+   */
   subject?: string;
   tenantContextShrink?: string;
+  /**
+   * @example
+   * 用户token
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3171,10 +4426,30 @@ export class CreateDingtalkPersonalTodoTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateDingtalkPersonalTodoTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1703750708595
+   */
   createdTime?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * task123abc
+   */
   taskId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3275,15 +4550,38 @@ export class CreateEventRequest extends $tea.Model {
   description?: string;
   end?: CreateEventRequestEnd;
   extra?: { [key: string]: string };
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   location?: CreateEventRequestLocation;
   onlineMeetingInfo?: CreateEventRequestOnlineMeetingInfo;
   recurrence?: CreateEventRequestRecurrence;
+  /**
+   * **if can be null:**
+   * false
+   */
   reminders?: CreateEventRequestReminders[];
   richTextDescription?: CreateEventRequestRichTextDescription;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   summary?: string;
   uiConfigs?: CreateEventRequestUiConfigs[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   start?: CreateEventRequestStart;
   static names(): { [key: string]: string } {
     return {
@@ -3333,15 +4631,38 @@ export class CreateEventShrinkRequest extends $tea.Model {
   description?: string;
   endShrink?: string;
   extraShrink?: string;
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   locationShrink?: string;
   onlineMeetingInfoShrink?: string;
   recurrenceShrink?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
   remindersShrink?: string;
   richTextDescriptionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   summary?: string;
   uiConfigsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3388,21 +4709,44 @@ export class CreateEventShrinkRequest extends $tea.Model {
 
 export class CreateEventResponseBody extends $tea.Model {
   attendees?: CreateEventResponseBodyAttendees[];
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   createTime?: string;
   description?: string;
   end?: CreateEventResponseBodyEnd;
+  /**
+   * @example
+   * iiiP35sJadba8aBSgjrwPRKgiEiF
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   location?: CreateEventResponseBodyLocation;
   onlineMeetingInfo?: CreateEventResponseBodyOnlineMeetingInfo;
   organizer?: CreateEventResponseBodyOrganizer;
   recurrence?: CreateEventResponseBodyRecurrence;
   reminders?: CreateEventResponseBodyReminders[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
+   */
   requestId?: string;
   richTextDescription?: CreateEventResponseBodyRichTextDescription;
   start?: CreateEventResponseBodyStart;
   summary?: string;
   uiConfigs?: CreateEventResponseBodyUiConfigs[];
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3523,12 +4867,45 @@ export class CreateLiveShrinkHeaders extends $tea.Model {
 }
 
 export class CreateLiveRequest extends $tea.Model {
+  /**
+   * @example
+   * http://sss/sss
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 这是一个直播
+   */
   introduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1698596800000
+   */
   preEndTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1691596800000
+   */
   preStartTime?: number;
+  /**
+   * @example
+   * 0
+   */
   publicType?: number;
   tenantContext?: CreateLiveRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3560,12 +4937,45 @@ export class CreateLiveRequest extends $tea.Model {
 }
 
 export class CreateLiveShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * http://sss/sss
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 这是一个直播
+   */
   introduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1698596800000
+   */
   preEndTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1691596800000
+   */
   preStartTime?: number;
+  /**
+   * @example
+   * 0
+   */
   publicType?: number;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3597,7 +5007,18 @@ export class CreateLiveShrinkRequest extends $tea.Model {
 }
 
 export class CreateLiveResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   liveId?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3689,14 +5110,34 @@ export class CreateMeetingRoomShrinkHeaders extends $tea.Model {
 
 export class CreateMeetingRoomRequest extends $tea.Model {
   enableCycleReservation?: boolean;
+  /**
+   * @example
+   * 4644
+   */
   groupId?: number;
+  /**
+   * @example
+   * xxxIsvRoomId
+   */
   isvRoomId?: string;
   reservationAuthority?: CreateMeetingRoomRequestReservationAuthority;
+  /**
+   * @example
+   * 100
+   */
   roomCapacity?: number;
   roomLabelIds?: number[];
   roomLocation?: CreateMeetingRoomRequestRoomLocation;
   roomName?: string;
+  /**
+   * @example
+   * https://static.dingtalk.com/media/lADPxxxxx.jpg
+   */
   roomPicture?: string;
+  /**
+   * @example
+   * 1
+   */
   roomStatus?: number;
   tenantContext?: CreateMeetingRoomRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -3738,14 +5179,34 @@ export class CreateMeetingRoomRequest extends $tea.Model {
 
 export class CreateMeetingRoomShrinkRequest extends $tea.Model {
   enableCycleReservation?: boolean;
+  /**
+   * @example
+   * 4644
+   */
   groupId?: number;
+  /**
+   * @example
+   * xxxIsvRoomId
+   */
   isvRoomId?: string;
   reservationAuthorityShrink?: string;
+  /**
+   * @example
+   * 100
+   */
   roomCapacity?: number;
   roomLabelIdsShrink?: string;
   roomLocationShrink?: string;
   roomName?: string;
+  /**
+   * @example
+   * https://static.dingtalk.com/media/lADPxxxxx.jpg
+   */
   roomPicture?: string;
+  /**
+   * @example
+   * 1
+   */
   roomStatus?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -3786,9 +5247,28 @@ export class CreateMeetingRoomShrinkRequest extends $tea.Model {
 }
 
 export class CreateMeetingRoomResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0ffb718xxxxx
+   */
   result?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3883,7 +5363,18 @@ export class CreateMeetingRoomGroupShrinkHeaders extends $tea.Model {
 }
 
 export class CreateMeetingRoomGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172L
+   */
   parentGroupId?: number;
   tenantContext?: CreateMeetingRoomGroupRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -3908,7 +5399,18 @@ export class CreateMeetingRoomGroupRequest extends $tea.Model {
 }
 
 export class CreateMeetingRoomGroupShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172L
+   */
   parentGroupId?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -3933,7 +5435,18 @@ export class CreateMeetingRoomGroupShrinkRequest extends $tea.Model {
 }
 
 export class CreateMeetingRoomGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 172
+   */
   result?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4024,12 +5537,36 @@ export class CreateOrUpdateFormDataShrinkHeaders extends $tea.Model {
 }
 
 export class CreateOrUpdateFormDataRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_XCE0EVXS6DYG3YDYC5RD
+   */
   appType?: string;
+  /**
+   * @example
+   * {\\"countrySelectField_l0c1cwiu\\":[{\\"value\\":\\"US\\"}]}
+   */
   formDataJson?: string;
+  /**
+   * @example
+   * FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+   */
   formUuid?: string;
+  /**
+   * @example
+   * false
+   */
   noExecuteExpression?: boolean;
   searchCondition?: string;
+  /**
+   * @example
+   * 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+   */
   systemToken?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4061,9 +5598,25 @@ export class CreateOrUpdateFormDataRequest extends $tea.Model {
 }
 
 export class CreateOrUpdateFormDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * [ "FINST-SASNOO39NSIFF780" ]
+   */
   result?: string[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4159,12 +5712,55 @@ export class CreateOrgHonorTemplateShrinkHeaders extends $tea.Model {
 
 export class CreateOrgHonorTemplateRequest extends $tea.Model {
   tenantContext?: CreateOrgHonorTemplateRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fsdfasdjf132342d
+   */
   avatarFrameMediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * #FFFBB4
+   */
   defaultBgColor?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   medalDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1273adf23
+   */
   medalMediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   medalName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4199,12 +5795,55 @@ export class CreateOrgHonorTemplateRequest extends $tea.Model {
 
 export class CreateOrgHonorTemplateShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fsdfasdjf132342d
+   */
   avatarFrameMediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * #FFFBB4
+   */
   defaultBgColor?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   medalDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1273adf23
+   */
   medalMediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   medalName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4238,7 +5877,18 @@ export class CreateOrgHonorTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateOrgHonorTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 21660610
+   */
   honorId?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4329,11 +5979,37 @@ export class CreatePersonalTodoTaskShrinkHeaders extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 待办备注信息
+   */
   description?: string;
+  /**
+   * @example
+   * 1703750708595
+   */
   dueTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "012345" ]
+   */
   executorIds?: string[];
   notifyConfigs?: CreatePersonalTodoTaskRequestNotifyConfigs;
+  /**
+   * @example
+   * [ "012345" ]
+   */
   participantIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待办标题
+   */
   subject?: string;
   tenantContext?: CreatePersonalTodoTaskRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -4366,11 +6042,37 @@ export class CreatePersonalTodoTaskRequest extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 待办备注信息
+   */
   description?: string;
+  /**
+   * @example
+   * 1703750708595
+   */
   dueTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "012345" ]
+   */
   executorIdsShrink?: string;
   notifyConfigsShrink?: string;
+  /**
+   * @example
+   * [ "012345" ]
+   */
   participantIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待办标题
+   */
   subject?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -4403,10 +6105,30 @@ export class CreatePersonalTodoTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1703750708595
+   */
   createdTime?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * task123abc
+   */
   taskId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4503,12 +6225,48 @@ export class CreateReportShrinkHeaders extends $tea.Model {
 }
 
 export class CreateReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * []
+   */
   contents?: CreateReportRequestContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * client
+   */
   ddFrom?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdfafdsfsafdfsaf
+   */
   templateId?: string;
   tenantContext?: CreateReportRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   toChat?: boolean;
+  /**
+   * @example
+   * []
+   */
   toCids?: string[];
+  /**
+   * @example
+   * [123,456]
+   */
   toUserids?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4540,12 +6298,48 @@ export class CreateReportRequest extends $tea.Model {
 }
 
 export class CreateReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * []
+   */
   contentsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * client
+   */
   ddFrom?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdfafdsfsafdfsaf
+   */
   templateId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   toChat?: boolean;
+  /**
+   * @example
+   * []
+   */
   toCidsShrink?: string;
+  /**
+   * @example
+   * [123,456]
+   */
   toUseridsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4577,7 +6371,18 @@ export class CreateReportShrinkRequest extends $tea.Model {
 }
 
 export class CreateReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4668,25 +6473,111 @@ export class CreateScenegroupShrinkHeaders extends $tea.Model {
 }
 
 export class CreateScenegroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   addFriendForbidden?: number;
+  /**
+   * @example
+   * 0
+   */
   allMembersCanCreateCalendar?: number;
+  /**
+   * @example
+   * 0
+   */
   allMembersCanCreateMcsConf?: number;
+  /**
+   * @example
+   * 0
+   */
   chatBannedType?: number;
+  /**
+   * @example
+   * 0
+   */
   groupEmailDisabled?: number;
+  /**
+   * @example
+   * 1
+   */
   groupLiveSwitch?: number;
+  /**
+   * @example
+   * @lADOADma*****QKA
+   */
   icon?: string;
+  /**
+   * @example
+   * 0
+   */
   managementType?: number;
+  /**
+   * @example
+   * 0
+   */
   membersToAdminChat?: number;
+  /**
+   * @example
+   * 0
+   */
   mentionAllAuthority?: number;
+  /**
+   * @example
+   * 0
+   */
   onlyAdminCanDing?: number;
+  /**
+   * @example
+   * 0
+   */
   onlyAdminCanSetMsgTop?: number;
+  /**
+   * @example
+   * 0
+   */
   searchable?: number;
+  /**
+   * @example
+   * 0
+   */
   showHistoryType?: number;
+  /**
+   * @example
+   * 072*****,013*****
+   */
   subadminIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c354***-***-***-b4ea-6f1ab***65
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试群
+   */
   title?: string;
+  /**
+   * @example
+   * 072*****,013*****
+   */
   userIds?: string;
+  /**
+   * @example
+   * axcf*-*****-*****-23da*
+   */
   uuid?: string;
+  /**
+   * @example
+   * 0
+   */
   validationType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4744,7 +6635,18 @@ export class CreateScenegroupRequest extends $tea.Model {
 }
 
 export class CreateScenegroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * cid1324wwwerxxx
+   */
   openConversationId?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4835,9 +6737,30 @@ export class CreateScheduleConferenceShrinkHeaders extends $tea.Model {
 }
 
 export class CreateScheduleConferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687928400000L
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687924800000L
+   */
   startTime?: number;
   tenantContext?: CreateScheduleConferenceRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 预约会议标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4863,9 +6786,30 @@ export class CreateScheduleConferenceRequest extends $tea.Model {
 }
 
 export class CreateScheduleConferenceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687928400000L
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687924800000L
+   */
   startTime?: number;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 预约会议标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4891,10 +6835,33 @@ export class CreateScheduleConferenceShrinkRequest extends $tea.Model {
 }
 
 export class CreateScheduleConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * +861234567
+   */
   phones?: string[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 1234567
+   */
   requestId?: string;
+  /**
+   * @example
+   * 83150xxxxxx
+   */
   roomCode?: string;
+  /**
+   * @example
+   * 5c7c9bb1-b256-4dc5-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
+  /**
+   * @example
+   * https://meeting.dingtalk.com/j/knvMq1ixxxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4991,9 +6958,25 @@ export class CreateSearchDomeShrinkHeaders extends $tea.Model {
 }
 
 export class CreateSearchDomeRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   content?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1030
+   */
   resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   startTime?: number;
   tenantContext?: CreateSearchDomeRequestTenantContext;
   userIdList?: string[];
@@ -5025,9 +7008,25 @@ export class CreateSearchDomeRequest extends $tea.Model {
 }
 
 export class CreateSearchDomeShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   content?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1030
+   */
   resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   startTime?: number;
   tenantContextShrink?: string;
   userIdListShrink?: string;
@@ -5059,10 +7058,30 @@ export class CreateSearchDomeShrinkRequest extends $tea.Model {
 }
 
 export class CreateSearchDomeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   arguments?: any[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5159,9 +7178,25 @@ export class CreateSearchKeywordShrinkHeaders extends $tea.Model {
 }
 
 export class CreateSearchKeywordRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   content?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1028
+   */
   resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   startTime?: number;
   tenantContext?: CreateSearchKeywordRequestTenantContext;
   userIdList?: string[];
@@ -5193,9 +7228,25 @@ export class CreateSearchKeywordRequest extends $tea.Model {
 }
 
 export class CreateSearchKeywordShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   content?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1028
+   */
   resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
   startTime?: number;
   tenantContextShrink?: string;
   userIdListShrink?: string;
@@ -5227,10 +7278,30 @@ export class CreateSearchKeywordShrinkRequest extends $tea.Model {
 }
 
 export class CreateSearchKeywordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   arguments?: any[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5327,8 +7398,22 @@ export class CreateSheetShrinkHeaders extends $tea.Model {
 }
 
 export class CreateSheetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   name?: string;
   tenantContext?: CreateSheetRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5352,8 +7437,22 @@ export class CreateSheetRequest extends $tea.Model {
 }
 
 export class CreateSheetShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   name?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5377,9 +7476,25 @@ export class CreateSheetShrinkRequest extends $tea.Model {
 }
 
 export class CreateSheetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * Sheet1
+   */
   name?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * visible
+   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5476,7 +7591,15 @@ export class CreateSubscribedCalendarShrinkHeaders extends $tea.Model {
 export class CreateSubscribedCalendarRequest extends $tea.Model {
   description?: string;
   managers?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   subscribeScope?: CreateSubscribedCalendarRequestSubscribeScope;
   static names(): { [key: string]: string } {
     return {
@@ -5504,7 +7627,15 @@ export class CreateSubscribedCalendarRequest extends $tea.Model {
 export class CreateSubscribedCalendarShrinkRequest extends $tea.Model {
   description?: string;
   managersShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   subscribeScopeShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5530,7 +7661,18 @@ export class CreateSubscribedCalendarShrinkRequest extends $tea.Model {
 }
 
 export class CreateSubscribedCalendarResponseBody extends $tea.Model {
+  /**
+   * @example
+   * M5MjkxNDUxQHVzZXJzLmRpbmd0YWxrLmxxxxxxx
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5623,17 +7765,52 @@ export class CreateTodoTaskShrinkHeaders extends $tea.Model {
 export class CreateTodoTaskRequest extends $tea.Model {
   tenantContext?: CreateTodoTaskRequestTenantContext;
   contentFieldList?: CreateTodoTaskRequestContentFieldList[];
+  /**
+   * @example
+   * PUoiinWIpa2yH2ymhiiGiP6g
+   */
   creatorId?: string;
+  /**
+   * @example
+   * 应用可以调用该接口发起一个钉钉待办任务，该待办事项会出现在钉钉客户端“待办”页面，需要注意的是，通过开放接口发起的待办，目前仅支持直接跳转ISV应用详情页（ISV在调该接口时需传入自身应用详情页链接）。
+   */
   description?: string;
   detailUrl?: CreateTodoTaskRequestDetailUrl;
+  /**
+   * @example
+   * 1617675000000
+   */
   dueTime?: number;
   executorIds?: string[];
+  /**
+   * @example
+   * true
+   */
   isOnlyShowExecutor?: boolean;
   notifyConfigs?: CreateTodoTaskRequestNotifyConfigs;
+  /**
+   * @example
+   * 12345
+   */
   operatorId?: string;
   participantIds?: string[];
+  /**
+   * @example
+   * 20
+   */
   priority?: number;
+  /**
+   * @example
+   * isv_dingtalkTodo1
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 接入钉钉待办
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5681,17 +7858,52 @@ export class CreateTodoTaskRequest extends $tea.Model {
 export class CreateTodoTaskShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
   contentFieldListShrink?: string;
+  /**
+   * @example
+   * PUoiinWIpa2yH2ymhiiGiP6g
+   */
   creatorId?: string;
+  /**
+   * @example
+   * 应用可以调用该接口发起一个钉钉待办任务，该待办事项会出现在钉钉客户端“待办”页面，需要注意的是，通过开放接口发起的待办，目前仅支持直接跳转ISV应用详情页（ISV在调该接口时需传入自身应用详情页链接）。
+   */
   description?: string;
   detailUrlShrink?: string;
+  /**
+   * @example
+   * 1617675000000
+   */
   dueTime?: number;
   executorIdsShrink?: string;
+  /**
+   * @example
+   * true
+   */
   isOnlyShowExecutor?: boolean;
   notifyConfigsShrink?: string;
+  /**
+   * @example
+   * 12345
+   */
   operatorId?: string;
   participantIdsShrink?: string;
+  /**
+   * @example
+   * 20
+   */
   priority?: number;
+  /**
+   * @example
+   * isv_dingtalkTodo1
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 接入钉钉待办
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5737,27 +7949,98 @@ export class CreateTodoTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateTodoTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * isv_dingtalkTodo
+   */
   bizTag?: string;
   contentFieldList?: CreateTodoTaskResponseBodyContentFieldList[];
+  /**
+   * @example
+   * 1617675200000
+   */
   createdTime?: number;
+  /**
+   * @example
+   * PUoiinWIpa2yH2ymhiiGiP6g
+   */
   creatorId?: string;
+  /**
+   * @example
+   * 应用可以调用该接口发起一个钉钉待办任务，该待办事项会出现在钉钉客户端“待办”页面，需要注意的是，通过开放接口发起的待办，目前仅支持直接跳转ISV应用详情页（ISV在调该接口时需传入自身应用详情页链接）。
+   */
   description?: string;
   detailUrl?: CreateTodoTaskResponseBodyDetailUrl;
+  /**
+   * @example
+   * false
+   */
   done?: boolean;
+  /**
+   * @example
+   * 1617675100000
+   */
   dueTime?: number;
   executorIds?: string[];
+  /**
+   * @example
+   * 1617675200000
+   */
   finishTime?: number;
+  /**
+   * @example
+   * OPJpwtwPVNGIFKURjrzd
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isOnlyShowExecutor?: boolean;
+  /**
+   * @example
+   * 1617675200000
+   */
   modifiedTime?: number;
+  /**
+   * @example
+   * PUoiinWIpa2yH2ymhiiGiP6g
+   */
   modifierId?: string;
   notifyConfigs?: CreateTodoTaskResponseBodyNotifyConfigs;
   participantIds?: string[];
+  /**
+   * @example
+   * 20
+   */
   priority?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * isv_dingtalkTodo
+   */
   source?: string;
+  /**
+   * @example
+   * isv_dingtalkTodo1
+   */
   sourceId?: string;
+  /**
+   * @example
+   * 1617675000000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 接入钉钉待办
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5888,7 +8171,15 @@ export class CreateVideoConferenceShrinkHeaders extends $tea.Model {
 }
 
 export class CreateVideoConferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   confTitle?: string;
+  /**
+   * @example
+   * true
+   */
   inviteCaller?: boolean;
   inviteUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -5913,7 +8204,15 @@ export class CreateVideoConferenceRequest extends $tea.Model {
 }
 
 export class CreateVideoConferenceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   confTitle?: string;
+  /**
+   * @example
+   * true
+   */
   inviteCaller?: boolean;
   inviteUserIdsShrink?: string;
   static names(): { [key: string]: string } {
@@ -5938,12 +8237,39 @@ export class CreateVideoConferenceShrinkRequest extends $tea.Model {
 }
 
 export class CreateVideoConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
+  /**
+   * @example
+   * 1151302294
+   */
   conferencePassword?: string;
+  /**
+   * @example
+   * https://pre-meeting.dingtalk.com/app?roomCode=68550708396&token=1_59209c43-431c-4e57-a0f8-11bebdb3db7f
+   */
   externalLinkUrl?: string;
+  /**
+   * @example
+   * 2142817614
+   */
   hostPassword?: string;
   phoneNumbers?: string[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 3032809F-8C14-57E2-9B76-7AC2134FE3C8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123
+   */
   roomCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6045,6 +8371,10 @@ export class CreateWorkspaceShrinkHeaders extends $tea.Model {
 
 export class CreateWorkspaceRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   tenantContext?: CreateWorkspaceRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -6070,6 +8400,10 @@ export class CreateWorkspaceRequest extends $tea.Model {
 
 export class CreateWorkspaceShrinkRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -6094,10 +8428,33 @@ export class CreateWorkspaceShrinkRequest extends $tea.Model {
 }
 
 export class CreateWorkspaceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 知识库描述
+   */
   description?: string;
+  /**
+   * @example
+   * 知识库
+   */
   name?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * https://xxx/workspaceId
+   */
   url?: string;
+  /**
+   * @example
+   * YRBGvyxxxx
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6194,12 +8551,45 @@ export class CreateWorkspaceDocShrinkHeaders extends $tea.Model {
 }
 
 export class CreateWorkspaceDocRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DOC
+   */
   docType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试文档
+   */
   name?: string;
+  /**
+   * @example
+   * YRBGv0Ye
+   */
   parentNodeId?: string;
+  /**
+   * @example
+   * 123243
+   */
   templateId?: string;
+  /**
+   * @example
+   * team_template
+   */
   templateType?: string;
   tenantContext?: CreateWorkspaceDocRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6231,12 +8621,45 @@ export class CreateWorkspaceDocRequest extends $tea.Model {
 }
 
 export class CreateWorkspaceDocShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DOC
+   */
   docType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试文档
+   */
   name?: string;
+  /**
+   * @example
+   * YRBGv0Ye
+   */
   parentNodeId?: string;
+  /**
+   * @example
+   * 123243
+   */
   templateId?: string;
+  /**
+   * @example
+   * team_template
+   */
   templateType?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6268,10 +8691,33 @@ export class CreateWorkspaceDocShrinkRequest extends $tea.Model {
 }
 
 export class CreateWorkspaceDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * QoJGq7xxx
+   */
   docKey?: string;
+  /**
+   * @example
+   * YRBGv0Ye
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * https://xxx/workspaceId/docs/nodeId
+   */
   url?: string;
+  /**
+   * @example
+   * YRBGvy
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6368,10 +8814,38 @@ export class DeleteColumnsShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteColumnsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   column?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   columnCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: DeleteColumnsRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6399,10 +8873,38 @@ export class DeleteColumnsRequest extends $tea.Model {
 }
 
 export class DeleteColumnsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   column?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   columnCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6430,7 +8932,18 @@ export class DeleteColumnsShrinkRequest extends $tea.Model {
 }
 
 export class DeleteColumnsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6478,6 +8991,10 @@ export class DeleteColumnsResponse extends $tea.Model {
 
 export class DeleteDriveSpaceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountContext?: DeleteDriveSpaceHeadersAccountContext;
   static names(): { [key: string]: string } {
     return {
@@ -6500,6 +9017,10 @@ export class DeleteDriveSpaceHeaders extends $tea.Model {
 
 export class DeleteDriveSpaceShrinkHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6521,6 +9042,13 @@ export class DeleteDriveSpaceShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteDriveSpaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   spaceId?: string;
   tenantContext?: DeleteDriveSpaceRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -6543,6 +9071,13 @@ export class DeleteDriveSpaceRequest extends $tea.Model {
 }
 
 export class DeleteDriveSpaceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   spaceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -6565,8 +9100,20 @@ export class DeleteDriveSpaceShrinkRequest extends $tea.Model {
 }
 
 export class DeleteDriveSpaceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6659,7 +9206,21 @@ export class DeleteEventShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * iiiP35sJadba8aBSgjrwPRKgiEiF
+   */
   eventId?: string;
   pushNotification?: boolean;
   static names(): { [key: string]: string } {
@@ -6685,11 +9246,34 @@ export class DeleteEventRequest extends $tea.Model {
 
 export class DeleteEventResponseBody extends $tea.Model {
   content?: DeleteEventResponseBodyContent;
+  /**
+   * @example
+   * success
+   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
+  /**
+   * @example
+   * ""
+   */
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6790,9 +9374,34 @@ export class DeleteFormDataShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteFormDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKTxxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM_INST_12345
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6818,8 +9427,20 @@ export class DeleteFormDataRequest extends $tea.Model {
 }
 
 export class DeleteFormDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6912,9 +9533,25 @@ export class DeleteInstanceShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKTxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * f30233fb-72xxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6940,8 +9577,20 @@ export class DeleteInstanceRequest extends $tea.Model {
 }
 
 export class DeleteInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7034,6 +9683,13 @@ export class DeleteLiveShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteLiveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContext?: DeleteLiveRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -7056,6 +9712,13 @@ export class DeleteLiveRequest extends $tea.Model {
 }
 
 export class DeleteLiveShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -7078,7 +9741,18 @@ export class DeleteLiveShrinkRequest extends $tea.Model {
 }
 
 export class DeleteLiveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7169,6 +9843,13 @@ export class DeleteMeetingRoomShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteMeetingRoomRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0ffb7xxxxx
+   */
   roomId?: string;
   tenantContext?: DeleteMeetingRoomRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -7191,6 +9872,13 @@ export class DeleteMeetingRoomRequest extends $tea.Model {
 }
 
 export class DeleteMeetingRoomShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0ffb7xxxxx
+   */
   roomId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -7213,7 +9901,18 @@ export class DeleteMeetingRoomShrinkRequest extends $tea.Model {
 }
 
 export class DeleteMeetingRoomResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7304,6 +10003,13 @@ export class DeleteMeetingRoomGroupShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteMeetingRoomGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172
+   */
   groupId?: string;
   tenantContext?: DeleteMeetingRoomGroupRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -7326,6 +10032,13 @@ export class DeleteMeetingRoomGroupRequest extends $tea.Model {
 }
 
 export class DeleteMeetingRoomGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172
+   */
   groupId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -7348,7 +10061,18 @@ export class DeleteMeetingRoomGroupShrinkRequest extends $tea.Model {
 }
 
 export class DeleteMeetingRoomGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7439,10 +10163,38 @@ export class DeleteRowsShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteRowsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   row?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   rowCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: DeleteRowsRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7470,10 +10222,38 @@ export class DeleteRowsRequest extends $tea.Model {
 }
 
 export class DeleteRowsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   row?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   rowCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7501,7 +10281,18 @@ export class DeleteRowsShrinkRequest extends $tea.Model {
 }
 
 export class DeleteRowsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7592,7 +10383,21 @@ export class DeleteScenegroupMemberShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteScenegroupMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidvkLfbOyIiSYqjgvAiWwFow==
+   */
   openConversationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123xxx,223xxx
+   */
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7614,7 +10419,18 @@ export class DeleteScenegroupMemberRequest extends $tea.Model {
 }
 
 export class DeleteScenegroupMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7705,8 +10521,22 @@ export class DeleteSheetShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteSheetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: DeleteSheetRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7730,8 +10560,22 @@ export class DeleteSheetRequest extends $tea.Model {
 }
 
 export class DeleteSheetShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7755,7 +10599,18 @@ export class DeleteSheetShrinkRequest extends $tea.Model {
 }
 
 export class DeleteSheetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7846,6 +10701,13 @@ export class DeleteSubscribedCalendarShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteSubscribedCalendarRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MzM5Mxxx
+   */
   calendarId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7865,7 +10727,18 @@ export class DeleteSubscribedCalendarRequest extends $tea.Model {
 }
 
 export class DeleteSubscribedCalendarResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7957,7 +10830,18 @@ export class DeleteTodoTaskShrinkHeaders extends $tea.Model {
 
 export class DeleteTodoTaskRequest extends $tea.Model {
   tenantContext?: DeleteTodoTaskRequestTenantContext;
+  /**
+   * @example
+   * 12345
+   */
   operatorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63edc8da7e917d6ecdaab11b
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7982,7 +10866,18 @@ export class DeleteTodoTaskRequest extends $tea.Model {
 
 export class DeleteTodoTaskShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * 12345
+   */
   operatorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63edc8da7e917d6ecdaab11b
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8006,7 +10901,18 @@ export class DeleteTodoTaskShrinkRequest extends $tea.Model {
 }
 
 export class DeleteTodoTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8097,9 +11003,27 @@ export class DeleteWorkspaceDocMembersShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteWorkspaceDocMembersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   members?: DeleteWorkspaceDocMembersRequestMembers[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * YRBGv0xxx
+   */
   nodeId?: string;
   tenantContext?: DeleteWorkspaceDocMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * YRBGvyxxx
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8125,9 +11049,27 @@ export class DeleteWorkspaceDocMembersRequest extends $tea.Model {
 }
 
 export class DeleteWorkspaceDocMembersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   membersShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * YRBGv0xxx
+   */
   nodeId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * YRBGvyxxx
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8153,6 +11095,13 @@ export class DeleteWorkspaceDocMembersShrinkRequest extends $tea.Model {
 }
 
 export class DeleteWorkspaceDocMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8241,8 +11190,19 @@ export class DeleteWorkspaceMembersShrinkHeaders extends $tea.Model {
 }
 
 export class DeleteWorkspaceMembersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   members?: DeleteWorkspaceMembersRequestMembers[];
   tenantContext?: DeleteWorkspaceMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8266,8 +11226,19 @@ export class DeleteWorkspaceMembersRequest extends $tea.Model {
 }
 
 export class DeleteWorkspaceMembersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   membersShrink?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8291,6 +11262,13 @@ export class DeleteWorkspaceMembersShrinkRequest extends $tea.Model {
 }
 
 export class DeleteWorkspaceMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8379,10 +11357,42 @@ export class ExecuteBatchTaskShrinkHeaders extends $tea.Model {
 }
 
 export class ExecuteBatchTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKTxxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * disagree
+   */
   outResult?: string;
+  /**
+   * @example
+   * remark
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"taskId":"2291xxx","formInstId":"d84a79xxx"}, {"taskId":"2291xxx","formInstId":"f8035e2axxx"}]
+   */
   taskInformationList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8410,11 +11420,35 @@ export class ExecuteBatchTaskRequest extends $tea.Model {
 }
 
 export class ExecuteBatchTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   failNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   successNumber?: number;
+  /**
+   * @example
+   * 3
+   */
   total?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8513,13 +11547,41 @@ export class ExecutePlatformTaskShrinkHeaders extends $tea.Model {
 }
 
 export class ExecutePlatformTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * []
+   */
   formDataJson?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * y
+   */
   noExecuteExpressions?: string;
+  /**
+   * @example
+   * Agree
+   */
   outResult?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
   remark?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8553,8 +11615,20 @@ export class ExecutePlatformTaskRequest extends $tea.Model {
 }
 
 export class ExecutePlatformTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8647,15 +11721,51 @@ export class ExecuteTaskShrinkHeaders extends $tea.Model {
 }
 
 export class ExecuteTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKT0MFBEBTDO8T7SLVP
+   */
   appType?: string;
+  /**
+   * @example
+   * http://
+   */
   digitalSignUrl?: string;
+  /**
+   * @example
+   * {}
+   */
   formDataJson?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * y
+   */
   noExecuteExpressions?: string;
+  /**
+   * @example
+   * AGREE
+   */
   outResult?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
   remark?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
+  /**
+   * @example
+   * 12002575L
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8693,8 +11803,20 @@ export class ExecuteTaskRequest extends $tea.Model {
 }
 
 export class ExecuteTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8787,6 +11909,13 @@ export class ExpandGroupCapacityShrinkHeaders extends $tea.Model {
 }
 
 export class ExpandGroupCapacityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidt*****Xa4K10w==
+   */
   openConversationId?: string;
   tenantContext?: ExpandGroupCapacityRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -8809,6 +11938,13 @@ export class ExpandGroupCapacityRequest extends $tea.Model {
 }
 
 export class ExpandGroupCapacityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidt*****Xa4K10w==
+   */
   openConversationId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -8831,9 +11967,25 @@ export class ExpandGroupCapacityShrinkRequest extends $tea.Model {
 }
 
 export class ExpandGroupCapacityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8928,9 +12080,25 @@ export class GetActivityListShrinkHeaders extends $tea.Model {
 }
 
 export class GetActivityListRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * TPROC--X1Gxx
+   */
   processCode?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8956,9 +12124,21 @@ export class GetActivityListRequest extends $tea.Model {
 }
 
 export class GetActivityListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: GetActivityListResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9054,6 +12234,13 @@ export class GetAllSheetsShrinkHeaders extends $tea.Model {
 
 export class GetAllSheetsRequest extends $tea.Model {
   tenantContext?: GetAllSheetsRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9076,6 +12263,13 @@ export class GetAllSheetsRequest extends $tea.Model {
 
 export class GetAllSheetsShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9097,7 +12291,18 @@ export class GetAllSheetsShrinkRequest extends $tea.Model {
 }
 
 export class GetAllSheetsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * []
+   */
   value?: GetAllSheetsResponseBodyValue[];
   static names(): { [key: string]: string } {
     return {
@@ -9188,6 +12393,13 @@ export class GetConversaionSpaceShrinkHeaders extends $tea.Model {
 }
 
 export class GetConversaionSpaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidB8Pzg****FIWPv2PMA==
+   */
   openConversationId?: string;
   tenantContext?: GetConversaionSpaceRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -9210,6 +12422,13 @@ export class GetConversaionSpaceRequest extends $tea.Model {
 }
 
 export class GetConversaionSpaceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cidB8Pzg****FIWPv2PMA==
+   */
   openConversationId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -9232,9 +12451,21 @@ export class GetConversaionSpaceShrinkRequest extends $tea.Model {
 }
 
 export class GetConversaionSpaceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   space?: GetConversaionSpaceResponseBodySpace;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9329,15 +12560,61 @@ export class GetCorpAccomplishmentTasksShrinkHeaders extends $tea.Model {
 }
 
 export class GetCorpAccomplishmentTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKTxxx
+   */
   appTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * corpIdxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: number;
+  /**
+   * @example
+   * **
+   */
   keyword?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["xx","xxx"]
+   */
   processCodes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9375,11 +12652,35 @@ export class GetCorpAccomplishmentTasksRequest extends $tea.Model {
 }
 
 export class GetCorpAccomplishmentTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [{}]
+   */
   data?: GetCorpAccomplishmentTasksResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9478,15 +12779,64 @@ export class GetCorpTasksShrinkHeaders extends $tea.Model {
 }
 
 export class GetCorpTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKxxx
+   */
   appTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * corpId
+   */
   corpId?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: number;
+  /**
+   * @example
+   * keyword
+   */
   keyword?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["xx","xxx"]
+   */
   processCodes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9524,11 +12874,35 @@ export class GetCorpTasksRequest extends $tea.Model {
 }
 
 export class GetCorpTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [{}]
+   */
   data?: GetCorpTasksResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9627,9 +13001,24 @@ export class GetDocContentShrinkHeaders extends $tea.Model {
 }
 
 export class GetDocContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dentry_uuid
+   */
   dentryUuid?: string;
+  /**
+   * @example
+   * markdown
+   */
   targetFormat?: string;
   tenantContext?: GetDocContentRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9655,9 +13044,24 @@ export class GetDocContentRequest extends $tea.Model {
 }
 
 export class GetDocContentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dentry_uuid
+   */
   dentryUuid?: string;
+  /**
+   * @example
+   * markdown
+   */
   targetFormat?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9683,9 +13087,25 @@ export class GetDocContentShrinkRequest extends $tea.Model {
 }
 
 export class GetDocContentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * task123abc
+   */
   taskId?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9780,12 +13200,25 @@ export class GetDocContentTakIdShrinkHeaders extends $tea.Model {
 }
 
 export class GetDocContentTakIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qnYMoO1rWxrkmoj2I5L2PYkoJ47Z3je9
+   */
   dentryUuid?: string;
+  generateCp?: boolean;
+  /**
+   * @example
+   * markdown
+   */
   targetFormat?: string;
   tenantContext?: GetDocContentTakIdRequestTenantContext;
   static names(): { [key: string]: string } {
     return {
       dentryUuid: 'DentryUuid',
+      generateCp: 'GenerateCp',
       targetFormat: 'TargetFormat',
       tenantContext: 'TenantContext',
     };
@@ -9794,6 +13227,7 @@ export class GetDocContentTakIdRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dentryUuid: 'string',
+      generateCp: 'boolean',
       targetFormat: 'string',
       tenantContext: GetDocContentTakIdRequestTenantContext,
     };
@@ -9805,12 +13239,25 @@ export class GetDocContentTakIdRequest extends $tea.Model {
 }
 
 export class GetDocContentTakIdShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qnYMoO1rWxrkmoj2I5L2PYkoJ47Z3je9
+   */
   dentryUuid?: string;
+  generateCp?: boolean;
+  /**
+   * @example
+   * markdown
+   */
   targetFormat?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
       dentryUuid: 'DentryUuid',
+      generateCp: 'GenerateCp',
       targetFormat: 'TargetFormat',
       tenantContextShrink: 'TenantContext',
     };
@@ -9819,6 +13266,7 @@ export class GetDocContentTakIdShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dentryUuid: 'string',
+      generateCp: 'boolean',
       targetFormat: 'string',
       tenantContextShrink: 'string',
     };
@@ -9830,9 +13278,25 @@ export class GetDocContentTakIdShrinkRequest extends $tea.Model {
 }
 
 export class GetDocContentTakIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 72652830001
+   */
   taskId?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9927,8 +13391,26 @@ export class GetEventShrinkHeaders extends $tea.Model {
 }
 
 export class GetEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 311525211
+   */
   eventId?: string;
+  /**
+   * @example
+   * 100
+   */
   maxAttendees?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9954,11 +13436,27 @@ export class GetEventRequest extends $tea.Model {
 export class GetEventResponseBody extends $tea.Model {
   attendees?: GetEventResponseBodyAttendees[];
   categories?: GetEventResponseBodyCategories[];
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   description?: string;
   end?: GetEventResponseBodyEnd;
   extendedProperties?: GetEventResponseBodyExtendedProperties;
+  /**
+   * @example
+   * iiiP35sJxxxxPRKgiEiF
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   location?: GetEventResponseBodyLocation;
   meetingRooms?: GetEventResponseBodyMeetingRooms[];
@@ -9967,12 +13465,35 @@ export class GetEventResponseBody extends $tea.Model {
   originStart?: GetEventResponseBodyOriginStart;
   recurrence?: GetEventResponseBodyRecurrence;
   reminders?: GetEventResponseBodyReminders[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * requestId
+   */
   requestId?: string;
   richTextDescription?: GetEventResponseBodyRichTextDescription;
+  /**
+   * @example
+   * cnNTbW1YbxxxxvdlQrQT09
+   */
   seriesMasterId?: string;
   start?: GetEventResponseBodyStart;
+  /**
+   * @example
+   * confirmed
+   */
   status?: string;
+  /**
+   * @example
+   * test event
+   */
   summary?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10103,8 +13624,29 @@ export class GetFieldDefByUuidShrinkHeaders extends $tea.Model {
 }
 
 export class GetFieldDefByUuidRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10128,10 +13670,26 @@ export class GetFieldDefByUuidRequest extends $tea.Model {
 }
 
 export class GetFieldDefByUuidResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: GetFieldDefByUuidResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10228,8 +13786,16 @@ export class GetFileDownloadInfoShrinkHeaders extends $tea.Model {
 }
 
 export class GetFileDownloadInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * 798xxxxx
+   */
   dentryId?: string;
   option?: GetFileDownloadInfoRequestOption;
+  /**
+   * @example
+   * 854xxxx
+   */
   spaceId?: string;
   tenantContext?: GetFileDownloadInfoRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -10256,8 +13822,16 @@ export class GetFileDownloadInfoRequest extends $tea.Model {
 }
 
 export class GetFileDownloadInfoShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 798xxxxx
+   */
   dentryId?: string;
   optionShrink?: string;
+  /**
+   * @example
+   * 854xxxx
+   */
   spaceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -10285,9 +13859,25 @@ export class GetFileDownloadInfoShrinkRequest extends $tea.Model {
 
 export class GetFileDownloadInfoResponseBody extends $tea.Model {
   headerSignatureInfo?: GetFileDownloadInfoResponseBodyHeaderSignatureInfo;
+  /**
+   * @example
+   * HEADER_SIGNATURE
+   */
   protocol?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10331,6 +13921,208 @@ export class GetFileDownloadInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetFileDownloadInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetFileUploadInfoHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetFileUploadInfoHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoRequest extends $tea.Model {
+  option?: GetFileUploadInfoRequestOption;
+  /**
+   * @example
+   * dentryUuid
+   */
+  parentDentryUuid?: string;
+  /**
+   * @example
+   * HEADER_SIGNATURE
+   */
+  protocol?: string;
+  tenantContext?: GetFileUploadInfoRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      option: 'Option',
+      parentDentryUuid: 'ParentDentryUuid',
+      protocol: 'Protocol',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      option: GetFileUploadInfoRequestOption,
+      parentDentryUuid: 'string',
+      protocol: 'string',
+      tenantContext: GetFileUploadInfoRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoShrinkRequest extends $tea.Model {
+  optionShrink?: string;
+  /**
+   * @example
+   * dentryUuid
+   */
+  parentDentryUuid?: string;
+  /**
+   * @example
+   * HEADER_SIGNATURE
+   */
+  protocol?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      optionShrink: 'Option',
+      parentDentryUuid: 'ParentDentryUuid',
+      protocol: 'Protocol',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionShrink: 'string',
+      parentDentryUuid: 'string',
+      protocol: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoResponseBody extends $tea.Model {
+  headerSignatureInfo?: GetFileUploadInfoResponseBodyHeaderSignatureInfo;
+  /**
+   * @example
+   * HEADER_SIGNATURE
+   */
+  protocol?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * DINGTALK
+   */
+  storageDriver?: string;
+  /**
+   * @example
+   * upload_key
+   */
+  uploadKey?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerSignatureInfo: 'headerSignatureInfo',
+      protocol: 'protocol',
+      requestId: 'requestId',
+      storageDriver: 'storageDriver',
+      uploadKey: 'uploadKey',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerSignatureInfo: GetFileUploadInfoResponseBodyHeaderSignatureInfo,
+      protocol: 'string',
+      requestId: 'string',
+      storageDriver: 'string',
+      uploadKey: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFileUploadInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileUploadInfoResponseBody,
     };
   }
 
@@ -10384,9 +14176,34 @@ export class GetFormComponentDefinitionListShrinkHeaders extends $tea.Model {
 }
 
 export class GetFormComponentDefinitionListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10413,8 +14230,20 @@ export class GetFormComponentDefinitionListRequest extends $tea.Model {
 
 export class GetFormComponentDefinitionListResponseBody extends $tea.Model {
   result?: GetFormComponentDefinitionListResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10509,9 +14338,25 @@ export class GetFormDataByIDShrinkHeaders extends $tea.Model {
 }
 
 export class GetFormDataByIDRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKT0MFBEBTDO8T7SLVP
+   */
   appType?: string;
+  /**
+   * @example
+   * FORM_INST_12345
+   */
   id?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10538,11 +14383,31 @@ export class GetFormDataByIDRequest extends $tea.Model {
 
 export class GetFormDataByIDResponseBody extends $tea.Model {
   formData?: { [key: string]: any };
+  /**
+   * @example
+   * FORM_INST_12345
+   */
   formInstId?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   modifiedTimeGMT?: string;
   originator?: GetFormDataByIDResponseBodyOriginator;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10643,10 +14508,36 @@ export class GetFormListInAppShrinkHeaders extends $tea.Model {
 }
 
 export class GetFormListInAppRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @example
+   * receipt
+   */
   formTypes?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10674,12 +14565,36 @@ export class GetFormListInAppRequest extends $tea.Model {
 }
 
 export class GetFormListInAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   data?: GetFormListInAppResponseBodyData[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10780,8 +14695,20 @@ export class GetInnerGroupMembersShrinkHeaders extends $tea.Model {
 }
 
 export class GetInnerGroupMembersRequest extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @example
+   * UZr*****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * cidB8Pzg****FIWPv2PMA==
+   */
   openConversationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10805,11 +14732,35 @@ export class GetInnerGroupMembersRequest extends $tea.Model {
 }
 
 export class GetInnerGroupMembersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * cdf***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * ["012345"]
+   */
   userIds?: string[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10908,9 +14859,25 @@ export class GetInstanceByIdShrinkHeaders extends $tea.Model {
 }
 
 export class GetInstanceByIdRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * f30233fb-72e1-xxx
+   */
   id?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10937,19 +14904,67 @@ export class GetInstanceByIdRequest extends $tea.Model {
 
 export class GetInstanceByIdResponseBody extends $tea.Model {
   actionExecutor?: GetInstanceByIdResponseBodyActionExecutor[];
+  /**
+   * @example
+   * agree
+   */
   approvedResult?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createTimeGMT?: string;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * FORM-EF6Y4xxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   modifiedTimeGMT?: string;
   originator?: GetInstanceByIdResponseBodyOriginator;
+  /**
+   * @example
+   * TPROC--X1Gxxx
+   */
   processCode?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4xxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 李四发起的请购单
+   */
   title?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11066,20 +15081,80 @@ export class GetInstanceIdListShrinkHeaders extends $tea.Model {
 }
 
 export class GetInstanceIdListRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * agree
+   */
   approvedResult?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: string;
+  /**
+   * @example
+   * FORM-EF6Yxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * 2021-09-10
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {\\"textField\\":\\"123\\"}
+   */
   searchFieldJson?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @example
+   * 1045001
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11127,11 +15202,35 @@ export class GetInstanceIdListRequest extends $tea.Model {
 }
 
 export class GetInstanceIdListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [ "FINST-BOOxxx" ]
+   */
   data?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11230,21 +15329,85 @@ export class GetInstancesShrinkHeaders extends $tea.Model {
 }
 
 export class GetInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * agree
+   */
   approvedResult?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: string;
+  /**
+   * @example
+   * FORM-EF6Yxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * 2021-09-10
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * {}
+   */
   orderConfigJson?: string;
+  /**
+   * @example
+   * 012345
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {\\"textField\\":\\"123\\"}
+   */
   searchFieldJson?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
+  /**
+   * @example
+   * 1045001
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11295,10 +15458,30 @@ export class GetInstancesRequest extends $tea.Model {
 
 export class GetInstancesResponseBody extends $tea.Model {
   data?: GetInstancesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11397,9 +15580,25 @@ export class GetInstancesByIdListShrinkHeaders extends $tea.Model {
 }
 
 export class GetInstancesByIdListRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * inst-123,inst-223
+   */
   processInstanceIds?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11425,9 +15624,21 @@ export class GetInstancesByIdListRequest extends $tea.Model {
 }
 
 export class GetInstancesByIdListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: GetInstancesByIdListResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11522,6 +15733,13 @@ export class GetLiveReplayUrlShrinkHeaders extends $tea.Model {
 }
 
 export class GetLiveReplayUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContext?: GetLiveReplayUrlRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -11544,6 +15762,13 @@ export class GetLiveReplayUrlRequest extends $tea.Model {
 }
 
 export class GetLiveReplayUrlShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -11566,9 +15791,25 @@ export class GetLiveReplayUrlShrinkRequest extends $tea.Model {
 }
 
 export class GetLiveReplayUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * https://xxxxxxxx
+   */
   replayUrl?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11663,15 +15904,55 @@ export class GetMeCorpSubmissionShrinkHeaders extends $tea.Model {
 }
 
 export class GetMeCorpSubmissionRequest extends $tea.Model {
+  /**
+   * @example
+   * [\\"APP_xxx\\",\\"APP_xxx\\"]
+   */
   appTypes?: string;
+  /**
+   * @example
+   * ding123
+   */
   corpId?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: number;
+  /**
+   * @example
+   * {}
+   */
   keyword?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * [\\"xx\\",\\"xxx\\"]
+   */
   processCodes?: string;
+  /**
+   * @example
+   * JHASD123HAXXX
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11710,10 +15991,30 @@ export class GetMeCorpSubmissionRequest extends $tea.Model {
 
 export class GetMeCorpSubmissionResponseBody extends $tea.Model {
   data?: GetMeCorpSubmissionResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11812,8 +16113,29 @@ export class GetMeetingRoomsScheduleShrinkHeaders extends $tea.Model {
 }
 
 export class GetMeetingRoomsScheduleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["4002xxxxx"]
+   */
   roomIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11837,8 +16159,29 @@ export class GetMeetingRoomsScheduleRequest extends $tea.Model {
 }
 
 export class GetMeetingRoomsScheduleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["4002xxxxx"]
+   */
   roomIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11862,6 +16205,13 @@ export class GetMeetingRoomsScheduleShrinkRequest extends $tea.Model {
 }
 
 export class GetMeetingRoomsScheduleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   scheduleInformation?: GetMeetingRoomsScheduleResponseBodyScheduleInformation[];
   static names(): { [key: string]: string } {
@@ -11997,6 +16347,13 @@ export class GetMineWorkspaceShrinkRequest extends $tea.Model {
 }
 
 export class GetMineWorkspaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   workspace?: GetMineWorkspaceResponseBodyWorkspace;
   static names(): { [key: string]: string } {
@@ -12035,6 +16392,179 @@ export class GetMineWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMineWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetMultipartFileUploadInfosHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetMultipartFileUploadInfosHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosRequest extends $tea.Model {
+  option?: GetMultipartFileUploadInfosRequestOption;
+  partNumbers?: number[];
+  tenantContext?: GetMultipartFileUploadInfosRequestTenantContext;
+  /**
+   * @example
+   * hwHPAAAAAipHxxxxx
+   */
+  uploadKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      option: 'Option',
+      partNumbers: 'PartNumbers',
+      tenantContext: 'TenantContext',
+      uploadKey: 'UploadKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      option: GetMultipartFileUploadInfosRequestOption,
+      partNumbers: { 'type': 'array', 'itemType': 'number' },
+      tenantContext: GetMultipartFileUploadInfosRequestTenantContext,
+      uploadKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosShrinkRequest extends $tea.Model {
+  optionShrink?: string;
+  partNumbersShrink?: string;
+  tenantContextShrink?: string;
+  /**
+   * @example
+   * hwHPAAAAAipHxxxxx
+   */
+  uploadKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      optionShrink: 'Option',
+      partNumbersShrink: 'PartNumbers',
+      tenantContextShrink: 'TenantContext',
+      uploadKey: 'UploadKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionShrink: 'string',
+      partNumbersShrink: 'string',
+      tenantContextShrink: 'string',
+      uploadKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosResponseBody extends $tea.Model {
+  multipartHeaderSignatureInfos?: GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      multipartHeaderSignatureInfos: 'multipartHeaderSignatureInfos',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      multipartHeaderSignatureInfos: { 'type': 'array', 'itemType': GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMultipartFileUploadInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMultipartFileUploadInfosResponseBody,
     };
   }
 
@@ -12088,6 +16618,10 @@ export class GetNewestInnerGroupsShrinkHeaders extends $tea.Model {
 }
 
 export class GetNewestInnerGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   request?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -12107,6 +16641,10 @@ export class GetNewestInnerGroupsRequest extends $tea.Model {
 }
 
 export class GetNewestInnerGroupsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   requestShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12127,8 +16665,20 @@ export class GetNewestInnerGroupsShrinkRequest extends $tea.Model {
 
 export class GetNewestInnerGroupsResponseBody extends $tea.Model {
   groupInfos?: GetNewestInnerGroupsResponseBodyGroupInfos[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12223,9 +16773,24 @@ export class GetNodeShrinkHeaders extends $tea.Model {
 }
 
 export class GetNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a9E05BDRVQ9K600yf1NplNDxV63zgkYA
+   */
   nodeId?: string;
   tenantContext?: GetNodeRequestTenantContext;
+  /**
+   * @example
+   * true
+   */
   withPermissionRole?: boolean;
+  /**
+   * @example
+   * true
+   */
   withStatisticalInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12251,9 +16816,24 @@ export class GetNodeRequest extends $tea.Model {
 }
 
 export class GetNodeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a9E05BDRVQ9K600yf1NplNDxV63zgkYA
+   */
   nodeId?: string;
   tenantContextShrink?: string;
+  /**
+   * @example
+   * true
+   */
   withPermissionRole?: boolean;
+  /**
+   * @example
+   * true
+   */
   withStatisticalInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12280,6 +16860,13 @@ export class GetNodeShrinkRequest extends $tea.Model {
 
 export class GetNodeResponseBody extends $tea.Model {
   node?: GetNodeResponseBodyNode;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12372,6 +16959,13 @@ export class GetNodeByUrlShrinkHeaders extends $tea.Model {
 export class GetNodeByUrlRequest extends $tea.Model {
   option?: GetNodeByUrlRequestOption;
   tenantContext?: GetNodeByUrlRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://alidocs.dingtalk.com/i/nodes/EpGBa2L*********gN7R35y
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12397,6 +16991,13 @@ export class GetNodeByUrlRequest extends $tea.Model {
 export class GetNodeByUrlShrinkRequest extends $tea.Model {
   optionShrink?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://alidocs.dingtalk.com/i/nodes/EpGBa2L*********gN7R35y
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12421,6 +17022,13 @@ export class GetNodeByUrlShrinkRequest extends $tea.Model {
 
 export class GetNodeByUrlResponseBody extends $tea.Model {
   node?: GetNodeByUrlResponseBodyNode;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12511,6 +17119,10 @@ export class GetNodesShrinkHeaders extends $tea.Model {
 }
 
 export class GetNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   nodeIds?: string[];
   option?: GetNodesRequestOption;
   tenantContext?: GetNodesRequestTenantContext;
@@ -12536,6 +17148,10 @@ export class GetNodesRequest extends $tea.Model {
 }
 
 export class GetNodesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   nodeIdsShrink?: string;
   optionShrink?: string;
   tenantContextShrink?: string;
@@ -12562,6 +17178,13 @@ export class GetNodesShrinkRequest extends $tea.Model {
 
 export class GetNodesResponseBody extends $tea.Model {
   nodes?: GetNodesResponseBodyNodes[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12652,17 +17275,71 @@ export class GetNotifyMeShrinkHeaders extends $tea.Model {
 }
 
 export class GetNotifyMeRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKTxxx
+   */
   appTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * corpIdxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   instanceCreateFromTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   instanceCreateToTimeGMT?: number;
+  /**
+   * @example
+   * keyword
+   */
   keyword?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["xx","xxx"]
+   */
   processCodes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12704,11 +17381,35 @@ export class GetNotifyMeRequest extends $tea.Model {
 }
 
 export class GetNotifyMeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [{}]
+   */
   data?: GetNotifyMeResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12807,10 +17508,39 @@ export class GetOpenUrlShrinkHeaders extends $tea.Model {
 }
 
 export class GetOpenUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://www.aliwork.com/fileHandle?appType=APP_VN7I6xxx&fileName=fileName.xlsx&instId=&type=download
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @example
+   * 60000L
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12838,7 +17568,18 @@ export class GetOpenUrlRequest extends $tea.Model {
 }
 
 export class GetOpenUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * https/www.aliwork.com
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12929,9 +17670,25 @@ export class GetOperationRecordsShrinkHeaders extends $tea.Model {
 }
 
 export class GetOperationRecordsRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12957,9 +17714,21 @@ export class GetOperationRecordsRequest extends $tea.Model {
 }
 
 export class GetOperationRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: GetOperationRecordsResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13054,14 +17823,50 @@ export class GetProcessDefinitionShrinkHeaders extends $tea.Model {
 }
 
 export class GetProcessDefinitionRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * ding123
+   */
   corpId?: string;
+  /**
+   * @example
+   * c-xxafafaf
+   */
   groupId?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   nameSpace?: string;
+  /**
+   * @example
+   * o-YDJKIxxx
+   */
   orderNumber?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
+  /**
+   * @example
+   * hexabc1234
+   */
   systemType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13097,18 +17902,54 @@ export class GetProcessDefinitionRequest extends $tea.Model {
 }
 
 export class GetProcessDefinitionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FORM-EF6Y4xxx
+   */
   formUuid?: string;
   originator?: GetProcessDefinitionResponseBodyOriginator;
+  /**
+   * @example
+   * agree
+   */
   outResult?: string;
   owners?: GetProcessDefinitionResponseBodyOwners[];
+  /**
+   * @example
+   * proc-123
+   */
   processId?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4xxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
   tasks?: GetProcessDefinitionResponseBodyTasks[];
+  /**
+   * @example
+   * 李四发起的请购单
+   */
   title?: string;
   variables?: { [key: string]: any };
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13221,10 +18062,35 @@ export class GetRangeShrinkHeaders extends $tea.Model {
 }
 
 export class GetRangeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @example
+   * values
+   */
   select?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: GetRangeRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13252,10 +18118,35 @@ export class GetRangeRequest extends $tea.Model {
 }
 
 export class GetRangeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @example
+   * values
+   */
   select?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13283,10 +18174,33 @@ export class GetRangeShrinkRequest extends $tea.Model {
 }
 
 export class GetRangeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   backgroundColors?: GetRangeResponseBodyBackgroundColors[][];
+  /**
+   * @example
+   * []
+   */
   displayValues?: string[][];
+  /**
+   * @example
+   * []
+   */
   formulas?: string[][];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * []
+   */
   values?: any[][];
   static names(): { [key: string]: string } {
     return {
@@ -13383,6 +18297,10 @@ export class GetRelatedWorkspacesShrinkHeaders extends $tea.Model {
 }
 
 export class GetRelatedWorkspacesRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   includeRecent?: boolean;
   tenantContext?: GetRelatedWorkspacesRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -13405,6 +18323,10 @@ export class GetRelatedWorkspacesRequest extends $tea.Model {
 }
 
 export class GetRelatedWorkspacesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   includeRecent?: boolean;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -13427,8 +18349,20 @@ export class GetRelatedWorkspacesShrinkRequest extends $tea.Model {
 }
 
 export class GetRelatedWorkspacesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   workspaces?: GetRelatedWorkspacesResponseBodyWorkspaces[];
   static names(): { [key: string]: string } {
@@ -13524,6 +18458,13 @@ export class GetReportTemplateByNameShrinkHeaders extends $tea.Model {
 }
 
 export class GetReportTemplateByNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 我管理的模版
+   */
   templateName?: string;
   tenantContext?: GetReportTemplateByNameRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -13546,6 +18487,13 @@ export class GetReportTemplateByNameRequest extends $tea.Model {
 }
 
 export class GetReportTemplateByNameShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 我管理的模版
+   */
   templateName?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -13571,10 +18519,25 @@ export class GetReportTemplateByNameResponseBody extends $tea.Model {
   defaultReceivedConvs?: GetReportTemplateByNameResponseBodyDefaultReceivedConvs[];
   defaultReceivers?: GetReportTemplateByNameResponseBodyDefaultReceivers[];
   fields?: GetReportTemplateByNameResponseBodyFields[];
+  /**
+   * @example
+   * 11111
+   */
   id?: string;
   name?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   userName?: string;
+  /**
+   * @example
+   * 1234
+   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13677,6 +18640,10 @@ export class GetReportUnReadCountShrinkHeaders extends $tea.Model {
 }
 
 export class GetReportUnReadCountRequest extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   request?: { [key: string]: any };
   tenantContext?: GetReportUnReadCountRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -13699,6 +18666,10 @@ export class GetReportUnReadCountRequest extends $tea.Model {
 }
 
 export class GetReportUnReadCountShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   requestShrink?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -13721,7 +18692,18 @@ export class GetReportUnReadCountShrinkRequest extends $tea.Model {
 }
 
 export class GetReportUnReadCountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13812,10 +18794,36 @@ export class GetRunningTasksShrinkHeaders extends $tea.Model {
 }
 
 export class GetRunningTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * ["xx","xxx"]
+   */
   processCodes?: string;
+  /**
+   * @example
+   * instxxxxx
+   */
   processInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13843,9 +18851,25 @@ export class GetRunningTasksRequest extends $tea.Model {
 }
 
 export class GetRunningTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * [{}]
+   */
   result?: GetRunningTasksResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13887,6 +18911,187 @@ export class GetRunningTasksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRunningTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetScheduleHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetScheduleHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  startTime?: string;
+  tenantContext?: GetScheduleRequestTenantContext;
+  userIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      tenantContext: 'TenantContext',
+      userIds: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+      tenantContext: GetScheduleRequestTenantContext,
+      userIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  startTime?: string;
+  tenantContextShrink?: string;
+  userIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
+      userIdsShrink: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+      tenantContextShrink: 'string',
+      userIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  scheduleInformation?: GetScheduleResponseBodyScheduleInformation[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      scheduleInformation: 'scheduleInformation',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      scheduleInformation: { 'type': 'array', 'itemType': GetScheduleResponseBodyScheduleInformation },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetScheduleResponseBody,
     };
   }
 
@@ -13940,8 +19145,22 @@ export class GetSheetShrinkHeaders extends $tea.Model {
 }
 
 export class GetSheetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: GetSheetRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13965,8 +19184,22 @@ export class GetSheetRequest extends $tea.Model {
 }
 
 export class GetSheetShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13990,13 +19223,48 @@ export class GetSheetShrinkRequest extends $tea.Model {
 }
 
 export class GetSheetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   columnCount?: number;
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * 1
+   */
   lastNonEmptyColumn?: number;
+  /**
+   * @example
+   * 2
+   */
   lastNonEmptyRow?: number;
+  /**
+   * @example
+   * Sheet1
+   */
   name?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   rowCount?: number;
+  /**
+   * @example
+   * visible
+   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14099,9 +19367,31 @@ export class GetSpaceDirectoriesShrinkHeaders extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesRequest extends $tea.Model {
+  /**
+   * @example
+   * asdasd
+   */
   dentryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123123
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qweqwe
+   */
   spaceId?: string;
   tenantContext?: GetSpaceDirectoriesRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -14130,9 +19420,31 @@ export class GetSpaceDirectoriesRequest extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * asdasd
+   */
   dentryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123123
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qweqwe
+   */
   spaceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -14162,8 +19474,23 @@ export class GetSpaceDirectoriesShrinkRequest extends $tea.Model {
 
 export class GetSpaceDirectoriesResponseBody extends $tea.Model {
   children?: GetSpaceDirectoriesResponseBodyChildren[];
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 1296
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14258,6 +19585,13 @@ export class GetSubscribedCalendarShrinkHeaders extends $tea.Model {
 }
 
 export class GetSubscribedCalendarRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * M5MjkxNDUxQHVzZXJzLmRpbmd0YWxrLmNv
+   */
   calendarId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14277,11 +19611,34 @@ export class GetSubscribedCalendarRequest extends $tea.Model {
 }
 
 export class GetSubscribedCalendarResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   author?: string;
+  /**
+   * @example
+   * M5MjkxNDUxQHVzZXJzLmRpbmd0YWxrLmNv
+   */
   calendarId?: string;
+  /**
+   * @example
+   * 中国传统日历
+   */
   description?: string;
   managers?: string[];
+  /**
+   * @example
+   * 中国传统日历
+   */
   name?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   subscribeScope?: GetSubscribedCalendarResponseBodySubscribeScope;
   static names(): { [key: string]: string } {
@@ -14383,14 +19740,53 @@ export class GetTaskCopiesShrinkHeaders extends $tea.Model {
 }
 
 export class GetTaskCopiesRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: number;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: number;
+  /**
+   * @example
+   * keyword
+   */
   keyword?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["xx","xxx"]
+   */
   processCodes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14426,11 +19822,35 @@ export class GetTaskCopiesRequest extends $tea.Model {
 }
 
 export class GetTaskCopiesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [{}]
+   */
   data?: GetTaskCopiesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14529,7 +19949,21 @@ export class GetTemplateListByUserIdShrinkHeaders extends $tea.Model {
 }
 
 export class GetTemplateListByUserIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContext?: GetTemplateListByUserIdRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -14554,7 +19988,21 @@ export class GetTemplateListByUserIdRequest extends $tea.Model {
 }
 
 export class GetTemplateListByUserIdShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -14579,7 +20027,18 @@ export class GetTemplateListByUserIdShrinkRequest extends $tea.Model {
 }
 
 export class GetTemplateListByUserIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12312131231
+   */
   nextCursor?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   templateList?: GetTemplateListByUserIdResponseBodyTemplateList[];
   static names(): { [key: string]: string } {
@@ -14674,6 +20133,10 @@ export class GetUserShrinkHeaders extends $tea.Model {
 
 export class GetUserRequest extends $tea.Model {
   tenantContext?: GetUserRequestTenantContext;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14696,6 +20159,10 @@ export class GetUserRequest extends $tea.Model {
 
 export class GetUserShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14717,38 +20184,154 @@ export class GetUserShrinkRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
+  /**
+   * @example
+   * true
+   */
   admin?: boolean;
+  /**
+   * @example
+   * xxx
+   */
   avatar?: string;
+  /**
+   * @example
+   * true
+   */
   boss?: boolean;
+  /**
+   * @example
+   * [2,3,4]
+   */
   deptIdList?: number[];
   deptOrderList?: GetUserResponseBodyDeptOrderList[];
+  /**
+   * @example
+   * test@xxx.com
+   */
   email?: string;
+  /**
+   * @example
+   * true
+   */
   exclusiveAccount?: boolean;
+  /**
+   * @example
+   * dingxxx
+   */
   exclusiveAccountCorpId?: string;
+  /**
+   * @example
+   * 组织名称
+   */
   exclusiveAccountCorpName?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   exclusiveAccountType?: string;
+  /**
+   * @example
+   * {"爱好":"旅游","年龄":"24"}
+   */
   extension?: string;
+  /**
+   * @example
+   * false
+   */
   hideMobile?: boolean;
+  /**
+   * @example
+   * 1597573616828
+   */
   hiredDate?: number;
+  /**
+   * @example
+   * 4
+   */
   jobNumber?: string;
   leaderInDept?: GetUserResponseBodyLeaderInDept[];
+  /**
+   * @example
+   * login_id3
+   */
   loginId?: string;
+  /**
+   * @example
+   * manager240
+   */
   managerUserid?: string;
+  /**
+   * @example
+   * 18513027676
+   */
   mobile?: string;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
+  /**
+   * @example
+   * 昵称
+   */
   nickname?: string;
+  /**
+   * @example
+   * test@xxx.com
+   */
   orgEmail?: string;
+  /**
+   * @example
+   * true
+   */
   realAuthed?: boolean;
+  /**
+   * @example
+   * 备注备注
+   */
   remark?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   roleList?: GetUserResponseBodyRoleList[];
+  /**
+   * @example
+   * true
+   */
   senior?: boolean;
+  /**
+   * @example
+   * 86
+   */
   stateCode?: string;
+  /**
+   * @example
+   * 010-86123456-2345
+   */
   telephone?: string;
+  /**
+   * @example
+   * 技术总监
+   */
   title?: string;
   unionEmpExt?: GetUserResponseBodyUnionEmpExt;
+  /**
+   * @example
+   * zhangsan
+   */
   userid?: string;
+  /**
+   * @example
+   * 未来park
+   */
   workPlace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14939,20 +20522,80 @@ export class GetUserLatestPlanShrinkRequest extends $tea.Model {
 }
 
 export class GetUserLatestPlanResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   accountHandleStatus?: number;
+  /**
+   * @example
+   * 2022-02-02
+   */
   accountHandleTime?: string;
+  /**
+   * @example
+   * 0
+   */
   accountType?: number;
+  /**
+   * @example
+   * 2022-02-05
+   */
   agreementFirstSignTime?: string;
+  /**
+   * @example
+   * 2022-02-06
+   */
   agreementLastSignTime?: string;
+  /**
+   * @example
+   * 1
+   */
   agreementStatus?: number;
+  /**
+   * @example
+   * 2022-02-04
+   */
   dataHandleEndTime?: string;
+  /**
+   * @example
+   * 2022-02-03
+   */
   dataHandleStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   dataHandleStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   exclusivePlan?: number;
+  /**
+   * @example
+   * 1
+   */
   newAccountUid?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15070,7 +20713,18 @@ export class GetWorkspaceShrinkHeaders extends $tea.Model {
 
 export class GetWorkspaceRequest extends $tea.Model {
   tenantContext?: GetWorkspaceRequestTenantContext;
+  /**
+   * @example
+   * false
+   */
   withPermissionRole?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MJ0pDSKMV9dO20E4
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15095,7 +20749,18 @@ export class GetWorkspaceRequest extends $tea.Model {
 
 export class GetWorkspaceShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * false
+   */
   withPermissionRole?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MJ0pDSKMV9dO20E4
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15119,6 +20784,13 @@ export class GetWorkspaceShrinkRequest extends $tea.Model {
 }
 
 export class GetWorkspaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   workspace?: GetWorkspaceResponseBodyWorkspace;
   static names(): { [key: string]: string } {
@@ -15212,6 +20884,13 @@ export class GetWorkspacesShrinkHeaders extends $tea.Model {
 export class GetWorkspacesRequest extends $tea.Model {
   option?: GetWorkspacesRequestOption;
   tenantContext?: GetWorkspacesRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * workspace_id
+   */
   workspaceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15237,6 +20916,13 @@ export class GetWorkspacesRequest extends $tea.Model {
 export class GetWorkspacesShrinkRequest extends $tea.Model {
   optionShrink?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * workspace_id
+   */
   workspaceIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15260,6 +20946,13 @@ export class GetWorkspacesShrinkRequest extends $tea.Model {
 }
 
 export class GetWorkspacesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   workspace?: GetWorkspacesResponseBodyWorkspace[];
   static names(): { [key: string]: string } {
@@ -15352,15 +21045,60 @@ export class GrantHonorShrinkHeaders extends $tea.Model {
 
 export class GrantHonorRequest extends $tea.Model {
   tenantContext?: GrantHonorRequestTenantContext;
+  /**
+   * @example
+   * null
+   */
   expirationTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   grantReason?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   granterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21659398
+   */
   honorId?: string;
+  /**
+   * @example
+   * false
+   */
   noticeAnnouncer?: boolean;
+  /**
+   * @example
+   * false
+   */
   noticeSingle?: boolean;
   openConversationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 345391052
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiverUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   senderUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15401,15 +21139,60 @@ export class GrantHonorRequest extends $tea.Model {
 
 export class GrantHonorShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * null
+   */
   expirationTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   grantReason?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   granterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21659398
+   */
   honorId?: string;
+  /**
+   * @example
+   * false
+   */
   noticeAnnouncer?: boolean;
+  /**
+   * @example
+   * false
+   */
   noticeSingle?: boolean;
   openConversationIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 345391052
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiverUserIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   senderUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15450,6 +21233,13 @@ export class GrantHonorShrinkRequest extends $tea.Model {
 
 export class GrantHonorResponseBody extends $tea.Model {
   failedUserIds?: string[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 45b4d029-ab94-4672-aa0f-bd79590374cb
+   */
   requestId?: string;
   successUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -15490,6 +21280,184 @@ export class GrantHonorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GrantHonorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: InitMultipartFileUploadHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: InitMultipartFileUploadHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadRequest extends $tea.Model {
+  option?: InitMultipartFileUploadRequestOption;
+  /**
+   * @example
+   * dentryUuid
+   */
+  parentDentryUuid?: string;
+  tenantContext?: InitMultipartFileUploadRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      option: 'Option',
+      parentDentryUuid: 'ParentDentryUuid',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      option: InitMultipartFileUploadRequestOption,
+      parentDentryUuid: 'string',
+      tenantContext: InitMultipartFileUploadRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadShrinkRequest extends $tea.Model {
+  optionShrink?: string;
+  /**
+   * @example
+   * dentryUuid
+   */
+  parentDentryUuid?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      optionShrink: 'Option',
+      parentDentryUuid: 'ParentDentryUuid',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionShrink: 'string',
+      parentDentryUuid: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * DINGTALK
+   */
+  storageDriver?: string;
+  /**
+   * @example
+   * xhy89xxxxx
+   */
+  uploadKey?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      storageDriver: 'storageDriver',
+      uploadKey: 'uploadKey',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      storageDriver: 'string',
+      uploadKey: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitMultipartFileUploadResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitMultipartFileUploadResponseBody,
     };
   }
 
@@ -15543,10 +21511,38 @@ export class InsertColumnsBeforeShrinkHeaders extends $tea.Model {
 }
 
 export class InsertColumnsBeforeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   column?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   columnCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: InsertColumnsBeforeRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15574,10 +21570,38 @@ export class InsertColumnsBeforeRequest extends $tea.Model {
 }
 
 export class InsertColumnsBeforeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   column?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   columnCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15605,7 +21629,18 @@ export class InsertColumnsBeforeShrinkRequest extends $tea.Model {
 }
 
 export class InsertColumnsBeforeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15696,10 +21731,38 @@ export class InsertRowsBeforeShrinkHeaders extends $tea.Model {
 }
 
 export class InsertRowsBeforeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   row?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   rowCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: InsertRowsBeforeRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15727,10 +21790,38 @@ export class InsertRowsBeforeRequest extends $tea.Model {
 }
 
 export class InsertRowsBeforeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   row?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   rowCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15758,7 +21849,18 @@ export class InsertRowsBeforeShrinkRequest extends $tea.Model {
 }
 
 export class InsertRowsBeforeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15851,6 +21953,13 @@ export class InviteUsersShrinkHeaders extends $tea.Model {
 export class InviteUsersRequest extends $tea.Model {
   inviteeList?: InviteUsersRequestInviteeList[];
   tenantContext?: InviteUsersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   phoneInviteeList?: InviteUsersRequestPhoneInviteeList[];
   static names(): { [key: string]: string } {
@@ -15879,6 +21988,13 @@ export class InviteUsersRequest extends $tea.Model {
 export class InviteUsersShrinkRequest extends $tea.Model {
   inviteeListShrink?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   phoneInviteeListShrink?: string;
   static names(): { [key: string]: string } {
@@ -15905,12 +22021,27 @@ export class InviteUsersShrinkRequest extends $tea.Model {
 }
 
 export class InviteUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
       success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
     };
   }
 
@@ -15918,6 +22049,8 @@ export class InviteUsersResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
     };
   }
 
@@ -15996,11 +22129,41 @@ export class ListApplicationShrinkHeaders extends $tea.Model {
 }
 
 export class ListApplicationRequest extends $tea.Model {
+  /**
+   * @example
+   * createdByMe
+   */
   appFilter?: string;
+  /**
+   * @example
+   * keyword
+   */
   appNameSearchKeyword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * corpid
+   */
   corpId?: string;
+  /**
+   * @example
+   * keyword
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * keyword
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * keyword
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16030,11 +22193,35 @@ export class ListApplicationRequest extends $tea.Model {
 }
 
 export class ListApplicationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [{}]
+   */
   data?: ListApplicationResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16133,6 +22320,10 @@ export class ListCalendarsShrinkHeaders extends $tea.Model {
 }
 
 export class ListCalendarsRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   request?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -16152,6 +22343,10 @@ export class ListCalendarsRequest extends $tea.Model {
 }
 
 export class ListCalendarsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   requestShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16171,6 +22366,13 @@ export class ListCalendarsShrinkRequest extends $tea.Model {
 }
 
 export class ListCalendarsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   response?: ListCalendarsResponseBodyResponse;
   static names(): { [key: string]: string } {
@@ -16262,13 +22464,47 @@ export class ListDentriesShrinkHeaders extends $tea.Model {
 }
 
 export class ListDentriesRequest extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * MODIFIED_TIME
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 854xxxxx
+   */
   spaceId?: string;
   tenantContext?: ListDentriesRequestTenantContext;
+  /**
+   * @example
+   * true
+   */
   withThumbnail?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16302,13 +22538,47 @@ export class ListDentriesRequest extends $tea.Model {
 }
 
 export class ListDentriesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * MODIFIED_TIME
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 854xxxxx
+   */
   spaceId?: string;
   tenantContextShrink?: string;
+  /**
+   * @example
+   * true
+   */
   withThumbnail?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16343,9 +22613,25 @@ export class ListDentriesShrinkRequest extends $tea.Model {
 
 export class ListDentriesResponseBody extends $tea.Model {
   dentries?: ListDentriesResponseBodyDentries[];
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16399,6 +22685,10 @@ export class ListDentriesResponse extends $tea.Model {
 
 export class ListDriveSpacesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountContext?: ListDriveSpacesHeadersAccountContext;
   static names(): { [key: string]: string } {
     return {
@@ -16421,6 +22711,10 @@ export class ListDriveSpacesHeaders extends $tea.Model {
 
 export class ListDriveSpacesShrinkHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16442,8 +22736,26 @@ export class ListDriveSpacesShrinkHeaders extends $tea.Model {
 }
 
 export class ListDriveSpacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * fekaf
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org
+   */
   spaceType?: string;
   tenantContext?: ListDriveSpacesRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -16470,8 +22782,26 @@ export class ListDriveSpacesRequest extends $tea.Model {
 }
 
 export class ListDriveSpacesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * fekaf
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org
+   */
   spaceType?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -16498,10 +22828,26 @@ export class ListDriveSpacesShrinkRequest extends $tea.Model {
 }
 
 export class ListDriveSpacesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * fekaf
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   spaces?: ListDriveSpacesResponseBodySpaces[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16598,14 +22944,53 @@ export class ListEventsShrinkHeaders extends $tea.Model {
 }
 
 export class ListEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @example
+   * 100
+   */
   maxAttendees?: number;
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @example
+   * cnNTbW1YbxxxxdlQrQT09
+   */
   nextToken?: string;
+  /**
+   * @example
+   * cnNTbWxxxxaFJZdEgvdlQrQT09
+   */
   seriesMasterId?: string;
+  /**
+   * @example
+   * true
+   */
   showDeleted?: boolean;
+  /**
+   * @example
+   * zxcasdfvc000009
+   */
   syncToken?: string;
+  /**
+   * @example
+   * 2023-06-21T00:00:00+08:00
+   */
   timeMax?: string;
+  /**
+   * @example
+   * 2023-06-20T00:00:00+08:00
+   */
   timeMin?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16642,8 +23027,23 @@ export class ListEventsRequest extends $tea.Model {
 
 export class ListEventsResponseBody extends $tea.Model {
   events?: ListEventsResponseBodyEvents[];
+  /**
+   * @example
+   * cnNTbW1YbxxxxdlQrQT09
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
+   */
   requestId?: string;
+  /**
+   * @example
+   * zxcasdfvc000009
+   */
   syncToken?: string;
   vendorRequestId?: string;
   vendorType?: string;
@@ -16744,11 +23144,38 @@ export class ListEventsViewShrinkHeaders extends $tea.Model {
 }
 
 export class ListEventsViewRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @example
+   * 100
+   */
   maxAttendees?: number;
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @example
+   * cnNTbW1xxx
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2022-11-28T00:00:00+08:00
+   */
   timeMax?: string;
+  /**
+   * @example
+   * 2022-11-27T00:00:00+08:00
+   */
   timeMin?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16779,7 +23206,18 @@ export class ListEventsViewRequest extends $tea.Model {
 
 export class ListEventsViewResponseBody extends $tea.Model {
   events?: ListEventsViewResponseBodyEvents[];
+  /**
+   * @example
+   * cnNTbWxxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16872,9 +23310,37 @@ export class ListFormRemarksShrinkHeaders extends $tea.Model {
 }
 
 export class ListFormRemarksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16900,9 +23366,37 @@ export class ListFormRemarksRequest extends $tea.Model {
 }
 
 export class ListFormRemarksShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formInstanceIdListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16928,9 +23422,25 @@ export class ListFormRemarksShrinkRequest extends $tea.Model {
 }
 
 export class ListFormRemarksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   formRemarkVoMap?: { [key: string]: any };
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17025,9 +23535,34 @@ export class ListNavigationByFormTypeShrinkHeaders extends $tea.Model {
 }
 
 export class ListNavigationByFormTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKTxxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * receipt
+   */
   formType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17053,9 +23588,21 @@ export class ListNavigationByFormTypeRequest extends $tea.Model {
 }
 
 export class ListNavigationByFormTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: ListNavigationByFormTypeResponseBodyResult[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17150,10 +23697,29 @@ export class ListNodesShrinkHeaders extends $tea.Model {
 }
 
 export class ListNodesRequest extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   parentNodeId?: string;
   tenantContext?: ListNodesRequestTenantContext;
+  /**
+   * @example
+   * false
+   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17181,10 +23747,29 @@ export class ListNodesRequest extends $tea.Model {
 }
 
 export class ListNodesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   parentNodeId?: string;
   tenantContextShrink?: string;
+  /**
+   * @example
+   * false
+   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17212,8 +23797,19 @@ export class ListNodesShrinkRequest extends $tea.Model {
 }
 
 export class ListNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   nodes?: ListNodesResponseBodyNodes[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17306,12 +23902,52 @@ export class ListReportShrinkHeaders extends $tea.Model {
 }
 
 export class ListReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   cursor?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1507564800000
+   */
   modifiedEndTime?: number;
+  /**
+   * @example
+   * 1507564800000
+   */
   modifiedStartTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 我管理的模版
+   */
   templateName?: string;
   tenantContext?: ListReportRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -17346,12 +23982,52 @@ export class ListReportRequest extends $tea.Model {
 }
 
 export class ListReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   cursor?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1507564800000
+   */
   modifiedEndTime?: number;
+  /**
+   * @example
+   * 1507564800000
+   */
   modifiedStartTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 我管理的模版
+   */
   templateName?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -17387,9 +24063,28 @@ export class ListReportShrinkRequest extends $tea.Model {
 
 export class ListReportResponseBody extends $tea.Model {
   dataList?: ListReportResponseBodyDataList[];
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 12312131231
+   */
   nextCursor?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17486,12 +24181,55 @@ export class ListTableDataByFormInstanceIdTableIdShrinkHeaders extends $tea.Mode
 }
 
 export class ListTableDataByFormInstanceIdTableIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM_PBKT0xxx
+   */
   formInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1111
+   */
   tableFieldId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17524,10 +24262,30 @@ export class ListTableDataByFormInstanceIdTableIdRequest extends $tea.Model {
 
 export class ListTableDataByFormInstanceIdTableIdResponseBody extends $tea.Model {
   data?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17626,7 +24384,15 @@ export class ListTeamsShrinkHeaders extends $tea.Model {
 }
 
 export class ListTeamsRequest extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   nextToken?: string;
   tenantContext?: ListTeamsRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -17651,7 +24417,15 @@ export class ListTeamsRequest extends $tea.Model {
 }
 
 export class ListTeamsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   nextToken?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -17676,10 +24450,26 @@ export class ListTeamsShrinkRequest extends $tea.Model {
 }
 
 export class ListTeamsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   teams?: ListTeamsResponseBodyTeams[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17776,11 +24566,31 @@ export class ListWorkspacesShrinkHeaders extends $tea.Model {
 }
 
 export class ListWorkspacesRequest extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123123
+   */
   nextToken?: string;
+  /**
+   * @example
+   * VIEW_TIME_DESC
+   */
   orderBy?: string;
+  /**
+   * @example
+   * qweqwe
+   */
   teamId?: string;
   tenantContext?: ListWorkspacesRequestTenantContext;
+  /**
+   * @example
+   * true
+   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17810,11 +24620,31 @@ export class ListWorkspacesRequest extends $tea.Model {
 }
 
 export class ListWorkspacesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123123
+   */
   nextToken?: string;
+  /**
+   * @example
+   * VIEW_TIME_DESC
+   */
   orderBy?: string;
+  /**
+   * @example
+   * qweqwe
+   */
   teamId?: string;
   tenantContextShrink?: string;
+  /**
+   * @example
+   * true
+   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17844,7 +24674,18 @@ export class ListWorkspacesShrinkRequest extends $tea.Model {
 }
 
 export class ListWorkspacesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   workspaces?: ListWorkspacesResponseBodyWorkspaces[];
   static names(): { [key: string]: string } {
@@ -17939,11 +24780,29 @@ export class PatchEventShrinkHeaders extends $tea.Model {
 
 export class PatchEventRequest extends $tea.Model {
   attendees?: PatchEventRequestAttendees[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
   description?: string;
   end?: PatchEventRequestEnd;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * iiiP35sJadba8aBSgjrwPRKgiEiF
+   */
   eventId?: string;
   extra?: { [key: string]: string };
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   location?: PatchEventRequestLocation;
   recurrence?: PatchEventRequestRecurrence;
@@ -17991,11 +24850,29 @@ export class PatchEventRequest extends $tea.Model {
 
 export class PatchEventShrinkRequest extends $tea.Model {
   attendeesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
   description?: string;
   endShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * iiiP35sJadba8aBSgjrwPRKgiEiF
+   */
   eventId?: string;
   extraShrink?: string;
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   locationShrink?: string;
   recurrenceShrink?: string;
@@ -18043,18 +24920,41 @@ export class PatchEventShrinkRequest extends $tea.Model {
 
 export class PatchEventResponseBody extends $tea.Model {
   attendees?: PatchEventResponseBodyAttendees[];
+  /**
+   * @example
+   * 2022-10-25T02:26:14Z
+   */
   createTime?: string;
   description?: string;
   end?: PatchEventResponseBodyEnd;
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   location?: PatchEventResponseBodyLocation;
   organizer?: PatchEventResponseBodyOrganizer;
   recurrence?: PatchEventResponseBodyRecurrence;
   reminders?: PatchEventResponseBodyReminders[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
+   */
   requestId?: string;
   start?: PatchEventResponseBodyStart;
   summary?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18169,11 +25069,34 @@ export class QueryCloudRecordTextShrinkHeaders extends $tea.Model {
 }
 
 export class QueryCloudRecordTextRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   direction?: string;
+  /**
+   * @example
+   * 20000
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 1631172045153000
+   */
   nextToken?: number;
+  /**
+   * @example
+   * 7940
+   */
   startTime?: number;
   tenantContext?: QueryCloudRecordTextRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18203,11 +25126,34 @@ export class QueryCloudRecordTextRequest extends $tea.Model {
 }
 
 export class QueryCloudRecordTextShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   direction?: string;
+  /**
+   * @example
+   * 20000
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 1631172045153000
+   */
   nextToken?: number;
+  /**
+   * @example
+   * 7940
+   */
   startTime?: number;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18237,8 +25183,19 @@ export class QueryCloudRecordTextShrinkRequest extends $tea.Model {
 }
 
 export class QueryCloudRecordTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
   paragraphList?: QueryCloudRecordTextResponseBodyParagraphList[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18332,6 +25289,13 @@ export class QueryCloudRecordVideoShrinkHeaders extends $tea.Model {
 
 export class QueryCloudRecordVideoRequest extends $tea.Model {
   tenantContext?: QueryCloudRecordVideoRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18354,6 +25318,13 @@ export class QueryCloudRecordVideoRequest extends $tea.Model {
 
 export class QueryCloudRecordVideoShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18375,6 +25346,13 @@ export class QueryCloudRecordVideoShrinkRequest extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   videoList?: QueryCloudRecordVideoResponseBodyVideoList[];
   static names(): { [key: string]: string } {
@@ -18466,8 +25444,29 @@ export class QueryCloudRecordVideoPlayInfoShrinkHeaders extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoPlayInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6139b4xxx
+   */
   conferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 44444444
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   tenantContext?: QueryCloudRecordVideoPlayInfoRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -18494,8 +25493,29 @@ export class QueryCloudRecordVideoPlayInfoRequest extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoPlayInfoShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6139b4xxx
+   */
   conferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 44444444
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -18522,11 +25542,38 @@ export class QueryCloudRecordVideoPlayInfoShrinkRequest extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoPlayInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 59886
+   */
   duration?: number;
+  /**
+   * @example
+   * 1127942
+   */
   fileSize?: number;
+  /**
+   * @example
+   * https://vod.mcs.dingtalk.com/faa1566c5bc24f21821ae2394f82db2e/8bbd1612e686462ab4717919f67bb721-b8531e0d534b2f9747a9fdfxxxxxxxxc-sd.mp4
+   */
   mp4FileUrl?: string;
+  /**
+   * @example
+   * https://vod.mcs.dingtalk.com/faa1566c5bc24f21821ae2394f82db2e/8bbd1612e686462ab4717919f67bb721-ab85cc044a163568c9485xxxxxxxx76d-sd.m3u8
+   */
   playUrl?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18625,6 +25672,13 @@ export class QueryConferenceInfoShrinkHeaders extends $tea.Model {
 }
 
 export class QueryConferenceInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18645,6 +25699,13 @@ export class QueryConferenceInfoRequest extends $tea.Model {
 
 export class QueryConferenceInfoResponseBody extends $tea.Model {
   confInfo?: QueryConferenceInfoResponseBodyConfInfo;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 4248DCC9-785F-5A14-8BE0-830FD52E1261
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18735,9 +25796,24 @@ export class QueryConferenceMembersShrinkHeaders extends $tea.Model {
 }
 
 export class QueryConferenceMembersRequest extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123000000
+   */
   nextToken?: string;
   tenantContext?: QueryConferenceMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18763,9 +25839,24 @@ export class QueryConferenceMembersRequest extends $tea.Model {
 }
 
 export class QueryConferenceMembersShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123000000
+   */
   nextToken?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18792,8 +25883,23 @@ export class QueryConferenceMembersShrinkRequest extends $tea.Model {
 
 export class QueryConferenceMembersResponseBody extends $tea.Model {
   memberModels?: QueryConferenceMembersResponseBodyMemberModels[];
+  /**
+   * @example
+   * 123000000
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18888,8 +25994,26 @@ export class QueryDentryShrinkHeaders extends $tea.Model {
 }
 
 export class QueryDentryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   dentryId?: string;
+  /**
+   * @example
+   * true
+   */
   includeSpace?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * space-fxhb96vuddz8htqt
+   */
   spaceId?: string;
   tenantContext?: QueryDentryRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -18916,8 +26040,26 @@ export class QueryDentryRequest extends $tea.Model {
 }
 
 export class QueryDentryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   dentryId?: string;
+  /**
+   * @example
+   * true
+   */
   includeSpace?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * space-fxhb96vuddz8htqt
+   */
   spaceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -18944,23 +26086,82 @@ export class QueryDentryShrinkRequest extends $tea.Model {
 }
 
 export class QueryDentryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * alidoc
+   */
   contentType?: string;
+  /**
+   * @example
+   * 12345678
+   */
   createdTime?: number;
   creator?: QueryDentryResponseBodyCreator;
+  /**
+   * @example
+   * abc
+   */
   dentryId?: string;
+  /**
+   * @example
+   * file
+   */
   dentryType?: string;
+  /**
+   * @example
+   * cdefg
+   */
   dentryUuid?: string;
+  /**
+   * @example
+   * aabbcc
+   */
   docKey?: string;
+  /**
+   * @example
+   * alidoc
+   */
   extension?: string;
+  /**
+   * @example
+   * false
+   */
   hasChildren?: boolean;
   linkSourceInfo?: QueryDentryResponseBodyLinkSourceInfo;
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 测试组织/测试知识库/abc
+   */
   path?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   space?: QueryDentryResponseBodySpace;
+  /**
+   * @example
+   * bcd
+   */
   spaceId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   updatedTime?: number;
   updater?: QueryDentryResponseBodyUpdater;
+  /**
+   * @example
+   * https://xxx.yy
+   */
   url?: string;
   visitorInfo?: QueryDentryResponseBodyVisitorInfo;
   static names(): { [key: string]: string } {
@@ -19086,6 +26287,13 @@ export class QueryLiveInfoShrinkHeaders extends $tea.Model {
 }
 
 export class QueryLiveInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContext?: QueryLiveInfoRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -19108,6 +26316,13 @@ export class QueryLiveInfoRequest extends $tea.Model {
 }
 
 export class QueryLiveInfoShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -19130,18 +26345,61 @@ export class QueryLiveInfoShrinkRequest extends $tea.Model {
 }
 
 export class QueryLiveInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://xxx/kk.jpg
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 59886
+   */
   duration?: number;
+  /**
+   * @example
+   * 1662447951960
+   */
   endTime?: number;
   introduction?: string;
+  /**
+   * @example
+   * 1211-3442-122
+   */
   liveId?: string;
+  /**
+   * @example
+   * http://ssssss
+   */
   livePlayUrl?: string;
   liveStatus?: number;
+  /**
+   * @example
+   * 13414
+   */
   playbackDuration?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1627353123000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 111
+   */
   subscribeCount?: number;
   title?: string;
+  /**
+   * @example
+   * 10
+   */
   uv?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19254,6 +26512,13 @@ export class QueryLiveWatchDetailShrinkHeaders extends $tea.Model {
 }
 
 export class QueryLiveWatchDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContext?: QueryLiveWatchDetailRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -19276,6 +26541,13 @@ export class QueryLiveWatchDetailRequest extends $tea.Model {
 }
 
 export class QueryLiveWatchDetailShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -19298,14 +26570,53 @@ export class QueryLiveWatchDetailShrinkRequest extends $tea.Model {
 }
 
 export class QueryLiveWatchDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 84600
+   */
   avgWatchTime?: number;
+  /**
+   * @example
+   * 100
+   */
   liveUv?: number;
+  /**
+   * @example
+   * 10000
+   */
   msgCount?: number;
+  /**
+   * @example
+   * 20
+   */
   playbackUv?: number;
+  /**
+   * @example
+   * 30
+   */
   praiseCount?: number;
+  /**
+   * @example
+   * 1000
+   */
   pv?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1222000
+   */
   totalWatchTime?: number;
+  /**
+   * @example
+   * 10
+   */
   uv?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19410,8 +26721,26 @@ export class QueryLiveWatchUserListShrinkHeaders extends $tea.Model {
 }
 
 export class QueryLiveWatchUserListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
+  /**
+   * @example
+   * 0
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   tenantContext?: QueryLiveWatchUserListRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -19438,8 +26767,26 @@ export class QueryLiveWatchUserListRequest extends $tea.Model {
 }
 
 export class QueryLiveWatchUserListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
+  /**
+   * @example
+   * 0
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -19468,6 +26815,13 @@ export class QueryLiveWatchUserListShrinkRequest extends $tea.Model {
 export class QueryLiveWatchUserListResponseBody extends $tea.Model {
   orgUsesList?: QueryLiveWatchUserListResponseBodyOrgUsesList[];
   outOrgUserList?: QueryLiveWatchUserListResponseBodyOutOrgUserList[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19560,6 +26914,13 @@ export class QueryMeetingRoomShrinkHeaders extends $tea.Model {
 }
 
 export class QueryMeetingRoomRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0ffb7xxxxx
+   */
   roomId?: string;
   tenantContext?: QueryMeetingRoomRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -19582,6 +26943,13 @@ export class QueryMeetingRoomRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0ffb7xxxxx
+   */
   roomId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -19604,9 +26972,24 @@ export class QueryMeetingRoomShrinkRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: QueryMeetingRoomResponseBodyResult;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19701,6 +27084,13 @@ export class QueryMeetingRoomGroupShrinkHeaders extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172
+   */
   groupId?: string;
   tenantContext?: QueryMeetingRoomGroupRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -19723,6 +27113,13 @@ export class QueryMeetingRoomGroupRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172
+   */
   groupId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -19745,9 +27142,28 @@ export class QueryMeetingRoomGroupShrinkRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 172
+   */
   groupId?: number;
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
+  /**
+   * @example
+   * 0
+   */
   parentId?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19886,6 +27302,13 @@ export class QueryMeetingRoomGroupListShrinkRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: QueryMeetingRoomGroupListResponseBodyResult[];
   static names(): { [key: string]: string } {
@@ -19977,7 +27400,15 @@ export class QueryMeetingRoomListShrinkHeaders extends $tea.Model {
 }
 
 export class QueryMeetingRoomListRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 124L
+   */
   nextToken?: number;
   tenantContext?: QueryMeetingRoomListRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -20002,7 +27433,15 @@ export class QueryMeetingRoomListRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomListShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 124L
+   */
   nextToken?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -20027,8 +27466,23 @@ export class QueryMeetingRoomListShrinkRequest extends $tea.Model {
 }
 
 export class QueryMeetingRoomListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 123
+   */
   nextToken?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: QueryMeetingRoomListResponseBodyResult[];
   static names(): { [key: string]: string } {
@@ -20125,6 +27579,13 @@ export class QueryMinutesShrinkHeaders extends $tea.Model {
 
 export class QueryMinutesRequest extends $tea.Model {
   tenantContext?: QueryMinutesRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20147,6 +27608,13 @@ export class QueryMinutesRequest extends $tea.Model {
 
 export class QueryMinutesShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20169,8 +27637,20 @@ export class QueryMinutesShrinkRequest extends $tea.Model {
 
 export class QueryMinutesResponseBody extends $tea.Model {
   audioList?: QueryMinutesResponseBodyAudioList[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20266,6 +27746,13 @@ export class QueryMinutesSummaryShrinkHeaders extends $tea.Model {
 
 export class QueryMinutesSummaryRequest extends $tea.Model {
   tenantContext?: QueryMinutesSummaryRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
   summaryTypeList?: string[];
   static names(): { [key: string]: string } {
@@ -20291,6 +27778,13 @@ export class QueryMinutesSummaryRequest extends $tea.Model {
 
 export class QueryMinutesSummaryShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
   summaryTypeListShrink?: string;
   static names(): { [key: string]: string } {
@@ -20315,9 +27809,21 @@ export class QueryMinutesSummaryShrinkRequest extends $tea.Model {
 }
 
 export class QueryMinutesSummaryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   summary?: QueryMinutesSummaryResponseBodySummary;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20413,9 +27919,31 @@ export class QueryMinutesTextShrinkHeaders extends $tea.Model {
 
 export class QueryMinutesTextRequest extends $tea.Model {
   tenantContext?: QueryMinutesTextRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   direction?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 0
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20444,9 +27972,31 @@ export class QueryMinutesTextRequest extends $tea.Model {
 
 export class QueryMinutesTextShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   direction?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 0
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20474,11 +28024,31 @@ export class QueryMinutesTextShrinkRequest extends $tea.Model {
 }
 
 export class QueryMinutesTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 0
+   */
   nextToken?: string;
   paragraphList?: QueryMinutesTextResponseBodyParagraphList[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20578,8 +28148,26 @@ export class QueryOrgHonorsShrinkHeaders extends $tea.Model {
 
 export class QueryOrgHonorsRequest extends $tea.Model {
   tenantContext?: QueryOrgHonorsRequestTenantContext;
+  /**
+   * @example
+   * 48
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20606,8 +28194,26 @@ export class QueryOrgHonorsRequest extends $tea.Model {
 
 export class QueryOrgHonorsShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * 48
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20633,8 +28239,19 @@ export class QueryOrgHonorsShrinkRequest extends $tea.Model {
 }
 
 export class QueryOrgHonorsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 15
+   */
   nextToken?: string;
   openHonors?: QueryOrgHonorsResponseBodyOpenHonors[];
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20728,7 +28345,15 @@ export class QueryOrgTodoTasksShrinkHeaders extends $tea.Model {
 
 export class QueryOrgTodoTasksRequest extends $tea.Model {
   tenantContext?: QueryOrgTodoTasksRequestTenantContext;
+  /**
+   * @example
+   * true
+   */
   isDone?: boolean;
+  /**
+   * @example
+   * 0
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20753,7 +28378,15 @@ export class QueryOrgTodoTasksRequest extends $tea.Model {
 
 export class QueryOrgTodoTasksShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * true
+   */
   isDone?: boolean;
+  /**
+   * @example
+   * 0
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20777,7 +28410,18 @@ export class QueryOrgTodoTasksShrinkRequest extends $tea.Model {
 }
 
 export class QueryOrgTodoTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 15
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   todoCards?: QueryOrgTodoTasksResponseBodyTodoCards[];
   static names(): { [key: string]: string } {
@@ -20871,6 +28515,13 @@ export class QueryReportDetailShrinkHeaders extends $tea.Model {
 }
 
 export class QueryReportDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 18054XXX
+   */
   reportId?: string;
   tenantContext?: QueryReportDetailRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -20893,6 +28544,13 @@ export class QueryReportDetailRequest extends $tea.Model {
 }
 
 export class QueryReportDetailShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 18054XXX
+   */
   reportId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -20916,16 +28574,44 @@ export class QueryReportDetailShrinkRequest extends $tea.Model {
 
 export class QueryReportDetailResponseBody extends $tea.Model {
   content?: QueryReportDetailResponseBodyContent[];
+  /**
+   * @example
+   * 1691980997000
+   */
   createTime?: number;
+  /**
+   * @example
+   * 012345
+   */
   creatorId?: string;
   creatorName?: string;
   deptName?: string;
+  /**
+   * @example
+   * 1691980997000
+   */
   modifiedTime?: number;
   remark?: string;
+  /**
+   * @example
+   * 1231232134
+   */
   reportId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   templateName?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21037,6 +28723,13 @@ export class QueryScheduleConferenceShrinkHeaders extends $tea.Model {
 
 export class QueryScheduleConferenceRequest extends $tea.Model {
   tenantContext?: QueryScheduleConferenceRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21059,6 +28752,13 @@ export class QueryScheduleConferenceRequest extends $tea.Model {
 
 export class QueryScheduleConferenceShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21080,13 +28780,45 @@ export class QueryScheduleConferenceShrinkRequest extends $tea.Model {
 }
 
 export class QueryScheduleConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1687928400000
+   */
   endTime?: number;
+  /**
+   * @example
+   * [ "+86123xxxx" ]
+   */
   phones?: string[];
+  /**
+   * @example
+   * xxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * 838 722 xxxxx
+   */
   roomCode?: string;
+  /**
+   * @example
+   * 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
+  /**
+   * @example
+   * 1687924800000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 预约会议标题
+   */
   title?: string;
+  /**
+   * @example
+   * https://meeting.dingtalk.com/j/Bsbp3ixxxxxUyJJ9
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21189,8 +28921,20 @@ export class QueryScheduleConferenceInfoShrinkHeaders extends $tea.Model {
 }
 
 export class QueryScheduleConferenceInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 19
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 636cf59f2b032f014ae32902
+   */
   scheduleConferenceId?: string;
   tenantContext?: QueryScheduleConferenceInfoRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -21217,8 +28961,20 @@ export class QueryScheduleConferenceInfoRequest extends $tea.Model {
 }
 
 export class QueryScheduleConferenceInfoShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 19
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 636cf59f2b032f014ae32902
+   */
   scheduleConferenceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -21246,10 +29002,30 @@ export class QueryScheduleConferenceInfoShrinkRequest extends $tea.Model {
 
 export class QueryScheduleConferenceInfoResponseBody extends $tea.Model {
   conferenceList?: QueryScheduleConferenceInfoResponseBodyConferenceList[];
+  /**
+   * @example
+   * 19
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21349,9 +29125,34 @@ export class QueryUserHonorsShrinkHeaders extends $tea.Model {
 
 export class QueryUserHonorsRequest extends $tea.Model {
   tenantContext?: QueryUserHonorsRequestTenantContext;
+  /**
+   * @example
+   * 200
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21380,9 +29181,34 @@ export class QueryUserHonorsRequest extends $tea.Model {
 
 export class QueryUserHonorsShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * 200
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21411,7 +29237,18 @@ export class QueryUserHonorsShrinkRequest extends $tea.Model {
 
 export class QueryUserHonorsResponseBody extends $tea.Model {
   honors?: QueryUserHonorsResponseBodyHonors[];
+  /**
+   * @example
+   * http-trigger-nodejs10.luoni-old.1431999136518149.cn-hangzhou.fc.devsapp.net
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21505,8 +29342,29 @@ export class RecallHonorShrinkHeaders extends $tea.Model {
 
 export class RecallHonorRequest extends $tea.Model {
   tenantContext?: RecallHonorRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21660610
+   */
   honorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 345391052
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21533,8 +29391,29 @@ export class RecallHonorRequest extends $tea.Model {
 
 export class RecallHonorShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21660610
+   */
   honorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 345391052
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21561,11 +29440,30 @@ export class RecallHonorShrinkRequest extends $tea.Model {
 
 export class RecallHonorResponseBody extends $tea.Model {
   content?: RecallHonorResponseBodyContent;
+  /**
+   * @example
+   * 040008
+   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -21666,8 +29564,29 @@ export class ReceiverListReportShrinkHeaders extends $tea.Model {
 }
 
 export class ReceiverListReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContext?: ReceiverListReportRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -21694,8 +29613,29 @@ export class ReceiverListReportRequest extends $tea.Model {
 }
 
 export class ReceiverListReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -21722,8 +29662,23 @@ export class ReceiverListReportShrinkRequest extends $tea.Model {
 }
 
 export class ReceiverListReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 132131312312
+   */
   nextCursor?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   useridList?: string[];
   static names(): { [key: string]: string } {
@@ -21819,13 +29774,60 @@ export class RedirectTaskShrinkHeaders extends $tea.Model {
 }
 
 export class RedirectTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * y
+   */
   byManager?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   nowActionExecutorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instxxxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * remark
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21859,8 +29861,20 @@ export class RedirectTaskRequest extends $tea.Model {
 }
 
 export class RedirectTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21954,7 +29968,21 @@ export class RemoveAttendeeShrinkHeaders extends $tea.Model {
 
 export class RemoveAttendeeRequest extends $tea.Model {
   attendeesToRemove?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * iiiP35sJadba8aBSgjrwPRKgiEiF
+   */
   eventId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21979,7 +30007,21 @@ export class RemoveAttendeeRequest extends $tea.Model {
 
 export class RemoveAttendeeShrinkRequest extends $tea.Model {
   attendeesToRemoveShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * iiiP35sJadba8aBSgjrwPRKgiEiF
+   */
   eventId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22004,11 +30046,30 @@ export class RemoveAttendeeShrinkRequest extends $tea.Model {
 
 export class RemoveAttendeeResponseBody extends $tea.Model {
   content?: RemoveAttendeeResponseBodyContent;
+  /**
+   * @example
+   * success
+   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * A348BA5D-FFD4-57E4-9450-23A14D72F331
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22109,7 +30170,21 @@ export class RemoveMeetingRoomsShrinkHeaders extends $tea.Model {
 }
 
 export class RemoveMeetingRoomsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * U5Kxxxxx
+   */
   eventId?: string;
   meetingRoomsToRemove?: RemoveMeetingRoomsRequestMeetingRoomsToRemove[];
   static names(): { [key: string]: string } {
@@ -22134,7 +30209,21 @@ export class RemoveMeetingRoomsRequest extends $tea.Model {
 }
 
 export class RemoveMeetingRoomsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * primary
+   */
   calendarId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * U5Kxxxxx
+   */
   eventId?: string;
   meetingRoomsToRemoveShrink?: string;
   static names(): { [key: string]: string } {
@@ -22159,7 +30248,18 @@ export class RemoveMeetingRoomsShrinkRequest extends $tea.Model {
 }
 
 export class RemoveMeetingRoomsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22250,8 +30350,29 @@ export class SaveContentShrinkHeaders extends $tea.Model {
 }
 
 export class SaveContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * []
+   */
   contents?: SaveContentRequestContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * client
+   */
   ddFrom?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdfafdsfsafdfsaf
+   */
   templateId?: string;
   tenantContext?: SaveContentRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -22278,8 +30399,29 @@ export class SaveContentRequest extends $tea.Model {
 }
 
 export class SaveContentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * []
+   */
   contentsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * client
+   */
   ddFrom?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdfafdsfsafdfsaf
+   */
   templateId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -22306,7 +30448,18 @@ export class SaveContentShrinkRequest extends $tea.Model {
 }
 
 export class SaveContentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22397,10 +30550,42 @@ export class SaveFormDataShrinkHeaders extends $tea.Model {
 }
 
 export class SaveFormDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKxxx
+   */
   appType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {\"textField_jcpm6agt\": \"单行\",\"employeeField_jcos0sar\": [\"workno\"]}
+   */
   formDataJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+   */
   formUuid?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22428,9 +30613,25 @@ export class SaveFormDataRequest extends $tea.Model {
 }
 
 export class SaveFormDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * FORM-EF6xxx
+   */
   result?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22525,12 +30726,52 @@ export class SaveFormRemarkShrinkHeaders extends $tea.Model {
 }
 
 export class SaveFormRemarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 123456
+   */
   atUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instxxxx
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instxxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   replyId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22562,9 +30803,21 @@ export class SaveFormRemarkRequest extends $tea.Model {
 }
 
 export class SaveFormRemarkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   result?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22659,16 +30912,60 @@ export class SearchEmployeeFieldValuesShrinkHeaders extends $tea.Model {
 }
 
 export class SearchEmployeeFieldValuesRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createToTimeGMT?: string;
+  /**
+   * @example
+   * FORM-EF6Yxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * 2021-09-10
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * 112212221
+   */
   originatorId?: string;
+  /**
+   * @example
+   * {\\"textField_annandfa\\":\\"1212\\"}
+   */
   searchFieldJson?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @example
+   * [\\"textField_xahdfna\\"]
+   */
   targetFieldJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22708,9 +31005,25 @@ export class SearchEmployeeFieldValuesRequest extends $tea.Model {
 }
 
 export class SearchEmployeeFieldValuesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * manager123
+   */
   result?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22805,17 +31118,74 @@ export class SearchFormDataIdListShrinkHeaders extends $tea.Model {
 }
 
 export class SearchFormDataIdListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createToTimeGMT?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {}
+   */
   searchFieldJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22858,10 +31228,30 @@ export class SearchFormDataIdListRequest extends $tea.Model {
 
 export class SearchFormDataIdListResponseBody extends $tea.Model {
   data?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22960,17 +31350,74 @@ export class SearchFormDataSecondGenerationShrinkHeaders extends $tea.Model {
 }
 
 export class SearchFormDataSecondGenerationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createToTimeGMT?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * {}
+   */
   orderConfigJson?: string;
+  /**
+   * @example
+   * 012345
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {}
+   */
   searchCondition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23013,10 +31460,30 @@ export class SearchFormDataSecondGenerationRequest extends $tea.Model {
 
 export class SearchFormDataSecondGenerationResponseBody extends $tea.Model {
   data?: SearchFormDataSecondGenerationResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23115,17 +31582,74 @@ export class SearchFormDataSecondGenerationNoTableFieldShrinkHeaders extends $te
 }
 
 export class SearchFormDataSecondGenerationNoTableFieldRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createToTimeGMT?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * {}
+   */
   orderConfigJson?: string;
+  /**
+   * @example
+   * 012345
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {}
+   */
   searchCondition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23168,10 +31692,30 @@ export class SearchFormDataSecondGenerationNoTableFieldRequest extends $tea.Mode
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBody extends $tea.Model {
   data?: SearchFormDataSecondGenerationNoTableFieldResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23270,18 +31814,75 @@ export class SearchFormDatasShrinkHeaders extends $tea.Model {
 }
 
 export class SearchFormDatasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   createToTimeGMT?: string;
+  /**
+   * @example
+   * 20
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 20
+   */
   dynamicOrder?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FORM-xxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * en_US
+   */
   language?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedFromTimeGMT?: string;
+  /**
+   * @example
+   * yyyy-MM-dd
+   */
   modifiedToTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   searchFieldJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23325,11 +31926,31 @@ export class SearchFormDatasRequest extends $tea.Model {
 }
 
 export class SearchFormDatasResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   data?: SearchFormDatasResponseBodyData[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23428,6 +32049,10 @@ export class SearchInnerGroupsShrinkHeaders extends $tea.Model {
 }
 
 export class SearchInnerGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
   searchKey?: string;
   static names(): { [key: string]: string } {
@@ -23451,8 +32076,20 @@ export class SearchInnerGroupsRequest extends $tea.Model {
 
 export class SearchInnerGroupsResponseBody extends $tea.Model {
   groupInfos?: SearchInnerGroupsResponseBodyGroupInfos[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23548,7 +32185,15 @@ export class SendBannerShrinkHeaders extends $tea.Model {
 
 export class SendBannerRequest extends $tea.Model {
   content?: { [key: string]: any };
+  /**
+   * @example
+   * 1693881641000L
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1693881641000L
+   */
   startTime?: number;
   tenantContext?: SendBannerRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -23576,7 +32221,15 @@ export class SendBannerRequest extends $tea.Model {
 
 export class SendBannerShrinkRequest extends $tea.Model {
   contentShrink?: string;
+  /**
+   * @example
+   * 1693881641000L
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1693881641000L
+   */
   startTime?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -23604,9 +32257,25 @@ export class SendBannerShrinkRequest extends $tea.Model {
 
 export class SendBannerResponseBody extends $tea.Model {
   arguments?: any[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23704,7 +32373,15 @@ export class SendPopupShrinkHeaders extends $tea.Model {
 
 export class SendPopupRequest extends $tea.Model {
   content?: { [key: string]: any };
+  /**
+   * @example
+   * 1693881641000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1693881641000
+   */
   startTime?: number;
   tenantContext?: SendPopupRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -23732,7 +32409,15 @@ export class SendPopupRequest extends $tea.Model {
 
 export class SendPopupShrinkRequest extends $tea.Model {
   contentShrink?: string;
+  /**
+   * @example
+   * 1693881641000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1693881641000
+   */
   startTime?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -23760,9 +32445,25 @@ export class SendPopupShrinkRequest extends $tea.Model {
 
 export class SendPopupResponseBody extends $tea.Model {
   arguments?: any[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23860,7 +32561,15 @@ export class SendSearchShadeShrinkHeaders extends $tea.Model {
 
 export class SendSearchShadeRequest extends $tea.Model {
   content?: { [key: string]: any };
+  /**
+   * @example
+   * 1693881641000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1693881641000
+   */
   startTime?: number;
   tenantContext?: SendSearchShadeRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -23888,7 +32597,15 @@ export class SendSearchShadeRequest extends $tea.Model {
 
 export class SendSearchShadeShrinkRequest extends $tea.Model {
   contentShrink?: string;
+  /**
+   * @example
+   * 1693881641000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1693881641000
+   */
   startTime?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -23916,9 +32633,25 @@ export class SendSearchShadeShrinkRequest extends $tea.Model {
 
 export class SendSearchShadeResponseBody extends $tea.Model {
   arguments?: any[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24015,11 +32748,46 @@ export class SetColumnsVisibilityShrinkHeaders extends $tea.Model {
 }
 
 export class SetColumnsVisibilityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   column?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   columnCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: SetColumnsVisibilityRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hidden
+   */
   visibility?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24049,11 +32817,46 @@ export class SetColumnsVisibilityRequest extends $tea.Model {
 }
 
 export class SetColumnsVisibilityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   column?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   columnCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hidden
+   */
   visibility?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24083,7 +32886,18 @@ export class SetColumnsVisibilityShrinkRequest extends $tea.Model {
 }
 
 export class SetColumnsVisibilityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24174,11 +32988,46 @@ export class SetRowsVisibilityShrinkHeaders extends $tea.Model {
 }
 
 export class SetRowsVisibilityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   row?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   rowCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: SetRowsVisibilityRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hidden
+   */
   visibility?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24208,11 +33057,46 @@ export class SetRowsVisibilityRequest extends $tea.Model {
 }
 
 export class SetRowsVisibilityShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   row?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   rowCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hidden
+   */
   visibility?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24242,7 +33126,18 @@ export class SetRowsVisibilityShrinkRequest extends $tea.Model {
 }
 
 export class SetRowsVisibilityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24333,10 +33228,42 @@ export class SimpleListReportShrinkHeaders extends $tea.Model {
 }
 
 export class SimpleListReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   cursor?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 我管理的模版
+   */
   templateName?: string;
   tenantContext?: SimpleListReportRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -24367,10 +33294,42 @@ export class SimpleListReportRequest extends $tea.Model {
 }
 
 export class SimpleListReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   cursor?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1507564800000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 我管理的模版
+   */
   templateName?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -24402,9 +33361,28 @@ export class SimpleListReportShrinkRequest extends $tea.Model {
 
 export class SimpleListReportResponseBody extends $tea.Model {
   dataList?: SimpleListReportResponseBodyDataList[];
+  /**
+   * @example
+   * false
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 12312131231
+   */
   nextCursor?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24501,9 +33479,24 @@ export class StartCloudRecordShrinkHeaders extends $tea.Model {
 }
 
 export class StartCloudRecordRequest extends $tea.Model {
+  /**
+   * @example
+   * speech
+   */
   mode?: string;
+  /**
+   * @example
+   * relative_right
+   */
   smallWindowPosition?: string;
   tenantContext?: StartCloudRecordRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24529,9 +33522,24 @@ export class StartCloudRecordRequest extends $tea.Model {
 }
 
 export class StartCloudRecordShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * speech
+   */
   mode?: string;
+  /**
+   * @example
+   * relative_right
+   */
   smallWindowPosition?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24557,7 +33565,18 @@ export class StartCloudRecordShrinkRequest extends $tea.Model {
 }
 
 export class StartCloudRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24648,13 +33667,41 @@ export class StartInstanceShrinkHeaders extends $tea.Model {
 }
 
 export class StartInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 18295
+   */
   departmentId?: string;
+  /**
+   * @example
+   * {}
+   */
   formDataJson?: string;
+  /**
+   * @example
+   * FORM-EF6Yxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * TPROC--EF6Y4xxx
+   */
   processCode?: string;
   processData?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24688,9 +33735,25 @@ export class StartInstanceRequest extends $tea.Model {
 }
 
 export class StartInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * f30233fb-72e1-xxx-xxx
+   */
   result?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24786,8 +33849,26 @@ export class StartMinutesShrinkHeaders extends $tea.Model {
 
 export class StartMinutesRequest extends $tea.Model {
   tenantContext?: StartMinutesRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   ownerUserId?: string;
+  /**
+   * @example
+   * false
+   */
   recordAudio?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -24814,8 +33895,26 @@ export class StartMinutesRequest extends $tea.Model {
 
 export class StartMinutesShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   ownerUserId?: string;
+  /**
+   * @example
+   * false
+   */
   recordAudio?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -24841,9 +33940,25 @@ export class StartMinutesShrinkRequest extends $tea.Model {
 }
 
 export class StartMinutesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24938,10 +34053,38 @@ export class StatisticsListByTypeReportShrinkHeaders extends $tea.Model {
 }
 
 export class StatisticsListByTypeReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContext?: StatisticsListByTypeReportRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24969,10 +34112,38 @@ export class StatisticsListByTypeReportRequest extends $tea.Model {
 }
 
 export class StatisticsListByTypeReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   offset?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25000,8 +34171,23 @@ export class StatisticsListByTypeReportShrinkRequest extends $tea.Model {
 }
 
 export class StatisticsListByTypeReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @example
+   * 12312131231
+   */
   nextCursor?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   useridList?: string[];
   static names(): { [key: string]: string } {
@@ -25097,6 +34283,13 @@ export class StatisticsReportShrinkHeaders extends $tea.Model {
 }
 
 export class StatisticsReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
   tenantContext?: StatisticsReportRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -25119,6 +34312,13 @@ export class StatisticsReportRequest extends $tea.Model {
 }
 
 export class StatisticsReportShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 173xxxx
+   */
   reportId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -25141,10 +34341,33 @@ export class StatisticsReportShrinkRequest extends $tea.Model {
 }
 
 export class StatisticsReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   commentNum?: number;
+  /**
+   * @example
+   * 1
+   */
   commentUserNum?: number;
+  /**
+   * @example
+   * 2
+   */
   likeNum?: number;
+  /**
+   * @example
+   * 3
+   */
   readNum?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25242,6 +34465,13 @@ export class StopCloudRecordShrinkHeaders extends $tea.Model {
 
 export class StopCloudRecordRequest extends $tea.Model {
   tenantContext?: StopCloudRecordRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25264,6 +34494,13 @@ export class StopCloudRecordRequest extends $tea.Model {
 
 export class StopCloudRecordShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25285,7 +34522,18 @@ export class StopCloudRecordShrinkRequest extends $tea.Model {
 }
 
 export class StopCloudRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25377,6 +34625,13 @@ export class StopMinutesShrinkHeaders extends $tea.Model {
 
 export class StopMinutesRequest extends $tea.Model {
   tenantContext?: StopMinutesRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25399,6 +34654,13 @@ export class StopMinutesRequest extends $tea.Model {
 
 export class StopMinutesShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25420,9 +34682,25 @@ export class StopMinutesShrinkRequest extends $tea.Model {
 }
 
 export class StopMinutesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25517,6 +34795,13 @@ export class SubscribeCalendarShrinkHeaders extends $tea.Model {
 }
 
 export class SubscribeCalendarRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MzM5Mxxx
+   */
   calendarId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25536,6 +34821,13 @@ export class SubscribeCalendarRequest extends $tea.Model {
 }
 
 export class SubscribeCalendarResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25624,10 +34916,35 @@ export class SyncDingTypeShrinkHeaders extends $tea.Model {
 }
 
 export class SyncDingTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ANT_DING
+   */
   dingType?: string;
+  /**
+   * @example
+   * y
+   */
   isDimission?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * antding
+   */
   source?: string;
   tenantContext?: SyncDingTypeRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   workNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25655,10 +34972,35 @@ export class SyncDingTypeRequest extends $tea.Model {
 }
 
 export class SyncDingTypeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ANT_DING
+   */
   dingType?: string;
+  /**
+   * @example
+   * y
+   */
   isDimission?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * antding
+   */
   source?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   workNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25686,9 +35028,25 @@ export class SyncDingTypeShrinkRequest extends $tea.Model {
 }
 
 export class SyncDingTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25783,9 +35141,25 @@ export class TerminateInstanceShrinkHeaders extends $tea.Model {
 }
 
 export class TerminateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25811,8 +35185,20 @@ export class TerminateInstanceRequest extends $tea.Model {
 }
 
 export class TerminateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25905,6 +35291,13 @@ export class UnsubscribeCalendarShrinkHeaders extends $tea.Model {
 }
 
 export class UnsubscribeCalendarRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MzM5Mxxx
+   */
   calendarId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25924,7 +35317,18 @@ export class UnsubscribeCalendarRequest extends $tea.Model {
 }
 
 export class UnsubscribeCalendarResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26015,11 +35419,35 @@ export class UpdateFormDataShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateFormDataRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKTxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * FORM_INxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
+  /**
+   * @example
+   * {}
+   */
   updateFormDataJson?: string;
+  /**
+   * @example
+   * false
+   */
   useLatestVersion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26049,8 +35477,20 @@ export class UpdateFormDataRequest extends $tea.Model {
 }
 
 export class UpdateFormDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26143,10 +35583,30 @@ export class UpdateInstanceShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * hexxyy
+   */
   systemToken?: string;
+  /**
+   * @example
+   * {}
+   */
   updateFormDataJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26174,8 +35634,20 @@ export class UpdateInstanceRequest extends $tea.Model {
 }
 
 export class UpdateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26268,12 +35740,48 @@ export class UpdateLiveShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateLiveRequest extends $tea.Model {
+  /**
+   * @example
+   * http://sss/sss
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 这是一个直播
+   */
   introduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1698596800000
+   */
   preEndTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1691596800000
+   */
   preStartTime?: number;
   tenantContext?: UpdateLiveRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26305,12 +35813,48 @@ export class UpdateLiveRequest extends $tea.Model {
 }
 
 export class UpdateLiveShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * http://sss/sss
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 这是一个直播
+   */
   introduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4d38xxxxx
+   */
   liveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1698596800000
+   */
   preEndTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1691596800000
+   */
   preStartTime?: number;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26342,7 +35886,18 @@ export class UpdateLiveShrinkRequest extends $tea.Model {
 }
 
 export class UpdateLiveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26434,15 +35989,39 @@ export class UpdateMeetingRoomShrinkHeaders extends $tea.Model {
 
 export class UpdateMeetingRoomRequest extends $tea.Model {
   enableCycleReservation?: boolean;
+  /**
+   * @example
+   * 0
+   */
   groupId?: number;
+  /**
+   * @example
+   * xxxIsvRoomId
+   */
   isvRoomId?: string;
   reservationAuthority?: UpdateMeetingRoomRequestReservationAuthority;
+  /**
+   * @example
+   * 100
+   */
   roomCapacity?: number;
+  /**
+   * @example
+   * 0ffbxxxxx
+   */
   roomId?: string;
   roomLabelIds?: number[];
   roomLocation?: UpdateMeetingRoomRequestRoomLocation;
   roomName?: string;
+  /**
+   * @example
+   * https://static.dingtalk.com/media/lADPxxxxx.jpg
+   */
   roomPicture?: string;
+  /**
+   * @example
+   * 1
+   */
   roomStatus?: number;
   tenantContext?: UpdateMeetingRoomRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -26486,15 +36065,39 @@ export class UpdateMeetingRoomRequest extends $tea.Model {
 
 export class UpdateMeetingRoomShrinkRequest extends $tea.Model {
   enableCycleReservation?: boolean;
+  /**
+   * @example
+   * 0
+   */
   groupId?: number;
+  /**
+   * @example
+   * xxxIsvRoomId
+   */
   isvRoomId?: string;
   reservationAuthorityShrink?: string;
+  /**
+   * @example
+   * 100
+   */
   roomCapacity?: number;
+  /**
+   * @example
+   * 0ffbxxxxx
+   */
   roomId?: string;
   roomLabelIdsShrink?: string;
   roomLocationShrink?: string;
   roomName?: string;
+  /**
+   * @example
+   * https://static.dingtalk.com/media/lADPxxxxx.jpg
+   */
   roomPicture?: string;
+  /**
+   * @example
+   * 1
+   */
   roomStatus?: number;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -26537,9 +36140,28 @@ export class UpdateMeetingRoomShrinkRequest extends $tea.Model {
 }
 
 export class UpdateMeetingRoomResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26634,7 +36256,18 @@ export class UpdateMeetingRoomGroupShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateMeetingRoomGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172
+   */
   groupId?: string;
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
   tenantContext?: UpdateMeetingRoomGroupRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -26659,7 +36292,18 @@ export class UpdateMeetingRoomGroupRequest extends $tea.Model {
 }
 
 export class UpdateMeetingRoomGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 172
+   */
   groupId?: string;
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -26684,7 +36328,18 @@ export class UpdateMeetingRoomGroupShrinkRequest extends $tea.Model {
 }
 
 export class UpdateMeetingRoomGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26775,13 +36430,50 @@ export class UpdateRangeShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateRangeRequest extends $tea.Model {
+  /**
+   * @example
+   * [["#ff0000","#ff0000","#ff0000"]]
+   */
   backgroundColors?: string[][];
+  /**
+   * @example
+   * [["type": "path","link": "https://www.dingtalk.com","text": "test"]]
+   */
   hyperlinks?: UpdateRangeRequestHyperlinks[][];
+  /**
+   * @example
+   * General
+   */
   numberFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContext?: UpdateRangeRequestTenantContext;
+  /**
+   * @example
+   * [["1","2","3"]]
+   */
   values?: string[][];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26815,13 +36507,50 @@ export class UpdateRangeRequest extends $tea.Model {
 }
 
 export class UpdateRangeShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * [["#ff0000","#ff0000","#ff0000"]]
+   */
   backgroundColorsShrink?: string;
+  /**
+   * @example
+   * [["type": "path","link": "https://www.dingtalk.com","text": "test"]]
+   */
   hyperlinksShrink?: string;
+  /**
+   * @example
+   * General
+   */
   numberFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
   rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
   sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @example
+   * [["1","2","3"]]
+   */
   valuesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
   workbookId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26855,7 +36584,18 @@ export class UpdateRangeShrinkRequest extends $tea.Model {
 }
 
 export class UpdateRangeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A1:B2
+   */
   a1Notation?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26947,6 +36687,10 @@ export class UpdateScheduleConfSettingsShrinkHeaders extends $tea.Model {
 
 export class UpdateScheduleConfSettingsRequest extends $tea.Model {
   scheduleConfSettingModel?: UpdateScheduleConfSettingsRequestScheduleConfSettingModel;
+  /**
+   * @example
+   * f6fb627e-a7e8-403e-b1f8-26e85450f4a9
+   */
   scheduleConferenceId?: string;
   tenantContext?: UpdateScheduleConfSettingsRequestTenantContext;
   static names(): { [key: string]: string } {
@@ -26972,6 +36716,10 @@ export class UpdateScheduleConfSettingsRequest extends $tea.Model {
 
 export class UpdateScheduleConfSettingsShrinkRequest extends $tea.Model {
   scheduleConfSettingModelShrink?: string;
+  /**
+   * @example
+   * f6fb627e-a7e8-403e-b1f8-26e85450f4a9
+   */
   scheduleConferenceId?: string;
   tenantContextShrink?: string;
   static names(): { [key: string]: string } {
@@ -26996,9 +36744,25 @@ export class UpdateScheduleConfSettingsShrinkRequest extends $tea.Model {
 }
 
 export class UpdateScheduleConfSettingsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27093,10 +36857,38 @@ export class UpdateScheduleConferenceShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateScheduleConferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687928400000L
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687924800000L
+   */
   startTime?: number;
   tenantContext?: UpdateScheduleConferenceRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 预约会议标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27124,10 +36916,38 @@ export class UpdateScheduleConferenceRequest extends $tea.Model {
 }
 
 export class UpdateScheduleConferenceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687928400000L
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   */
   scheduleConferenceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1687924800000L
+   */
   startTime?: number;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 预约会议标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27155,7 +36975,18 @@ export class UpdateScheduleConferenceShrinkRequest extends $tea.Model {
 }
 
 export class UpdateScheduleConferenceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -27246,11 +37077,31 @@ export class UpdateStatusShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKT0MFBEBTDO8T7SLVP
+   */
   appType?: string;
   errorLines?: number[];
+  /**
+   * @example
+   * seq-123
+   */
   importSequence?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27280,11 +37131,31 @@ export class UpdateStatusRequest extends $tea.Model {
 }
 
 export class UpdateStatusShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * APP_PBKT0MFBEBTDO8T7SLVP
+   */
   appType?: string;
   errorLinesShrink?: string;
+  /**
+   * @example
+   * seq-123
+   */
   importSequence?: string;
+  /**
+   * @example
+   * zh_CN
+   */
   language?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * hexxxx
+   */
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27314,8 +37185,20 @@ export class UpdateStatusShrinkRequest extends $tea.Model {
 }
 
 export class UpdateStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27408,6 +37291,13 @@ export class UpdateSubscribedCalendarsShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateSubscribedCalendarsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * M5MjkxNDUxQHVzZXJzLmRpbmd0YWxrLmNv
+   */
   calendarId?: string;
   description?: string;
   managers?: string[];
@@ -27439,6 +37329,13 @@ export class UpdateSubscribedCalendarsRequest extends $tea.Model {
 }
 
 export class UpdateSubscribedCalendarsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * M5MjkxNDUxQHVzZXJzLmRpbmd0YWxrLmNv
+   */
   calendarId?: string;
   description?: string;
   managersShrink?: string;
@@ -27470,7 +37367,18 @@ export class UpdateSubscribedCalendarsShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSubscribedCalendarsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -27562,12 +37470,43 @@ export class UpdateTodoTaskShrinkHeaders extends $tea.Model {
 
 export class UpdateTodoTaskRequest extends $tea.Model {
   tenantContext?: UpdateTodoTaskRequestTenantContext;
+  /**
+   * @example
+   * 应用可以调用该接口发起一个钉钉待办任务，该待办事项会出现在钉钉客户端“待办”页面，需要注意的是，通过开放接口发起的待办，目前仅支持直接跳转ISV应用详情页（ISV在调该接口时需传入自身应用详情页链接）。
+   */
   description?: string;
+  /**
+   * @example
+   * true
+   */
   done?: boolean;
+  /**
+   * @example
+   * 1617675000000
+   */
   dueTime?: number;
+  /**
+   * @example
+   * []
+   */
   executorIds?: string[];
+  /**
+   * @example
+   * []
+   */
   participantIds?: string[];
+  /**
+   * @example
+   * 更新钉钉待办
+   */
   subject?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * taskId
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27602,12 +37541,43 @@ export class UpdateTodoTaskRequest extends $tea.Model {
 
 export class UpdateTodoTaskShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * 应用可以调用该接口发起一个钉钉待办任务，该待办事项会出现在钉钉客户端“待办”页面，需要注意的是，通过开放接口发起的待办，目前仅支持直接跳转ISV应用详情页（ISV在调该接口时需传入自身应用详情页链接）。
+   */
   description?: string;
+  /**
+   * @example
+   * true
+   */
   done?: boolean;
+  /**
+   * @example
+   * 1617675000000
+   */
   dueTime?: number;
+  /**
+   * @example
+   * []
+   */
   executorIdsShrink?: string;
+  /**
+   * @example
+   * []
+   */
   participantIdsShrink?: string;
+  /**
+   * @example
+   * 更新钉钉待办
+   */
   subject?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * taskId
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27641,7 +37611,18 @@ export class UpdateTodoTaskShrinkRequest extends $tea.Model {
 }
 
 export class UpdateTodoTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -27734,7 +37715,18 @@ export class UpdateTodoTaskExecutorStatusShrinkHeaders extends $tea.Model {
 export class UpdateTodoTaskExecutorStatusRequest extends $tea.Model {
   tenantContext?: UpdateTodoTaskExecutorStatusRequestTenantContext;
   executorStatusList?: UpdateTodoTaskExecutorStatusRequestExecutorStatusList[];
+  /**
+   * @example
+   * xxxx
+   */
   operatorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15002141
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27762,7 +37754,18 @@ export class UpdateTodoTaskExecutorStatusRequest extends $tea.Model {
 export class UpdateTodoTaskExecutorStatusShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
   executorStatusListShrink?: string;
+  /**
+   * @example
+   * xxxx
+   */
   operatorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15002141
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27788,7 +37791,18 @@ export class UpdateTodoTaskExecutorStatusShrinkRequest extends $tea.Model {
 }
 
 export class UpdateTodoTaskExecutorStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -27879,6 +37893,10 @@ export class UpdateUserAvatarShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateUserAvatarRequest extends $tea.Model {
+  /**
+   * @example
+   * @lADPDfYH3A-xxxx
+   */
   avatarMediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27898,10 +37916,26 @@ export class UpdateUserAvatarRequest extends $tea.Model {
 }
 
 export class UpdateUserAvatarResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   errcode?: string;
   errmsg?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27998,13 +38032,44 @@ export class UpdateVideoConferenceSettingShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateVideoConferenceSettingRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   allowUnmuteSelf?: boolean;
+  /**
+   * @example
+   * true
+   */
   autoTransferHost?: boolean;
+  /**
+   * @example
+   * true
+   */
   forbiddenShareScreen?: boolean;
+  /**
+   * @example
+   * true
+   */
   lockConference?: boolean;
+  /**
+   * @example
+   * true
+   */
   muteAll?: boolean;
+  /**
+   * @example
+   * true
+   */
   onlyInternalEmployeesJoin?: boolean;
   tenantContext?: UpdateVideoConferenceSettingRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28038,13 +38103,44 @@ export class UpdateVideoConferenceSettingRequest extends $tea.Model {
 }
 
 export class UpdateVideoConferenceSettingShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   allowUnmuteSelf?: boolean;
+  /**
+   * @example
+   * true
+   */
   autoTransferHost?: boolean;
+  /**
+   * @example
+   * true
+   */
   forbiddenShareScreen?: boolean;
+  /**
+   * @example
+   * true
+   */
   lockConference?: boolean;
+  /**
+   * @example
+   * true
+   */
   muteAll?: boolean;
+  /**
+   * @example
+   * true
+   */
   onlyInternalEmployeesJoin?: boolean;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 61289fxxx
+   */
   conferenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28078,10 +38174,30 @@ export class UpdateVideoConferenceSettingShrinkRequest extends $tea.Model {
 }
 
 export class UpdateVideoConferenceSettingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
   caseResult?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28179,8 +38295,22 @@ export class UpdateWorkspaceDocMembersShrinkHeaders extends $tea.Model {
 
 export class UpdateWorkspaceDocMembersRequest extends $tea.Model {
   members?: UpdateWorkspaceDocMembersRequestMembers[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * node_feb8fea0
+   */
   nodeId?: string;
   tenantContext?: UpdateWorkspaceDocMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xb8bkxxxxxrXJNaL
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28207,8 +38337,22 @@ export class UpdateWorkspaceDocMembersRequest extends $tea.Model {
 
 export class UpdateWorkspaceDocMembersShrinkRequest extends $tea.Model {
   membersShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * node_feb8fea0
+   */
   nodeId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xb8bkxxxxxrXJNaL
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28234,6 +38378,13 @@ export class UpdateWorkspaceDocMembersShrinkRequest extends $tea.Model {
 }
 
 export class UpdateWorkspaceDocMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28322,8 +38473,19 @@ export class UpdateWorkspaceMembersShrinkHeaders extends $tea.Model {
 }
 
 export class UpdateWorkspaceMembersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   members?: UpdateWorkspaceMembersRequestMembers[];
   tenantContext?: UpdateWorkspaceMembersRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28347,8 +38509,19 @@ export class UpdateWorkspaceMembersRequest extends $tea.Model {
 }
 
 export class UpdateWorkspaceMembersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   membersShrink?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28372,6 +38545,13 @@ export class UpdateWorkspaceMembersShrinkRequest extends $tea.Model {
 }
 
 export class UpdateWorkspaceMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28461,9 +38641,34 @@ export class UploadMediaShrinkHeaders extends $tea.Model {
 
 export class UploadMediaRequest extends $tea.Model {
   tenantContext?: UploadMediaRequestTenantContext;
+  /**
+   * @example
+   * test.jpg
+   */
   mediaName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * image
+   */
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://alicdn.com/xxx.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28492,9 +38697,34 @@ export class UploadMediaRequest extends $tea.Model {
 
 export class UploadMediaShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @example
+   * test.jpg
+   */
   mediaName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * image
+   */
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://alicdn.com/xxx.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28522,7 +38752,18 @@ export class UploadMediaShrinkRequest extends $tea.Model {
 }
 
 export class UploadMediaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * abcd1234
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * abcd-1234-wxyz-9876
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28614,9 +38855,37 @@ export class WearOrgHonorShrinkHeaders extends $tea.Model {
 
 export class WearOrgHonorRequest extends $tea.Model {
   tenantContext?: WearOrgHonorRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21659595
+   */
   honorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   wear?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -28645,9 +38914,37 @@ export class WearOrgHonorRequest extends $tea.Model {
 
 export class WearOrgHonorShrinkRequest extends $tea.Model {
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21659595
+   */
   honorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   orgId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 363784
+   */
   userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   wear?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -28676,11 +38973,27 @@ export class WearOrgHonorShrinkRequest extends $tea.Model {
 
 export class WearOrgHonorResponseBody extends $tea.Model {
   content?: WearOrgHonorResponseBodyContent;
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
   errorCtx?: { [key: string]: any };
   errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 32FFC91D-0A9F-585A-B84F-8A54C5187035
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -28737,6 +39050,13 @@ export class WearOrgHonorResponse extends $tea.Model {
 }
 
 export class AddAttendeeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28756,7 +39076,15 @@ export class AddAttendeeHeadersAccountContext extends $tea.Model {
 }
 
 export class AddAttendeeRequestAttendeesToAdd extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isOptional?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -28778,6 +39106,10 @@ export class AddAttendeeRequestAttendeesToAdd extends $tea.Model {
 }
 
 export class AddAttendeeResponseBodyContent extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -28797,6 +39129,13 @@ export class AddAttendeeResponseBodyContent extends $tea.Model {
 }
 
 export class AddDriveSpaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28816,6 +39155,10 @@ export class AddDriveSpaceHeadersAccountContext extends $tea.Model {
 }
 
 export class AddDriveSpaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28835,6 +39178,13 @@ export class AddDriveSpaceRequestTenantContext extends $tea.Model {
 }
 
 export class AddMeetingRoomsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28854,6 +39204,10 @@ export class AddMeetingRoomsHeadersAccountContext extends $tea.Model {
 }
 
 export class AddMeetingRoomsRequestMeetingRoomsToAdd extends $tea.Model {
+  /**
+   * @example
+   * 4002fxxxxx
+   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28873,6 +39227,13 @@ export class AddMeetingRoomsRequestMeetingRoomsToAdd extends $tea.Model {
 }
 
 export class AddScenegroupMemberHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28892,6 +39253,13 @@ export class AddScenegroupMemberHeadersAccountContext extends $tea.Model {
 }
 
 export class AddWorkspaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28912,6 +39280,10 @@ export class AddWorkspaceHeadersAccountContext extends $tea.Model {
 
 export class AddWorkspaceRequestOption extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28933,6 +39305,10 @@ export class AddWorkspaceRequestOption extends $tea.Model {
 }
 
 export class AddWorkspaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28952,7 +39328,15 @@ export class AddWorkspaceRequestTenantContext extends $tea.Model {
 }
 
 export class AddWorkspaceResponseBodyWorkspaceIcon extends $tea.Model {
+  /**
+   * @example
+   * TEAM
+   */
   type?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/avatar3.jpg
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28974,20 +39358,76 @@ export class AddWorkspaceResponseBodyWorkspaceIcon extends $tea.Model {
 }
 
 export class AddWorkspaceResponseBodyWorkspace extends $tea.Model {
+  /**
+   * @example
+   * ding16b241fd05********288
+   */
   corpId?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/XXXX.jpg
+   */
   cover?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * workspace_description
+   */
   description?: string;
   icon?: AddWorkspaceResponseBodyWorkspaceIcon;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * workspace_name
+   */
   name?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * root_node_uuid
+   */
   rootNodeId?: string;
+  /**
+   * @example
+   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
+  /**
+   * @example
+   * TEAM
+   */
   type?: string;
+  /**
+   * @example
+   * workspace_url
+   */
   url?: string;
+  /**
+   * @example
+   * workspace_id
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29035,6 +39475,13 @@ export class AddWorkspaceResponseBodyWorkspace extends $tea.Model {
 }
 
 export class AddWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29054,8 +39501,29 @@ export class AddWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class AddWorkspaceDocMembersRequestMembers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   memberId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
   memberType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * EDITOR
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29079,6 +39547,10 @@ export class AddWorkspaceDocMembersRequestMembers extends $tea.Model {
 }
 
 export class AddWorkspaceDocMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29098,6 +39570,13 @@ export class AddWorkspaceDocMembersRequestTenantContext extends $tea.Model {
 }
 
 export class AddWorkspaceMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29117,8 +39596,20 @@ export class AddWorkspaceMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class AddWorkspaceMembersRequestMembers extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   memberId?: string;
+  /**
+   * @example
+   * USER
+   */
   memberType?: string;
+  /**
+   * @example
+   * EDITOR
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29142,6 +39633,10 @@ export class AddWorkspaceMembersRequestMembers extends $tea.Model {
 }
 
 export class AddWorkspaceMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29161,6 +39656,13 @@ export class AddWorkspaceMembersRequestTenantContext extends $tea.Model {
 }
 
 export class BatchGetFormDataByIdListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29181,6 +39683,10 @@ export class BatchGetFormDataByIdListHeadersAccountContext extends $tea.Model {
 
 export class BatchGetFormDataByIdListResponseBodyResultModifyUserName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * EnglishName
+   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29203,6 +39709,10 @@ export class BatchGetFormDataByIdListResponseBodyResultModifyUserName extends $t
 
 export class BatchGetFormDataByIdListResponseBodyResultModifyUser extends $tea.Model {
   name?: BatchGetFormDataByIdListResponseBodyResultModifyUserName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29225,6 +39735,10 @@ export class BatchGetFormDataByIdListResponseBodyResultModifyUser extends $tea.M
 
 export class BatchGetFormDataByIdListResponseBodyResultOriginatorName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * EnglishName
+   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29247,6 +39761,10 @@ export class BatchGetFormDataByIdListResponseBodyResultOriginatorName extends $t
 
 export class BatchGetFormDataByIdListResponseBodyResultOriginator extends $tea.Model {
   name?: BatchGetFormDataByIdListResponseBodyResultOriginatorName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29268,20 +39786,60 @@ export class BatchGetFormDataByIdListResponseBodyResultOriginator extends $tea.M
 }
 
 export class BatchGetFormDataByIdListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 2021-05-01 10:10:10
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   creatorUserId?: string;
   formData?: { [key: string]: any };
+  /**
+   * @example
+   * FINST-xxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * FORM-xxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * 21044829126
+   */
   id?: number;
+  /**
+   * @example
+   * {}
+   */
   instanceValue?: string;
+  /**
+   * @example
+   * 2021-05-01 10:10:10
+   */
   modifiedTimeGMT?: string;
   modifier?: string;
   modifyUser?: BatchGetFormDataByIdListResponseBodyResultModifyUser;
   originator?: BatchGetFormDataByIdListResponseBodyResultOriginator;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * SA65776
+   */
   serialNumber?: string;
   title?: string;
+  /**
+   * @example
+   * 2
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29329,6 +39887,13 @@ export class BatchGetFormDataByIdListResponseBodyResult extends $tea.Model {
 }
 
 export class BatchRemovalByFormInstanceIdListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29348,6 +39913,13 @@ export class BatchRemovalByFormInstanceIdListHeadersAccountContext extends $tea.
 }
 
 export class BatchSaveFormDataHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29367,6 +39939,13 @@ export class BatchSaveFormDataHeadersAccountContext extends $tea.Model {
 }
 
 export class BatchUpdateFormDataByInstanceIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29386,6 +39965,13 @@ export class BatchUpdateFormDataByInstanceIdHeadersAccountContext extends $tea.M
 }
 
 export class BatchUpdateFormDataByInstanceMapHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29405,6 +39991,13 @@ export class BatchUpdateFormDataByInstanceMapHeadersAccountContext extends $tea.
 }
 
 export class CancelScheduleConferenceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29424,6 +40017,10 @@ export class CancelScheduleConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class CancelScheduleConferenceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29443,6 +40040,10 @@ export class CancelScheduleConferenceRequestTenantContext extends $tea.Model {
 }
 
 export class CheckAlibabaStaffHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29462,6 +40063,10 @@ export class CheckAlibabaStaffHeadersAccountContext extends $tea.Model {
 }
 
 export class CheckAlibabaStaffRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29481,6 +40086,13 @@ export class CheckAlibabaStaffRequestTenantContext extends $tea.Model {
 }
 
 export class CheckUserIsGroupMemberHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29500,6 +40112,10 @@ export class CheckUserIsGroupMemberHeadersAccountContext extends $tea.Model {
 }
 
 export class ClearHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29519,6 +40135,10 @@ export class ClearHeadersAccountContext extends $tea.Model {
 }
 
 export class ClearRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29538,6 +40158,10 @@ export class ClearRequestTenantContext extends $tea.Model {
 }
 
 export class ClearDataHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29557,6 +40181,10 @@ export class ClearDataHeadersAccountContext extends $tea.Model {
 }
 
 export class ClearDataRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29576,6 +40204,13 @@ export class ClearDataRequestTenantContext extends $tea.Model {
 }
 
 export class CloseVideoConferenceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29595,6 +40230,10 @@ export class CloseVideoConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class CloseVideoConferenceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29614,6 +40253,13 @@ export class CloseVideoConferenceRequestTenantContext extends $tea.Model {
 }
 
 export class CommentListReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29633,6 +40279,10 @@ export class CommentListReportHeadersAccountContext extends $tea.Model {
 }
 
 export class CommentListReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29653,7 +40303,15 @@ export class CommentListReportRequestTenantContext extends $tea.Model {
 
 export class CommentListReportResponseBodyComments extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 1678442466000
+   */
   createTime?: string;
+  /**
+   * @example
+   * 012345
+   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29676,7 +40334,355 @@ export class CommentListReportResponseBodyComments extends $tea.Model {
   }
 }
 
+export class CommitFileHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileRequestOptionAppProperties extends $tea.Model {
+  /**
+   * @example
+   * property_name
+   */
+  name?: string;
+  /**
+   * @example
+   * property_value
+   */
+  value?: string;
+  /**
+   * @example
+   * PUBLIC
+   */
+  visibility?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      visibility: 'Visibility',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      visibility: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileRequestOption extends $tea.Model {
+  appProperties?: CommitFileRequestOptionAppProperties[];
+  /**
+   * @example
+   * AUTO_RENAME
+   */
+  conflictStrategy?: string;
+  /**
+   * @example
+   * false
+   */
+  convertToOnlineDoc?: boolean;
+  /**
+   * @example
+   * DOC
+   */
+  convertToOnlineDocTargetDocumentType?: string;
+  /**
+   * @example
+   * 512
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appProperties: 'AppProperties',
+      conflictStrategy: 'ConflictStrategy',
+      convertToOnlineDoc: 'ConvertToOnlineDoc',
+      convertToOnlineDocTargetDocumentType: 'ConvertToOnlineDocTargetDocumentType',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appProperties: { 'type': 'array', 'itemType': CommitFileRequestOptionAppProperties },
+      conflictStrategy: 'string',
+      convertToOnlineDoc: 'boolean',
+      convertToOnlineDocTargetDocumentType: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileResponseBodyDentryProperties extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      readOnly: 'ReadOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileResponseBodyDentryThumbnail extends $tea.Model {
+  /**
+   * @example
+   * 64
+   */
+  height?: number;
+  /**
+   * @example
+   * url
+   */
+  url?: string;
+  /**
+   * @example
+   * 64
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      url: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitFileResponseBodyDentry extends $tea.Model {
+  appProperties?: { [key: string]: DentryAppPropertiesValue[] };
+  /**
+   * @example
+   * DOCUMENT
+   */
+  category?: string;
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * creator_id
+   */
+  creatorId?: string;
+  /**
+   * @example
+   * txt
+   */
+  extension?: string;
+  /**
+   * @example
+   * dentry_id
+   */
+  id?: string;
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
+  modifiedTime?: string;
+  /**
+   * @example
+   * modifier_id
+   */
+  modifierId?: string;
+  /**
+   * @example
+   * dentry_name
+   */
+  name?: string;
+  /**
+   * @example
+   * parent_id
+   */
+  parentId?: string;
+  /**
+   * @example
+   * PUBLIC_OSS_PARTITION
+   */
+  partitionType?: string;
+  /**
+   * @example
+   * dentry_path
+   */
+  path?: string;
+  properties?: CommitFileResponseBodyDentryProperties;
+  /**
+   * @example
+   * 512
+   */
+  size?: number;
+  /**
+   * @example
+   * space_id
+   */
+  spaceId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  status?: string;
+  /**
+   * @example
+   * DINGTALK
+   */
+  storageDriver?: string;
+  thumbnail?: CommitFileResponseBodyDentryThumbnail;
+  /**
+   * @example
+   * FILE
+   */
+  type?: string;
+  /**
+   * @example
+   * uuid
+   */
+  uuid?: string;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appProperties: 'AppProperties',
+      category: 'Category',
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      extension: 'Extension',
+      id: 'Id',
+      modifiedTime: 'ModifiedTime',
+      modifierId: 'ModifierId',
+      name: 'Name',
+      parentId: 'ParentId',
+      partitionType: 'PartitionType',
+      path: 'Path',
+      properties: 'Properties',
+      size: 'Size',
+      spaceId: 'SpaceId',
+      status: 'Status',
+      storageDriver: 'StorageDriver',
+      thumbnail: 'Thumbnail',
+      type: 'Type',
+      uuid: 'Uuid',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appProperties: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DentryAppPropertiesValue } },
+      category: 'string',
+      createTime: 'string',
+      creatorId: 'string',
+      extension: 'string',
+      id: 'string',
+      modifiedTime: 'string',
+      modifierId: 'string',
+      name: 'string',
+      parentId: 'string',
+      partitionType: 'string',
+      path: 'string',
+      properties: CommitFileResponseBodyDentryProperties,
+      size: 'number',
+      spaceId: 'string',
+      status: 'string',
+      storageDriver: 'string',
+      thumbnail: CommitFileResponseBodyDentryThumbnail,
+      type: 'string',
+      uuid: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * ba3a9b612345678d8fedf544ef69d19e
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29696,6 +40702,10 @@ export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateDeliveryPlanRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29715,6 +40725,13 @@ export class CreateDeliveryPlanRequestTenantContext extends $tea.Model {
 }
 
 export class CreateDingtalkPersonalTodoTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29734,6 +40751,10 @@ export class CreateDingtalkPersonalTodoTaskHeadersAccountContext extends $tea.Mo
 }
 
 export class CreateDingtalkPersonalTodoTaskRequestNotifyConfigs extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dingNotify?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29753,6 +40774,10 @@ export class CreateDingtalkPersonalTodoTaskRequestNotifyConfigs extends $tea.Mod
 }
 
 export class CreateDingtalkPersonalTodoTaskRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29772,6 +40797,13 @@ export class CreateDingtalkPersonalTodoTaskRequestTenantContext extends $tea.Mod
 }
 
 export class CreateEventHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 208579
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29791,7 +40823,15 @@ export class CreateEventHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateEventRequestAttendees extends $tea.Model {
+  /**
+   * @example
+   * 7845
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isOptional?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -29813,8 +40853,20 @@ export class CreateEventRequestAttendees extends $tea.Model {
 }
 
 export class CreateEventRequestEnd extends $tea.Model {
+  /**
+   * @example
+   * "2020-09-21"
+   */
   date?: string;
+  /**
+   * @example
+   * "2021-09-20T10:15:30+08:00"
+   */
   dateTime?: string;
+  /**
+   * @example
+   * "Asia/Shanghai"
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29857,6 +40909,10 @@ export class CreateEventRequestLocation extends $tea.Model {
 }
 
 export class CreateEventRequestOnlineMeetingInfo extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29876,10 +40932,30 @@ export class CreateEventRequestOnlineMeetingInfo extends $tea.Model {
 }
 
 export class CreateEventRequestRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * "monday"
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * "last"
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * "daily"
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29907,8 +40983,20 @@ export class CreateEventRequestRecurrencePattern extends $tea.Model {
 }
 
 export class CreateEventRequestRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * "2021-12-31T10:15:30+08:00"
+   */
   endDate?: string;
+  /**
+   * @example
+   * 5
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * "endDate"
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29954,7 +41042,15 @@ export class CreateEventRequestRecurrence extends $tea.Model {
 }
 
 export class CreateEventRequestReminders extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   method?: string;
+  /**
+   * @example
+   * 15
+   */
   minutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29995,7 +41091,15 @@ export class CreateEventRequestRichTextDescription extends $tea.Model {
 }
 
 export class CreateEventRequestUiConfigs extends $tea.Model {
+  /**
+   * @example
+   * "updateEventButton"
+   */
   uiName?: string;
+  /**
+   * @example
+   * "hide"
+   */
   uiStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30017,8 +41121,20 @@ export class CreateEventRequestUiConfigs extends $tea.Model {
 }
 
 export class CreateEventRequestStart extends $tea.Model {
+  /**
+   * @example
+   * "2021-09-20"
+   */
   date?: string;
+  /**
+   * @example
+   * "2021-09-20T10:15:30+08:00"
+   */
   dateTime?: string;
+  /**
+   * @example
+   * "Asia/Shanghai"
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30043,8 +41159,20 @@ export class CreateEventRequestStart extends $tea.Model {
 
 export class CreateEventResponseBodyAttendees extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * true
+   */
   isOptional?: boolean;
+  /**
+   * @example
+   * needsAction
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -30070,8 +41198,20 @@ export class CreateEventResponseBodyAttendees extends $tea.Model {
 }
 
 export class CreateEventResponseBodyEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30095,6 +41235,10 @@ export class CreateEventResponseBodyEnd extends $tea.Model {
 }
 
 export class CreateEventResponseBodyLocation extends $tea.Model {
+  /**
+   * @example
+   * room 1-2-3
+   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30114,9 +41258,21 @@ export class CreateEventResponseBodyLocation extends $tea.Model {
 }
 
 export class CreateEventResponseBodyOnlineMeetingInfo extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
+  /**
+   * @example
+   * http://meeting
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30143,8 +41299,20 @@ export class CreateEventResponseBodyOnlineMeetingInfo extends $tea.Model {
 
 export class CreateEventResponseBodyOrganizer extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -30170,10 +41338,30 @@ export class CreateEventResponseBodyOrganizer extends $tea.Model {
 }
 
 export class CreateEventResponseBodyRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * sunday
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * first
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * daily
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30201,8 +41389,20 @@ export class CreateEventResponseBodyRecurrencePattern extends $tea.Model {
 }
 
 export class CreateEventResponseBodyRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 5
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * noEnd
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30248,7 +41448,15 @@ export class CreateEventResponseBodyRecurrence extends $tea.Model {
 }
 
 export class CreateEventResponseBodyReminders extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   method?: string;
+  /**
+   * @example
+   * 15
+   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30289,8 +41497,20 @@ export class CreateEventResponseBodyRichTextDescription extends $tea.Model {
 }
 
 export class CreateEventResponseBodyStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30314,7 +41534,15 @@ export class CreateEventResponseBodyStart extends $tea.Model {
 }
 
 export class CreateEventResponseBodyUiConfigs extends $tea.Model {
+  /**
+   * @example
+   * updateEventButton
+   */
   uiName?: string;
+  /**
+   * @example
+   * hide
+   */
   uiStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30336,6 +41564,13 @@ export class CreateEventResponseBodyUiConfigs extends $tea.Model {
 }
 
 export class CreateLiveHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30355,6 +41590,10 @@ export class CreateLiveHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateLiveRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30374,6 +41613,13 @@ export class CreateLiveRequestTenantContext extends $tea.Model {
 }
 
 export class CreateMeetingRoomHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30459,6 +41705,10 @@ export class CreateMeetingRoomRequestRoomLocation extends $tea.Model {
 }
 
 export class CreateMeetingRoomRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30478,6 +41728,13 @@ export class CreateMeetingRoomRequestTenantContext extends $tea.Model {
 }
 
 export class CreateMeetingRoomGroupHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30497,6 +41754,10 @@ export class CreateMeetingRoomGroupHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateMeetingRoomGroupRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30516,6 +41777,13 @@ export class CreateMeetingRoomGroupRequestTenantContext extends $tea.Model {
 }
 
 export class CreateOrUpdateFormDataHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30535,6 +41803,10 @@ export class CreateOrUpdateFormDataHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateOrgHonorTemplateHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 208579
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30554,6 +41826,10 @@ export class CreateOrgHonorTemplateHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateOrgHonorTemplateRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30573,6 +41849,13 @@ export class CreateOrgHonorTemplateRequestTenantContext extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ba3a9b612345678d8fedf544ef69d19e
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30592,6 +41875,10 @@ export class CreatePersonalTodoTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskRequestNotifyConfigs extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dingNotify?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30611,6 +41898,10 @@ export class CreatePersonalTodoTaskRequestNotifyConfigs extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30630,6 +41921,13 @@ export class CreatePersonalTodoTaskRequestTenantContext extends $tea.Model {
 }
 
 export class CreateReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30649,10 +41947,45 @@ export class CreateReportHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateReportRequestContents extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ### 序号1
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * markdown
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 今日完成工作
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   sort?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30680,6 +42013,10 @@ export class CreateReportRequestContents extends $tea.Model {
 }
 
 export class CreateReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30699,6 +42036,13 @@ export class CreateReportRequestTenantContext extends $tea.Model {
 }
 
 export class CreateScenegroupHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30718,6 +42062,13 @@ export class CreateScenegroupHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateScheduleConferenceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30737,6 +42088,10 @@ export class CreateScheduleConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateScheduleConferenceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30756,6 +42111,10 @@ export class CreateScheduleConferenceRequestTenantContext extends $tea.Model {
 }
 
 export class CreateSearchDomeHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * ba3a9b612345678d8fedf544ef69d19e
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30775,6 +42134,10 @@ export class CreateSearchDomeHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateSearchDomeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30794,6 +42157,10 @@ export class CreateSearchDomeRequestTenantContext extends $tea.Model {
 }
 
 export class CreateSearchKeywordHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * ba3a9b612345678d8fedf544ef69d19e
+   */
   userToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30813,6 +42180,10 @@ export class CreateSearchKeywordHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateSearchKeywordRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30832,6 +42203,10 @@ export class CreateSearchKeywordRequestTenantContext extends $tea.Model {
 }
 
 export class CreateSheetHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30851,6 +42226,10 @@ export class CreateSheetHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateSheetRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30870,6 +42249,13 @@ export class CreateSheetRequestTenantContext extends $tea.Model {
 }
 
 export class CreateSubscribedCalendarHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30914,6 +42300,10 @@ export class CreateSubscribedCalendarRequestSubscribeScope extends $tea.Model {
 }
 
 export class CreateTodoTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30933,6 +42323,10 @@ export class CreateTodoTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateTodoTaskRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30952,7 +42346,21 @@ export class CreateTodoTaskRequestTenantContext extends $tea.Model {
 }
 
 export class CreateTodoTaskRequestContentFieldList extends $tea.Model {
+  /**
+   * @remarks
+   * fieldKey
+   * 
+   * @example
+   * fieldKey
+   */
   fieldKey?: string;
+  /**
+   * @remarks
+   * fieldValue
+   * 
+   * @example
+   * fieldValue
+   */
   fieldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30974,7 +42382,15 @@ export class CreateTodoTaskRequestContentFieldList extends $tea.Model {
 }
 
 export class CreateTodoTaskRequestDetailUrl extends $tea.Model {
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   appUrl?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   pcUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30996,6 +42412,10 @@ export class CreateTodoTaskRequestDetailUrl extends $tea.Model {
 }
 
 export class CreateTodoTaskRequestNotifyConfigs extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dingNotify?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31015,7 +42435,21 @@ export class CreateTodoTaskRequestNotifyConfigs extends $tea.Model {
 }
 
 export class CreateTodoTaskResponseBodyContentFieldList extends $tea.Model {
+  /**
+   * @remarks
+   * fieldKey
+   * 
+   * @example
+   * fieldKey
+   */
   fieldKey?: string;
+  /**
+   * @remarks
+   * fieldValue
+   * 
+   * @example
+   * fieldValue
+   */
   fieldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31037,7 +42471,15 @@ export class CreateTodoTaskResponseBodyContentFieldList extends $tea.Model {
 }
 
 export class CreateTodoTaskResponseBodyDetailUrl extends $tea.Model {
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   appUrl?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   pcUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31059,6 +42501,10 @@ export class CreateTodoTaskResponseBodyDetailUrl extends $tea.Model {
 }
 
 export class CreateTodoTaskResponseBodyNotifyConfigs extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dingNotify?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31078,6 +42524,10 @@ export class CreateTodoTaskResponseBodyNotifyConfigs extends $tea.Model {
 }
 
 export class CreateVideoConferenceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31097,6 +42547,13 @@ export class CreateVideoConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateWorkspaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31116,6 +42573,10 @@ export class CreateWorkspaceHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateWorkspaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31135,6 +42596,13 @@ export class CreateWorkspaceRequestTenantContext extends $tea.Model {
 }
 
 export class CreateWorkspaceDocHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31154,6 +42622,10 @@ export class CreateWorkspaceDocHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateWorkspaceDocRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31173,6 +42645,10 @@ export class CreateWorkspaceDocRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteColumnsHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31192,6 +42668,10 @@ export class DeleteColumnsHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteColumnsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31211,6 +42691,13 @@ export class DeleteColumnsRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteDriveSpaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31230,6 +42717,10 @@ export class DeleteDriveSpaceHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteDriveSpaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31249,6 +42740,13 @@ export class DeleteDriveSpaceRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteEventHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31268,6 +42766,10 @@ export class DeleteEventHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteEventResponseBodyContent extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -31287,6 +42789,13 @@ export class DeleteEventResponseBodyContent extends $tea.Model {
 }
 
 export class DeleteFormDataHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31306,6 +42815,13 @@ export class DeleteFormDataHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteInstanceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31325,6 +42841,13 @@ export class DeleteInstanceHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteLiveHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31344,6 +42867,10 @@ export class DeleteLiveHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteLiveRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31363,6 +42890,13 @@ export class DeleteLiveRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteMeetingRoomHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31382,6 +42916,10 @@ export class DeleteMeetingRoomHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteMeetingRoomRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31401,6 +42939,13 @@ export class DeleteMeetingRoomRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteMeetingRoomGroupHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31420,6 +42965,10 @@ export class DeleteMeetingRoomGroupHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteMeetingRoomGroupRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31439,6 +42988,10 @@ export class DeleteMeetingRoomGroupRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteRowsHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31458,6 +43011,10 @@ export class DeleteRowsHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteRowsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31477,6 +43034,13 @@ export class DeleteRowsRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteScenegroupMemberHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31496,6 +43060,10 @@ export class DeleteScenegroupMemberHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteSheetHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31515,6 +43083,10 @@ export class DeleteSheetHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteSheetRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31534,6 +43106,13 @@ export class DeleteSheetRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteSubscribedCalendarHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31553,6 +43132,10 @@ export class DeleteSubscribedCalendarHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteTodoTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31572,6 +43155,10 @@ export class DeleteTodoTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteTodoTaskRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31591,6 +43178,13 @@ export class DeleteTodoTaskRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31610,7 +43204,21 @@ export class DeleteWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteWorkspaceDocMembersRequestMembers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   memberId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
   memberType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31632,6 +43240,10 @@ export class DeleteWorkspaceDocMembersRequestMembers extends $tea.Model {
 }
 
 export class DeleteWorkspaceDocMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31651,6 +43263,13 @@ export class DeleteWorkspaceDocMembersRequestTenantContext extends $tea.Model {
 }
 
 export class DeleteWorkspaceMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31670,7 +43289,21 @@ export class DeleteWorkspaceMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteWorkspaceMembersRequestMembers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   memberId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
   memberType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31692,6 +43325,10 @@ export class DeleteWorkspaceMembersRequestMembers extends $tea.Model {
 }
 
 export class DeleteWorkspaceMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31711,6 +43348,13 @@ export class DeleteWorkspaceMembersRequestTenantContext extends $tea.Model {
 }
 
 export class ExecuteBatchTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31730,6 +43374,13 @@ export class ExecuteBatchTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class ExecutePlatformTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31749,6 +43400,13 @@ export class ExecutePlatformTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class ExecuteTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31768,6 +43426,13 @@ export class ExecuteTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class ExpandGroupCapacityHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31787,6 +43452,10 @@ export class ExpandGroupCapacityHeadersAccountContext extends $tea.Model {
 }
 
 export class ExpandGroupCapacityRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31806,6 +43475,13 @@ export class ExpandGroupCapacityRequestTenantContext extends $tea.Model {
 }
 
 export class GetActivityListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31825,8 +43501,20 @@ export class GetActivityListHeadersAccountContext extends $tea.Model {
 }
 
 export class GetActivityListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 0q8gsudxxx
+   */
   activityId?: string;
+  /**
+   * @example
+   * activity123
+   */
   activityName?: string;
+  /**
+   * @example
+   * activity123
+   */
   activityNameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31850,6 +43538,10 @@ export class GetActivityListResponseBodyResult extends $tea.Model {
 }
 
 export class GetAllSheetsHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31869,6 +43561,10 @@ export class GetAllSheetsHeadersAccountContext extends $tea.Model {
 }
 
 export class GetAllSheetsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31888,7 +43584,15 @@ export class GetAllSheetsRequestTenantContext extends $tea.Model {
 }
 
 export class GetAllSheetsResponseBodyValue extends $tea.Model {
+  /**
+   * @example
+   * stxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * Sheet1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31910,6 +43614,13 @@ export class GetAllSheetsResponseBodyValue extends $tea.Model {
 }
 
 export class GetConversaionSpaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31929,6 +43640,10 @@ export class GetConversaionSpaceHeadersAccountContext extends $tea.Model {
 }
 
 export class GetConversaionSpaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31948,9 +43663,25 @@ export class GetConversaionSpaceRequestTenantContext extends $tea.Model {
 }
 
 export class GetConversaionSpaceResponseBodySpace extends $tea.Model {
+  /**
+   * @example
+   * ding1234xxxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 798xxxxx
+   */
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31976,6 +43707,13 @@ export class GetConversaionSpaceResponseBodySpace extends $tea.Model {
 }
 
 export class GetCorpAccomplishmentTasksHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31995,21 +43733,85 @@ export class GetCorpAccomplishmentTasksHeadersAccountContext extends $tea.Model 
 }
 
 export class GetCorpAccomplishmentTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   activeTimeGMT?: string;
+  /**
+   * @example
+   * 123456
+   */
   actualActionerId?: string;
+  /**
+   * @example
+   * APP_XCxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   finishTimeGMT?: string;
+  /**
+   * @example
+   * 123456@li.com
+   */
   originatorEmail?: string;
+  /**
+   * @example
+   * 123456
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 名称
+   */
   originatorName?: string;
+  /**
+   * @example
+   * name
+   */
   originatorNameInEnglish?: string;
+  /**
+   * @example
+   * 昵称
+   */
   originatorNickName?: string;
+  /**
+   * @example
+   * english nick
+   */
   originatorNickNameInEnglish?: string;
+  /**
+   * @example
+   * originatorPhotoexample
+   */
   originatorPhoto?: string;
+  /**
+   * @example
+   * agree
+   */
   outResult?: string;
+  /**
+   * @example
+   * 结果名称
+   */
   outResultName?: string;
+  /**
+   * @example
+   * instancexxxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32059,6 +43861,13 @@ export class GetCorpAccomplishmentTasksResponseBodyData extends $tea.Model {
 }
 
 export class GetCorpTasksHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32078,26 +43887,110 @@ export class GetCorpTasksHeadersAccountContext extends $tea.Model {
 }
 
 export class GetCorpTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   activeTimeGMT?: string;
+  /**
+   * @example
+   * 123456
+   */
   actualActionerId?: string;
+  /**
+   * @example
+   * APP_XCxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   finishTimeGMT?: string;
+  /**
+   * @example
+   * 123456@li.com
+   */
   originatorEmail?: string;
+  /**
+   * @example
+   * 123456
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 名称
+   */
   originatorName?: string;
+  /**
+   * @example
+   * name
+   */
   originatorNameInEnglish?: string;
+  /**
+   * @example
+   * 昵称
+   */
   originatorNickName?: string;
+  /**
+   * @example
+   * nick en
+   */
   originatorNickNameEn?: string;
+  /**
+   * @example
+   * english nick
+   */
   originatorNickNameInEnglish?: string;
+  /**
+   * @example
+   * originatorPhotoexample
+   */
   originatorPhoto?: string;
+  /**
+   * @example
+   * agree
+   */
   outResult?: string;
+  /**
+   * @example
+   * 结果名称
+   */
   outResultName?: string;
+  /**
+   * @example
+   * instancexxxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * taskId
+   */
   taskId?: string;
+  /**
+   * @example
+   * running
+   */
   taskType?: string;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
+  /**
+   * @example
+   * title
+   */
   titleInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32157,6 +44050,13 @@ export class GetCorpTasksResponseBodyData extends $tea.Model {
 }
 
 export class GetDocContentHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ba3a9b612345678d8fedf544ef69d19e
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32176,6 +44076,10 @@ export class GetDocContentHeadersAccountContext extends $tea.Model {
 }
 
 export class GetDocContentRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32195,6 +44099,13 @@ export class GetDocContentRequestTenantContext extends $tea.Model {
 }
 
 export class GetDocContentTakIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32214,6 +44125,10 @@ export class GetDocContentTakIdHeadersAccountContext extends $tea.Model {
 }
 
 export class GetDocContentTakIdRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32233,6 +44148,13 @@ export class GetDocContentTakIdRequestTenantContext extends $tea.Model {
 }
 
 export class GetEventHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32252,10 +44174,30 @@ export class GetEventHeadersAccountContext extends $tea.Model {
 }
 
 export class GetEventResponseBodyAttendees extends $tea.Model {
+  /**
+   * @example
+   * jack
+   */
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isOptional?: boolean;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32302,8 +44244,20 @@ export class GetEventResponseBodyCategories extends $tea.Model {
 }
 
 export class GetEventResponseBodyEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32327,7 +44281,15 @@ export class GetEventResponseBodyEnd extends $tea.Model {
 }
 
 export class GetEventResponseBodyExtendedPropertiesSharedProperties extends $tea.Model {
+  /**
+   * @example
+   * dingd*****1231231
+   */
   belongCorpId?: string;
+  /**
+   * @example
+   * zxcvasdfvb123====
+   */
   sourceOpenCid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32369,6 +44331,10 @@ export class GetEventResponseBodyExtendedProperties extends $tea.Model {
 
 export class GetEventResponseBodyLocation extends $tea.Model {
   displayName?: string;
+  /**
+   * @remarks
+   * --
+   */
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -32390,8 +44356,20 @@ export class GetEventResponseBodyLocation extends $tea.Model {
 }
 
 export class GetEventResponseBodyMeetingRooms extends $tea.Model {
+  /**
+   * @example
+   * room 1-2-3
+   */
   displayName?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * c10315a8b4e740a317813ab6fxxxxxx
+   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32415,9 +44393,21 @@ export class GetEventResponseBodyMeetingRooms extends $tea.Model {
 }
 
 export class GetEventResponseBodyOnlineMeetingInfo extends $tea.Model {
+  /**
+   * @example
+   * 5c4df21d-xxxx-a6db402b9f3a
+   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
+  /**
+   * @example
+   * dingtalk://dingtalkclient/page/videoxxxxalendar?confId=5c4df21d-xxxx9f3f&calendarId=127xxxx124
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32443,9 +44433,25 @@ export class GetEventResponseBodyOnlineMeetingInfo extends $tea.Model {
 }
 
 export class GetEventResponseBodyOrganizer extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32471,6 +44477,10 @@ export class GetEventResponseBodyOrganizer extends $tea.Model {
 }
 
 export class GetEventResponseBodyOriginStart extends $tea.Model {
+  /**
+   * @example
+   * 2023-01-01T00:00:00Z
+   */
   dateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32490,10 +44500,30 @@ export class GetEventResponseBodyOriginStart extends $tea.Model {
 }
 
 export class GetEventResponseBodyRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * monday
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * first
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * daily
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32521,8 +44551,20 @@ export class GetEventResponseBodyRecurrencePattern extends $tea.Model {
 }
 
 export class GetEventResponseBodyRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 5
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * noEnd
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32568,7 +44610,15 @@ export class GetEventResponseBodyRecurrence extends $tea.Model {
 }
 
 export class GetEventResponseBodyReminders extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   method?: string;
+  /**
+   * @example
+   * 15
+   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32609,8 +44659,20 @@ export class GetEventResponseBodyRichTextDescription extends $tea.Model {
 }
 
 export class GetEventResponseBodyStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32634,6 +44696,13 @@ export class GetEventResponseBodyStart extends $tea.Model {
 }
 
 export class GetFieldDefByUuidHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32653,12 +44722,36 @@ export class GetFieldDefByUuidHeadersAccountContext extends $tea.Model {
 }
 
 export class GetFieldDefByUuidResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * NORMAL
+   */
   behavior?: string;
   children?: string;
+  /**
+   * @example
+   * TextareaField
+   */
   componentName?: string;
+  /**
+   * @example
+   * textField_laq7xxx
+   */
   fieldId?: string;
+  /**
+   * @example
+   * {}
+   */
   label?: any;
+  /**
+   * @example
+   * {}
+   */
   props?: any;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32690,6 +44783,13 @@ export class GetFieldDefByUuidResponseBodyResult extends $tea.Model {
 }
 
 export class GetFileDownloadInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32709,7 +44809,15 @@ export class GetFileDownloadInfoHeadersAccountContext extends $tea.Model {
 }
 
 export class GetFileDownloadInfoRequestOption extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   preferIntranet?: boolean;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32731,6 +44839,10 @@ export class GetFileDownloadInfoRequestOption extends $tea.Model {
 }
 
 export class GetFileDownloadInfoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32750,9 +44862,175 @@ export class GetFileDownloadInfoRequestTenantContext extends $tea.Model {
 }
 
 export class GetFileDownloadInfoResponseBodyHeaderSignatureInfo extends $tea.Model {
+  /**
+   * @example
+   * 900
+   */
   expirationSeconds?: number;
   headers?: { [key: string]: string };
   internalResourceUrls?: string[];
+  /**
+   * @example
+   * ZHANGJIAKOU
+   */
+  region?: string;
+  resourceUrls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      expirationSeconds: 'ExpirationSeconds',
+      headers: 'Headers',
+      internalResourceUrls: 'InternalResourceUrls',
+      region: 'Region',
+      resourceUrls: 'ResourceUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationSeconds: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      internalResourceUrls: { 'type': 'array', 'itemType': 'string' },
+      region: 'string',
+      resourceUrls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoRequestOptionPreCheckParam extends $tea.Model {
+  /**
+   * @example
+   * None
+   */
+  name?: string;
+  /**
+   * @example
+   * None
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoRequestOption extends $tea.Model {
+  preCheckParam?: GetFileUploadInfoRequestOptionPreCheckParam;
+  /**
+   * @example
+   * true
+   */
+  preferIntranet?: boolean;
+  /**
+   * @example
+   * ZHANGJIAKOU
+   */
+  preferRegion?: string;
+  /**
+   * @example
+   * DINGTALK
+   */
+  storageDriver?: string;
+  static names(): { [key: string]: string } {
+    return {
+      preCheckParam: 'PreCheckParam',
+      preferIntranet: 'PreferIntranet',
+      preferRegion: 'PreferRegion',
+      storageDriver: 'StorageDriver',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preCheckParam: GetFileUploadInfoRequestOptionPreCheckParam,
+      preferIntranet: 'boolean',
+      preferRegion: 'string',
+      storageDriver: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileUploadInfoResponseBodyHeaderSignatureInfo extends $tea.Model {
+  /**
+   * @example
+   * 900
+   */
+  expirationSeconds?: number;
+  headers?: { [key: string]: string };
+  internalResourceUrls?: string[];
+  /**
+   * @example
+   * ZHANGJIAKOU
+   */
   region?: string;
   resourceUrls?: string[];
   static names(): { [key: string]: string } {
@@ -32781,6 +45059,13 @@ export class GetFileDownloadInfoResponseBodyHeaderSignatureInfo extends $tea.Mod
 }
 
 export class GetFormComponentDefinitionListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32800,9 +45085,25 @@ export class GetFormComponentDefinitionListHeadersAccountContext extends $tea.Mo
 }
 
 export class GetFormComponentDefinitionListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * FooterYida
+   */
   componentName?: string;
+  /**
+   * @example
+   * formContainer_kksjiuk
+   */
   fieldId?: string;
+  /**
+   * @example
+   * {"en_US":""}
+   */
   label?: string;
+  /**
+   * @example
+   * formContainer_kksjiuk
+   */
   parentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32828,6 +45129,13 @@ export class GetFormComponentDefinitionListResponseBodyResult extends $tea.Model
 }
 
 export class GetFormDataByIDHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32847,8 +45155,20 @@ export class GetFormDataByIDHeadersAccountContext extends $tea.Model {
 }
 
 export class GetFormDataByIDResponseBodyOriginatorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32872,9 +45192,21 @@ export class GetFormDataByIDResponseBodyOriginatorName extends $tea.Model {
 }
 
 export class GetFormDataByIDResponseBodyOriginator extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   departmentName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetFormDataByIDResponseBodyOriginatorName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32900,6 +45232,13 @@ export class GetFormDataByIDResponseBodyOriginator extends $tea.Model {
 }
 
 export class GetFormListInAppHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32919,6 +45258,10 @@ export class GetFormListInAppHeadersAccountContext extends $tea.Model {
 }
 
 export class GetFormListInAppResponseBodyDataTitle extends $tea.Model {
+  /**
+   * @example
+   * form
+   */
   enUS?: string;
   zhCN?: string;
   static names(): { [key: string]: string } {
@@ -32941,9 +45284,25 @@ export class GetFormListInAppResponseBodyDataTitle extends $tea.Model {
 }
 
 export class GetFormListInAppResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   creator?: string;
+  /**
+   * @example
+   * receipt
+   */
   formType?: string;
+  /**
+   * @example
+   * FORM-BAxxxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * 2023-02-22 15:27:07
+   */
   gmtCreate?: string;
   title?: GetFormListInAppResponseBodyDataTitle;
   static names(): { [key: string]: string } {
@@ -32972,6 +45331,13 @@ export class GetFormListInAppResponseBodyData extends $tea.Model {
 }
 
 export class GetInnerGroupMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32991,6 +45357,13 @@ export class GetInnerGroupMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class GetInstanceByIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33010,8 +45383,20 @@ export class GetInstanceByIdHeadersAccountContext extends $tea.Model {
 }
 
 export class GetInstanceByIdResponseBodyActionExecutorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33035,9 +45420,21 @@ export class GetInstanceByIdResponseBodyActionExecutorName extends $tea.Model {
 }
 
 export class GetInstanceByIdResponseBodyActionExecutor extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   deptName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetInstanceByIdResponseBodyActionExecutorName;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33063,8 +45460,20 @@ export class GetInstanceByIdResponseBodyActionExecutor extends $tea.Model {
 }
 
 export class GetInstanceByIdResponseBodyOriginatorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33088,9 +45497,21 @@ export class GetInstanceByIdResponseBodyOriginatorName extends $tea.Model {
 }
 
 export class GetInstanceByIdResponseBodyOriginator extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   deptName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetInstanceByIdResponseBodyOriginatorName;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33116,6 +45537,13 @@ export class GetInstanceByIdResponseBodyOriginator extends $tea.Model {
 }
 
 export class GetInstanceIdListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33135,6 +45563,13 @@ export class GetInstanceIdListHeadersAccountContext extends $tea.Model {
 }
 
 export class GetInstancesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33154,8 +45589,20 @@ export class GetInstancesHeadersAccountContext extends $tea.Model {
 }
 
 export class GetInstancesResponseBodyDataActionExecutorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33179,9 +45626,21 @@ export class GetInstancesResponseBodyDataActionExecutorName extends $tea.Model {
 }
 
 export class GetInstancesResponseBodyDataActionExecutor extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   deptName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetInstancesResponseBodyDataActionExecutorName;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33207,8 +45666,20 @@ export class GetInstancesResponseBodyDataActionExecutor extends $tea.Model {
 }
 
 export class GetInstancesResponseBodyDataOriginatorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33232,9 +45703,21 @@ export class GetInstancesResponseBodyDataOriginatorName extends $tea.Model {
 }
 
 export class GetInstancesResponseBodyDataOriginator extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   deptName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetInstancesResponseBodyDataOriginatorName;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33261,16 +45744,52 @@ export class GetInstancesResponseBodyDataOriginator extends $tea.Model {
 
 export class GetInstancesResponseBodyData extends $tea.Model {
   actionExecutor?: GetInstancesResponseBodyDataActionExecutor[];
+  /**
+   * @example
+   * agree
+   */
   approvedResult?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   createTimeGMT?: string;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+   */
   formUuid?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
+  /**
+   * @example
+   * 2021-05-01
+   */
   modifiedTimeGMT?: string;
   originator?: GetInstancesResponseBodyDataOriginator;
+  /**
+   * @example
+   * TPROC--X1Gxxx
+   */
   processCode?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 小红发起的请购单
+   */
   title?: string;
+  /**
+   * @example
+   * 1.0
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -33312,6 +45831,13 @@ export class GetInstancesResponseBodyData extends $tea.Model {
 }
 
 export class GetInstancesByIdListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33331,8 +45857,20 @@ export class GetInstancesByIdListHeadersAccountContext extends $tea.Model {
 }
 
 export class GetInstancesByIdListResponseBodyResultActionExecutorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33356,9 +45894,21 @@ export class GetInstancesByIdListResponseBodyResultActionExecutorName extends $t
 }
 
 export class GetInstancesByIdListResponseBodyResultActionExecutor extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   departmentName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetInstancesByIdListResponseBodyResultActionExecutorName;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33384,8 +45934,20 @@ export class GetInstancesByIdListResponseBodyResultActionExecutor extends $tea.M
 }
 
 export class GetInstancesByIdListResponseBodyResultOriginatorName extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33409,9 +45971,21 @@ export class GetInstancesByIdListResponseBodyResultOriginatorName extends $tea.M
 }
 
 export class GetInstancesByIdListResponseBodyResultOriginator extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   departmentName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
   name?: GetInstancesByIdListResponseBodyResultOriginatorName;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33438,13 +46012,37 @@ export class GetInstancesByIdListResponseBodyResultOriginator extends $tea.Model
 
 export class GetInstancesByIdListResponseBodyResult extends $tea.Model {
   actionExecutor?: GetInstancesByIdListResponseBodyResultActionExecutor[];
+  /**
+   * @example
+   * agree
+   */
   approvedResult?: string;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+   */
   formUuid?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instanceStatus?: string;
   originator?: GetInstancesByIdListResponseBodyResultOriginator;
+  /**
+   * @example
+   * TPROC--X1Gxxx
+   */
   processCode?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4xxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 李四发起的请购单
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33480,6 +46078,13 @@ export class GetInstancesByIdListResponseBodyResult extends $tea.Model {
 }
 
 export class GetLiveReplayUrlHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33499,6 +46104,10 @@ export class GetLiveReplayUrlHeadersAccountContext extends $tea.Model {
 }
 
 export class GetLiveReplayUrlRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33518,6 +46127,13 @@ export class GetLiveReplayUrlRequestTenantContext extends $tea.Model {
 }
 
 export class GetMeCorpSubmissionHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33537,23 +46153,95 @@ export class GetMeCorpSubmissionHeadersAccountContext extends $tea.Model {
 }
 
 export class GetMeCorpSubmissionResponseBodyDataActioner extends $tea.Model {
+  /**
+   * @example
+   * 某研究部
+   */
   buName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
   email?: string;
+  /**
+   * @example
+   * 正式
+   */
   employeeType?: string;
+  /**
+   * @example
+   * official
+   */
   employeeTypeInformation?: string;
+  /**
+   * @example
+   * 123311221
+   */
   humanResourceGroupWorkNumber?: string;
+  /**
+   * @example
+   * true
+   */
   isSystemAdmin?: boolean;
+  /**
+   * @example
+   * P7
+   */
   level?: string;
+  /**
+   * @example
+   * 请购单
+   */
   name?: string;
+  /**
+   * @example
+   * 与心
+   */
   nickName?: string;
+  /**
+   * @example
+   * o-YDJKINSxxx
+   */
   orderNumber?: string;
+  /**
+   * @example
+   * https://abc.com/a.png
+   */
   personalPhoto?: string;
+  /**
+   * @example
+   * https://oss/zhangsan.png
+   */
   personalPhotoUrl?: string;
+  /**
+   * @example
+   * XIAOHONG
+   */
   pinyinNameAll?: string;
+  /**
+   * @example
+   * xiaohong
+   */
   pinyinNickName?: string;
+  /**
+   * @example
+   * running
+   */
   state?: string;
+  /**
+   * @example
+   * manager123
+   */
   superUserId?: string;
+  /**
+   * @example
+   * wang123
+   */
   tbWang?: string;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33607,10 +46295,30 @@ export class GetMeCorpSubmissionResponseBodyDataActioner extends $tea.Model {
 }
 
 export class GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances extends $tea.Model {
+  /**
+   * @example
+   * act-xxaanfaf
+   */
   activityId?: string;
+  /**
+   * @example
+   * running
+   */
   activityInstanceStatus?: string;
+  /**
+   * @example
+   * activity-124
+   */
   activityName?: string;
+  /**
+   * @example
+   * redirect task
+   */
   activityNameEn?: string;
+  /**
+   * @example
+   * 12345
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -33641,28 +46349,112 @@ export class GetMeCorpSubmissionResponseBodyData extends $tea.Model {
   actioner?: GetMeCorpSubmissionResponseBodyDataActioner[];
   actionerId?: string[];
   actionerName?: string[];
+  /**
+   * @example
+   * APP_PBKT0xxx
+   */
   appType?: string;
+  /**
+   * @example
+   * 2021-01-01
+   */
   createTimeGMT?: string;
   currentActivityInstances?: GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances[];
   dataMap?: { [key: string]: any };
+  /**
+   * @example
+   * edit
+   */
   dataType?: string;
+  /**
+   * @example
+   * 2021-01-01
+   */
   finishTimeGMT?: string;
+  /**
+   * @example
+   * FINST-NJYJxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * FORM-EF6xxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * 符合宜搭表单实例格式的json数据
+   */
   instanceValue?: string;
+  /**
+   * @example
+   * 2021-01-01
+   */
   modifiedTimeGMT?: string;
+  /**
+   * @example
+   * zhangsan@mediaId
+   */
   originatorAvatar?: string;
+  /**
+   * @example
+   * 张三
+   */
   originatorDisplayName?: string;
+  /**
+   * @example
+   * manager123
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 同意
+   */
   processApprovedResult?: string;
+  /**
+   * @example
+   * 通过
+   */
   processApprovedResultText?: string;
+  /**
+   * @example
+   * TPROC--X1Gxxx
+   */
   processCode?: string;
+  /**
+   * @example
+   * 52330
+   */
   processId?: number;
+  /**
+   * @example
+   * f30233fb-72e1-xxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * finished
+   */
   processInstanceStatus?: string;
+  /**
+   * @example
+   * 已同意
+   */
   processInstanceStatusText?: string;
+  /**
+   * @example
+   * 小红的单子
+   */
   processName?: string;
+  /**
+   * @example
+   * 小红发起的请购单
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -33732,6 +46524,13 @@ export class GetMeCorpSubmissionResponseBodyData extends $tea.Model {
 }
 
 export class GetMeetingRoomsScheduleHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33751,7 +46550,15 @@ export class GetMeetingRoomsScheduleHeadersAccountContext extends $tea.Model {
 }
 
 export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-02T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33773,6 +46580,10 @@ export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems
 }
 
 export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33792,7 +46603,15 @@ export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems
 }
 
 export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-02T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33815,9 +46634,17 @@ export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems
 
 export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems extends $tea.Model {
   end?: GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd;
+  /**
+   * @example
+   * UzZvxxxxx
+   */
   eventId?: string;
   organizer?: GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer;
   start?: GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart;
+  /**
+   * @example
+   * BUSY
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33845,7 +46672,15 @@ export class GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems
 }
 
 export class GetMeetingRoomsScheduleResponseBodyScheduleInformation extends $tea.Model {
+  /**
+   * @example
+   * 无权限
+   */
   error?: string;
+  /**
+   * @example
+   * 4002f89xxxxx
+   */
   roomId?: string;
   scheduleItems?: GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems[];
   static names(): { [key: string]: string } {
@@ -33870,6 +46705,13 @@ export class GetMeetingRoomsScheduleResponseBodyScheduleInformation extends $tea
 }
 
 export class GetMineWorkspaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33889,6 +46731,10 @@ export class GetMineWorkspaceHeadersAccountContext extends $tea.Model {
 }
 
 export class GetMineWorkspaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33908,7 +46754,15 @@ export class GetMineWorkspaceRequestTenantContext extends $tea.Model {
 }
 
 export class GetMineWorkspaceResponseBodyWorkspaceIcon extends $tea.Model {
+  /**
+   * @example
+   * URL
+   */
   type?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/avatar3.jpg
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33930,20 +46784,76 @@ export class GetMineWorkspaceResponseBodyWorkspaceIcon extends $tea.Model {
 }
 
 export class GetMineWorkspaceResponseBodyWorkspace extends $tea.Model {
+  /**
+   * @example
+   * ding16b241fd05********288
+   */
   corpId?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/XXXX.jpg
+   */
   cover?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * workspace_description
+   */
   description?: string;
   icon?: GetMineWorkspaceResponseBodyWorkspaceIcon;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * workspace_name
+   */
   name?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   rootNodeId?: string;
+  /**
+   * @example
+   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
+  /**
+   * @example
+   * TEAM
+   */
   type?: string;
+  /**
+   * @example
+   * workspace_url
+   */
   url?: string;
+  /**
+   * @example
+   * 9r09jSO3WARyxd8A
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33990,7 +46900,151 @@ export class GetMineWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class GetMultipartFileUploadInfosHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosRequestOption extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  preferIntranet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      preferIntranet: 'PreferIntranet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preferIntranet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo extends $tea.Model {
+  /**
+   * @example
+   * 900
+   */
+  expirationSeconds?: number;
+  headers?: { [key: string]: string };
+  internalResourceUrls?: string[];
+  /**
+   * @example
+   * ZHANGJIAKOU
+   */
+  region?: string;
+  resourceUrls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      expirationSeconds: 'ExpirationSeconds',
+      headers: 'Headers',
+      internalResourceUrls: 'InternalResourceUrls',
+      region: 'Region',
+      resourceUrls: 'ResourceUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationSeconds: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      internalResourceUrls: { 'type': 'array', 'itemType': 'string' },
+      region: 'string',
+      resourceUrls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos extends $tea.Model {
+  headerSignatureInfo?: GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo;
+  /**
+   * @example
+   * 1
+   */
+  partNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headerSignatureInfo: 'HeaderSignatureInfo',
+      partNumber: 'PartNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerSignatureInfo: GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo,
+      partNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNewestInnerGroupsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34010,8 +47064,20 @@ export class GetNewestInnerGroupsHeadersAccountContext extends $tea.Model {
 }
 
 export class GetNewestInnerGroupsResponseBodyGroupInfos extends $tea.Model {
+  /**
+   * @example
+   * @lADOADma*****QKA
+   */
   icon?: string;
+  /**
+   * @example
+   * 10
+   */
   memberAmount?: string;
+  /**
+   * @example
+   * cid1e******==
+   */
   openConversationId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -34038,6 +47104,13 @@ export class GetNewestInnerGroupsResponseBodyGroupInfos extends $tea.Model {
 }
 
 export class GetNodeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34057,6 +47130,10 @@ export class GetNodeHeadersAccountContext extends $tea.Model {
 }
 
 export class GetNodeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34076,6 +47153,10 @@ export class GetNodeRequestTenantContext extends $tea.Model {
 }
 
 export class GetNodeResponseBodyNodeStatisticalInfo extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34095,20 +47176,76 @@ export class GetNodeResponseBodyNodeStatisticalInfo extends $tea.Model {
 }
 
 export class GetNodeResponseBodyNode extends $tea.Model {
+  /**
+   * @example
+   * ALIDOC
+   */
   category?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * adoc
+   */
   extension?: string;
+  /**
+   * @example
+   * true
+   */
   hasChildren?: boolean;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * node_name
+   */
   name?: string;
+  /**
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   nodeId?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * 123123
+   */
   size?: number;
   statisticalInfo?: GetNodeResponseBodyNodeStatisticalInfo;
+  /**
+   * @example
+   * FILE
+   */
   type?: string;
+  /**
+   * @example
+   * node_url
+   */
   url?: string;
+  /**
+   * @example
+   * By8jQS1ZYjGn5b0M
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34156,6 +47293,13 @@ export class GetNodeResponseBodyNode extends $tea.Model {
 }
 
 export class GetNodeByUrlHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34175,7 +47319,15 @@ export class GetNodeByUrlHeadersAccountContext extends $tea.Model {
 }
 
 export class GetNodeByUrlRequestOption extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   withPermissionRole?: boolean;
+  /**
+   * @example
+   * false
+   */
   withStatisticalInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -34197,6 +47349,10 @@ export class GetNodeByUrlRequestOption extends $tea.Model {
 }
 
 export class GetNodeByUrlRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34216,6 +47372,10 @@ export class GetNodeByUrlRequestTenantContext extends $tea.Model {
 }
 
 export class GetNodeByUrlResponseBodyNodeStatisticalInfo extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34235,20 +47395,76 @@ export class GetNodeByUrlResponseBodyNodeStatisticalInfo extends $tea.Model {
 }
 
 export class GetNodeByUrlResponseBodyNode extends $tea.Model {
+  /**
+   * @example
+   * ALIDOC
+   */
   category?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * adoc
+   */
   extension?: string;
+  /**
+   * @example
+   * false
+   */
   hasChildren?: boolean;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * node_name
+   */
   name?: string;
+  /**
+   * @example
+   * EpGBa2Lm8aRmzkkNhplMx1prWgN7R35y
+   */
   nodeId?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * 512
+   */
   size?: number;
   statisticalInfo?: GetNodeByUrlResponseBodyNodeStatisticalInfo;
+  /**
+   * @example
+   * FILE
+   */
   type?: string;
+  /**
+   * @example
+   * node_url
+   */
   url?: string;
+  /**
+   * @example
+   * By8jQS1ZYjGn5b0M
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34296,6 +47512,13 @@ export class GetNodeByUrlResponseBodyNode extends $tea.Model {
 }
 
 export class GetNodesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34315,7 +47538,15 @@ export class GetNodesHeadersAccountContext extends $tea.Model {
 }
 
 export class GetNodesRequestOption extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   withPermissionRole?: boolean;
+  /**
+   * @example
+   * false
+   */
   withStatisticalInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -34337,6 +47568,10 @@ export class GetNodesRequestOption extends $tea.Model {
 }
 
 export class GetNodesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34356,6 +47591,10 @@ export class GetNodesRequestTenantContext extends $tea.Model {
 }
 
 export class GetNodesResponseBodyNodesStatisticalInfo extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34375,20 +47614,76 @@ export class GetNodesResponseBodyNodesStatisticalInfo extends $tea.Model {
 }
 
 export class GetNodesResponseBodyNodes extends $tea.Model {
+  /**
+   * @example
+   * ALIDOC
+   */
   category?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * adoc
+   */
   extension?: string;
+  /**
+   * @example
+   * false
+   */
   hasChildren?: boolean;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * node_name
+   */
   name?: string;
+  /**
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   nodeId?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * 512
+   */
   size?: number;
   statisticalInfo?: GetNodesResponseBodyNodesStatisticalInfo;
+  /**
+   * @example
+   * FILE
+   */
   type?: string;
+  /**
+   * @example
+   * node_url
+   */
   url?: string;
+  /**
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34436,6 +47731,13 @@ export class GetNodesResponseBodyNodes extends $tea.Model {
 }
 
 export class GetNotifyMeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34455,14 +47757,50 @@ export class GetNotifyMeHeadersAccountContext extends $tea.Model {
 }
 
 export class GetNotifyMeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * act-xxaanfaf
+   */
   activityId?: string;
+  /**
+   * @example
+   * APP_XCxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * corpIdxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 123456
+   */
   creatorUserId?: string;
+  /**
+   * @example
+   * formxxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instStatus?: string;
+  /**
+   * @example
+   * mobileUrlexample
+   */
   mobileUrl?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   modifiedTimeGMT?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34498,6 +47836,13 @@ export class GetNotifyMeResponseBodyData extends $tea.Model {
 }
 
 export class GetOpenUrlHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34517,6 +47862,13 @@ export class GetOpenUrlHeadersAccountContext extends $tea.Model {
 }
 
 export class GetOperationRecordsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34536,29 +47888,125 @@ export class GetOperationRecordsHeadersAccountContext extends $tea.Model {
 }
 
 export class GetOperationRecordsResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * return
+   */
   action?: string;
+  /**
+   * @example
+   * 同意
+   */
   actionExit?: string;
+  /**
+   * @example
+   * 2021-02-01
+   */
   activeTimeGMT?: string;
+  /**
+   * @example
+   * act-xxaanfaf
+   */
   activityId?: string;
+  /**
+   * @example
+   * 12345
+   */
   dataId?: number;
+  /**
+   * @example
+   * https://oss.com/Signature.pdf
+   */
   digitalSign?: string;
+  /**
+   * @example
+   * https://oss.com/a.pdf
+   */
   files?: string;
+  /**
+   * @example
+   * 2021-01-01
+   */
   operateTimeGMT?: string;
+  /**
+   * @example
+   * remove
+   */
   operateType?: string;
+  /**
+   * @example
+   * 张三
+   */
   operatorDisplayName?: string;
+  /**
+   * @example
+   * 李四
+   */
   operatorName?: string;
+  /**
+   * @example
+   * 无冬
+   */
   operatorNickName?: string;
+  /**
+   * @example
+   * https://oss.com/a.jpeg
+   */
   operatorPhotoUrl?: string;
+  /**
+   * @example
+   * 良好
+   */
   operatorStatus?: string;
+  /**
+   * @example
+   * manager123
+   */
   operatorUserId?: string;
+  /**
+   * @example
+   * f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 确认同意
+   */
   remark?: string;
+  /**
+   * @example
+   * 请购类型
+   */
   showName?: string;
+  /**
+   * @example
+   * 12
+   */
   size?: number;
+  /**
+   * @example
+   * 同步
+   */
   taskExecuteType?: string;
+  /**
+   * @example
+   * 2021-01-01
+   */
   taskHoldTimeGMT?: number;
+  /**
+   * @example
+   * task-123
+   */
   taskId?: string;
+  /**
+   * @example
+   * append task
+   */
   taskType?: string;
+  /**
+   * @example
+   * i18n
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34624,6 +48072,13 @@ export class GetOperationRecordsResponseBodyResult extends $tea.Model {
 }
 
 export class GetProcessDefinitionHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34643,13 +48098,45 @@ export class GetProcessDefinitionHeadersAccountContext extends $tea.Model {
 }
 
 export class GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   deptName?: string;
+  /**
+   * @example
+   * development department
+   */
   deptNameInEnglish?: string;
+  /**
+   * @example
+   * develop-A
+   */
   deptNo?: string;
+  /**
+   * @example
+   * 总部-开发部
+   */
   deptPath?: string;
+  /**
+   * @example
+   * xxafafaf
+   */
   humanSourceGroupOrderNumber?: string;
+  /**
+   * @example
+   * 123311221
+   */
   humanSourceGroupWorkNo?: string;
+  /**
+   * @example
+   * 12345
+   */
   id?: number;
+  /**
+   * @example
+   * 1732245789
+   */
   masterWorkNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34683,15 +48170,51 @@ export class GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments ext
 }
 
 export class GetProcessDefinitionResponseBodyOriginator extends $tea.Model {
+  /**
+   * @example
+   * 开发部成立于2000年
+   */
   departmentDescription?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   displayEnName?: string;
+  /**
+   * @example
+   * 测试应用
+   */
   displayName?: string;
   masterDataDepartments?: GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments[];
+  /**
+   * @example
+   * o-YDJKINSxxx
+   */
   orderNumber?: string;
+  /**
+   * @example
+   * https://abc.com/a.png
+   */
   personalPhoto?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * wang123
+   */
   tbWang?: string;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34729,13 +48252,45 @@ export class GetProcessDefinitionResponseBodyOriginator extends $tea.Model {
 }
 
 export class GetProcessDefinitionResponseBodyOwnersMasterDataDepartments extends $tea.Model {
+  /**
+   * @example
+   * 开发部
+   */
   deptName?: string;
+  /**
+   * @example
+   * development department
+   */
   deptNameInEnglish?: string;
+  /**
+   * @example
+   * develop-A
+   */
   deptNo?: string;
+  /**
+   * @example
+   * 总部-开发部
+   */
   deptPath?: string;
+  /**
+   * @example
+   * xxafafaf
+   */
   humanSourceGroupOrderNumber?: string;
+  /**
+   * @example
+   * 123311221
+   */
   humanSourceGroupWorkNo?: string;
+  /**
+   * @example
+   * 12345
+   */
   id?: number;
+  /**
+   * @example
+   * 1732245789
+   */
   masterWorkNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34769,15 +48324,51 @@ export class GetProcessDefinitionResponseBodyOwnersMasterDataDepartments extends
 }
 
 export class GetProcessDefinitionResponseBodyOwners extends $tea.Model {
+  /**
+   * @example
+   * 开发部成立于2000年
+   */
   departmentDescription?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   displayEnName?: string;
+  /**
+   * @example
+   * 测试应用
+   */
   displayName?: string;
   masterDataDepartments?: GetProcessDefinitionResponseBodyOwnersMasterDataDepartments[];
+  /**
+   * @example
+   * o-YDJKINSxxx
+   */
   orderNumber?: string;
+  /**
+   * @example
+   * https://abc.com/a.png
+   */
   personalPhoto?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * wang123
+   */
   tbWang?: string;
+  /**
+   * @example
+   * manager123
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34815,10 +48406,30 @@ export class GetProcessDefinitionResponseBodyOwners extends $tea.Model {
 }
 
 export class GetProcessDefinitionResponseBodyTasksActivity extends $tea.Model {
+  /**
+   * @example
+   * act-xxaanfaf
+   */
   activityId?: string;
+  /**
+   * @example
+   * running
+   */
   activityInstanceStatus?: string;
+  /**
+   * @example
+   * activity-124
+   */
   activityName?: string;
+  /**
+   * @example
+   * redirect task
+   */
   activityNameInEnglish?: string;
+  /**
+   * @example
+   * 12345
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34846,9 +48457,21 @@ export class GetProcessDefinitionResponseBodyTasksActivity extends $tea.Model {
 }
 
 export class GetProcessDefinitionResponseBodyTasks extends $tea.Model {
+  /**
+   * @example
+   * manager123
+   */
   actionerId?: string;
   activity?: GetProcessDefinitionResponseBodyTasksActivity;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * 792
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34874,6 +48497,10 @@ export class GetProcessDefinitionResponseBodyTasks extends $tea.Model {
 }
 
 export class GetRangeHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34893,6 +48520,10 @@ export class GetRangeHeadersAccountContext extends $tea.Model {
 }
 
 export class GetRangeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34912,9 +48543,37 @@ export class GetRangeRequestTenantContext extends $tea.Model {
 }
 
 export class GetRangeResponseBodyBackgroundColors extends $tea.Model {
+  /**
+   * @remarks
+   * red
+   * 
+   * @example
+   * 0
+   */
   red?: number;
+  /**
+   * @remarks
+   * green
+   * 
+   * @example
+   * 0
+   */
   green?: number;
+  /**
+   * @remarks
+   * blue
+   * 
+   * @example
+   * 0
+   */
   blue?: number;
+  /**
+   * @remarks
+   * hexString
+   * 
+   * @example
+   * #000000
+   */
   hexString?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34940,6 +48599,13 @@ export class GetRangeResponseBodyBackgroundColors extends $tea.Model {
 }
 
 export class GetRelatedWorkspacesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34959,6 +48625,10 @@ export class GetRelatedWorkspacesHeadersAccountContext extends $tea.Model {
 }
 
 export class GetRelatedWorkspacesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34978,9 +48648,25 @@ export class GetRelatedWorkspacesRequestTenantContext extends $tea.Model {
 }
 
 export class GetRelatedWorkspacesResponseBodyWorkspacesRecentList extends $tea.Model {
+  /**
+   * @example
+   * 1638256965936
+   */
   lastEditTime?: number;
+  /**
+   * @example
+   * 知识库
+   */
   name?: string;
+  /**
+   * @example
+   * nb9XxxxxxxmyAp
+   */
   nodeId?: string;
+  /**
+   * @example
+   * https://alidocs.xxxx/nb9XJKdxxxxmyAp
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35006,13 +48692,41 @@ export class GetRelatedWorkspacesResponseBodyWorkspacesRecentList extends $tea.M
 }
 
 export class GetRelatedWorkspacesResponseBodyWorkspaces extends $tea.Model {
+  /**
+   * @example
+   * 1638256965936
+   */
   createTime?: number;
+  /**
+   * @example
+   * false
+   */
   deleted?: boolean;
+  /**
+   * @example
+   * 知识库
+   */
   name?: string;
+  /**
+   * @example
+   * Q2xwPOKiSLxxxx
+   */
   owner?: string;
   recentList?: GetRelatedWorkspacesResponseBodyWorkspacesRecentList[];
+  /**
+   * @example
+   * OWNER
+   */
   role?: string;
+  /**
+   * @example
+   * https://alidocs.xxxx/nb9XJKdxxxxmyAp/docs/nb9XxxxxxxmyAp
+   */
   url?: string;
+  /**
+   * @example
+   * nb9XJKdxxxxmyAp
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35046,6 +48760,13 @@ export class GetRelatedWorkspacesResponseBodyWorkspaces extends $tea.Model {
 }
 
 export class GetReportTemplateByNameHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35065,6 +48786,10 @@ export class GetReportTemplateByNameHeadersAccountContext extends $tea.Model {
 }
 
 export class GetReportTemplateByNameRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35084,6 +48809,10 @@ export class GetReportTemplateByNameRequestTenantContext extends $tea.Model {
 }
 
 export class GetReportTemplateByNameResponseBodyDefaultReceivedConvs extends $tea.Model {
+  /**
+   * @example
+   * cid12334##2341
+   */
   conversationId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -35107,6 +48836,10 @@ export class GetReportTemplateByNameResponseBodyDefaultReceivedConvs extends $te
 
 export class GetReportTemplateByNameResponseBodyDefaultReceivers extends $tea.Model {
   userName?: string;
+  /**
+   * @example
+   * 1234
+   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35128,8 +48861,20 @@ export class GetReportTemplateByNameResponseBodyDefaultReceivers extends $tea.Mo
 }
 
 export class GetReportTemplateByNameResponseBodyFields extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
   fieldName?: string;
+  /**
+   * @example
+   * 0
+   */
   sort?: number;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35153,6 +48898,10 @@ export class GetReportTemplateByNameResponseBodyFields extends $tea.Model {
 }
 
 export class GetReportUnReadCountHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35172,6 +48921,10 @@ export class GetReportUnReadCountHeadersAccountContext extends $tea.Model {
 }
 
 export class GetReportUnReadCountRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35191,6 +48944,13 @@ export class GetReportUnReadCountRequestTenantContext extends $tea.Model {
 }
 
 export class GetRunningTasksHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35210,17 +48970,65 @@ export class GetRunningTasksHeadersAccountContext extends $tea.Model {
 }
 
 export class GetRunningTasksResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   activeTimeGMT?: string;
+  /**
+   * @example
+   * act-xxaanfaf
+   */
   activityId?: string;
+  /**
+   * @example
+   * 123456
+   */
   actualActionerId?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   finishTimeGMT?: string;
+  /**
+   * @example
+   * 123456
+   */
   originatorId?: string;
+  /**
+   * @example
+   * instancexxxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * taskId
+   */
   taskId?: string;
+  /**
+   * @example
+   * append task
+   */
   taskType?: string;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
+  /**
+   * @example
+   * title
+   */
   titleInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35261,7 +49069,196 @@ export class GetRunningTasksResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetScheduleHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleResponseBodyScheduleInformationScheduleItemsEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
+  date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      dateTime: 'DateTime',
+      timeZone: 'TimeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      dateTime: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleResponseBodyScheduleInformationScheduleItemsStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
+  date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      dateTime: 'DateTime',
+      timeZone: 'TimeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      dateTime: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleResponseBodyScheduleInformationScheduleItems extends $tea.Model {
+  end?: GetScheduleResponseBodyScheduleInformationScheduleItemsEnd;
+  start?: GetScheduleResponseBodyScheduleInformationScheduleItemsStart;
+  /**
+   * @example
+   * BUSY
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: GetScheduleResponseBodyScheduleInformationScheduleItemsEnd,
+      start: GetScheduleResponseBodyScheduleInformationScheduleItemsStart,
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScheduleResponseBodyScheduleInformation extends $tea.Model {
+  /**
+   * @example
+   * 无权限
+   */
+  error?: string;
+  scheduleItems?: GetScheduleResponseBodyScheduleInformationScheduleItems[];
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      error: 'Error',
+      scheduleItems: 'ScheduleItems',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      error: 'string',
+      scheduleItems: { 'type': 'array', 'itemType': GetScheduleResponseBodyScheduleInformationScheduleItems },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSheetHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35281,6 +49278,10 @@ export class GetSheetHeadersAccountContext extends $tea.Model {
 }
 
 export class GetSheetRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35300,6 +49301,13 @@ export class GetSheetRequestTenantContext extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35319,6 +49327,10 @@ export class GetSpaceDirectoriesHeadersAccountContext extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35338,7 +49350,15 @@ export class GetSpaceDirectoriesRequestTenantContext extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenCreator extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35360,7 +49380,15 @@ export class GetSpaceDirectoriesResponseBodyChildrenCreator extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfoIconUrl extends $tea.Model {
+  /**
+   * @example
+   * gh
+   */
   line?: string;
+  /**
+   * @example
+   * def
+   */
   small?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35382,10 +49410,26 @@ export class GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfoIconUrl extend
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfo extends $tea.Model {
+  /**
+   * @example
+   * docx
+   */
   extension?: string;
   iconUrl?: GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfoIconUrl;
+  /**
+   * @example
+   * def
+   */
   id?: string;
+  /**
+   * @example
+   * 0
+   */
   linkType?: number;
+  /**
+   * @example
+   * def
+   */
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35413,7 +49457,15 @@ export class GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfo extends $tea.
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpaceHdIconVO extends $tea.Model {
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i1/xxxxx.png
+   */
   icon?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35435,7 +49487,15 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpaceHdIconVO extends $tea.M
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpaceIconVO extends $tea.Model {
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i1/xxxxx.png
+   */
   icon?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35457,7 +49517,15 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpaceIconVO extends $tea.Mod
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpaceOwner extends $tea.Model {
+  /**
+   * @example
+   * 小钉
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35479,8 +49547,20 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpaceOwner extends $tea.Mode
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpaceVisitorInfo extends $tea.Model {
+  /**
+   * @example
+   * GET_DENTRY
+   */
   dentryActions?: string[];
+  /**
+   * @example
+   * 3
+   */
   roleCode?: string;
+  /**
+   * @example
+   * GET_SPACE
+   */
   spaceActions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35504,15 +49584,39 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpaceVisitorInfo extends $te
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenSpace extends $tea.Model {
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i1/O1xxxxx.png
+   */
   cover?: string;
+  /**
+   * @example
+   * 这是简介
+   */
   description?: string;
   hdIconVO?: GetSpaceDirectoriesResponseBodyChildrenSpaceHdIconVO;
   iconVO?: GetSpaceDirectoriesResponseBodyChildrenSpaceIconVO;
+  /**
+   * @example
+   * n9XJxxxxx
+   */
   id?: string;
   name?: string;
+  /**
+   * @example
+   * 测试知识库
+   */
   owner?: GetSpaceDirectoriesResponseBodyChildrenSpaceOwner;
   recentList?: any[];
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * https://alidocs.dingtalk.com/i/spaces/n9XJ*******Xy/overview
+   */
   url?: string;
   visitorInfo?: GetSpaceDirectoriesResponseBodyChildrenSpaceVisitorInfo;
   static names(): { [key: string]: string } {
@@ -35553,6 +49657,13 @@ export class GetSpaceDirectoriesResponseBodyChildrenSpace extends $tea.Model {
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenStatisticalInfo extends $tea.Model {
+  /**
+   * @remarks
+   * WordCount
+   * 
+   * @example
+   * 10
+   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35572,7 +49683,15 @@ export class GetSpaceDirectoriesResponseBodyChildrenStatisticalInfo extends $tea
 }
 
 export class GetSpaceDirectoriesResponseBodyChildrenUpdater extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35595,6 +49714,10 @@ export class GetSpaceDirectoriesResponseBodyChildrenUpdater extends $tea.Model {
 
 export class GetSpaceDirectoriesResponseBodyChildrenVisitorInfo extends $tea.Model {
   dentryActions?: string[];
+  /**
+   * @example
+   * OWNER
+   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -35619,23 +49742,75 @@ export class GetSpaceDirectoriesResponseBodyChildrenVisitorInfo extends $tea.Mod
 }
 
 export class GetSpaceDirectoriesResponseBodyChildren extends $tea.Model {
+  /**
+   * @example
+   * alidoc
+   */
   contentType?: string;
+  /**
+   * @example
+   * 12345678
+   */
   createdTime?: number;
   creator?: GetSpaceDirectoriesResponseBodyChildrenCreator;
+  /**
+   * @example
+   * abc
+   */
   dentryId?: string;
+  /**
+   * @example
+   * file
+   */
   dentryType?: string;
+  /**
+   * @example
+   * cdefg
+   */
   dentryUuid?: string;
+  /**
+   * @example
+   * aabbcc
+   */
   docKey?: string;
+  /**
+   * @example
+   * alidoc
+   */
   extension?: string;
+  /**
+   * @example
+   * false
+   */
   hasChildren?: boolean;
   linkSourceInfo?: GetSpaceDirectoriesResponseBodyChildrenLinkSourceInfo;
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 测试组织/测试知识库/abc
+   */
   path?: string;
   space?: GetSpaceDirectoriesResponseBodyChildrenSpace;
+  /**
+   * @example
+   * bcd
+   */
   spaceId?: string;
   statisticalInfo?: GetSpaceDirectoriesResponseBodyChildrenStatisticalInfo;
+  /**
+   * @example
+   * 12345678
+   */
   updatedTime?: number;
   updater?: GetSpaceDirectoriesResponseBodyChildrenUpdater;
+  /**
+   * @example
+   * https://xxx.yy
+   */
   url?: string;
   visitorInfo?: GetSpaceDirectoriesResponseBodyChildrenVisitorInfo;
   static names(): { [key: string]: string } {
@@ -35692,6 +49867,13 @@ export class GetSpaceDirectoriesResponseBodyChildren extends $tea.Model {
 }
 
 export class GetSubscribedCalendarHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35736,6 +49918,13 @@ export class GetSubscribedCalendarResponseBodySubscribeScope extends $tea.Model 
 }
 
 export class GetTaskCopiesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35755,10 +49944,30 @@ export class GetTaskCopiesHeadersAccountContext extends $tea.Model {
 }
 
 export class GetTaskCopiesResponseBodyDataCurrentActivityInstances extends $tea.Model {
+  /**
+   * @example
+   * act-xxaanfaf
+   */
   activityId?: string;
+  /**
+   * @example
+   * running
+   */
   activityInstanceStatus?: string;
+  /**
+   * @example
+   * act-12345
+   */
   activityName?: string;
+  /**
+   * @example
+   * redirect task
+   */
   activityNameInEnglish?: string;
+  /**
+   * @example
+   * 12345
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35786,32 +49995,140 @@ export class GetTaskCopiesResponseBodyDataCurrentActivityInstances extends $tea.
 }
 
 export class GetTaskCopiesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * [ "actxxx" ]
+   */
   actionExecutorId?: string[];
+  /**
+   * @example
+   * [ "name" ]
+   */
   actionExecutorName?: string[];
+  /**
+   * @example
+   * APP_XCxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * g02fbs08xxx
+   */
   carbonActivityId?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * []
+   */
   currentActivityInstances?: GetTaskCopiesResponseBodyDataCurrentActivityInstances[];
+  /**
+   * @example
+   * {}
+   */
   dataMap?: { [key: string]: any };
+  /**
+   * @example
+   * edit
+   */
   dataType?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   finishTimeGMT?: string;
+  /**
+   * @example
+   * formxxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * uuid
+   */
   formUuid?: string;
+  /**
+   * @example
+   * value
+   */
   instanceValue?: string;
+  /**
+   * @example
+   * 2020-01-01
+   */
   modifiedTimeGMT?: string;
+  /**
+   * @example
+   * guyagsd
+   */
   originatorAvatar?: string;
+  /**
+   * @example
+   * guyagsd
+   */
   originatorDisplayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   originatorId?: string;
+  /**
+   * @example
+   * 同意
+   */
   processApprovedResult?: string;
+  /**
+   * @example
+   * 同意
+   */
   processApprovedResultText?: string;
+  /**
+   * @example
+   * code
+   */
   processCode?: string;
+  /**
+   * @example
+   * processxxxx
+   */
   processId?: number;
+  /**
+   * @example
+   * instancexxxx
+   */
   processInstanceId?: string;
+  /**
+   * @example
+   * 同意
+   */
   processInstanceStatus?: string;
+  /**
+   * @example
+   * 同意
+   */
   processInstanceStatusText?: string;
+  /**
+   * @example
+   * 名称
+   */
   processName?: string;
+  /**
+   * @example
+   * 12345
+   */
   serialNumber?: string;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
+  /**
+   * @example
+   * 1.0
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35883,6 +50200,13 @@ export class GetTaskCopiesResponseBodyData extends $tea.Model {
 }
 
 export class GetTemplateListByUserIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35902,6 +50226,10 @@ export class GetTemplateListByUserIdHeadersAccountContext extends $tea.Model {
 }
 
 export class GetTemplateListByUserIdRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35923,7 +50251,15 @@ export class GetTemplateListByUserIdRequestTenantContext extends $tea.Model {
 export class GetTemplateListByUserIdResponseBodyTemplateList extends $tea.Model {
   iconUrl?: string;
   name?: string;
+  /**
+   * @example
+   * 11111
+   */
   reportCode?: string;
+  /**
+   * @example
+   * https://scsss/sss
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35949,6 +50285,10 @@ export class GetTemplateListByUserIdResponseBodyTemplateList extends $tea.Model 
 }
 
 export class GetUserHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35968,6 +50308,10 @@ export class GetUserHeadersAccountContext extends $tea.Model {
 }
 
 export class GetUserRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36031,8 +50375,16 @@ export class GetUserResponseBodyLeaderInDept extends $tea.Model {
 }
 
 export class GetUserResponseBodyRoleList extends $tea.Model {
+  /**
+   * @example
+   * 职务
+   */
   groupName?: string;
   id?: number;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36056,7 +50408,15 @@ export class GetUserResponseBodyRoleList extends $tea.Model {
 }
 
 export class GetUserResponseBodyUnionEmpExtUnionEmpMapList extends $tea.Model {
+  /**
+   * @example
+   * dingxxx
+   */
   cropId?: string;
+  /**
+   * @example
+   * zhangsan
+   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36078,8 +50438,16 @@ export class GetUserResponseBodyUnionEmpExtUnionEmpMapList extends $tea.Model {
 }
 
 export class GetUserResponseBodyUnionEmpExt extends $tea.Model {
+  /**
+   * @example
+   * dingxxx
+   */
   corpId?: string;
   unionEmpMapList?: GetUserResponseBodyUnionEmpExtUnionEmpMapList[];
+  /**
+   * @example
+   * zhangsan
+   */
   userid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36103,6 +50471,13 @@ export class GetUserResponseBodyUnionEmpExt extends $tea.Model {
 }
 
 export class GetUserLatestPlanHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36122,6 +50497,10 @@ export class GetUserLatestPlanHeadersAccountContext extends $tea.Model {
 }
 
 export class GetUserLatestPlanRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36141,6 +50520,13 @@ export class GetUserLatestPlanRequestTenantContext extends $tea.Model {
 }
 
 export class GetWorkspaceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36160,6 +50546,10 @@ export class GetWorkspaceHeadersAccountContext extends $tea.Model {
 }
 
 export class GetWorkspaceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36179,7 +50569,15 @@ export class GetWorkspaceRequestTenantContext extends $tea.Model {
 }
 
 export class GetWorkspaceResponseBodyWorkspaceIcon extends $tea.Model {
+  /**
+   * @example
+   * URL
+   */
   type?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/avatar3.jpg
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36201,20 +50599,76 @@ export class GetWorkspaceResponseBodyWorkspaceIcon extends $tea.Model {
 }
 
 export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
+  /**
+   * @example
+   * ding16b241fd05********288
+   */
   corpId?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/XXXX.jpg
+   */
   cover?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * workspace_description
+   */
   description?: string;
   icon?: GetWorkspaceResponseBodyWorkspaceIcon;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * workspace_name
+   */
   name?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * ydxXB52LJqqK7xxNTXyo390kJqjMp697
+   */
   rootNodeId?: string;
+  /**
+   * @example
+   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
+  /**
+   * @example
+   * TEAM
+   */
   type?: string;
+  /**
+   * @example
+   * workspace_url
+   */
   url?: string;
+  /**
+   * @example
+   * MJ0pDSKMV9dO20E4
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36262,6 +50716,13 @@ export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
 }
 
 export class GetWorkspacesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36281,6 +50742,10 @@ export class GetWorkspacesHeadersAccountContext extends $tea.Model {
 }
 
 export class GetWorkspacesRequestOption extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   withPermissionRole?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -36300,6 +50765,10 @@ export class GetWorkspacesRequestOption extends $tea.Model {
 }
 
 export class GetWorkspacesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36319,7 +50788,15 @@ export class GetWorkspacesRequestTenantContext extends $tea.Model {
 }
 
 export class GetWorkspacesResponseBodyWorkspaceIcon extends $tea.Model {
+  /**
+   * @example
+   * URL
+   */
   type?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/avatar3.jpg
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36341,20 +50818,76 @@ export class GetWorkspacesResponseBodyWorkspaceIcon extends $tea.Model {
 }
 
 export class GetWorkspacesResponseBodyWorkspace extends $tea.Model {
+  /**
+   * @example
+   * ding16b241fd05********288
+   */
   corpId?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/XXXX.jpg
+   */
   cover?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * workspace_description
+   */
   description?: string;
   icon?: GetWorkspacesResponseBodyWorkspaceIcon;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * workspace_name
+   */
   name?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * ZgpG2NdyVXXjrKKzIBqMp5zkVMwvDqPk
+   */
   rootNodeId?: string;
+  /**
+   * @example
+   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
+  /**
+   * @example
+   * TEAM
+   */
   type?: string;
+  /**
+   * @example
+   * workspace_url
+   */
   url?: string;
+  /**
+   * @example
+   * By8jQS1ZYjGn5b0M
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36402,6 +50935,10 @@ export class GetWorkspacesResponseBodyWorkspace extends $tea.Model {
 }
 
 export class GrantHonorHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36421,6 +50958,136 @@ export class GrantHonorHeadersAccountContext extends $tea.Model {
 }
 
 export class GrantHonorRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadRequestOptionPreCheckParam extends $tea.Model {
+  /**
+   * @example
+   * md5
+   */
+  md5?: string;
+  /**
+   * @example
+   * name
+   */
+  name?: string;
+  /**
+   * @example
+   * 0
+   */
+  parentId?: string;
+  /**
+   * @example
+   * 100
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      md5: 'Md5',
+      name: 'Name',
+      parentId: 'ParentId',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      md5: 'string',
+      name: 'string',
+      parentId: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadRequestOption extends $tea.Model {
+  preCheckParam?: InitMultipartFileUploadRequestOptionPreCheckParam;
+  /**
+   * @example
+   * ZHANGJIAKOU
+   */
+  preferRegion?: string;
+  /**
+   * @example
+   * DINGTALK
+   */
+  storageDriver?: string;
+  static names(): { [key: string]: string } {
+    return {
+      preCheckParam: 'PreCheckParam',
+      preferRegion: 'PreferRegion',
+      storageDriver: 'StorageDriver',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preCheckParam: InitMultipartFileUploadRequestOptionPreCheckParam,
+      preferRegion: 'string',
+      storageDriver: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitMultipartFileUploadRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36440,6 +51107,10 @@ export class GrantHonorRequestTenantContext extends $tea.Model {
 }
 
 export class InsertColumnsBeforeHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36459,6 +51130,10 @@ export class InsertColumnsBeforeHeadersAccountContext extends $tea.Model {
 }
 
 export class InsertColumnsBeforeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36478,6 +51153,10 @@ export class InsertColumnsBeforeRequestTenantContext extends $tea.Model {
 }
 
 export class InsertRowsBeforeHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36497,6 +51176,10 @@ export class InsertRowsBeforeHeadersAccountContext extends $tea.Model {
 }
 
 export class InsertRowsBeforeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36516,6 +51199,13 @@ export class InsertRowsBeforeRequestTenantContext extends $tea.Model {
 }
 
 export class InviteUsersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36535,7 +51225,18 @@ export class InviteUsersHeadersAccountContext extends $tea.Model {
 }
 
 export class InviteUsersRequestInviteeList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试用户
+   */
   nick?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36557,6 +51258,10 @@ export class InviteUsersRequestInviteeList extends $tea.Model {
 }
 
 export class InviteUsersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36576,19 +51281,25 @@ export class InviteUsersRequestTenantContext extends $tea.Model {
 }
 
 export class InviteUsersRequestPhoneInviteeList extends $tea.Model {
+  inviteClient?: boolean;
   nick?: string;
   phoneNumber?: string;
+  statusCode?: string;
   static names(): { [key: string]: string } {
     return {
+      inviteClient: 'InviteClient',
       nick: 'Nick',
       phoneNumber: 'PhoneNumber',
+      statusCode: 'StatusCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      inviteClient: 'boolean',
       nick: 'string',
       phoneNumber: 'string',
+      statusCode: 'string',
     };
   }
 
@@ -36598,6 +51309,13 @@ export class InviteUsersRequestPhoneInviteeList extends $tea.Model {
 }
 
 export class ListApplicationHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36617,15 +51335,55 @@ export class ListApplicationHeadersAccountContext extends $tea.Model {
 }
 
 export class ListApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {\\"ODIN_TOPIC_ID\\":\\"256\\"}
+   */
   appConfig?: string;
+  /**
+   * @example
+   * APP_XCxxx
+   */
   appType?: string;
+  /**
+   * @example
+   * ONLINE
+   */
   applicationStatus?: string;
+  /**
+   * @example
+   * ding5xxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * 123456
+   */
   creatorUserId?: string;
+  /**
+   * @example
+   * 小明创建的宜搭应用
+   */
   description?: string;
+  /**
+   * @example
+   * appdiqiu%%#0089FF
+   */
   icon?: string;
+  /**
+   * @example
+   * y
+   */
   inexistence?: string;
+  /**
+   * @example
+   * app
+   */
   name?: string;
+  /**
+   * @example
+   * ding5xxx
+   */
   subCorpId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36663,6 +51421,13 @@ export class ListApplicationResponseBodyData extends $tea.Model {
 }
 
 export class ListCalendarsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36682,12 +51447,40 @@ export class ListCalendarsHeadersAccountContext extends $tea.Model {
 }
 
 export class ListCalendarsResponseBodyResponseCalendars extends $tea.Model {
+  /**
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @example
+   * 0
+   */
   ETag?: string;
+  /**
+   * @example
+   * cnNTbWxxx
+   */
   id?: string;
+  /**
+   * @example
+   * VIEW_DETAIL
+   */
   privilege?: string;
+  /**
+   * @example
+   * 标题
+   */
   summary?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
+  /**
+   * @example
+   * primary
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36738,6 +51531,13 @@ export class ListCalendarsResponseBodyResponse extends $tea.Model {
 }
 
 export class ListDentriesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36757,6 +51557,10 @@ export class ListDentriesHeadersAccountContext extends $tea.Model {
 }
 
 export class ListDentriesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36776,6 +51580,10 @@ export class ListDentriesRequestTenantContext extends $tea.Model {
 }
 
 export class ListDentriesResponseBodyDentriesProperties extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -36795,8 +51603,20 @@ export class ListDentriesResponseBodyDentriesProperties extends $tea.Model {
 }
 
 export class ListDentriesResponseBodyDentriesThumbnail extends $tea.Model {
+  /**
+   * @example
+   * 64
+   */
   height?: number;
+  /**
+   * @example
+   * url
+   */
   url?: string;
+  /**
+   * @example
+   * 64
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36821,24 +51641,92 @@ export class ListDentriesResponseBodyDentriesThumbnail extends $tea.Model {
 
 export class ListDentriesResponseBodyDentries extends $tea.Model {
   appProperties?: { [key: string]: DentriesAppPropertiesValue[] };
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * cHtUxxxxx
+   */
   creatorId?: string;
+  /**
+   * @example
+   * txt
+   */
   extension?: string;
+  /**
+   * @example
+   * 657xxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * cHtUxxxxx
+   */
   modifierId?: string;
+  /**
+   * @example
+   * 测试文件夹
+   */
   name?: string;
+  /**
+   * @example
+   * 0
+   */
   parentId?: string;
+  /**
+   * @example
+   * PUBLIC_OSS_PARTITION
+   */
   partitionType?: string;
+  /**
+   * @example
+   * ./test.txt
+   */
   path?: string;
   properties?: ListDentriesResponseBodyDentriesProperties;
+  /**
+   * @example
+   * 512
+   */
   size?: number;
+  /**
+   * @example
+   * 854xxxxx
+   */
   spaceId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   status?: string;
+  /**
+   * @example
+   * DINGTALK
+   */
   storageDriver?: string;
   thumbnail?: ListDentriesResponseBodyDentriesThumbnail;
+  /**
+   * @example
+   * FILE
+   */
   type?: string;
+  /**
+   * @example
+   * 123xxxxx
+   */
   uuid?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36896,6 +51784,13 @@ export class ListDentriesResponseBodyDentries extends $tea.Model {
 }
 
 export class ListDriveSpacesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36915,6 +51810,10 @@ export class ListDriveSpacesHeadersAccountContext extends $tea.Model {
 }
 
 export class ListDriveSpacesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36934,13 +51833,41 @@ export class ListDriveSpacesRequestTenantContext extends $tea.Model {
 }
 
 export class ListDriveSpacesResponseBodySpaces extends $tea.Model {
+  /**
+   * @example
+   * 2016-02-28T10:47:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2016-02-28T10:47:08Z
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * acl
+   */
   permissionMode?: string;
+  /**
+   * @example
+   * 2147483648
+   */
   quota?: number;
+  /**
+   * @example
+   * 123456789
+   */
   spaceId?: string;
   spaceName?: string;
+  /**
+   * @example
+   * org
+   */
   spaceType?: string;
+  /**
+   * @example
+   * 640445953
+   */
   usedQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36974,6 +51901,13 @@ export class ListDriveSpacesResponseBodySpaces extends $tea.Model {
 }
 
 export class ListEventsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 208579
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36993,9 +51927,25 @@ export class ListEventsHeadersAccountContext extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsAttendees extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * true
+   */
   isOptional?: boolean;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37040,8 +51990,20 @@ export class ListEventsResponseBodyEventsCategories extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37065,7 +52027,15 @@ export class ListEventsResponseBodyEventsEnd extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsExtendedPropertiesSharedProperties extends $tea.Model {
+  /**
+   * @example
+   * ding*********31
+   */
   belongCorpId?: string;
+  /**
+   * @example
+   * zxcv90asdf123===
+   */
   sourceOpenCid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37106,6 +52076,10 @@ export class ListEventsResponseBodyEventsExtendedProperties extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsLocation extends $tea.Model {
+  /**
+   * @example
+   * room 1-2-3
+   */
   displayName?: string;
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
@@ -37129,7 +52103,15 @@ export class ListEventsResponseBodyEventsLocation extends $tea.Model {
 
 export class ListEventsResponseBodyEventsMeetingRooms extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * c10315a8b4e740a317813ab6fxxxxxx
+   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37153,9 +52135,21 @@ export class ListEventsResponseBodyEventsMeetingRooms extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsOnlineMeetingInfo extends $tea.Model {
+  /**
+   * @example
+   * 5c4df21dxxxx-a6db402b9f3a
+   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
+  /**
+   * @example
+   * dingtalk://dingtalkclient/page/videoCoxxxxndar?confId=5c4df21dxxxx2b9f3a&calendarId=92xxxx36
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37181,8 +52175,20 @@ export class ListEventsResponseBodyEventsOnlineMeetingInfo extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsOrganizer extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37206,6 +52212,10 @@ export class ListEventsResponseBodyEventsOrganizer extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsOriginStart extends $tea.Model {
+  /**
+   * @example
+   * 2023-01-01T00:00:00Z
+   */
   dateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37225,10 +52235,30 @@ export class ListEventsResponseBodyEventsOriginStart extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * sunday
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * first
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * daily
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37256,8 +52286,20 @@ export class ListEventsResponseBodyEventsRecurrencePattern extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 5
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * noEnd
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37303,7 +52345,15 @@ export class ListEventsResponseBodyEventsRecurrence extends $tea.Model {
 }
 
 export class ListEventsResponseBodyEventsReminders extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   method?: string;
+  /**
+   * @example
+   * 15
+   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37344,8 +52394,20 @@ export class ListEventsResponseBodyEventsRichTextDescription extends $tea.Model 
 }
 
 export class ListEventsResponseBodyEventsStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37371,11 +52433,27 @@ export class ListEventsResponseBodyEventsStart extends $tea.Model {
 export class ListEventsResponseBodyEvents extends $tea.Model {
   attendees?: ListEventsResponseBodyEventsAttendees[];
   categories?: ListEventsResponseBodyEventsCategories[];
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * something about this event
+   */
   description?: string;
   end?: ListEventsResponseBodyEventsEnd;
   extendedProperties?: ListEventsResponseBodyEventsExtendedProperties;
+  /**
+   * @example
+   * cnNTbW1YbxxxxdEgvdlQrQT09
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isAllDay?: boolean;
   location?: ListEventsResponseBodyEventsLocation;
   meetingRooms?: ListEventsResponseBodyEventsMeetingRooms[];
@@ -37385,10 +52463,22 @@ export class ListEventsResponseBodyEvents extends $tea.Model {
   recurrence?: ListEventsResponseBodyEventsRecurrence;
   reminders?: ListEventsResponseBodyEventsReminders[];
   richTextDescription?: ListEventsResponseBodyEventsRichTextDescription;
+  /**
+   * @example
+   * cnNTbWxxxxaFJZdEgvdlQrQT09
+   */
   seriesMasterId?: string;
   start?: ListEventsResponseBodyEventsStart;
+  /**
+   * @example
+   * confirmed
+   */
   status?: string;
   summary?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37448,6 +52538,13 @@ export class ListEventsResponseBodyEvents extends $tea.Model {
 }
 
 export class ListEventsViewHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37467,10 +52564,30 @@ export class ListEventsViewHeadersAccountContext extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsAttendees extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * 012345
+   */
   id?: string;
+  /**
+   * @example
+   * false
+   */
   isOptional?: boolean;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * false
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37498,6 +52615,10 @@ export class ListEventsViewResponseBodyEventsAttendees extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsCategories extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37517,8 +52638,20 @@ export class ListEventsViewResponseBodyEventsCategories extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37542,7 +52675,15 @@ export class ListEventsViewResponseBodyEventsEnd extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties extends $tea.Model {
+  /**
+   * @example
+   * dingd8*****1231
+   */
   belongCorpId?: string;
+  /**
+   * @example
+   * zxcvasdfa123===
+   */
   sourceOpenCid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37583,6 +52724,10 @@ export class ListEventsViewResponseBodyEventsExtendedProperties extends $tea.Mod
 }
 
 export class ListEventsViewResponseBodyEventsLocation extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
@@ -37605,8 +52750,20 @@ export class ListEventsViewResponseBodyEventsLocation extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsMeetingRooms extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * c10315a8b4e740a317813ab6fxxxxxx
+   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37630,9 +52787,21 @@ export class ListEventsViewResponseBodyEventsMeetingRooms extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsOnlineMeetingInfo extends $tea.Model {
+  /**
+   * @example
+   * 5c4df2xxx
+   */
   conferenceId?: string;
   extraInfo?: { [key: string]: any };
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
+  /**
+   * @example
+   * dingtalk://dingtalkclient/page/xxx?confId=xxx&calendarId=xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37658,9 +52827,25 @@ export class ListEventsViewResponseBodyEventsOnlineMeetingInfo extends $tea.Mode
 }
 
 export class ListEventsViewResponseBodyEventsOrganizer extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * 012345
+   */
   id?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * false
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37686,6 +52871,10 @@ export class ListEventsViewResponseBodyEventsOrganizer extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsOriginStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37705,10 +52894,30 @@ export class ListEventsViewResponseBodyEventsOriginStart extends $tea.Model {
 }
 
 export class ListEventsViewResponseBodyEventsRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * sunday
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * first
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37736,8 +52945,20 @@ export class ListEventsViewResponseBodyEventsRecurrencePattern extends $tea.Mode
 }
 
 export class ListEventsViewResponseBodyEventsRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 5
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * dingtalk
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37802,8 +53023,20 @@ export class ListEventsViewResponseBodyEventsRichTextDescription extends $tea.Mo
 }
 
 export class ListEventsViewResponseBodyEventsStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37829,11 +53062,27 @@ export class ListEventsViewResponseBodyEventsStart extends $tea.Model {
 export class ListEventsViewResponseBodyEvents extends $tea.Model {
   attendees?: ListEventsViewResponseBodyEventsAttendees[];
   categories?: ListEventsViewResponseBodyEventsCategories[];
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * something about this event
+   */
   description?: string;
   end?: ListEventsViewResponseBodyEventsEnd;
   extendedProperties?: ListEventsViewResponseBodyEventsExtendedProperties;
+  /**
+   * @example
+   * iiiP35xxx
+   */
   id?: string;
+  /**
+   * @example
+   * false
+   */
   isAllDay?: boolean;
   location?: ListEventsViewResponseBodyEventsLocation;
   meetingRooms?: ListEventsViewResponseBodyEventsMeetingRooms[];
@@ -37842,10 +53091,26 @@ export class ListEventsViewResponseBodyEvents extends $tea.Model {
   originStart?: ListEventsViewResponseBodyEventsOriginStart;
   recurrence?: ListEventsViewResponseBodyEventsRecurrence;
   richTextDescription?: ListEventsViewResponseBodyEventsRichTextDescription;
+  /**
+   * @example
+   * cnNTbxxx
+   */
   seriesMasterId?: string;
   start?: ListEventsViewResponseBodyEventsStart;
+  /**
+   * @example
+   * confirmed
+   */
   status?: string;
+  /**
+   * @example
+   * test event
+   */
   summary?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37903,6 +53168,13 @@ export class ListEventsViewResponseBodyEvents extends $tea.Model {
 }
 
 export class ListFormRemarksHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37922,6 +53194,13 @@ export class ListFormRemarksHeadersAccountContext extends $tea.Model {
 }
 
 export class ListNavigationByFormTypeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37941,8 +53220,20 @@ export class ListNavigationByFormTypeHeadersAccountContext extends $tea.Model {
 }
 
 export class ListNavigationByFormTypeResponseBodyResultTitle extends $tea.Model {
+  /**
+   * @example
+   * 张三
+   */
   nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * 未知
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37966,7 +53257,15 @@ export class ListNavigationByFormTypeResponseBodyResultTitle extends $tea.Model 
 }
 
 export class ListNavigationByFormTypeResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * FORM-EF6Yxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * TPROC--X1Gxxx
+   */
   processCode?: string;
   title?: ListNavigationByFormTypeResponseBodyResultTitle;
   static names(): { [key: string]: string } {
@@ -37991,6 +53290,13 @@ export class ListNavigationByFormTypeResponseBodyResult extends $tea.Model {
 }
 
 export class ListNodesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38010,6 +53316,10 @@ export class ListNodesHeadersAccountContext extends $tea.Model {
 }
 
 export class ListNodesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38029,6 +53339,10 @@ export class ListNodesRequestTenantContext extends $tea.Model {
 }
 
 export class ListNodesResponseBodyNodesStatisticalInfo extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   wordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38048,20 +53362,76 @@ export class ListNodesResponseBodyNodesStatisticalInfo extends $tea.Model {
 }
 
 export class ListNodesResponseBodyNodes extends $tea.Model {
+  /**
+   * @example
+   * ALIDOC
+   */
   category?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   creatorId?: string;
+  /**
+   * @example
+   * adoc
+   */
   extension?: string;
+  /**
+   * @example
+   * true
+   */
   hasChildren?: boolean;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   modifierId?: string;
+  /**
+   * @example
+   * node_name
+   */
   name?: string;
+  /**
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   nodeId?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * 512
+   */
   size?: number;
   statisticalInfo?: ListNodesResponseBodyNodesStatisticalInfo;
+  /**
+   * @example
+   * FILE
+   */
   type?: string;
+  /**
+   * @example
+   * node_url
+   */
   url?: string;
+  /**
+   * @example
+   * MNDoBb60VLBPraakI1Ywxyyn8lemrZQ3
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38109,6 +53479,10 @@ export class ListNodesResponseBodyNodes extends $tea.Model {
 }
 
 export class ListReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38128,6 +53502,10 @@ export class ListReportHeadersAccountContext extends $tea.Model {
 }
 
 export class ListReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38147,9 +53525,25 @@ export class ListReportRequestTenantContext extends $tea.Model {
 }
 
 export class ListReportResponseBodyDataListContents extends $tea.Model {
+  /**
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @example
+   * 0
+   */
   sort?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: string;
+  /**
+   * @example
+   * ce9ab5d4a80a9401f97c7077e6a9634bd
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38176,15 +53570,43 @@ export class ListReportResponseBodyDataListContents extends $tea.Model {
 
 export class ListReportResponseBodyDataList extends $tea.Model {
   contents?: ListReportResponseBodyDataListContents[];
+  /**
+   * @example
+   * 1678416166000
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1127123
+   */
   creatorId?: string;
+  /**
+   * @example
+   * admin
+   */
   creatorName?: string;
   deptName?: string;
   images?: string[];
+  /**
+   * @example
+   * 31.1264
+   */
   latitude?: string;
+  /**
+   * @example
+   * 108.938036
+   */
   longitude?: string;
+  /**
+   * @example
+   * 1653543540000
+   */
   modifiedTime?: number;
   remark?: string;
+  /**
+   * @example
+   * d64994d09916c76276dd9bfa23637644
+   */
   reportId?: string;
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -38227,6 +53649,13 @@ export class ListReportResponseBodyDataList extends $tea.Model {
 }
 
 export class ListTableDataByFormInstanceIdTableIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38246,6 +53675,13 @@ export class ListTableDataByFormInstanceIdTableIdHeadersAccountContext extends $
 }
 
 export class ListTeamsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38265,6 +53701,10 @@ export class ListTeamsHeadersAccountContext extends $tea.Model {
 }
 
 export class ListTeamsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38284,7 +53724,15 @@ export class ListTeamsRequestTenantContext extends $tea.Model {
 }
 
 export class ListTeamsResponseBodyTeamsIcon extends $tea.Model {
+  /**
+   * @example
+   * URL
+   */
   type?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/avatar3.jpg
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38306,15 +53754,51 @@ export class ListTeamsResponseBodyTeamsIcon extends $tea.Model {
 }
 
 export class ListTeamsResponseBodyTeams extends $tea.Model {
+  /**
+   * @example
+   * ding16b241fd05********288
+   */
   corpId?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/XXXX.jpg
+   */
   cover?: string;
+  /**
+   * @example
+   * 01472825524039877041
+   */
   createTime?: string;
+  /**
+   * @example
+   * 012345
+   */
   creatorId?: string;
+  /**
+   * @example
+   * team_description
+   */
   description?: string;
   icon?: ListTeamsResponseBodyTeamsIcon;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 012345
+   */
   modifierId?: string;
+  /**
+   * @example
+   * team_name
+   */
   name?: string;
+  /**
+   * @example
+   * lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38352,6 +53836,13 @@ export class ListTeamsResponseBodyTeams extends $tea.Model {
 }
 
 export class ListWorkspacesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38371,6 +53862,10 @@ export class ListWorkspacesHeadersAccountContext extends $tea.Model {
 }
 
 export class ListWorkspacesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38390,7 +53885,15 @@ export class ListWorkspacesRequestTenantContext extends $tea.Model {
 }
 
 export class ListWorkspacesResponseBodyWorkspacesIcon extends $tea.Model {
+  /**
+   * @example
+   * URL
+   */
   type?: string;
+  /**
+   * @example
+   * icon_url
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38412,20 +53915,76 @@ export class ListWorkspacesResponseBodyWorkspacesIcon extends $tea.Model {
 }
 
 export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
+  /**
+   * @example
+   * ding16b241fd05********288
+   */
   corpId?: string;
+  /**
+   * @example
+   * https://example/file-manage-files/zh-CN/202***13/ldet/XXXX.jpg
+   */
   cover?: string;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * workspace_creator_id
+   */
   creatorId?: string;
+  /**
+   * @example
+   * workspace_description
+   */
   description?: string;
   icon?: ListWorkspacesResponseBodyWorkspacesIcon;
+  /**
+   * @example
+   * 2023-05-15T11:29Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * workspace_modifier_id
+   */
   modifierId?: string;
+  /**
+   * @example
+   * workspace_name
+   */
   name?: string;
+  /**
+   * @example
+   * READER
+   */
   permissionRole?: string;
+  /**
+   * @example
+   * ZgpG2NdyVXXjrKKzIBqMp5zkVMwvDqPk
+   */
   rootNodeId?: string;
+  /**
+   * @example
+   * iPes3KGYA9DxYSdz2iPuI8ZwiEiE
+   */
   teamId?: string;
+  /**
+   * @example
+   * TEAM
+   */
   type?: string;
+  /**
+   * @example
+   * workspace_url
+   */
   url?: string;
+  /**
+   * @example
+   * By8jQS1ZYjGn5b0M
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38473,6 +54032,13 @@ export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
 }
 
 export class PatchEventHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38492,7 +54058,15 @@ export class PatchEventHeadersAccountContext extends $tea.Model {
 }
 
 export class PatchEventRequestAttendees extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * false
+   */
   isOptional?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38514,8 +54088,20 @@ export class PatchEventRequestAttendees extends $tea.Model {
 }
 
 export class PatchEventRequestEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38539,6 +54125,10 @@ export class PatchEventRequestEnd extends $tea.Model {
 }
 
 export class PatchEventRequestLocation extends $tea.Model {
+  /**
+   * @example
+   * room 1-2-3
+   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38558,10 +54148,30 @@ export class PatchEventRequestLocation extends $tea.Model {
 }
 
 export class PatchEventRequestRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * sunday
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * last
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * daily
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38589,8 +54199,20 @@ export class PatchEventRequestRecurrencePattern extends $tea.Model {
 }
 
 export class PatchEventRequestRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * 2021-12-31T10:15:30+08:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 1
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * endDate
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38636,7 +54258,15 @@ export class PatchEventRequestRecurrence extends $tea.Model {
 }
 
 export class PatchEventRequestReminders extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   method?: string;
+  /**
+   * @example
+   * 15
+   */
   minutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38658,8 +54288,20 @@ export class PatchEventRequestReminders extends $tea.Model {
 }
 
 export class PatchEventRequestStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38683,10 +54325,30 @@ export class PatchEventRequestStart extends $tea.Model {
 }
 
 export class PatchEventResponseBodyAttendees extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isOptional?: boolean;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38714,8 +54376,20 @@ export class PatchEventResponseBodyAttendees extends $tea.Model {
 }
 
 export class PatchEventResponseBodyEnd extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38739,6 +54413,10 @@ export class PatchEventResponseBodyEnd extends $tea.Model {
 }
 
 export class PatchEventResponseBodyLocation extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   displayName?: string;
   meetingRooms?: string[];
   static names(): { [key: string]: string } {
@@ -38761,9 +54439,25 @@ export class PatchEventResponseBodyLocation extends $tea.Model {
 }
 
 export class PatchEventResponseBodyOrganizer extends $tea.Model {
+  /**
+   * @example
+   * tony
+   */
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: string;
+  /**
+   * @example
+   * accepted
+   */
   responseStatus?: string;
+  /**
+   * @example
+   * true
+   */
   self?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38789,10 +54483,30 @@ export class PatchEventResponseBodyOrganizer extends $tea.Model {
 }
 
 export class PatchEventResponseBodyRecurrencePattern extends $tea.Model {
+  /**
+   * @example
+   * 14
+   */
   dayOfMonth?: number;
+  /**
+   * @example
+   * sunday
+   */
   daysOfWeek?: string;
+  /**
+   * @example
+   * first
+   */
   index?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * daily
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38820,8 +54534,20 @@ export class PatchEventResponseBodyRecurrencePattern extends $tea.Model {
 }
 
 export class PatchEventResponseBodyRecurrenceRange extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 5
+   */
   numberOfOccurrences?: number;
+  /**
+   * @example
+   * noEnd
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38867,7 +54593,15 @@ export class PatchEventResponseBodyRecurrence extends $tea.Model {
 }
 
 export class PatchEventResponseBodyReminders extends $tea.Model {
+  /**
+   * @example
+   * dingtalk
+   */
   method?: string;
+  /**
+   * @example
+   * 15
+   */
   minutes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38889,8 +54623,20 @@ export class PatchEventResponseBodyReminders extends $tea.Model {
 }
 
 export class PatchEventResponseBodyStart extends $tea.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
   date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
   dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38914,6 +54660,13 @@ export class PatchEventResponseBodyStart extends $tea.Model {
 }
 
 export class QueryCloudRecordTextHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38933,6 +54686,10 @@ export class QueryCloudRecordTextHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryCloudRecordTextRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38952,9 +54709,25 @@ export class QueryCloudRecordTextRequestTenantContext extends $tea.Model {
 }
 
 export class QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList extends $tea.Model {
+  /**
+   * @example
+   * 7940
+   */
   endTime?: number;
+  /**
+   * @example
+   * 7940
+   */
   startTime?: number;
+  /**
+   * @example
+   * 这里
+   */
   word?: string;
+  /**
+   * @example
+   * 1631172050535000#0
+   */
   wordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38980,9 +54753,25 @@ export class QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList e
 }
 
 export class QueryCloudRecordTextResponseBodyParagraphListSentenceList extends $tea.Model {
+  /**
+   * @example
+   * 7940
+   */
   endTime?: number;
+  /**
+   * @example
+   * 这里是小钉
+   */
   sentence?: string;
+  /**
+   * @example
+   * 7940
+   */
   startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   wordList?: QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList[];
   static names(): { [key: string]: string } {
@@ -39011,14 +54800,46 @@ export class QueryCloudRecordTextResponseBodyParagraphListSentenceList extends $
 }
 
 export class QueryCloudRecordTextResponseBodyParagraphList extends $tea.Model {
+  /**
+   * @example
+   * 7940
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1631172045153000
+   */
   nextTtoken?: number;
+  /**
+   * @example
+   * 小钉
+   */
   nickName?: string;
+  /**
+   * @example
+   * 嘿！你好，这里是小钉
+   */
   paragraph?: string;
+  /**
+   * @example
+   * 44444
+   */
   recordId?: number;
   sentenceList?: QueryCloudRecordTextResponseBodyParagraphListSentenceList[];
+  /**
+   * @example
+   * 7940
+   */
   startTime?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39054,6 +54875,13 @@ export class QueryCloudRecordTextResponseBodyParagraphList extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39073,6 +54901,10 @@ export class QueryCloudRecordVideoHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39092,14 +54924,50 @@ export class QueryCloudRecordVideoRequestTenantContext extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoResponseBodyVideoList extends $tea.Model {
+  /**
+   * @example
+   * 59886
+   */
   duration?: number;
+  /**
+   * @example
+   * 1631172094000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1127942
+   */
   fileSize?: number;
+  /**
+   * @example
+   * faa1566c5bc24f21821ae2394f82db2e
+   */
   mediaId?: string;
+  /**
+   * @example
+   * 290882268xxx1172033231
+   */
   recordId?: string;
+  /**
+   * @example
+   * 1
+   */
   recordType?: number;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * 1631172094000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39135,6 +55003,13 @@ export class QueryCloudRecordVideoResponseBodyVideoList extends $tea.Model {
 }
 
 export class QueryCloudRecordVideoPlayInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39154,6 +55029,10 @@ export class QueryCloudRecordVideoPlayInfoHeadersAccountContext extends $tea.Mod
 }
 
 export class QueryCloudRecordVideoPlayInfoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39173,6 +55052,10 @@ export class QueryCloudRecordVideoPlayInfoRequestTenantContext extends $tea.Mode
 }
 
 export class QueryConferenceInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 208579
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39192,17 +55075,61 @@ export class QueryConferenceInfoHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryConferenceInfoResponseBodyConfInfo extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   activeNum?: number;
+  /**
+   * @example
+   * 2
+   */
   attendNum?: number;
+  /**
+   * @example
+   * 1000000
+   */
   confDuration?: number;
+  /**
+   * @example
+   * 607452e01401526ee39609e1
+   */
   conferenceId?: string;
+  /**
+   * @example
+   * 208579
+   */
   creatorId?: string;
   creatorNick?: string;
+  /**
+   * @example
+   * 1663294270000
+   */
   endTime?: number;
+  /**
+   * @example
+   * https://meeting.dingtalk.com/app?roomCode=42726xxx&token=1_7ac9xxx
+   */
   externalLinkUrl?: string;
+  /**
+   * @example
+   * 2
+   */
   invitedNum?: number;
+  /**
+   * @example
+   * 4272xxxxx
+   */
   roomCode?: string;
+  /**
+   * @example
+   * 1663293270000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -39247,6 +55174,13 @@ export class QueryConferenceInfoResponseBodyConfInfo extends $tea.Model {
 }
 
 export class QueryConferenceMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39266,6 +55200,10 @@ export class QueryConferenceMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryConferenceMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39285,16 +55223,60 @@ export class QueryConferenceMembersRequestTenantContext extends $tea.Model {
 }
 
 export class QueryConferenceMembersResponseBodyMemberModels extends $tea.Model {
+  /**
+   * @example
+   * 6
+   */
   attendStatus?: number;
+  /**
+   * @example
+   * false
+   */
   coHost?: boolean;
+  /**
+   * @example
+   * 6323dxxxxx
+   */
   conferenceId?: string;
+  /**
+   * @example
+   * 10000
+   */
   duration?: number;
+  /**
+   * @example
+   * false
+   */
   host?: boolean;
+  /**
+   * @example
+   * 1663293270000
+   */
   joinTime?: number;
+  /**
+   * @example
+   * 1663293280000
+   */
   leaveTime?: number;
+  /**
+   * @example
+   * true
+   */
   outerOrgMember?: boolean;
+  /**
+   * @example
+   * false
+   */
   pstnJoin?: boolean;
+  /**
+   * @example
+   * -12345
+   */
   userId?: string;
+  /**
+   * @example
+   * 小钉
+   */
   userNick?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39334,6 +55316,13 @@ export class QueryConferenceMembersResponseBodyMemberModels extends $tea.Model {
 }
 
 export class QueryDentryHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39353,6 +55342,10 @@ export class QueryDentryHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryDentryRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39372,7 +55365,15 @@ export class QueryDentryRequestTenantContext extends $tea.Model {
 }
 
 export class QueryDentryResponseBodyCreator extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39394,7 +55395,15 @@ export class QueryDentryResponseBodyCreator extends $tea.Model {
 }
 
 export class QueryDentryResponseBodyLinkSourceInfoIconUrl extends $tea.Model {
+  /**
+   * @example
+   * gh
+   */
   line?: string;
+  /**
+   * @example
+   * def
+   */
   small?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39416,10 +55425,26 @@ export class QueryDentryResponseBodyLinkSourceInfoIconUrl extends $tea.Model {
 }
 
 export class QueryDentryResponseBodyLinkSourceInfo extends $tea.Model {
+  /**
+   * @example
+   * docx
+   */
   extension?: string;
   iconUrl?: QueryDentryResponseBodyLinkSourceInfoIconUrl;
+  /**
+   * @example
+   * def
+   */
   id?: string;
+  /**
+   * @example
+   * 0
+   */
   linkType?: number;
+  /**
+   * @example
+   * def
+   */
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39447,7 +55472,15 @@ export class QueryDentryResponseBodyLinkSourceInfo extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpaceHdIconVO extends $tea.Model {
+  /**
+   * @example
+   * http://
+   */
   icon?: string;
+  /**
+   * @example
+   * type
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39469,7 +55502,15 @@ export class QueryDentryResponseBodySpaceHdIconVO extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpaceIconVO extends $tea.Model {
+  /**
+   * @example
+   * http://
+   */
   icon?: string;
+  /**
+   * @example
+   * type
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39491,7 +55532,15 @@ export class QueryDentryResponseBodySpaceIconVO extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpaceOwner extends $tea.Model {
+  /**
+   * @example
+   * 小钉
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39513,7 +55562,15 @@ export class QueryDentryResponseBodySpaceOwner extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpaceRecentListCreator extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39535,7 +55592,15 @@ export class QueryDentryResponseBodySpaceRecentListCreator extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpaceRecentListLinkSourceInfoIconUrl extends $tea.Model {
+  /**
+   * @example
+   * gh
+   */
   line?: string;
+  /**
+   * @example
+   * def
+   */
   small?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39557,10 +55622,26 @@ export class QueryDentryResponseBodySpaceRecentListLinkSourceInfoIconUrl extends
 }
 
 export class QueryDentryResponseBodySpaceRecentListLinkSourceInfo extends $tea.Model {
+  /**
+   * @example
+   * docx
+   */
   extension?: string;
   iconUrl?: QueryDentryResponseBodySpaceRecentListLinkSourceInfoIconUrl;
+  /**
+   * @example
+   * def
+   */
   id?: string;
+  /**
+   * @example
+   * 0
+   */
   linkType?: number;
+  /**
+   * @example
+   * def
+   */
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39607,7 +55688,15 @@ export class QueryDentryResponseBodySpaceRecentListStatisticalInfo extends $tea.
 }
 
 export class QueryDentryResponseBodySpaceRecentListUpdater extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39630,6 +55719,10 @@ export class QueryDentryResponseBodySpaceRecentListUpdater extends $tea.Model {
 
 export class QueryDentryResponseBodySpaceRecentListVisitorInfo extends $tea.Model {
   dentryActions?: string[];
+  /**
+   * @example
+   * 1
+   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -39654,23 +55747,75 @@ export class QueryDentryResponseBodySpaceRecentListVisitorInfo extends $tea.Mode
 }
 
 export class QueryDentryResponseBodySpaceRecentList extends $tea.Model {
+  /**
+   * @example
+   * alidoc
+   */
   contentType?: string;
+  /**
+   * @example
+   * 12345678
+   */
   createdTime?: number;
   creator?: QueryDentryResponseBodySpaceRecentListCreator;
+  /**
+   * @example
+   * abc
+   */
   dentryId?: string;
+  /**
+   * @example
+   * file
+   */
   dentryType?: string;
+  /**
+   * @example
+   * cdefg
+   */
   dentryUuid?: string;
+  /**
+   * @example
+   * aabbcc
+   */
   docKey?: string;
+  /**
+   * @example
+   * alidoc
+   */
   extension?: string;
+  /**
+   * @example
+   * false
+   */
   hasChildren?: boolean;
   linkSourceInfo?: QueryDentryResponseBodySpaceRecentListLinkSourceInfo;
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 测试组织/测试知识库/abc
+   */
   path?: string;
   space?: any;
+  /**
+   * @example
+   * bcd
+   */
   spaceId?: string;
   statisticalInfo?: QueryDentryResponseBodySpaceRecentListStatisticalInfo;
+  /**
+   * @example
+   * 12345678
+   */
   updatedTime?: number;
   updater?: QueryDentryResponseBodySpaceRecentListUpdater;
+  /**
+   * @example
+   * https://xxx.yy
+   */
   url?: string;
   visitorInfo?: QueryDentryResponseBodySpaceRecentListVisitorInfo;
   static names(): { [key: string]: string } {
@@ -39727,8 +55872,20 @@ export class QueryDentryResponseBodySpaceRecentList extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpaceVisitorInfo extends $tea.Model {
+  /**
+   * @example
+   * GET_DENTRY
+   */
   dentryActions?: string[];
+  /**
+   * @example
+   * 3
+   */
   roleCode?: string;
+  /**
+   * @example
+   * GET_SPACE
+   */
   spaceActions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -39752,15 +55909,39 @@ export class QueryDentryResponseBodySpaceVisitorInfo extends $tea.Model {
 }
 
 export class QueryDentryResponseBodySpace extends $tea.Model {
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i1/O1xxxxx.png
+   */
   cover?: string;
+  /**
+   * @example
+   * 这是简介
+   */
   description?: string;
   hdIconVO?: QueryDentryResponseBodySpaceHdIconVO;
   iconVO?: QueryDentryResponseBodySpaceIconVO;
+  /**
+   * @example
+   * n9XJxxxxx
+   */
   id?: string;
   name?: string;
+  /**
+   * @example
+   * 测试知识库
+   */
   owner?: QueryDentryResponseBodySpaceOwner;
   recentList?: QueryDentryResponseBodySpaceRecentList[];
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * https://alidocs.dingtalk.com/i/spaces/n9XJ*******Xy/overview
+   */
   url?: string;
   visitorInfo?: QueryDentryResponseBodySpaceVisitorInfo;
   static names(): { [key: string]: string } {
@@ -39801,7 +55982,15 @@ export class QueryDentryResponseBodySpace extends $tea.Model {
 }
 
 export class QueryDentryResponseBodyUpdater extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
   name?: string;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39824,6 +56013,10 @@ export class QueryDentryResponseBodyUpdater extends $tea.Model {
 
 export class QueryDentryResponseBodyVisitorInfo extends $tea.Model {
   dentryActions?: string[];
+  /**
+   * @example
+   * 1
+   */
   roleCode?: string;
   spaceActions?: string[];
   static names(): { [key: string]: string } {
@@ -39848,6 +56041,13 @@ export class QueryDentryResponseBodyVisitorInfo extends $tea.Model {
 }
 
 export class QueryLiveInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39867,6 +56067,10 @@ export class QueryLiveInfoHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryLiveInfoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39886,6 +56090,13 @@ export class QueryLiveInfoRequestTenantContext extends $tea.Model {
 }
 
 export class QueryLiveWatchDetailHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39905,6 +56116,10 @@ export class QueryLiveWatchDetailHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryLiveWatchDetailRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39924,6 +56139,13 @@ export class QueryLiveWatchDetailRequestTenantContext extends $tea.Model {
 }
 
 export class QueryLiveWatchUserListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39943,6 +56165,10 @@ export class QueryLiveWatchUserListHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryLiveWatchUserListRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39964,9 +56190,25 @@ export class QueryLiveWatchUserListRequestTenantContext extends $tea.Model {
 export class QueryLiveWatchUserListResponseBodyOrgUsesList extends $tea.Model {
   deptName?: string;
   name?: string;
+  /**
+   * @example
+   * 1234
+   */
   userId?: string;
+  /**
+   * @example
+   * 19999
+   */
   watchLiveTime?: number;
+  /**
+   * @example
+   * 131312312
+   */
   watchPlaybackTime?: number;
+  /**
+   * @example
+   * 1323132
+   */
   watchProgressMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -39997,8 +56239,20 @@ export class QueryLiveWatchUserListResponseBodyOrgUsesList extends $tea.Model {
 
 export class QueryLiveWatchUserListResponseBodyOutOrgUserList extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 12312312
+   */
   watchLiveTime?: number;
+  /**
+   * @example
+   * 21313131
+   */
   watchPlaybackTime?: number;
+  /**
+   * @example
+   * 123131
+   */
   watchProgressMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40024,6 +56278,13 @@ export class QueryLiveWatchUserListResponseBodyOutOrgUserList extends $tea.Model
 }
 
 export class QueryMeetingRoomHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40043,6 +56304,10 @@ export class QueryMeetingRoomHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40106,8 +56371,20 @@ export class QueryMeetingRoomResponseBodyResultReservationAuthority extends $tea
 }
 
 export class QueryMeetingRoomResponseBodyResultRoomGroup extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   groupId?: number;
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
+  /**
+   * @example
+   * 0
+   */
   parentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40131,7 +56408,15 @@ export class QueryMeetingRoomResponseBodyResultRoomGroup extends $tea.Model {
 }
 
 export class QueryMeetingRoomResponseBodyResultRoomLabels extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   labelId?: number;
+  /**
+   * @example
+   * 电视
+   */
   labelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40153,7 +56438,15 @@ export class QueryMeetingRoomResponseBodyResultRoomLabels extends $tea.Model {
 }
 
 export class QueryMeetingRoomResponseBodyResultRoomLocation extends $tea.Model {
+  /**
+   * @example
+   * xx市xx区xx街道xx号
+   */
   desc?: string;
+  /**
+   * @example
+   * xxx公司
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40175,19 +56468,59 @@ export class QueryMeetingRoomResponseBodyResultRoomLocation extends $tea.Model {
 }
 
 export class QueryMeetingRoomResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * ding994axxxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * [ "2iPOLbpxxxxuwggiiqiPwiEiF" ]
+   */
   deviceUnionIds?: string[];
+  /**
+   * @example
+   * true
+   */
   enableCycleReservation?: boolean;
+  /**
+   * @example
+   * xxxIsvRoomId
+   */
   isvRoomId?: string;
   reservationAuthority?: QueryMeetingRoomResponseBodyResultReservationAuthority;
+  /**
+   * @example
+   * 10
+   */
   roomCapacity?: number;
   roomGroup?: QueryMeetingRoomResponseBodyResultRoomGroup;
+  /**
+   * @example
+   * 0ffb7184xxxxx
+   */
   roomId?: string;
   roomLabels?: QueryMeetingRoomResponseBodyResultRoomLabels[];
   roomLocation?: QueryMeetingRoomResponseBodyResultRoomLocation;
+  /**
+   * @example
+   * 测试会议室
+   */
   roomName?: string;
+  /**
+   * @example
+   * https://static.dingtalk.com/media/lADxxxxx.jpg
+   */
   roomPicture?: string;
+  /**
+   * @example
+   * 0122414
+   */
   roomStaffId?: string;
+  /**
+   * @example
+   * 0
+   */
   roomStatus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40233,6 +56566,13 @@ export class QueryMeetingRoomResponseBodyResult extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40252,6 +56592,10 @@ export class QueryMeetingRoomGroupHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40271,6 +56615,13 @@ export class QueryMeetingRoomGroupRequestTenantContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40290,6 +56641,10 @@ export class QueryMeetingRoomGroupListHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupListRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40309,8 +56664,20 @@ export class QueryMeetingRoomGroupListRequestTenantContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomGroupListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 172
+   */
   groupId?: number;
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
+  /**
+   * @example
+   * 0
+   */
   parentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40334,6 +56701,13 @@ export class QueryMeetingRoomGroupListResponseBodyResult extends $tea.Model {
 }
 
 export class QueryMeetingRoomListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40353,6 +56727,10 @@ export class QueryMeetingRoomListHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomListRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40372,8 +56750,20 @@ export class QueryMeetingRoomListRequestTenantContext extends $tea.Model {
 }
 
 export class QueryMeetingRoomListResponseBodyResultRoomGroup extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   groupId?: number;
+  /**
+   * @example
+   * 测试分组
+   */
   groupName?: string;
+  /**
+   * @example
+   * 0
+   */
   parentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40397,7 +56787,15 @@ export class QueryMeetingRoomListResponseBodyResultRoomGroup extends $tea.Model 
 }
 
 export class QueryMeetingRoomListResponseBodyResultRoomLabels extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   labelId?: number;
+  /**
+   * @example
+   * 电视
+   */
   labelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40419,7 +56817,15 @@ export class QueryMeetingRoomListResponseBodyResultRoomLabels extends $tea.Model
 }
 
 export class QueryMeetingRoomListResponseBodyResultRoomLocation extends $tea.Model {
+  /**
+   * @example
+   * xx市xx区xx街道xx号
+   */
   desc?: string;
+  /**
+   * @example
+   * xxx公司
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40441,16 +56847,48 @@ export class QueryMeetingRoomListResponseBodyResultRoomLocation extends $tea.Mod
 }
 
 export class QueryMeetingRoomListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * ding994axxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * xxxIsvRoomId
+   */
   isvRoomId?: string;
+  /**
+   * @example
+   * 10
+   */
   roomCapacity?: number;
   roomGroup?: QueryMeetingRoomListResponseBodyResultRoomGroup;
+  /**
+   * @example
+   * 0ffb7xxxxx
+   */
   roomId?: string;
   roomLabels?: QueryMeetingRoomListResponseBodyResultRoomLabels[];
   roomLocation?: QueryMeetingRoomListResponseBodyResultRoomLocation;
+  /**
+   * @example
+   * 测试会议室
+   */
   roomName?: string;
+  /**
+   * @example
+   * https://static.dingtalk.com/media/lADPxxxxx.jpg
+   */
   roomPicture?: string;
+  /**
+   * @example
+   * 012241xxxxx
+   */
   roomStaffId?: string;
+  /**
+   * @example
+   * 0
+   */
   roomStatus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40490,6 +56928,13 @@ export class QueryMeetingRoomListResponseBodyResult extends $tea.Model {
 }
 
 export class QueryMinutesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40509,6 +56954,10 @@ export class QueryMinutesHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMinutesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40528,12 +56977,40 @@ export class QueryMinutesRequestTenantContext extends $tea.Model {
 }
 
 export class QueryMinutesResponseBodyAudioList extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   duration?: number;
+  /**
+   * @example
+   * 1000000000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1127942
+   */
   fileSize?: number;
+  /**
+   * @example
+   * https://xxx-hangzhou.oss-cn-hangzhou.aliyuncs.com/record_xxxx.mp3?Expires=1718045081&OSSAccessKeyId=TMP.3KdwHtvZxopmwacMZEdyb4WHLVmbArrNRB9CTKnR1MaJgmRjdmZczs6Rip66cgKgk2HhQon1yygvBnbY3uqEaZNeHBLcBa&Signature=OFWyAIY%2FdlzfwM9wIfEaKoAudkxxxxx
+   */
   playUrl?: string;
+  /**
+   * @example
+   * 123
+   */
   recordId?: string;
+  /**
+   * @example
+   * 1000000000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40565,6 +57042,13 @@ export class QueryMinutesResponseBodyAudioList extends $tea.Model {
 }
 
 export class QueryMinutesSummaryHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40584,6 +57068,10 @@ export class QueryMinutesSummaryHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMinutesSummaryRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40603,10 +57091,30 @@ export class QueryMinutesSummaryRequestTenantContext extends $tea.Model {
 }
 
 export class QueryMinutesSummaryResponseBodySummaryActions extends $tea.Model {
+  /**
+   * @example
+   * 7910000
+   */
   end?: number;
+  /**
+   * @example
+   * 2
+   */
   id?: number;
+  /**
+   * @example
+   * 2
+   */
   sentenceId?: number;
+  /**
+   * @example
+   * 7901100
+   */
   start?: number;
+  /**
+   * @example
+   * 内容
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40634,10 +57142,30 @@ export class QueryMinutesSummaryResponseBodySummaryActions extends $tea.Model {
 }
 
 export class QueryMinutesSummaryResponseBodySummaryAutoChapters extends $tea.Model {
+  /**
+   * @example
+   * 7910000
+   */
   end?: number;
+  /**
+   * @example
+   * 章节的一句话标题
+   */
   headline?: string;
+  /**
+   * @example
+   * 2
+   */
   id?: number;
+  /**
+   * @example
+   * 7901100
+   */
   start?: number;
+  /**
+   * @example
+   * 章节总结
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40665,8 +57193,20 @@ export class QueryMinutesSummaryResponseBodySummaryAutoChapters extends $tea.Mod
 }
 
 export class QueryMinutesSummaryResponseBodySummaryConversationalSummary extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   speakerId?: string;
+  /**
+   * @example
+   * 发言人姓名
+   */
   speakerName?: string;
+  /**
+   * @example
+   * 发言人对应的总结
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40690,10 +57230,30 @@ export class QueryMinutesSummaryResponseBodySummaryConversationalSummary extends
 }
 
 export class QueryMinutesSummaryResponseBodySummaryKeySentences extends $tea.Model {
+  /**
+   * @example
+   * 7910000
+   */
   end?: number;
+  /**
+   * @example
+   * 2
+   */
   id?: number;
+  /**
+   * @example
+   * 2
+   */
   sentenceId?: number;
+  /**
+   * @example
+   * 7901100
+   */
   start?: number;
+  /**
+   * @example
+   * 内容
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40721,9 +57281,25 @@ export class QueryMinutesSummaryResponseBodySummaryKeySentences extends $tea.Mod
 }
 
 export class QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary extends $tea.Model {
+  /**
+   * @example
+   * 问题
+   */
   answer?: string;
+  /**
+   * @example
+   * 回答
+   */
   question?: string;
+  /**
+   * @example
+   * []
+   */
   sentenceIdsOfAnswer?: number[];
+  /**
+   * @example
+   * []
+   */
   sentenceIdsOfQuestion?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -40749,12 +57325,40 @@ export class QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary ext
 }
 
 export class QueryMinutesSummaryResponseBodySummary extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   actions?: QueryMinutesSummaryResponseBodySummaryActions;
+  /**
+   * @example
+   * []
+   */
   autoChapters?: QueryMinutesSummaryResponseBodySummaryAutoChapters[];
+  /**
+   * @example
+   * []
+   */
   conversationalSummary?: QueryMinutesSummaryResponseBodySummaryConversationalSummary[];
+  /**
+   * @example
+   * {}
+   */
   keySentences?: QueryMinutesSummaryResponseBodySummaryKeySentences;
+  /**
+   * @example
+   * []
+   */
   keywords?: string[];
+  /**
+   * @example
+   * 全文摘要结果，全文摘要通过两三百字的篇幅将最重要的信息呈现出来，用于快速了解记录内容与主旨
+   */
   paragraphSummary?: string;
+  /**
+   * @example
+   * []
+   */
   questionsAnsweringSummary?: QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary[];
   static names(): { [key: string]: string } {
     return {
@@ -40786,6 +57390,13 @@ export class QueryMinutesSummaryResponseBodySummary extends $tea.Model {
 }
 
 export class QueryMinutesTextHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40805,6 +57416,10 @@ export class QueryMinutesTextHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryMinutesTextRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40824,9 +57439,25 @@ export class QueryMinutesTextRequestTenantContext extends $tea.Model {
 }
 
 export class QueryMinutesTextResponseBodyParagraphListSentenceListWordList extends $tea.Model {
+  /**
+   * @example
+   * 7910000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 7910000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 单词
+   */
   word?: string;
+  /**
+   * @example
+   * 172
+   */
   wordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40852,10 +57483,30 @@ export class QueryMinutesTextResponseBodyParagraphListSentenceListWordList exten
 }
 
 export class QueryMinutesTextResponseBodyParagraphListSentenceList extends $tea.Model {
+  /**
+   * @example
+   * 7910000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 这里是小钉
+   */
   sentence?: string;
+  /**
+   * @example
+   * 7910000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
+  /**
+   * @example
+   * []
+   */
   wordList?: QueryMinutesTextResponseBodyParagraphListSentenceListWordList[];
   static names(): { [key: string]: string } {
     return {
@@ -40883,13 +57534,45 @@ export class QueryMinutesTextResponseBodyParagraphListSentenceList extends $tea.
 }
 
 export class QueryMinutesTextResponseBodyParagraphList extends $tea.Model {
+  /**
+   * @example
+   * 7910000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 小钉
+   */
   nickName?: string;
+  /**
+   * @example
+   * 123
+   */
   paragraph?: string;
+  /**
+   * @example
+   * 123
+   */
   paragraphId?: number;
+  /**
+   * @example
+   * 44444
+   */
   recordId?: number;
+  /**
+   * @example
+   * []
+   */
   sentenceList?: QueryMinutesTextResponseBodyParagraphListSentenceList[];
+  /**
+   * @example
+   * 7910000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40923,6 +57606,10 @@ export class QueryMinutesTextResponseBodyParagraphList extends $tea.Model {
 }
 
 export class QueryOrgHonorsHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 243331014234180628
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40942,6 +57629,10 @@ export class QueryOrgHonorsHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryOrgHonorsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 487986704507650
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40962,9 +57653,21 @@ export class QueryOrgHonorsRequestTenantContext extends $tea.Model {
 
 export class QueryOrgHonorsResponseBodyOpenHonors extends $tea.Model {
   honorDesc?: string;
+  /**
+   * @example
+   * 21658579
+   */
   honorId?: number;
+  /**
+   * @example
+   * https://xxxx.ali-cdn.com/jfejfi.jpg
+   */
   honorImgUrl?: string;
   honorName?: string;
+  /**
+   * @example
+   * https://xxxx.ali-cdn.com/jfejfi.jpg
+   */
   honorPendantImgUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40992,6 +57695,10 @@ export class QueryOrgHonorsResponseBodyOpenHonors extends $tea.Model {
 }
 
 export class QueryOrgTodoTasksHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41011,6 +57718,10 @@ export class QueryOrgTodoTasksHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryOrgTodoTasksRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41030,7 +57741,15 @@ export class QueryOrgTodoTasksRequestTenantContext extends $tea.Model {
 }
 
 export class QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl extends $tea.Model {
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   appUrl?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   pcUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41052,16 +57771,56 @@ export class QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl extends $tea.Model 
 }
 
 export class QueryOrgTodoTasksResponseBodyTodoCards extends $tea.Model {
+  /**
+   * @example
+   * isv_dingtalkTodo
+   */
   bizTag?: string;
+  /**
+   * @example
+   * 1617675000000
+   */
   createdTime?: number;
+  /**
+   * @example
+   * xxxx
+   */
   creatorId?: string;
   detailUrl?: QueryOrgTodoTasksResponseBodyTodoCardsDetailUrl;
+  /**
+   * @example
+   * 1617675000000
+   */
   dueTime?: number;
+  /**
+   * @example
+   * true
+   */
   isDone?: boolean;
+  /**
+   * @example
+   * 1617675000000
+   */
   modifiedTime?: number;
+  /**
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @example
+   * isv_dingtalkTodo1
+   */
   sourceId?: string;
+  /**
+   * @example
+   * 接入钉钉待办
+   */
   subject?: string;
+  /**
+   * @example
+   * taskOPJpwtwPVNGIFKURjrzd
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41101,6 +57860,13 @@ export class QueryOrgTodoTasksResponseBodyTodoCards extends $tea.Model {
 }
 
 export class QueryReportDetailHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41120,6 +57886,10 @@ export class QueryReportDetailHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryReportDetailRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41141,7 +57911,15 @@ export class QueryReportDetailRequestTenantContext extends $tea.Model {
 export class QueryReportDetailResponseBodyContent extends $tea.Model {
   images?: string[];
   key?: string;
+  /**
+   * @example
+   * 0
+   */
   sort?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -41170,6 +57948,13 @@ export class QueryReportDetailResponseBodyContent extends $tea.Model {
 }
 
 export class QueryScheduleConferenceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41189,6 +57974,10 @@ export class QueryScheduleConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryScheduleConferenceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41208,6 +57997,10 @@ export class QueryScheduleConferenceRequestTenantContext extends $tea.Model {
 }
 
 export class QueryScheduleConferenceInfoHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41227,6 +58020,10 @@ export class QueryScheduleConferenceInfoHeadersAccountContext extends $tea.Model
 }
 
 export class QueryScheduleConferenceInfoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41246,11 +58043,35 @@ export class QueryScheduleConferenceInfoRequestTenantContext extends $tea.Model 
 }
 
 export class QueryScheduleConferenceInfoResponseBodyConferenceList extends $tea.Model {
+  /**
+   * @example
+   * 636cf59f2b032f014ae32902
+   */
   conferenceId?: string;
+  /**
+   * @example
+   * 1668087732000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 123456789
+   */
   roomCode?: string;
+  /**
+   * @example
+   * 1668087731000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @example
+   * xxx发起的视频会议
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41280,6 +58101,10 @@ export class QueryScheduleConferenceInfoResponseBodyConferenceList extends $tea.
 }
 
 export class QueryUserHonorsHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 243331014234180628
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41299,6 +58124,10 @@ export class QueryUserHonorsHeadersAccountContext extends $tea.Model {
 }
 
 export class QueryUserHonorsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 189477710813728
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41318,7 +58147,15 @@ export class QueryUserHonorsRequestTenantContext extends $tea.Model {
 }
 
 export class QueryUserHonorsResponseBodyHonorsGrantHistory extends $tea.Model {
+  /**
+   * @example
+   * 12312312312312312
+   */
   grantTime?: number;
+  /**
+   * @example
+   * 363784
+   */
   senderUserid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41340,9 +58177,17 @@ export class QueryUserHonorsResponseBodyHonorsGrantHistory extends $tea.Model {
 }
 
 export class QueryUserHonorsResponseBodyHonors extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   expirationTime?: number;
   grantHistory?: QueryUserHonorsResponseBodyHonorsGrantHistory[];
   honorDesc?: string;
+  /**
+   * @example
+   * 21659398
+   */
   honorId?: string;
   honorName?: string;
   static names(): { [key: string]: string } {
@@ -41371,6 +58216,10 @@ export class QueryUserHonorsResponseBodyHonors extends $tea.Model {
 }
 
 export class RecallHonorHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 1323845308033417
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41390,6 +58239,10 @@ export class RecallHonorHeadersAccountContext extends $tea.Model {
 }
 
 export class RecallHonorRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41409,6 +58262,10 @@ export class RecallHonorRequestTenantContext extends $tea.Model {
 }
 
 export class RecallHonorResponseBodyContent extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -41428,6 +58285,13 @@ export class RecallHonorResponseBodyContent extends $tea.Model {
 }
 
 export class ReceiverListReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41447,6 +58311,10 @@ export class ReceiverListReportHeadersAccountContext extends $tea.Model {
 }
 
 export class ReceiverListReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41466,6 +58334,13 @@ export class ReceiverListReportRequestTenantContext extends $tea.Model {
 }
 
 export class RedirectTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41485,6 +58360,13 @@ export class RedirectTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class RemoveAttendeeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41504,6 +58386,10 @@ export class RemoveAttendeeHeadersAccountContext extends $tea.Model {
 }
 
 export class RemoveAttendeeResponseBodyContent extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -41523,6 +58409,13 @@ export class RemoveAttendeeResponseBodyContent extends $tea.Model {
 }
 
 export class RemoveMeetingRoomsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41542,6 +58435,13 @@ export class RemoveMeetingRoomsHeadersAccountContext extends $tea.Model {
 }
 
 export class RemoveMeetingRoomsRequestMeetingRoomsToRemove extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * U5Kxxxxx
+   */
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41561,6 +58461,13 @@ export class RemoveMeetingRoomsRequestMeetingRoomsToRemove extends $tea.Model {
 }
 
 export class SaveContentHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41580,10 +58487,45 @@ export class SaveContentHeadersAccountContext extends $tea.Model {
 }
 
 export class SaveContentRequestContents extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ### 序号1
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * markdown
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 今日完成工作
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sort?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41611,6 +58553,10 @@ export class SaveContentRequestContents extends $tea.Model {
 }
 
 export class SaveContentRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41630,6 +58576,13 @@ export class SaveContentRequestTenantContext extends $tea.Model {
 }
 
 export class SaveFormDataHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41649,6 +58602,13 @@ export class SaveFormDataHeadersAccountContext extends $tea.Model {
 }
 
 export class SaveFormRemarkHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41668,6 +58628,13 @@ export class SaveFormRemarkHeadersAccountContext extends $tea.Model {
 }
 
 export class SearchEmployeeFieldValuesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41687,6 +58654,13 @@ export class SearchEmployeeFieldValuesHeadersAccountContext extends $tea.Model {
 }
 
 export class SearchFormDataIdListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41706,6 +58680,13 @@ export class SearchFormDataIdListHeadersAccountContext extends $tea.Model {
 }
 
 export class SearchFormDataSecondGenerationHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41726,6 +58707,10 @@ export class SearchFormDataSecondGenerationHeadersAccountContext extends $tea.Mo
 
 export class SearchFormDataSecondGenerationResponseBodyDataModifyUserName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * English
+   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41748,6 +58733,10 @@ export class SearchFormDataSecondGenerationResponseBodyDataModifyUserName extend
 
 export class SearchFormDataSecondGenerationResponseBodyDataModifyUser extends $tea.Model {
   name?: SearchFormDataSecondGenerationResponseBodyDataModifyUserName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41770,6 +58759,10 @@ export class SearchFormDataSecondGenerationResponseBodyDataModifyUser extends $t
 
 export class SearchFormDataSecondGenerationResponseBodyDataOriginatorName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * English
+   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41792,6 +58785,10 @@ export class SearchFormDataSecondGenerationResponseBodyDataOriginatorName extend
 
 export class SearchFormDataSecondGenerationResponseBodyDataOriginator extends $tea.Model {
   name?: SearchFormDataSecondGenerationResponseBodyDataOriginatorName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41813,20 +58810,60 @@ export class SearchFormDataSecondGenerationResponseBodyDataOriginator extends $t
 }
 
 export class SearchFormDataSecondGenerationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-05-01 10:10:10
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   creatorUserId?: string;
   formData?: { [key: string]: any };
+  /**
+   * @example
+   * FINST-xxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * FORM-xxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * 1023
+   */
   id?: number;
+  /**
+   * @example
+   * {}
+   */
   instanceValue?: string;
+  /**
+   * @example
+   * 2021-05-01 10:10:10
+   */
   modifiedTimeGMT?: string;
   modifier?: string;
   modifyUser?: SearchFormDataSecondGenerationResponseBodyDataModifyUser;
   originator?: SearchFormDataSecondGenerationResponseBodyDataOriginator;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * sagc1b3090d
+   */
   serialNumber?: string;
   title?: string;
+  /**
+   * @example
+   * 3
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41874,6 +58911,13 @@ export class SearchFormDataSecondGenerationResponseBodyData extends $tea.Model {
 }
 
 export class SearchFormDataSecondGenerationNoTableFieldHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41894,6 +58938,10 @@ export class SearchFormDataSecondGenerationNoTableFieldHeadersAccountContext ext
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * English
+   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41916,6 +58964,10 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUse
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser extends $tea.Model {
   name?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41938,6 +58990,10 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUse
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * English
+   */
   nameInEnglish?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41960,6 +59016,10 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginato
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator extends $tea.Model {
   name?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName;
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41981,20 +59041,60 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginato
 }
 
 export class SearchFormDataSecondGenerationNoTableFieldResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-05-01 10:10:10
+   */
   createTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   creatorUserId?: string;
   formData?: { [key: string]: any };
+  /**
+   * @example
+   * FINST-xxxx
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * FORM-xxxx
+   */
   formUuid?: string;
+  /**
+   * @example
+   * 54114
+   */
   id?: number;
+  /**
+   * @example
+   * {}
+   */
   instanceValue?: string;
+  /**
+   * @example
+   * 2021-05-01 10:10:10
+   */
   modifiedTimeGMT?: string;
   modifier?: string;
   modifyUser?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser;
   originator?: SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * 7CE737P1SS
+   */
   serialNumber?: string;
   title?: string;
+  /**
+   * @example
+   * 3
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -42042,6 +59142,13 @@ export class SearchFormDataSecondGenerationNoTableFieldResponseBodyData extends 
 }
 
 export class SearchFormDatasHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42062,7 +59169,15 @@ export class SearchFormDatasHeadersAccountContext extends $tea.Model {
 
 export class SearchFormDatasResponseBodyDataModifyUserUserName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * EngilishName
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * ZH-CN
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42086,6 +59201,10 @@ export class SearchFormDatasResponseBodyDataModifyUserUserName extends $tea.Mode
 }
 
 export class SearchFormDatasResponseBodyDataModifyUser extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   userName?: SearchFormDatasResponseBodyDataModifyUserUserName;
   static names(): { [key: string]: string } {
@@ -42109,7 +59228,15 @@ export class SearchFormDatasResponseBodyDataModifyUser extends $tea.Model {
 
 export class SearchFormDatasResponseBodyDataOriginatorUserName extends $tea.Model {
   nameInChinese?: string;
+  /**
+   * @example
+   * EngilishName
+   */
   nameInEnglish?: string;
+  /**
+   * @example
+   * ZH-CN
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42133,6 +59260,10 @@ export class SearchFormDatasResponseBodyDataOriginatorUserName extends $tea.Mode
 }
 
 export class SearchFormDatasResponseBodyDataOriginator extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   userId?: string;
   userName?: SearchFormDatasResponseBodyDataOriginatorUserName;
   static names(): { [key: string]: string } {
@@ -42155,21 +59286,69 @@ export class SearchFormDatasResponseBodyDataOriginator extends $tea.Model {
 }
 
 export class SearchFormDatasResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2018-01-24 11:22:01
+   */
   createdTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   creatorUserId?: string;
+  /**
+   * @example
+   * 1002
+   */
   dataId?: number;
   formData?: { [key: string]: any };
+  /**
+   * @example
+   * FINST-BNKJDRF
+   */
   formInstanceId?: string;
+  /**
+   * @example
+   * FORM-EF6Y93URN24F1SCX15VA2P918LPEIJ2H3UFORCJ1
+   */
   formUuid?: string;
+  /**
+   * @example
+   * {}
+   */
   instanceValue?: string;
+  /**
+   * @example
+   * FORM-EF6Y93URN24F1SCX15VA2P918LPEIJ2H3UFORCJ1
+   */
   modelUuid?: string;
+  /**
+   * @example
+   * 2018-01-24 11:22:01
+   */
   modifiedTimeGMT?: string;
+  /**
+   * @example
+   * 012345
+   */
   modifierUserId?: string;
   modifyUser?: SearchFormDatasResponseBodyDataModifyUser;
   originator?: SearchFormDatasResponseBodyDataOriginator;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * 231008101012015353
+   */
   serialNo?: string;
   title?: string;
+  /**
+   * @example
+   * 3
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -42219,6 +59398,13 @@ export class SearchFormDatasResponseBodyData extends $tea.Model {
 }
 
 export class SearchInnerGroupsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42238,8 +59424,20 @@ export class SearchInnerGroupsHeadersAccountContext extends $tea.Model {
 }
 
 export class SearchInnerGroupsResponseBodyGroupInfos extends $tea.Model {
+  /**
+   * @example
+   * @lAD*****
+   */
   icon?: string;
+  /**
+   * @example
+   * 10
+   */
   memberAmount?: string;
+  /**
+   * @example
+   * cid13*****==
+   */
   openConversationId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -42266,6 +59464,13 @@ export class SearchInnerGroupsResponseBodyGroupInfos extends $tea.Model {
 }
 
 export class SendBannerHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42285,6 +59490,10 @@ export class SendBannerHeadersAccountContext extends $tea.Model {
 }
 
 export class SendBannerRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42304,6 +59513,13 @@ export class SendBannerRequestTenantContext extends $tea.Model {
 }
 
 export class SendPopupHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42323,6 +59539,10 @@ export class SendPopupHeadersAccountContext extends $tea.Model {
 }
 
 export class SendPopupRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42342,6 +59562,13 @@ export class SendPopupRequestTenantContext extends $tea.Model {
 }
 
 export class SendSearchShadeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42361,6 +59588,10 @@ export class SendSearchShadeHeadersAccountContext extends $tea.Model {
 }
 
 export class SendSearchShadeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42380,6 +59611,10 @@ export class SendSearchShadeRequestTenantContext extends $tea.Model {
 }
 
 export class SetColumnsVisibilityHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42399,6 +59634,10 @@ export class SetColumnsVisibilityHeadersAccountContext extends $tea.Model {
 }
 
 export class SetColumnsVisibilityRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42418,6 +59657,10 @@ export class SetColumnsVisibilityRequestTenantContext extends $tea.Model {
 }
 
 export class SetRowsVisibilityHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42437,6 +59680,10 @@ export class SetRowsVisibilityHeadersAccountContext extends $tea.Model {
 }
 
 export class SetRowsVisibilityRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42456,6 +59703,10 @@ export class SetRowsVisibilityRequestTenantContext extends $tea.Model {
 }
 
 export class SimpleListReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42475,6 +59726,10 @@ export class SimpleListReportHeadersAccountContext extends $tea.Model {
 }
 
 export class SimpleListReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42494,12 +59749,36 @@ export class SimpleListReportRequestTenantContext extends $tea.Model {
 }
 
 export class SimpleListReportResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1567034772000
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1701038
+   */
   creatorId?: string;
+  /**
+   * @example
+   * xinmu
+   */
   creatorName?: string;
   deptName?: string;
+  /**
+   * @example
+   * ops
+   */
   remark?: string;
+  /**
+   * @example
+   * d64994d09916c76276dd9bfa23637644
+   */
   reportId?: string;
+  /**
+   * @example
+   * WG-Template
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42531,6 +59810,13 @@ export class SimpleListReportResponseBodyDataList extends $tea.Model {
 }
 
 export class StartCloudRecordHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42550,6 +59836,10 @@ export class StartCloudRecordHeadersAccountContext extends $tea.Model {
 }
 
 export class StartCloudRecordRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42569,6 +59859,13 @@ export class StartCloudRecordRequestTenantContext extends $tea.Model {
 }
 
 export class StartInstanceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42588,6 +59885,13 @@ export class StartInstanceHeadersAccountContext extends $tea.Model {
 }
 
 export class StartMinutesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42607,6 +59911,10 @@ export class StartMinutesHeadersAccountContext extends $tea.Model {
 }
 
 export class StartMinutesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42626,6 +59934,13 @@ export class StartMinutesRequestTenantContext extends $tea.Model {
 }
 
 export class StatisticsListByTypeReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42645,6 +59960,10 @@ export class StatisticsListByTypeReportHeadersAccountContext extends $tea.Model 
 }
 
 export class StatisticsListByTypeReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42664,6 +59983,13 @@ export class StatisticsListByTypeReportRequestTenantContext extends $tea.Model {
 }
 
 export class StatisticsReportHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42683,6 +60009,10 @@ export class StatisticsReportHeadersAccountContext extends $tea.Model {
 }
 
 export class StatisticsReportRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42702,6 +60032,13 @@ export class StatisticsReportRequestTenantContext extends $tea.Model {
 }
 
 export class StopCloudRecordHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42721,6 +60058,10 @@ export class StopCloudRecordHeadersAccountContext extends $tea.Model {
 }
 
 export class StopCloudRecordRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42740,6 +60081,13 @@ export class StopCloudRecordRequestTenantContext extends $tea.Model {
 }
 
 export class StopMinutesHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42759,6 +60107,10 @@ export class StopMinutesHeadersAccountContext extends $tea.Model {
 }
 
 export class StopMinutesRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42778,6 +60130,13 @@ export class StopMinutesRequestTenantContext extends $tea.Model {
 }
 
 export class SubscribeCalendarHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42797,6 +60156,13 @@ export class SubscribeCalendarHeadersAccountContext extends $tea.Model {
 }
 
 export class SyncDingTypeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42816,6 +60182,10 @@ export class SyncDingTypeHeadersAccountContext extends $tea.Model {
 }
 
 export class SyncDingTypeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42835,6 +60205,13 @@ export class SyncDingTypeRequestTenantContext extends $tea.Model {
 }
 
 export class TerminateInstanceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42854,6 +60231,13 @@ export class TerminateInstanceHeadersAccountContext extends $tea.Model {
 }
 
 export class UnsubscribeCalendarHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42873,6 +60257,13 @@ export class UnsubscribeCalendarHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateFormDataHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42892,6 +60283,13 @@ export class UpdateFormDataHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateInstanceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42911,6 +60309,13 @@ export class UpdateInstanceHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateLiveHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42930,6 +60335,10 @@ export class UpdateLiveHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateLiveRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42949,6 +60358,13 @@ export class UpdateLiveRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateMeetingRoomHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43034,6 +60450,10 @@ export class UpdateMeetingRoomRequestRoomLocation extends $tea.Model {
 }
 
 export class UpdateMeetingRoomRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43053,6 +60473,13 @@ export class UpdateMeetingRoomRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateMeetingRoomGroupHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43072,6 +60499,10 @@ export class UpdateMeetingRoomGroupHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateMeetingRoomGroupRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43091,6 +60522,10 @@ export class UpdateMeetingRoomGroupRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateRangeHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43110,8 +60545,20 @@ export class UpdateRangeHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateRangeRequestHyperlinks extends $tea.Model {
+  /**
+   * @example
+   * path
+   */
   type?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
   link?: string;
+  /**
+   * @example
+   * test
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43135,6 +60582,10 @@ export class UpdateRangeRequestHyperlinks extends $tea.Model {
 }
 
 export class UpdateRangeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43154,6 +60605,13 @@ export class UpdateRangeRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateScheduleConfSettingsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43174,15 +60632,35 @@ export class UpdateScheduleConfSettingsHeadersAccountContext extends $tea.Model 
 
 export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting extends $tea.Model {
   cloudRecordOwnerUserId?: string;
+  /**
+   * @example
+   * 1
+   */
   enableChat?: number;
   enableWebAnonymousJoin?: boolean;
+  /**
+   * @example
+   * 1
+   */
   joinBeforeHost?: number;
+  /**
+   * @example
+   * 1
+   */
   lockMediaStatusMicMute?: number;
+  /**
+   * @example
+   * 1
+   */
   lockNick?: number;
   minutesOwnerUserId?: string;
   pushAllMeetingRecords?: boolean;
   pushCloudRecordCard?: boolean;
   pushMinutesCard?: boolean;
+  /**
+   * @example
+   * 1
+   */
   waitingRoom?: number;
   static names(): { [key: string]: string } {
     return {
@@ -43223,11 +60701,31 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVi
 
 export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $tea.Model {
   cohostUserIds?: string[];
+  /**
+   * @example
+   * ding********
+   */
   confAllowedCorpId?: string;
+  /**
+   * @example
+   * 012345
+   */
   hostUserId?: string;
+  /**
+   * @example
+   * 1
+   */
   lockRoom?: number;
   moziConfVirtualExtraSetting?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting;
+  /**
+   * @example
+   * 1
+   */
   muteOnJoin?: number;
+  /**
+   * @example
+   * 1
+   */
   screenShareForbidden?: number;
   static names(): { [key: string]: string } {
     return {
@@ -43259,6 +60757,10 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $
 }
 
 export class UpdateScheduleConfSettingsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43278,6 +60780,13 @@ export class UpdateScheduleConfSettingsRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateScheduleConferenceHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43297,6 +60806,10 @@ export class UpdateScheduleConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateScheduleConferenceRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43316,6 +60829,13 @@ export class UpdateScheduleConferenceRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateStatusHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43335,6 +60855,13 @@ export class UpdateStatusHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateSubscribedCalendarsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43373,6 +60900,10 @@ export class UpdateSubscribedCalendarsRequestSubscribeScope extends $tea.Model {
 }
 
 export class UpdateTodoTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43392,6 +60923,10 @@ export class UpdateTodoTaskHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateTodoTaskRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43411,6 +60946,10 @@ export class UpdateTodoTaskRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateTodoTaskExecutorStatusHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43430,6 +60969,10 @@ export class UpdateTodoTaskExecutorStatusHeadersAccountContext extends $tea.Mode
 }
 
 export class UpdateTodoTaskExecutorStatusRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43449,7 +60992,15 @@ export class UpdateTodoTaskExecutorStatusRequestTenantContext extends $tea.Model
 }
 
 export class UpdateTodoTaskExecutorStatusRequestExecutorStatusList extends $tea.Model {
+  /**
+   * @example
+   * userId
+   */
   id?: string;
+  /**
+   * @example
+   * true
+   */
   isDone?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -43471,6 +61022,13 @@ export class UpdateTodoTaskExecutorStatusRequestExecutorStatusList extends $tea.
 }
 
 export class UpdateUserAvatarHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43490,6 +61048,10 @@ export class UpdateUserAvatarHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateVideoConferenceSettingHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43509,6 +61071,10 @@ export class UpdateVideoConferenceSettingHeadersAccountContext extends $tea.Mode
 }
 
 export class UpdateVideoConferenceSettingRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43528,6 +61094,13 @@ export class UpdateVideoConferenceSettingRequestTenantContext extends $tea.Model
 }
 
 export class UpdateWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43547,8 +61120,20 @@ export class UpdateWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateWorkspaceDocMembersRequestMembers extends $tea.Model {
+  /**
+   * @example
+   * 012345
+   */
   memberId?: string;
+  /**
+   * @example
+   * USER
+   */
   memberType?: string;
+  /**
+   * @example
+   * ONLY_VIEWER
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43572,6 +61157,10 @@ export class UpdateWorkspaceDocMembersRequestMembers extends $tea.Model {
 }
 
 export class UpdateWorkspaceDocMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43591,6 +61180,13 @@ export class UpdateWorkspaceDocMembersRequestTenantContext extends $tea.Model {
 }
 
 export class UpdateWorkspaceMembersHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43610,8 +61206,29 @@ export class UpdateWorkspaceMembersHeadersAccountContext extends $tea.Model {
 }
 
 export class UpdateWorkspaceMembersRequestMembers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
   memberId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
   memberType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ONLY_VIEWER
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43635,6 +61252,10 @@ export class UpdateWorkspaceMembersRequestMembers extends $tea.Model {
 }
 
 export class UpdateWorkspaceMembersRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43673,6 +61294,10 @@ export class UploadMediaHeadersAccountContext extends $tea.Model {
 }
 
 export class UploadMediaRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43692,6 +61317,10 @@ export class UploadMediaRequestTenantContext extends $tea.Model {
 }
 
 export class WearOrgHonorHeadersAccountContext extends $tea.Model {
+  /**
+   * @example
+   * 1915607600538524
+   */
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43711,6 +61340,10 @@ export class WearOrgHonorHeadersAccountContext extends $tea.Model {
 }
 
 export class WearOrgHonorRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * 306752103647458
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43730,6 +61363,10 @@ export class WearOrgHonorRequestTenantContext extends $tea.Model {
 }
 
 export class WearOrgHonorResponseBodyContent extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   data?: any;
   static names(): { [key: string]: string } {
     return {
@@ -43772,12 +61409,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加日程参与者
-   *
-   * @param tmpReq AddAttendeeRequest
-   * @param tmpHeader AddAttendeeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddAttendeeResponse
+   * 添加日程参与者
+   * 
+   * @param tmpReq - AddAttendeeRequest
+   * @param tmpHeader - AddAttendeeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAttendeeResponse
    */
   async addAttendeeWithOptions(tmpReq: AddAttendeeRequest, tmpHeader: AddAttendeeHeaders, runtime: $Util.RuntimeOptions): Promise<AddAttendeeResponse> {
     Util.validateModel(tmpReq);
@@ -43842,10 +61479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加日程参与者
-   *
-   * @param request AddAttendeeRequest
-   * @return AddAttendeeResponse
+   * 添加日程参与者
+   * 
+   * @param request - AddAttendeeRequest
+   * @returns AddAttendeeResponse
    */
   async addAttendee(request: AddAttendeeRequest): Promise<AddAttendeeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43854,12 +61491,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建钉盘空间
-   *
-   * @param tmpReq AddDriveSpaceRequest
-   * @param tmpHeader AddDriveSpaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDriveSpaceResponse
+   * 新建钉盘空间
+   * 
+   * @param tmpReq - AddDriveSpaceRequest
+   * @param tmpHeader - AddDriveSpaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDriveSpaceResponse
    */
   async addDriveSpaceWithOptions(tmpReq: AddDriveSpaceRequest, tmpHeader: AddDriveSpaceHeaders, runtime: $Util.RuntimeOptions): Promise<AddDriveSpaceResponse> {
     Util.validateModel(tmpReq);
@@ -43912,10 +61549,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建钉盘空间
-   *
-   * @param request AddDriveSpaceRequest
-   * @return AddDriveSpaceResponse
+   * 新建钉盘空间
+   * 
+   * @param request - AddDriveSpaceRequest
+   * @returns AddDriveSpaceResponse
    */
   async addDriveSpace(request: AddDriveSpaceRequest): Promise<AddDriveSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43924,12 +61561,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 预定会议室
-   *
-   * @param tmpReq AddMeetingRoomsRequest
-   * @param tmpHeader AddMeetingRoomsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMeetingRoomsResponse
+   * 预定会议室
+   * 
+   * @param tmpReq - AddMeetingRoomsRequest
+   * @param tmpHeader - AddMeetingRoomsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMeetingRoomsResponse
    */
   async addMeetingRoomsWithOptions(tmpReq: AddMeetingRoomsRequest, tmpHeader: AddMeetingRoomsHeaders, runtime: $Util.RuntimeOptions): Promise<AddMeetingRoomsResponse> {
     Util.validateModel(tmpReq);
@@ -43986,10 +61623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 预定会议室
-   *
-   * @param request AddMeetingRoomsRequest
-   * @return AddMeetingRoomsResponse
+   * 预定会议室
+   * 
+   * @param request - AddMeetingRoomsRequest
+   * @returns AddMeetingRoomsResponse
    */
   async addMeetingRooms(request: AddMeetingRoomsRequest): Promise<AddMeetingRoomsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43998,12 +61635,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增群成员
-   *
-   * @param request AddScenegroupMemberRequest
-   * @param tmpHeader AddScenegroupMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddScenegroupMemberResponse
+   * 新增群成员
+   * 
+   * @param request - AddScenegroupMemberRequest
+   * @param tmpHeader - AddScenegroupMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddScenegroupMemberResponse
    */
   async addScenegroupMemberWithOptions(request: AddScenegroupMemberRequest, tmpHeader: AddScenegroupMemberHeaders, runtime: $Util.RuntimeOptions): Promise<AddScenegroupMemberResponse> {
     Util.validateModel(request);
@@ -44050,10 +61687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增群成员
-   *
-   * @param request AddScenegroupMemberRequest
-   * @return AddScenegroupMemberResponse
+   * 新增群成员
+   * 
+   * @param request - AddScenegroupMemberRequest
+   * @returns AddScenegroupMemberResponse
    */
   async addScenegroupMember(request: AddScenegroupMemberRequest): Promise<AddScenegroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44062,12 +61699,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建知识库
-   *
-   * @param tmpReq AddWorkspaceRequest
-   * @param tmpHeader AddWorkspaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddWorkspaceResponse
+   * 新建知识库
+   * 
+   * @param tmpReq - AddWorkspaceRequest
+   * @param tmpHeader - AddWorkspaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddWorkspaceResponse
    */
   async addWorkspaceWithOptions(tmpReq: AddWorkspaceRequest, tmpHeader: AddWorkspaceHeaders, runtime: $Util.RuntimeOptions): Promise<AddWorkspaceResponse> {
     Util.validateModel(tmpReq);
@@ -44128,10 +61765,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建知识库
-   *
-   * @param request AddWorkspaceRequest
-   * @return AddWorkspaceResponse
+   * 新建知识库
+   * 
+   * @param request - AddWorkspaceRequest
+   * @returns AddWorkspaceResponse
    */
   async addWorkspace(request: AddWorkspaceRequest): Promise<AddWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44140,12 +61777,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加知识库文档成员
-   *
-   * @param tmpReq AddWorkspaceDocMembersRequest
-   * @param tmpHeader AddWorkspaceDocMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddWorkspaceDocMembersResponse
+   * 添加知识库文档成员
+   * 
+   * @param tmpReq - AddWorkspaceDocMembersRequest
+   * @param tmpHeader - AddWorkspaceDocMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddWorkspaceDocMembersResponse
    */
   async addWorkspaceDocMembersWithOptions(tmpReq: AddWorkspaceDocMembersRequest, tmpHeader: AddWorkspaceDocMembersHeaders, runtime: $Util.RuntimeOptions): Promise<AddWorkspaceDocMembersResponse> {
     Util.validateModel(tmpReq);
@@ -44210,10 +61847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加知识库文档成员
-   *
-   * @param request AddWorkspaceDocMembersRequest
-   * @return AddWorkspaceDocMembersResponse
+   * 添加知识库文档成员
+   * 
+   * @param request - AddWorkspaceDocMembersRequest
+   * @returns AddWorkspaceDocMembersResponse
    */
   async addWorkspaceDocMembers(request: AddWorkspaceDocMembersRequest): Promise<AddWorkspaceDocMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44222,12 +61859,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加知识库成员
-   *
-   * @param tmpReq AddWorkspaceMembersRequest
-   * @param tmpHeader AddWorkspaceMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddWorkspaceMembersResponse
+   * 添加知识库成员
+   * 
+   * @param tmpReq - AddWorkspaceMembersRequest
+   * @param tmpHeader - AddWorkspaceMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddWorkspaceMembersResponse
    */
   async addWorkspaceMembersWithOptions(tmpReq: AddWorkspaceMembersRequest, tmpHeader: AddWorkspaceMembersHeaders, runtime: $Util.RuntimeOptions): Promise<AddWorkspaceMembersResponse> {
     Util.validateModel(tmpReq);
@@ -44288,10 +61925,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加知识库成员
-   *
-   * @param request AddWorkspaceMembersRequest
-   * @return AddWorkspaceMembersResponse
+   * 添加知识库成员
+   * 
+   * @param request - AddWorkspaceMembersRequest
+   * @returns AddWorkspaceMembersResponse
    */
   async addWorkspaceMembers(request: AddWorkspaceMembersRequest): Promise<AddWorkspaceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44300,12 +61937,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取表单实例数据
-   *
-   * @param tmpReq BatchGetFormDataByIdListRequest
-   * @param tmpHeader BatchGetFormDataByIdListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchGetFormDataByIdListResponse
+   * 批量获取表单实例数据
+   * 
+   * @param tmpReq - BatchGetFormDataByIdListRequest
+   * @param tmpHeader - BatchGetFormDataByIdListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetFormDataByIdListResponse
    */
   async batchGetFormDataByIdListWithOptions(tmpReq: BatchGetFormDataByIdListRequest, tmpHeader: BatchGetFormDataByIdListHeaders, runtime: $Util.RuntimeOptions): Promise<BatchGetFormDataByIdListResponse> {
     Util.validateModel(tmpReq);
@@ -44370,10 +62007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取表单实例数据
-   *
-   * @param request BatchGetFormDataByIdListRequest
-   * @return BatchGetFormDataByIdListResponse
+   * 批量获取表单实例数据
+   * 
+   * @param request - BatchGetFormDataByIdListRequest
+   * @returns BatchGetFormDataByIdListResponse
    */
   async batchGetFormDataByIdList(request: BatchGetFormDataByIdListRequest): Promise<BatchGetFormDataByIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44382,12 +62019,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除表单实例
-   *
-   * @param tmpReq BatchRemovalByFormInstanceIdListRequest
-   * @param tmpHeader BatchRemovalByFormInstanceIdListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchRemovalByFormInstanceIdListResponse
+   * 批量删除表单实例
+   * 
+   * @param tmpReq - BatchRemovalByFormInstanceIdListRequest
+   * @param tmpHeader - BatchRemovalByFormInstanceIdListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchRemovalByFormInstanceIdListResponse
    */
   async batchRemovalByFormInstanceIdListWithOptions(tmpReq: BatchRemovalByFormInstanceIdListRequest, tmpHeader: BatchRemovalByFormInstanceIdListHeaders, runtime: $Util.RuntimeOptions): Promise<BatchRemovalByFormInstanceIdListResponse> {
     Util.validateModel(tmpReq);
@@ -44456,10 +62093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除表单实例
-   *
-   * @param request BatchRemovalByFormInstanceIdListRequest
-   * @return BatchRemovalByFormInstanceIdListResponse
+   * 批量删除表单实例
+   * 
+   * @param request - BatchRemovalByFormInstanceIdListRequest
+   * @returns BatchRemovalByFormInstanceIdListResponse
    */
   async batchRemovalByFormInstanceIdList(request: BatchRemovalByFormInstanceIdListRequest): Promise<BatchRemovalByFormInstanceIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44468,12 +62105,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量创建表单实例
-   *
-   * @param tmpReq BatchSaveFormDataRequest
-   * @param tmpHeader BatchSaveFormDataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchSaveFormDataResponse
+   * 批量创建表单实例
+   * 
+   * @param tmpReq - BatchSaveFormDataRequest
+   * @param tmpHeader - BatchSaveFormDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchSaveFormDataResponse
    */
   async batchSaveFormDataWithOptions(tmpReq: BatchSaveFormDataRequest, tmpHeader: BatchSaveFormDataHeaders, runtime: $Util.RuntimeOptions): Promise<BatchSaveFormDataResponse> {
     Util.validateModel(tmpReq);
@@ -44546,10 +62183,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量创建表单实例
-   *
-   * @param request BatchSaveFormDataRequest
-   * @return BatchSaveFormDataResponse
+   * 批量创建表单实例
+   * 
+   * @param request - BatchSaveFormDataRequest
+   * @returns BatchSaveFormDataResponse
    */
   async batchSaveFormData(request: BatchSaveFormDataRequest): Promise<BatchSaveFormDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44558,12 +62195,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新表单实例内的组件值
-   *
-   * @param tmpReq BatchUpdateFormDataByInstanceIdRequest
-   * @param tmpHeader BatchUpdateFormDataByInstanceIdHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchUpdateFormDataByInstanceIdResponse
+   * 批量更新表单实例内的组件值
+   * 
+   * @param tmpReq - BatchUpdateFormDataByInstanceIdRequest
+   * @param tmpHeader - BatchUpdateFormDataByInstanceIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateFormDataByInstanceIdResponse
    */
   async batchUpdateFormDataByInstanceIdWithOptions(tmpReq: BatchUpdateFormDataByInstanceIdRequest, tmpHeader: BatchUpdateFormDataByInstanceIdHeaders, runtime: $Util.RuntimeOptions): Promise<BatchUpdateFormDataByInstanceIdResponse> {
     Util.validateModel(tmpReq);
@@ -44644,10 +62281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新表单实例内的组件值
-   *
-   * @param request BatchUpdateFormDataByInstanceIdRequest
-   * @return BatchUpdateFormDataByInstanceIdResponse
+   * 批量更新表单实例内的组件值
+   * 
+   * @param request - BatchUpdateFormDataByInstanceIdRequest
+   * @returns BatchUpdateFormDataByInstanceIdResponse
    */
   async batchUpdateFormDataByInstanceId(request: BatchUpdateFormDataByInstanceIdRequest): Promise<BatchUpdateFormDataByInstanceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44656,12 +62293,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过表单实例数据批量更新表单实例
-   *
-   * @param tmpReq BatchUpdateFormDataByInstanceMapRequest
-   * @param tmpHeader BatchUpdateFormDataByInstanceMapHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchUpdateFormDataByInstanceMapResponse
+   * 通过表单实例数据批量更新表单实例
+   * 
+   * @param tmpReq - BatchUpdateFormDataByInstanceMapRequest
+   * @param tmpHeader - BatchUpdateFormDataByInstanceMapHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateFormDataByInstanceMapResponse
    */
   async batchUpdateFormDataByInstanceMapWithOptions(tmpReq: BatchUpdateFormDataByInstanceMapRequest, tmpHeader: BatchUpdateFormDataByInstanceMapHeaders, runtime: $Util.RuntimeOptions): Promise<BatchUpdateFormDataByInstanceMapResponse> {
     Util.validateModel(tmpReq);
@@ -44738,10 +62375,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过表单实例数据批量更新表单实例
-   *
-   * @param request BatchUpdateFormDataByInstanceMapRequest
-   * @return BatchUpdateFormDataByInstanceMapResponse
+   * 通过表单实例数据批量更新表单实例
+   * 
+   * @param request - BatchUpdateFormDataByInstanceMapRequest
+   * @returns BatchUpdateFormDataByInstanceMapResponse
    */
   async batchUpdateFormDataByInstanceMap(request: BatchUpdateFormDataByInstanceMapRequest): Promise<BatchUpdateFormDataByInstanceMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44750,12 +62387,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消预约会议
-   *
-   * @param tmpReq CancelScheduleConferenceRequest
-   * @param tmpHeader CancelScheduleConferenceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelScheduleConferenceResponse
+   * 取消预约会议
+   * 
+   * @param tmpReq - CancelScheduleConferenceRequest
+   * @param tmpHeader - CancelScheduleConferenceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelScheduleConferenceResponse
    */
   async cancelScheduleConferenceWithOptions(tmpReq: CancelScheduleConferenceRequest, tmpHeader: CancelScheduleConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<CancelScheduleConferenceResponse> {
     Util.validateModel(tmpReq);
@@ -44808,10 +62445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消预约会议
-   *
-   * @param request CancelScheduleConferenceRequest
-   * @return CancelScheduleConferenceResponse
+   * 取消预约会议
+   * 
+   * @param request - CancelScheduleConferenceRequest
+   * @returns CancelScheduleConferenceResponse
    */
   async cancelScheduleConference(request: CancelScheduleConferenceRequest): Promise<CancelScheduleConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44820,12 +62457,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验阿里员工
-   *
-   * @param tmpReq CheckAlibabaStaffRequest
-   * @param tmpHeader CheckAlibabaStaffHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckAlibabaStaffResponse
+   * 校验阿里员工
+   * 
+   * @param tmpReq - CheckAlibabaStaffRequest
+   * @param tmpHeader - CheckAlibabaStaffHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAlibabaStaffResponse
    */
   async checkAlibabaStaffWithOptions(tmpReq: CheckAlibabaStaffRequest, tmpHeader: CheckAlibabaStaffHeaders, runtime: $Util.RuntimeOptions): Promise<CheckAlibabaStaffResponse> {
     Util.validateModel(tmpReq);
@@ -44878,10 +62515,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验阿里员工
-   *
-   * @param request CheckAlibabaStaffRequest
-   * @return CheckAlibabaStaffResponse
+   * 校验阿里员工
+   * 
+   * @param request - CheckAlibabaStaffRequest
+   * @returns CheckAlibabaStaffResponse
    */
   async checkAlibabaStaff(request: CheckAlibabaStaffRequest): Promise<CheckAlibabaStaffResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44890,12 +62527,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户是否为企业内部群成员
-   *
-   * @param request CheckUserIsGroupMemberRequest
-   * @param tmpHeader CheckUserIsGroupMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckUserIsGroupMemberResponse
+   * 查询用户是否为企业内部群成员
+   * 
+   * @param request - CheckUserIsGroupMemberRequest
+   * @param tmpHeader - CheckUserIsGroupMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckUserIsGroupMemberResponse
    */
   async checkUserIsGroupMemberWithOptions(request: CheckUserIsGroupMemberRequest, tmpHeader: CheckUserIsGroupMemberHeaders, runtime: $Util.RuntimeOptions): Promise<CheckUserIsGroupMemberResponse> {
     Util.validateModel(request);
@@ -44938,10 +62575,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户是否为企业内部群成员
-   *
-   * @param request CheckUserIsGroupMemberRequest
-   * @return CheckUserIsGroupMemberResponse
+   * 查询用户是否为企业内部群成员
+   * 
+   * @param request - CheckUserIsGroupMemberRequest
+   * @returns CheckUserIsGroupMemberResponse
    */
   async checkUserIsGroupMember(request: CheckUserIsGroupMemberRequest): Promise<CheckUserIsGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44950,12 +62587,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 清除单元格所有内容
-   *
-   * @param tmpReq ClearRequest
-   * @param tmpHeader ClearHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ClearResponse
+   * 清除单元格所有内容
+   * 
+   * @param tmpReq - ClearRequest
+   * @param tmpHeader - ClearHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearResponse
    */
   async clearWithOptions(tmpReq: ClearRequest, tmpHeader: ClearHeaders, runtime: $Util.RuntimeOptions): Promise<ClearResponse> {
     Util.validateModel(tmpReq);
@@ -45016,10 +62653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 清除单元格所有内容
-   *
-   * @param request ClearRequest
-   * @return ClearResponse
+   * 清除单元格所有内容
+   * 
+   * @param request - ClearRequest
+   * @returns ClearResponse
    */
   async clear(request: ClearRequest): Promise<ClearResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45028,12 +62665,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 清除单元格数据
-   *
-   * @param tmpReq ClearDataRequest
-   * @param tmpHeader ClearDataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ClearDataResponse
+   * 清除单元格数据
+   * 
+   * @param tmpReq - ClearDataRequest
+   * @param tmpHeader - ClearDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearDataResponse
    */
   async clearDataWithOptions(tmpReq: ClearDataRequest, tmpHeader: ClearDataHeaders, runtime: $Util.RuntimeOptions): Promise<ClearDataResponse> {
     Util.validateModel(tmpReq);
@@ -45094,10 +62731,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 清除单元格数据
-   *
-   * @param request ClearDataRequest
-   * @return ClearDataResponse
+   * 清除单元格数据
+   * 
+   * @param request - ClearDataRequest
+   * @returns ClearDataResponse
    */
   async clearData(request: ClearDataRequest): Promise<ClearDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45106,12 +62743,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 关闭视频会议
-   *
-   * @param tmpReq CloseVideoConferenceRequest
-   * @param tmpHeader CloseVideoConferenceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloseVideoConferenceResponse
+   * 关闭视频会议
+   * 
+   * @param tmpReq - CloseVideoConferenceRequest
+   * @param tmpHeader - CloseVideoConferenceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseVideoConferenceResponse
    */
   async closeVideoConferenceWithOptions(tmpReq: CloseVideoConferenceRequest, tmpHeader: CloseVideoConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<CloseVideoConferenceResponse> {
     Util.validateModel(tmpReq);
@@ -45164,10 +62801,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 关闭视频会议
-   *
-   * @param request CloseVideoConferenceRequest
-   * @return CloseVideoConferenceResponse
+   * 关闭视频会议
+   * 
+   * @param request - CloseVideoConferenceRequest
+   * @returns CloseVideoConferenceResponse
    */
   async closeVideoConference(request: CloseVideoConferenceRequest): Promise<CloseVideoConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45176,12 +62813,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志评论列表
-   *
-   * @param tmpReq CommentListReportRequest
-   * @param tmpHeader CommentListReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CommentListReportResponse
+   * 获取日志评论列表
+   * 
+   * @param tmpReq - CommentListReportRequest
+   * @param tmpHeader - CommentListReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommentListReportResponse
    */
   async commentListReportWithOptions(tmpReq: CommentListReportRequest, tmpHeader: CommentListReportHeaders, runtime: $Util.RuntimeOptions): Promise<CommentListReportResponse> {
     Util.validateModel(tmpReq);
@@ -45242,10 +62879,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志评论列表
-   *
-   * @param request CommentListReportRequest
-   * @return CommentListReportResponse
+   * 获取日志评论列表
+   * 
+   * @param request - CommentListReportRequest
+   * @returns CommentListReportResponse
    */
   async commentListReport(request: CommentListReportRequest): Promise<CommentListReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45254,12 +62891,98 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布钉钉投放活动
-   *
-   * @param tmpReq CreateDeliveryPlanRequest
-   * @param tmpHeader CreateDeliveryPlanHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDeliveryPlanResponse
+   * 提交文件
+   * 
+   * @param tmpReq - CommitFileRequest
+   * @param tmpHeader - CommitFileHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommitFileResponse
+   */
+  async commitFileWithOptions(tmpReq: CommitFileRequest, tmpHeader: CommitFileHeaders, runtime: $Util.RuntimeOptions): Promise<CommitFileResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CommitFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CommitFileShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.option)) {
+      request.optionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.option, "Option", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.optionShrink)) {
+      body["Option"] = request.optionShrink;
+    }
+
+    if (!Util.isUnset(request.parentDentryUuid)) {
+      body["ParentDentryUuid"] = request.parentDentryUuid;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.uploadKey)) {
+      body["UploadKey"] = request.uploadKey;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CommitFile",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/commitFile`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CommitFileResponse>(await this.callApi(params, req, runtime), new CommitFileResponse({}));
+  }
+
+  /**
+   * 提交文件
+   * 
+   * @param request - CommitFileRequest
+   * @returns CommitFileResponse
+   */
+  async commitFile(request: CommitFileRequest): Promise<CommitFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CommitFileHeaders({ });
+    return await this.commitFileWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 发布钉钉投放活动
+   * 
+   * @param tmpReq - CreateDeliveryPlanRequest
+   * @param tmpHeader - CreateDeliveryPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeliveryPlanResponse
    */
   async createDeliveryPlanWithOptions(tmpReq: CreateDeliveryPlanRequest, tmpHeader: CreateDeliveryPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDeliveryPlanResponse> {
     Util.validateModel(tmpReq);
@@ -45336,10 +63059,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布钉钉投放活动
-   *
-   * @param request CreateDeliveryPlanRequest
-   * @return CreateDeliveryPlanResponse
+   * 发布钉钉投放活动
+   * 
+   * @param request - CreateDeliveryPlanRequest
+   * @returns CreateDeliveryPlanResponse
    */
   async createDeliveryPlan(request: CreateDeliveryPlanRequest): Promise<CreateDeliveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45348,12 +63071,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 委托权限创建钉钉个人待办
-   *
-   * @param tmpReq CreateDingtalkPersonalTodoTaskRequest
-   * @param tmpHeader CreateDingtalkPersonalTodoTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDingtalkPersonalTodoTaskResponse
+   * 委托权限创建钉钉个人待办
+   * 
+   * @param tmpReq - CreateDingtalkPersonalTodoTaskRequest
+   * @param tmpHeader - CreateDingtalkPersonalTodoTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDingtalkPersonalTodoTaskResponse
    */
   async createDingtalkPersonalTodoTaskWithOptions(tmpReq: CreateDingtalkPersonalTodoTaskRequest, tmpHeader: CreateDingtalkPersonalTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDingtalkPersonalTodoTaskResponse> {
     Util.validateModel(tmpReq);
@@ -45442,10 +63165,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 委托权限创建钉钉个人待办
-   *
-   * @param request CreateDingtalkPersonalTodoTaskRequest
-   * @return CreateDingtalkPersonalTodoTaskResponse
+   * 委托权限创建钉钉个人待办
+   * 
+   * @param request - CreateDingtalkPersonalTodoTaskRequest
+   * @returns CreateDingtalkPersonalTodoTaskResponse
    */
   async createDingtalkPersonalTodoTask(request: CreateDingtalkPersonalTodoTaskRequest): Promise<CreateDingtalkPersonalTodoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45454,12 +63177,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建日程
-   *
-   * @param tmpReq CreateEventRequest
-   * @param tmpHeader CreateEventHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateEventResponse
+   * 创建日程
+   * 
+   * @param tmpReq - CreateEventRequest
+   * @param tmpHeader - CreateEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEventResponse
    */
   async createEventWithOptions(tmpReq: CreateEventRequest, tmpHeader: CreateEventHeaders, runtime: $Util.RuntimeOptions): Promise<CreateEventResponse> {
     Util.validateModel(tmpReq);
@@ -45596,10 +63319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建日程
-   *
-   * @param request CreateEventRequest
-   * @return CreateEventResponse
+   * 创建日程
+   * 
+   * @param request - CreateEventRequest
+   * @returns CreateEventResponse
    */
   async createEvent(request: CreateEventRequest): Promise<CreateEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45608,12 +63331,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播
-   *
-   * @param tmpReq CreateLiveRequest
-   * @param tmpHeader CreateLiveHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLiveResponse
+   * 创建直播
+   * 
+   * @param tmpReq - CreateLiveRequest
+   * @param tmpHeader - CreateLiveHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLiveResponse
    */
   async createLiveWithOptions(tmpReq: CreateLiveRequest, tmpHeader: CreateLiveHeaders, runtime: $Util.RuntimeOptions): Promise<CreateLiveResponse> {
     Util.validateModel(tmpReq);
@@ -45686,10 +63409,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播
-   *
-   * @param request CreateLiveRequest
-   * @return CreateLiveResponse
+   * 创建直播
+   * 
+   * @param request - CreateLiveRequest
+   * @returns CreateLiveResponse
    */
   async createLive(request: CreateLiveRequest): Promise<CreateLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45698,12 +63421,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建会议室
-   *
-   * @param tmpReq CreateMeetingRoomRequest
-   * @param tmpHeader CreateMeetingRoomHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMeetingRoomResponse
+   * 创建会议室
+   * 
+   * @param tmpReq - CreateMeetingRoomRequest
+   * @param tmpHeader - CreateMeetingRoomHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMeetingRoomResponse
    */
   async createMeetingRoomWithOptions(tmpReq: CreateMeetingRoomRequest, tmpHeader: CreateMeetingRoomHeaders, runtime: $Util.RuntimeOptions): Promise<CreateMeetingRoomResponse> {
     Util.validateModel(tmpReq);
@@ -45804,10 +63527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建会议室
-   *
-   * @param request CreateMeetingRoomRequest
-   * @return CreateMeetingRoomResponse
+   * 创建会议室
+   * 
+   * @param request - CreateMeetingRoomRequest
+   * @returns CreateMeetingRoomResponse
    */
   async createMeetingRoom(request: CreateMeetingRoomRequest): Promise<CreateMeetingRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45816,12 +63539,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建会议室分组
-   *
-   * @param tmpReq CreateMeetingRoomGroupRequest
-   * @param tmpHeader CreateMeetingRoomGroupHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMeetingRoomGroupResponse
+   * 创建会议室分组
+   * 
+   * @param tmpReq - CreateMeetingRoomGroupRequest
+   * @param tmpHeader - CreateMeetingRoomGroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMeetingRoomGroupResponse
    */
   async createMeetingRoomGroupWithOptions(tmpReq: CreateMeetingRoomGroupRequest, tmpHeader: CreateMeetingRoomGroupHeaders, runtime: $Util.RuntimeOptions): Promise<CreateMeetingRoomGroupResponse> {
     Util.validateModel(tmpReq);
@@ -45878,10 +63601,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建会议室分组
-   *
-   * @param request CreateMeetingRoomGroupRequest
-   * @return CreateMeetingRoomGroupResponse
+   * 创建会议室分组
+   * 
+   * @param request - CreateMeetingRoomGroupRequest
+   * @returns CreateMeetingRoomGroupResponse
    */
   async createMeetingRoomGroup(request: CreateMeetingRoomGroupRequest): Promise<CreateMeetingRoomGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45890,12 +63613,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增或更新表单实例
-   *
-   * @param request CreateOrUpdateFormDataRequest
-   * @param tmpHeader CreateOrUpdateFormDataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOrUpdateFormDataResponse
+   * 新增或更新表单实例
+   * 
+   * @param request - CreateOrUpdateFormDataRequest
+   * @param tmpHeader - CreateOrUpdateFormDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrUpdateFormDataResponse
    */
   async createOrUpdateFormDataWithOptions(request: CreateOrUpdateFormDataRequest, tmpHeader: CreateOrUpdateFormDataHeaders, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateFormDataResponse> {
     Util.validateModel(request);
@@ -45962,10 +63685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增或更新表单实例
-   *
-   * @param request CreateOrUpdateFormDataRequest
-   * @return CreateOrUpdateFormDataResponse
+   * 新增或更新表单实例
+   * 
+   * @param request - CreateOrUpdateFormDataRequest
+   * @returns CreateOrUpdateFormDataResponse
    */
   async createOrUpdateFormData(request: CreateOrUpdateFormDataRequest): Promise<CreateOrUpdateFormDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45974,12 +63697,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建荣誉勋章模板
-   *
-   * @param tmpReq CreateOrgHonorTemplateRequest
-   * @param tmpHeader CreateOrgHonorTemplateHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOrgHonorTemplateResponse
+   * 创建荣誉勋章模板
+   * 
+   * @param tmpReq - CreateOrgHonorTemplateRequest
+   * @param tmpHeader - CreateOrgHonorTemplateHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrgHonorTemplateResponse
    */
   async createOrgHonorTemplateWithOptions(tmpReq: CreateOrgHonorTemplateRequest, tmpHeader: CreateOrgHonorTemplateHeaders, runtime: $Util.RuntimeOptions): Promise<CreateOrgHonorTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -46056,10 +63779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建荣誉勋章模板
-   *
-   * @param request CreateOrgHonorTemplateRequest
-   * @return CreateOrgHonorTemplateResponse
+   * 创建荣誉勋章模板
+   * 
+   * @param request - CreateOrgHonorTemplateRequest
+   * @returns CreateOrgHonorTemplateResponse
    */
   async createOrgHonorTemplate(request: CreateOrgHonorTemplateRequest): Promise<CreateOrgHonorTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46068,12 +63791,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建钉钉个人待办任务
-   *
-   * @param tmpReq CreatePersonalTodoTaskRequest
-   * @param tmpHeader CreatePersonalTodoTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePersonalTodoTaskResponse
+   * 创建钉钉个人待办任务
+   * 
+   * @param tmpReq - CreatePersonalTodoTaskRequest
+   * @param tmpHeader - CreatePersonalTodoTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePersonalTodoTaskResponse
    */
   async createPersonalTodoTaskWithOptions(tmpReq: CreatePersonalTodoTaskRequest, tmpHeader: CreatePersonalTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<CreatePersonalTodoTaskResponse> {
     Util.validateModel(tmpReq);
@@ -46158,10 +63881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建钉钉个人待办任务
-   *
-   * @param request CreatePersonalTodoTaskRequest
-   * @return CreatePersonalTodoTaskResponse
+   * 创建钉钉个人待办任务
+   * 
+   * @param request - CreatePersonalTodoTaskRequest
+   * @returns CreatePersonalTodoTaskResponse
    */
   async createPersonalTodoTask(request: CreatePersonalTodoTaskRequest): Promise<CreatePersonalTodoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46170,12 +63893,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建日志
-   *
-   * @param tmpReq CreateReportRequest
-   * @param tmpHeader CreateReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateReportResponse
+   * 创建日志
+   * 
+   * @param tmpReq - CreateReportRequest
+   * @param tmpHeader - CreateReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReportResponse
    */
   async createReportWithOptions(tmpReq: CreateReportRequest, tmpHeader: CreateReportHeaders, runtime: $Util.RuntimeOptions): Promise<CreateReportResponse> {
     Util.validateModel(tmpReq);
@@ -46260,10 +63983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建日志
-   *
-   * @param request CreateReportRequest
-   * @return CreateReportResponse
+   * 创建日志
+   * 
+   * @param request - CreateReportRequest
+   * @returns CreateReportResponse
    */
   async createReport(request: CreateReportRequest): Promise<CreateReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46272,12 +63995,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建场景群
-   *
-   * @param request CreateScenegroupRequest
-   * @param tmpHeader CreateScenegroupHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateScenegroupResponse
+   * 创建场景群
+   * 
+   * @param request - CreateScenegroupRequest
+   * @param tmpHeader - CreateScenegroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScenegroupResponse
    */
   async createScenegroupWithOptions(request: CreateScenegroupRequest, tmpHeader: CreateScenegroupHeaders, runtime: $Util.RuntimeOptions): Promise<CreateScenegroupResponse> {
     Util.validateModel(request);
@@ -46396,10 +64119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建场景群
-   *
-   * @param request CreateScenegroupRequest
-   * @return CreateScenegroupResponse
+   * 创建场景群
+   * 
+   * @param request - CreateScenegroupRequest
+   * @returns CreateScenegroupResponse
    */
   async createScenegroup(request: CreateScenegroupRequest): Promise<CreateScenegroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46408,12 +64131,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建预约会议
-   *
-   * @param tmpReq CreateScheduleConferenceRequest
-   * @param tmpHeader CreateScheduleConferenceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateScheduleConferenceResponse
+   * 创建预约会议
+   * 
+   * @param tmpReq - CreateScheduleConferenceRequest
+   * @param tmpHeader - CreateScheduleConferenceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScheduleConferenceResponse
    */
   async createScheduleConferenceWithOptions(tmpReq: CreateScheduleConferenceRequest, tmpHeader: CreateScheduleConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<CreateScheduleConferenceResponse> {
     Util.validateModel(tmpReq);
@@ -46474,10 +64197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建预约会议
-   *
-   * @param request CreateScheduleConferenceRequest
-   * @return CreateScheduleConferenceResponse
+   * 创建预约会议
+   * 
+   * @param request - CreateScheduleConferenceRequest
+   * @returns CreateScheduleConferenceResponse
    */
   async createScheduleConference(request: CreateScheduleConferenceRequest): Promise<CreateScheduleConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46486,12 +64209,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布钉钉搜索穹顶
-   *
-   * @param tmpReq CreateSearchDomeRequest
-   * @param tmpHeader CreateSearchDomeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSearchDomeResponse
+   * 发布钉钉搜索穹顶
+   * 
+   * @param tmpReq - CreateSearchDomeRequest
+   * @param tmpHeader - CreateSearchDomeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSearchDomeResponse
    */
   async createSearchDomeWithOptions(tmpReq: CreateSearchDomeRequest, tmpHeader: CreateSearchDomeHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSearchDomeResponse> {
     Util.validateModel(tmpReq);
@@ -46564,10 +64287,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布钉钉搜索穹顶
-   *
-   * @param request CreateSearchDomeRequest
-   * @return CreateSearchDomeResponse
+   * 发布钉钉搜索穹顶
+   * 
+   * @param request - CreateSearchDomeRequest
+   * @returns CreateSearchDomeResponse
    */
   async createSearchDome(request: CreateSearchDomeRequest): Promise<CreateSearchDomeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46576,12 +64299,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布钉钉搜索关键词
-   *
-   * @param tmpReq CreateSearchKeywordRequest
-   * @param tmpHeader CreateSearchKeywordHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSearchKeywordResponse
+   * 发布钉钉搜索关键词
+   * 
+   * @param tmpReq - CreateSearchKeywordRequest
+   * @param tmpHeader - CreateSearchKeywordHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSearchKeywordResponse
    */
   async createSearchKeywordWithOptions(tmpReq: CreateSearchKeywordRequest, tmpHeader: CreateSearchKeywordHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSearchKeywordResponse> {
     Util.validateModel(tmpReq);
@@ -46654,10 +64377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布钉钉搜索关键词
-   *
-   * @param request CreateSearchKeywordRequest
-   * @return CreateSearchKeywordResponse
+   * 发布钉钉搜索关键词
+   * 
+   * @param request - CreateSearchKeywordRequest
+   * @returns CreateSearchKeywordResponse
    */
   async createSearchKeyword(request: CreateSearchKeywordRequest): Promise<CreateSearchKeywordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46666,12 +64389,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建工作表
-   *
-   * @param tmpReq CreateSheetRequest
-   * @param tmpHeader CreateSheetHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSheetResponse
+   * 创建工作表
+   * 
+   * @param tmpReq - CreateSheetRequest
+   * @param tmpHeader - CreateSheetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSheetResponse
    */
   async createSheetWithOptions(tmpReq: CreateSheetRequest, tmpHeader: CreateSheetHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSheetResponse> {
     Util.validateModel(tmpReq);
@@ -46728,10 +64451,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建工作表
-   *
-   * @param request CreateSheetRequest
-   * @return CreateSheetResponse
+   * 创建工作表
+   * 
+   * @param request - CreateSheetRequest
+   * @returns CreateSheetResponse
    */
   async createSheet(request: CreateSheetRequest): Promise<CreateSheetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46740,12 +64463,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建订阅日历
-   *
-   * @param tmpReq CreateSubscribedCalendarRequest
-   * @param tmpHeader CreateSubscribedCalendarHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSubscribedCalendarResponse
+   * 创建订阅日历
+   * 
+   * @param tmpReq - CreateSubscribedCalendarRequest
+   * @param tmpHeader - CreateSubscribedCalendarHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubscribedCalendarResponse
    */
   async createSubscribedCalendarWithOptions(tmpReq: CreateSubscribedCalendarRequest, tmpHeader: CreateSubscribedCalendarHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSubscribedCalendarResponse> {
     Util.validateModel(tmpReq);
@@ -46810,10 +64533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建订阅日历
-   *
-   * @param request CreateSubscribedCalendarRequest
-   * @return CreateSubscribedCalendarResponse
+   * 创建订阅日历
+   * 
+   * @param request - CreateSubscribedCalendarRequest
+   * @returns CreateSubscribedCalendarResponse
    */
   async createSubscribedCalendar(request: CreateSubscribedCalendarRequest): Promise<CreateSubscribedCalendarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46822,12 +64545,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建代办
-   *
-   * @param tmpReq CreateTodoTaskRequest
-   * @param tmpHeader CreateTodoTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTodoTaskResponse
+   * 创建代办
+   * 
+   * @param tmpReq - CreateTodoTaskRequest
+   * @param tmpHeader - CreateTodoTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTodoTaskResponse
    */
   async createTodoTaskWithOptions(tmpReq: CreateTodoTaskRequest, tmpHeader: CreateTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<CreateTodoTaskResponse> {
     Util.validateModel(tmpReq);
@@ -46950,10 +64673,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建代办
-   *
-   * @param request CreateTodoTaskRequest
-   * @return CreateTodoTaskResponse
+   * 创建代办
+   * 
+   * @param request - CreateTodoTaskRequest
+   * @returns CreateTodoTaskResponse
    */
   async createTodoTask(request: CreateTodoTaskRequest): Promise<CreateTodoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46962,12 +64685,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建视频会议
-   *
-   * @param tmpReq CreateVideoConferenceRequest
-   * @param tmpHeader CreateVideoConferenceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVideoConferenceResponse
+   * 创建视频会议
+   * 
+   * @param tmpReq - CreateVideoConferenceRequest
+   * @param tmpHeader - CreateVideoConferenceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoConferenceResponse
    */
   async createVideoConferenceWithOptions(tmpReq: CreateVideoConferenceRequest, tmpHeader: CreateVideoConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<CreateVideoConferenceResponse> {
     Util.validateModel(tmpReq);
@@ -47024,10 +64747,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建视频会议
-   *
-   * @param request CreateVideoConferenceRequest
-   * @return CreateVideoConferenceResponse
+   * 创建视频会议
+   * 
+   * @param request - CreateVideoConferenceRequest
+   * @returns CreateVideoConferenceResponse
    */
   async createVideoConference(request: CreateVideoConferenceRequest): Promise<CreateVideoConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47036,12 +64759,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建知识库
-   *
-   * @param tmpReq CreateWorkspaceRequest
-   * @param tmpHeader CreateWorkspaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWorkspaceResponse
+   * 创建知识库
+   * 
+   * @param tmpReq - CreateWorkspaceRequest
+   * @param tmpHeader - CreateWorkspaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceResponse
    */
   async createWorkspaceWithOptions(tmpReq: CreateWorkspaceRequest, tmpHeader: CreateWorkspaceHeaders, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
     Util.validateModel(tmpReq);
@@ -47098,10 +64821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建知识库
-   *
-   * @param request CreateWorkspaceRequest
-   * @return CreateWorkspaceResponse
+   * 创建知识库
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @returns CreateWorkspaceResponse
    */
   async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47110,12 +64833,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建知识库文档
-   *
-   * @param tmpReq CreateWorkspaceDocRequest
-   * @param tmpHeader CreateWorkspaceDocHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWorkspaceDocResponse
+   * 创建知识库文档
+   * 
+   * @param tmpReq - CreateWorkspaceDocRequest
+   * @param tmpHeader - CreateWorkspaceDocHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceDocResponse
    */
   async createWorkspaceDocWithOptions(tmpReq: CreateWorkspaceDocRequest, tmpHeader: CreateWorkspaceDocHeaders, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceDocResponse> {
     Util.validateModel(tmpReq);
@@ -47188,10 +64911,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建知识库文档
-   *
-   * @param request CreateWorkspaceDocRequest
-   * @return CreateWorkspaceDocResponse
+   * 创建知识库文档
+   * 
+   * @param request - CreateWorkspaceDocRequest
+   * @returns CreateWorkspaceDocResponse
    */
   async createWorkspaceDoc(request: CreateWorkspaceDocRequest): Promise<CreateWorkspaceDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47200,12 +64923,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定列
-   *
-   * @param tmpReq DeleteColumnsRequest
-   * @param tmpHeader DeleteColumnsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteColumnsResponse
+   * 删除指定列
+   * 
+   * @param tmpReq - DeleteColumnsRequest
+   * @param tmpHeader - DeleteColumnsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteColumnsResponse
    */
   async deleteColumnsWithOptions(tmpReq: DeleteColumnsRequest, tmpHeader: DeleteColumnsHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteColumnsResponse> {
     Util.validateModel(tmpReq);
@@ -47270,10 +64993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定列
-   *
-   * @param request DeleteColumnsRequest
-   * @return DeleteColumnsResponse
+   * 删除指定列
+   * 
+   * @param request - DeleteColumnsRequest
+   * @returns DeleteColumnsResponse
    */
   async deleteColumns(request: DeleteColumnsRequest): Promise<DeleteColumnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47282,12 +65005,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除钉盘空间
-   *
-   * @param tmpReq DeleteDriveSpaceRequest
-   * @param tmpHeader DeleteDriveSpaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDriveSpaceResponse
+   * 删除钉盘空间
+   * 
+   * @param tmpReq - DeleteDriveSpaceRequest
+   * @param tmpHeader - DeleteDriveSpaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDriveSpaceResponse
    */
   async deleteDriveSpaceWithOptions(tmpReq: DeleteDriveSpaceRequest, tmpHeader: DeleteDriveSpaceHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDriveSpaceResponse> {
     Util.validateModel(tmpReq);
@@ -47340,10 +65063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除钉盘空间
-   *
-   * @param request DeleteDriveSpaceRequest
-   * @return DeleteDriveSpaceResponse
+   * 删除钉盘空间
+   * 
+   * @param request - DeleteDriveSpaceRequest
+   * @returns DeleteDriveSpaceResponse
    */
   async deleteDriveSpace(request: DeleteDriveSpaceRequest): Promise<DeleteDriveSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47352,12 +65075,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除日程
-   *
-   * @param request DeleteEventRequest
-   * @param tmpHeader DeleteEventHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteEventResponse
+   * 删除日程
+   * 
+   * @param request - DeleteEventRequest
+   * @param tmpHeader - DeleteEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEventResponse
    */
   async deleteEventWithOptions(request: DeleteEventRequest, tmpHeader: DeleteEventHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteEventResponse> {
     Util.validateModel(request);
@@ -47408,10 +65131,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除日程
-   *
-   * @param request DeleteEventRequest
-   * @return DeleteEventResponse
+   * 删除日程
+   * 
+   * @param request - DeleteEventRequest
+   * @returns DeleteEventResponse
    */
   async deleteEvent(request: DeleteEventRequest): Promise<DeleteEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47420,12 +65143,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除表单数据
-   *
-   * @param request DeleteFormDataRequest
-   * @param tmpHeader DeleteFormDataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFormDataResponse
+   * 删除表单数据
+   * 
+   * @param request - DeleteFormDataRequest
+   * @param tmpHeader - DeleteFormDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFormDataResponse
    */
   async deleteFormDataWithOptions(request: DeleteFormDataRequest, tmpHeader: DeleteFormDataHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteFormDataResponse> {
     Util.validateModel(request);
@@ -47480,10 +65203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除表单数据
-   *
-   * @param request DeleteFormDataRequest
-   * @return DeleteFormDataResponse
+   * 删除表单数据
+   * 
+   * @param request - DeleteFormDataRequest
+   * @returns DeleteFormDataResponse
    */
   async deleteFormData(request: DeleteFormDataRequest): Promise<DeleteFormDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47492,10 +65215,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteInstanceRequest
-   * @param tmpHeader DeleteInstanceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResponse
+   * @param request - DeleteInstanceRequest
+   * @param tmpHeader - DeleteInstanceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, tmpHeader: DeleteInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -47550,8 +65273,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteInstanceRequest
-   * @return DeleteInstanceResponse
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47560,12 +65283,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除直播
-   *
-   * @param tmpReq DeleteLiveRequest
-   * @param tmpHeader DeleteLiveHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveResponse
+   * 删除直播
+   * 
+   * @param tmpReq - DeleteLiveRequest
+   * @param tmpHeader - DeleteLiveHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveResponse
    */
   async deleteLiveWithOptions(tmpReq: DeleteLiveRequest, tmpHeader: DeleteLiveHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteLiveResponse> {
     Util.validateModel(tmpReq);
@@ -47618,10 +65341,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除直播
-   *
-   * @param request DeleteLiveRequest
-   * @return DeleteLiveResponse
+   * 删除直播
+   * 
+   * @param request - DeleteLiveRequest
+   * @returns DeleteLiveResponse
    */
   async deleteLive(request: DeleteLiveRequest): Promise<DeleteLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47630,12 +65353,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除会议室
-   *
-   * @param tmpReq DeleteMeetingRoomRequest
-   * @param tmpHeader DeleteMeetingRoomHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMeetingRoomResponse
+   * 删除会议室
+   * 
+   * @param tmpReq - DeleteMeetingRoomRequest
+   * @param tmpHeader - DeleteMeetingRoomHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMeetingRoomResponse
    */
   async deleteMeetingRoomWithOptions(tmpReq: DeleteMeetingRoomRequest, tmpHeader: DeleteMeetingRoomHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteMeetingRoomResponse> {
     Util.validateModel(tmpReq);
@@ -47688,10 +65411,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除会议室
-   *
-   * @param request DeleteMeetingRoomRequest
-   * @return DeleteMeetingRoomResponse
+   * 删除会议室
+   * 
+   * @param request - DeleteMeetingRoomRequest
+   * @returns DeleteMeetingRoomResponse
    */
   async deleteMeetingRoom(request: DeleteMeetingRoomRequest): Promise<DeleteMeetingRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47700,12 +65423,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除会议室分组
-   *
-   * @param tmpReq DeleteMeetingRoomGroupRequest
-   * @param tmpHeader DeleteMeetingRoomGroupHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMeetingRoomGroupResponse
+   * 删除会议室分组
+   * 
+   * @param tmpReq - DeleteMeetingRoomGroupRequest
+   * @param tmpHeader - DeleteMeetingRoomGroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMeetingRoomGroupResponse
    */
   async deleteMeetingRoomGroupWithOptions(tmpReq: DeleteMeetingRoomGroupRequest, tmpHeader: DeleteMeetingRoomGroupHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteMeetingRoomGroupResponse> {
     Util.validateModel(tmpReq);
@@ -47758,10 +65481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除会议室分组
-   *
-   * @param request DeleteMeetingRoomGroupRequest
-   * @return DeleteMeetingRoomGroupResponse
+   * 删除会议室分组
+   * 
+   * @param request - DeleteMeetingRoomGroupRequest
+   * @returns DeleteMeetingRoomGroupResponse
    */
   async deleteMeetingRoomGroup(request: DeleteMeetingRoomGroupRequest): Promise<DeleteMeetingRoomGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47770,12 +65493,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定行
-   *
-   * @param tmpReq DeleteRowsRequest
-   * @param tmpHeader DeleteRowsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRowsResponse
+   * 删除指定行
+   * 
+   * @param tmpReq - DeleteRowsRequest
+   * @param tmpHeader - DeleteRowsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRowsResponse
    */
   async deleteRowsWithOptions(tmpReq: DeleteRowsRequest, tmpHeader: DeleteRowsHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteRowsResponse> {
     Util.validateModel(tmpReq);
@@ -47840,10 +65563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定行
-   *
-   * @param request DeleteRowsRequest
-   * @return DeleteRowsResponse
+   * 删除指定行
+   * 
+   * @param request - DeleteRowsRequest
+   * @returns DeleteRowsResponse
    */
   async deleteRows(request: DeleteRowsRequest): Promise<DeleteRowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47852,12 +65575,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除群成员
-   *
-   * @param request DeleteScenegroupMemberRequest
-   * @param tmpHeader DeleteScenegroupMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteScenegroupMemberResponse
+   * 删除群成员
+   * 
+   * @param request - DeleteScenegroupMemberRequest
+   * @param tmpHeader - DeleteScenegroupMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScenegroupMemberResponse
    */
   async deleteScenegroupMemberWithOptions(request: DeleteScenegroupMemberRequest, tmpHeader: DeleteScenegroupMemberHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteScenegroupMemberResponse> {
     Util.validateModel(request);
@@ -47904,10 +65627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除群成员
-   *
-   * @param request DeleteScenegroupMemberRequest
-   * @return DeleteScenegroupMemberResponse
+   * 删除群成员
+   * 
+   * @param request - DeleteScenegroupMemberRequest
+   * @returns DeleteScenegroupMemberResponse
    */
   async deleteScenegroupMember(request: DeleteScenegroupMemberRequest): Promise<DeleteScenegroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47916,12 +65639,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个工作表
-   *
-   * @param tmpReq DeleteSheetRequest
-   * @param tmpHeader DeleteSheetHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSheetResponse
+   * 删除一个工作表
+   * 
+   * @param tmpReq - DeleteSheetRequest
+   * @param tmpHeader - DeleteSheetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSheetResponse
    */
   async deleteSheetWithOptions(tmpReq: DeleteSheetRequest, tmpHeader: DeleteSheetHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSheetResponse> {
     Util.validateModel(tmpReq);
@@ -47978,10 +65701,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个工作表
-   *
-   * @param request DeleteSheetRequest
-   * @return DeleteSheetResponse
+   * 删除一个工作表
+   * 
+   * @param request - DeleteSheetRequest
+   * @returns DeleteSheetResponse
    */
   async deleteSheet(request: DeleteSheetRequest): Promise<DeleteSheetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47990,12 +65713,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除订阅日历
-   *
-   * @param request DeleteSubscribedCalendarRequest
-   * @param tmpHeader DeleteSubscribedCalendarHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSubscribedCalendarResponse
+   * 删除订阅日历
+   * 
+   * @param request - DeleteSubscribedCalendarRequest
+   * @param tmpHeader - DeleteSubscribedCalendarHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubscribedCalendarResponse
    */
   async deleteSubscribedCalendarWithOptions(request: DeleteSubscribedCalendarRequest, tmpHeader: DeleteSubscribedCalendarHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSubscribedCalendarResponse> {
     Util.validateModel(request);
@@ -48038,10 +65761,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除订阅日历
-   *
-   * @param request DeleteSubscribedCalendarRequest
-   * @return DeleteSubscribedCalendarResponse
+   * 删除订阅日历
+   * 
+   * @param request - DeleteSubscribedCalendarRequest
+   * @returns DeleteSubscribedCalendarResponse
    */
   async deleteSubscribedCalendar(request: DeleteSubscribedCalendarRequest): Promise<DeleteSubscribedCalendarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48050,12 +65773,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除代办
-   *
-   * @param tmpReq DeleteTodoTaskRequest
-   * @param tmpHeader DeleteTodoTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTodoTaskResponse
+   * 删除代办
+   * 
+   * @param tmpReq - DeleteTodoTaskRequest
+   * @param tmpHeader - DeleteTodoTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTodoTaskResponse
    */
   async deleteTodoTaskWithOptions(tmpReq: DeleteTodoTaskRequest, tmpHeader: DeleteTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteTodoTaskResponse> {
     Util.validateModel(tmpReq);
@@ -48112,10 +65835,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除代办
-   *
-   * @param request DeleteTodoTaskRequest
-   * @return DeleteTodoTaskResponse
+   * 删除代办
+   * 
+   * @param request - DeleteTodoTaskRequest
+   * @returns DeleteTodoTaskResponse
    */
   async deleteTodoTask(request: DeleteTodoTaskRequest): Promise<DeleteTodoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48124,12 +65847,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除知识库文档成员
-   *
-   * @param tmpReq DeleteWorkspaceDocMembersRequest
-   * @param tmpHeader DeleteWorkspaceDocMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWorkspaceDocMembersResponse
+   * 删除知识库文档成员
+   * 
+   * @param tmpReq - DeleteWorkspaceDocMembersRequest
+   * @param tmpHeader - DeleteWorkspaceDocMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceDocMembersResponse
    */
   async deleteWorkspaceDocMembersWithOptions(tmpReq: DeleteWorkspaceDocMembersRequest, tmpHeader: DeleteWorkspaceDocMembersHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteWorkspaceDocMembersResponse> {
     Util.validateModel(tmpReq);
@@ -48194,10 +65917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除知识库文档成员
-   *
-   * @param request DeleteWorkspaceDocMembersRequest
-   * @return DeleteWorkspaceDocMembersResponse
+   * 删除知识库文档成员
+   * 
+   * @param request - DeleteWorkspaceDocMembersRequest
+   * @returns DeleteWorkspaceDocMembersResponse
    */
   async deleteWorkspaceDocMembers(request: DeleteWorkspaceDocMembersRequest): Promise<DeleteWorkspaceDocMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48206,12 +65929,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除知识库成员
-   *
-   * @param tmpReq DeleteWorkspaceMembersRequest
-   * @param tmpHeader DeleteWorkspaceMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWorkspaceMembersResponse
+   * 删除知识库成员
+   * 
+   * @param tmpReq - DeleteWorkspaceMembersRequest
+   * @param tmpHeader - DeleteWorkspaceMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceMembersResponse
    */
   async deleteWorkspaceMembersWithOptions(tmpReq: DeleteWorkspaceMembersRequest, tmpHeader: DeleteWorkspaceMembersHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteWorkspaceMembersResponse> {
     Util.validateModel(tmpReq);
@@ -48272,10 +65995,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除知识库成员
-   *
-   * @param request DeleteWorkspaceMembersRequest
-   * @return DeleteWorkspaceMembersResponse
+   * 删除知识库成员
+   * 
+   * @param request - DeleteWorkspaceMembersRequest
+   * @returns DeleteWorkspaceMembersResponse
    */
   async deleteWorkspaceMembers(request: DeleteWorkspaceMembersRequest): Promise<DeleteWorkspaceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48284,12 +66007,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量执行宜搭审批任务
-   *
-   * @param request ExecuteBatchTaskRequest
-   * @param tmpHeader ExecuteBatchTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecuteBatchTaskResponse
+   * 批量执行宜搭审批任务
+   * 
+   * @param request - ExecuteBatchTaskRequest
+   * @param tmpHeader - ExecuteBatchTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteBatchTaskResponse
    */
   async executeBatchTaskWithOptions(request: ExecuteBatchTaskRequest, tmpHeader: ExecuteBatchTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ExecuteBatchTaskResponse> {
     Util.validateModel(request);
@@ -48348,10 +66071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量执行宜搭审批任务
-   *
-   * @param request ExecuteBatchTaskRequest
-   * @return ExecuteBatchTaskResponse
+   * 批量执行宜搭审批任务
+   * 
+   * @param request - ExecuteBatchTaskRequest
+   * @returns ExecuteBatchTaskResponse
    */
   async executeBatchTask(request: ExecuteBatchTaskRequest): Promise<ExecuteBatchTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48360,12 +66083,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 执行宜搭的审批任务
-   *
-   * @param request ExecutePlatformTaskRequest
-   * @param tmpHeader ExecutePlatformTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecutePlatformTaskResponse
+   * 执行宜搭的审批任务
+   * 
+   * @param request - ExecutePlatformTaskRequest
+   * @param tmpHeader - ExecutePlatformTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecutePlatformTaskResponse
    */
   async executePlatformTaskWithOptions(request: ExecutePlatformTaskRequest, tmpHeader: ExecutePlatformTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ExecutePlatformTaskResponse> {
     Util.validateModel(request);
@@ -48436,10 +66159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 执行宜搭的审批任务
-   *
-   * @param request ExecutePlatformTaskRequest
-   * @return ExecutePlatformTaskResponse
+   * 执行宜搭的审批任务
+   * 
+   * @param request - ExecutePlatformTaskRequest
+   * @returns ExecutePlatformTaskResponse
    */
   async executePlatformTask(request: ExecutePlatformTaskRequest): Promise<ExecutePlatformTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48448,12 +66171,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同意或拒绝宜搭审批任务(执行审批任务)
-   *
-   * @param request ExecuteTaskRequest
-   * @param tmpHeader ExecuteTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecuteTaskResponse
+   * 同意或拒绝宜搭审批任务(执行审批任务)
+   * 
+   * @param request - ExecuteTaskRequest
+   * @param tmpHeader - ExecuteTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteTaskResponse
    */
   async executeTaskWithOptions(request: ExecuteTaskRequest, tmpHeader: ExecuteTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ExecuteTaskResponse> {
     Util.validateModel(request);
@@ -48532,10 +66255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同意或拒绝宜搭审批任务(执行审批任务)
-   *
-   * @param request ExecuteTaskRequest
-   * @return ExecuteTaskResponse
+   * 同意或拒绝宜搭审批任务(执行审批任务)
+   * 
+   * @param request - ExecuteTaskRequest
+   * @returns ExecuteTaskResponse
    */
   async executeTask(request: ExecuteTaskRequest): Promise<ExecuteTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48544,12 +66267,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 群扩容
-   *
-   * @param tmpReq ExpandGroupCapacityRequest
-   * @param tmpHeader ExpandGroupCapacityHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExpandGroupCapacityResponse
+   * 群扩容
+   * 
+   * @param tmpReq - ExpandGroupCapacityRequest
+   * @param tmpHeader - ExpandGroupCapacityHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExpandGroupCapacityResponse
    */
   async expandGroupCapacityWithOptions(tmpReq: ExpandGroupCapacityRequest, tmpHeader: ExpandGroupCapacityHeaders, runtime: $Util.RuntimeOptions): Promise<ExpandGroupCapacityResponse> {
     Util.validateModel(tmpReq);
@@ -48602,10 +66325,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 群扩容
-   *
-   * @param request ExpandGroupCapacityRequest
-   * @return ExpandGroupCapacityResponse
+   * 群扩容
+   * 
+   * @param request - ExpandGroupCapacityRequest
+   * @returns ExpandGroupCapacityResponse
    */
   async expandGroupCapacity(request: ExpandGroupCapacityRequest): Promise<ExpandGroupCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48614,12 +66337,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流程设计的节点信息
-   *
-   * @param request GetActivityListRequest
-   * @param tmpHeader GetActivityListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetActivityListResponse
+   * 获取流程设计的节点信息
+   * 
+   * @param request - GetActivityListRequest
+   * @param tmpHeader - GetActivityListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetActivityListResponse
    */
   async getActivityListWithOptions(request: GetActivityListRequest, tmpHeader: GetActivityListHeaders, runtime: $Util.RuntimeOptions): Promise<GetActivityListResponse> {
     Util.validateModel(request);
@@ -48674,10 +66397,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流程设计的节点信息
-   *
-   * @param request GetActivityListRequest
-   * @return GetActivityListResponse
+   * 获取流程设计的节点信息
+   * 
+   * @param request - GetActivityListRequest
+   * @returns GetActivityListResponse
    */
   async getActivityList(request: GetActivityListRequest): Promise<GetActivityListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48686,12 +66409,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取所有工作表
-   *
-   * @param tmpReq GetAllSheetsRequest
-   * @param tmpHeader GetAllSheetsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAllSheetsResponse
+   * 获取所有工作表
+   * 
+   * @param tmpReq - GetAllSheetsRequest
+   * @param tmpHeader - GetAllSheetsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAllSheetsResponse
    */
   async getAllSheetsWithOptions(tmpReq: GetAllSheetsRequest, tmpHeader: GetAllSheetsHeaders, runtime: $Util.RuntimeOptions): Promise<GetAllSheetsResponse> {
     Util.validateModel(tmpReq);
@@ -48744,10 +66467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取所有工作表
-   *
-   * @param request GetAllSheetsRequest
-   * @return GetAllSheetsResponse
+   * 获取所有工作表
+   * 
+   * @param request - GetAllSheetsRequest
+   * @returns GetAllSheetsResponse
    */
   async getAllSheets(request: GetAllSheetsRequest): Promise<GetAllSheetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48756,12 +66479,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取群存储空间信息
-   *
-   * @param tmpReq GetConversaionSpaceRequest
-   * @param tmpHeader GetConversaionSpaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConversaionSpaceResponse
+   * 获取群存储空间信息
+   * 
+   * @param tmpReq - GetConversaionSpaceRequest
+   * @param tmpHeader - GetConversaionSpaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConversaionSpaceResponse
    */
   async getConversaionSpaceWithOptions(tmpReq: GetConversaionSpaceRequest, tmpHeader: GetConversaionSpaceHeaders, runtime: $Util.RuntimeOptions): Promise<GetConversaionSpaceResponse> {
     Util.validateModel(tmpReq);
@@ -48814,10 +66537,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取群存储空间信息
-   *
-   * @param request GetConversaionSpaceRequest
-   * @return GetConversaionSpaceResponse
+   * 获取群存储空间信息
+   * 
+   * @param request - GetConversaionSpaceRequest
+   * @returns GetConversaionSpaceResponse
    */
   async getConversaionSpace(request: GetConversaionSpaceRequest): Promise<GetConversaionSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48826,12 +66549,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取组织内已完成的审批任务
-   *
-   * @param request GetCorpAccomplishmentTasksRequest
-   * @param tmpHeader GetCorpAccomplishmentTasksHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCorpAccomplishmentTasksResponse
+   * 获取组织内已完成的审批任务
+   * 
+   * @param request - GetCorpAccomplishmentTasksRequest
+   * @param tmpHeader - GetCorpAccomplishmentTasksHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCorpAccomplishmentTasksResponse
    */
   async getCorpAccomplishmentTasksWithOptions(request: GetCorpAccomplishmentTasksRequest, tmpHeader: GetCorpAccomplishmentTasksHeaders, runtime: $Util.RuntimeOptions): Promise<GetCorpAccomplishmentTasksResponse> {
     Util.validateModel(request);
@@ -48910,10 +66633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取组织内已完成的审批任务
-   *
-   * @param request GetCorpAccomplishmentTasksRequest
-   * @return GetCorpAccomplishmentTasksResponse
+   * 获取组织内已完成的审批任务
+   * 
+   * @param request - GetCorpAccomplishmentTasksRequest
+   * @returns GetCorpAccomplishmentTasksResponse
    */
   async getCorpAccomplishmentTasks(request: GetCorpAccomplishmentTasksRequest): Promise<GetCorpAccomplishmentTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -48922,12 +66645,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务列表（组织维度）
-   *
-   * @param request GetCorpTasksRequest
-   * @param tmpHeader GetCorpTasksHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCorpTasksResponse
+   * 获取任务列表（组织维度）
+   * 
+   * @param request - GetCorpTasksRequest
+   * @param tmpHeader - GetCorpTasksHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCorpTasksResponse
    */
   async getCorpTasksWithOptions(request: GetCorpTasksRequest, tmpHeader: GetCorpTasksHeaders, runtime: $Util.RuntimeOptions): Promise<GetCorpTasksResponse> {
     Util.validateModel(request);
@@ -49006,10 +66729,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务列表（组织维度）
-   *
-   * @param request GetCorpTasksRequest
-   * @return GetCorpTasksResponse
+   * 获取任务列表（组织维度）
+   * 
+   * @param request - GetCorpTasksRequest
+   * @returns GetCorpTasksResponse
    */
   async getCorpTasks(request: GetCorpTasksRequest): Promise<GetCorpTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49018,12 +66741,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 委托权限获取文档内容
-   *
-   * @param tmpReq GetDocContentRequest
-   * @param tmpHeader GetDocContentHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocContentResponse
+   * 委托权限获取文档内容
+   * 
+   * @param tmpReq - GetDocContentRequest
+   * @param tmpHeader - GetDocContentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocContentResponse
    */
   async getDocContentWithOptions(tmpReq: GetDocContentRequest, tmpHeader: GetDocContentHeaders, runtime: $Util.RuntimeOptions): Promise<GetDocContentResponse> {
     Util.validateModel(tmpReq);
@@ -49084,10 +66807,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 委托权限获取文档内容
-   *
-   * @param request GetDocContentRequest
-   * @return GetDocContentResponse
+   * 委托权限获取文档内容
+   * 
+   * @param request - GetDocContentRequest
+   * @returns GetDocContentResponse
    */
   async getDocContent(request: GetDocContentRequest): Promise<GetDocContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49096,12 +66819,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 委托权限获取文档内容taskId
-   *
-   * @param tmpReq GetDocContentTakIdRequest
-   * @param tmpHeader GetDocContentTakIdHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocContentTakIdResponse
+   * 委托权限获取文档内容taskId
+   * 
+   * @param tmpReq - GetDocContentTakIdRequest
+   * @param tmpHeader - GetDocContentTakIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocContentTakIdResponse
    */
   async getDocContentTakIdWithOptions(tmpReq: GetDocContentTakIdRequest, tmpHeader: GetDocContentTakIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetDocContentTakIdResponse> {
     Util.validateModel(tmpReq);
@@ -49120,6 +66843,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.dentryUuid)) {
       body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!Util.isUnset(request.generateCp)) {
+      body["GenerateCp"] = request.generateCp;
     }
 
     if (!Util.isUnset(request.targetFormat)) {
@@ -49158,10 +66885,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 委托权限获取文档内容taskId
-   *
-   * @param request GetDocContentTakIdRequest
-   * @return GetDocContentTakIdResponse
+   * 委托权限获取文档内容taskId
+   * 
+   * @param request - GetDocContentTakIdRequest
+   * @returns GetDocContentTakIdResponse
    */
   async getDocContentTakId(request: GetDocContentTakIdRequest): Promise<GetDocContentTakIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49170,12 +66897,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个日程详情
-   *
-   * @param request GetEventRequest
-   * @param tmpHeader GetEventHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEventResponse
+   * 查询单个日程详情
+   * 
+   * @param request - GetEventRequest
+   * @param tmpHeader - GetEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEventResponse
    */
   async getEventWithOptions(request: GetEventRequest, tmpHeader: GetEventHeaders, runtime: $Util.RuntimeOptions): Promise<GetEventResponse> {
     Util.validateModel(request);
@@ -49228,10 +66955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个日程详情
-   *
-   * @param request GetEventRequest
-   * @return GetEventResponse
+   * 查询单个日程详情
+   * 
+   * @param request - GetEventRequest
+   * @returns GetEventResponse
    */
   async getEvent(request: GetEventRequest): Promise<GetEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49240,12 +66967,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取表单内的组件信息
-   *
-   * @param request GetFieldDefByUuidRequest
-   * @param tmpHeader GetFieldDefByUuidHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFieldDefByUuidResponse
+   * 获取表单内的组件信息
+   * 
+   * @param request - GetFieldDefByUuidRequest
+   * @param tmpHeader - GetFieldDefByUuidHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFieldDefByUuidResponse
    */
   async getFieldDefByUuidWithOptions(request: GetFieldDefByUuidRequest, tmpHeader: GetFieldDefByUuidHeaders, runtime: $Util.RuntimeOptions): Promise<GetFieldDefByUuidResponse> {
     Util.validateModel(request);
@@ -49296,10 +67023,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取表单内的组件信息
-   *
-   * @param request GetFieldDefByUuidRequest
-   * @return GetFieldDefByUuidResponse
+   * 获取表单内的组件信息
+   * 
+   * @param request - GetFieldDefByUuidRequest
+   * @returns GetFieldDefByUuidResponse
    */
   async getFieldDefByUuid(request: GetFieldDefByUuidRequest): Promise<GetFieldDefByUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49308,12 +67035,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件下载信息
-   *
-   * @param tmpReq GetFileDownloadInfoRequest
-   * @param tmpHeader GetFileDownloadInfoHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFileDownloadInfoResponse
+   * 获取文件下载信息
+   * 
+   * @param tmpReq - GetFileDownloadInfoRequest
+   * @param tmpHeader - GetFileDownloadInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileDownloadInfoResponse
    */
   async getFileDownloadInfoWithOptions(tmpReq: GetFileDownloadInfoRequest, tmpHeader: GetFileDownloadInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetFileDownloadInfoResponse> {
     Util.validateModel(tmpReq);
@@ -49378,10 +67105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件下载信息
-   *
-   * @param request GetFileDownloadInfoRequest
-   * @return GetFileDownloadInfoResponse
+   * 获取文件下载信息
+   * 
+   * @param request - GetFileDownloadInfoRequest
+   * @returns GetFileDownloadInfoResponse
    */
   async getFileDownloadInfo(request: GetFileDownloadInfoRequest): Promise<GetFileDownloadInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49390,12 +67117,94 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取表单组件定义列表
-   *
-   * @param request GetFormComponentDefinitionListRequest
-   * @param tmpHeader GetFormComponentDefinitionListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFormComponentDefinitionListResponse
+   * 获取文件上传信息
+   * 
+   * @param tmpReq - GetFileUploadInfoRequest
+   * @param tmpHeader - GetFileUploadInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileUploadInfoResponse
+   */
+  async getFileUploadInfoWithOptions(tmpReq: GetFileUploadInfoRequest, tmpHeader: GetFileUploadInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetFileUploadInfoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetFileUploadInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetFileUploadInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.option)) {
+      request.optionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.option, "Option", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.optionShrink)) {
+      body["Option"] = request.optionShrink;
+    }
+
+    if (!Util.isUnset(request.parentDentryUuid)) {
+      body["ParentDentryUuid"] = request.parentDentryUuid;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      body["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileUploadInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/getFileUploadInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileUploadInfoResponse>(await this.callApi(params, req, runtime), new GetFileUploadInfoResponse({}));
+  }
+
+  /**
+   * 获取文件上传信息
+   * 
+   * @param request - GetFileUploadInfoRequest
+   * @returns GetFileUploadInfoResponse
+   */
+  async getFileUploadInfo(request: GetFileUploadInfoRequest): Promise<GetFileUploadInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetFileUploadInfoHeaders({ });
+    return await this.getFileUploadInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取表单组件定义列表
+   * 
+   * @param request - GetFormComponentDefinitionListRequest
+   * @param tmpHeader - GetFormComponentDefinitionListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFormComponentDefinitionListResponse
    */
   async getFormComponentDefinitionListWithOptions(request: GetFormComponentDefinitionListRequest, tmpHeader: GetFormComponentDefinitionListHeaders, runtime: $Util.RuntimeOptions): Promise<GetFormComponentDefinitionListResponse> {
     Util.validateModel(request);
@@ -49450,10 +67259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取表单组件定义列表
-   *
-   * @param request GetFormComponentDefinitionListRequest
-   * @return GetFormComponentDefinitionListResponse
+   * 获取表单组件定义列表
+   * 
+   * @param request - GetFormComponentDefinitionListRequest
+   * @returns GetFormComponentDefinitionListResponse
    */
   async getFormComponentDefinitionList(request: GetFormComponentDefinitionListRequest): Promise<GetFormComponentDefinitionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49462,12 +67271,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询表单数据
-   *
-   * @param request GetFormDataByIDRequest
-   * @param tmpHeader GetFormDataByIDHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFormDataByIDResponse
+   * 查询表单数据
+   * 
+   * @param request - GetFormDataByIDRequest
+   * @param tmpHeader - GetFormDataByIDHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFormDataByIDResponse
    */
   async getFormDataByIDWithOptions(request: GetFormDataByIDRequest, tmpHeader: GetFormDataByIDHeaders, runtime: $Util.RuntimeOptions): Promise<GetFormDataByIDResponse> {
     Util.validateModel(request);
@@ -49522,10 +67331,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询表单数据
-   *
-   * @param request GetFormDataByIDRequest
-   * @return GetFormDataByIDResponse
+   * 查询表单数据
+   * 
+   * @param request - GetFormDataByIDRequest
+   * @returns GetFormDataByIDResponse
    */
   async getFormDataByID(request: GetFormDataByIDRequest): Promise<GetFormDataByIDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49534,12 +67343,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定应用下的表单列表
-   *
-   * @param request GetFormListInAppRequest
-   * @param tmpHeader GetFormListInAppHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFormListInAppResponse
+   * 获取指定应用下的表单列表
+   * 
+   * @param request - GetFormListInAppRequest
+   * @param tmpHeader - GetFormListInAppHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFormListInAppResponse
    */
   async getFormListInAppWithOptions(request: GetFormListInAppRequest, tmpHeader: GetFormListInAppHeaders, runtime: $Util.RuntimeOptions): Promise<GetFormListInAppResponse> {
     Util.validateModel(request);
@@ -49598,10 +67407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定应用下的表单列表
-   *
-   * @param request GetFormListInAppRequest
-   * @return GetFormListInAppResponse
+   * 获取指定应用下的表单列表
+   * 
+   * @param request - GetFormListInAppRequest
+   * @returns GetFormListInAppResponse
    */
   async getFormListInApp(request: GetFormListInAppRequest): Promise<GetFormListInAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49610,12 +67419,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业内部群成员
-   *
-   * @param request GetInnerGroupMembersRequest
-   * @param tmpHeader GetInnerGroupMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInnerGroupMembersResponse
+   * 查询企业内部群成员
+   * 
+   * @param request - GetInnerGroupMembersRequest
+   * @param tmpHeader - GetInnerGroupMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInnerGroupMembersResponse
    */
   async getInnerGroupMembersWithOptions(request: GetInnerGroupMembersRequest, tmpHeader: GetInnerGroupMembersHeaders, runtime: $Util.RuntimeOptions): Promise<GetInnerGroupMembersResponse> {
     Util.validateModel(request);
@@ -49666,10 +67475,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业内部群成员
-   *
-   * @param request GetInnerGroupMembersRequest
-   * @return GetInnerGroupMembersResponse
+   * 查询企业内部群成员
+   * 
+   * @param request - GetInnerGroupMembersRequest
+   * @returns GetInnerGroupMembersResponse
    */
   async getInnerGroupMembers(request: GetInnerGroupMembersRequest): Promise<GetInnerGroupMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49678,12 +67487,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据流程实例ID获取流程实例
-   *
-   * @param request GetInstanceByIdRequest
-   * @param tmpHeader GetInstanceByIdHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceByIdResponse
+   * 根据流程实例ID获取流程实例
+   * 
+   * @param request - GetInstanceByIdRequest
+   * @param tmpHeader - GetInstanceByIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceByIdResponse
    */
   async getInstanceByIdWithOptions(request: GetInstanceByIdRequest, tmpHeader: GetInstanceByIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstanceByIdResponse> {
     Util.validateModel(request);
@@ -49738,10 +67547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据流程实例ID获取流程实例
-   *
-   * @param request GetInstanceByIdRequest
-   * @return GetInstanceByIdResponse
+   * 根据流程实例ID获取流程实例
+   * 
+   * @param request - GetInstanceByIdRequest
+   * @returns GetInstanceByIdResponse
    */
   async getInstanceById(request: GetInstanceByIdRequest): Promise<GetInstanceByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49750,12 +67559,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例ID列表
-   *
-   * @param request GetInstanceIdListRequest
-   * @param tmpHeader GetInstanceIdListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceIdListResponse
+   * 获取实例ID列表
+   * 
+   * @param request - GetInstanceIdListRequest
+   * @param tmpHeader - GetInstanceIdListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceIdListResponse
    */
   async getInstanceIdListWithOptions(request: GetInstanceIdListRequest, tmpHeader: GetInstanceIdListHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstanceIdListResponse> {
     Util.validateModel(request);
@@ -49854,10 +67663,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例ID列表
-   *
-   * @param request GetInstanceIdListRequest
-   * @return GetInstanceIdListResponse
+   * 获取实例ID列表
+   * 
+   * @param request - GetInstanceIdListRequest
+   * @returns GetInstanceIdListResponse
    */
   async getInstanceIdList(request: GetInstanceIdListRequest): Promise<GetInstanceIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49866,12 +67675,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流程实例
-   *
-   * @param request GetInstancesRequest
-   * @param tmpHeader GetInstancesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstancesResponse
+   * 获取流程实例
+   * 
+   * @param request - GetInstancesRequest
+   * @param tmpHeader - GetInstancesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstancesResponse
    */
   async getInstancesWithOptions(request: GetInstancesRequest, tmpHeader: GetInstancesHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstancesResponse> {
     Util.validateModel(request);
@@ -49974,10 +67783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流程实例
-   *
-   * @param request GetInstancesRequest
-   * @return GetInstancesResponse
+   * 获取流程实例
+   * 
+   * @param request - GetInstancesRequest
+   * @returns GetInstancesResponse
    */
   async getInstances(request: GetInstancesRequest): Promise<GetInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -49986,12 +67795,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表)
-   *
-   * @param request GetInstancesByIdListRequest
-   * @param tmpHeader GetInstancesByIdListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstancesByIdListResponse
+   * 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表)
+   * 
+   * @param request - GetInstancesByIdListRequest
+   * @param tmpHeader - GetInstancesByIdListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstancesByIdListResponse
    */
   async getInstancesByIdListWithOptions(request: GetInstancesByIdListRequest, tmpHeader: GetInstancesByIdListHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstancesByIdListResponse> {
     Util.validateModel(request);
@@ -50046,10 +67855,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表)
-   *
-   * @param request GetInstancesByIdListRequest
-   * @return GetInstancesByIdListResponse
+   * 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表)
+   * 
+   * @param request - GetInstancesByIdListRequest
+   * @returns GetInstancesByIdListResponse
    */
   async getInstancesByIdList(request: GetInstancesByIdListRequest): Promise<GetInstancesByIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50058,12 +67867,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取直播的可下载回放地址
-   *
-   * @param tmpReq GetLiveReplayUrlRequest
-   * @param tmpHeader GetLiveReplayUrlHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveReplayUrlResponse
+   * 获取直播的可下载回放地址
+   * 
+   * @param tmpReq - GetLiveReplayUrlRequest
+   * @param tmpHeader - GetLiveReplayUrlHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveReplayUrlResponse
    */
   async getLiveReplayUrlWithOptions(tmpReq: GetLiveReplayUrlRequest, tmpHeader: GetLiveReplayUrlHeaders, runtime: $Util.RuntimeOptions): Promise<GetLiveReplayUrlResponse> {
     Util.validateModel(tmpReq);
@@ -50116,10 +67925,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取直播的可下载回放地址
-   *
-   * @param request GetLiveReplayUrlRequest
-   * @return GetLiveReplayUrlResponse
+   * 获取直播的可下载回放地址
+   * 
+   * @param request - GetLiveReplayUrlRequest
+   * @returns GetLiveReplayUrlResponse
    */
   async getLiveReplayUrl(request: GetLiveReplayUrlRequest): Promise<GetLiveReplayUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50128,12 +67937,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取组织内某人提交的任务
-   *
-   * @param request GetMeCorpSubmissionRequest
-   * @param tmpHeader GetMeCorpSubmissionHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMeCorpSubmissionResponse
+   * 获取组织内某人提交的任务
+   * 
+   * @param request - GetMeCorpSubmissionRequest
+   * @param tmpHeader - GetMeCorpSubmissionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMeCorpSubmissionResponse
    */
   async getMeCorpSubmissionWithOptions(request: GetMeCorpSubmissionRequest, tmpHeader: GetMeCorpSubmissionHeaders, runtime: $Util.RuntimeOptions): Promise<GetMeCorpSubmissionResponse> {
     Util.validateModel(request);
@@ -50212,10 +68021,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取组织内某人提交的任务
-   *
-   * @param request GetMeCorpSubmissionRequest
-   * @return GetMeCorpSubmissionResponse
+   * 获取组织内某人提交的任务
+   * 
+   * @param request - GetMeCorpSubmissionRequest
+   * @returns GetMeCorpSubmissionResponse
    */
   async getMeCorpSubmission(request: GetMeCorpSubmissionRequest): Promise<GetMeCorpSubmissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50224,12 +68033,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取会议室忙闲信息
-   *
-   * @param tmpReq GetMeetingRoomsScheduleRequest
-   * @param tmpHeader GetMeetingRoomsScheduleHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMeetingRoomsScheduleResponse
+   * 获取会议室忙闲信息
+   * 
+   * @param tmpReq - GetMeetingRoomsScheduleRequest
+   * @param tmpHeader - GetMeetingRoomsScheduleHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMeetingRoomsScheduleResponse
    */
   async getMeetingRoomsScheduleWithOptions(tmpReq: GetMeetingRoomsScheduleRequest, tmpHeader: GetMeetingRoomsScheduleHeaders, runtime: $Util.RuntimeOptions): Promise<GetMeetingRoomsScheduleResponse> {
     Util.validateModel(tmpReq);
@@ -50286,10 +68095,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取会议室忙闲信息
-   *
-   * @param request GetMeetingRoomsScheduleRequest
-   * @return GetMeetingRoomsScheduleResponse
+   * 获取会议室忙闲信息
+   * 
+   * @param request - GetMeetingRoomsScheduleRequest
+   * @returns GetMeetingRoomsScheduleResponse
    */
   async getMeetingRoomsSchedule(request: GetMeetingRoomsScheduleRequest): Promise<GetMeetingRoomsScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50298,12 +68107,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取我的文档知识库信息
-   *
-   * @param tmpReq GetMineWorkspaceRequest
-   * @param tmpHeader GetMineWorkspaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMineWorkspaceResponse
+   * 获取我的文档知识库信息
+   * 
+   * @param tmpReq - GetMineWorkspaceRequest
+   * @param tmpHeader - GetMineWorkspaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMineWorkspaceResponse
    */
   async getMineWorkspaceWithOptions(tmpReq: GetMineWorkspaceRequest, tmpHeader: GetMineWorkspaceHeaders, runtime: $Util.RuntimeOptions): Promise<GetMineWorkspaceResponse> {
     Util.validateModel(tmpReq);
@@ -50360,10 +68169,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取我的文档知识库信息
-   *
-   * @param request GetMineWorkspaceRequest
-   * @return GetMineWorkspaceResponse
+   * 获取我的文档知识库信息
+   * 
+   * @param request - GetMineWorkspaceRequest
+   * @returns GetMineWorkspaceResponse
    */
   async getMineWorkspace(request: GetMineWorkspaceRequest): Promise<GetMineWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50372,12 +68181,98 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询最近活跃的企业内部群列表
-   *
-   * @param tmpReq GetNewestInnerGroupsRequest
-   * @param tmpHeader GetNewestInnerGroupsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNewestInnerGroupsResponse
+   * 获取文件分片上传信息
+   * 
+   * @param tmpReq - GetMultipartFileUploadInfosRequest
+   * @param tmpHeader - GetMultipartFileUploadInfosHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultipartFileUploadInfosResponse
+   */
+  async getMultipartFileUploadInfosWithOptions(tmpReq: GetMultipartFileUploadInfosRequest, tmpHeader: GetMultipartFileUploadInfosHeaders, runtime: $Util.RuntimeOptions): Promise<GetMultipartFileUploadInfosResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetMultipartFileUploadInfosShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetMultipartFileUploadInfosShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.option)) {
+      request.optionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.option, "Option", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.partNumbers)) {
+      request.partNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partNumbers, "PartNumbers", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.optionShrink)) {
+      body["Option"] = request.optionShrink;
+    }
+
+    if (!Util.isUnset(request.partNumbersShrink)) {
+      body["PartNumbers"] = request.partNumbersShrink;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.uploadKey)) {
+      body["UploadKey"] = request.uploadKey;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMultipartFileUploadInfos",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/GetMultipartFileUploadInfos`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMultipartFileUploadInfosResponse>(await this.callApi(params, req, runtime), new GetMultipartFileUploadInfosResponse({}));
+  }
+
+  /**
+   * 获取文件分片上传信息
+   * 
+   * @param request - GetMultipartFileUploadInfosRequest
+   * @returns GetMultipartFileUploadInfosResponse
+   */
+  async getMultipartFileUploadInfos(request: GetMultipartFileUploadInfosRequest): Promise<GetMultipartFileUploadInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetMultipartFileUploadInfosHeaders({ });
+    return await this.getMultipartFileUploadInfosWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询最近活跃的企业内部群列表
+   * 
+   * @param tmpReq - GetNewestInnerGroupsRequest
+   * @param tmpHeader - GetNewestInnerGroupsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNewestInnerGroupsResponse
    */
   async getNewestInnerGroupsWithOptions(tmpReq: GetNewestInnerGroupsRequest, tmpHeader: GetNewestInnerGroupsHeaders, runtime: $Util.RuntimeOptions): Promise<GetNewestInnerGroupsResponse> {
     Util.validateModel(tmpReq);
@@ -50426,10 +68321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询最近活跃的企业内部群列表
-   *
-   * @param request GetNewestInnerGroupsRequest
-   * @return GetNewestInnerGroupsResponse
+   * 查询最近活跃的企业内部群列表
+   * 
+   * @param request - GetNewestInnerGroupsRequest
+   * @returns GetNewestInnerGroupsResponse
    */
   async getNewestInnerGroups(request: GetNewestInnerGroupsRequest): Promise<GetNewestInnerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50438,12 +68333,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取节点
-   *
-   * @param tmpReq GetNodeRequest
-   * @param tmpHeader GetNodeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNodeResponse
+   * 获取节点
+   * 
+   * @param tmpReq - GetNodeRequest
+   * @param tmpHeader - GetNodeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeResponse
    */
   async getNodeWithOptions(tmpReq: GetNodeRequest, tmpHeader: GetNodeHeaders, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
     Util.validateModel(tmpReq);
@@ -50504,10 +68399,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取节点
-   *
-   * @param request GetNodeRequest
-   * @return GetNodeResponse
+   * 获取节点
+   * 
+   * @param request - GetNodeRequest
+   * @returns GetNodeResponse
    */
   async getNode(request: GetNodeRequest): Promise<GetNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50516,12 +68411,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过链接获取节点
-   *
-   * @param tmpReq GetNodeByUrlRequest
-   * @param tmpHeader GetNodeByUrlHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNodeByUrlResponse
+   * 通过链接获取节点
+   * 
+   * @param tmpReq - GetNodeByUrlRequest
+   * @param tmpHeader - GetNodeByUrlHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeByUrlResponse
    */
   async getNodeByUrlWithOptions(tmpReq: GetNodeByUrlRequest, tmpHeader: GetNodeByUrlHeaders, runtime: $Util.RuntimeOptions): Promise<GetNodeByUrlResponse> {
     Util.validateModel(tmpReq);
@@ -50582,10 +68477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过链接获取节点
-   *
-   * @param request GetNodeByUrlRequest
-   * @return GetNodeByUrlResponse
+   * 通过链接获取节点
+   * 
+   * @param request - GetNodeByUrlRequest
+   * @returns GetNodeByUrlResponse
    */
   async getNodeByUrl(request: GetNodeByUrlRequest): Promise<GetNodeByUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50594,12 +68489,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取节点
-   *
-   * @param tmpReq GetNodesRequest
-   * @param tmpHeader GetNodesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNodesResponse
+   * 批量获取节点
+   * 
+   * @param tmpReq - GetNodesRequest
+   * @param tmpHeader - GetNodesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodesResponse
    */
   async getNodesWithOptions(tmpReq: GetNodesRequest, tmpHeader: GetNodesHeaders, runtime: $Util.RuntimeOptions): Promise<GetNodesResponse> {
     Util.validateModel(tmpReq);
@@ -50664,10 +68559,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取节点
-   *
-   * @param request GetNodesRequest
-   * @return GetNodesResponse
+   * 批量获取节点
+   * 
+   * @param request - GetNodesRequest
+   * @returns GetNodesResponse
    */
   async getNodes(request: GetNodesRequest): Promise<GetNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50676,12 +68571,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取发送给用户的通知
-   *
-   * @param request GetNotifyMeRequest
-   * @param tmpHeader GetNotifyMeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNotifyMeResponse
+   * 获取发送给用户的通知
+   * 
+   * @param request - GetNotifyMeRequest
+   * @param tmpHeader - GetNotifyMeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotifyMeResponse
    */
   async getNotifyMeWithOptions(request: GetNotifyMeRequest, tmpHeader: GetNotifyMeHeaders, runtime: $Util.RuntimeOptions): Promise<GetNotifyMeResponse> {
     Util.validateModel(request);
@@ -50768,10 +68663,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取发送给用户的通知
-   *
-   * @param request GetNotifyMeRequest
-   * @return GetNotifyMeResponse
+   * 获取发送给用户的通知
+   * 
+   * @param request - GetNotifyMeRequest
+   * @returns GetNotifyMeResponse
    */
   async getNotifyMe(request: GetNotifyMeRequest): Promise<GetNotifyMeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50780,12 +68675,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取宜搭附件临时免登地址
-   *
-   * @param request GetOpenUrlRequest
-   * @param tmpHeader GetOpenUrlHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOpenUrlResponse
+   * 获取宜搭附件临时免登地址
+   * 
+   * @param request - GetOpenUrlRequest
+   * @param tmpHeader - GetOpenUrlHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOpenUrlResponse
    */
   async getOpenUrlWithOptions(request: GetOpenUrlRequest, tmpHeader: GetOpenUrlHeaders, runtime: $Util.RuntimeOptions): Promise<GetOpenUrlResponse> {
     Util.validateModel(request);
@@ -50844,10 +68739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取宜搭附件临时免登地址
-   *
-   * @param request GetOpenUrlRequest
-   * @return GetOpenUrlResponse
+   * 获取宜搭附件临时免登地址
+   * 
+   * @param request - GetOpenUrlRequest
+   * @returns GetOpenUrlResponse
    */
   async getOpenUrl(request: GetOpenUrlRequest): Promise<GetOpenUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50856,12 +68751,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取审批记录
-   *
-   * @param request GetOperationRecordsRequest
-   * @param tmpHeader GetOperationRecordsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOperationRecordsResponse
+   * 获取审批记录
+   * 
+   * @param request - GetOperationRecordsRequest
+   * @param tmpHeader - GetOperationRecordsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOperationRecordsResponse
    */
   async getOperationRecordsWithOptions(request: GetOperationRecordsRequest, tmpHeader: GetOperationRecordsHeaders, runtime: $Util.RuntimeOptions): Promise<GetOperationRecordsResponse> {
     Util.validateModel(request);
@@ -50916,10 +68811,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取审批记录
-   *
-   * @param request GetOperationRecordsRequest
-   * @return GetOperationRecordsResponse
+   * 获取审批记录
+   * 
+   * @param request - GetOperationRecordsRequest
+   * @returns GetOperationRecordsResponse
    */
   async getOperationRecords(request: GetOperationRecordsRequest): Promise<GetOperationRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50928,12 +68823,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流程定义
-   *
-   * @param request GetProcessDefinitionRequest
-   * @param tmpHeader GetProcessDefinitionHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProcessDefinitionResponse
+   * 获取流程定义
+   * 
+   * @param request - GetProcessDefinitionRequest
+   * @param tmpHeader - GetProcessDefinitionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProcessDefinitionResponse
    */
   async getProcessDefinitionWithOptions(request: GetProcessDefinitionRequest, tmpHeader: GetProcessDefinitionHeaders, runtime: $Util.RuntimeOptions): Promise<GetProcessDefinitionResponse> {
     Util.validateModel(request);
@@ -51008,10 +68903,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流程定义
-   *
-   * @param request GetProcessDefinitionRequest
-   * @return GetProcessDefinitionResponse
+   * 获取流程定义
+   * 
+   * @param request - GetProcessDefinitionRequest
+   * @returns GetProcessDefinitionResponse
    */
   async getProcessDefinition(request: GetProcessDefinitionRequest): Promise<GetProcessDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51020,12 +68915,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单元格区域
-   *
-   * @param tmpReq GetRangeRequest
-   * @param tmpHeader GetRangeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRangeResponse
+   * 获取单元格区域
+   * 
+   * @param tmpReq - GetRangeRequest
+   * @param tmpHeader - GetRangeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRangeResponse
    */
   async getRangeWithOptions(tmpReq: GetRangeRequest, tmpHeader: GetRangeHeaders, runtime: $Util.RuntimeOptions): Promise<GetRangeResponse> {
     Util.validateModel(tmpReq);
@@ -51090,10 +68985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单元格区域
-   *
-   * @param request GetRangeRequest
-   * @return GetRangeResponse
+   * 获取单元格区域
+   * 
+   * @param request - GetRangeRequest
+   * @returns GetRangeResponse
    */
   async getRange(request: GetRangeRequest): Promise<GetRangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51102,12 +68997,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户有权限的知识库列表(旧)
-   *
-   * @param tmpReq GetRelatedWorkspacesRequest
-   * @param tmpHeader GetRelatedWorkspacesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRelatedWorkspacesResponse
+   * 查询用户有权限的知识库列表(旧)
+   * 
+   * @param tmpReq - GetRelatedWorkspacesRequest
+   * @param tmpHeader - GetRelatedWorkspacesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRelatedWorkspacesResponse
    */
   async getRelatedWorkspacesWithOptions(tmpReq: GetRelatedWorkspacesRequest, tmpHeader: GetRelatedWorkspacesHeaders, runtime: $Util.RuntimeOptions): Promise<GetRelatedWorkspacesResponse> {
     Util.validateModel(tmpReq);
@@ -51160,10 +69055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户有权限的知识库列表(旧)
-   *
-   * @param request GetRelatedWorkspacesRequest
-   * @return GetRelatedWorkspacesResponse
+   * 查询用户有权限的知识库列表(旧)
+   * 
+   * @param request - GetRelatedWorkspacesRequest
+   * @returns GetRelatedWorkspacesResponse
    */
   async getRelatedWorkspaces(request: GetRelatedWorkspacesRequest): Promise<GetRelatedWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51172,12 +69067,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模板详情
-   *
-   * @param tmpReq GetReportTemplateByNameRequest
-   * @param tmpHeader GetReportTemplateByNameHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetReportTemplateByNameResponse
+   * 获取模板详情
+   * 
+   * @param tmpReq - GetReportTemplateByNameRequest
+   * @param tmpHeader - GetReportTemplateByNameHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReportTemplateByNameResponse
    */
   async getReportTemplateByNameWithOptions(tmpReq: GetReportTemplateByNameRequest, tmpHeader: GetReportTemplateByNameHeaders, runtime: $Util.RuntimeOptions): Promise<GetReportTemplateByNameResponse> {
     Util.validateModel(tmpReq);
@@ -51230,10 +69125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模板详情
-   *
-   * @param request GetReportTemplateByNameRequest
-   * @return GetReportTemplateByNameResponse
+   * 获取模板详情
+   * 
+   * @param request - GetReportTemplateByNameRequest
+   * @returns GetReportTemplateByNameResponse
    */
   async getReportTemplateByName(request: GetReportTemplateByNameRequest): Promise<GetReportTemplateByNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51242,12 +69137,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取员工有多少数量的日志（一个月内）是未读状态
-   *
-   * @param tmpReq GetReportUnReadCountRequest
-   * @param tmpHeader GetReportUnReadCountHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetReportUnReadCountResponse
+   * 获取员工有多少数量的日志（一个月内）是未读状态
+   * 
+   * @param tmpReq - GetReportUnReadCountRequest
+   * @param tmpHeader - GetReportUnReadCountHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReportUnReadCountResponse
    */
   async getReportUnReadCountWithOptions(tmpReq: GetReportUnReadCountRequest, tmpHeader: GetReportUnReadCountHeaders, runtime: $Util.RuntimeOptions): Promise<GetReportUnReadCountResponse> {
     Util.validateModel(tmpReq);
@@ -51304,10 +69199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取员工有多少数量的日志（一个月内）是未读状态
-   *
-   * @param request GetReportUnReadCountRequest
-   * @return GetReportUnReadCountResponse
+   * 获取员工有多少数量的日志（一个月内）是未读状态
+   * 
+   * @param request - GetReportUnReadCountRequest
+   * @returns GetReportUnReadCountResponse
    */
   async getReportUnReadCount(request: GetReportUnReadCountRequest): Promise<GetReportUnReadCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51316,12 +69211,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询流程运行任务（VPC）
-   *
-   * @param request GetRunningTasksRequest
-   * @param tmpHeader GetRunningTasksHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRunningTasksResponse
+   * 查询流程运行任务（VPC）
+   * 
+   * @param request - GetRunningTasksRequest
+   * @param tmpHeader - GetRunningTasksHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRunningTasksResponse
    */
   async getRunningTasksWithOptions(request: GetRunningTasksRequest, tmpHeader: GetRunningTasksHeaders, runtime: $Util.RuntimeOptions): Promise<GetRunningTasksResponse> {
     Util.validateModel(request);
@@ -51380,10 +69275,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询流程运行任务（VPC）
-   *
-   * @param request GetRunningTasksRequest
-   * @return GetRunningTasksResponse
+   * 查询流程运行任务（VPC）
+   * 
+   * @param request - GetRunningTasksRequest
+   * @returns GetRunningTasksResponse
    */
   async getRunningTasks(request: GetRunningTasksRequest): Promise<GetRunningTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51392,12 +69287,94 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作表
-   *
-   * @param tmpReq GetSheetRequest
-   * @param tmpHeader GetSheetHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSheetResponse
+   * 获取用户忙闲信息
+   * 
+   * @param tmpReq - GetScheduleRequest
+   * @param tmpHeader - GetScheduleHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScheduleResponse
+   */
+  async getScheduleWithOptions(tmpReq: GetScheduleRequest, tmpHeader: GetScheduleHeaders, runtime: $Util.RuntimeOptions): Promise<GetScheduleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetScheduleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetScheduleShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userIds)) {
+      request.userIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIds, "UserIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.userIdsShrink)) {
+      body["UserIds"] = request.userIdsShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSchedule",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/calendar/getSchedule`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetScheduleResponse>(await this.callApi(params, req, runtime), new GetScheduleResponse({}));
+  }
+
+  /**
+   * 获取用户忙闲信息
+   * 
+   * @param request - GetScheduleRequest
+   * @returns GetScheduleResponse
+   */
+  async getSchedule(request: GetScheduleRequest): Promise<GetScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetScheduleHeaders({ });
+    return await this.getScheduleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取工作表
+   * 
+   * @param tmpReq - GetSheetRequest
+   * @param tmpHeader - GetSheetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSheetResponse
    */
   async getSheetWithOptions(tmpReq: GetSheetRequest, tmpHeader: GetSheetHeaders, runtime: $Util.RuntimeOptions): Promise<GetSheetResponse> {
     Util.validateModel(tmpReq);
@@ -51454,10 +69431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作表
-   *
-   * @param request GetSheetRequest
-   * @return GetSheetResponse
+   * 获取工作表
+   * 
+   * @param request - GetSheetRequest
+   * @returns GetSheetResponse
    */
   async getSheet(request: GetSheetRequest): Promise<GetSheetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51466,12 +69443,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询知识库下的目录结构
-   *
-   * @param tmpReq GetSpaceDirectoriesRequest
-   * @param tmpHeader GetSpaceDirectoriesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSpaceDirectoriesResponse
+   * 查询知识库下的目录结构
+   * 
+   * @param tmpReq - GetSpaceDirectoriesRequest
+   * @param tmpHeader - GetSpaceDirectoriesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSpaceDirectoriesResponse
    */
   async getSpaceDirectoriesWithOptions(tmpReq: GetSpaceDirectoriesRequest, tmpHeader: GetSpaceDirectoriesHeaders, runtime: $Util.RuntimeOptions): Promise<GetSpaceDirectoriesResponse> {
     Util.validateModel(tmpReq);
@@ -51536,10 +69513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询知识库下的目录结构
-   *
-   * @param request GetSpaceDirectoriesRequest
-   * @return GetSpaceDirectoriesResponse
+   * 查询知识库下的目录结构
+   * 
+   * @param request - GetSpaceDirectoriesRequest
+   * @returns GetSpaceDirectoriesResponse
    */
   async getSpaceDirectories(request: GetSpaceDirectoriesRequest): Promise<GetSpaceDirectoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51548,12 +69525,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个订阅日历详情
-   *
-   * @param request GetSubscribedCalendarRequest
-   * @param tmpHeader GetSubscribedCalendarHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSubscribedCalendarResponse
+   * 查询单个订阅日历详情
+   * 
+   * @param request - GetSubscribedCalendarRequest
+   * @param tmpHeader - GetSubscribedCalendarHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubscribedCalendarResponse
    */
   async getSubscribedCalendarWithOptions(request: GetSubscribedCalendarRequest, tmpHeader: GetSubscribedCalendarHeaders, runtime: $Util.RuntimeOptions): Promise<GetSubscribedCalendarResponse> {
     Util.validateModel(request);
@@ -51596,10 +69573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个订阅日历详情
-   *
-   * @param request GetSubscribedCalendarRequest
-   * @return GetSubscribedCalendarResponse
+   * 查询单个订阅日历详情
+   * 
+   * @param request - GetSubscribedCalendarRequest
+   * @returns GetSubscribedCalendarResponse
    */
   async getSubscribedCalendar(request: GetSubscribedCalendarRequest): Promise<GetSubscribedCalendarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51608,12 +69585,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询抄送我的任务列表（应用维度）
-   *
-   * @param request GetTaskCopiesRequest
-   * @param tmpHeader GetTaskCopiesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTaskCopiesResponse
+   * 查询抄送我的任务列表（应用维度）
+   * 
+   * @param request - GetTaskCopiesRequest
+   * @param tmpHeader - GetTaskCopiesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskCopiesResponse
    */
   async getTaskCopiesWithOptions(request: GetTaskCopiesRequest, tmpHeader: GetTaskCopiesHeaders, runtime: $Util.RuntimeOptions): Promise<GetTaskCopiesResponse> {
     Util.validateModel(request);
@@ -51688,10 +69665,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询抄送我的任务列表（应用维度）
-   *
-   * @param request GetTaskCopiesRequest
-   * @return GetTaskCopiesResponse
+   * 查询抄送我的任务列表（应用维度）
+   * 
+   * @param request - GetTaskCopiesRequest
+   * @returns GetTaskCopiesResponse
    */
   async getTaskCopies(request: GetTaskCopiesRequest): Promise<GetTaskCopiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51700,12 +69677,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户可见的日志模板
-   *
-   * @param tmpReq GetTemplateListByUserIdRequest
-   * @param tmpHeader GetTemplateListByUserIdHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTemplateListByUserIdResponse
+   * 获取用户可见的日志模板
+   * 
+   * @param tmpReq - GetTemplateListByUserIdRequest
+   * @param tmpHeader - GetTemplateListByUserIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateListByUserIdResponse
    */
   async getTemplateListByUserIdWithOptions(tmpReq: GetTemplateListByUserIdRequest, tmpHeader: GetTemplateListByUserIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetTemplateListByUserIdResponse> {
     Util.validateModel(tmpReq);
@@ -51762,10 +69739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户可见的日志模板
-   *
-   * @param request GetTemplateListByUserIdRequest
-   * @return GetTemplateListByUserIdResponse
+   * 获取用户可见的日志模板
+   * 
+   * @param request - GetTemplateListByUserIdRequest
+   * @returns GetTemplateListByUserIdResponse
    */
   async getTemplateListByUserId(request: GetTemplateListByUserIdRequest): Promise<GetTemplateListByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51774,12 +69751,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取专属账号信息
-   *
-   * @param tmpReq GetUserRequest
-   * @param tmpHeader GetUserHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserResponse
+   * 获取专属账号信息
+   * 
+   * @param tmpReq - GetUserRequest
+   * @param tmpHeader - GetUserHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
    */
   async getUserWithOptions(tmpReq: GetUserRequest, tmpHeader: GetUserHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(tmpReq);
@@ -51832,10 +69809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取专属账号信息
-   *
-   * @param request GetUserRequest
-   * @return GetUserResponse
+   * 获取专属账号信息
+   * 
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
    */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51844,12 +69821,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户最新的有效的专属账号迁移方案
-   *
-   * @param tmpReq GetUserLatestPlanRequest
-   * @param tmpHeader GetUserLatestPlanHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserLatestPlanResponse
+   * 获取用户最新的有效的专属账号迁移方案
+   * 
+   * @param tmpReq - GetUserLatestPlanRequest
+   * @param tmpHeader - GetUserLatestPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserLatestPlanResponse
    */
   async getUserLatestPlanWithOptions(tmpReq: GetUserLatestPlanRequest, tmpHeader: GetUserLatestPlanHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserLatestPlanResponse> {
     Util.validateModel(tmpReq);
@@ -51898,10 +69875,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户最新的有效的专属账号迁移方案
-   *
-   * @param request GetUserLatestPlanRequest
-   * @return GetUserLatestPlanResponse
+   * 获取用户最新的有效的专属账号迁移方案
+   * 
+   * @param request - GetUserLatestPlanRequest
+   * @returns GetUserLatestPlanResponse
    */
   async getUserLatestPlan(request: GetUserLatestPlanRequest): Promise<GetUserLatestPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51910,12 +69887,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取知识库
-   *
-   * @param tmpReq GetWorkspaceRequest
-   * @param tmpHeader GetWorkspaceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWorkspaceResponse
+   * 获取知识库
+   * 
+   * @param tmpReq - GetWorkspaceRequest
+   * @param tmpHeader - GetWorkspaceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceResponse
    */
   async getWorkspaceWithOptions(tmpReq: GetWorkspaceRequest, tmpHeader: GetWorkspaceHeaders, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
     Util.validateModel(tmpReq);
@@ -51972,10 +69949,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取知识库
-   *
-   * @param request GetWorkspaceRequest
-   * @return GetWorkspaceResponse
+   * 获取知识库
+   * 
+   * @param request - GetWorkspaceRequest
+   * @returns GetWorkspaceResponse
    */
   async getWorkspace(request: GetWorkspaceRequest): Promise<GetWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51984,12 +69961,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取知识库
-   *
-   * @param tmpReq GetWorkspacesRequest
-   * @param tmpHeader GetWorkspacesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWorkspacesResponse
+   * 批量获取知识库
+   * 
+   * @param tmpReq - GetWorkspacesRequest
+   * @param tmpHeader - GetWorkspacesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspacesResponse
    */
   async getWorkspacesWithOptions(tmpReq: GetWorkspacesRequest, tmpHeader: GetWorkspacesHeaders, runtime: $Util.RuntimeOptions): Promise<GetWorkspacesResponse> {
     Util.validateModel(tmpReq);
@@ -52054,10 +70031,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取知识库
-   *
-   * @param request GetWorkspacesRequest
-   * @return GetWorkspacesResponse
+   * 批量获取知识库
+   * 
+   * @param request - GetWorkspacesRequest
+   * @returns GetWorkspacesResponse
    */
   async getWorkspaces(request: GetWorkspacesRequest): Promise<GetWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52066,12 +70043,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 授予勋章
-   *
-   * @param tmpReq GrantHonorRequest
-   * @param tmpHeader GrantHonorHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GrantHonorResponse
+   * 授予勋章
+   * 
+   * @param tmpReq - GrantHonorRequest
+   * @param tmpHeader - GrantHonorHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantHonorResponse
    */
   async grantHonorWithOptions(tmpReq: GrantHonorRequest, tmpHeader: GrantHonorHeaders, runtime: $Util.RuntimeOptions): Promise<GrantHonorResponse> {
     Util.validateModel(tmpReq);
@@ -52168,10 +70145,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 授予勋章
-   *
-   * @param request GrantHonorRequest
-   * @return GrantHonorResponse
+   * 授予勋章
+   * 
+   * @param request - GrantHonorRequest
+   * @returns GrantHonorResponse
    */
   async grantHonor(request: GrantHonorRequest): Promise<GrantHonorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52180,12 +70157,90 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在指定列左侧插入若干列
-   *
-   * @param tmpReq InsertColumnsBeforeRequest
-   * @param tmpHeader InsertColumnsBeforeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InsertColumnsBeforeResponse
+   * 初始化文件分片上传
+   * 
+   * @param tmpReq - InitMultipartFileUploadRequest
+   * @param tmpHeader - InitMultipartFileUploadHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitMultipartFileUploadResponse
+   */
+  async initMultipartFileUploadWithOptions(tmpReq: InitMultipartFileUploadRequest, tmpHeader: InitMultipartFileUploadHeaders, runtime: $Util.RuntimeOptions): Promise<InitMultipartFileUploadResponse> {
+    Util.validateModel(tmpReq);
+    let request = new InitMultipartFileUploadShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new InitMultipartFileUploadShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.option)) {
+      request.optionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.option, "Option", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.optionShrink)) {
+      body["Option"] = request.optionShrink;
+    }
+
+    if (!Util.isUnset(request.parentDentryUuid)) {
+      body["ParentDentryUuid"] = request.parentDentryUuid;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "InitMultipartFileUpload",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/initMultipartFileUpload`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitMultipartFileUploadResponse>(await this.callApi(params, req, runtime), new InitMultipartFileUploadResponse({}));
+  }
+
+  /**
+   * 初始化文件分片上传
+   * 
+   * @param request - InitMultipartFileUploadRequest
+   * @returns InitMultipartFileUploadResponse
+   */
+  async initMultipartFileUpload(request: InitMultipartFileUploadRequest): Promise<InitMultipartFileUploadResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new InitMultipartFileUploadHeaders({ });
+    return await this.initMultipartFileUploadWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 在指定列左侧插入若干列
+   * 
+   * @param tmpReq - InsertColumnsBeforeRequest
+   * @param tmpHeader - InsertColumnsBeforeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertColumnsBeforeResponse
    */
   async insertColumnsBeforeWithOptions(tmpReq: InsertColumnsBeforeRequest, tmpHeader: InsertColumnsBeforeHeaders, runtime: $Util.RuntimeOptions): Promise<InsertColumnsBeforeResponse> {
     Util.validateModel(tmpReq);
@@ -52250,10 +70305,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在指定列左侧插入若干列
-   *
-   * @param request InsertColumnsBeforeRequest
-   * @return InsertColumnsBeforeResponse
+   * 在指定列左侧插入若干列
+   * 
+   * @param request - InsertColumnsBeforeRequest
+   * @returns InsertColumnsBeforeResponse
    */
   async insertColumnsBefore(request: InsertColumnsBeforeRequest): Promise<InsertColumnsBeforeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52262,12 +70317,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在指定行上方插入若干行
-   *
-   * @param tmpReq InsertRowsBeforeRequest
-   * @param tmpHeader InsertRowsBeforeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InsertRowsBeforeResponse
+   * 在指定行上方插入若干行
+   * 
+   * @param tmpReq - InsertRowsBeforeRequest
+   * @param tmpHeader - InsertRowsBeforeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertRowsBeforeResponse
    */
   async insertRowsBeforeWithOptions(tmpReq: InsertRowsBeforeRequest, tmpHeader: InsertRowsBeforeHeaders, runtime: $Util.RuntimeOptions): Promise<InsertRowsBeforeResponse> {
     Util.validateModel(tmpReq);
@@ -52332,10 +70387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在指定行上方插入若干行
-   *
-   * @param request InsertRowsBeforeRequest
-   * @return InsertRowsBeforeResponse
+   * 在指定行上方插入若干行
+   * 
+   * @param request - InsertRowsBeforeRequest
+   * @returns InsertRowsBeforeResponse
    */
   async insertRowsBefore(request: InsertRowsBeforeRequest): Promise<InsertRowsBeforeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52344,12 +70399,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 邀请用户入会
-   *
-   * @param tmpReq InviteUsersRequest
-   * @param tmpHeader InviteUsersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InviteUsersResponse
+   * 邀请用户入会
+   * 
+   * @param tmpReq - InviteUsersRequest
+   * @param tmpHeader - InviteUsersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InviteUsersResponse
    */
   async inviteUsersWithOptions(tmpReq: InviteUsersRequest, tmpHeader: InviteUsersHeaders, runtime: $Util.RuntimeOptions): Promise<InviteUsersResponse> {
     Util.validateModel(tmpReq);
@@ -52418,10 +70473,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 邀请用户入会
-   *
-   * @param request InviteUsersRequest
-   * @return InviteUsersResponse
+   * 邀请用户入会
+   * 
+   * @param request - InviteUsersRequest
+   * @returns InviteUsersResponse
    */
   async inviteUsers(request: InviteUsersRequest): Promise<InviteUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52430,12 +70485,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询宜搭应用列表
-   *
-   * @param request ListApplicationRequest
-   * @param tmpHeader ListApplicationHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationResponse
+   * 查询宜搭应用列表
+   * 
+   * @param request - ListApplicationRequest
+   * @param tmpHeader - ListApplicationHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationResponse
    */
   async listApplicationWithOptions(request: ListApplicationRequest, tmpHeader: ListApplicationHeaders, runtime: $Util.RuntimeOptions): Promise<ListApplicationResponse> {
     Util.validateModel(request);
@@ -52498,10 +70553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询宜搭应用列表
-   *
-   * @param request ListApplicationRequest
-   * @return ListApplicationResponse
+   * 查询宜搭应用列表
+   * 
+   * @param request - ListApplicationRequest
+   * @returns ListApplicationResponse
    */
   async listApplication(request: ListApplicationRequest): Promise<ListApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52510,12 +70565,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日历
-   *
-   * @param tmpReq ListCalendarsRequest
-   * @param tmpHeader ListCalendarsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCalendarsResponse
+   * 查询日历
+   * 
+   * @param tmpReq - ListCalendarsRequest
+   * @param tmpHeader - ListCalendarsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCalendarsResponse
    */
   async listCalendarsWithOptions(tmpReq: ListCalendarsRequest, tmpHeader: ListCalendarsHeaders, runtime: $Util.RuntimeOptions): Promise<ListCalendarsResponse> {
     Util.validateModel(tmpReq);
@@ -52564,10 +70619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日历
-   *
-   * @param request ListCalendarsRequest
-   * @return ListCalendarsResponse
+   * 查询日历
+   * 
+   * @param request - ListCalendarsRequest
+   * @returns ListCalendarsResponse
    */
   async listCalendars(request: ListCalendarsRequest): Promise<ListCalendarsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52576,12 +70631,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件或文件夹列表
-   *
-   * @param tmpReq ListDentriesRequest
-   * @param tmpHeader ListDentriesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDentriesResponse
+   * 获取文件或文件夹列表
+   * 
+   * @param tmpReq - ListDentriesRequest
+   * @param tmpHeader - ListDentriesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDentriesResponse
    */
   async listDentriesWithOptions(tmpReq: ListDentriesRequest, tmpHeader: ListDentriesHeaders, runtime: $Util.RuntimeOptions): Promise<ListDentriesResponse> {
     Util.validateModel(tmpReq);
@@ -52658,10 +70713,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件或文件夹列表
-   *
-   * @param request ListDentriesRequest
-   * @return ListDentriesResponse
+   * 获取文件或文件夹列表
+   * 
+   * @param request - ListDentriesRequest
+   * @returns ListDentriesResponse
    */
   async listDentries(request: ListDentriesRequest): Promise<ListDentriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52670,12 +70725,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取钉盘空间列表
-   *
-   * @param tmpReq ListDriveSpacesRequest
-   * @param tmpHeader ListDriveSpacesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDriveSpacesResponse
+   * 获取钉盘空间列表
+   * 
+   * @param tmpReq - ListDriveSpacesRequest
+   * @param tmpHeader - ListDriveSpacesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDriveSpacesResponse
    */
   async listDriveSpacesWithOptions(tmpReq: ListDriveSpacesRequest, tmpHeader: ListDriveSpacesHeaders, runtime: $Util.RuntimeOptions): Promise<ListDriveSpacesResponse> {
     Util.validateModel(tmpReq);
@@ -52736,10 +70791,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取钉盘空间列表
-   *
-   * @param request ListDriveSpacesRequest
-   * @return ListDriveSpacesResponse
+   * 获取钉盘空间列表
+   * 
+   * @param request - ListDriveSpacesRequest
+   * @returns ListDriveSpacesResponse
    */
   async listDriveSpaces(request: ListDriveSpacesRequest): Promise<ListDriveSpacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52748,12 +70803,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日程列表
-   *
-   * @param request ListEventsRequest
-   * @param tmpHeader ListEventsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEventsResponse
+   * 查询日程列表
+   * 
+   * @param request - ListEventsRequest
+   * @param tmpHeader - ListEventsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEventsResponse
    */
   async listEventsWithOptions(request: ListEventsRequest, tmpHeader: ListEventsHeaders, runtime: $Util.RuntimeOptions): Promise<ListEventsResponse> {
     Util.validateModel(request);
@@ -52828,10 +70883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日程列表
-   *
-   * @param request ListEventsRequest
-   * @return ListEventsResponse
+   * 查询日程列表
+   * 
+   * @param request - ListEventsRequest
+   * @returns ListEventsResponse
    */
   async listEvents(request: ListEventsRequest): Promise<ListEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52840,12 +70895,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日程视图
-   *
-   * @param request ListEventsViewRequest
-   * @param tmpHeader ListEventsViewHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEventsViewResponse
+   * 查询日程视图
+   * 
+   * @param request - ListEventsViewRequest
+   * @param tmpHeader - ListEventsViewHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEventsViewResponse
    */
   async listEventsViewWithOptions(request: ListEventsViewRequest, tmpHeader: ListEventsViewHeaders, runtime: $Util.RuntimeOptions): Promise<ListEventsViewResponse> {
     Util.validateModel(request);
@@ -52908,10 +70963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询日程视图
-   *
-   * @param request ListEventsViewRequest
-   * @return ListEventsViewResponse
+   * 查询日程视图
+   * 
+   * @param request - ListEventsViewRequest
+   * @returns ListEventsViewResponse
    */
   async listEventsView(request: ListEventsViewRequest): Promise<ListEventsViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52920,12 +70975,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询宜搭表单实例的评论
-   *
-   * @param tmpReq ListFormRemarksRequest
-   * @param tmpHeader ListFormRemarksHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFormRemarksResponse
+   * 批量查询宜搭表单实例的评论
+   * 
+   * @param tmpReq - ListFormRemarksRequest
+   * @param tmpHeader - ListFormRemarksHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFormRemarksResponse
    */
   async listFormRemarksWithOptions(tmpReq: ListFormRemarksRequest, tmpHeader: ListFormRemarksHeaders, runtime: $Util.RuntimeOptions): Promise<ListFormRemarksResponse> {
     Util.validateModel(tmpReq);
@@ -52986,10 +71041,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询宜搭表单实例的评论
-   *
-   * @param request ListFormRemarksRequest
-   * @return ListFormRemarksResponse
+   * 批量查询宜搭表单实例的评论
+   * 
+   * @param request - ListFormRemarksRequest
+   * @returns ListFormRemarksResponse
    */
   async listFormRemarks(request: ListFormRemarksRequest): Promise<ListFormRemarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52998,12 +71053,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用下的页面列表
-   *
-   * @param request ListNavigationByFormTypeRequest
-   * @param tmpHeader ListNavigationByFormTypeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNavigationByFormTypeResponse
+   * 获取应用下的页面列表
+   * 
+   * @param request - ListNavigationByFormTypeRequest
+   * @param tmpHeader - ListNavigationByFormTypeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNavigationByFormTypeResponse
    */
   async listNavigationByFormTypeWithOptions(request: ListNavigationByFormTypeRequest, tmpHeader: ListNavigationByFormTypeHeaders, runtime: $Util.RuntimeOptions): Promise<ListNavigationByFormTypeResponse> {
     Util.validateModel(request);
@@ -53058,10 +71113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用下的页面列表
-   *
-   * @param request ListNavigationByFormTypeRequest
-   * @return ListNavigationByFormTypeResponse
+   * 获取应用下的页面列表
+   * 
+   * @param request - ListNavigationByFormTypeRequest
+   * @returns ListNavigationByFormTypeResponse
    */
   async listNavigationByFormType(request: ListNavigationByFormTypeRequest): Promise<ListNavigationByFormTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53070,12 +71125,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取节点列表
-   *
-   * @param tmpReq ListNodesRequest
-   * @param tmpHeader ListNodesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNodesResponse
+   * 获取节点列表
+   * 
+   * @param tmpReq - ListNodesRequest
+   * @param tmpHeader - ListNodesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodesResponse
    */
   async listNodesWithOptions(tmpReq: ListNodesRequest, tmpHeader: ListNodesHeaders, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(tmpReq);
@@ -53140,10 +71195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取节点列表
-   *
-   * @param request ListNodesRequest
-   * @return ListNodesResponse
+   * 获取节点列表
+   * 
+   * @param request - ListNodesRequest
+   * @returns ListNodesResponse
    */
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53152,12 +71207,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户发出的日志列表
-   *
-   * @param tmpReq ListReportRequest
-   * @param tmpHeader ListReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListReportResponse
+   * 获取用户发出的日志列表
+   * 
+   * @param tmpReq - ListReportRequest
+   * @param tmpHeader - ListReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReportResponse
    */
   async listReportWithOptions(tmpReq: ListReportRequest, tmpHeader: ListReportHeaders, runtime: $Util.RuntimeOptions): Promise<ListReportResponse> {
     Util.validateModel(tmpReq);
@@ -53234,10 +71289,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户发出的日志列表
-   *
-   * @param request ListReportRequest
-   * @return ListReportResponse
+   * 获取用户发出的日志列表
+   * 
+   * @param request - ListReportRequest
+   * @returns ListReportResponse
    */
   async listReport(request: ListReportRequest): Promise<ListReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53246,12 +71301,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取子表组件数据
-   *
-   * @param request ListTableDataByFormInstanceIdTableIdRequest
-   * @param tmpHeader ListTableDataByFormInstanceIdTableIdHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTableDataByFormInstanceIdTableIdResponse
+   * 获取子表组件数据
+   * 
+   * @param request - ListTableDataByFormInstanceIdTableIdRequest
+   * @param tmpHeader - ListTableDataByFormInstanceIdTableIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTableDataByFormInstanceIdTableIdResponse
    */
   async listTableDataByFormInstanceIdTableIdWithOptions(request: ListTableDataByFormInstanceIdTableIdRequest, tmpHeader: ListTableDataByFormInstanceIdTableIdHeaders, runtime: $Util.RuntimeOptions): Promise<ListTableDataByFormInstanceIdTableIdResponse> {
     Util.validateModel(request);
@@ -53318,10 +71373,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取子表组件数据
-   *
-   * @param request ListTableDataByFormInstanceIdTableIdRequest
-   * @return ListTableDataByFormInstanceIdTableIdResponse
+   * 获取子表组件数据
+   * 
+   * @param request - ListTableDataByFormInstanceIdTableIdRequest
+   * @returns ListTableDataByFormInstanceIdTableIdResponse
    */
   async listTableDataByFormInstanceIdTableId(request: ListTableDataByFormInstanceIdTableIdRequest): Promise<ListTableDataByFormInstanceIdTableIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53330,12 +71385,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取知识小组列表
-   *
-   * @param tmpReq ListTeamsRequest
-   * @param tmpHeader ListTeamsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTeamsResponse
+   * 获取知识小组列表
+   * 
+   * @param tmpReq - ListTeamsRequest
+   * @param tmpHeader - ListTeamsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTeamsResponse
    */
   async listTeamsWithOptions(tmpReq: ListTeamsRequest, tmpHeader: ListTeamsHeaders, runtime: $Util.RuntimeOptions): Promise<ListTeamsResponse> {
     Util.validateModel(tmpReq);
@@ -53392,10 +71447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取知识小组列表
-   *
-   * @param request ListTeamsRequest
-   * @return ListTeamsResponse
+   * 获取知识小组列表
+   * 
+   * @param request - ListTeamsRequest
+   * @returns ListTeamsResponse
    */
   async listTeams(request: ListTeamsRequest): Promise<ListTeamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53404,12 +71459,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取知识库列表
-   *
-   * @param tmpReq ListWorkspacesRequest
-   * @param tmpHeader ListWorkspacesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWorkspacesResponse
+   * 获取知识库列表
+   * 
+   * @param tmpReq - ListWorkspacesRequest
+   * @param tmpHeader - ListWorkspacesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspacesResponse
    */
   async listWorkspacesWithOptions(tmpReq: ListWorkspacesRequest, tmpHeader: ListWorkspacesHeaders, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
     Util.validateModel(tmpReq);
@@ -53478,10 +71533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取知识库列表
-   *
-   * @param request ListWorkspacesRequest
-   * @return ListWorkspacesResponse
+   * 获取知识库列表
+   * 
+   * @param request - ListWorkspacesRequest
+   * @returns ListWorkspacesResponse
    */
   async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53490,12 +71545,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改日程
-   *
-   * @param tmpReq PatchEventRequest
-   * @param tmpHeader PatchEventHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PatchEventResponse
+   * 修改日程
+   * 
+   * @param tmpReq - PatchEventRequest
+   * @param tmpHeader - PatchEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PatchEventResponse
    */
   async patchEventWithOptions(tmpReq: PatchEventRequest, tmpHeader: PatchEventHeaders, runtime: $Util.RuntimeOptions): Promise<PatchEventResponse> {
     Util.validateModel(tmpReq);
@@ -53612,10 +71667,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改日程
-   *
-   * @param request PatchEventRequest
-   * @return PatchEventResponse
+   * 修改日程
+   * 
+   * @param request - PatchEventRequest
+   * @returns PatchEventResponse
    */
   async patchEvent(request: PatchEventRequest): Promise<PatchEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53624,12 +71679,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议录制中的文本信息
-   *
-   * @param tmpReq QueryCloudRecordTextRequest
-   * @param tmpHeader QueryCloudRecordTextHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCloudRecordTextResponse
+   * 查询会议录制中的文本信息
+   * 
+   * @param tmpReq - QueryCloudRecordTextRequest
+   * @param tmpHeader - QueryCloudRecordTextHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCloudRecordTextResponse
    */
   async queryCloudRecordTextWithOptions(tmpReq: QueryCloudRecordTextRequest, tmpHeader: QueryCloudRecordTextHeaders, runtime: $Util.RuntimeOptions): Promise<QueryCloudRecordTextResponse> {
     Util.validateModel(tmpReq);
@@ -53698,10 +71753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议录制中的文本信息
-   *
-   * @param request QueryCloudRecordTextRequest
-   * @return QueryCloudRecordTextResponse
+   * 查询会议录制中的文本信息
+   * 
+   * @param request - QueryCloudRecordTextRequest
+   * @returns QueryCloudRecordTextResponse
    */
   async queryCloudRecordText(request: QueryCloudRecordTextRequest): Promise<QueryCloudRecordTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53710,12 +71765,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议录制的详情信息
-   *
-   * @param tmpReq QueryCloudRecordVideoRequest
-   * @param tmpHeader QueryCloudRecordVideoHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCloudRecordVideoResponse
+   * 查询会议录制的详情信息
+   * 
+   * @param tmpReq - QueryCloudRecordVideoRequest
+   * @param tmpHeader - QueryCloudRecordVideoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCloudRecordVideoResponse
    */
   async queryCloudRecordVideoWithOptions(tmpReq: QueryCloudRecordVideoRequest, tmpHeader: QueryCloudRecordVideoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryCloudRecordVideoResponse> {
     Util.validateModel(tmpReq);
@@ -53768,10 +71823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议录制的详情信息
-   *
-   * @param request QueryCloudRecordVideoRequest
-   * @return QueryCloudRecordVideoResponse
+   * 查询会议录制的详情信息
+   * 
+   * @param request - QueryCloudRecordVideoRequest
+   * @returns QueryCloudRecordVideoResponse
    */
   async queryCloudRecordVideo(request: QueryCloudRecordVideoRequest): Promise<QueryCloudRecordVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53780,12 +71835,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议录制中的视频信息
-   *
-   * @param tmpReq QueryCloudRecordVideoPlayInfoRequest
-   * @param tmpHeader QueryCloudRecordVideoPlayInfoHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCloudRecordVideoPlayInfoResponse
+   * 查询会议录制中的视频信息
+   * 
+   * @param tmpReq - QueryCloudRecordVideoPlayInfoRequest
+   * @param tmpHeader - QueryCloudRecordVideoPlayInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCloudRecordVideoPlayInfoResponse
    */
   async queryCloudRecordVideoPlayInfoWithOptions(tmpReq: QueryCloudRecordVideoPlayInfoRequest, tmpHeader: QueryCloudRecordVideoPlayInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryCloudRecordVideoPlayInfoResponse> {
     Util.validateModel(tmpReq);
@@ -53846,10 +71901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议录制中的视频信息
-   *
-   * @param request QueryCloudRecordVideoPlayInfoRequest
-   * @return QueryCloudRecordVideoPlayInfoResponse
+   * 查询会议录制中的视频信息
+   * 
+   * @param request - QueryCloudRecordVideoPlayInfoRequest
+   * @returns QueryCloudRecordVideoPlayInfoResponse
    */
   async queryCloudRecordVideoPlayInfo(request: QueryCloudRecordVideoPlayInfoRequest): Promise<QueryCloudRecordVideoPlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53858,12 +71913,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频会议信息
-   *
-   * @param request QueryConferenceInfoRequest
-   * @param tmpHeader QueryConferenceInfoHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryConferenceInfoResponse
+   * 查询视频会议信息
+   * 
+   * @param request - QueryConferenceInfoRequest
+   * @param tmpHeader - QueryConferenceInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConferenceInfoResponse
    */
   async queryConferenceInfoWithOptions(request: QueryConferenceInfoRequest, tmpHeader: QueryConferenceInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryConferenceInfoResponse> {
     Util.validateModel(request);
@@ -53906,10 +71961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频会议信息
-   *
-   * @param request QueryConferenceInfoRequest
-   * @return QueryConferenceInfoResponse
+   * 查询视频会议信息
+   * 
+   * @param request - QueryConferenceInfoRequest
+   * @returns QueryConferenceInfoResponse
    */
   async queryConferenceInfo(request: QueryConferenceInfoRequest): Promise<QueryConferenceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53918,12 +71973,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频会议成员
-   *
-   * @param tmpReq QueryConferenceMembersRequest
-   * @param tmpHeader QueryConferenceMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryConferenceMembersResponse
+   * 查询视频会议成员
+   * 
+   * @param tmpReq - QueryConferenceMembersRequest
+   * @param tmpHeader - QueryConferenceMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConferenceMembersResponse
    */
   async queryConferenceMembersWithOptions(tmpReq: QueryConferenceMembersRequest, tmpHeader: QueryConferenceMembersHeaders, runtime: $Util.RuntimeOptions): Promise<QueryConferenceMembersResponse> {
     Util.validateModel(tmpReq);
@@ -53984,10 +72039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频会议成员
-   *
-   * @param request QueryConferenceMembersRequest
-   * @return QueryConferenceMembersResponse
+   * 查询视频会议成员
+   * 
+   * @param request - QueryConferenceMembersRequest
+   * @returns QueryConferenceMembersResponse
    */
   async queryConferenceMembers(request: QueryConferenceMembersRequest): Promise<QueryConferenceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53996,12 +72051,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询知识库节点信息
-   *
-   * @param tmpReq QueryDentryRequest
-   * @param tmpHeader QueryDentryHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDentryResponse
+   * 查询知识库节点信息
+   * 
+   * @param tmpReq - QueryDentryRequest
+   * @param tmpHeader - QueryDentryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDentryResponse
    */
   async queryDentryWithOptions(tmpReq: QueryDentryRequest, tmpHeader: QueryDentryHeaders, runtime: $Util.RuntimeOptions): Promise<QueryDentryResponse> {
     Util.validateModel(tmpReq);
@@ -54062,10 +72117,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询知识库节点信息
-   *
-   * @param request QueryDentryRequest
-   * @return QueryDentryResponse
+   * 查询知识库节点信息
+   * 
+   * @param request - QueryDentryRequest
+   * @returns QueryDentryResponse
    */
   async queryDentry(request: QueryDentryRequest): Promise<QueryDentryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54074,12 +72129,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播信息
-   *
-   * @param tmpReq QueryLiveInfoRequest
-   * @param tmpHeader QueryLiveInfoHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryLiveInfoResponse
+   * 查询直播信息
+   * 
+   * @param tmpReq - QueryLiveInfoRequest
+   * @param tmpHeader - QueryLiveInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLiveInfoResponse
    */
   async queryLiveInfoWithOptions(tmpReq: QueryLiveInfoRequest, tmpHeader: QueryLiveInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryLiveInfoResponse> {
     Util.validateModel(tmpReq);
@@ -54132,10 +72187,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播信息
-   *
-   * @param request QueryLiveInfoRequest
-   * @return QueryLiveInfoResponse
+   * 查询直播信息
+   * 
+   * @param request - QueryLiveInfoRequest
+   * @returns QueryLiveInfoResponse
    */
   async queryLiveInfo(request: QueryLiveInfoRequest): Promise<QueryLiveInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54144,12 +72199,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播的观看数据
-   *
-   * @param tmpReq QueryLiveWatchDetailRequest
-   * @param tmpHeader QueryLiveWatchDetailHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryLiveWatchDetailResponse
+   * 查询直播的观看数据
+   * 
+   * @param tmpReq - QueryLiveWatchDetailRequest
+   * @param tmpHeader - QueryLiveWatchDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLiveWatchDetailResponse
    */
   async queryLiveWatchDetailWithOptions(tmpReq: QueryLiveWatchDetailRequest, tmpHeader: QueryLiveWatchDetailHeaders, runtime: $Util.RuntimeOptions): Promise<QueryLiveWatchDetailResponse> {
     Util.validateModel(tmpReq);
@@ -54202,10 +72257,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播的观看数据
-   *
-   * @param request QueryLiveWatchDetailRequest
-   * @return QueryLiveWatchDetailResponse
+   * 查询直播的观看数据
+   * 
+   * @param request - QueryLiveWatchDetailRequest
+   * @returns QueryLiveWatchDetailResponse
    */
   async queryLiveWatchDetail(request: QueryLiveWatchDetailRequest): Promise<QueryLiveWatchDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54214,12 +72269,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播观看人员信息
-   *
-   * @param tmpReq QueryLiveWatchUserListRequest
-   * @param tmpHeader QueryLiveWatchUserListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryLiveWatchUserListResponse
+   * 查询直播观看人员信息
+   * 
+   * @param tmpReq - QueryLiveWatchUserListRequest
+   * @param tmpHeader - QueryLiveWatchUserListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLiveWatchUserListResponse
    */
   async queryLiveWatchUserListWithOptions(tmpReq: QueryLiveWatchUserListRequest, tmpHeader: QueryLiveWatchUserListHeaders, runtime: $Util.RuntimeOptions): Promise<QueryLiveWatchUserListResponse> {
     Util.validateModel(tmpReq);
@@ -54280,10 +72335,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播观看人员信息
-   *
-   * @param request QueryLiveWatchUserListRequest
-   * @return QueryLiveWatchUserListResponse
+   * 查询直播观看人员信息
+   * 
+   * @param request - QueryLiveWatchUserListRequest
+   * @returns QueryLiveWatchUserListResponse
    */
   async queryLiveWatchUserList(request: QueryLiveWatchUserListRequest): Promise<QueryLiveWatchUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54292,12 +72347,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室详情
-   *
-   * @param tmpReq QueryMeetingRoomRequest
-   * @param tmpHeader QueryMeetingRoomHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMeetingRoomResponse
+   * 查询会议室详情
+   * 
+   * @param tmpReq - QueryMeetingRoomRequest
+   * @param tmpHeader - QueryMeetingRoomHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMeetingRoomResponse
    */
   async queryMeetingRoomWithOptions(tmpReq: QueryMeetingRoomRequest, tmpHeader: QueryMeetingRoomHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMeetingRoomResponse> {
     Util.validateModel(tmpReq);
@@ -54350,10 +72405,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室详情
-   *
-   * @param request QueryMeetingRoomRequest
-   * @return QueryMeetingRoomResponse
+   * 查询会议室详情
+   * 
+   * @param request - QueryMeetingRoomRequest
+   * @returns QueryMeetingRoomResponse
    */
   async queryMeetingRoom(request: QueryMeetingRoomRequest): Promise<QueryMeetingRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54362,12 +72417,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室分组信息
-   *
-   * @param tmpReq QueryMeetingRoomGroupRequest
-   * @param tmpHeader QueryMeetingRoomGroupHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMeetingRoomGroupResponse
+   * 查询会议室分组信息
+   * 
+   * @param tmpReq - QueryMeetingRoomGroupRequest
+   * @param tmpHeader - QueryMeetingRoomGroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMeetingRoomGroupResponse
    */
   async queryMeetingRoomGroupWithOptions(tmpReq: QueryMeetingRoomGroupRequest, tmpHeader: QueryMeetingRoomGroupHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMeetingRoomGroupResponse> {
     Util.validateModel(tmpReq);
@@ -54420,10 +72475,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室分组信息
-   *
-   * @param request QueryMeetingRoomGroupRequest
-   * @return QueryMeetingRoomGroupResponse
+   * 查询会议室分组信息
+   * 
+   * @param request - QueryMeetingRoomGroupRequest
+   * @returns QueryMeetingRoomGroupResponse
    */
   async queryMeetingRoomGroup(request: QueryMeetingRoomGroupRequest): Promise<QueryMeetingRoomGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54432,12 +72487,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室分组列表
-   *
-   * @param tmpReq QueryMeetingRoomGroupListRequest
-   * @param tmpHeader QueryMeetingRoomGroupListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMeetingRoomGroupListResponse
+   * 查询会议室分组列表
+   * 
+   * @param tmpReq - QueryMeetingRoomGroupListRequest
+   * @param tmpHeader - QueryMeetingRoomGroupListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMeetingRoomGroupListResponse
    */
   async queryMeetingRoomGroupListWithOptions(tmpReq: QueryMeetingRoomGroupListRequest, tmpHeader: QueryMeetingRoomGroupListHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMeetingRoomGroupListResponse> {
     Util.validateModel(tmpReq);
@@ -54494,10 +72549,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室分组列表
-   *
-   * @param request QueryMeetingRoomGroupListRequest
-   * @return QueryMeetingRoomGroupListResponse
+   * 查询会议室分组列表
+   * 
+   * @param request - QueryMeetingRoomGroupListRequest
+   * @returns QueryMeetingRoomGroupListResponse
    */
   async queryMeetingRoomGroupList(request: QueryMeetingRoomGroupListRequest): Promise<QueryMeetingRoomGroupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54506,12 +72561,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室列表
-   *
-   * @param tmpReq QueryMeetingRoomListRequest
-   * @param tmpHeader QueryMeetingRoomListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMeetingRoomListResponse
+   * 查询会议室列表
+   * 
+   * @param tmpReq - QueryMeetingRoomListRequest
+   * @param tmpHeader - QueryMeetingRoomListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMeetingRoomListResponse
    */
   async queryMeetingRoomListWithOptions(tmpReq: QueryMeetingRoomListRequest, tmpHeader: QueryMeetingRoomListHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMeetingRoomListResponse> {
     Util.validateModel(tmpReq);
@@ -54568,10 +72623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议室列表
-   *
-   * @param request QueryMeetingRoomListRequest
-   * @return QueryMeetingRoomListResponse
+   * 查询会议室列表
+   * 
+   * @param request - QueryMeetingRoomListRequest
+   * @returns QueryMeetingRoomListResponse
    */
   async queryMeetingRoomList(request: QueryMeetingRoomListRequest): Promise<QueryMeetingRoomListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54580,12 +72635,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询闪记录音
-   *
-   * @param tmpReq QueryMinutesRequest
-   * @param tmpHeader QueryMinutesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMinutesResponse
+   * 查询闪记录音
+   * 
+   * @param tmpReq - QueryMinutesRequest
+   * @param tmpHeader - QueryMinutesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMinutesResponse
    */
   async queryMinutesWithOptions(tmpReq: QueryMinutesRequest, tmpHeader: QueryMinutesHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMinutesResponse> {
     Util.validateModel(tmpReq);
@@ -54638,10 +72693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询闪记录音
-   *
-   * @param request QueryMinutesRequest
-   * @return QueryMinutesResponse
+   * 查询闪记录音
+   * 
+   * @param request - QueryMinutesRequest
+   * @returns QueryMinutesResponse
    */
   async queryMinutes(request: QueryMinutesRequest): Promise<QueryMinutesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54650,12 +72705,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议闪记智能纪要
-   *
-   * @param tmpReq QueryMinutesSummaryRequest
-   * @param tmpHeader QueryMinutesSummaryHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMinutesSummaryResponse
+   * 查询会议闪记智能纪要
+   * 
+   * @param tmpReq - QueryMinutesSummaryRequest
+   * @param tmpHeader - QueryMinutesSummaryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMinutesSummaryResponse
    */
   async queryMinutesSummaryWithOptions(tmpReq: QueryMinutesSummaryRequest, tmpHeader: QueryMinutesSummaryHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMinutesSummaryResponse> {
     Util.validateModel(tmpReq);
@@ -54716,10 +72771,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议闪记智能纪要
-   *
-   * @param request QueryMinutesSummaryRequest
-   * @return QueryMinutesSummaryResponse
+   * 查询会议闪记智能纪要
+   * 
+   * @param request - QueryMinutesSummaryRequest
+   * @returns QueryMinutesSummaryResponse
    */
   async queryMinutesSummary(request: QueryMinutesSummaryRequest): Promise<QueryMinutesSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54728,12 +72783,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议闪记的文本信息
-   *
-   * @param tmpReq QueryMinutesTextRequest
-   * @param tmpHeader QueryMinutesTextHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMinutesTextResponse
+   * 查询会议闪记的文本信息
+   * 
+   * @param tmpReq - QueryMinutesTextRequest
+   * @param tmpHeader - QueryMinutesTextHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMinutesTextResponse
    */
   async queryMinutesTextWithOptions(tmpReq: QueryMinutesTextRequest, tmpHeader: QueryMinutesTextHeaders, runtime: $Util.RuntimeOptions): Promise<QueryMinutesTextResponse> {
     Util.validateModel(tmpReq);
@@ -54798,10 +72853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询会议闪记的文本信息
-   *
-   * @param request QueryMinutesTextRequest
-   * @return QueryMinutesTextResponse
+   * 查询会议闪记的文本信息
+   * 
+   * @param request - QueryMinutesTextRequest
+   * @returns QueryMinutesTextResponse
    */
   async queryMinutesText(request: QueryMinutesTextRequest): Promise<QueryMinutesTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54810,12 +72865,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业荣誉
-   *
-   * @param tmpReq QueryOrgHonorsRequest
-   * @param tmpHeader QueryOrgHonorsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryOrgHonorsResponse
+   * 查询企业荣誉
+   * 
+   * @param tmpReq - QueryOrgHonorsRequest
+   * @param tmpHeader - QueryOrgHonorsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryOrgHonorsResponse
    */
   async queryOrgHonorsWithOptions(tmpReq: QueryOrgHonorsRequest, tmpHeader: QueryOrgHonorsHeaders, runtime: $Util.RuntimeOptions): Promise<QueryOrgHonorsResponse> {
     Util.validateModel(tmpReq);
@@ -54876,10 +72931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业荣誉
-   *
-   * @param request QueryOrgHonorsRequest
-   * @return QueryOrgHonorsResponse
+   * 查询企业荣誉
+   * 
+   * @param request - QueryOrgHonorsRequest
+   * @returns QueryOrgHonorsResponse
    */
   async queryOrgHonors(request: QueryOrgHonorsRequest): Promise<QueryOrgHonorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54888,12 +72943,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业代办
-   *
-   * @param tmpReq QueryOrgTodoTasksRequest
-   * @param tmpHeader QueryOrgTodoTasksHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryOrgTodoTasksResponse
+   * 查询企业代办
+   * 
+   * @param tmpReq - QueryOrgTodoTasksRequest
+   * @param tmpHeader - QueryOrgTodoTasksHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryOrgTodoTasksResponse
    */
   async queryOrgTodoTasksWithOptions(tmpReq: QueryOrgTodoTasksRequest, tmpHeader: QueryOrgTodoTasksHeaders, runtime: $Util.RuntimeOptions): Promise<QueryOrgTodoTasksResponse> {
     Util.validateModel(tmpReq);
@@ -54950,10 +73005,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业代办
-   *
-   * @param request QueryOrgTodoTasksRequest
-   * @return QueryOrgTodoTasksResponse
+   * 查询企业代办
+   * 
+   * @param request - QueryOrgTodoTasksRequest
+   * @returns QueryOrgTodoTasksResponse
    */
   async queryOrgTodoTasks(request: QueryOrgTodoTasksRequest): Promise<QueryOrgTodoTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54962,12 +73017,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志详情
-   *
-   * @param tmpReq QueryReportDetailRequest
-   * @param tmpHeader QueryReportDetailHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryReportDetailResponse
+   * 获取日志详情
+   * 
+   * @param tmpReq - QueryReportDetailRequest
+   * @param tmpHeader - QueryReportDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryReportDetailResponse
    */
   async queryReportDetailWithOptions(tmpReq: QueryReportDetailRequest, tmpHeader: QueryReportDetailHeaders, runtime: $Util.RuntimeOptions): Promise<QueryReportDetailResponse> {
     Util.validateModel(tmpReq);
@@ -55020,10 +73075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志详情
-   *
-   * @param request QueryReportDetailRequest
-   * @return QueryReportDetailResponse
+   * 获取日志详情
+   * 
+   * @param request - QueryReportDetailRequest
+   * @returns QueryReportDetailResponse
    */
   async queryReportDetail(request: QueryReportDetailRequest): Promise<QueryReportDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55032,12 +73087,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询预约会议
-   *
-   * @param tmpReq QueryScheduleConferenceRequest
-   * @param tmpHeader QueryScheduleConferenceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryScheduleConferenceResponse
+   * 查询预约会议
+   * 
+   * @param tmpReq - QueryScheduleConferenceRequest
+   * @param tmpHeader - QueryScheduleConferenceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryScheduleConferenceResponse
    */
   async queryScheduleConferenceWithOptions(tmpReq: QueryScheduleConferenceRequest, tmpHeader: QueryScheduleConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<QueryScheduleConferenceResponse> {
     Util.validateModel(tmpReq);
@@ -55090,10 +73145,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询预约会议
-   *
-   * @param request QueryScheduleConferenceRequest
-   * @return QueryScheduleConferenceResponse
+   * 查询预约会议
+   * 
+   * @param request - QueryScheduleConferenceRequest
+   * @returns QueryScheduleConferenceResponse
    */
   async queryScheduleConference(request: QueryScheduleConferenceRequest): Promise<QueryScheduleConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55102,12 +73157,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询预约会议历史会议信息
-   *
-   * @param tmpReq QueryScheduleConferenceInfoRequest
-   * @param tmpHeader QueryScheduleConferenceInfoHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryScheduleConferenceInfoResponse
+   * 查询预约会议历史会议信息
+   * 
+   * @param tmpReq - QueryScheduleConferenceInfoRequest
+   * @param tmpHeader - QueryScheduleConferenceInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryScheduleConferenceInfoResponse
    */
   async queryScheduleConferenceInfoWithOptions(tmpReq: QueryScheduleConferenceInfoRequest, tmpHeader: QueryScheduleConferenceInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryScheduleConferenceInfoResponse> {
     Util.validateModel(tmpReq);
@@ -55168,10 +73223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询预约会议历史会议信息
-   *
-   * @param request QueryScheduleConferenceInfoRequest
-   * @return QueryScheduleConferenceInfoResponse
+   * 查询预约会议历史会议信息
+   * 
+   * @param request - QueryScheduleConferenceInfoRequest
+   * @returns QueryScheduleConferenceInfoResponse
    */
   async queryScheduleConferenceInfo(request: QueryScheduleConferenceInfoRequest): Promise<QueryScheduleConferenceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55180,12 +73235,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询员工勋章列表
-   *
-   * @param tmpReq QueryUserHonorsRequest
-   * @param tmpHeader QueryUserHonorsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryUserHonorsResponse
+   * 查询员工勋章列表
+   * 
+   * @param tmpReq - QueryUserHonorsRequest
+   * @param tmpHeader - QueryUserHonorsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserHonorsResponse
    */
   async queryUserHonorsWithOptions(tmpReq: QueryUserHonorsRequest, tmpHeader: QueryUserHonorsHeaders, runtime: $Util.RuntimeOptions): Promise<QueryUserHonorsResponse> {
     Util.validateModel(tmpReq);
@@ -55250,10 +73305,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询员工勋章列表
-   *
-   * @param request QueryUserHonorsRequest
-   * @return QueryUserHonorsResponse
+   * 查询员工勋章列表
+   * 
+   * @param request - QueryUserHonorsRequest
+   * @returns QueryUserHonorsResponse
    */
   async queryUserHonors(request: QueryUserHonorsRequest): Promise<QueryUserHonorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55262,12 +73317,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 收回勋章
-   *
-   * @param tmpReq RecallHonorRequest
-   * @param tmpHeader RecallHonorHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RecallHonorResponse
+   * 收回勋章
+   * 
+   * @param tmpReq - RecallHonorRequest
+   * @param tmpHeader - RecallHonorHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecallHonorResponse
    */
   async recallHonorWithOptions(tmpReq: RecallHonorRequest, tmpHeader: RecallHonorHeaders, runtime: $Util.RuntimeOptions): Promise<RecallHonorResponse> {
     Util.validateModel(tmpReq);
@@ -55328,10 +73383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 收回勋章
-   *
-   * @param request RecallHonorRequest
-   * @return RecallHonorResponse
+   * 收回勋章
+   * 
+   * @param request - RecallHonorRequest
+   * @returns RecallHonorResponse
    */
   async recallHonor(request: RecallHonorRequest): Promise<RecallHonorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55340,12 +73395,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志接收人员列表
-   *
-   * @param tmpReq ReceiverListReportRequest
-   * @param tmpHeader ReceiverListReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReceiverListReportResponse
+   * 获取日志接收人员列表
+   * 
+   * @param tmpReq - ReceiverListReportRequest
+   * @param tmpHeader - ReceiverListReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReceiverListReportResponse
    */
   async receiverListReportWithOptions(tmpReq: ReceiverListReportRequest, tmpHeader: ReceiverListReportHeaders, runtime: $Util.RuntimeOptions): Promise<ReceiverListReportResponse> {
     Util.validateModel(tmpReq);
@@ -55406,10 +73461,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志接收人员列表
-   *
-   * @param request ReceiverListReportRequest
-   * @return ReceiverListReportResponse
+   * 获取日志接收人员列表
+   * 
+   * @param request - ReceiverListReportRequest
+   * @returns ReceiverListReportResponse
    */
   async receiverListReport(request: ReceiverListReportRequest): Promise<ReceiverListReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55418,12 +73473,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 转交任务
-   *
-   * @param request RedirectTaskRequest
-   * @param tmpHeader RedirectTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RedirectTaskResponse
+   * 转交任务
+   * 
+   * @param request - RedirectTaskRequest
+   * @param tmpHeader - RedirectTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RedirectTaskResponse
    */
   async redirectTaskWithOptions(request: RedirectTaskRequest, tmpHeader: RedirectTaskHeaders, runtime: $Util.RuntimeOptions): Promise<RedirectTaskResponse> {
     Util.validateModel(request);
@@ -55494,10 +73549,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 转交任务
-   *
-   * @param request RedirectTaskRequest
-   * @return RedirectTaskResponse
+   * 转交任务
+   * 
+   * @param request - RedirectTaskRequest
+   * @returns RedirectTaskResponse
    */
   async redirectTask(request: RedirectTaskRequest): Promise<RedirectTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55506,12 +73561,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除日程参与者
-   *
-   * @param tmpReq RemoveAttendeeRequest
-   * @param tmpHeader RemoveAttendeeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveAttendeeResponse
+   * 删除日程参与者
+   * 
+   * @param tmpReq - RemoveAttendeeRequest
+   * @param tmpHeader - RemoveAttendeeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveAttendeeResponse
    */
   async removeAttendeeWithOptions(tmpReq: RemoveAttendeeRequest, tmpHeader: RemoveAttendeeHeaders, runtime: $Util.RuntimeOptions): Promise<RemoveAttendeeResponse> {
     Util.validateModel(tmpReq);
@@ -55568,10 +73623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除日程参与者
-   *
-   * @param request RemoveAttendeeRequest
-   * @return RemoveAttendeeResponse
+   * 删除日程参与者
+   * 
+   * @param request - RemoveAttendeeRequest
+   * @returns RemoveAttendeeResponse
    */
   async removeAttendee(request: RemoveAttendeeRequest): Promise<RemoveAttendeeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55580,12 +73635,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消预定会议室
-   *
-   * @param tmpReq RemoveMeetingRoomsRequest
-   * @param tmpHeader RemoveMeetingRoomsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveMeetingRoomsResponse
+   * 取消预定会议室
+   * 
+   * @param tmpReq - RemoveMeetingRoomsRequest
+   * @param tmpHeader - RemoveMeetingRoomsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveMeetingRoomsResponse
    */
   async removeMeetingRoomsWithOptions(tmpReq: RemoveMeetingRoomsRequest, tmpHeader: RemoveMeetingRoomsHeaders, runtime: $Util.RuntimeOptions): Promise<RemoveMeetingRoomsResponse> {
     Util.validateModel(tmpReq);
@@ -55642,10 +73697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消预定会议室
-   *
-   * @param request RemoveMeetingRoomsRequest
-   * @return RemoveMeetingRoomsResponse
+   * 取消预定会议室
+   * 
+   * @param request - RemoveMeetingRoomsRequest
+   * @returns RemoveMeetingRoomsResponse
    */
   async removeMeetingRooms(request: RemoveMeetingRoomsRequest): Promise<RemoveMeetingRoomsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55654,12 +73709,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存日志内容
-   *
-   * @param tmpReq SaveContentRequest
-   * @param tmpHeader SaveContentHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveContentResponse
+   * 保存日志内容
+   * 
+   * @param tmpReq - SaveContentRequest
+   * @param tmpHeader - SaveContentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveContentResponse
    */
   async saveContentWithOptions(tmpReq: SaveContentRequest, tmpHeader: SaveContentHeaders, runtime: $Util.RuntimeOptions): Promise<SaveContentResponse> {
     Util.validateModel(tmpReq);
@@ -55724,10 +73779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存日志内容
-   *
-   * @param request SaveContentRequest
-   * @return SaveContentResponse
+   * 保存日志内容
+   * 
+   * @param request - SaveContentRequest
+   * @returns SaveContentResponse
    */
   async saveContent(request: SaveContentRequest): Promise<SaveContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55736,12 +73791,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存表单数据
-   *
-   * @param request SaveFormDataRequest
-   * @param tmpHeader SaveFormDataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveFormDataResponse
+   * 保存表单数据
+   * 
+   * @param request - SaveFormDataRequest
+   * @param tmpHeader - SaveFormDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveFormDataResponse
    */
   async saveFormDataWithOptions(request: SaveFormDataRequest, tmpHeader: SaveFormDataHeaders, runtime: $Util.RuntimeOptions): Promise<SaveFormDataResponse> {
     Util.validateModel(request);
@@ -55800,10 +73855,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存表单数据
-   *
-   * @param request SaveFormDataRequest
-   * @return SaveFormDataResponse
+   * 保存表单数据
+   * 
+   * @param request - SaveFormDataRequest
+   * @returns SaveFormDataResponse
    */
   async saveFormData(request: SaveFormDataRequest): Promise<SaveFormDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55812,12 +73867,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交表单或流程实例下的评论
-   *
-   * @param request SaveFormRemarkRequest
-   * @param tmpHeader SaveFormRemarkHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveFormRemarkResponse
+   * 提交表单或流程实例下的评论
+   * 
+   * @param request - SaveFormRemarkRequest
+   * @param tmpHeader - SaveFormRemarkHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveFormRemarkResponse
    */
   async saveFormRemarkWithOptions(request: SaveFormRemarkRequest, tmpHeader: SaveFormRemarkHeaders, runtime: $Util.RuntimeOptions): Promise<SaveFormRemarkResponse> {
     Util.validateModel(request);
@@ -55884,10 +73939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交表单或流程实例下的评论
-   *
-   * @param request SaveFormRemarkRequest
-   * @return SaveFormRemarkResponse
+   * 提交表单或流程实例下的评论
+   * 
+   * @param request - SaveFormRemarkRequest
+   * @returns SaveFormRemarkResponse
    */
   async saveFormRemark(request: SaveFormRemarkRequest): Promise<SaveFormRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55896,12 +73951,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取员工组件的值
-   *
-   * @param request SearchEmployeeFieldValuesRequest
-   * @param tmpHeader SearchEmployeeFieldValuesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchEmployeeFieldValuesResponse
+   * 获取员工组件的值
+   * 
+   * @param request - SearchEmployeeFieldValuesRequest
+   * @param tmpHeader - SearchEmployeeFieldValuesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchEmployeeFieldValuesResponse
    */
   async searchEmployeeFieldValuesWithOptions(request: SearchEmployeeFieldValuesRequest, tmpHeader: SearchEmployeeFieldValuesHeaders, runtime: $Util.RuntimeOptions): Promise<SearchEmployeeFieldValuesResponse> {
     Util.validateModel(request);
@@ -55984,10 +74039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取员工组件的值
-   *
-   * @param request SearchEmployeeFieldValuesRequest
-   * @return SearchEmployeeFieldValuesResponse
+   * 获取员工组件的值
+   * 
+   * @param request - SearchEmployeeFieldValuesRequest
+   * @returns SearchEmployeeFieldValuesResponse
    */
   async searchEmployeeFieldValues(request: SearchEmployeeFieldValuesRequest): Promise<SearchEmployeeFieldValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55996,12 +74051,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取多个表单实例ID
-   *
-   * @param request SearchFormDataIdListRequest
-   * @param tmpHeader SearchFormDataIdListHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchFormDataIdListResponse
+   * 获取多个表单实例ID
+   * 
+   * @param request - SearchFormDataIdListRequest
+   * @param tmpHeader - SearchFormDataIdListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFormDataIdListResponse
    */
   async searchFormDataIdListWithOptions(request: SearchFormDataIdListRequest, tmpHeader: SearchFormDataIdListHeaders, runtime: $Util.RuntimeOptions): Promise<SearchFormDataIdListResponse> {
     Util.validateModel(request);
@@ -56088,10 +74143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取多个表单实例ID
-   *
-   * @param request SearchFormDataIdListRequest
-   * @return SearchFormDataIdListResponse
+   * 获取多个表单实例ID
+   * 
+   * @param request - SearchFormDataIdListRequest
+   * @returns SearchFormDataIdListResponse
    */
   async searchFormDataIdList(request: SearchFormDataIdListRequest): Promise<SearchFormDataIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56100,12 +74155,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过高级查询条件获取表单实例数据（包括子表单组件数据）
-   *
-   * @param request SearchFormDataSecondGenerationRequest
-   * @param tmpHeader SearchFormDataSecondGenerationHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchFormDataSecondGenerationResponse
+   * 通过高级查询条件获取表单实例数据（包括子表单组件数据）
+   * 
+   * @param request - SearchFormDataSecondGenerationRequest
+   * @param tmpHeader - SearchFormDataSecondGenerationHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFormDataSecondGenerationResponse
    */
   async searchFormDataSecondGenerationWithOptions(request: SearchFormDataSecondGenerationRequest, tmpHeader: SearchFormDataSecondGenerationHeaders, runtime: $Util.RuntimeOptions): Promise<SearchFormDataSecondGenerationResponse> {
     Util.validateModel(request);
@@ -56192,10 +74247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过高级查询条件获取表单实例数据（包括子表单组件数据）
-   *
-   * @param request SearchFormDataSecondGenerationRequest
-   * @return SearchFormDataSecondGenerationResponse
+   * 通过高级查询条件获取表单实例数据（包括子表单组件数据）
+   * 
+   * @param request - SearchFormDataSecondGenerationRequest
+   * @returns SearchFormDataSecondGenerationResponse
    */
   async searchFormDataSecondGeneration(request: SearchFormDataSecondGenerationRequest): Promise<SearchFormDataSecondGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56204,12 +74259,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过高级查询条件获取表单实例数据（不包括子表单组件数据）
-   *
-   * @param request SearchFormDataSecondGenerationNoTableFieldRequest
-   * @param tmpHeader SearchFormDataSecondGenerationNoTableFieldHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchFormDataSecondGenerationNoTableFieldResponse
+   * 通过高级查询条件获取表单实例数据（不包括子表单组件数据）
+   * 
+   * @param request - SearchFormDataSecondGenerationNoTableFieldRequest
+   * @param tmpHeader - SearchFormDataSecondGenerationNoTableFieldHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFormDataSecondGenerationNoTableFieldResponse
    */
   async searchFormDataSecondGenerationNoTableFieldWithOptions(request: SearchFormDataSecondGenerationNoTableFieldRequest, tmpHeader: SearchFormDataSecondGenerationNoTableFieldHeaders, runtime: $Util.RuntimeOptions): Promise<SearchFormDataSecondGenerationNoTableFieldResponse> {
     Util.validateModel(request);
@@ -56296,10 +74351,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过高级查询条件获取表单实例数据（不包括子表单组件数据）
-   *
-   * @param request SearchFormDataSecondGenerationNoTableFieldRequest
-   * @return SearchFormDataSecondGenerationNoTableFieldResponse
+   * 通过高级查询条件获取表单实例数据（不包括子表单组件数据）
+   * 
+   * @param request - SearchFormDataSecondGenerationNoTableFieldRequest
+   * @returns SearchFormDataSecondGenerationNoTableFieldResponse
    */
   async searchFormDataSecondGenerationNoTableField(request: SearchFormDataSecondGenerationNoTableFieldRequest): Promise<SearchFormDataSecondGenerationNoTableFieldResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56308,12 +74363,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询表单实例数据
-   *
-   * @param request SearchFormDatasRequest
-   * @param tmpHeader SearchFormDatasHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchFormDatasResponse
+   * 查询表单实例数据
+   * 
+   * @param request - SearchFormDatasRequest
+   * @param tmpHeader - SearchFormDatasHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFormDatasResponse
    */
   async searchFormDatasWithOptions(request: SearchFormDatasRequest, tmpHeader: SearchFormDatasHeaders, runtime: $Util.RuntimeOptions): Promise<SearchFormDatasResponse> {
     Util.validateModel(request);
@@ -56404,10 +74459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询表单实例数据
-   *
-   * @param request SearchFormDatasRequest
-   * @return SearchFormDatasResponse
+   * 查询表单实例数据
+   * 
+   * @param request - SearchFormDatasRequest
+   * @returns SearchFormDatasResponse
    */
   async searchFormDatas(request: SearchFormDatasRequest): Promise<SearchFormDatasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56416,12 +74471,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据关键词搜索企业内部群
-   *
-   * @param request SearchInnerGroupsRequest
-   * @param tmpHeader SearchInnerGroupsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchInnerGroupsResponse
+   * 根据关键词搜索企业内部群
+   * 
+   * @param request - SearchInnerGroupsRequest
+   * @param tmpHeader - SearchInnerGroupsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchInnerGroupsResponse
    */
   async searchInnerGroupsWithOptions(request: SearchInnerGroupsRequest, tmpHeader: SearchInnerGroupsHeaders, runtime: $Util.RuntimeOptions): Promise<SearchInnerGroupsResponse> {
     Util.validateModel(request);
@@ -56468,10 +74523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据关键词搜索企业内部群
-   *
-   * @param request SearchInnerGroupsRequest
-   * @return SearchInnerGroupsResponse
+   * 根据关键词搜索企业内部群
+   * 
+   * @param request - SearchInnerGroupsRequest
+   * @returns SearchInnerGroupsResponse
    */
   async searchInnerGroups(request: SearchInnerGroupsRequest): Promise<SearchInnerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56480,12 +74535,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送钉钉Banner通知
-   *
-   * @param tmpReq SendBannerRequest
-   * @param tmpHeader SendBannerHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendBannerResponse
+   * 发送钉钉Banner通知
+   * 
+   * @param tmpReq - SendBannerRequest
+   * @param tmpHeader - SendBannerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendBannerResponse
    */
   async sendBannerWithOptions(tmpReq: SendBannerRequest, tmpHeader: SendBannerHeaders, runtime: $Util.RuntimeOptions): Promise<SendBannerResponse> {
     Util.validateModel(tmpReq);
@@ -56550,10 +74605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送钉钉Banner通知
-   *
-   * @param request SendBannerRequest
-   * @return SendBannerResponse
+   * 发送钉钉Banner通知
+   * 
+   * @param request - SendBannerRequest
+   * @returns SendBannerResponse
    */
   async sendBanner(request: SendBannerRequest): Promise<SendBannerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56562,12 +74617,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送钉钉封屏弹窗
-   *
-   * @param tmpReq SendPopupRequest
-   * @param tmpHeader SendPopupHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendPopupResponse
+   * 发送钉钉封屏弹窗
+   * 
+   * @param tmpReq - SendPopupRequest
+   * @param tmpHeader - SendPopupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendPopupResponse
    */
   async sendPopupWithOptions(tmpReq: SendPopupRequest, tmpHeader: SendPopupHeaders, runtime: $Util.RuntimeOptions): Promise<SendPopupResponse> {
     Util.validateModel(tmpReq);
@@ -56632,10 +74687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送钉钉封屏弹窗
-   *
-   * @param request SendPopupRequest
-   * @return SendPopupResponse
+   * 发送钉钉封屏弹窗
+   * 
+   * @param request - SendPopupRequest
+   * @returns SendPopupResponse
    */
   async sendPopup(request: SendPopupRequest): Promise<SendPopupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56644,12 +74699,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送钉钉搜索底纹
-   *
-   * @param tmpReq SendSearchShadeRequest
-   * @param tmpHeader SendSearchShadeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendSearchShadeResponse
+   * 发送钉钉搜索底纹
+   * 
+   * @param tmpReq - SendSearchShadeRequest
+   * @param tmpHeader - SendSearchShadeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendSearchShadeResponse
    */
   async sendSearchShadeWithOptions(tmpReq: SendSearchShadeRequest, tmpHeader: SendSearchShadeHeaders, runtime: $Util.RuntimeOptions): Promise<SendSearchShadeResponse> {
     Util.validateModel(tmpReq);
@@ -56714,10 +74769,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送钉钉搜索底纹
-   *
-   * @param request SendSearchShadeRequest
-   * @return SendSearchShadeResponse
+   * 发送钉钉搜索底纹
+   * 
+   * @param request - SendSearchShadeRequest
+   * @returns SendSearchShadeResponse
    */
   async sendSearchShade(request: SendSearchShadeRequest): Promise<SendSearchShadeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56726,12 +74781,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 指定列隐藏
-   *
-   * @param tmpReq SetColumnsVisibilityRequest
-   * @param tmpHeader SetColumnsVisibilityHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetColumnsVisibilityResponse
+   * 指定列隐藏
+   * 
+   * @param tmpReq - SetColumnsVisibilityRequest
+   * @param tmpHeader - SetColumnsVisibilityHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetColumnsVisibilityResponse
    */
   async setColumnsVisibilityWithOptions(tmpReq: SetColumnsVisibilityRequest, tmpHeader: SetColumnsVisibilityHeaders, runtime: $Util.RuntimeOptions): Promise<SetColumnsVisibilityResponse> {
     Util.validateModel(tmpReq);
@@ -56800,10 +74855,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 指定列隐藏
-   *
-   * @param request SetColumnsVisibilityRequest
-   * @return SetColumnsVisibilityResponse
+   * 指定列隐藏
+   * 
+   * @param request - SetColumnsVisibilityRequest
+   * @returns SetColumnsVisibilityResponse
    */
   async setColumnsVisibility(request: SetColumnsVisibilityRequest): Promise<SetColumnsVisibilityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56812,12 +74867,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 指定行隐藏
-   *
-   * @param tmpReq SetRowsVisibilityRequest
-   * @param tmpHeader SetRowsVisibilityHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetRowsVisibilityResponse
+   * 指定行隐藏
+   * 
+   * @param tmpReq - SetRowsVisibilityRequest
+   * @param tmpHeader - SetRowsVisibilityHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetRowsVisibilityResponse
    */
   async setRowsVisibilityWithOptions(tmpReq: SetRowsVisibilityRequest, tmpHeader: SetRowsVisibilityHeaders, runtime: $Util.RuntimeOptions): Promise<SetRowsVisibilityResponse> {
     Util.validateModel(tmpReq);
@@ -56886,10 +74941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 指定行隐藏
-   *
-   * @param request SetRowsVisibilityRequest
-   * @return SetRowsVisibilityResponse
+   * 指定行隐藏
+   * 
+   * @param request - SetRowsVisibilityRequest
+   * @returns SetRowsVisibilityResponse
    */
   async setRowsVisibility(request: SetRowsVisibilityRequest): Promise<SetRowsVisibilityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56898,12 +74953,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户发送日志的概要信息
-   *
-   * @param tmpReq SimpleListReportRequest
-   * @param tmpHeader SimpleListReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SimpleListReportResponse
+   * 获取用户发送日志的概要信息
+   * 
+   * @param tmpReq - SimpleListReportRequest
+   * @param tmpHeader - SimpleListReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SimpleListReportResponse
    */
   async simpleListReportWithOptions(tmpReq: SimpleListReportRequest, tmpHeader: SimpleListReportHeaders, runtime: $Util.RuntimeOptions): Promise<SimpleListReportResponse> {
     Util.validateModel(tmpReq);
@@ -56972,10 +75027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户发送日志的概要信息
-   *
-   * @param request SimpleListReportRequest
-   * @return SimpleListReportResponse
+   * 获取用户发送日志的概要信息
+   * 
+   * @param request - SimpleListReportRequest
+   * @returns SimpleListReportResponse
    */
   async simpleListReport(request: SimpleListReportRequest): Promise<SimpleListReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56984,12 +75039,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启视频会议云录制
-   *
-   * @param tmpReq StartCloudRecordRequest
-   * @param tmpHeader StartCloudRecordHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartCloudRecordResponse
+   * 开启视频会议云录制
+   * 
+   * @param tmpReq - StartCloudRecordRequest
+   * @param tmpHeader - StartCloudRecordHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCloudRecordResponse
    */
   async startCloudRecordWithOptions(tmpReq: StartCloudRecordRequest, tmpHeader: StartCloudRecordHeaders, runtime: $Util.RuntimeOptions): Promise<StartCloudRecordResponse> {
     Util.validateModel(tmpReq);
@@ -57050,10 +75105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启视频会议云录制
-   *
-   * @param request StartCloudRecordRequest
-   * @return StartCloudRecordResponse
+   * 开启视频会议云录制
+   * 
+   * @param request - StartCloudRecordRequest
+   * @returns StartCloudRecordResponse
    */
   async startCloudRecord(request: StartCloudRecordRequest): Promise<StartCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57062,12 +75117,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发起宜搭审批流程
-   *
-   * @param request StartInstanceRequest
-   * @param tmpHeader StartInstanceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartInstanceResponse
+   * 发起宜搭审批流程
+   * 
+   * @param request - StartInstanceRequest
+   * @param tmpHeader - StartInstanceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartInstanceResponse
    */
   async startInstanceWithOptions(request: StartInstanceRequest, tmpHeader: StartInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     Util.validateModel(request);
@@ -57138,10 +75193,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发起宜搭审批流程
-   *
-   * @param request StartInstanceRequest
-   * @return StartInstanceResponse
+   * 发起宜搭审批流程
+   * 
+   * @param request - StartInstanceRequest
+   * @returns StartInstanceResponse
    */
   async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57150,12 +75205,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启闪记
-   *
-   * @param tmpReq StartMinutesRequest
-   * @param tmpHeader StartMinutesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartMinutesResponse
+   * 开启闪记
+   * 
+   * @param tmpReq - StartMinutesRequest
+   * @param tmpHeader - StartMinutesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartMinutesResponse
    */
   async startMinutesWithOptions(tmpReq: StartMinutesRequest, tmpHeader: StartMinutesHeaders, runtime: $Util.RuntimeOptions): Promise<StartMinutesResponse> {
     Util.validateModel(tmpReq);
@@ -57216,10 +75271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启闪记
-   *
-   * @param request StartMinutesRequest
-   * @return StartMinutesResponse
+   * 开启闪记
+   * 
+   * @param request - StartMinutesRequest
+   * @returns StartMinutesResponse
    */
   async startMinutes(request: StartMinutesRequest): Promise<StartMinutesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57228,12 +75283,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志相关人员列表
-   *
-   * @param tmpReq StatisticsListByTypeReportRequest
-   * @param tmpHeader StatisticsListByTypeReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StatisticsListByTypeReportResponse
+   * 获取日志相关人员列表
+   * 
+   * @param tmpReq - StatisticsListByTypeReportRequest
+   * @param tmpHeader - StatisticsListByTypeReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StatisticsListByTypeReportResponse
    */
   async statisticsListByTypeReportWithOptions(tmpReq: StatisticsListByTypeReportRequest, tmpHeader: StatisticsListByTypeReportHeaders, runtime: $Util.RuntimeOptions): Promise<StatisticsListByTypeReportResponse> {
     Util.validateModel(tmpReq);
@@ -57298,10 +75353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志相关人员列表
-   *
-   * @param request StatisticsListByTypeReportRequest
-   * @return StatisticsListByTypeReportResponse
+   * 获取日志相关人员列表
+   * 
+   * @param request - StatisticsListByTypeReportRequest
+   * @returns StatisticsListByTypeReportResponse
    */
   async statisticsListByTypeReport(request: StatisticsListByTypeReportRequest): Promise<StatisticsListByTypeReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57310,12 +75365,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志统计数据
-   *
-   * @param tmpReq StatisticsReportRequest
-   * @param tmpHeader StatisticsReportHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StatisticsReportResponse
+   * 获取日志统计数据
+   * 
+   * @param tmpReq - StatisticsReportRequest
+   * @param tmpHeader - StatisticsReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StatisticsReportResponse
    */
   async statisticsReportWithOptions(tmpReq: StatisticsReportRequest, tmpHeader: StatisticsReportHeaders, runtime: $Util.RuntimeOptions): Promise<StatisticsReportResponse> {
     Util.validateModel(tmpReq);
@@ -57368,10 +75423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取日志统计数据
-   *
-   * @param request StatisticsReportRequest
-   * @return StatisticsReportResponse
+   * 获取日志统计数据
+   * 
+   * @param request - StatisticsReportRequest
+   * @returns StatisticsReportResponse
    */
   async statisticsReport(request: StatisticsReportRequest): Promise<StatisticsReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57380,12 +75435,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止视频会议云录制
-   *
-   * @param tmpReq StopCloudRecordRequest
-   * @param tmpHeader StopCloudRecordHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopCloudRecordResponse
+   * 停止视频会议云录制
+   * 
+   * @param tmpReq - StopCloudRecordRequest
+   * @param tmpHeader - StopCloudRecordHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCloudRecordResponse
    */
   async stopCloudRecordWithOptions(tmpReq: StopCloudRecordRequest, tmpHeader: StopCloudRecordHeaders, runtime: $Util.RuntimeOptions): Promise<StopCloudRecordResponse> {
     Util.validateModel(tmpReq);
@@ -57438,10 +75493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止视频会议云录制
-   *
-   * @param request StopCloudRecordRequest
-   * @return StopCloudRecordResponse
+   * 停止视频会议云录制
+   * 
+   * @param request - StopCloudRecordRequest
+   * @returns StopCloudRecordResponse
    */
   async stopCloudRecord(request: StopCloudRecordRequest): Promise<StopCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57450,12 +75505,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停闪记
-   *
-   * @param tmpReq StopMinutesRequest
-   * @param tmpHeader StopMinutesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopMinutesResponse
+   * 暂停闪记
+   * 
+   * @param tmpReq - StopMinutesRequest
+   * @param tmpHeader - StopMinutesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopMinutesResponse
    */
   async stopMinutesWithOptions(tmpReq: StopMinutesRequest, tmpHeader: StopMinutesHeaders, runtime: $Util.RuntimeOptions): Promise<StopMinutesResponse> {
     Util.validateModel(tmpReq);
@@ -57508,10 +75563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停闪记
-   *
-   * @param request StopMinutesRequest
-   * @return StopMinutesResponse
+   * 暂停闪记
+   * 
+   * @param request - StopMinutesRequest
+   * @returns StopMinutesResponse
    */
   async stopMinutes(request: StopMinutesRequest): Promise<StopMinutesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57520,12 +75575,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 订阅公共日历
-   *
-   * @param request SubscribeCalendarRequest
-   * @param tmpHeader SubscribeCalendarHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubscribeCalendarResponse
+   * 订阅公共日历
+   * 
+   * @param request - SubscribeCalendarRequest
+   * @param tmpHeader - SubscribeCalendarHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubscribeCalendarResponse
    */
   async subscribeCalendarWithOptions(request: SubscribeCalendarRequest, tmpHeader: SubscribeCalendarHeaders, runtime: $Util.RuntimeOptions): Promise<SubscribeCalendarResponse> {
     Util.validateModel(request);
@@ -57568,10 +75623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 订阅公共日历
-   *
-   * @param request SubscribeCalendarRequest
-   * @return SubscribeCalendarResponse
+   * 订阅公共日历
+   * 
+   * @param request - SubscribeCalendarRequest
+   * @returns SubscribeCalendarResponse
    */
   async subscribeCalendar(request: SubscribeCalendarRequest): Promise<SubscribeCalendarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57580,12 +75635,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同步钉钉账号类型
-   *
-   * @param tmpReq SyncDingTypeRequest
-   * @param tmpHeader SyncDingTypeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SyncDingTypeResponse
+   * 同步钉钉账号类型
+   * 
+   * @param tmpReq - SyncDingTypeRequest
+   * @param tmpHeader - SyncDingTypeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncDingTypeResponse
    */
   async syncDingTypeWithOptions(tmpReq: SyncDingTypeRequest, tmpHeader: SyncDingTypeHeaders, runtime: $Util.RuntimeOptions): Promise<SyncDingTypeResponse> {
     Util.validateModel(tmpReq);
@@ -57650,10 +75705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同步钉钉账号类型
-   *
-   * @param request SyncDingTypeRequest
-   * @return SyncDingTypeResponse
+   * 同步钉钉账号类型
+   * 
+   * @param request - SyncDingTypeRequest
+   * @returns SyncDingTypeResponse
    */
   async syncDingType(request: SyncDingTypeRequest): Promise<SyncDingTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57662,12 +75717,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 终止流程实例
-   *
-   * @param request TerminateInstanceRequest
-   * @param tmpHeader TerminateInstanceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TerminateInstanceResponse
+   * 终止流程实例
+   * 
+   * @param request - TerminateInstanceRequest
+   * @param tmpHeader - TerminateInstanceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateInstanceResponse
    */
   async terminateInstanceWithOptions(request: TerminateInstanceRequest, tmpHeader: TerminateInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<TerminateInstanceResponse> {
     Util.validateModel(request);
@@ -57722,10 +75777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 终止流程实例
-   *
-   * @param request TerminateInstanceRequest
-   * @return TerminateInstanceResponse
+   * 终止流程实例
+   * 
+   * @param request - TerminateInstanceRequest
+   * @returns TerminateInstanceResponse
    */
   async terminateInstance(request: TerminateInstanceRequest): Promise<TerminateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57734,12 +75789,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消订阅公共日历
-   *
-   * @param request UnsubscribeCalendarRequest
-   * @param tmpHeader UnsubscribeCalendarHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnsubscribeCalendarResponse
+   * 取消订阅公共日历
+   * 
+   * @param request - UnsubscribeCalendarRequest
+   * @param tmpHeader - UnsubscribeCalendarHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnsubscribeCalendarResponse
    */
   async unsubscribeCalendarWithOptions(request: UnsubscribeCalendarRequest, tmpHeader: UnsubscribeCalendarHeaders, runtime: $Util.RuntimeOptions): Promise<UnsubscribeCalendarResponse> {
     Util.validateModel(request);
@@ -57782,10 +75837,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消订阅公共日历
-   *
-   * @param request UnsubscribeCalendarRequest
-   * @return UnsubscribeCalendarResponse
+   * 取消订阅公共日历
+   * 
+   * @param request - UnsubscribeCalendarRequest
+   * @returns UnsubscribeCalendarResponse
    */
   async unsubscribeCalendar(request: UnsubscribeCalendarRequest): Promise<UnsubscribeCalendarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57794,12 +75849,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新表单数据
-   *
-   * @param request UpdateFormDataRequest
-   * @param tmpHeader UpdateFormDataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFormDataResponse
+   * 更新表单数据
+   * 
+   * @param request - UpdateFormDataRequest
+   * @param tmpHeader - UpdateFormDataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFormDataResponse
    */
   async updateFormDataWithOptions(request: UpdateFormDataRequest, tmpHeader: UpdateFormDataHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateFormDataResponse> {
     Util.validateModel(request);
@@ -57862,10 +75917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新表单数据
-   *
-   * @param request UpdateFormDataRequest
-   * @return UpdateFormDataResponse
+   * 更新表单数据
+   * 
+   * @param request - UpdateFormDataRequest
+   * @returns UpdateFormDataResponse
    */
   async updateFormData(request: UpdateFormDataRequest): Promise<UpdateFormDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57874,12 +75929,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流程实例
-   *
-   * @param request UpdateInstanceRequest
-   * @param tmpHeader UpdateInstanceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceResponse
+   * 更新流程实例
+   * 
+   * @param request - UpdateInstanceRequest
+   * @param tmpHeader - UpdateInstanceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceResponse
    */
   async updateInstanceWithOptions(request: UpdateInstanceRequest, tmpHeader: UpdateInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -57938,10 +75993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流程实例
-   *
-   * @param request UpdateInstanceRequest
-   * @return UpdateInstanceResponse
+   * 更新流程实例
+   * 
+   * @param request - UpdateInstanceRequest
+   * @returns UpdateInstanceResponse
    */
   async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57950,12 +76005,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改直播属性信息
-   *
-   * @param tmpReq UpdateLiveRequest
-   * @param tmpHeader UpdateLiveHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLiveResponse
+   * 修改直播属性信息
+   * 
+   * @param tmpReq - UpdateLiveRequest
+   * @param tmpHeader - UpdateLiveHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLiveResponse
    */
   async updateLiveWithOptions(tmpReq: UpdateLiveRequest, tmpHeader: UpdateLiveHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateLiveResponse> {
     Util.validateModel(tmpReq);
@@ -58028,10 +76083,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改直播属性信息
-   *
-   * @param request UpdateLiveRequest
-   * @return UpdateLiveResponse
+   * 修改直播属性信息
+   * 
+   * @param request - UpdateLiveRequest
+   * @returns UpdateLiveResponse
    */
   async updateLive(request: UpdateLiveRequest): Promise<UpdateLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58040,12 +76095,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新会议室信息
-   *
-   * @param tmpReq UpdateMeetingRoomRequest
-   * @param tmpHeader UpdateMeetingRoomHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMeetingRoomResponse
+   * 更新会议室信息
+   * 
+   * @param tmpReq - UpdateMeetingRoomRequest
+   * @param tmpHeader - UpdateMeetingRoomHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMeetingRoomResponse
    */
   async updateMeetingRoomWithOptions(tmpReq: UpdateMeetingRoomRequest, tmpHeader: UpdateMeetingRoomHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateMeetingRoomResponse> {
     Util.validateModel(tmpReq);
@@ -58150,10 +76205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新会议室信息
-   *
-   * @param request UpdateMeetingRoomRequest
-   * @return UpdateMeetingRoomResponse
+   * 更新会议室信息
+   * 
+   * @param request - UpdateMeetingRoomRequest
+   * @returns UpdateMeetingRoomResponse
    */
   async updateMeetingRoom(request: UpdateMeetingRoomRequest): Promise<UpdateMeetingRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58162,12 +76217,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新会议室分组信息
-   *
-   * @param tmpReq UpdateMeetingRoomGroupRequest
-   * @param tmpHeader UpdateMeetingRoomGroupHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMeetingRoomGroupResponse
+   * 更新会议室分组信息
+   * 
+   * @param tmpReq - UpdateMeetingRoomGroupRequest
+   * @param tmpHeader - UpdateMeetingRoomGroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMeetingRoomGroupResponse
    */
   async updateMeetingRoomGroupWithOptions(tmpReq: UpdateMeetingRoomGroupRequest, tmpHeader: UpdateMeetingRoomGroupHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateMeetingRoomGroupResponse> {
     Util.validateModel(tmpReq);
@@ -58224,10 +76279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新会议室分组信息
-   *
-   * @param request UpdateMeetingRoomGroupRequest
-   * @return UpdateMeetingRoomGroupResponse
+   * 更新会议室分组信息
+   * 
+   * @param request - UpdateMeetingRoomGroupRequest
+   * @returns UpdateMeetingRoomGroupResponse
    */
   async updateMeetingRoomGroup(request: UpdateMeetingRoomGroupRequest): Promise<UpdateMeetingRoomGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58236,12 +76291,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新单元格区域
-   *
-   * @param tmpReq UpdateRangeRequest
-   * @param tmpHeader UpdateRangeHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRangeResponse
+   * 更新单元格区域
+   * 
+   * @param tmpReq - UpdateRangeRequest
+   * @param tmpHeader - UpdateRangeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRangeResponse
    */
   async updateRangeWithOptions(tmpReq: UpdateRangeRequest, tmpHeader: UpdateRangeHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateRangeResponse> {
     Util.validateModel(tmpReq);
@@ -58330,10 +76385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新单元格区域
-   *
-   * @param request UpdateRangeRequest
-   * @return UpdateRangeResponse
+   * 更新单元格区域
+   * 
+   * @param request - UpdateRangeRequest
+   * @returns UpdateRangeResponse
    */
   async updateRange(request: UpdateRangeRequest): Promise<UpdateRangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58342,12 +76397,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新预约会议设置
-   *
-   * @param tmpReq UpdateScheduleConfSettingsRequest
-   * @param tmpHeader UpdateScheduleConfSettingsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateScheduleConfSettingsResponse
+   * 更新预约会议设置
+   * 
+   * @param tmpReq - UpdateScheduleConfSettingsRequest
+   * @param tmpHeader - UpdateScheduleConfSettingsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScheduleConfSettingsResponse
    */
   async updateScheduleConfSettingsWithOptions(tmpReq: UpdateScheduleConfSettingsRequest, tmpHeader: UpdateScheduleConfSettingsHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleConfSettingsResponse> {
     Util.validateModel(tmpReq);
@@ -58408,10 +76463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新预约会议设置
-   *
-   * @param request UpdateScheduleConfSettingsRequest
-   * @return UpdateScheduleConfSettingsResponse
+   * 更新预约会议设置
+   * 
+   * @param request - UpdateScheduleConfSettingsRequest
+   * @returns UpdateScheduleConfSettingsResponse
    */
   async updateScheduleConfSettings(request: UpdateScheduleConfSettingsRequest): Promise<UpdateScheduleConfSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58420,12 +76475,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新预约会议
-   *
-   * @param tmpReq UpdateScheduleConferenceRequest
-   * @param tmpHeader UpdateScheduleConferenceHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateScheduleConferenceResponse
+   * 更新预约会议
+   * 
+   * @param tmpReq - UpdateScheduleConferenceRequest
+   * @param tmpHeader - UpdateScheduleConferenceHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScheduleConferenceResponse
    */
   async updateScheduleConferenceWithOptions(tmpReq: UpdateScheduleConferenceRequest, tmpHeader: UpdateScheduleConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleConferenceResponse> {
     Util.validateModel(tmpReq);
@@ -58490,10 +76545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新预约会议
-   *
-   * @param request UpdateScheduleConferenceRequest
-   * @return UpdateScheduleConferenceResponse
+   * 更新预约会议
+   * 
+   * @param request - UpdateScheduleConferenceRequest
+   * @returns UpdateScheduleConferenceResponse
    */
   async updateScheduleConference(request: UpdateScheduleConferenceRequest): Promise<UpdateScheduleConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58502,12 +76557,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新状态
-   *
-   * @param tmpReq UpdateStatusRequest
-   * @param tmpHeader UpdateStatusHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateStatusResponse
+   * 更新状态
+   * 
+   * @param tmpReq - UpdateStatusRequest
+   * @param tmpHeader - UpdateStatusHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStatusResponse
    */
   async updateStatusWithOptions(tmpReq: UpdateStatusRequest, tmpHeader: UpdateStatusHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateStatusResponse> {
     Util.validateModel(tmpReq);
@@ -58576,10 +76631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新状态
-   *
-   * @param request UpdateStatusRequest
-   * @return UpdateStatusResponse
+   * 更新状态
+   * 
+   * @param request - UpdateStatusRequest
+   * @returns UpdateStatusResponse
    */
   async updateStatus(request: UpdateStatusRequest): Promise<UpdateStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58588,12 +76643,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新订阅日历
-   *
-   * @param tmpReq UpdateSubscribedCalendarsRequest
-   * @param tmpHeader UpdateSubscribedCalendarsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSubscribedCalendarsResponse
+   * 更新订阅日历
+   * 
+   * @param tmpReq - UpdateSubscribedCalendarsRequest
+   * @param tmpHeader - UpdateSubscribedCalendarsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubscribedCalendarsResponse
    */
   async updateSubscribedCalendarsWithOptions(tmpReq: UpdateSubscribedCalendarsRequest, tmpHeader: UpdateSubscribedCalendarsHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateSubscribedCalendarsResponse> {
     Util.validateModel(tmpReq);
@@ -58662,10 +76717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新订阅日历
-   *
-   * @param request UpdateSubscribedCalendarsRequest
-   * @return UpdateSubscribedCalendarsResponse
+   * 更新订阅日历
+   * 
+   * @param request - UpdateSubscribedCalendarsRequest
+   * @returns UpdateSubscribedCalendarsResponse
    */
   async updateSubscribedCalendars(request: UpdateSubscribedCalendarsRequest): Promise<UpdateSubscribedCalendarsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58674,12 +76729,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新代办
-   *
-   * @param tmpReq UpdateTodoTaskRequest
-   * @param tmpHeader UpdateTodoTaskHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTodoTaskResponse
+   * 更新代办
+   * 
+   * @param tmpReq - UpdateTodoTaskRequest
+   * @param tmpHeader - UpdateTodoTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTodoTaskResponse
    */
   async updateTodoTaskWithOptions(tmpReq: UpdateTodoTaskRequest, tmpHeader: UpdateTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateTodoTaskResponse> {
     Util.validateModel(tmpReq);
@@ -58764,10 +76819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新代办
-   *
-   * @param request UpdateTodoTaskRequest
-   * @return UpdateTodoTaskResponse
+   * 更新代办
+   * 
+   * @param request - UpdateTodoTaskRequest
+   * @returns UpdateTodoTaskResponse
    */
   async updateTodoTask(request: UpdateTodoTaskRequest): Promise<UpdateTodoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58776,12 +76831,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新代办执行者状态
-   *
-   * @param tmpReq UpdateTodoTaskExecutorStatusRequest
-   * @param tmpHeader UpdateTodoTaskExecutorStatusHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTodoTaskExecutorStatusResponse
+   * 更新代办执行者状态
+   * 
+   * @param tmpReq - UpdateTodoTaskExecutorStatusRequest
+   * @param tmpHeader - UpdateTodoTaskExecutorStatusHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTodoTaskExecutorStatusResponse
    */
   async updateTodoTaskExecutorStatusWithOptions(tmpReq: UpdateTodoTaskExecutorStatusRequest, tmpHeader: UpdateTodoTaskExecutorStatusHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateTodoTaskExecutorStatusResponse> {
     Util.validateModel(tmpReq);
@@ -58846,10 +76901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新代办执行者状态
-   *
-   * @param request UpdateTodoTaskExecutorStatusRequest
-   * @return UpdateTodoTaskExecutorStatusResponse
+   * 更新代办执行者状态
+   * 
+   * @param request - UpdateTodoTaskExecutorStatusRequest
+   * @returns UpdateTodoTaskExecutorStatusResponse
    */
   async updateTodoTaskExecutorStatus(request: UpdateTodoTaskExecutorStatusRequest): Promise<UpdateTodoTaskExecutorStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58858,12 +76913,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新企业账号用户头像
-   *
-   * @param request UpdateUserAvatarRequest
-   * @param tmpHeader UpdateUserAvatarHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserAvatarResponse
+   * 更新企业账号用户头像
+   * 
+   * @param request - UpdateUserAvatarRequest
+   * @param tmpHeader - UpdateUserAvatarHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserAvatarResponse
    */
   async updateUserAvatarWithOptions(request: UpdateUserAvatarRequest, tmpHeader: UpdateUserAvatarHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateUserAvatarResponse> {
     Util.validateModel(request);
@@ -58906,10 +76961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新企业账号用户头像
-   *
-   * @param request UpdateUserAvatarRequest
-   * @return UpdateUserAvatarResponse
+   * 更新企业账号用户头像
+   * 
+   * @param request - UpdateUserAvatarRequest
+   * @returns UpdateUserAvatarResponse
    */
   async updateUserAvatar(request: UpdateUserAvatarRequest): Promise<UpdateUserAvatarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58918,12 +76973,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置正在进行中的视频会议属性
-   *
-   * @param tmpReq UpdateVideoConferenceSettingRequest
-   * @param tmpHeader UpdateVideoConferenceSettingHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateVideoConferenceSettingResponse
+   * 设置正在进行中的视频会议属性
+   * 
+   * @param tmpReq - UpdateVideoConferenceSettingRequest
+   * @param tmpHeader - UpdateVideoConferenceSettingHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoConferenceSettingResponse
    */
   async updateVideoConferenceSettingWithOptions(tmpReq: UpdateVideoConferenceSettingRequest, tmpHeader: UpdateVideoConferenceSettingHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateVideoConferenceSettingResponse> {
     Util.validateModel(tmpReq);
@@ -59000,10 +77055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置正在进行中的视频会议属性
-   *
-   * @param request UpdateVideoConferenceSettingRequest
-   * @return UpdateVideoConferenceSettingResponse
+   * 设置正在进行中的视频会议属性
+   * 
+   * @param request - UpdateVideoConferenceSettingRequest
+   * @returns UpdateVideoConferenceSettingResponse
    */
   async updateVideoConferenceSetting(request: UpdateVideoConferenceSettingRequest): Promise<UpdateVideoConferenceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59012,12 +77067,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改知识库文档成员权限
-   *
-   * @param tmpReq UpdateWorkspaceDocMembersRequest
-   * @param tmpHeader UpdateWorkspaceDocMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWorkspaceDocMembersResponse
+   * 修改知识库文档成员权限
+   * 
+   * @param tmpReq - UpdateWorkspaceDocMembersRequest
+   * @param tmpHeader - UpdateWorkspaceDocMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceDocMembersResponse
    */
   async updateWorkspaceDocMembersWithOptions(tmpReq: UpdateWorkspaceDocMembersRequest, tmpHeader: UpdateWorkspaceDocMembersHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceDocMembersResponse> {
     Util.validateModel(tmpReq);
@@ -59082,10 +77137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改知识库文档成员权限
-   *
-   * @param request UpdateWorkspaceDocMembersRequest
-   * @return UpdateWorkspaceDocMembersResponse
+   * 修改知识库文档成员权限
+   * 
+   * @param request - UpdateWorkspaceDocMembersRequest
+   * @returns UpdateWorkspaceDocMembersResponse
    */
   async updateWorkspaceDocMembers(request: UpdateWorkspaceDocMembersRequest): Promise<UpdateWorkspaceDocMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59094,12 +77149,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新知识库成员权限
-   *
-   * @param tmpReq UpdateWorkspaceMembersRequest
-   * @param tmpHeader UpdateWorkspaceMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWorkspaceMembersResponse
+   * 更新知识库成员权限
+   * 
+   * @param tmpReq - UpdateWorkspaceMembersRequest
+   * @param tmpHeader - UpdateWorkspaceMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceMembersResponse
    */
   async updateWorkspaceMembersWithOptions(tmpReq: UpdateWorkspaceMembersRequest, tmpHeader: UpdateWorkspaceMembersHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceMembersResponse> {
     Util.validateModel(tmpReq);
@@ -59160,10 +77215,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新知识库成员权限
-   *
-   * @param request UpdateWorkspaceMembersRequest
-   * @return UpdateWorkspaceMembersResponse
+   * 更新知识库成员权限
+   * 
+   * @param request - UpdateWorkspaceMembersRequest
+   * @returns UpdateWorkspaceMembersResponse
    */
   async updateWorkspaceMembers(request: UpdateWorkspaceMembersRequest): Promise<UpdateWorkspaceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59172,12 +77227,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传媒体<br/>
-   *
-   * @param tmpReq UploadMediaRequest
-   * @param tmpHeader UploadMediaHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadMediaResponse
+   * 上传媒体<br/>
+   * 
+   * @param tmpReq - UploadMediaRequest
+   * @param tmpHeader - UploadMediaHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadMediaResponse
    */
   async uploadMediaWithOptions(tmpReq: UploadMediaRequest, tmpHeader: UploadMediaHeaders, runtime: $Util.RuntimeOptions): Promise<UploadMediaResponse> {
     Util.validateModel(tmpReq);
@@ -59242,10 +77297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传媒体<br/>
-   *
-   * @param request UploadMediaRequest
-   * @return UploadMediaResponse
+   * 上传媒体<br/>
+   * 
+   * @param request - UploadMediaRequest
+   * @returns UploadMediaResponse
    */
   async uploadMedia(request: UploadMediaRequest): Promise<UploadMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59254,12 +77309,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 穿戴勋章
-   *
-   * @param tmpReq WearOrgHonorRequest
-   * @param tmpHeader WearOrgHonorHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return WearOrgHonorResponse
+   * 穿戴勋章
+   * 
+   * @param tmpReq - WearOrgHonorRequest
+   * @param tmpHeader - WearOrgHonorHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WearOrgHonorResponse
    */
   async wearOrgHonorWithOptions(tmpReq: WearOrgHonorRequest, tmpHeader: WearOrgHonorHeaders, runtime: $Util.RuntimeOptions): Promise<WearOrgHonorResponse> {
     Util.validateModel(tmpReq);
@@ -59324,10 +77379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 穿戴勋章
-   *
-   * @param request WearOrgHonorRequest
-   * @return WearOrgHonorResponse
+   * 穿戴勋章
+   * 
+   * @param request - WearOrgHonorRequest
+   * @returns WearOrgHonorResponse
    */
   async wearOrgHonor(request: WearOrgHonorRequest): Promise<WearOrgHonorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
