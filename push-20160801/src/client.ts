@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,29 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BindAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_alias
+   */
   aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,6 +54,10 @@ export class BindAliasRequest extends $tea.Model {
 }
 
 export class BindAliasResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,8 +102,29 @@ export class BindAliasResponse extends $tea.Model {
 }
 
 export class BindPhoneRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 27725900
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eb5f741d83d04d34807d229999eefa52
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1381111****
+   */
   phoneNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,6 +148,10 @@ export class BindPhoneRequest extends $tea.Model {
 }
 
 export class BindPhoneResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,9 +196,37 @@ export class BindPhoneResponse extends $tea.Model {
 }
 
 export class BindTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
   clientKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
   keyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_tag,test_tag2
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,6 +252,10 @@ export class BindTagRequest extends $tea.Model {
 }
 
 export class BindTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 82FD0A09-5BB8-40FB-8221-9A11FE92D620
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -219,7 +300,21 @@ export class BindTagResponse extends $tea.Model {
 }
 
 export class CancelPushRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 501029
+   */
   messageId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -241,6 +336,10 @@ export class CancelPushRequest extends $tea.Model {
 }
 
 export class CancelPushResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -285,6 +384,13 @@ export class CancelPushResponse extends $tea.Model {
 }
 
 export class CheckCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
   static names(): { [key: string]: string } {
     return {
@@ -304,10 +410,22 @@ export class CheckCertificateRequest extends $tea.Model {
 }
 
 export class CheckCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   android?: boolean;
   developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
+  /**
+   * @example
+   * true
+   */
   IOS?: boolean;
   productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -360,7 +478,21 @@ export class CheckCertificateResponse extends $tea.Model {
 }
 
 export class CheckDeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23419851
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ae296f3b04a58a05b30c95f****
+   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -382,7 +514,15 @@ export class CheckDeviceRequest extends $tea.Model {
 }
 
 export class CheckDeviceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ture
+   */
   available?: boolean;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -429,7 +569,21 @@ export class CheckDeviceResponse extends $tea.Model {
 }
 
 export class CheckDevicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23419851
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****
+   */
   deviceIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -452,6 +606,10 @@ export class CheckDevicesRequest extends $tea.Model {
 
 export class CheckDevicesResponseBody extends $tea.Model {
   deviceCheckInfos?: CheckDevicesResponseBodyDeviceCheckInfos;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -498,7 +656,21 @@ export class CheckDevicesResponse extends $tea.Model {
 }
 
 export class CompleteContinuouslyPushRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4010290149170430
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -520,7 +692,15 @@ export class CompleteContinuouslyPushRequest extends $tea.Model {
 }
 
 export class CompleteContinuouslyPushResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4010290149170430
+   */
   messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -567,9 +747,37 @@ export class CompleteContinuouslyPushResponse extends $tea.Model {
 }
 
 export class ContinuouslyPushRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 500131
+   */
   messageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a692961a92534047ad3625****
+   */
   targetValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -595,7 +803,15 @@ export class ContinuouslyPushRequest extends $tea.Model {
 }
 
 export class ContinuouslyPushResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   messageId?: string;
+  /**
+   * @example
+   * 500131
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -642,6 +858,10 @@ export class ContinuouslyPushResponse extends $tea.Model {
 }
 
 export class ListSummaryAppsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   summaryAppInfos?: ListSummaryAppsResponseBodySummaryAppInfos;
   static names(): { [key: string]: string } {
@@ -689,6 +909,13 @@ export class ListSummaryAppsResponse extends $tea.Model {
 }
 
 export class ListTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
   static names(): { [key: string]: string } {
     return {
@@ -708,6 +935,10 @@ export class ListTagsRequest extends $tea.Model {
 }
 
 export class ListTagsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
+   */
   requestId?: string;
   tagInfos?: ListTagsResponseBodyTagInfos;
   static names(): { [key: string]: string } {
@@ -755,7 +986,18 @@ export class ListTagsResponse extends $tea.Model {
 }
 
 export class MassPushRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   pushTask?: MassPushRequestPushTask[];
   static names(): { [key: string]: string } {
     return {
@@ -778,6 +1020,10 @@ export class MassPushRequest extends $tea.Model {
 
 export class MassPushResponseBody extends $tea.Model {
   messageIds?: MassPushResponseBodyMessageIds;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -824,48 +1070,201 @@ export class MassPushResponse extends $tea.Model {
 }
 
 export class PushRequest extends $tea.Model {
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   androidActivity?: string;
+  androidBadgeAddNum?: number;
+  androidBadgeClass?: string;
+  androidBadgeSetNum?: number;
   androidBigBody?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   androidBigPictureUrl?: string;
   androidBigTitle?: string;
+  /**
+   * @example
+   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+   */
   androidExtParameters?: string;
   androidHonorTargetUserType?: number;
+  /**
+   * @example
+   * RCP4C123456
+   */
   androidHuaweiReceiptId?: string;
+  /**
+   * @example
+   * 0
+   */
   androidHuaweiTargetUserType?: number;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   androidImageUrl?: string;
   androidInboxBody?: string;
+  /**
+   * @example
+   * VOIP
+   */
   androidMessageHuaweiCategory?: string;
+  /**
+   * @example
+   * HIGH
+   */
   androidMessageHuaweiUrgency?: string;
+  /**
+   * @example
+   * TODO
+   */
   androidMessageVivoCategory?: string;
   androidMusic?: string;
+  /**
+   * @example
+   * 0
+   */
   androidNotificationBarPriority?: number;
+  /**
+   * @example
+   * 2
+   */
   androidNotificationBarType?: number;
+  /**
+   * @example
+   * 1
+   */
   androidNotificationChannel?: string;
+  /**
+   * @example
+   * group-1
+   */
   androidNotificationGroup?: string;
+  /**
+   * @example
+   * LOW
+   */
   androidNotificationHonorChannel?: string;
+  /**
+   * @example
+   * LOW
+   */
   androidNotificationHuaweiChannel?: string;
+  /**
+   * @example
+   * 100001
+   */
   androidNotificationNotifyId?: number;
+  /**
+   * @example
+   * classification
+   */
   androidNotificationVivoChannel?: string;
+  /**
+   * @example
+   * michannel
+   */
   androidNotificationXiaomiChannel?: string;
+  /**
+   * @example
+   * BOTH
+   */
   androidNotifyType?: string;
+  /**
+   * @example
+   * APPLICATION
+   */
   androidOpenType?: string;
+  /**
+   * @example
+   * https://xxxx.xxx
+   */
   androidOpenUrl?: string;
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   androidPopupActivity?: string;
+  /**
+   * @example
+   * hello
+   */
   androidPopupBody?: string;
+  /**
+   * @example
+   * hello
+   */
   androidPopupTitle?: string;
+  /**
+   * @example
+   * true
+   */
   androidRemind?: boolean;
+  /**
+   * @example
+   * 1
+   */
   androidRenderStyle?: number;
   androidTargetUserType?: number;
+  /**
+   * @example
+   * 0
+   */
   androidVivoPushMode?: number;
   androidVivoReceiptId?: string;
+  /**
+   * @deprecated
+   */
   androidXiaoMiActivity?: string;
+  /**
+   * @deprecated
+   */
   androidXiaoMiNotifyBody?: string;
+  /**
+   * @deprecated
+   */
   androidXiaoMiNotifyTitle?: string;
+  /**
+   * @example
+   * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
+   */
   androidXiaomiBigPictureUrl?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   androidXiaomiImageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hello
+   */
   body?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 2019-02-20T00:00:00Z
+   */
   expireTime?: string;
   harmonyAction?: string;
   harmonyActionType?: string;
@@ -882,39 +1281,161 @@ export class PushRequest extends $tea.Model {
   harmonyRenderStyle?: string;
   harmonyTestMessage?: boolean;
   harmonyUri?: string;
+  /**
+   * @example
+   * 123
+   */
   jobKey?: string;
+  /**
+   * @example
+   * 2019-02-20T00:00:00Z
+   */
   pushTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MESSAGE
+   */
   pushType?: string;
+  /**
+   * @example
+   * accs,huawei,xiaomi
+   */
   sendChannels?: string;
+  /**
+   * @example
+   * 0
+   * 
+   * @deprecated
+   */
   sendSpeed?: number;
+  /**
+   * @example
+   * 15
+   */
   smsDelaySecs?: number;
+  /**
+   * @example
+   * key1=value1
+   */
   smsParams?: string;
+  /**
+   * @example
+   * 0
+   */
   smsSendPolicy?: number;
   smsSignName?: string;
   smsTemplateName?: string;
+  /**
+   * @example
+   * false
+   */
   storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   targetValue?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
+  /**
+   * @example
+   * false
+   */
   trim?: boolean;
+  /**
+   * @example
+   * DEV
+   */
   iOSApnsEnv?: string;
+  /**
+   * @example
+   * 0
+   */
   iOSBadge?: number;
+  /**
+   * @example
+   * true
+   */
   iOSBadgeAutoIncrement?: boolean;
+  /**
+   * @example
+   * {“attachment”: “https://xxxx.xxx/notification_pic.png"}
+   */
   iOSExtParameters?: string;
+  /**
+   * @example
+   * active
+   */
   iOSInterruptionLevel?: string;
+  /**
+   * @example
+   * ""
+   */
   iOSMusic?: string;
+  /**
+   * @example
+   * true
+   */
   iOSMutableContent?: boolean;
+  /**
+   * @example
+   * ios
+   */
   iOSNotificationCategory?: string;
+  /**
+   * @example
+   * ZD2011
+   */
   iOSNotificationCollapseId?: string;
+  /**
+   * @example
+   * abc
+   */
   iOSNotificationThreadId?: string;
+  /**
+   * @example
+   * 0.01
+   */
   iOSRelevanceScore?: number;
+  /**
+   * @example
+   * true
+   */
   iOSRemind?: boolean;
   iOSRemindBody?: string;
+  /**
+   * @example
+   * true
+   */
   iOSSilentNotification?: boolean;
+  /**
+   * @example
+   * su\\"b
+   */
   iOSSubtitle?: string;
   static names(): { [key: string]: string } {
     return {
       androidActivity: 'AndroidActivity',
+      androidBadgeAddNum: 'AndroidBadgeAddNum',
+      androidBadgeClass: 'AndroidBadgeClass',
+      androidBadgeSetNum: 'AndroidBadgeSetNum',
       androidBigBody: 'AndroidBigBody',
       androidBigPictureUrl: 'AndroidBigPictureUrl',
       androidBigTitle: 'AndroidBigTitle',
@@ -1008,6 +1529,9 @@ export class PushRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidActivity: 'string',
+      androidBadgeAddNum: 'number',
+      androidBadgeClass: 'string',
+      androidBadgeSetNum: 'number',
       androidBigBody: 'string',
       androidBigPictureUrl: 'string',
       androidBigTitle: 'string',
@@ -1104,7 +1628,15 @@ export class PushRequest extends $tea.Model {
 }
 
 export class PushResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 501029
+   */
   messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1151,12 +1683,51 @@ export class PushResponse extends $tea.Model {
 }
 
 export class PushMessageToAndroidRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my body
+   */
   body?: string;
+  /**
+   * @example
+   * 123
+   */
   jobKey?: string;
   storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
   targetValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1188,7 +1759,15 @@ export class PushMessageToAndroidRequest extends $tea.Model {
 }
 
 export class PushMessageToAndroidResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 501029
+   */
   messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1235,12 +1814,51 @@ export class PushMessageToAndroidResponse extends $tea.Model {
 }
 
 export class PushMessageToiOSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my body
+   */
   body?: string;
+  /**
+   * @example
+   * 123
+   */
   jobKey?: string;
   storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
   targetValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1272,7 +1890,15 @@ export class PushMessageToiOSRequest extends $tea.Model {
 }
 
 export class PushMessageToiOSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 501029
+   */
   messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1319,13 +1945,56 @@ export class PushMessageToiOSResponse extends $tea.Model {
 }
 
 export class PushNoticeToAndroidRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * body
+   */
   body?: string;
+  /**
+   * @example
+   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+   */
   extParameters?: string;
+  /**
+   * @example
+   * 123
+   */
   jobKey?: string;
   storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   targetValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1359,7 +2028,15 @@ export class PushNoticeToAndroidRequest extends $tea.Model {
 }
 
 export class PushNoticeToAndroidResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 501029
+   */
   messageId?: string;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1406,13 +2083,60 @@ export class PushNoticeToAndroidResponse extends $tea.Model {
 }
 
 export class PushNoticeToiOSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEV
+   */
   apnsEnv?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Hello World
+   */
   body?: string;
+  /**
+   * @example
+   * {"k1":"ios","k2":"v2"}
+   */
   extParameters?: string;
+  /**
+   * @example
+   * 123
+   */
   jobKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   targetValue?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1446,7 +2170,15 @@ export class PushNoticeToiOSRequest extends $tea.Model {
 }
 
 export class PushNoticeToiOSResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   messageId?: string;
+  /**
+   * @example
+   * 501029
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1493,7 +2225,21 @@ export class PushNoticeToiOSResponse extends $tea.Model {
 }
 
 export class QueryAliasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b165576****
+   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1516,6 +2262,10 @@ export class QueryAliasesRequest extends $tea.Model {
 
 export class QueryAliasesResponseBody extends $tea.Model {
   aliasInfos?: QueryAliasesResponseBodyAliasInfos;
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1562,7 +2312,21 @@ export class QueryAliasesResponse extends $tea.Model {
 }
 
 export class QueryDeviceInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23419851
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a64ae296f3b04a58a05b30c9****
+   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1585,6 +2349,10 @@ export class QueryDeviceInfoRequest extends $tea.Model {
 
 export class QueryDeviceInfoResponseBody extends $tea.Model {
   deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
+  /**
+   * @example
+   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1631,10 +2399,42 @@ export class QueryDeviceInfoResponse extends $tea.Model {
 }
 
 export class QueryDeviceStatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @example
+   * iOS
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-29T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TOTAL
+   */
   queryType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-28T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1663,6 +2463,10 @@ export class QueryDeviceStatRequest extends $tea.Model {
 
 export class QueryDeviceStatResponseBody extends $tea.Model {
   appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1709,7 +2513,21 @@ export class QueryDeviceStatResponse extends $tea.Model {
 }
 
 export class QueryDevicesByAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * accountName
+   */
   account?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1732,6 +2550,10 @@ export class QueryDevicesByAccountRequest extends $tea.Model {
 
 export class QueryDevicesByAccountResponseBody extends $tea.Model {
   deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
+  /**
+   * @example
+   * A8A24108-2AD0-4F6E-81C7-A8A24C2C2AD0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1778,7 +2600,21 @@ export class QueryDevicesByAccountResponse extends $tea.Model {
 }
 
 export class QueryDevicesByAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aliasName
+   */
   alias?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1801,6 +2637,10 @@ export class QueryDevicesByAliasRequest extends $tea.Model {
 
 export class QueryDevicesByAliasResponseBody extends $tea.Model {
   deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
+  /**
+   * @example
+   * 6A9FD644-35A5-40E4-89B0-2021CAEDC1B4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1847,15 +2687,60 @@ export class QueryDevicesByAliasResponse extends $tea.Model {
 }
 
 export class QueryPushRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 333526247
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-29T06:24:58Z
+   */
   endTime?: string;
   keyword?: string;
+  /**
+   * @example
+   * FFPpkmhCPm*****************xjk=
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 8
+   */
   page?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * NOTICE
+   */
   pushType?: string;
+  /**
+   * @example
+   * API
+   */
   source?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-15T02:05:24Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * DEVICE
+   */
   target?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1893,11 +2778,31 @@ export class QueryPushRecordsRequest extends $tea.Model {
 }
 
 export class QueryPushRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i91D***********kXIh/dVBEQ==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 11
+   */
   page?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   pushInfos?: QueryPushRecordsResponseBodyPushInfos;
+  /**
+   * @example
+   * 9B24B396-249D-55E4-8CA1-66C9B50BB734
+   */
   requestId?: string;
+  /**
+   * @example
+   * 193
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1952,9 +2857,37 @@ export class QueryPushRecordsResponse extends $tea.Model {
 }
 
 export class QueryPushStatByAppRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-29T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DAY
+   */
   granularity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-25T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1981,6 +2914,10 @@ export class QueryPushStatByAppRequest extends $tea.Model {
 
 export class QueryPushStatByAppResponseBody extends $tea.Model {
   appPushStats?: QueryPushStatByAppResponseBodyAppPushStats;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2027,7 +2964,21 @@ export class QueryPushStatByAppResponse extends $tea.Model {
 }
 
 export class QueryPushStatByMsgRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 510427
+   */
   messageId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2050,6 +3001,10 @@ export class QueryPushStatByMsgRequest extends $tea.Model {
 
 export class QueryPushStatByMsgResponseBody extends $tea.Model {
   pushStats?: QueryPushStatByMsgResponseBodyPushStats;
+  /**
+   * @example
+   * CF195C34-98FB-491A-98D7-19CBC1FA880B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2096,8 +3051,29 @@ export class QueryPushStatByMsgResponse extends $tea.Model {
 }
 
 export class QueryTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b165576****
+   */
   clientKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
   keyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2121,6 +3097,10 @@ export class QueryTagsRequest extends $tea.Model {
 }
 
 export class QueryTagsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D68AE5C6-8AAF-46C9-B627-3FDACD1A4168
+   */
   requestId?: string;
   tagInfos?: QueryTagsResponseBodyTagInfos;
   static names(): { [key: string]: string } {
@@ -2168,9 +3148,37 @@ export class QueryTagsResponse extends $tea.Model {
 }
 
 export class QueryUniqueDeviceStatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-26T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DAY
+   */
   granularity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-07-25T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2197,6 +3205,10 @@ export class QueryUniqueDeviceStatRequest extends $tea.Model {
 
 export class QueryUniqueDeviceStatResponseBody extends $tea.Model {
   appDeviceStats?: QueryUniqueDeviceStatResponseBodyAppDeviceStats;
+  /**
+   * @example
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2243,7 +3255,21 @@ export class QueryUniqueDeviceStatResponse extends $tea.Model {
 }
 
 export class RemoveTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_tag
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2265,6 +3291,10 @@ export class RemoveTagRequest extends $tea.Model {
 }
 
 export class RemoveTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 23000F3C-0EFE-4C89-82EE-E04F42D37B3C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2309,9 +3339,31 @@ export class RemoveTagResponse extends $tea.Model {
 }
 
 export class UnbindAliasRequest extends $tea.Model {
+  /**
+   * @example
+   * test_alias
+   */
   aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * true
+   */
   unbindAll?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2337,6 +3389,10 @@ export class UnbindAliasRequest extends $tea.Model {
 }
 
 export class UnbindAliasResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2381,7 +3437,21 @@ export class UnbindAliasResponse extends $tea.Model {
 }
 
 export class UnbindPhoneRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eb5f741d83d04d34807d229999eefa52
+   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2403,6 +3473,10 @@ export class UnbindPhoneRequest extends $tea.Model {
 }
 
 export class UnbindPhoneResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2447,9 +3521,37 @@ export class UnbindPhoneResponse extends $tea.Model {
 }
 
 export class UnbindTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
   appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e2ba19de97604f55b16557673****
+   */
   clientKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
   keyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_tag1,test_tag2
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2475,6 +3577,10 @@ export class UnbindTagRequest extends $tea.Model {
 }
 
 export class UnbindTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 159E4422-6624-4750-8943-DFD98D34858C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2519,7 +3625,15 @@ export class UnbindTagResponse extends $tea.Model {
 }
 
 export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model {
+  /**
+   * @example
+   * 1470024000000
+   */
   exipreTime?: number;
+  /**
+   * @example
+   * EXPIRED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2541,7 +3655,15 @@ export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model 
 }
 
 export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
+  /**
+   * @example
+   * 1764561600000
+   */
   exipreTime?: number;
+  /**
+   * @example
+   * OK
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2563,7 +3685,15 @@ export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
 }
 
 export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   available?: boolean;
+  /**
+   * @example
+   * ae296f3b04a58a05b30c95f****
+   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2604,7 +3734,15 @@ export class CheckDevicesResponseBodyDeviceCheckInfos extends $tea.Model {
 }
 
 export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $tea.Model {
+  /**
+   * @example
+   * 23****07
+   */
   appKey?: number;
+  /**
+   * @example
+   * abc
+   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2645,6 +3783,10 @@ export class ListSummaryAppsResponseBodySummaryAppInfos extends $tea.Model {
 }
 
 export class ListTagsResponseBodyTagInfosTagInfo extends $tea.Model {
+  /**
+   * @example
+   * test_tag2
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2683,47 +3825,201 @@ export class ListTagsResponseBodyTagInfos extends $tea.Model {
 }
 
 export class MassPushRequestPushTask extends $tea.Model {
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   androidActivity?: string;
+  /**
+   * @example
+   * 99
+   */
+  androidBadgeAddNum?: number;
+  androidBadgeClass?: string;
+  /**
+   * @example
+   * 99
+   */
+  androidBadgeSetNum?: number;
   androidBigBody?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   androidBigPictureUrl?: string;
   androidBigTitle?: string;
+  /**
+   * @example
+   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
+   */
   androidExtParameters?: string;
   androidHonorTargetUserType?: number;
+  /**
+   * @example
+   * RCP4C123456
+   */
   androidHuaweiReceiptId?: string;
+  /**
+   * @example
+   * 1
+   */
   androidHuaweiTargetUserType?: number;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   androidImageUrl?: string;
   androidInboxBody?: string;
+  /**
+   * @example
+   * VOIP
+   */
   androidMessageHuaweiCategory?: string;
+  /**
+   * @example
+   * HIGH
+   */
   androidMessageHuaweiUrgency?: string;
+  /**
+   * @example
+   * TODO
+   */
   androidMessageVivoCategory?: string;
   androidMusic?: string;
+  /**
+   * @example
+   * 0
+   */
   androidNotificationBarPriority?: number;
+  /**
+   * @example
+   * 2
+   */
   androidNotificationBarType?: number;
+  /**
+   * @example
+   * 1
+   */
   androidNotificationChannel?: string;
+  /**
+   * @example
+   * group-1
+   */
   androidNotificationGroup?: string;
+  /**
+   * @example
+   * LOW
+   */
   androidNotificationHonorChannel?: string;
+  /**
+   * @example
+   * LOW
+   */
   androidNotificationHuaweiChannel?: string;
+  /**
+   * @example
+   * 100001
+   */
   androidNotificationNotifyId?: number;
+  /**
+   * @example
+   * 0
+   */
   androidNotificationVivoChannel?: string;
+  /**
+   * @example
+   * michannel
+   */
   androidNotificationXiaomiChannel?: string;
+  /**
+   * @example
+   * VIBRATE
+   */
   androidNotifyType?: string;
+  /**
+   * @example
+   * APPLICATION
+   */
   androidOpenType?: string;
+  /**
+   * @example
+   * https://xxxx.xxx
+   */
   androidOpenUrl?: string;
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   androidPopupActivity?: string;
+  /**
+   * @example
+   * hello
+   */
   androidPopupBody?: string;
+  /**
+   * @example
+   * hello
+   */
   androidPopupTitle?: string;
+  /**
+   * @example
+   * true
+   */
   androidRemind?: boolean;
+  /**
+   * @example
+   * 1
+   */
   androidRenderStyle?: string;
   androidTargetUserType?: number;
+  /**
+   * @example
+   * 1
+   */
   androidVivoPushMode?: number;
   androidVivoReceiptId?: string;
+  /**
+   * @deprecated
+   */
   androidXiaoMiActivity?: string;
+  /**
+   * @deprecated
+   */
   androidXiaoMiNotifyBody?: string;
+  /**
+   * @deprecated
+   */
   androidXiaoMiNotifyTitle?: string;
+  /**
+   * @example
+   * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
+   */
   androidXiaomiBigPictureUrl?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   androidXiaomiImageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hello
+   */
   body?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALL
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 2019-02-20T00:00:00Z
+   */
   expireTime?: string;
   harmonyAction?: string;
   harmonyActionType?: string;
@@ -2740,34 +4036,144 @@ export class MassPushRequestPushTask extends $tea.Model {
   harmonyRenderStyle?: string;
   harmonyTestMessage?: boolean;
   harmonyUri?: string;
+  /**
+   * @example
+   * 123
+   */
   jobKey?: string;
+  /**
+   * @example
+   * 2019-02-20T00:00:00Z
+   */
   pushTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MESSAGE
+   */
   pushType?: string;
+  /**
+   * @example
+   * accs,huawei,xiaomi
+   */
   sendChannels?: string;
+  /**
+   * @example
+   * 0
+   * 
+   * @deprecated
+   */
   sendSpeed?: number;
+  /**
+   * @example
+   * true
+   */
   storeOffline?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEVICE
+   */
   target?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * deviceid1,deviceid2
+   */
   targetValue?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
+  /**
+   * @example
+   * false
+   */
   trim?: boolean;
+  /**
+   * @example
+   * DEV
+   */
   iOSApnsEnv?: string;
+  /**
+   * @example
+   * 0
+   */
   iOSBadge?: number;
+  /**
+   * @example
+   * true
+   */
   iOSBadgeAutoIncrement?: boolean;
+  /**
+   * @example
+   * {“attachment”: “https://xxxx.xxx/notification_pic.png"}
+   */
   iOSExtParameters?: string;
+  /**
+   * @example
+   * active
+   */
   iOSInterruptionLevel?: string;
+  /**
+   * @example
+   * ””
+   */
   iOSMusic?: string;
+  /**
+   * @example
+   * true
+   */
   iOSMutableContent?: boolean;
+  /**
+   * @example
+   * ios
+   */
   iOSNotificationCategory?: string;
+  /**
+   * @example
+   * ZD2011
+   */
   iOSNotificationCollapseId?: string;
+  /**
+   * @example
+   * abc
+   */
   iOSNotificationThreadId?: string;
+  /**
+   * @example
+   * 0.01
+   */
   iOSRelevanceScore?: number;
+  /**
+   * @example
+   * true
+   */
   iOSRemind?: boolean;
   iOSRemindBody?: string;
+  /**
+   * @example
+   * true
+   */
   iOSSilentNotification?: boolean;
+  /**
+   * @example
+   * subtitle
+   */
   iOSSubtitle?: string;
   static names(): { [key: string]: string } {
     return {
       androidActivity: 'AndroidActivity',
+      androidBadgeAddNum: 'AndroidBadgeAddNum',
+      androidBadgeClass: 'AndroidBadgeClass',
+      androidBadgeSetNum: 'AndroidBadgeSetNum',
       androidBigBody: 'AndroidBigBody',
       androidBigPictureUrl: 'AndroidBigPictureUrl',
       androidBigTitle: 'AndroidBigTitle',
@@ -2855,6 +4261,9 @@ export class MassPushRequestPushTask extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidActivity: 'string',
+      androidBadgeAddNum: 'number',
+      androidBadgeClass: 'string',
+      androidBadgeSetNum: 'number',
       androidBigBody: 'string',
       androidBigPictureUrl: 'string',
       androidBigTitle: 'string',
@@ -2964,6 +4373,10 @@ export class MassPushResponseBodyMessageIds extends $tea.Model {
 }
 
 export class QueryAliasesResponseBodyAliasInfosAliasInfo extends $tea.Model {
+  /**
+   * @example
+   * test_alias1
+   */
   aliasName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3002,17 +4415,57 @@ export class QueryAliasesResponseBodyAliasInfos extends $tea.Model {
 }
 
 export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
+  /**
+   * @example
+   * test@aliyun.com
+   */
   account?: string;
+  /**
+   * @example
+   * test_alias,test_alias2
+   */
   alias?: string;
   brand?: string;
+  /**
+   * @example
+   * a64ae296f3b04a58a05b30c95****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 5ecc7b4012aaa801b63******5543ccbda6b4930d09629e936e1ac4b762a7df
+   */
   deviceToken?: string;
+  /**
+   * @example
+   * iOS
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 2018-03-27T02:19:40Z
+   */
   lastOnlineTime?: string;
   model?: string;
+  /**
+   * @example
+   * false
+   */
   online?: boolean;
+  /**
+   * @example
+   * 133********
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * true
+   */
   pushEnabled?: boolean;
+  /**
+   * @example
+   * test_tag,test_tag2
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3054,8 +4507,20 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
 }
 
 export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   count?: number;
+  /**
+   * @example
+   * iOS
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 2016-07-28T16:00:00Z
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3136,15 +4601,55 @@ export class QueryDevicesByAliasResponseBodyDeviceIds extends $tea.Model {
 }
 
 export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $tea.Model {
+  /**
+   * @example
+   * 333526247
+   */
   appKey?: number;
+  /**
+   * @example
+   * abcd
+   */
   body?: string;
+  /**
+   * @example
+   * ANDROID
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 510431
+   */
   messageId?: string;
+  /**
+   * @example
+   * 2021-09-15T02:05:24Z
+   */
   pushTime?: string;
+  /**
+   * @example
+   * NOTICE
+   */
   pushType?: string;
+  /**
+   * @example
+   * DEVICE
+   */
   source?: string;
+  /**
+   * @example
+   * SENT
+   */
   status?: string;
+  /**
+   * @example
+   * DEVICE
+   */
   target?: string;
+  /**
+   * @example
+   * sssss
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3201,16 +4706,60 @@ export class QueryPushRecordsResponseBodyPushInfos extends $tea.Model {
 }
 
 export class QueryPushStatByAppResponseBodyAppPushStatsAppPushStat extends $tea.Model {
+  /**
+   * @example
+   * 120
+   */
   acceptCount?: number;
+  /**
+   * @example
+   * 10
+   */
   deletedCount?: number;
+  /**
+   * @example
+   * 30
+   */
   openedCount?: number;
+  /**
+   * @example
+   * 60
+   */
   receivedCount?: number;
+  /**
+   * @example
+   * 100
+   */
   sentCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsFailedCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsReceiveFailedCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsReceiveSuccessCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsSentCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsSkipCount?: number;
+  /**
+   * @example
+   * 2016-07-25T00:00:00Z
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3269,16 +4818,60 @@ export class QueryPushStatByAppResponseBodyAppPushStats extends $tea.Model {
 }
 
 export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $tea.Model {
+  /**
+   * @example
+   * 120
+   */
   acceptCount?: number;
+  /**
+   * @example
+   * 10
+   */
   deletedCount?: number;
+  /**
+   * @example
+   * 510427
+   */
   messageId?: string;
+  /**
+   * @example
+   * 30
+   */
   openedCount?: number;
+  /**
+   * @example
+   * 60
+   */
   receivedCount?: number;
+  /**
+   * @example
+   * 100
+   */
   sentCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsFailedCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsReceiveFailedCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsReceiveSuccessCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsSentCount?: number;
+  /**
+   * @example
+   * 0
+   */
   smsSkipCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3337,6 +4930,10 @@ export class QueryPushStatByMsgResponseBodyPushStats extends $tea.Model {
 }
 
 export class QueryTagsResponseBodyTagInfosTagInfo extends $tea.Model {
+  /**
+   * @example
+   * test_tag2
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3375,7 +4972,15 @@ export class QueryTagsResponseBodyTagInfos extends $tea.Model {
 }
 
 export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   count?: number;
+  /**
+   * @example
+   * 2016-07-25T00:00:00Z
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3495,9 +5100,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindAliasRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindAliasResponse
+   * @param request - BindAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindAliasResponse
    */
   async bindAliasWithOptions(request: BindAliasRequest, runtime: $Util.RuntimeOptions): Promise<BindAliasResponse> {
     Util.validateModel(request);
@@ -3532,8 +5137,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindAliasRequest
-   * @return BindAliasResponse
+   * @param request - BindAliasRequest
+   * @returns BindAliasResponse
    */
   async bindAlias(request: BindAliasRequest): Promise<BindAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3541,9 +5146,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindPhoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindPhoneResponse
+   * @param request - BindPhoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindPhoneResponse
    */
   async bindPhoneWithOptions(request: BindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindPhoneResponse> {
     Util.validateModel(request);
@@ -3578,8 +5183,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindPhoneRequest
-   * @return BindPhoneResponse
+   * @param request - BindPhoneRequest
+   * @returns BindPhoneResponse
    */
   async bindPhone(request: BindPhoneRequest): Promise<BindPhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3587,9 +5192,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindTagResponse
+   * @param request - BindTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindTagResponse
    */
   async bindTagWithOptions(request: BindTagRequest, runtime: $Util.RuntimeOptions): Promise<BindTagResponse> {
     Util.validateModel(request);
@@ -3628,8 +5233,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BindTagRequest
-   * @return BindTagResponse
+   * @param request - BindTagRequest
+   * @returns BindTagResponse
    */
   async bindTag(request: BindTagRequest): Promise<BindTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3637,9 +5242,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CancelPushRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelPushResponse
+   * @param request - CancelPushRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelPushResponse
    */
   async cancelPushWithOptions(request: CancelPushRequest, runtime: $Util.RuntimeOptions): Promise<CancelPushResponse> {
     Util.validateModel(request);
@@ -3670,8 +5275,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CancelPushRequest
-   * @return CancelPushResponse
+   * @param request - CancelPushRequest
+   * @returns CancelPushResponse
    */
   async cancelPush(request: CancelPushRequest): Promise<CancelPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3679,9 +5284,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CheckCertificateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckCertificateResponse
+   * @param request - CheckCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckCertificateResponse
    */
   async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CheckCertificateResponse> {
     Util.validateModel(request);
@@ -3708,8 +5313,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CheckCertificateRequest
-   * @return CheckCertificateResponse
+   * @param request - CheckCertificateRequest
+   * @returns CheckCertificateResponse
    */
   async checkCertificate(request: CheckCertificateRequest): Promise<CheckCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3718,10 +5323,10 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
-   *
-   * @param request CheckDeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckDeviceResponse
+   * 
+   * @param request - CheckDeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDeviceResponse
    */
   // Deprecated
   async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CheckDeviceResponse> {
@@ -3754,9 +5359,9 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
-   *
-   * @param request CheckDeviceRequest
-   * @return CheckDeviceResponse
+   * 
+   * @param request - CheckDeviceRequest
+   * @returns CheckDeviceResponse
    */
   // Deprecated
   async checkDevice(request: CheckDeviceRequest): Promise<CheckDeviceResponse> {
@@ -3765,9 +5370,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CheckDevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckDevicesResponse
+   * @param request - CheckDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDevicesResponse
    */
   async checkDevicesWithOptions(request: CheckDevicesRequest, runtime: $Util.RuntimeOptions): Promise<CheckDevicesResponse> {
     Util.validateModel(request);
@@ -3798,8 +5403,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CheckDevicesRequest
-   * @return CheckDevicesResponse
+   * @param request - CheckDevicesRequest
+   * @returns CheckDevicesResponse
    */
   async checkDevices(request: CheckDevicesRequest): Promise<CheckDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3807,9 +5412,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompleteContinuouslyPushRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CompleteContinuouslyPushResponse
+   * @param request - CompleteContinuouslyPushRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompleteContinuouslyPushResponse
    */
   async completeContinuouslyPushWithOptions(request: CompleteContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<CompleteContinuouslyPushResponse> {
     Util.validateModel(request);
@@ -3840,8 +5445,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompleteContinuouslyPushRequest
-   * @return CompleteContinuouslyPushResponse
+   * @param request - CompleteContinuouslyPushRequest
+   * @returns CompleteContinuouslyPushResponse
    */
   async completeContinuouslyPush(request: CompleteContinuouslyPushRequest): Promise<CompleteContinuouslyPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3849,9 +5454,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ContinuouslyPushRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ContinuouslyPushResponse
+   * @param request - ContinuouslyPushRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContinuouslyPushResponse
    */
   async continuouslyPushWithOptions(request: ContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<ContinuouslyPushResponse> {
     Util.validateModel(request);
@@ -3890,8 +5495,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ContinuouslyPushRequest
-   * @return ContinuouslyPushResponse
+   * @param request - ContinuouslyPushRequest
+   * @returns ContinuouslyPushResponse
    */
   async continuouslyPush(request: ContinuouslyPushRequest): Promise<ContinuouslyPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3900,10 +5505,10 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
-   *
-   * @param request ListSummaryAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSummaryAppsResponse
+   * 
+   * @param request - ListSummaryAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSummaryAppsResponse
    */
   // Deprecated
   async listSummaryAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSummaryAppsResponse> {
@@ -3924,8 +5529,7 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
-   *
-   * @return ListSummaryAppsResponse
+   * @returns ListSummaryAppsResponse
    */
   // Deprecated
   async listSummaryApps(): Promise<ListSummaryAppsResponse> {
@@ -3934,9 +5538,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagsResponse
+   * @param request - ListTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagsResponse
    */
   async listTagsWithOptions(request: ListTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
@@ -3963,8 +5567,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTagsRequest
-   * @return ListTagsResponse
+   * @param request - ListTagsRequest
+   * @returns ListTagsResponse
    */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3972,9 +5576,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MassPushRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MassPushResponse
+   * @param request - MassPushRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MassPushResponse
    */
   async massPushWithOptions(request: MassPushRequest, runtime: $Util.RuntimeOptions): Promise<MassPushResponse> {
     Util.validateModel(request);
@@ -4007,8 +5611,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MassPushRequest
-   * @return MassPushResponse
+   * @param request - MassPushRequest
+   * @returns MassPushResponse
    */
   async massPush(request: MassPushRequest): Promise<MassPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4016,15 +5620,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushResponse
+   * @param request - PushRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushResponse
    */
   async pushWithOptions(request: PushRequest, runtime: $Util.RuntimeOptions): Promise<PushResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.androidActivity)) {
       query["AndroidActivity"] = request.androidActivity;
+    }
+
+    if (!Util.isUnset(request.androidBadgeAddNum)) {
+      query["AndroidBadgeAddNum"] = request.androidBadgeAddNum;
+    }
+
+    if (!Util.isUnset(request.androidBadgeClass)) {
+      query["AndroidBadgeClass"] = request.androidBadgeClass;
+    }
+
+    if (!Util.isUnset(request.androidBadgeSetNum)) {
+      query["AndroidBadgeSetNum"] = request.androidBadgeSetNum;
     }
 
     if (!Util.isUnset(request.androidBigBody)) {
@@ -4393,8 +6009,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushRequest
-   * @return PushResponse
+   * @param request - PushRequest
+   * @returns PushResponse
    */
   async push(request: PushRequest): Promise<PushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4402,9 +6018,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushMessageToAndroidRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushMessageToAndroidResponse
+   * @param request - PushMessageToAndroidRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushMessageToAndroidResponse
    */
   async pushMessageToAndroidWithOptions(request: PushMessageToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToAndroidResponse> {
     Util.validateModel(request);
@@ -4455,8 +6071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushMessageToAndroidRequest
-   * @return PushMessageToAndroidResponse
+   * @param request - PushMessageToAndroidRequest
+   * @returns PushMessageToAndroidResponse
    */
   async pushMessageToAndroid(request: PushMessageToAndroidRequest): Promise<PushMessageToAndroidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4464,9 +6080,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushMessageToiOSRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushMessageToiOSResponse
+   * @param request - PushMessageToiOSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushMessageToiOSResponse
    */
   async pushMessageToiOSWithOptions(request: PushMessageToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToiOSResponse> {
     Util.validateModel(request);
@@ -4517,8 +6133,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushMessageToiOSRequest
-   * @return PushMessageToiOSResponse
+   * @param request - PushMessageToiOSRequest
+   * @returns PushMessageToiOSResponse
    */
   async pushMessageToiOS(request: PushMessageToiOSRequest): Promise<PushMessageToiOSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4526,9 +6142,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushNoticeToAndroidRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushNoticeToAndroidResponse
+   * @param request - PushNoticeToAndroidRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushNoticeToAndroidResponse
    */
   async pushNoticeToAndroidWithOptions(request: PushNoticeToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToAndroidResponse> {
     Util.validateModel(request);
@@ -4583,8 +6199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushNoticeToAndroidRequest
-   * @return PushNoticeToAndroidResponse
+   * @param request - PushNoticeToAndroidRequest
+   * @returns PushNoticeToAndroidResponse
    */
   async pushNoticeToAndroid(request: PushNoticeToAndroidRequest): Promise<PushNoticeToAndroidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4592,9 +6208,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushNoticeToiOSRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushNoticeToiOSResponse
+   * @param request - PushNoticeToiOSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushNoticeToiOSResponse
    */
   async pushNoticeToiOSWithOptions(request: PushNoticeToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToiOSResponse> {
     Util.validateModel(request);
@@ -4649,8 +6265,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushNoticeToiOSRequest
-   * @return PushNoticeToiOSResponse
+   * @param request - PushNoticeToiOSRequest
+   * @returns PushNoticeToiOSResponse
    */
   async pushNoticeToiOS(request: PushNoticeToiOSRequest): Promise<PushNoticeToiOSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4658,9 +6274,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryAliasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAliasesResponse
+   * @param request - QueryAliasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAliasesResponse
    */
   async queryAliasesWithOptions(request: QueryAliasesRequest, runtime: $Util.RuntimeOptions): Promise<QueryAliasesResponse> {
     Util.validateModel(request);
@@ -4691,8 +6307,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryAliasesRequest
-   * @return QueryAliasesResponse
+   * @param request - QueryAliasesRequest
+   * @returns QueryAliasesResponse
    */
   async queryAliases(request: QueryAliasesRequest): Promise<QueryAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4700,9 +6316,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDeviceInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDeviceInfoResponse
+   * @param request - QueryDeviceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDeviceInfoResponse
    */
   async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
     Util.validateModel(request);
@@ -4733,8 +6349,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDeviceInfoRequest
-   * @return QueryDeviceInfoResponse
+   * @param request - QueryDeviceInfoRequest
+   * @returns QueryDeviceInfoResponse
    */
   async queryDeviceInfo(request: QueryDeviceInfoRequest): Promise<QueryDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4742,9 +6358,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDeviceStatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDeviceStatResponse
+   * @param request - QueryDeviceStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDeviceStatResponse
    */
   async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatResponse> {
     Util.validateModel(request);
@@ -4787,8 +6403,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDeviceStatRequest
-   * @return QueryDeviceStatResponse
+   * @param request - QueryDeviceStatRequest
+   * @returns QueryDeviceStatResponse
    */
   async queryDeviceStat(request: QueryDeviceStatRequest): Promise<QueryDeviceStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4796,9 +6412,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDevicesByAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDevicesByAccountResponse
+   * @param request - QueryDevicesByAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDevicesByAccountResponse
    */
   async queryDevicesByAccountWithOptions(request: QueryDevicesByAccountRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAccountResponse> {
     Util.validateModel(request);
@@ -4829,8 +6445,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDevicesByAccountRequest
-   * @return QueryDevicesByAccountResponse
+   * @param request - QueryDevicesByAccountRequest
+   * @returns QueryDevicesByAccountResponse
    */
   async queryDevicesByAccount(request: QueryDevicesByAccountRequest): Promise<QueryDevicesByAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4838,9 +6454,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDevicesByAliasRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDevicesByAliasResponse
+   * @param request - QueryDevicesByAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDevicesByAliasResponse
    */
   async queryDevicesByAliasWithOptions(request: QueryDevicesByAliasRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAliasResponse> {
     Util.validateModel(request);
@@ -4871,8 +6487,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDevicesByAliasRequest
-   * @return QueryDevicesByAliasResponse
+   * @param request - QueryDevicesByAliasRequest
+   * @returns QueryDevicesByAliasResponse
    */
   async queryDevicesByAlias(request: QueryDevicesByAliasRequest): Promise<QueryDevicesByAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4880,9 +6496,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPushRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushRecordsResponse
+   * @param request - QueryPushRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushRecordsResponse
    */
   async queryPushRecordsWithOptions(request: QueryPushRecordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushRecordsResponse> {
     Util.validateModel(request);
@@ -4945,8 +6561,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPushRecordsRequest
-   * @return QueryPushRecordsResponse
+   * @param request - QueryPushRecordsRequest
+   * @returns QueryPushRecordsResponse
    */
   async queryPushRecords(request: QueryPushRecordsRequest): Promise<QueryPushRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4954,9 +6570,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPushStatByAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushStatByAppResponse
+   * @param request - QueryPushStatByAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushStatByAppResponse
    */
   async queryPushStatByAppWithOptions(request: QueryPushStatByAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByAppResponse> {
     Util.validateModel(request);
@@ -4995,8 +6611,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPushStatByAppRequest
-   * @return QueryPushStatByAppResponse
+   * @param request - QueryPushStatByAppRequest
+   * @returns QueryPushStatByAppResponse
    */
   async queryPushStatByApp(request: QueryPushStatByAppRequest): Promise<QueryPushStatByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5004,9 +6620,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPushStatByMsgRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushStatByMsgResponse
+   * @param request - QueryPushStatByMsgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushStatByMsgResponse
    */
   async queryPushStatByMsgWithOptions(request: QueryPushStatByMsgRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByMsgResponse> {
     Util.validateModel(request);
@@ -5037,8 +6653,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryPushStatByMsgRequest
-   * @return QueryPushStatByMsgResponse
+   * @param request - QueryPushStatByMsgRequest
+   * @returns QueryPushStatByMsgResponse
    */
   async queryPushStatByMsg(request: QueryPushStatByMsgRequest): Promise<QueryPushStatByMsgResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5046,9 +6662,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTagsResponse
+   * @param request - QueryTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTagsResponse
    */
   async queryTagsWithOptions(request: QueryTagsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagsResponse> {
     Util.validateModel(request);
@@ -5083,8 +6699,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTagsRequest
-   * @return QueryTagsResponse
+   * @param request - QueryTagsRequest
+   * @returns QueryTagsResponse
    */
   async queryTags(request: QueryTagsRequest): Promise<QueryTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5092,9 +6708,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryUniqueDeviceStatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryUniqueDeviceStatResponse
+   * @param request - QueryUniqueDeviceStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUniqueDeviceStatResponse
    */
   async queryUniqueDeviceStatWithOptions(request: QueryUniqueDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryUniqueDeviceStatResponse> {
     Util.validateModel(request);
@@ -5133,8 +6749,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryUniqueDeviceStatRequest
-   * @return QueryUniqueDeviceStatResponse
+   * @param request - QueryUniqueDeviceStatRequest
+   * @returns QueryUniqueDeviceStatResponse
    */
   async queryUniqueDeviceStat(request: QueryUniqueDeviceStatRequest): Promise<QueryUniqueDeviceStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5142,9 +6758,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveTagResponse
+   * @param request - RemoveTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveTagResponse
    */
   async removeTagWithOptions(request: RemoveTagRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagResponse> {
     Util.validateModel(request);
@@ -5175,8 +6791,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveTagRequest
-   * @return RemoveTagResponse
+   * @param request - RemoveTagRequest
+   * @returns RemoveTagResponse
    */
   async removeTag(request: RemoveTagRequest): Promise<RemoveTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5184,9 +6800,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindAliasRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindAliasResponse
+   * @param request - UnbindAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindAliasResponse
    */
   async unbindAliasWithOptions(request: UnbindAliasRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAliasResponse> {
     Util.validateModel(request);
@@ -5225,8 +6841,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindAliasRequest
-   * @return UnbindAliasResponse
+   * @param request - UnbindAliasRequest
+   * @returns UnbindAliasResponse
    */
   async unbindAlias(request: UnbindAliasRequest): Promise<UnbindAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5234,9 +6850,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindPhoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindPhoneResponse
+   * @param request - UnbindPhoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindPhoneResponse
    */
   async unbindPhoneWithOptions(request: UnbindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<UnbindPhoneResponse> {
     Util.validateModel(request);
@@ -5267,8 +6883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindPhoneRequest
-   * @return UnbindPhoneResponse
+   * @param request - UnbindPhoneRequest
+   * @returns UnbindPhoneResponse
    */
   async unbindPhone(request: UnbindPhoneRequest): Promise<UnbindPhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5276,9 +6892,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindTagResponse
+   * @param request - UnbindTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindTagResponse
    */
   async unbindTagWithOptions(request: UnbindTagRequest, runtime: $Util.RuntimeOptions): Promise<UnbindTagResponse> {
     Util.validateModel(request);
@@ -5317,8 +6933,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnbindTagRequest
-   * @return UnbindTagResponse
+   * @param request - UnbindTagRequest
+   * @returns UnbindTagResponse
    */
   async unbindTag(request: UnbindTagRequest): Promise<UnbindTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
