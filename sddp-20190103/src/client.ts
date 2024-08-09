@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,11 +8,64 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the common configuration item. Valid values:
+   * 
+   * *   **access_failed_cnt**: the maximum number of access attempts allowed when Data Security Center (DSC) fails to access an unauthorized resource.
+   * *   **access_permission_exprie_max_days**: the maximum idle period allowed for access permissions before an alert is triggered.
+   * *   **log_datasize_avg_days**: the minimum percentage of the volume of logs of a specific type generated on the current day to the average volume of logs generated in the previous 10 days before an alert is triggered.
+   * 
+   * @example
+   * access_failed_cnt
+   */
   code?: string;
+  /**
+   * @remarks
+   * The description of the common configuration item.
+   * 
+   * @example
+   * Maximum number of access attempts allowed when DSC fails to access an unauthorized resource: 10
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
+  /**
+   * @remarks
+   * The value of the common configuration item. The meaning of this parameter varies with the value of the Code parameter.
+   * 
+   * *   If you set the Code parameter to **access_failed_cnt**, the Value parameter specifies the maximum number of access attempts allowed when DSC fails to access an unauthorized resource.
+   * *   If you set the Code parameter to **access_permission_exprie_max_days**, the Value parameter specifies the maximum idle period allowed for access permissions before an alert is triggered.
+   * *   If you set the Code parameter to **log_datasize_avg_days**, the Value parameter specifies the minimum percentage of the volume of logs of a specific type generated on the current day to the average amount of logs generated in the previous 10 days before an alert is triggered.
+   * 
+   * @example
+   * 30
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,7 +95,21 @@ export class CreateConfigRequest extends $tea.Model {
 }
 
 export class CreateConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the common alert configuration.
+   * 
+   * @example
+   * 12300
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,24 +156,203 @@ export class CreateConfigResponse extends $tea.Model {
 }
 
 export class CreateDataLimitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * > When a re-scan is triggered, DSC scans all data in your data asset.
+   * 
+   * @example
+   * 1
+   */
   autoScan?: number;
+  /**
+   * @remarks
+   * The permissions. Valid values:
+   * 
+   * *   **ReadOnly**: read-only permissions
+   * *   **ReadWrite**: read and write permissions
+   * 
+   * @example
+   * ReadOnly
+   */
   certificatePermission?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable sensitive data detection. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * > If this is your first time to authorize DSC to access the data asset, the default value is 1. If this is not your first time to authorize DSC to access the data asset, the default value is the same as that used in the last authorization operation. Both 1 and 0 are possible.
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The database engine that is run by the instance. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable anomalous event detection. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes (default)
+   * 
+   * @example
+   * 1
+   */
   eventStatus?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
   instantlyScan?: boolean;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+   * 
+   * *   **30**
+   * *   **90**
+   * *   **180**
+   * *   **365**
+   * 
+   * @example
+   * 30
+   */
   logStoreDay?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable optical character recognition (OCR). Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 0
+   */
   ocrStatus?: number;
+  /**
+   * @remarks
+   * The name of the data asset.
+   * 
+   * @example
+   * test-11**
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The password that is used to access the database.
+   * 
+   * @example
+   * passwd
+   */
   password?: string;
+  /**
+   * @remarks
+   * The port that is used to connect to the database.
+   * 
+   * @example
+   * 3306
+   */
   port?: number;
+  /**
+   * @remarks
+   * The type of service to which the data asset belongs. Valid values:
+   * 
+   * *   **1** :MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4** :Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The number of sensitive data samples that are collected after sensitive data detection is enabled. Valid values:
+   * 
+   * *   **0**
+   * *   **5**
+   * *   **10**
+   * 
+   * @example
+   * 0
+   */
   samplingSize?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides. Valid values:
+   * 
+   * *   **cn-beijing**: China (Beijing).
+   * *   **cn-zhangjiakou**: China (Zhangjiakou)
+   * *   **cn-huhehaote**: China (Hohhot)
+   * *   **cn-hangzhou**: China (Hangzhou)
+   * *   **cn-shanghai**: China (Shanghai)
+   * *   **cn-shenzhen**: China (Shenzhen)
+   * *   **cn-hongkong**: China (Hong Kong)
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
+  /**
+   * @remarks
+   * The username that is used to access the database.
+   * 
+   * @example
+   * yhm
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,7 +408,21 @@ export class CreateDataLimitRequest extends $tea.Model {
 }
 
 export class CreateDataLimitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -210,22 +469,178 @@ export class CreateDataLimitResponse extends $tea.Model {
 }
 
 export class CreateRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: keyword
+   * *   **2**: regular expression
+   * 
+   * @example
+   * 0
+   */
   category?: number;
+  /**
+   * @remarks
+   * The content of the sensitive data detection rule. You can specify a regular expression or keywords that are used to match sensitive fields or text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
+   */
   content?: string;
+  /**
+   * @remarks
+   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+   * 
+   * @example
+   * 1
+   */
   contentCategory?: number;
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * ID card
+   */
   description?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   **1**: rule-based match
+   * *   **2**: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule-tst
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: sensitive data detection rule
+   * *   **2**: audit rule
+   * *   **3**: anomalous event detection rule
+   * *   **99**: custom rule
+   * 
+   * @example
+   * 1
+   */
   ruleType?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
+  /**
+   * @remarks
+   * The statistical expression.
+   * 
+   * @example
+   * 1
+   */
   statExpress?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data asset
+   * *   **2**: unstructured data asset
+   * 
+   * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+   * 
+   * @example
+   * 1
+   */
   supportForm?: number;
+  /**
+   * @remarks
+   * The code of the service to which the sensitive data detection rule is applied. Valid values include **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   target?: string;
+  /**
+   * @remarks
+   * The risk level of the alert that is triggered. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 2
+   */
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -277,7 +692,21 @@ export class CreateRuleRequest extends $tea.Model {
 }
 
 export class CreateRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The unique ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -324,18 +753,133 @@ export class CreateRuleResponse extends $tea.Model {
 }
 
 export class CreateScanTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique ID of the data asset, such as an instance, a database, and a bucket. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the unique ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   dataLimitId?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   intervalDay?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response.
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The data to be scanned in the Object Storage Service (OSS) bucket. Prefix match, suffix match, and regular expression match are supported.
+   * 
+   * @example
+   * /test/test
+   */
   ossScanPath?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data assets to be scanned belong. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The time when the scan task is executed next time. Unit: hours.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   runHour?: number;
+  /**
+   * @remarks
+   * The time when the scan task is executed next time. Unit: minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   runMinute?: number;
+  /**
+   * @remarks
+   * The matching rule that specifies the scan scope of the custom scan task. This parameter takes effect only if you set the **ScanRangeContent** parameter. Valid values:
+   * 
+   * *   **0**: exact match
+   * *   **1**: prefix match
+   * *   **2**: suffix match
+   * *   **3**: regular expression match
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   scanRange?: number;
+  /**
+   * @remarks
+   * The data to be scanned in a structured data asset. Prefix match, suffix match, and regular expression match are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * datamask/
+   */
   scanRangeContent?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
+  /**
+   * @remarks
+   * The name of the scan task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * scan-test-sample****
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The account that is used to create the scan task.
+   * 
+   * @example
+   * demo
+   */
   taskUserName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -379,7 +923,21 @@ export class CreateScanTaskRequest extends $tea.Model {
 }
 
 export class CreateScanTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the custom scan task.
+   * 
+   * @example
+   * 100
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -426,8 +984,32 @@ export class CreateScanTaskResponse extends $tea.Model {
 }
 
 export class CreateSlrRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -451,7 +1033,24 @@ export class CreateSlrRoleRequest extends $tea.Model {
 }
 
 export class CreateSlrRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the service-linked role was created. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   hasPermission?: boolean;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -498,9 +1097,44 @@ export class CreateSlrRoleResponse extends $tea.Model {
 }
 
 export class DeleteDataLimitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12033
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -526,6 +1160,13 @@ export class DeleteDataLimitRequest extends $tea.Model {
 }
 
 export class DeleteDataLimitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -570,9 +1211,39 @@ export class DeleteDataLimitResponse extends $tea.Model {
 }
 
 export class DeleteRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 122300
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -598,6 +1269,13 @@ export class DeleteRuleRequest extends $tea.Model {
 }
 
 export class DeleteRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B6*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -642,10 +1320,26 @@ export class DeleteRuleResponse extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateListRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   featureType?: number;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   usageScenario?: number;
   static names(): { [key: string]: string } {
     return {
@@ -673,10 +1367,26 @@ export class DescribeCategoryTemplateListRequest extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   items?: DescribeCategoryTemplateListResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 12
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -729,11 +1439,73 @@ export class DescribeCategoryTemplateListResponse extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the data that is not compliant with the rule. Valid values: **1** to **11**. Default value: **null**.
+   * 
+   * *   **1**: No sensitive data is detected.
+   * *   **2**: specifies the S1 sensitivity level.
+   * *   **3**: specifies the S2 sensitivity level.
+   * *   **4**: specifies the S3 sensitivity level.
+   * *   **5**: specifies the S4 sensitivity level.
+   * *   **6**: specifies the S5 sensitivity level.
+   * *   **7**: specifies the S6 sensitivity level.
+   * *   **8**: specifies the S7 sensitivity level.
+   * *   **9**: specifies the S8 sensitivity level.
+   * *   **10**: specifies the S9 sensitivity level.
+   * *   **11**: specifies the S10 sensitivity level.
+   * *   **null**: specifies all preceding sensitivity levels.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The status of the rule. Default value: **null**. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * *   **null**: all states
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -763,10 +1535,42 @@ export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateRuleListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The list of rules.
+   */
   items?: DescribeCategoryTemplateRuleListResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 136082B3-B21F-5E9D-B68E-991FFD205D24
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of rules in the template.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -819,18 +1623,132 @@ export class DescribeCategoryTemplateRuleListResponse extends $tea.Model {
 }
 
 export class DescribeColumnsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which data in the column of the table belongs.
+   * 
+   * > You can call the [DescribeInstances](~~DescribeRules~~) operation to query the IDs of instances.
+   * 
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The name of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * rm-bp17t1htja573l5i8****
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * > You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
+   * 
+   * @example
+   * 11111
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * ID card number (the Chinese mainland)
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **N/A**: No sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   sensLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the table to which the column belongs.
+   * 
+   * > You can call the [DescribeTables](~~DescribeTables~~) operation to query the IDs of tables.
+   * 
+   * @example
+   * 11132334
+   */
   tableId?: number;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * it_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -874,10 +1792,42 @@ export class DescribeColumnsRequest extends $tea.Model {
 }
 
 export class DescribeColumnsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * A list of columns.
+   */
   items?: DescribeColumnsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -930,18 +1880,132 @@ export class DescribeColumnsResponse extends $tea.Model {
 }
 
 export class DescribeColumnsV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which data in the column of the table belongs.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/141708.html) operation to obtain the ID of the instance to which the data in the column of the table belongs.
+   * 
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The name of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * rm-bp17t1htja573l5i8****
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * >  You can call the [DescribeRules](https://help.aliyun.com/document_detail/141389.html) operation to obtain the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 11122200
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * name
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   sensLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the table to which the column belongs.
+   * 
+   * >  You can call the [DescribeTables](https://help.aliyun.com/document_detail/141709.html) operation to obtain the ID of the table.
+   * 
+   * @example
+   * 11132334
+   */
   tableId?: string;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * it_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -985,10 +2049,42 @@ export class DescribeColumnsV2Request extends $tea.Model {
 }
 
 export class DescribeColumnsV2ResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * A list of column recognition results of the data table.
+   */
   items?: DescribeColumnsV2ResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1041,6 +2137,16 @@ export class DescribeColumnsV2Response extends $tea.Model {
 }
 
 export class DescribeConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1060,7 +2166,18 @@ export class DescribeConfigsRequest extends $tea.Model {
 }
 
 export class DescribeConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of common configuration items for alerts.
+   */
   configList?: DescribeConfigsResponseBodyConfigList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1107,12 +2224,91 @@ export class DescribeConfigsResponse extends $tea.Model {
 }
 
 export class DescribeDataAssetsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The keyword that is used to search for data assets. Fuzzy search is supported.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the data asset that you want to query. Valid values:
+   * 
+   * *   **1**: MaxCompute project
+   * *   **2**: MaxCompute table
+   * *   **3**: MaxCompute package
+   * *   **11**: AnalyticDB for MySQL database
+   * *   **12**: AnalyticDB for MySQL table
+   * *   **21**: Object Storage Service (OSS) bucket
+   * *   **22**: OSS object
+   * *   **31**: Tablestore instance
+   * *   **32**: Tablestore table
+   * *   **51**: ApsaraDB RDS database
+   * *   **52**: ApsaraDB RDS table
+   * *   **61**: self-managed database hosted on an Elastic Compute Service (ECS) instance
+   * *   **62**: self-managed table hosted on an ECS instance
+   * *   **71**: PolarDB-X database
+   * *   **72**: PolarDB-X table
+   * *   **81**: PolarDB database
+   * *   **82**: PolarDB table
+   * *   **91**: AnalyticDB for PostgreSQL database
+   * *   **92**: AnalyticDB for PostgreSQL table
+   * 
+   * @example
+   * 1
+   */
   rangeId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the data asset. Separate multiple sensitivity levels with commas (,). Valid values:
+   * 
+   * *   **2**: S1, indicating the low sensitivity level
+   * *   **3**: S2, indicating the medium sensitivity level
+   * *   **4**: S3, indicating the high sensitivity level
+   * *   **5**: S4, indicating the highest sensitivity level
+   * 
+   * @example
+   * 2
+   */
   riskLevels?: string;
+  /**
+   * @remarks
+   * The unique ID of the sensitive data detection rule that the data assets to be queried hit.
+   * 
+   * > If you query sensitive data detection results based on the sensitive data detection rule that the data assets hit, you can call the [DescribeRules](~~DescribeRules~~) operation to query the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 11122200
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1144,10 +2340,42 @@ export class DescribeDataAssetsRequest extends $tea.Model {
 }
 
 export class DescribeDataAssetsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of data assets.
+   */
   items?: DescribeDataAssetsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 71064826-726F-4ADA-B879-05D8055476FB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of queried data assets that contain sensitive data.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1200,9 +2428,47 @@ export class DescribeDataAssetsResponse extends $tea.Model {
 }
 
 export class DescribeDataLimitDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The unique ID of the data asset that you want to query.
+   * 
+   * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12300
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Simplified Chinese.
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The network type of the data asset that you want to query. Valid values:
+   * 
+   * *   **1**: virtual private cloud (VPC)
+   * *   **2**: classic network
+   * 
+   * @example
+   * 1
+   */
   networkType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1228,7 +2494,18 @@ export class DescribeDataLimitDetailRequest extends $tea.Model {
 }
 
 export class DescribeDataLimitDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the data asset.
+   */
   dataLimit?: DescribeDataLimitDetailResponseBodyDataLimit;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1275,9 +2552,48 @@ export class DescribeDataLimitDetailResponse extends $tea.Model {
 }
 
 export class DescribeDataLimitSetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The parent asset ID of the data asset.
+   * 
+   * You can call the [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the parent asset ID of the data asset from the value of the **ParentId** parameter.
+   * 
+   * @example
+   * db
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The type of service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * @example
+   * 2
+   */
   resourceType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1303,7 +2619,18 @@ export class DescribeDataLimitSetRequest extends $tea.Model {
 }
 
 export class DescribeDataLimitSetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the data asset.
+   */
   dataLimitSet?: DescribeDataLimitSetResponseBodyDataLimitSet;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1350,20 +2677,154 @@ export class DescribeDataLimitSetResponse extends $tea.Model {
 }
 
 export class DescribeDataLimitsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @remarks
+   * The data detection status. Valid values:
+   * 
+   * *   **0**: The data detection is ready.
+   * *   **1**: The data detection is running.
+   * *   **2**: The connectivity test is in progress.
+   * *   **3**: The connectivity test passed.
+   * *   **4**: The connectivity test failed.
+   * 
+   * @example
+   * 3
+   */
   checkStatus?: number;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * Specifies whether DSC has the data de-identification permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   datamaskStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether DSC has the data detection permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The end of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1616068534877
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+   * 
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * **********8103
+   */
   memberAccount?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The parent ID of the data asset to be queried. Valid values:
+   * 
+   * *   The name or ID of the MaxCompute project.
+   * *   The name or ID of the OSS bucket.
+   * *   The name or ID of the ApsaraDB RDS instance or database.
+   * 
+   * @example
+   * 1112
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data asset belongs. This parameter is required. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * *   **6**: self-managed database
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1616068534877
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1411,10 +2872,42 @@ export class DescribeDataLimitsRequest extends $tea.Model {
 }
 
 export class DescribeDataLimitsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * A list of data assets.
+   */
   items?: DescribeDataLimitsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1467,16 +2960,105 @@ export class DescribeDataLimitsResponse extends $tea.Model {
 }
 
 export class DescribeDataMaskingRunHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   dstType?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1583856000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * > If a task has one or more subtasks, the value of the parameter must be the ID of the task. Otherwise, leave this parameter empty.
+   * 
+   * @example
+   * 366731
+   */
   mainProcessId?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the source table.
+   * 
+   * @example
+   * add
+   */
   srcTableName?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   srcType?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1582992000000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the de-identification task. Valid values:
+   * 
+   * *   **-1**: waiting
+   * *   **0**: being executed
+   * *   **1**: executed
+   * *   **2**: failed to be executed
+   * *   **3**: terminated
+   * *   **4**: partially failed
+   * 
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the de-identification task.
+   * 
+   * @example
+   * mt4HBgtw1B******
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1516,10 +3098,42 @@ export class DescribeDataMaskingRunHistoryRequest extends $tea.Model {
 }
 
 export class DescribeDataMaskingRunHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The execution information about the de-identification task.
+   */
   items?: DescribeDataMaskingRunHistoryResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1572,12 +3186,64 @@ export class DescribeDataMaskingRunHistoryResponse extends $tea.Model {
 }
 
 export class DescribeDataMaskingTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The service to which the data to be de-identified belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   dstType?: number;
+  /**
+   * @remarks
+   * The end of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1583856000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The keyword used to query the de-identification tasks, which can be the task name or ID.
+   * 
+   * @example
+   * test
+   */
   searchKey?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1582992000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1609,10 +3275,42 @@ export class DescribeDataMaskingTasksRequest extends $tea.Model {
 }
 
 export class DescribeDataMaskingTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * A list of de-identification tasks.
+   */
   items?: DescribeDataMaskingTasksResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1665,12 +3363,36 @@ export class DescribeDataMaskingTasksResponse extends $tea.Model {
 }
 
 export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   featureType?: number;
+  /**
+   * @example
+   * 318248
+   */
   id?: number;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   productId?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1702,10 +3424,26 @@ export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
 }
 
 export class DescribeDataObjectColumnDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   items?: DescribeDataObjectColumnDetailResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 8C8036CC-961D-514E-88E8-3088B5A50CA9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 61
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1758,12 +3496,42 @@ export class DescribeDataObjectColumnDetailResponse extends $tea.Model {
 }
 
 export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   featureType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 13456723343
+   */
   id?: string;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   productId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1795,10 +3563,26 @@ export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
 }
 
 export class DescribeDataObjectColumnDetailV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   items?: DescribeDataObjectColumnDetailV2ResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @example
+   * 231
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1851,22 +3635,69 @@ export class DescribeDataObjectColumnDetailV2Response extends $tea.Model {
 }
 
 export class DescribeDataObjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 2
+   */
   domainId?: number;
   featureType?: number;
   fileCategoryCode?: number;
   fileType?: number;
   instanceId?: string;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
   memberAccount?: number;
   modelIds?: string;
+  /**
+   * @example
+   * 101,102
+   */
   modelTagIds?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 234,236,238
+   */
   parentCategoryIds?: string;
+  /**
+   * @example
+   * 1,5
+   */
   productIds?: string;
+  /**
+   * @example
+   * t_sddp_selfmysql_pers0
+   */
   queryName?: string;
+  /**
+   * @example
+   * 2
+   */
   riskLevels?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1918,10 +3749,26 @@ export class DescribeDataObjectsRequest extends $tea.Model {
 }
 
 export class DescribeDataObjectsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   items?: DescribeDataObjectsResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * E6F6460E-4330-549A-BD89-C183FB17571E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 21
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1974,6 +3821,10 @@ export class DescribeDataObjectsResponse extends $tea.Model {
 }
 
 export class DescribeDocTypesRequest extends $tea.Model {
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1994,6 +3845,10 @@ export class DescribeDocTypesRequest extends $tea.Model {
 
 export class DescribeDocTypesResponseBody extends $tea.Model {
   docTypeList?: DescribeDocTypesResponseBodyDocTypeList[];
+  /**
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2040,7 +3895,28 @@ export class DescribeDocTypesResponse extends $tea.Model {
 }
 
 export class DescribeEventDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the anomalous event.
+   * 
+   * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 13456723343
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2062,7 +3938,18 @@ export class DescribeEventDetailRequest extends $tea.Model {
 }
 
 export class DescribeEventDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the anomalous event.
+   */
   event?: DescribeEventDetailResponseBodyEvent;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 69FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2109,10 +3996,55 @@ export class DescribeEventDetailResponse extends $tea.Model {
 }
 
 export class DescribeEventTypesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The type of anomalous event for which you want to query the anomalous events of subtypes. Valid values:
+   * 
+   * *   **01**: anomalous permission usage
+   * *   **02**: anomalous data flow
+   * *   **03**: anomalous data operation
+   * 
+   * @example
+   * 01
+   */
   parentTypeId?: number;
+  /**
+   * @remarks
+   * The type of the resource. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 5
+   */
   resourceId?: number;
+  /**
+   * @remarks
+   * The status of the anomalous event. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **2**: disabled
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2140,7 +4072,20 @@ export class DescribeEventTypesRequest extends $tea.Model {
 }
 
 export class DescribeEventTypesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the types of anomalous events.
+   * 
+   * > If you leave the ParentTypeId parameter empty, anomalous event types are returned. If you set the ParentTypeId parameter, anomalous event subtypes under the specified anomalous event type are returned.
+   */
   eventTypeList?: DescribeEventTypesResponseBodyEventTypeList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2187,21 +4132,150 @@ export class DescribeEventTypesResponse extends $tea.Model {
 }
 
 export class DescribeEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the account that handles the anomalous event.
+   * 
+   * @example
+   * yundun-***
+   */
   dealUserId?: string;
+  /**
+   * @remarks
+   * The end of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1698700000
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The unique ID of the anomalous event.
+   * 
+   * @example
+   * 789026
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the data asset.
+   * 
+   * @example
+   * rm-uf6yzvbc2tg90iuxk.l****
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * OSS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1657900000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The handling status of the anomalous event. Valid values:
+   * 
+   * *   0: unhandled
+   * *   1: confirmed
+   * *   2: marked as false positive
+   * 
+   * @example
+   * 1
+   */
   status?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event subtype.
+   * 
+   * > You can call the **DescribeEventTypes** operation to query the name of the anomalous event subtype.
+   * 
+   * @example
+   * Anomalous volume of downloaded data
+   */
   subTypeCode?: string;
+  /**
+   * @remarks
+   * The name of the destination service in an anomalous data flow. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**
+   * 
+   * @example
+   * RDS
+   */
   targetProductCode?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event type. Valid values:
+   * 
+   * *   01: anomalous permission usage
+   * *   02: anomalous data flow
+   * *   03: anomalous data operation
+   * 
+   * @example
+   * 02
+   */
   typeCode?: string;
+  /**
+   * @remarks
+   * The ID of the account that triggered the anomalous event.
+   * 
+   * @example
+   * 1978132506596***
+   */
   userId?: number;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * name
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The risk level of the alert that is triggered. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 1
+   */
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2251,10 +4325,42 @@ export class DescribeEventsRequest extends $tea.Model {
 }
 
 export class DescribeEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the anomalous events.
+   */
   items?: DescribeEventsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2307,18 +4413,122 @@ export class DescribeEventsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether DSC is authorized to access the data asset.
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 0
+   */
   authStatus?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values: **MySQL, MariaDB, Oracle, PostgreSQL, and SQLServer**.
+   * 
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * instance-demo-****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset to query belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset to query belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 1
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The content based on which a fuzzy search is performed.
+   * 
+   * @example
+   * 1
+   */
   searchKey?: string;
+  /**
+   * @remarks
+   * The data asset type based on which a fuzzy search is performed.
+   * 
+   * *   **InstanceId**: the ID of the instance.
+   * *   **InstanceName**: the name of the instance.
+   * *   **DatabaseName**: the name of the database.
+   * 
+   * @example
+   * InstanceId
+   */
   searchType?: string;
+  /**
+   * @remarks
+   * The region in which the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2362,10 +4572,42 @@ export class DescribeInstanceSourcesRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the queried data assets.
+   */
   items?: DescribeInstanceSourcesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 5A7E8FB9-5011-5A90-97D9-AE587047****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2418,15 +4660,100 @@ export class DescribeInstanceSourcesResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The keyword that is used to search for data assets. DSC searches for data assets based on the keyword that you specify in fuzzy match mode. For example, if you specify data, all data assets whose names contain data are queried.
+   * 
+   * @example
+   * data
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to query the ID of the service.
+   * 
+   * @example
+   * 1
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level ID of the data asset. A higher sensitivity level indicates that the identified data is more sensitive. Valid values:
+   * 
+   * *   **1**: No sensitive data is identified.
+   * *   **2**: sensitive data at level 1.
+   * *   **3**: sensitive data at level 2.
+   * *   **4**: sensitive data at level 3
+   * *   **5**: sensitive data at level 4.
+   * *   **6**: sensitive data at level 5.
+   * *   **7**: sensitive data at level 6.
+   * *   **8**: sensitive data at level 7.
+   * *   **9**: sensitive data at level 8.
+   * *   **10**: sensitive data at level 9.
+   * *   **11**: sensitive data at level 10.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the data asset hits. You can call the [DescribeRules](~~DescribeRules~~) operation and obtain the ID of the sensitive data detection rule from the **Id** response parameter.
+   * 
+   * @example
+   * 1111111
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The region where the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2464,10 +4791,42 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the data assets.
+   */
   items?: DescribeInstancesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 71064826-726F-4ADA-B879-05D8055476FB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of data assets.
+   * 
+   * @example
+   * 231
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2520,7 +4879,28 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeOssObjectDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the OSS object.
+   * 
+   * >  You can call the [DescribeOssObjects](https://help.aliyun.com/document_detail/410152.html) operation to obtain the ID of the OSS object.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345213
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2542,7 +4922,18 @@ export class DescribeOssObjectDetailRequest extends $tea.Model {
 }
 
 export class DescribeOssObjectDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the OSS object.
+   */
   ossObjectDetail?: DescribeOssObjectDetailResponseBodyOssObjectDetail;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2589,7 +4980,15 @@ export class DescribeOssObjectDetailResponse extends $tea.Model {
 }
 
 export class DescribeOssObjectDetailV2Request extends $tea.Model {
+  /**
+   * @example
+   * 12300
+   */
   id?: string;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2612,6 +5011,10 @@ export class DescribeOssObjectDetailV2Request extends $tea.Model {
 
 export class DescribeOssObjectDetailV2ResponseBody extends $tea.Model {
   ossObjectDetail?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail;
+  /**
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2658,17 +5061,114 @@ export class DescribeOssObjectDetailV2Response extends $tea.Model {
 }
 
 export class DescribeOssObjectsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The code of the file type.
+   * 
+   * @example
+   * 1
+   */
   fileCategoryCode?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the OSS object belongs.
+   * 
+   * > You can call the **DescribeInstances** operation to query the instance ID.
+   * 
+   * @example
+   * ins-2222
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The end time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   lastScanTimeEnd?: number;
+  /**
+   * @remarks
+   * The start time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   lastScanTimeStart?: number;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the OSS object. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the OSS object hits.
+   * 
+   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 1222
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific rule template.
+   * 
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2710,10 +5210,42 @@ export class DescribeOssObjectsRequest extends $tea.Model {
 }
 
 export class DescribeOssObjectsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * A list of OSS objects.
+   */
   items?: DescribeOssObjectsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2766,13 +5298,84 @@ export class DescribeOssObjectsResponse extends $tea.Model {
 }
 
 export class DescribePackagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the package belongs.
+   * 
+   * > You can call the **DescribeInstances** operation to query the ID of the instance.
+   * 
+   * @example
+   * 12321
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the service to which the package belongs.
+   * 
+   * > You can call the **DescribeDataAssets** operation to query the ID of the service.
+   * 
+   * @example
+   * 2566600
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the package. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the package hits.
+   * 
+   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 266666
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2806,10 +5409,42 @@ export class DescribePackagesRequest extends $tea.Model {
 }
 
 export class DescribePackagesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the information about the packages.
+   */
   items?: DescribePackagesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2862,17 +5497,61 @@ export class DescribePackagesResponse extends $tea.Model {
 }
 
 export class DescribeParentInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   authStatus?: number;
+  /**
+   * @example
+   * 3
+   */
   checkStatus?: number;
+  /**
+   * @example
+   * Running
+   */
   clusterStatus?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * db_test
+   */
   dbName?: string;
+  /**
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @example
+   * rm-azfxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
   memberAccount?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
   resourceType?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   serviceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2914,10 +5593,26 @@ export class DescribeParentInstanceRequest extends $tea.Model {
 }
 
 export class DescribeParentInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   items?: DescribeParentInstanceResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ACEF9334-BB50-525D-8CF3-6CF504E4D1B3
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2970,8 +5665,32 @@ export class DescribeParentInstanceResponse extends $tea.Model {
 }
 
 export class DescribeRiskLevelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   zh_cn: Chinese (default)
+   * *   en_us: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific rule template.
+   * 
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2995,7 +5714,18 @@ export class DescribeRiskLevelsRequest extends $tea.Model {
 }
 
 export class DescribeRiskLevelsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 136082B3-B21F-5E9D-B68E-991FFD205D24
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of sensitivity levels.
+   */
   riskLevelList?: DescribeRiskLevelsResponseBodyRiskLevelList[];
   static names(): { [key: string]: string } {
     return {
@@ -3042,23 +5772,190 @@ export class DescribeRiskLevelsResponse extends $tea.Model {
 }
 
 export class DescribeRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: keyword
+   * *   **2**: regular expression
+   * 
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @remarks
+   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+   * 
+   * @example
+   * 1
+   */
   contentCategory?: number;
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: built-in rule
+   * *   **1**: custom rule
+   * 
+   * @example
+   * 1
+   */
   customType?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The parent group type of the rule.
+   * 
+   * @example
+   * 4_1
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow earlier versions of request parameters to support keywords that are supported in later versions of request parameters. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * > To specify keywords as the content type of the sensitive data detection rule, you can set the Category parameter to 0 for earlier versions of request parameters and set the Category parameter to 5 for later versions of request parameters. You can specify the KeywordCompatible parameter based on your business requirements.
+   * 
+   * @example
+   * true
+   */
   keywordCompatible?: boolean;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   1: rule-based match
+   * *   2: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule. Fuzzy match is supported.
+   * 
+   * @example
+   * \\*\\*\\* rule
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: number;
+  /**
+   * @remarks
+   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 1
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: sensitive data detection rule
+   * *   **2**: audit rule
+   * *   **3**: anomalous event detection rule
+   * *   **99**: custom rule
+   * 
+   * @example
+   * 1
+   */
   ruleType?: number;
+  /**
+   * @remarks
+   * The status of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data asset
+   * *   **2**: unstructured data asset
+   * 
+   * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+   * 
+   * @example
+   * 1
+   */
   supportForm?: number;
+  /**
+   * @remarks
+   * The severity level of the alert. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 2
+   */
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3112,10 +6009,42 @@ export class DescribeRulesRequest extends $tea.Model {
 }
 
 export class DescribeRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the sensitive data detection rules.
+   */
   items?: DescribeRulesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 23
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3168,17 +6097,110 @@ export class DescribeRulesResponse extends $tea.Model {
 }
 
 export class DescribeTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the data asset to which the table belongs. You can call the [DescribeInstances](~~DescribeInstances~~) operation to obtain the ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported. For example, if you specify test, all tables whose names contain test are retrieved.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the package to which the table belongs. You can call the [DescribePackages](~~DescribePackages~~) operation to obtain the ID of the package.
+   * 
+   * @example
+   * 555555
+   */
   packageId?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the table belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which Data Security Center (DSC) can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the table belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to obtain the ID of the service.
+   * 
+   * @example
+   * 1
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the table hits. You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 333322
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The region in which DSC is activated. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific rule template.
+   * 
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3220,10 +6242,42 @@ export class DescribeTablesRequest extends $tea.Model {
 }
 
 export class DescribeTablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of tables.
+   */
   items?: DescribeTablesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 13
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3277,7 +6331,15 @@ export class DescribeTablesResponse extends $tea.Model {
 
 export class DescribeTemplateAllRulesRequest extends $tea.Model {
   featureType?: number;
+  /**
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3301,6 +6363,10 @@ export class DescribeTemplateAllRulesRequest extends $tea.Model {
 }
 
 export class DescribeTemplateAllRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
   requestId?: string;
   ruleList?: DescribeTemplateAllRulesResponseBodyRuleList[];
   static names(): { [key: string]: string } {
@@ -3348,7 +6414,24 @@ export class DescribeTemplateAllRulesResponse extends $tea.Model {
 }
 
 export class DescribeUserStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3370,7 +6453,18 @@ export class DescribeUserStatusRequest extends $tea.Model {
 }
 
 export class DescribeUserStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the current account.
+   */
   userStatus?: DescribeUserStatusResponseBodyUserStatus;
   static names(): { [key: string]: string } {
     return {
@@ -3417,8 +6511,32 @@ export class DescribeUserStatusResponse extends $tea.Model {
 }
 
 export class DisableUserConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the configuration item. You can call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code of the configuration item.
+   * 
+   * @example
+   * access_failed_cnt
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3442,6 +6560,13 @@ export class DisableUserConfigRequest extends $tea.Model {
 }
 
 export class DisableUserConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC314611-D907-5EBF-B6D8-70425E5A8643
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3486,9 +6611,51 @@ export class DisableUserConfigResponse extends $tea.Model {
 }
 
 export class ExecDatamaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The sensitive data to be de-identified. The value is a JSON string that contains the following parameters:
+   * 
+   * *   **dataHeaderList**: the names of the columns in which data needs to be de-identified. Specify the column names in accordance with the order of data that needs to be de-identified.
+   * *   **dataList**: the data that needs to be de-identified.
+   * *   **ruleList**: the IDs of sensitive data detection rules used to detect data that needs to be de-identified. Specify the rule IDs in accordance with the order of data that needs to be de-identified. Each ID identifies a sensitive data detection rule that is used to detect a type of sensitive data. You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"dataHeaderList":["name","age"],"dataList":[["lily",18],["lucy",17]],"ruleList":[1002,null]}
+   */
   data?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the de-identification template. The ID is generated after you create the de-identification template in the [Data Security Center (DSC) console](https://yundun.console.aliyun.com/?\\&p=sddpnext#/sddp/dm/template). You can choose **Data desensitization** > **Desensitization Template** in the left-side navigation pane and obtain the ID of the de-identification template from the **Desensitization Template** page.
+   * 
+   * *   If you select **Field name** as the matching mode of the template, DSC matches data based on the columns specified by the **dataHeaderList** parameter in the **Data** parameter.
+   * *   If you select **Sensitive type** as the matching mode of the template, DSC matches data based on the sensitive data detection rules specified by the **ruleList** parameter in the **Data** parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3514,7 +6681,25 @@ export class ExecDatamaskRequest extends $tea.Model {
 }
 
 export class ExecDatamaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The de-identified data, which is described in a JSON string. The JSON string contains the following parameters:
+   * 
+   * *   **dataHeaderList**: the names of columns that contain the de-identified data.
+   * *   **dataList**: the de-identified data. The column order of the de-identified data is the same as that indicated by the dataHeaderList parameter.
+   * *   **ruleList**: the IDs of sensitive data detection rules.
+   * 
+   * @example
+   * {"dataHeaderList":["name","age"],"dataList":[["l***",18],["l***",17]],"ruleList":[1002,null]}
+   */
   data?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 813BA9FA-D062-42C4-8CD5-11A7640B96E6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3561,7 +6746,28 @@ export class ExecDatamaskResponse extends $tea.Model {
 }
 
 export class ManualTriggerMaskingProcessRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the de-identification task.
+   * 
+   * The ID of the de-identification task is a string. You can call the DescribeDataMaskingTasks operation to query the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response, default value zh_cn. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3583,6 +6789,13 @@ export class ManualTriggerMaskingProcessRequest extends $tea.Model {
 }
 
 export class ManualTriggerMaskingProcessResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3627,22 +6840,181 @@ export class ManualTriggerMaskingProcessResponse extends $tea.Model {
 }
 
 export class ModifyDataLimitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * > When a re-scan is triggered, DSC scans all data in your data asset.
+   * 
+   * @example
+   * 1
+   */
   autoScan?: number;
+  /**
+   * @remarks
+   * The database engine that is run by the instance. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The unique ID of the data asset for which you want to modify configuration items.
+   * 
+   * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese (default)
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+   * 
+   * *   **30**
+   * *   **90**
+   * *   **180**
+   * *   **365**
+   * 
+   * @example
+   * 30
+   */
   logStoreDay?: number;
+  /**
+   * @remarks
+   * Specifies whether to change the username and password that are used to log on to the ApsaraDB RDS database. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   modifyPassword?: boolean;
+  /**
+   * @remarks
+   * The password used to log on to the ApsaraDB RDS database that you authorize DSC to access.
+   * 
+   * @example
+   * ********
+   */
   password?: string;
+  /**
+   * @remarks
+   * The port that is used to connect to the database.
+   * 
+   * @example
+   * 3306
+   */
   port?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The number of sensitive data samples tht are collected after sensitive data detection is enabled. Valid values:
+   * 
+   * *   **0**
+   * *   **5**
+   * *   **10**
+   * 
+   * @example
+   * 0
+   */
   samplingSize?: number;
+  /**
+   * @remarks
+   * The security group that is used by PrivateLink when you install the DSC agent.
+   */
   securityGroupIdList?: string[];
+  /**
+   * @remarks
+   * The region in which the data asset resides. Valid values:
+   * 
+   * *   **cn-beijing**: China (Beijing)
+   * *   **cn-zhangjiakou**: China (Zhangjiakou)
+   * *   **cn-huhehaote**: China (Hohhot)
+   * *   **cn-hangzhou**: China (Hangzhou)
+   * *   **cn-shanghai**: China (Shanghai)
+   * *   **cn-shenzhen**: China (Shenzhen)
+   * *   **cn-hongkong**: China (Hong Kong)
+   * 
+   * @example
+   * cn-hangzhou
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The username used to log on to the ApsaraDB RDS database that you authorize DSC to access.
+   * 
+   * @example
+   * User01
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The vSwitch that is used by PrivateLink when you install the DSC agent.
+   */
   vSwitchIdList?: string[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the data asset belongs.
+   * 
+   * @example
+   * vpc-2zevcqke6hh09c41****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3694,6 +7066,13 @@ export class ModifyDataLimitRequest extends $tea.Model {
 }
 
 export class ModifyDataLimitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3738,8 +7117,44 @@ export class ModifyDataLimitResponse extends $tea.Model {
 }
 
 export class ModifyDefaultLevelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The default sensitivity level of data that Data Security Center (DSC) cannot classify as sensitive or insensitive. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 4
+   */
   defaultId?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The sensitivity level ID of data that DSC classifies as sensitive. Separate multiple IDs with commas (,). Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 1,2,3,4
+   */
   sensitiveIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3763,6 +7178,13 @@ export class ModifyDefaultLevelRequest extends $tea.Model {
 }
 
 export class ModifyDefaultLevelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3807,10 +7229,60 @@ export class ModifyDefaultLevelResponse extends $tea.Model {
 }
 
 export class ModifyEventStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enhance the detection of anomalous events. If you enhance the detection of anomalous events, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   backed?: boolean;
+  /**
+   * @remarks
+   * The reason why the anomalous event is handled.
+   * 
+   * @example
+   * Anomaly confirmed
+   */
   dealReason?: string;
+  /**
+   * @remarks
+   * The ID of the anomalous event.
+   * 
+   * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The method to handle the anomalous event. Valid values:
+   * 
+   * *   **1**: marks the anomalous event as a false positive.
+   * *   **2**: confirms and handles the anomalous event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3838,6 +7310,13 @@ export class ModifyEventStatusRequest extends $tea.Model {
 }
 
 export class ModifyEventStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3882,8 +7361,31 @@ export class ModifyEventStatusResponse extends $tea.Model {
 }
 
 export class ModifyEventTypeStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the anomalous event subtype. Separate multiple IDs with commas (,).
+   * 
+   * > You can call the **DescribeEventTypes** operation to query the ID of anomalous event subtype.
+   * 
+   * @example
+   * 020008
+   */
   subTypeIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3907,6 +7409,13 @@ export class ModifyEventTypeStatusRequest extends $tea.Model {
 }
 
 export class ModifyEventTypeStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1E*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3951,8 +7460,37 @@ export class ModifyEventTypeStatusResponse extends $tea.Model {
 }
 
 export class ModifyReportTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * Specifies the status of the report task. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * > This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   reportTaskStatus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3976,6 +7514,13 @@ export class ModifyReportTaskStatusRequest extends $tea.Model {
 }
 
 export class ModifyReportTaskStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4020,17 +7565,139 @@ export class ModifyReportTaskStatusResponse extends $tea.Model {
 }
 
 export class ModifyRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **2**: regular expression
+   * *   **3**: algorithm
+   * *   **5**: keyword
+   * 
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @remarks
+   * The content of the sensitive data detection rule. You can specify a regular expression, an algorithm, or keywords that are used to match sensitive fields or text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1****
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   **1**: rule-based match
+   * *   **2**: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule.
+   * 
+   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esw
+   */
   name?: string;
+  /**
+   * @remarks
+   * The service to which the sensitive data detection rule is applied. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 5
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: data detection rule
+   * *   **2**: audit rule
+   * *   **3**: anomalous event detection rule
+   * 
+   * @example
+   * 1
+   */
   ruleType?: number;
+  /**
+   * @remarks
+   * The data assets supported by the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data assets
+   * *   **2**: unstructured data assets
+   * 
+   * @example
+   * 1
+   */
   supportForm?: number;
+  /**
+   * @remarks
+   * The risk level of the alert that is triggered by the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: low level
+   * *   **2**: medium level
+   * *   **3**: high level
+   * 
+   * @example
+   * 1
+   */
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4072,6 +7739,13 @@ export class ModifyRuleRequest extends $tea.Model {
 }
 
 export class ModifyRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4116,9 +7790,49 @@ export class ModifyRuleResponse extends $tea.Model {
 }
 
 export class ModifyRuleStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+   * 
+   * @example
+   * 12341
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule. Separate multiple IDs with commas (,).
+   * 
+   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+   * 
+   * @example
+   * 1,2,3,4
+   */
   ids?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable or disable the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: disables the sensitive data detection rule.
+   * *   **1**: enables the sensitive data detection rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4144,7 +7858,21 @@ export class ModifyRuleStatusRequest extends $tea.Model {
 }
 
 export class ModifyRuleStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
+   * 
+   * @example
+   * 1,2,3,4
+   */
   failedIds?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4191,7 +7919,26 @@ export class ModifyRuleStatusResponse extends $tea.Model {
 }
 
 export class StopMaskingProcessRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique ID of the de-identification task. You can query the task ID by calling the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4213,6 +7960,13 @@ export class StopMaskingProcessRequest extends $tea.Model {
 }
 
 export class StopMaskingProcessResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4257,16 +8011,60 @@ export class StopMaskingProcessResponse extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateListResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   currentRiskLevel?: number;
+  /**
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @example
+   * 1582992000000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1545277010000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * 2
+   */
   maxCategoryLevel?: number;
+  /**
+   * @example
+   * 5
+   */
   maxRiskLevel?: number;
+  /**
+   * @example
+   * built-in template
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 0
+   */
   supportEdit?: number;
+  /**
+   * @example
+   * 6
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4306,12 +8104,86 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * Rule for identifying ID card numbers
+   */
   description?: string;
+  /**
+   * @remarks
+   * The unique ID of the rule.
+   * 
+   * @example
+   * 100
+   */
   id?: number;
+  /**
+   * @remarks
+   * The IDs of sensitive data types. Multiple IDs are separated by commas (,).
+   * 
+   * @example
+   * 1001,1002
+   */
   identificationRuleIds?: string;
+  /**
+   * @remarks
+   * The scan scope of the rule. The value is a JSON array of the STRING type. Each element in a JSON array indicates a scan scope that contains the following fields:
+   * 
+   * *   **Asset**: the data asset type. Valid values: RDS, DRDS, PolarDB, OTS, ADB, and OceanBase. The value is of the STRING type.
+   * 
+   * *   **Content**: the scan scope. The value is of the STRING type. Each element in a JSON array indicates a scan scope that contains the following fields:
+   * 
+   *     *   **Range**: the matching condition. Valid values: Instance, database, table, column, project, bucket, and object. The value project is valid only for data assets in MaxCompute. The values bucket and object are valid only for data assets in Object Storage Service (OSS). The value of this parameter is of the STRING type.
+   *     *   **Operator**: the operator. Valid values: equals, regex, prefix, and suffix. The operator equals indicates a full match. The operator regex indicates a match by regular expression. The operator prefix indicates a match by prefix. The operator suffix indicates a match by suffix.
+   *     *   **Value**: the matching content. The value is of the STRING type.
+   * 
+   * @example
+   * [{"Asset":"RDS","Content":[{"Range":"database","Operator":"regex","Value":"register"}]},{"Asset":"RDS","Content":[{"Range":"table","Operator":"regex","Value":"register"}]},{"Asset":"RDS","Content":[{"Range":"column","Operator":"regex","Value":"register"}]},{"Asset":"ODPS","Content":[{"Range":"project","Operator":"regex","Value":"register"}]},{"Asset":"ODPS","Content":[{"Range":"table","Operator":"regex","Value":"register"}]},{"Asset":"ODPS","Content":[{"Range":"column","Operator":"regex","Value":"register"}]}]
+   */
   identificationScope?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * ID card number
+   */
   name?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the data that is not compliant with the rule. Valid values: **1** to **11**.
+   * 
+   * *   **1**: No sensitive data is detected.
+   * *   **2**: indicates the S1 sensitivity level.
+   * *   **3**: indicates the S2 sensitivity level.
+   * *   **4**: indicates the S3 sensitivity level.
+   * *   **5**: indicates the S4 sensitivity level.
+   * *   **6**: indicates the S5 sensitivity level.
+   * *   **7**: indicates the S6 sensitivity level.
+   * *   **8**: indicates the S7 sensitivity level.
+   * *   **9**: indicates the S8 sensitivity level.
+   * *   **10**: indicates the S9 sensitivity level.
+   * *   **11**: indicates the S10 sensitivity level.
+   * *   **null**: indicates all preceding sensitivity levels.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * *   **null**: all states
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4343,7 +8215,29 @@ export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Mode
 }
 
 export class DescribeColumnsResponseBodyItemsModelTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag ID.
+   * 
+   * *   **101**: sensitive personal information
+   * *   **102**: personal information
+   * *   **103**: important information
+   * 
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @remarks
+   * The tag name.
+   * 
+   * *   Sensitive personal information
+   * *   Personal information
+   * *   Important information
+   * 
+   * @example
+   * personal sensitive data
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4365,25 +8259,198 @@ export class DescribeColumnsResponseBodyItemsModelTags extends $tea.Model {
 }
 
 export class DescribeColumnsResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data in the column of the table is created. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The type of data in the column of the table.
+   * 
+   * @example
+   * String
+   */
   dataType?: string;
+  /**
+   * @remarks
+   * The ID of the column of the table.
+   * 
+   * @example
+   * 268
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The name of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * rm-bp17t1htja573l5i8****
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * A list of tags for data that hits the recognition model.
+   */
   modelTags?: DescribeColumnsResponseBodyItemsModelTags[];
+  /**
+   * @remarks
+   * The name of the column of the table.
+   * 
+   * @example
+   * gxdata
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level for asset. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S3
+   */
   odpsRiskLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the asset. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 3
+   */
   odpsRiskLevelValue?: number;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the revision record.
+   * 
+   * @example
+   * 12
+   */
   revisionId?: number;
+  /**
+   * @remarks
+   * Indicates whether the column is revised. Valid values:
+   * 
+   * *   1: yes
+   * *   0: no
+   * 
+   * @example
+   * 1
+   */
   revisionStatus?: number;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of data in the column of the table. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for data in the column of the table. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * 1
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * \\*\\* rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   sensLevelName?: string;
+  /**
+   * @remarks
+   * Indicates whether the column contains sensitive data. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   sensitive?: boolean;
+  /**
+   * @remarks
+   * The ID of the table.
+   * 
+   * @example
+   * 123
+   */
   tableId?: number;
+  /**
+   * @remarks
+   * The name of the table to which the revised column belongs.
+   * 
+   * @example
+   * it_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4441,7 +8508,29 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeColumnsV2ResponseBodyItemsModelTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag ID. Valid values:
+   * 
+   * *   **101**: personal sensitive information
+   * *   **102**: personal information
+   * *   **107**: general information
+   * 
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @remarks
+   * The tag name. Valid values:
+   * 
+   * *   Personal sensitive information
+   * *   Personal information
+   * *   General information
+   * 
+   * @example
+   * personal sensitive information
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4463,25 +8552,201 @@ export class DescribeColumnsV2ResponseBodyItemsModelTags extends $tea.Model {
 }
 
 export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data in the column of the table is created. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The type of data in the column of the table.
+   * 
+   * @example
+   * varchar
+   */
   dataType?: string;
+  /**
+   * @remarks
+   * The ID of the column of the table.
+   * 
+   * @example
+   * 111111
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * 1232122
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The name of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * rm-1234
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * A list of data tags.
+   */
   modelTags?: DescribeColumnsV2ResponseBodyItemsModelTags[];
+  /**
+   * @remarks
+   * The name of the column of the table.
+   * 
+   * @example
+   * obj_id
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level for asset. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S4
+   */
   odpsRiskLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the asset. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * >The return value <=1 means N/A.
+   * 
+   * @example
+   * 3
+   */
   odpsRiskLevelValue?: number;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the revision record.
+   * 
+   * @example
+   * 12
+   */
   revisionId?: number;
+  /**
+   * @remarks
+   * Indicates whether the column is revised. Valid values:
+   * 
+   * *   1: yes
+   * *   0: no
+   * 
+   * @example
+   * 1
+   */
   revisionStatus?: number;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of data in the column of the table. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * >The return value <=1 means N/A.
+   * 
+   * @example
+   * 4
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for data in the column of the table. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S1
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * 1004
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * name
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   sensLevelName?: string;
+  /**
+   * @remarks
+   * Indicates whether the column contains sensitive data. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   sensitive?: boolean;
+  /**
+   * @remarks
+   * The ID of the table.
+   * 
+   * @example
+   * 123
+   */
   tableId?: number;
+  /**
+   * @remarks
+   * The name of the table to which the revised column belongs.
+   * 
+   * @example
+   * it_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4539,10 +8804,45 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeConfigsResponseBodyConfigList extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the common configuration item.
+   * 
+   * @example
+   * 1
+   */
   code?: string;
+  /**
+   * @remarks
+   * The description of the default value for the common configuration item.
+   * 
+   * @example
+   * The volume of logs of a specific type that are generated on the current day is less than 30% of the average volume of logs generated in the previous 10 days.
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * The description of the common configuration item.
+   * 
+   * @example
+   * Anomalous log output
+   */
   description?: string;
+  /**
+   * @remarks
+   * The unique ID of the common configuration item.
+   * 
+   * @example
+   * 2133
+   */
   id?: number;
+  /**
+   * @remarks
+   * The value of the common configuration item.
+   * 
+   * @example
+   * 30
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4570,24 +8870,197 @@ export class DescribeConfigsResponseBodyConfigList extends $tea.Model {
 }
 
 export class DescribeDataAssetsResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The access control list (ACL) that controls the access permissions on the OSS bucket.
+   * 
+   * > This parameter is returned only when you set the parameter **RangeId** to **21**.
+   * 
+   * @example
+   * private
+   */
   acl?: string;
+  /**
+   * @remarks
+   * The time when the data asset was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The data type of the data asset.
+   * 
+   * @example
+   * OSS_BUCKET
+   */
   dataType?: string;
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * @example
+   * 268
+   */
   id?: string;
+  /**
+   * @remarks
+   * The sensitivity tag of the data. The value is fixed as **0**. **0**, **1**, **2**, or **3** is returned for this parameter only when you set the parameter **RangeId** to **1**.
+   * 
+   * *   **0**: unclassified
+   * *   **1**: confidential
+   * *   **2**: sensitive
+   * *   **3**: highly sensitive
+   * 
+   * @example
+   * 0
+   */
   labelsec?: boolean;
+  /**
+   * @remarks
+   * The name of the data asset.
+   * 
+   * @example
+   * gxdata
+   */
   name?: string;
+  /**
+   * @remarks
+   * The key value of the OSS object.
+   * 
+   * > This parameter is returned only when you set the parameter **RangeId** to **22**.
+   * 
+   * @example
+   * Internal
+   */
   objectKey?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the MaxCompute data asset. Valid values:
+   * 
+   * *   **S1**: low sensitivity level
+   * *   **S2**: medium sensitivity level
+   * *   **S3**: high sensitivity level
+   * *   **S4**: highest sensitivity level
+   * 
+   * > This parameter is returned only when you set the parameter **RangeId** to **1**.
+   * 
+   * @example
+   * S4
+   */
   odpsRiskLevelName?: string;
+  /**
+   * @remarks
+   * The account that owns the data asset.
+   * 
+   * @example
+   * dtdep-239-******
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs.
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * @example
+   * 5
+   */
   productId?: string;
+  /**
+   * @remarks
+   * Indicates whether the data protection mechanism is enabled for the data asset. The value is fixed as **false**. **true** or **false** is returned for this parameter only when you set the parameter **RangeId** to **1**.
+   * 
+   * *   **false**: The data protection mechanism is disabled.
+   * *   **true**: The data protection mechanism is enabled. Only data inbound is supported. Data outbound is not supported.
+   * 
+   * @example
+   * false
+   */
   protection?: boolean;
+  /**
+   * @remarks
+   * The sensitivity level of the data asset. A higher sensitivity level indicates that the identified data is more sensitive. Valid values:
+   * 
+   * *   **1**: No sensitive data is identified.
+   * *   **2**: sensitive data at level 1.
+   * *   **3**: sensitive data at level 2.
+   * *   **3**: sensitive data at level 3.
+   * *   **5**: sensitive data at level 4.
+   * *   **6**: sensitive data at level 5.
+   * *   **7**: sensitive data at level 6.
+   * *   **8**: sensitive data at level 7.
+   * *   **9**: sensitive data at level 8.
+   * *   **10**: sensitive data at level 9.
+   * *   **11**: sensitive data at level 10.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the data asset.
+   * 
+   * @example
+   * Medium sensitivity level
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that the data asset hits.
+   * 
+   * @example
+   * \\*\\*\\* rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * Indicates whether the data asset contains sensitive data. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   sensitive?: boolean;
+  /**
+   * @remarks
+   * The total number of sensitive data assets. For example, the value can be the total number of sensitive MaxCompute projects, packages, or tables, the total number of sensitive ApsaraDB RDS databases or tables, or the total number of sensitive OSS buckets or objects.
+   * 
+   * @example
+   * 24
+   */
   sensitiveCount?: number;
+  /**
+   * @remarks
+   * The percentage of sensitive data in all data assets.
+   * 
+   * @example
+   * 45%
+   */
   sensitiveRatio?: string;
+  /**
+   * @remarks
+   * The total number of data assets. For example, the value can be the total number of MaxCompute projects, packages, or tables, the total number of ApsaraDB RDS databases or tables, or the total number of OSS buckets or objects.
+   * 
+   * @example
+   * 432
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4643,16 +9116,113 @@ export class DescribeDataAssetsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDataLimitDetailResponseBodyDataLimit extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the connectivity test between the data asset and DSC. Valid values:
+   * 
+   * *   **2**: indicates that the data asset was being connected.
+   * *   **3**: indicates that the data asset was connected to DSC.
+   * *   **4**: indicates that the data asset failed to be connected.
+   * 
+   * @example
+   * 3
+   */
   checkStatus?: number;
+  /**
+   * @remarks
+   * The result that indicates the status of the connectivity test between the data asset and DSC. Valid values:
+   * 
+   * *   **Passed**
+   * *   **Failed**
+   * *   **Testing**
+   * 
+   * @example
+   * Passed
+   */
   checkStatusName?: string;
+  /**
+   * @remarks
+   * The time when the data asset was connected to DSC. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 145600000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * @example
+   * 12300
+   */
   id?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * China (Qingdao)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The ID and name of the data asset in the service to which the data asset belongs.
+   * 
+   * @example
+   * rm-m5eup49p6o274****.RDS_example
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The port number that is used to connect to the database.
+   * 
+   * @example
+   * 3306
+   */
   port?: number;
+  /**
+   * @remarks
+   * The ID of the region in which the data asset resides.
+   * 
+   * @example
+   * cn-qingdao
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The service to which the data asset belongs. Valid values:
+   * 
+   * *   **MaxCompute**
+   * *   **OSS**
+   * *   **ADS**
+   * *   **OTS**
+   * *   **RDS**
+   * 
+   * @example
+   * RDS
+   */
   resourceTypeCode?: string;
+  /**
+   * @remarks
+   * The account of the user who manages the data asset.
+   * 
+   * @example
+   * User01
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4692,16 +9262,109 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $tea.Model {
 }
 
 export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the test of connectivity between DSC and the data asset is passed.
+   * 
+   * *   **2**: The connectivity test is in progress.
+   * *   **3**: The connectivity test is passed.
+   * *   **4**: The connectivity test failed.
+   * 
+   * @example
+   * 3
+   */
   checkStatus?: number;
+  /**
+   * @remarks
+   * The name of the data detection status.
+   * 
+   * @example
+   * Connectivity test status
+   */
   checkStatusName?: string;
+  /**
+   * @remarks
+   * The connection string that is used to access the data asset.
+   * 
+   * @example
+   * Connection string
+   */
   connector?: string;
+  /**
+   * @remarks
+   * The time when the data asset was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1625587423000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The parent asset ID of the data asset.
+   * 
+   * @example
+   * db
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * cn-****
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * @example
+   * 2
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The code of the service to which the data asset belongs. Valid values:
+   * 
+   * *   **ODPS**
+   * *   **OSS**
+   * *   **ADS**
+   * *   **OTS**
+   * *   **RDS**
+   * 
+   * @example
+   * OSS
+   */
   resourceTypeCode?: string;
+  /**
+   * @remarks
+   * The username that is used to access the data asset.
+   * 
+   * @example
+   * tsts
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4741,7 +9404,21 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
 }
 
 export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket to which the OSS object belongs.
+   * 
+   * @example
+   * oss-bucket
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The region ID of the OSS object.
+   * 
+   * @example
+   * cn-****
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4763,7 +9440,21 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $
 }
 
 export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-****
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4785,11 +9476,56 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $tea
 }
 
 export class DescribeDataLimitSetResponseBodyDataLimitSet extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of data assets that DSC is authorized to scan.
+   */
   dataLimitList?: DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList[];
+  /**
+   * @remarks
+   * An array consisting of the OSS objects that DSC is authorized to scan.
+   */
   ossBucketList?: DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList[];
+  /**
+   * @remarks
+   * An array consisting of the regions in which the data assets can be scanned.
+   */
   regionList?: DescribeDataLimitSetResponseBodyDataLimitSetRegionList[];
+  /**
+   * @remarks
+   * The type of service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * @example
+   * 2
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The service to which the data asset belongs. Valid values:
+   * 
+   * *   **ODPS**
+   * *   **OSS**
+   * *   **ADS**
+   * *   **OTS**
+   * *   **RDS**
+   * 
+   * @example
+   * OSS
+   */
   resourceTypeCode?: string;
+  /**
+   * @remarks
+   * The total number of data objects in the data assets.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4819,45 +9555,375 @@ export class DescribeDataLimitSetResponseBodyDataLimitSet extends $tea.Model {
 }
 
 export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the security audit feature is enabled. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @remarks
+   * Indicates whether the data asset can be automatically scanned. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 1
+   */
   autoScan?: number;
+  /**
+   * @remarks
+   * The data detection status. Valid values:
+   * 
+   * *   **0**: The data detection is ready.
+   * *   **1**: The data detection is running.
+   * *   **2**: The connectivity test is in progress.
+   * *   **3**: The connectivity test is passed.
+   * *   **4**: The connectivity test failed.
+   * 
+   * @example
+   * 3
+   */
   checkStatus?: number;
+  /**
+   * @remarks
+   * The name of the data detection status.
+   * 
+   * @example
+   * Connectivity test status
+   */
   checkStatusName?: string;
+  /**
+   * @remarks
+   * Indicates whether DSC has the data de-identification permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   datamaskStatus?: number;
+  /**
+   * @remarks
+   * The database engine version.
+   * 
+   * @example
+   * 2.0
+   */
   dbVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether DSC has the data identification permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+   * 
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * connect_network_error
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The reason for the failure.
+   * 
+   * @example
+   * The password is invalid.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * Indicates whether the data leak prevention feature is enabled. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes (default)
+   * 
+   * @example
+   * 1
+   */
   eventStatus?: number;
+  /**
+   * @remarks
+   * The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 145600000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The unique ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * 123
+   */
   instanceDescription?: string;
+  /**
+   * @remarks
+   * The ID of the data asset to which the table belongs.
+   * 
+   * @example
+   * 12332
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The time when the last scan is performed.
+   * 
+   * *   The value is a UNIX timestamp.
+   * *   Unit: milliseconds.
+   * 
+   * @example
+   * 145600000
+   */
   lastFinishedTime?: number;
+  lastStartTime?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The retention period of raw logs. Unit: days.
+   * 
+   * @example
+   * 30
+   */
   logStoreDay?: number;
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * **********8103
+   */
   memberAccount?: number;
+  /**
+   * @remarks
+   * The next time when the data asset is scanned. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1676620236000
+   */
   nextStartTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the optical character recognition (OCR) feature is enabled. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 1
+   */
   ocrStatus?: number;
+  /**
+   * @remarks
+   * The parent ID of the data asset that you want to query. Valid values include **bucket, db, and project**.
+   * 
+   * @example
+   * project
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The port number of the self-managed database.
+   * 
+   * @example
+   * 3306
+   */
   port?: number;
+  /**
+   * @remarks
+   * The status of the data asset scan. Valid values:
+   * 
+   * *   **-1**: invalid
+   * *   **0**: waiting
+   * *   **1**: being scanned
+   * *   **2**: suspended
+   * *   **3**: completed
+   * 
+   * @example
+   * 3
+   */
   processStatus?: number;
+  /**
+   * @remarks
+   * The total number of data tables or files.
+   * 
+   * @example
+   * 100
+   */
   processTotalCount?: number;
+  /**
+   * @remarks
+   * The region in which the asset resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * *   **6**: self-managed database
+   * 
+   * @example
+   * 5
+   */
   resourceType?: number;
+  /**
+   * @remarks
+   * The code of the service to which the data asset belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
   resourceTypeCode?: string;
+  /**
+   * @remarks
+   * The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: data entries.
+   * 
+   * @example
+   * 5
+   */
   samplingSize?: number;
+  /**
+   * @remarks
+   * A list of the IDs of the security groups that are used by PrivateLink when you install the DSC agent.
+   */
   securityGroupIdList?: string[];
+  /**
+   * @remarks
+   * Indicates whether the security audit feature is supported. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   supportAudit?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the data de-identification feature is supported. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   supportDatamask?: boolean;
+  /**
+   * @remarks
+   * Indicates whether anomalous event detection is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   supportEvent?: boolean;
+  /**
+   * @remarks
+   * Indicates whether OCR is supported. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   supportOcr?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the data asset scan feature is supported. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   supportScan?: boolean;
+  /**
+   * @remarks
+   * The alias of the tenant.
+   * 
+   * @example
+   * insta_gram
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The total number of fields in the table.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The username that is used to access the data asset.
+   * 
+   * @example
+   * tsts
+   */
   userName?: string;
+  /**
+   * @remarks
+   * A list of the IDs of the vSwitches that are used by PrivateLink when you install the DSC agent.
+   */
   vSwitchIdList?: string[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the data asset belongs.
+   * 
+   * @example
+   * vpc-2zevcqke6hh09c41****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4877,6 +9943,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       instanceDescription: 'InstanceDescription',
       instanceId: 'InstanceId',
       lastFinishedTime: 'LastFinishedTime',
+      lastStartTime: 'LastStartTime',
       localName: 'LocalName',
       logStoreDay: 'LogStoreDay',
       memberAccount: 'MemberAccount',
@@ -4922,6 +9989,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       instanceDescription: 'string',
       instanceId: 'string',
       lastFinishedTime: 'number',
+      lastStartTime: 'number',
       localName: 'string',
       logStoreDay: 'number',
       memberAccount: 'number',
@@ -4955,24 +10023,170 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDataMaskingRunHistoryResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The number of rows that are in conflict with the data to be de-identified in the destination table to which the data to be de-identified is moved.
+   * 
+   * @example
+   * 0
+   */
   conflictCount?: number;
+  /**
+   * @remarks
+   * The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   dstType?: number;
+  /**
+   * @remarks
+   * The service that stores the de-identified data. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * OSS
+   */
   dstTypeCode?: string;
+  /**
+   * @remarks
+   * The end time of the de-identification task.
+   * 
+   * @example
+   * 1582251233000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The error code that is returned when the de-identification task fails.
+   * 
+   * @example
+   * masking_task_not_found
+   */
   failCode?: string;
+  /**
+   * @remarks
+   * The reason why the de-identification task fails.
+   * 
+   * @example
+   * error
+   */
   failMsg?: string;
+  /**
+   * @remarks
+   * Indicates whether a file is available for download.
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   hasDownloadFile?: number;
+  /**
+   * @remarks
+   * The number of created subtasks.
+   * 
+   * @example
+   * 4
+   */
   hasSubProcess?: number;
+  /**
+   * @remarks
+   * The ID of the task execution record.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The number of rows that are de-identified.
+   * 
+   * @example
+   * 100
+   */
   maskingCount?: number;
+  /**
+   * @remarks
+   * The progress of the de-identification task.
+   * 
+   * @example
+   * 100
+   */
   percentage?: number;
+  /**
+   * @remarks
+   * The number of times that the de-identification task is executed.
+   * 
+   * @example
+   * 1
+   */
   runIndex?: number;
+  /**
+   * @remarks
+   * The name of the source table.
+   * 
+   * @example
+   * add
+   */
   srcTableName?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   srcType?: number;
+  /**
+   * @remarks
+   * The service to which the data to be de-identified belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * OSS
+   */
   srcTypeCode?: string;
+  /**
+   * @remarks
+   * The time when the de-identification task was executed. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1582251233000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the de-identification task. Valid values:
+   * 
+   * *   **-1**: waiting
+   * *   **0**: being executed
+   * *   **1**: executed
+   * *   **2**: failed to be executed
+   * *   **3**: terminated
+   * *   **4**: partially failed
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the identification task.
+   * 
+   * @example
+   * mt4HBgtw1B******
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The mode in which the de-identification task is executed. Valid values:
+   * 
+   * *   **1**: manual
+   * *   **2**: scheduled
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5028,23 +10242,150 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The member account to which the desensitization target belongs.
+   * 
+   * @example
+   * 192479427903xxxx
+   */
   dstMemberAccount?: number;
+  /**
+   * @remarks
+   * The destination path.
+   */
   dstPath?: string;
+  /**
+   * @remarks
+   * The service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 5
+   */
   dstType?: number;
+  /**
+   * @remarks
+   * The type of the service to which the de-identified data belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
   dstTypeCode?: string;
+  /**
+   * @remarks
+   * The time when the de-identification task is created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1582992000000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * Indicates whether the de-identification task is running.
+   * 
+   * @example
+   * false
+   */
   hasUnfinishProcess?: boolean;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * Indicates whether the source table is de-identified.
+   * 
+   * @example
+   * false
+   */
   originalTable?: boolean;
+  /**
+   * @remarks
+   * The user who created the de-identification task.
+   * 
+   * @example
+   * owner
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The number of times that the de-identification task is run.
+   * 
+   * @example
+   * 1
+   */
   runCount?: number;
+  /**
+   * @remarks
+   * The member account to which the desensitization source belongs.
+   * 
+   * @example
+   * 192479427903xxxx
+   */
   srcMemberAccount?: number;
+  /**
+   * @remarks
+   * The source path.
+   */
   srcPath?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 5
+   */
   srcType?: number;
+  /**
+   * @remarks
+   * The type of the service to which the data to be de-identified belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
   srcTypeCode?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * mt4HBgtw1B******
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Task name
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The mode in which the de-identification task is run. Valid values:
+   * 
+   * *   **1**: manual
+   * *   **2**: scheduled
+   * *   **3**: manual and scheduled
+   * 
+   * @example
+   * 1
+   */
   triggerType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5098,7 +10439,15 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $tea.Model {
+  /**
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @example
+   * personal sensitive information
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5121,15 +10470,51 @@ export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $t
 
 export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model {
   categories?: string[];
+  /**
+   * @example
+   * column comment
+   */
   columnComment?: string;
+  /**
+   * @example
+   * hide14
+   */
   columnName?: string;
+  /**
+   * @example
+   * varchar
+   */
   dataType?: string;
+  /**
+   * @example
+   * 1509415150052786176
+   */
   id?: string;
   modelTags?: DescribeDataObjectColumnDetailResponseBodyItemsModelTags[];
+  /**
+   * @example
+   * true
+   */
   primaryKey?: boolean;
+  /**
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @example
+   * S1
+   */
   riskLevelName?: string;
+  /**
+   * @example
+   * 1004
+   */
   ruleId?: number;
+  /**
+   * @example
+   * name
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5169,7 +10554,15 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model 
 }
 
 export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends $tea.Model {
+  /**
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @example
+   * personal sensitive information
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5192,15 +10585,51 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends 
 
 export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Model {
   categories?: string[];
+  /**
+   * @example
+   * column comment
+   */
   columnComment?: string;
+  /**
+   * @example
+   * hide14
+   */
   columnName?: string;
+  /**
+   * @example
+   * varchar
+   */
   dataType?: string;
+  /**
+   * @example
+   * 1392973973691383808
+   */
   id?: string;
   modelTags?: DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags[];
+  /**
+   * @example
+   * true
+   */
   primaryKey?: boolean;
+  /**
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @example
+   * S1
+   */
   riskLevelName?: string;
+  /**
+   * @example
+   * 51
+   */
   ruleId?: number;
+  /**
+   * @example
+   * name
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5240,7 +10669,15 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Mode
 }
 
 export class DescribeDataObjectsResponseBodyItemsModelTags extends $tea.Model {
+  /**
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @example
+   * personal sensitive information
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5262,10 +10699,30 @@ export class DescribeDataObjectsResponseBodyItemsModelTags extends $tea.Model {
 }
 
 export class DescribeDataObjectsResponseBodyItemsRuleList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @example
+   * S1
+   */
   riskLevelName?: string;
+  /**
+   * @example
+   * 590
+   */
   ruleCount?: number;
+  /**
+   * @example
+   * 1080
+   */
   ruleId?: number;
+  /**
+   * @example
+   * name
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5294,23 +10751,71 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $tea.Model {
 
 export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
   categories?: string[];
+  /**
+   * @example
+   * 20000
+   */
   id?: string;
+  /**
+   * @example
+   * instance description
+   */
   instanceDescription?: string;
+  /**
+   * @example
+   * rm-1234
+   */
   instanceId?: string;
   lastModifiedTime?: number;
+  /**
+   * @example
+   * 1687676649830
+   */
   lastScanTime?: number;
   memberAccount?: number;
   modelTags?: DescribeDataObjectsResponseBodyItemsModelTags[];
+  /**
+   * @example
+   * t_sddp_selfmysql_pers0
+   */
   name?: string;
   objectFileCategory?: string;
+  /**
+   * @example
+   * text type
+   */
   objectType?: string;
+  /**
+   * @example
+   * rm-1234.db_test
+   */
   path?: string;
+  /**
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @example
+   * 5
+   */
   productId?: number;
   regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionName?: string;
   ruleList?: DescribeDataObjectsResponseBodyItemsRuleList[];
+  /**
+   * @example
+   * 1
+   */
   sensitiveCount?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5366,8 +10871,20 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDocTypesResponseBodyDocTypeList extends $tea.Model {
+  /**
+   * @example
+   * 100001
+   */
   code?: number;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * C/C++ Source Code
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5391,8 +10908,26 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $tea.Model {
 }
 
 export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Model {
+  /**
+   * @remarks
+   * The value of the data item on the X axis.
+   * 
+   * @example
+   * [test1,test2,...]
+   */
   x?: string[];
+  /**
+   * @remarks
+   * The value of the data item on the Y axis.
+   * 
+   * @example
+   * [1,2,3,...]
+   */
   y?: string[];
+  /**
+   * @remarks
+   * The value of the data item for the Z axis.
+   */
   z?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5416,13 +10951,78 @@ export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Mo
 }
 
 export class DescribeEventDetailResponseBodyEventDetailChart extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the chart. Valid values:
+   * 
+   * *   **1**: column chart
+   * *   **2**: line chart
+   * 
+   * >This field will be returned only when NewAlarm is true.
+   * 
+   * @example
+   * 1
+   */
   chatType?: number;
+  /**
+   * @remarks
+   * The data in the baseline behavior profile of the anomalous event.
+   */
   data?: DescribeEventDetailResponseBodyEventDetailChartData;
+  /**
+   * @remarks
+   * The name of the baseline behavior chart of the anomalous event.
+   * 
+   * @example
+   * Baseline behavior chart
+   */
   label?: string;
+  /**
+   * @remarks
+   * Icon title.
+   * 
+   * >This field will be returned only when NewAlarm is true.
+   * 
+   * @example
+   * misskingm
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the chart. Valid values:
+   * 
+   * *   **1**: column chart
+   * *   **2**: line chart
+   * 
+   * @example
+   * 1
+   */
   type?: string;
+  /**
+   * @remarks
+   * The descriptive label of data items on the X axis.
+   * 
+   * @example
+   * Number of days
+   */
   XLabel?: string;
+  /**
+   * @remarks
+   * The descriptive label of data items on the Y axis.
+   * 
+   * @example
+   * Value
+   */
   YLabel?: string;
+  /**
+   * @remarks
+   * The descriptive label of data items on the Z axis.
+   * 
+   * >This field will be returned only when NewAlarm is true.
+   * 
+   * @example
+   * chart description
+   */
   ZLabel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5456,8 +11056,29 @@ export class DescribeEventDetailResponseBodyEventDetailChart extends $tea.Model 
 }
 
 export class DescribeEventDetailResponseBodyEventDetailContent extends $tea.Model {
+  /**
+   * @remarks
+   * The title of the content in the anomalous event.
+   * 
+   * @example
+   * Anomaly description
+   */
   label?: string;
+  /**
+   * @remarks
+   * Exception event name.
+   * 
+   * @example
+   * daliaoyuncom
+   */
   name?: string;
+  /**
+   * @remarks
+   * The description of the content in the anomalous event.
+   * 
+   * @example
+   * The account was used to access OSS from an unusual terminal whose IP address is 1.2.3.4 from 00:06:45 on September 9, 2019 to 00:57:37 on September 9, 2019.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5481,7 +11102,21 @@ export class DescribeEventDetailResponseBodyEventDetailContent extends $tea.Mode
 }
 
 export class DescribeEventDetailResponseBodyEventDetailResourceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The source title.
+   * 
+   * @example
+   * Risk
+   */
   label?: string;
+  /**
+   * @remarks
+   * The source description.
+   * 
+   * @example
+   * Based on the record of authentication by using an unusual terminal, an attacker may have obtained the access permission of the account, or an employee accessed data from a personal terminal.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5503,8 +11138,20 @@ export class DescribeEventDetailResponseBodyEventDetailResourceInfo extends $tea
 }
 
 export class DescribeEventDetailResponseBodyEventDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline behavior chart of the anomalous event.
+   */
   chart?: DescribeEventDetailResponseBodyEventDetailChart[];
+  /**
+   * @remarks
+   * The content in the anomalous event.
+   */
   content?: DescribeEventDetailResponseBodyEventDetailContent[];
+  /**
+   * @remarks
+   * An array that consists of the source from which the information of the anomalous event is recorded.
+   */
   resourceInfo?: DescribeEventDetailResponseBodyEventDetailResourceInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -5528,13 +11175,74 @@ export class DescribeEventDetailResponseBodyEventDetail extends $tea.Model {
 }
 
 export class DescribeEventDetailResponseBodyEventHandleInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The account that is used to handle the anomalous event.
+   * 
+   * @example
+   * sddp-test2
+   */
   currentValue?: string;
+  /**
+   * @remarks
+   * The time when the account is disabled. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1611139155000
+   */
   disableTime?: number;
+  /**
+   * @remarks
+   * The time when the disabled account is enabled. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1611139155000
+   */
   enableTime?: number;
+  /**
+   * @remarks
+   * The handling method.
+   * 
+   * @example
+   * Remove from the whitelist
+   */
   handlerName?: string;
+  /**
+   * @remarks
+   * The type of the handling method.
+   * 
+   * @example
+   * rds_security_ip
+   */
   handlerType?: string;
+  /**
+   * @remarks
+   * The duration for which the handling operation takes effect. If you leave this parameter empty, the handling operation is permanently valid. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
   handlerValue?: number;
+  /**
+   * @remarks
+   * The ID of the handling rule.
+   * 
+   * @example
+   * 11
+   */
   id?: number;
+  /**
+   * @remarks
+   * The status of the account that triggered the anomalous event. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * *   **-1**: failed to disable the account
+   * *   **-2**: failed to enable the account
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5568,29 +11276,206 @@ export class DescribeEventDetailResponseBodyEventHandleInfoList extends $tea.Mod
 }
 
 export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the alert for the anomalous event was generated. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1545829129000
+   */
   alertTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the handling result of the anomalous event is used to enhance the detection of anomalous events. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * > If you enhance the detection of anomalous events, the detection accuracy and the rate of triggering alerts for anomalous events are improved.
+   * 
+   * @example
+   * false
+   */
   backed?: boolean;
+  /**
+   * @remarks
+   * The instance name of the service in which the anomalous event was detected.
+   * 
+   * @example
+   * in-222***
+   */
   dataInstance?: string;
+  /**
+   * @remarks
+   * The display name of the account that is used to handle the anomalous event.
+   * 
+   * @example
+   * yundunsr
+   */
   dealDisplayName?: string;
+  /**
+   * @remarks
+   * The username of the account that is used to handle the anomalous event.
+   * 
+   * @example
+   * det1111
+   */
   dealLoginName?: string;
+  /**
+   * @remarks
+   * The reason why the anomalous event is handled.
+   * 
+   * @example
+   * Anomaly confirmed
+   */
   dealReason?: string;
+  /**
+   * @remarks
+   * The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1230000
+   */
   dealTime?: number;
+  /**
+   * @remarks
+   * The ID of the account that is used to handle the anomalous event.
+   * 
+   * @example
+   * 229157443385014***
+   */
   dealUserId?: number;
+  /**
+   * @remarks
+   * The content in the details of the anomalous event.
+   */
   detail?: DescribeEventDetailResponseBodyEventDetail;
+  /**
+   * @remarks
+   * The display name of the account that triggered the anomalous event.
+   * 
+   * @example
+   * yundunsr
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1545829129000
+   */
   eventTime?: number;
+  /**
+   * @remarks
+   * An array that consists of the handling records of the anomalous event.
+   */
   handleInfoList?: DescribeEventDetailResponseBodyEventHandleInfoList[];
+  /**
+   * @remarks
+   * The unique ID of the anomalous event.
+   * 
+   * @example
+   * 52234
+   */
   id?: number;
+  /**
+   * @remarks
+   * The details of the alert logs.
+   * 
+   * @example
+   * {"client_ip": ["106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX"], "start_time": "2020-05-10 00:00:01", "instance": ["omniscience-data", "punish-beaver-data"], "end_time": "2020-05-10 00:21:22", "client_ua": ["Java/1.8.0_152", "Java/1.8.0_92", "aliyun-sdk-java/2.0.0", "aliyun-sdk-java/2.8.0(Linux/4.9.151-015.ali3000.alios7.x86_64/amd64;1.8.0_152)"], "user_name": 1512222261295262}
+   */
   logDetail?: string;
+  /**
+   * @remarks
+   * The username of the account that triggered the anomalous event.
+   * 
+   * @example
+   * det1111
+   */
   loginName?: string;
+  /**
+   * @remarks
+   * Whether it is a new version of the alarm. Value:
+   * - **true**: Yes. 
+   * - **false**: No.
+   * 
+   * @example
+   * true
+   */
   newAlarm?: boolean;
+  /**
+   * @remarks
+   * The name of the service in which the anomalous event was detected. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The handling status for the anomalous event. Valid values:
+   * 
+   * *   **0**: unhandled
+   * *   **1**: confirmed
+   * *   **2**: marked as false positive
+   * 
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @remarks
+   * The name of the handling status for the anomalous event.
+   * 
+   * @example
+   * Pending
+   */
   statusName?: string;
+  /**
+   * @remarks
+   * The code of the anomalous event subtype.
+   * 
+   * @example
+   * 020008
+   */
   subTypeCode?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event subtype.
+   * 
+   * @example
+   * Anomalous volume of downloaded data
+   */
   subTypeName?: string;
+  /**
+   * @remarks
+   * The code of the anomalous event type.
+   * 
+   * @example
+   * 02
+   */
   typeCode?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event type. Valid values:
+   * 
+   * *   **01**: anomalous permission usage
+   * *   **02**: anomalous data flow
+   * *   **03**: anomalous data operation
+   * 
+   * @example
+   * Anomalous data flow
+   */
   typeName?: string;
+  /**
+   * @remarks
+   * The ID of the account that triggered the anomalous event.
+   * 
+   * @example
+   * 229157443385014***
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5656,16 +11541,99 @@ export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
 }
 
 export class DescribeEventTypesResponseBodyEventTypeListSubTypeList extends $tea.Model {
+  /**
+   * @remarks
+   * The service to which the anomalous event detection rule applies. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
   adaptedProduct?: string;
+  /**
+   * @remarks
+   * The code of the anomalous event subtype.
+   * 
+   * @example
+   * 020008
+   */
   code?: string;
+  /**
+   * @remarks
+   * The code of the configuration.
+   * 
+   * @example
+   * 0100**
+   */
   configCode?: string;
+  /**
+   * @remarks
+   * The content format of anomalous event detection rule. Valid values:
+   * 
+   * *   **0**: numeric values such as thresholds
+   * *   **1**: text such as IP addresses
+   * 
+   * @example
+   * 1
+   */
   configContentType?: number;
+  /**
+   * @remarks
+   * The description of the configuration.
+   * 
+   * @example
+   * The period of time for which the permission is not used exceeds the threshold. The specified threshold is ${value} calendar days.
+   */
   configDescription?: string;
+  /**
+   * @remarks
+   * The value of the configuration.
+   * 
+   * @example
+   * 90
+   */
   configValue?: string;
+  /**
+   * @remarks
+   * The description of the anomalous event subtype.
+   * 
+   * @example
+   * Inappropriate configuration-No protection for the MaxCompute sensitive project, \\*\\*\\*\\*
+   */
   description?: string;
+  /**
+   * @remarks
+   * The number of times that the anomalous event hits the anomalous event detection rule.
+   * 
+   * @example
+   * 2
+   */
   eventHitCount?: number;
+  /**
+   * @remarks
+   * The ID of the anomalous event subtype.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the anomalous event subtype.
+   * 
+   * @example
+   * Inappropriate configuration-No protection for the MaxCompute sensitive project
+   */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether detection is enabled for the anomalous event subtype. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5705,10 +11673,42 @@ export class DescribeEventTypesResponseBodyEventTypeListSubTypeList extends $tea
 }
 
 export class DescribeEventTypesResponseBodyEventTypeList extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the anomalous event type.
+   * 
+   * @example
+   * 01
+   */
   code?: string;
+  /**
+   * @remarks
+   * The description of the anomalous event type.
+   * 
+   * @example
+   * Anomalous permission usage,\\*\\*\\*\\*
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the anomalous event type.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the anomalous event type.
+   * 
+   * @example
+   * Anomalous permission usage
+   */
   name?: string;
+  /**
+   * @remarks
+   * An array that consists of anomalous event subtypes.
+   */
   subTypeList?: DescribeEventTypesResponseBodyEventTypeListSubTypeList[];
   static names(): { [key: string]: string } {
     return {
@@ -5736,25 +11736,176 @@ export class DescribeEventTypesResponseBodyEventTypeList extends $tea.Model {
 }
 
 export class DescribeEventsResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The time when an alert was triggered for the anomalous event. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 154529000
+   */
   alertTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the detection of anomalous events is enhanced. If the detection of anomalous events is enhanced, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
+   * 
+   * *   true: yes
+   * *   false: no
+   * 
+   * @example
+   * false
+   */
   backed?: boolean;
+  /**
+   * @remarks
+   * The display name of the account that is used to handle the anomalous event.
+   * 
+   * @example
+   * yundunsr
+   */
   dealDisplayName?: string;
+  /**
+   * @remarks
+   * The username of the account that is used to handle the anomalous event.
+   * 
+   * @example
+   * det1111
+   */
   dealLoginName?: string;
+  /**
+   * @remarks
+   * The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 12223300
+   */
   dealTime?: number;
+  /**
+   * @remarks
+   * The ID of the account that is used to handle the anomalous event.
+   * 
+   * @example
+   * 229157443385014***
+   */
   dealUserId?: number;
+  /**
+   * @remarks
+   * The display name of the account that triggered the anomalous event.
+   * 
+   * @example
+   * yundunsr
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1545829129000
+   */
   eventTime?: number;
+  /**
+   * @remarks
+   * The ID of the anomalous event.
+   * 
+   * @example
+   * 42233335555
+   */
   id?: number;
+  /**
+   * @remarks
+   * The username of the account that triggered the anomalous event.
+   * 
+   * @example
+   * det1111
+   */
   loginName?: string;
+  /**
+   * @remarks
+   * The name of the service in which the anomalous event was detected.
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The handling status for the anomalous event. Valid values:
+   * 
+   * *   0: unhandled
+   * *   1: confirmed
+   * *   2: marked as false positive
+   * 
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @remarks
+   * The name of the handling status for the anomalous event.
+   * 
+   * @example
+   * Pending
+   */
   statusName?: string;
+  /**
+   * @remarks
+   * The code of the anomalous event subtype.
+   * 
+   * @example
+   * 020008
+   */
   subTypeCode?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event subtype.
+   * 
+   * @example
+   * Anomalous volume of downloaded data
+   */
   subTypeName?: string;
+  /**
+   * @remarks
+   * The name of the destination service in an anomalous data flow.
+   * 
+   * @example
+   * RDS
+   */
   targetProductCode?: string;
+  /**
+   * @remarks
+   * The code of the anomalous event type.
+   * 
+   * @example
+   * 02
+   */
   typeCode?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event type.
+   * 
+   * @example
+   * Anomalous data flow
+   */
   typeName?: string;
+  /**
+   * @remarks
+   * The ID of the account that triggered the anomalous event.
+   * 
+   * @example
+   * 1978132506596***
+   */
   userId?: number;
+  /**
+   * @remarks
+   * The severity of the anomalous event.
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 2
+   */
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5812,30 +11963,229 @@ export class DescribeEventsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the security audit feature is enabled. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @remarks
+   * Indicates whether the automatic scan feature is enabled to detect sensitive data. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 0
+   */
   autoScan?: number;
+  /**
+   * @remarks
+   * Indicates whether the username and password can be changed. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   canModifyUserName?: boolean;
+  /**
+   * @remarks
+   * The data detection status. Valid values:
+   * 
+   * *   **0**: The data detection is ready.
+   * *   **1**: The data detection is running.
+   * *   **2**: The connectivity test is in progress.
+   * *   **3**: The connectivity test passed.
+   * *   **4**: The connectivity test failed.
+   * 
+   * @example
+   * 3
+   */
   checkStatus?: number;
+  /**
+   * @remarks
+   * Indicates whether DSC has the data de-identification permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   datamaskStatus?: number;
+  /**
+   * @remarks
+   * The name of the database to which the data asset belongs.
+   * 
+   * @example
+   * demo
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * Indicates whether sensitive data detection is enabled for the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values: **MySQL, MariaDB, Oracle, PostgreSQL, and SQLServer**.
+   * 
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * The reason for the failure.
+   * 
+   * @example
+   * The password is invalid.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1625587423000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The unique ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * Test
+   */
   instanceDescription?: string;
+  /**
+   * @remarks
+   * The ID of the instance
+   * 
+   * @example
+   * rm-****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The storage space size of the instance. This parameter is valid only if the value of the ProductId parameter is 2. Unit: bytes.
+   * 
+   * @example
+   * 409600
+   */
   instanceSize?: number;
+  /**
+   * @remarks
+   * The time when the data asset was last modified. Unit: milliseconds.
+   * 
+   * @example
+   * 1625587423000
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * The ID of the account that is last used to modify the data asset.
+   * 
+   * @example
+   * demo
+   */
   lastModifyUserId?: string;
+  /**
+   * @remarks
+   * The retention period of raw logs. Unit: days.
+   * 
+   * @example
+   * 30
+   */
   logStoreDay?: number;
+  /**
+   * @remarks
+   * Indicates whether the password is used. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   passwordStatus?: number;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The ID of the region where the instance resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   regionName?: string;
+  /**
+   * @remarks
+   * The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: data entries.
+   * 
+   * @example
+   * 10
+   */
   samplingSize?: number;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 11
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * user1
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * @example
+   * User01
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5903,7 +12253,29 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyItemsModelTags extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the tag. Valid values:
+   * 
+   * *   **101**: personal sensitive information
+   * *   **102**: personal information
+   * *   **107**: general information
+   * 
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the tag. Valid values:
+   * 
+   * *   Personal sensitive information
+   * *   Personal information
+   * *   General information
+   * 
+   * @example
+   * personal sensitive data
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5925,25 +12297,183 @@ export class DescribeInstancesResponseBodyItemsModelTags extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1637226782000
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The name of the department to which the data asset belongs.
+   * 
+   * @example
+   * ***DemoCenter
+   */
   departName?: string;
+  /**
+   * @remarks
+   * The unique ID of the data asset in DSC.
+   * 
+   * @example
+   * 11111
+   */
   id?: number;
+  /**
+   * @remarks
+   * The description of the data asset.
+   * 
+   * @example
+   * Data asset Information 1
+   */
   instanceDescription?: string;
+  /**
+   * @remarks
+   * The security status of the data asset. Valid values:
+   * 
+   * *   **true**: The data asset is secure.
+   * *   **false**: The data asset is insecure.
+   * 
+   * @example
+   * true
+   */
   labelsec?: boolean;
+  /**
+   * @remarks
+   * The time when the data asset was last scanned. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1637622793000
+   */
   lastFinishTime?: number;
+  /**
+   * @remarks
+   * A list of tags.
+   */
   modelTags?: DescribeInstancesResponseBodyItemsModelTags[];
+  /**
+   * @remarks
+   * The name of the data asset.
+   * 
+   * @example
+   * gxdata
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
   odpsRiskLevelName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account to which the data asset belongs.
+   * 
+   * @example
+   * dtdep-239-******
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets that DSC can scan to detect sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * 
+   * @example
+   * RDS
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs.
+   * 
+   * @example
+   * 5
+   */
   productId?: string;
+  /**
+   * @remarks
+   * The protection status of the data asset. Valid values:
+   * 
+   * *   **true**: The data asset is being protected.
+   * *   **false**: The data asset is not protected.
+   * 
+   * @example
+   * false
+   */
   protection?: boolean;
+  /**
+   * @remarks
+   * The ID of the sensitivity level for the data asset. A higher sensitivity level ID indicates that the identified data is more sensitive.
+   * 
+   * *   **1**: No sensitive data is detected.
+   * *   **2**: sensitive data at level 1.
+   * *   **3**: sensitive data at level 2.
+   * *   **4**: sensitive data at level 3.
+   * *   **5**: sensitive data at level 4.
+   * *   **6**: sensitive data at level 5.
+   * *   **7**: sensitive data at level 6.
+   * *   **8**: sensitive data at level 7.
+   * *   **9**: sensitive data at level 8.
+   * *   **10**: sensitive data at level 9.
+   * *   **11**: sensitive data at level 10.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the data asset.
+   * 
+   * @example
+   * Sensitive data at level 1
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that the data asset hits.
+   * 
+   * @example
+   * \\*\\*\\* rule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * Indicates whether the data asset contains sensitive data. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   sensitive?: boolean;
+  /**
+   * @remarks
+   * The number of sensitive data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the number of sensitive tables in all databases of the instance.
+   * 
+   * @example
+   * 123
+   */
   sensitiveCount?: number;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * Tenant 1
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The total number of data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the total number of tables in all databases of the instance.
+   * 
+   * @example
+   * 231
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6001,7 +12531,29 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag ID.
+   * 
+   * *   **101**: sensitive personal information
+   * *   **102**: personal information
+   * *   **103**: important information
+   * 
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @remarks
+   * The tag name.
+   * 
+   * *   Sensitive personal information
+   * *   Personal information
+   * *   Important information
+   * 
+   * @example
+   * personal sensitive data
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6023,11 +12575,56 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags
 }
 
 export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the OSS object.
+   * 
+   * @example
+   * Excel file
+   */
   categoryName?: string;
+  /**
+   * @remarks
+   * The number of times that the OSS object hits the sensitive data detection rule.
+   * 
+   * @example
+   * 2
+   */
   count?: number;
+  /**
+   * @remarks
+   * A list of tags for data that hits the recognition model.
+   */
   modelTags?: DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags[];
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the OSS object.
+   * 
+   * *   **1**: No sensitive data is detected.
+   * *   **2**: indicates the low sensitivity level.
+   * *   **3**: indicates the medium sensitivity level.
+   * *   **4**: indicates the high sensitivity level.
+   * *   **5**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the OSS object.
+   * 
+   * @example
+   * Medium sensitivity level
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule.
+   * 
+   * @example
+   * \\*\\*\\* rule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6057,11 +12654,50 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
 }
 
 export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket to which the OSS object belongs.
+   * 
+   * @example
+   * bucke***
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The type of the OSS object.
+   * 
+   * @example
+   * Excel file
+   */
   categoryName?: string;
+  /**
+   * @remarks
+   * The name of the OSS object.
+   * 
+   * @example
+   * obj_id
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID of the OSS object.
+   * 
+   * @example
+   * cn-***
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the OSS object.
+   * 
+   * @example
+   * Medium sensitivity level
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * A list of the sensitive data detection rules that the OSS object hits.
+   */
   ruleList?: DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList[];
   static names(): { [key: string]: string } {
     return {
@@ -6091,7 +12727,15 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $tea.Mod
 }
 
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags extends $tea.Model {
+  /**
+   * @example
+   * 101
+   */
   id?: number;
+  /**
+   * @example
+   * personal sensitive data
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6113,11 +12757,31 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTa
 }
 
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extends $tea.Model {
+  /**
+   * @example
+   * Excel
+   */
   categoryName?: string;
+  /**
+   * @example
+   * 2
+   */
   count?: number;
   modelTags?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags[];
+  /**
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @example
+   * S1
+   */
   riskLevelName?: string;
+  /**
+   * @example
+   * name
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6147,10 +12811,30 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
 }
 
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.Model {
+  /**
+   * @example
+   * lv-demo
+   */
   bucketName?: string;
+  /**
+   * @example
+   * Excel file
+   */
   categoryName?: string;
+  /**
+   * @example
+   * obj_id
+   */
   name?: string;
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
   regionId?: string;
+  /**
+   * @example
+   * S1
+   */
   riskLevelName?: string;
   ruleList?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList[];
   static names(): { [key: string]: string } {
@@ -6181,8 +12865,35 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.M
 }
 
 export class DescribeOssObjectsResponseBodyItemsRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of times that the rule is hit.
+   * 
+   * @example
+   * 100
+   */
   count?: number;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * @example
+   * ID card
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the OSS object. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6206,22 +12917,144 @@ export class DescribeOssObjectsResponseBodyItemsRuleList extends $tea.Model {
 }
 
 export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the bucket.
+   * 
+   * @example
+   * oss-duplicate-***
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The type of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
+   * 
+   * @example
+   * 900001
+   */
   category?: number;
+  /**
+   * @remarks
+   * The name of the file type.
+   * 
+   * @example
+   * MP4 file
+   */
   categoryName?: string;
+  /**
+   * @remarks
+   * The code of the file type.
+   * 
+   * @example
+   * 1
+   */
   fileCategoryCode?: number;
+  /**
+   * @remarks
+   * The name of the file type.
+   * 
+   * @example
+   * text file
+   */
   fileCategoryName?: string;
+  /**
+   * @remarks
+   * The file ID of the OSS object.
+   * 
+   * @example
+   * file-22***
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The ID of the OSS object.
+   * 
+   * @example
+   * 17383
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the OSS object belongs.
+   * 
+   * @example
+   * 1232122
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The time when the file was last modified.
+   * 
+   * @example
+   * 1536751124000
+   */
   lastModifiedTime?: number;
+  /**
+   * @remarks
+   * The name of the OSS object.
+   * 
+   * @example
+   * obj_id
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID of the OSS object.
+   * 
+   * @example
+   * cn-***
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the OSS object. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the OSS object.
+   * 
+   * @example
+   * Medium sensitivity level
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The number of rules that are hit.
+   * 
+   * @example
+   * 100
+   */
   ruleCount?: number;
+  /**
+   * @remarks
+   * A list of rules.
+   */
   ruleList?: DescribeOssObjectsResponseBodyItemsRuleList[];
+  /**
+   * @remarks
+   * The number of fields that are hit.
+   * 
+   * @example
+   * 50
+   */
   sensitiveCount?: number;
+  /**
+   * @remarks
+   * The size of the file. Unit: bytes.
+   * 
+   * @example
+   * 20
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6273,15 +13106,94 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribePackagesResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The point in time when the MaxCompute package was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The ID of the package.
+   * 
+   * @example
+   * 111111
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the package belongs.
+   * 
+   * @example
+   * 223453332
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The name of the package.
+   * 
+   * @example
+   * gxdata
+   */
   name?: string;
+  /**
+   * @remarks
+   * The account of the user that owns the package.
+   * 
+   * @example
+   * cou-2221
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the package. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 4
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the package.
+   * 
+   * @example
+   * Highest sensitivity level
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * Indicates whether the package contains sensitive data. Valid values:
+   * 
+   * *   true: yes
+   * *   false: no
+   * 
+   * @example
+   * true
+   */
   sensitive?: boolean;
+  /**
+   * @remarks
+   * The total volume of sensitive data in the package. For example, the value can be the total number of sensitive tables in the MaxCompute package.
+   * 
+   * @example
+   * 123
+   */
   sensitiveCount?: number;
+  /**
+   * @remarks
+   * The total volume of data in the package. For example, the value can be the total number of tables in the MaxCompute package.
+   * 
+   * @example
+   * 321
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6319,24 +13231,92 @@ export class DescribePackagesResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   auditStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   authStatus?: number;
   authTime?: number;
+  /**
+   * @example
+   * Running
+   */
   clusterStatus?: string;
+  /**
+   * @example
+   * Primary
+   */
   connectNode?: string;
+  /**
+   * @example
+   * 3
+   */
   dbNum?: string;
+  /**
+   * @example
+   * MySQL
+   */
   engineType?: string;
+  /**
+   * @example
+   * instance description
+   */
   instanceDescription?: string;
+  /**
+   * @example
+   * rm-2h066mht2vz
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 409600
+   */
   instanceSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   localName?: string;
   memberAccount?: number;
+  /**
+   * @example
+   * rm-uf6b9897shxxx.test
+   */
   parentId?: string;
+  /**
+   * @example
+   * RDS
+   */
   resourceType?: string;
+  /**
+   * @example
+   * Primary,Secondary
+   */
   supportConnectNodes?: string;
+  /**
+   * @example
+   * HBJWDSBE-zh_CN
+   */
   tenantId?: string;
+  /**
+   * @example
+   * user1
+   */
   tenantName?: string;
+  /**
+   * @example
+   * 1
+   */
   unConnectDbCount?: string;
+  /**
+   * @example
+   * engine type not support
+   */
   unSupportOneClickAuthReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6392,9 +13372,65 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeRiskLevelsResponseBodyRiskLevelList extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the sensitivity level. You can enter a custom description.
+   * 
+   * The following list describes the sensitivity level names and the corresponding default description:
+   * 
+   * *   **NA**: which indicates that no sensitive data is detected.
+   * *   **S1**: which indicates the sensitive data at sensitivity level 1.
+   * *   **S2**: which indicates the sensitive data at sensitivity level 2.
+   * *   **S3**: which indicates the sensitive data at sensitivity level 3.
+   * *   **S4**: which indicates the sensitive data at sensitivity level 4.
+   * *   **S5**: which indicates the sensitive data at sensitivity level 5.
+   * *   **S6**: which indicates the sensitive data at sensitivity level 6.
+   * *   **S7**: which indicates the sensitive data at sensitivity level 7.
+   * *   **S8**: which indicates the sensitive data at sensitivity level 8.
+   * *   **S9**: which indicates the sensitive data at sensitivity level 9.
+   * *   **S10**: which indicates the sensitive data at sensitivity level 10.
+   * 
+   * @example
+   * Sensitive data at sensitivity level 1
+   */
   description?: string;
+  /**
+   * @remarks
+   * The unique ID of the sensitivity level. Valid values: 1 to 11. Each sensitivity level ID maps a sensitivity level. For example, the sensitivity level ID of 2 corresponds to the sensitivity level S1.
+   * 
+   * For more information, see the description of the Name parameter.
+   * 
+   * @example
+   * 2
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level. The highest sensitivity level varies based on rule templates. The highest sensitivity level is S10. The highest sensitivity level of the **Built-in data security classification templates for Alibaba and Ant Group** is S4, and that of the **built-in classification templates for financial data** and **built-in classification templates for assets** is S5. For more information about the built-in classification templates for financial data, see Guidelines for Security Classification of Financial Data and Security Data - JRT 0197-2020. For a copied rule template, the highest sensitivity level is S10. The following list describes the sensitivity level names and the corresponding IDs:
+   * 
+   * *   **NA**: 1
+   * *   **S1**: 2
+   * *   **S2**: 3
+   * *   **S3**: 4
+   * *   **S4**: 5
+   * *   **S5**: 6
+   * *   **S6**: 7
+   * *   **S7**: 8
+   * *   **S8**: 9
+   * *   **S9**: 10
+   * *   **S10**: 11
+   * 
+   * @example
+   * S1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of times that each sensitivity level is referenced in the rule template. Default value: 0.
+   * 
+   * @example
+   * 20
+   */
   referenceNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6420,31 +13456,247 @@ export class DescribeRiskLevelsResponseBodyRiskLevelList extends $tea.Model {
 }
 
 export class DescribeRulesResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: keyword
+   * *   **2**: regular expression
+   * 
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @remarks
+   * The name of the content type of the sensitive data detection rule.
+   * 
+   * @example
+   * Regular expression
+   */
   categoryName?: string;
+  /**
+   * @remarks
+   * The content in the sensitive data detection rule.
+   * 
+   * >  A built-in detection rule whose CustomType is 0 does not return the content of the rule.
+   * 
+   * @example
+   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
+   */
   content?: string;
+  /**
+   * @remarks
+   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+   * 
+   * @example
+   * 1
+   */
   contentCategory?: string;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule.
+   * 
+   * *   0: built-in rule
+   * *   1: custom rule
+   * 
+   * @example
+   * 1
+   */
   customType?: number;
+  /**
+   * @remarks
+   * The description of the sensitive data detection rule.
+   * 
+   * @example
+   * The sensitive data detection rule is used to detect IP addresses.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the account that is used to create the sensitive data detection rule.
+   * 
+   * @example
+   * ****test
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The time when the sensitive data detection rule is created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1545277010000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The time when the sensitive data detection rule is modified. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1545277010000
+   */
   gmtModified?: number;
+  /**
+   * @remarks
+   * The parent group type of the rule.
+   * 
+   * @example
+   * 4_1
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The number of times that the sensitive data detection rule is hit.
+   * 
+   * @example
+   * 3
+   */
   hitTotalCount?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 20000
+   */
   id?: number;
+  /**
+   * @remarks
+   * The username of the account that is used to create the sensitive data detection rule.
+   * 
+   * @example
+   * det1111
+   */
   loginName?: string;
+  /**
+   * @remarks
+   * The key of the primary dimension.
+   * 
+   * @example
+   * key
+   */
   majorKey?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   **1**: rule-based match
+   * *   **2**: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule.
+   * 
+   * @example
+   * IP address
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
   productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The statistical expression.
+   * 
+   * @example
+   * 1
+   */
   statExpress?: string;
+  /**
+   * @remarks
+   * The status of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * The data asset type that is supported by the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data assets
+   * *   **2**: unstructured data assets
+   * 
+   * @example
+   * 2
+   */
   supportForm?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
   target?: string;
+  /**
+   * @remarks
+   * The ID of the account that is used to create the sensitive data detection rule.
+   * 
+   * @example
+   * 0
+   */
   userId?: number;
+  /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 2
+   */
   warnLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6514,8 +13766,35 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeTablesResponseBodyItemsRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 12
+   */
   count?: number;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * Rule name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 1
+   */
   riskLevelId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6539,22 +13818,153 @@ export class DescribeTablesResponseBodyItemsRuleList extends $tea.Model {
 }
 
 export class DescribeTablesResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The point in time when the table was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The ID of the table.
+   * 
+   * @example
+   * 222
+   */
   id?: number;
+  /**
+   * @remarks
+   * The description of the data asset.
+   * 
+   * @example
+   * Description 1
+   */
   instanceDescription?: string;
+  /**
+   * @remarks
+   * The ID of the data asset to which the table belongs.
+   * 
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * The name of the data asset to which the table belongs.
+   * 
+   * @example
+   * Data Asset 1
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * gxdata
+   */
   name?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account to which the table belongs.
+   * 
+   * @example
+   * dtdep-239-******
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * 
+   * @example
+   * MaxCompute
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the table belongs.
+   * 
+   * @example
+   * 1
+   */
   productId?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
   riskLevelId?: number;
+  /**
+   * @remarks
+   * The name of the sensitivity level for the table. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
   riskLevelName?: string;
+  /**
+   * @remarks
+   * The information about the sensitive data detection rules that are hit.
+   */
   ruleList?: DescribeTablesResponseBodyItemsRuleList[];
+  /**
+   * @remarks
+   * Indicates whether the table contains sensitive fields. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   sensitive?: boolean;
+  /**
+   * @remarks
+   * The total number of sensitive fields in the table.
+   * 
+   * @example
+   * 32
+   */
   sensitiveCount?: number;
+  /**
+   * @remarks
+   * The percentage of sensitive fields in the table.
+   * 
+   * @example
+   * 21%
+   */
   sensitiveRatio?: string;
+  /**
+   * @remarks
+   * The name of the tenant.
+   * 
+   * @example
+   * Tenant 1
+   */
   tenantName?: string;
+  /**
+   * @remarks
+   * The total number of fields in the table.
+   * 
+   * @example
+   * 1234
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6606,7 +14016,15 @@ export class DescribeTablesResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeTemplateAllRulesResponseBodyRuleList extends $tea.Model {
+  /**
+   * @example
+   * 376
+   */
   id?: number;
+  /**
+   * @example
+   * Model Name
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6628,25 +14046,192 @@ export class DescribeTemplateAllRulesResponseBodyRuleList extends $tea.Model {
 }
 
 export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the current account.
+   * 
+   * @example
+   * LTAI4G67HRBzNRmMhfyv****
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * Indicates whether the SQL Explorer feature can be disabled. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   auditClosable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the audit resources can be released.
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   auditReleasable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether DSC has permission to access user resources within the current account. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   authed?: boolean;
+  /**
+   * @remarks
+   * The billing method of DCS that is purchased by using the current account. Valid values:
+   * 
+   * *   **PREPAY**: subscription
+   * *   **POSTPAY**: pay-as-you-go
+   * 
+   * @example
+   * PREPAY
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The permissions that the current account has. Valid values:
+   * 
+   * *   **0**: The current account has the administrative permissions or read-only permissions on Data Security Center.
+   * *   **1**: The current account has the permissions to manage data domains.
+   * 
+   * @example
+   * 1
+   */
   dataManagerRole?: number;
+  /**
+   * @remarks
+   * The ID of the data security center instance purchased by the main account.
+   * 
+   * @example
+   * sddp-cn-****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of instances within the current account.
+   * 
+   * @example
+   * 32
+   */
   instanceNum?: number;
+  /**
+   * @remarks
+   * The total number of instances.
+   * 
+   * @example
+   * 10
+   */
   instanceTotalCount?: number;
+  /**
+   * @remarks
+   * Indicates whether the data security lab feature is enabled. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   labStatus?: number;
+  /**
+   * @remarks
+   * OSS total storage capacity. Unit: Bytes.
+   * 
+   * @example
+   * 2048
+   */
   ossTotalSize?: number;
+  /**
+   * @remarks
+   * Accumulate the number of days to protect user assets.
+   * 
+   * @example
+   * 2
+   */
   protectionDays?: number;
+  /**
+   * @remarks
+   * Indicates whether DSC is purchased. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   purchased?: boolean;
+  /**
+   * @remarks
+   * The grace period between when DSC is expired and when DSC is released. Unit: days.
+   * 
+   * @example
+   * 15
+   */
   releaseDays?: number;
+  /**
+   * @remarks
+   * The time when the audit resources are released. Unit: milliseconds.
+   * 
+   * @example
+   * 15000
+   */
   releaseTime?: number;
+  /**
+   * @remarks
+   * The remaining period for which the data assets within the current account can be protected by DSC.
+   * 
+   * @example
+   * 131
+   */
   remainDays?: number;
+  /**
+   * @remarks
+   * Indicates whether the current account uses a free trial of DSC. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   trail?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the agent audit feature is used. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
   useAgentAudit?: boolean;
+  /**
+   * @remarks
+   * The number of instances that are used.
+   * 
+   * @example
+   * 125
+   */
   useInstanceNum?: number;
+  /**
+   * @remarks
+   * The occupied space of the Object Storage Service (OSS) bucket. Unit: bytes.
+   * 
+   * @example
+   * 234
+   */
   useOssSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6730,15 +14315,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a common configuration item for alerts.
-   *
-   * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+   * Modifies the configurations of a common configuration item for alerts.
+   * 
+   * @remarks
+   * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConfigResponse
+   * 
+   * @param request - CreateConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigResponse
    */
   async createConfigWithOptions(request: CreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
     Util.validateModel(request);
@@ -6785,14 +14371,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a common configuration item for alerts.
-   *
-   * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+   * Modifies the configurations of a common configuration item for alerts.
+   * 
+   * @remarks
+   * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateConfigRequest
-   * @return CreateConfigResponse
+   * 
+   * @param request - CreateConfigRequest
+   * @returns CreateConfigResponse
    */
   async createConfig(request: CreateConfigRequest): Promise<CreateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6800,15 +14387,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
-   *
-   * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+   * Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+   * 
+   * @remarks
+   * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateDataLimitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDataLimitResponse
+   * 
+   * @param request - CreateDataLimitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataLimitResponse
    */
   async createDataLimitWithOptions(request: CreateDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLimitResponse> {
     Util.validateModel(request);
@@ -6907,14 +14495,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
-   *
-   * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+   * Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+   * 
+   * @remarks
+   * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateDataLimitRequest
-   * @return CreateDataLimitResponse
+   * 
+   * @param request - CreateDataLimitRequest
+   * @returns CreateDataLimitResponse
    */
   async createDataLimit(request: CreateDataLimitRequest): Promise<CreateDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6922,11 +14511,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom sensitive data detection rule.
-   *
-   * @param request CreateRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRuleResponse
+   * Creates a custom sensitive data detection rule.
+   * 
+   * @param request - CreateRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRuleResponse
    */
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
@@ -7017,10 +14606,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom sensitive data detection rule.
-   *
-   * @param request CreateRuleRequest
-   * @return CreateRuleResponse
+   * Creates a custom sensitive data detection rule.
+   * 
+   * @param request - CreateRuleRequest
+   * @returns CreateRuleResponse
    */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7028,15 +14617,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
-   *
-   * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+   * Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+   * 
+   * @remarks
+   * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateScanTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateScanTaskResponse
+   * 
+   * @param request - CreateScanTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScanTaskResponse
    */
   async createScanTaskWithOptions(request: CreateScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateScanTaskResponse> {
     Util.validateModel(request);
@@ -7111,14 +14701,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
-   *
-   * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+   * Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+   * 
+   * @remarks
+   * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateScanTaskRequest
-   * @return CreateScanTaskResponse
+   * 
+   * @param request - CreateScanTaskRequest
+   * @returns CreateScanTaskResponse
    */
   async createScanTask(request: CreateScanTaskRequest): Promise<CreateScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7126,15 +14717,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
-   *
-   * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+   * Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+   * 
+   * @remarks
+   * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateSlrRoleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSlrRoleResponse
+   * 
+   * @param request - CreateSlrRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSlrRoleResponse
    */
   async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrRoleResponse> {
     Util.validateModel(request);
@@ -7169,14 +14761,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
-   *
-   * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+   * Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+   * 
+   * @remarks
+   * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateSlrRoleRequest
-   * @return CreateSlrRoleResponse
+   * 
+   * @param request - CreateSlrRoleRequest
+   * @returns CreateSlrRoleResponse
    */
   async createSlrRole(request: CreateSlrRoleRequest): Promise<CreateSlrRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7184,15 +14777,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
-   *
-   * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+   * Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+   * 
+   * @remarks
+   * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteDataLimitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDataLimitResponse
+   * 
+   * @param request - DeleteDataLimitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataLimitResponse
    */
   async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLimitResponse> {
     Util.validateModel(request);
@@ -7231,14 +14825,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
-   *
-   * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+   * Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+   * 
+   * @remarks
+   * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteDataLimitRequest
-   * @return DeleteDataLimitResponse
+   * 
+   * @param request - DeleteDataLimitRequest
+   * @returns DeleteDataLimitResponse
    */
   async deleteDataLimit(request: DeleteDataLimitRequest): Promise<DeleteDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7246,11 +14841,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
-   *
-   * @param request DeleteRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRuleResponse
+   * Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+   * 
+   * @param request - DeleteRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRuleResponse
    */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
@@ -7289,10 +14884,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
-   *
-   * @param request DeleteRuleRequest
-   * @return DeleteRuleResponse
+   * Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+   * 
+   * @param request - DeleteRuleRequest
+   * @returns DeleteRuleResponse
    */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7300,9 +14895,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCategoryTemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCategoryTemplateListResponse
+   * @param request - DescribeCategoryTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCategoryTemplateListResponse
    */
   async describeCategoryTemplateListWithOptions(request: DescribeCategoryTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateListResponse> {
     Util.validateModel(request);
@@ -7345,8 +14940,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCategoryTemplateListRequest
-   * @return DescribeCategoryTemplateListResponse
+   * @param request - DescribeCategoryTemplateListRequest
+   * @returns DescribeCategoryTemplateListResponse
    */
   async describeCategoryTemplateList(request: DescribeCategoryTemplateListRequest): Promise<DescribeCategoryTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7354,15 +14949,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries rules in a classification template by page.
-   *
-   * @description You can call this operation to query rules in a classification template.
+   * Queries rules in a classification template by page.
+   * 
+   * @remarks
+   * You can call this operation to query rules in a classification template.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeCategoryTemplateRuleListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCategoryTemplateRuleListResponse
+   * 
+   * @param request - DescribeCategoryTemplateRuleListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCategoryTemplateRuleListResponse
    */
   async describeCategoryTemplateRuleListWithOptions(request: DescribeCategoryTemplateRuleListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateRuleListResponse> {
     Util.validateModel(request);
@@ -7409,14 +15005,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries rules in a classification template by page.
-   *
-   * @description You can call this operation to query rules in a classification template.
+   * Queries rules in a classification template by page.
+   * 
+   * @remarks
+   * You can call this operation to query rules in a classification template.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeCategoryTemplateRuleListRequest
-   * @return DescribeCategoryTemplateRuleListResponse
+   * 
+   * @param request - DescribeCategoryTemplateRuleListRequest
+   * @returns DescribeCategoryTemplateRuleListResponse
    */
   async describeCategoryTemplateRuleList(request: DescribeCategoryTemplateRuleListRequest): Promise<DescribeCategoryTemplateRuleListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7424,17 +15021,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
-   *
-   * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+   * Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+   * 
+   * @remarks
+   * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
    * ## [](#)Precautions
    * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
    * ## [](#qps)Limits
    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeColumnsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeColumnsResponse
+   * 
+   * @param request - DescribeColumnsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeColumnsResponse
    */
   async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsResponse> {
     Util.validateModel(request);
@@ -7509,16 +15107,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
-   *
-   * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+   * Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+   * 
+   * @remarks
+   * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
    * ## [](#)Precautions
    * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
    * ## [](#qps)Limits
    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeColumnsRequest
-   * @return DescribeColumnsResponse
+   * 
+   * @param request - DescribeColumnsRequest
+   * @returns DescribeColumnsResponse
    */
   async describeColumns(request: DescribeColumnsRequest): Promise<DescribeColumnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7526,11 +15125,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request DescribeColumnsV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeColumnsV2Response
+   * Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - DescribeColumnsV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeColumnsV2Response
    */
   async describeColumnsV2WithOptions(request: DescribeColumnsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsV2Response> {
     Util.validateModel(request);
@@ -7605,10 +15204,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request DescribeColumnsV2Request
-   * @return DescribeColumnsV2Response
+   * Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - DescribeColumnsV2Request
+   * @returns DescribeColumnsV2Response
    */
   async describeColumnsV2(request: DescribeColumnsV2Request): Promise<DescribeColumnsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7616,11 +15215,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries common configuration items for alerts.
-   *
-   * @param request DescribeConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeConfigsResponse
+   * Queries common configuration items for alerts.
+   * 
+   * @param request - DescribeConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConfigsResponse
    */
   async describeConfigsWithOptions(request: DescribeConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigsResponse> {
     Util.validateModel(request);
@@ -7647,10 +15246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries common configuration items for alerts.
-   *
-   * @param request DescribeConfigsRequest
-   * @return DescribeConfigsResponse
+   * Queries common configuration items for alerts.
+   * 
+   * @param request - DescribeConfigsRequest
+   * @returns DescribeConfigsResponse
    */
   async describeConfigs(request: DescribeConfigsRequest): Promise<DescribeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7658,11 +15257,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
-   *
-   * @param request DescribeDataAssetsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataAssetsResponse
+   * Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+   * 
+   * @param request - DescribeDataAssetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataAssetsResponse
    */
   async describeDataAssetsWithOptions(request: DescribeDataAssetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataAssetsResponse> {
     Util.validateModel(request);
@@ -7713,10 +15312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
-   *
-   * @param request DescribeDataAssetsRequest
-   * @return DescribeDataAssetsResponse
+   * Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+   * 
+   * @param request - DescribeDataAssetsRequest
+   * @returns DescribeDataAssetsResponse
    */
   async describeDataAssets(request: DescribeDataAssetsRequest): Promise<DescribeDataAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7724,11 +15323,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request DescribeDataLimitDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataLimitDetailResponse
+   * Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - DescribeDataLimitDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataLimitDetailResponse
    */
   async describeDataLimitDetailWithOptions(request: DescribeDataLimitDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitDetailResponse> {
     Util.validateModel(request);
@@ -7767,10 +15366,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request DescribeDataLimitDetailRequest
-   * @return DescribeDataLimitDetailResponse
+   * Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - DescribeDataLimitDetailRequest
+   * @returns DescribeDataLimitDetailResponse
    */
   async describeDataLimitDetail(request: DescribeDataLimitDetailRequest): Promise<DescribeDataLimitDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7778,15 +15377,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
-   *
-   * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+   * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+   * 
+   * @remarks
+   * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDataLimitSetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataLimitSetResponse
+   * 
+   * @param request - DescribeDataLimitSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataLimitSetResponse
    */
   async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
     Util.validateModel(request);
@@ -7825,14 +15425,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
-   *
-   * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+   * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+   * 
+   * @remarks
+   * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDataLimitSetRequest
-   * @return DescribeDataLimitSetResponse
+   * 
+   * @param request - DescribeDataLimitSetRequest
+   * @returns DescribeDataLimitSetResponse
    */
   async describeDataLimitSet(request: DescribeDataLimitSetRequest): Promise<DescribeDataLimitSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7840,11 +15441,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
-   *
-   * @param request DescribeDataLimitsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataLimitsResponse
+   * Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+   * 
+   * @param request - DescribeDataLimitsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataLimitsResponse
    */
   async describeDataLimitsWithOptions(request: DescribeDataLimitsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitsResponse> {
     Util.validateModel(request);
@@ -7927,10 +15528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
-   *
-   * @param request DescribeDataLimitsRequest
-   * @return DescribeDataLimitsResponse
+   * Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+   * 
+   * @param request - DescribeDataLimitsRequest
+   * @returns DescribeDataLimitsResponse
    */
   async describeDataLimits(request: DescribeDataLimitsRequest): Promise<DescribeDataLimitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7938,15 +15539,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution information about a de-identification task.
-   *
-   * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+   * Queries the execution information about a de-identification task.
+   * 
+   * @remarks
+   * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDataMaskingRunHistoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataMaskingRunHistoryResponse
+   * 
+   * @param request - DescribeDataMaskingRunHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataMaskingRunHistoryResponse
    */
   async describeDataMaskingRunHistoryWithOptions(request: DescribeDataMaskingRunHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingRunHistoryResponse> {
     Util.validateModel(request);
@@ -8013,14 +15615,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution information about a de-identification task.
-   *
-   * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+   * Queries the execution information about a de-identification task.
+   * 
+   * @remarks
+   * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDataMaskingRunHistoryRequest
-   * @return DescribeDataMaskingRunHistoryResponse
+   * 
+   * @param request - DescribeDataMaskingRunHistoryRequest
+   * @returns DescribeDataMaskingRunHistoryResponse
    */
   async describeDataMaskingRunHistory(request: DescribeDataMaskingRunHistoryRequest): Promise<DescribeDataMaskingRunHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8028,15 +15631,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries de-identification tasks.
-   *
-   * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+   * Queries de-identification tasks.
+   * 
+   * @remarks
+   * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDataMaskingTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataMaskingTasksResponse
+   * 
+   * @param request - DescribeDataMaskingTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataMaskingTasksResponse
    */
   async describeDataMaskingTasksWithOptions(request: DescribeDataMaskingTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingTasksResponse> {
     Util.validateModel(request);
@@ -8087,14 +15691,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries de-identification tasks.
-   *
-   * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+   * Queries de-identification tasks.
+   * 
+   * @remarks
+   * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDataMaskingTasksRequest
-   * @return DescribeDataMaskingTasksResponse
+   * 
+   * @param request - DescribeDataMaskingTasksRequest
+   * @returns DescribeDataMaskingTasksResponse
    */
   async describeDataMaskingTasks(request: DescribeDataMaskingTasksRequest): Promise<DescribeDataMaskingTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8102,11 +15707,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看数据对象列详情
-   *
-   * @param request DescribeDataObjectColumnDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataObjectColumnDetailResponse
+   * 查看数据对象列详情
+   * 
+   * @param request - DescribeDataObjectColumnDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataObjectColumnDetailResponse
    */
   async describeDataObjectColumnDetailWithOptions(request: DescribeDataObjectColumnDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailResponse> {
     Util.validateModel(request);
@@ -8157,10 +15762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看数据对象列详情
-   *
-   * @param request DescribeDataObjectColumnDetailRequest
-   * @return DescribeDataObjectColumnDetailResponse
+   * 查看数据对象列详情
+   * 
+   * @param request - DescribeDataObjectColumnDetailRequest
+   * @returns DescribeDataObjectColumnDetailResponse
    */
   async describeDataObjectColumnDetail(request: DescribeDataObjectColumnDetailRequest): Promise<DescribeDataObjectColumnDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8168,11 +15773,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看数据对象列详情V2
-   *
-   * @param request DescribeDataObjectColumnDetailV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataObjectColumnDetailV2Response
+   * 查看数据对象列详情V2
+   * 
+   * @param request - DescribeDataObjectColumnDetailV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataObjectColumnDetailV2Response
    */
   async describeDataObjectColumnDetailV2WithOptions(request: DescribeDataObjectColumnDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailV2Response> {
     Util.validateModel(request);
@@ -8223,10 +15828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看数据对象列详情V2
-   *
-   * @param request DescribeDataObjectColumnDetailV2Request
-   * @return DescribeDataObjectColumnDetailV2Response
+   * 查看数据对象列详情V2
+   * 
+   * @param request - DescribeDataObjectColumnDetailV2Request
+   * @returns DescribeDataObjectColumnDetailV2Response
    */
   async describeDataObjectColumnDetailV2(request: DescribeDataObjectColumnDetailV2Request): Promise<DescribeDataObjectColumnDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8234,11 +15839,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 分页查询数据目录对象
-   *
-   * @param request DescribeDataObjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDataObjectsResponse
+   * 分页查询数据目录对象
+   * 
+   * @param request - DescribeDataObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataObjectsResponse
    */
   async describeDataObjectsWithOptions(request: DescribeDataObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectsResponse> {
     Util.validateModel(request);
@@ -8329,10 +15934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 分页查询数据目录对象
-   *
-   * @param request DescribeDataObjectsRequest
-   * @return DescribeDataObjectsResponse
+   * 分页查询数据目录对象
+   * 
+   * @param request - DescribeDataObjectsRequest
+   * @returns DescribeDataObjectsResponse
    */
   async describeDataObjects(request: DescribeDataObjectsRequest): Promise<DescribeDataObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8340,9 +15945,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDocTypesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDocTypesResponse
+   * @param request - DescribeDocTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDocTypesResponse
    */
   async describeDocTypesWithOptions(request: DescribeDocTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocTypesResponse> {
     Util.validateModel(request);
@@ -8369,8 +15974,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDocTypesRequest
-   * @return DescribeDocTypesResponse
+   * @param request - DescribeDocTypesRequest
+   * @returns DescribeDocTypesResponse
    */
   async describeDocTypes(request: DescribeDocTypesRequest): Promise<DescribeDocTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8378,11 +15983,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
-   *
-   * @param request DescribeEventDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEventDetailResponse
+   * Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+   * 
+   * @param request - DescribeEventDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventDetailResponse
    */
   async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventDetailResponse> {
     Util.validateModel(request);
@@ -8413,10 +16018,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
-   *
-   * @param request DescribeEventDetailRequest
-   * @return DescribeEventDetailResponse
+   * Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+   * 
+   * @param request - DescribeEventDetailRequest
+   * @returns DescribeEventDetailResponse
    */
   async describeEventDetail(request: DescribeEventDetailRequest): Promise<DescribeEventDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8424,11 +16029,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the types of anomalous events.
-   *
-   * @param request DescribeEventTypesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEventTypesResponse
+   * Queries the types of anomalous events.
+   * 
+   * @param request - DescribeEventTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventTypesResponse
    */
   async describeEventTypesWithOptions(request: DescribeEventTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventTypesResponse> {
     Util.validateModel(request);
@@ -8471,10 +16076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the types of anomalous events.
-   *
-   * @param request DescribeEventTypesRequest
-   * @return DescribeEventTypesResponse
+   * Queries the types of anomalous events.
+   * 
+   * @param request - DescribeEventTypesRequest
+   * @returns DescribeEventTypesResponse
    */
   async describeEventTypes(request: DescribeEventTypesRequest): Promise<DescribeEventTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8482,15 +16087,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries anomalous events.
-   *
-   * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+   * Queries anomalous events.
+   * 
+   * @remarks
+   * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeEventsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEventsResponse
+   * 
+   * @param request - DescribeEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventsResponse
    */
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
@@ -8577,14 +16183,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries anomalous events.
-   *
-   * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+   * Queries anomalous events.
+   * 
+   * @remarks
+   * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeEventsRequest
-   * @return DescribeEventsResponse
+   * 
+   * @param request - DescribeEventsRequest
+   * @returns DescribeEventsResponse
    */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8592,16 +16199,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of data assets.
-   *
-   * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+   * Queries a list of data assets.
+   * 
+   * @remarks
+   * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
    * This operation is no longer used for the KMS console of the new version.
    * # [](#qps-)QPS limits
    * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstanceSourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceSourcesResponse
+   * 
+   * @param request - DescribeInstanceSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSourcesResponse
    */
   async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
     Util.validateModel(request);
@@ -8676,15 +16284,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of data assets.
-   *
-   * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+   * Queries a list of data assets.
+   * 
+   * @remarks
+   * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
    * This operation is no longer used for the KMS console of the new version.
    * # [](#qps-)QPS limits
    * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstanceSourcesRequest
-   * @return DescribeInstanceSourcesResponse
+   * 
+   * @param request - DescribeInstanceSourcesRequest
+   * @returns DescribeInstanceSourcesResponse
    */
   async describeInstanceSources(request: DescribeInstanceSourcesRequest): Promise<DescribeInstanceSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8692,15 +16301,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
-   *
-   * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+   * Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+   * 
+   * @remarks
+   * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstancesResponse
+   * 
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -8763,14 +16373,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
-   *
-   * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+   * Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+   * 
+   * @remarks
+   * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstancesRequest
-   * @return DescribeInstancesResponse
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8778,17 +16389,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
-   *
-   * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+   * Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+   * 
+   * @remarks
+   * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
    * ## [](#)Precautions
    * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
    * ## [](#qps)Limits
    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeOssObjectDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOssObjectDetailResponse
+   * 
+   * @param request - DescribeOssObjectDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssObjectDetailResponse
    */
   async describeOssObjectDetailWithOptions(request: DescribeOssObjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailResponse> {
     Util.validateModel(request);
@@ -8819,16 +16431,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
-   *
-   * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+   * Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+   * 
+   * @remarks
+   * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
    * ## [](#)Precautions
    * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
    * ## [](#qps)Limits
    * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeOssObjectDetailRequest
-   * @return DescribeOssObjectDetailResponse
+   * 
+   * @param request - DescribeOssObjectDetailRequest
+   * @returns DescribeOssObjectDetailResponse
    */
   async describeOssObjectDetail(request: DescribeOssObjectDetailRequest): Promise<DescribeOssObjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8836,11 +16449,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
-   *
-   * @param request DescribeOssObjectDetailV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOssObjectDetailV2Response
+   * 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
+   * 
+   * @param request - DescribeOssObjectDetailV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssObjectDetailV2Response
    */
   async describeOssObjectDetailV2WithOptions(request: DescribeOssObjectDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailV2Response> {
     Util.validateModel(request);
@@ -8871,10 +16484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
-   *
-   * @param request DescribeOssObjectDetailV2Request
-   * @return DescribeOssObjectDetailV2Response
+   * 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
+   * 
+   * @param request - DescribeOssObjectDetailV2Request
+   * @returns DescribeOssObjectDetailV2Response
    */
   async describeOssObjectDetailV2(request: DescribeOssObjectDetailV2Request): Promise<DescribeOssObjectDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8882,11 +16495,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request DescribeOssObjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOssObjectsResponse
+   * Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - DescribeOssObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssObjectsResponse
    */
   async describeOssObjectsWithOptions(request: DescribeOssObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectsResponse> {
     Util.validateModel(request);
@@ -8957,10 +16570,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request DescribeOssObjectsRequest
-   * @return DescribeOssObjectsResponse
+   * Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - DescribeOssObjectsRequest
+   * @returns DescribeOssObjectsResponse
    */
   async describeOssObjects(request: DescribeOssObjectsRequest): Promise<DescribeOssObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8968,15 +16581,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
-   *
-   * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+   * Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+   * 
+   * @remarks
+   * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribePackagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePackagesResponse
+   * 
+   * @param request - DescribePackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePackagesResponse
    */
   async describePackagesWithOptions(request: DescribePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackagesResponse> {
     Util.validateModel(request);
@@ -9031,14 +16645,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
-   *
-   * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+   * Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+   * 
+   * @remarks
+   * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribePackagesRequest
-   * @return DescribePackagesResponse
+   * 
+   * @param request - DescribePackagesRequest
+   * @returns DescribePackagesResponse
    */
   async describePackages(request: DescribePackagesRequest): Promise<DescribePackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9046,11 +16661,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一级授权列表
-   *
-   * @param request DescribeParentInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParentInstanceResponse
+   * 获取一级授权列表
+   * 
+   * @param request - DescribeParentInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParentInstanceResponse
    */
   async describeParentInstanceWithOptions(request: DescribeParentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParentInstanceResponse> {
     Util.validateModel(request);
@@ -9121,10 +16736,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一级授权列表
-   *
-   * @param request DescribeParentInstanceRequest
-   * @return DescribeParentInstanceResponse
+   * 获取一级授权列表
+   * 
+   * @param request - DescribeParentInstanceRequest
+   * @returns DescribeParentInstanceResponse
    */
   async describeParentInstance(request: DescribeParentInstanceRequest): Promise<DescribeParentInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9132,15 +16747,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
-   *
-   * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+   * Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+   * 
+   * @remarks
+   * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeRiskLevelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRiskLevelsResponse
+   * 
+   * @param request - DescribeRiskLevelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRiskLevelsResponse
    */
   async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
     Util.validateModel(request);
@@ -9175,14 +16791,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
-   *
-   * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+   * Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+   * 
+   * @remarks
+   * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeRiskLevelsRequest
-   * @return DescribeRiskLevelsResponse
+   * 
+   * @param request - DescribeRiskLevelsRequest
+   * @returns DescribeRiskLevelsResponse
    */
   async describeRiskLevels(request: DescribeRiskLevelsRequest): Promise<DescribeRiskLevelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9190,11 +16807,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries sensitive data detection rules.
-   *
-   * @param request DescribeRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRulesResponse
+   * Queries sensitive data detection rules.
+   * 
+   * @param request - DescribeRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRulesResponse
    */
   async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
     Util.validateModel(request);
@@ -9289,10 +16906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries sensitive data detection rules.
-   *
-   * @param request DescribeRulesRequest
-   * @return DescribeRulesResponse
+   * Queries sensitive data detection rules.
+   * 
+   * @param request - DescribeRulesRequest
+   * @returns DescribeRulesResponse
    */
   async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9300,15 +16917,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-   *
-   * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+   * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   * 
+   * @remarks
+   * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
    * # Limits
    * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-   *
-   * @param request DescribeTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTablesResponse
+   * 
+   * @param request - DescribeTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTablesResponse
    */
   async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTablesResponse> {
     Util.validateModel(request);
@@ -9379,14 +16997,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-   *
-   * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+   * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+   * 
+   * @remarks
+   * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
    * # Limits
    * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-   *
-   * @param request DescribeTablesRequest
-   * @return DescribeTablesResponse
+   * 
+   * @param request - DescribeTablesRequest
+   * @returns DescribeTablesResponse
    */
   async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9394,9 +17013,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeTemplateAllRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTemplateAllRulesResponse
+   * @param request - DescribeTemplateAllRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTemplateAllRulesResponse
    */
   async describeTemplateAllRulesWithOptions(request: DescribeTemplateAllRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAllRulesResponse> {
     Util.validateModel(request);
@@ -9431,8 +17050,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeTemplateAllRulesRequest
-   * @return DescribeTemplateAllRulesResponse
+   * @param request - DescribeTemplateAllRulesRequest
+   * @returns DescribeTemplateAllRulesResponse
    */
   async describeTemplateAllRules(request: DescribeTemplateAllRulesRequest): Promise<DescribeTemplateAllRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9440,15 +17059,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an account.
-   *
-   * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+   * Queries the information about an account.
+   * 
+   * @remarks
+   * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeUserStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserStatusResponse
+   * 
+   * @param request - DescribeUserStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserStatusResponse
    */
   async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
     Util.validateModel(request);
@@ -9479,14 +17099,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an account.
-   *
-   * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+   * Queries the information about an account.
+   * 
+   * @remarks
+   * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeUserStatusRequest
-   * @return DescribeUserStatusResponse
+   * 
+   * @param request - DescribeUserStatusRequest
+   * @returns DescribeUserStatusResponse
    */
   async describeUserStatus(request: DescribeUserStatusRequest): Promise<DescribeUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9494,15 +17115,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
-   *
-   * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+   * Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+   * 
+   * @remarks
+   * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DisableUserConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableUserConfigResponse
+   * 
+   * @param request - DisableUserConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableUserConfigResponse
    */
   async disableUserConfigWithOptions(request: DisableUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserConfigResponse> {
     Util.validateModel(request);
@@ -9537,14 +17159,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
-   *
-   * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+   * Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+   * 
+   * @remarks
+   * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DisableUserConfigRequest
-   * @return DisableUserConfigResponse
+   * 
+   * @param request - DisableUserConfigRequest
+   * @returns DisableUserConfigResponse
    */
   async disableUserConfig(request: DisableUserConfigRequest): Promise<DisableUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9552,11 +17175,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Dynamically de-identifies sensitive data.
-   *
-   * @param request ExecDatamaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecDatamaskResponse
+   * Dynamically de-identifies sensitive data.
+   * 
+   * @param request - ExecDatamaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecDatamaskResponse
    */
   async execDatamaskWithOptions(request: ExecDatamaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecDatamaskResponse> {
     Util.validateModel(request);
@@ -9595,10 +17218,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Dynamically de-identifies sensitive data.
-   *
-   * @param request ExecDatamaskRequest
-   * @return ExecDatamaskResponse
+   * Dynamically de-identifies sensitive data.
+   * 
+   * @param request - ExecDatamaskRequest
+   * @returns ExecDatamaskResponse
    */
   async execDatamask(request: ExecDatamaskRequest): Promise<ExecDatamaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9606,11 +17229,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Triggers a de-identification task.
-   *
-   * @param request ManualTriggerMaskingProcessRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ManualTriggerMaskingProcessResponse
+   * Triggers a de-identification task.
+   * 
+   * @param request - ManualTriggerMaskingProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManualTriggerMaskingProcessResponse
    */
   async manualTriggerMaskingProcessWithOptions(request: ManualTriggerMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<ManualTriggerMaskingProcessResponse> {
     Util.validateModel(request);
@@ -9641,10 +17264,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Triggers a de-identification task.
-   *
-   * @param request ManualTriggerMaskingProcessRequest
-   * @return ManualTriggerMaskingProcessResponse
+   * Triggers a de-identification task.
+   * 
+   * @param request - ManualTriggerMaskingProcessRequest
+   * @returns ManualTriggerMaskingProcessResponse
    */
   async manualTriggerMaskingProcess(request: ManualTriggerMaskingProcessRequest): Promise<ManualTriggerMaskingProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9652,11 +17275,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request ModifyDataLimitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDataLimitResponse
+   * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - ModifyDataLimitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDataLimitResponse
    */
   async modifyDataLimitWithOptions(request: ModifyDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataLimitResponse> {
     Util.validateModel(request);
@@ -9747,10 +17370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
-   *
-   * @param request ModifyDataLimitRequest
-   * @return ModifyDataLimitResponse
+   * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+   * 
+   * @param request - ModifyDataLimitRequest
+   * @returns ModifyDataLimitResponse
    */
   async modifyDataLimit(request: ModifyDataLimitRequest): Promise<ModifyDataLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9758,15 +17381,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
-   *
-   * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+   * Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+   * 
+   * @remarks
+   * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyDefaultLevelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDefaultLevelResponse
+   * 
+   * @param request - ModifyDefaultLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDefaultLevelResponse
    */
   async modifyDefaultLevelWithOptions(request: ModifyDefaultLevelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefaultLevelResponse> {
     Util.validateModel(request);
@@ -9801,14 +17425,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
-   *
-   * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+   * Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+   * 
+   * @remarks
+   * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyDefaultLevelRequest
-   * @return ModifyDefaultLevelResponse
+   * 
+   * @param request - ModifyDefaultLevelRequest
+   * @returns ModifyDefaultLevelResponse
    */
   async modifyDefaultLevel(request: ModifyDefaultLevelRequest): Promise<ModifyDefaultLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9816,15 +17441,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Handles an anomalous event.
-   *
-   * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+   * Handles an anomalous event.
+   * 
+   * @remarks
+   * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyEventStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyEventStatusResponse
+   * 
+   * @param request - ModifyEventStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEventStatusResponse
    */
   async modifyEventStatusWithOptions(request: ModifyEventStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventStatusResponse> {
     Util.validateModel(request);
@@ -9867,14 +17493,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Handles an anomalous event.
-   *
-   * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+   * Handles an anomalous event.
+   * 
+   * @remarks
+   * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyEventStatusRequest
-   * @return ModifyEventStatusResponse
+   * 
+   * @param request - ModifyEventStatusRequest
+   * @returns ModifyEventStatusResponse
    */
   async modifyEventStatus(request: ModifyEventStatusRequest): Promise<ModifyEventStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9882,11 +17509,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the detection of anomalous events of subtypes.
-   *
-   * @param request ModifyEventTypeStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyEventTypeStatusResponse
+   * Enables the detection of anomalous events of subtypes.
+   * 
+   * @param request - ModifyEventTypeStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEventTypeStatusResponse
    */
   async modifyEventTypeStatusWithOptions(request: ModifyEventTypeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventTypeStatusResponse> {
     Util.validateModel(request);
@@ -9921,10 +17548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the detection of anomalous events of subtypes.
-   *
-   * @param request ModifyEventTypeStatusRequest
-   * @return ModifyEventTypeStatusResponse
+   * Enables the detection of anomalous events of subtypes.
+   * 
+   * @param request - ModifyEventTypeStatusRequest
+   * @returns ModifyEventTypeStatusResponse
    */
   async modifyEventTypeStatus(request: ModifyEventTypeStatusRequest): Promise<ModifyEventTypeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9932,15 +17559,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the report task.
-   *
-   * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+   * Enables or disables the report task.
+   * 
+   * @remarks
+   * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyReportTaskStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyReportTaskStatusResponse
+   * 
+   * @param request - ModifyReportTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyReportTaskStatusResponse
    */
   async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
     Util.validateModel(request);
@@ -9975,14 +17603,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the report task.
-   *
-   * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+   * Enables or disables the report task.
+   * 
+   * @remarks
+   * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyReportTaskStatusRequest
-   * @return ModifyReportTaskStatusResponse
+   * 
+   * @param request - ModifyReportTaskStatusRequest
+   * @returns ModifyReportTaskStatusResponse
    */
   async modifyReportTaskStatus(request: ModifyReportTaskStatusRequest): Promise<ModifyReportTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9990,15 +17619,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
-   *
-   * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+   * Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+   * 
+   * @remarks
+   * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyRuleResponse
+   * 
+   * @param request - ModifyRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRuleResponse
    */
   async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleResponse> {
     Util.validateModel(request);
@@ -10069,14 +17699,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
-   *
-   * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+   * Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+   * 
+   * @remarks
+   * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyRuleRequest
-   * @return ModifyRuleResponse
+   * 
+   * @param request - ModifyRuleRequest
+   * @returns ModifyRuleResponse
    */
   async modifyRule(request: ModifyRuleRequest): Promise<ModifyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10084,11 +17715,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables a sensitive data detection rule.
-   *
-   * @param request ModifyRuleStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyRuleStatusResponse
+   * Enables or disables a sensitive data detection rule.
+   * 
+   * @param request - ModifyRuleStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRuleStatusResponse
    */
   async modifyRuleStatusWithOptions(request: ModifyRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleStatusResponse> {
     Util.validateModel(request);
@@ -10127,10 +17758,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables a sensitive data detection rule.
-   *
-   * @param request ModifyRuleStatusRequest
-   * @return ModifyRuleStatusResponse
+   * Enables or disables a sensitive data detection rule.
+   * 
+   * @param request - ModifyRuleStatusRequest
+   * @returns ModifyRuleStatusResponse
    */
   async modifyRuleStatus(request: ModifyRuleStatusRequest): Promise<ModifyRuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10138,15 +17769,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
-   *
-   * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+   * Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+   * 
+   * @remarks
+   * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request StopMaskingProcessRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopMaskingProcessResponse
+   * 
+   * @param request - StopMaskingProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopMaskingProcessResponse
    */
   async stopMaskingProcessWithOptions(request: StopMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<StopMaskingProcessResponse> {
     Util.validateModel(request);
@@ -10177,14 +17809,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
-   *
-   * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+   * Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+   * 
+   * @remarks
+   * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
    * # Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request StopMaskingProcessRequest
-   * @return StopMaskingProcessResponse
+   * 
+   * @param request - StopMaskingProcessRequest
+   * @returns StopMaskingProcessResponse
    */
   async stopMaskingProcess(request: StopMaskingProcessRequest): Promise<StopMaskingProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
