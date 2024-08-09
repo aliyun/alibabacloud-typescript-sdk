@@ -4423,7 +4423,7 @@ export class DescribeAccountPrivilegeObjectsRequest extends $tea.Model {
   columnPrivilegeObject?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -5504,9 +5504,9 @@ export class DescribeAllDataSourceResponse extends $tea.Model {
 export class DescribeApsActionLogsRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -7372,9 +7372,9 @@ export class DescribeDBClusterAttributeResponse extends $tea.Model {
 export class DescribeDBClusterHealthStatusRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -7507,9 +7507,9 @@ export class DescribeDBClusterHealthStatusResponse extends $tea.Model {
 export class DescribeDBClusterPerformanceRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * > You can call the [DescribeDBClusters](~~~612397~~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](~~~612397~~~) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -7716,7 +7716,7 @@ export class DescribeDBClusterPerformanceResponse extends $tea.Model {
 export class DescribeDBClusterSpaceSummaryRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -10235,7 +10235,7 @@ export class DescribePatternPerformanceRequest extends $tea.Model {
    * @remarks
    * The cluster ID.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region, including cluster IDs.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -10257,7 +10257,7 @@ export class DescribePatternPerformanceRequest extends $tea.Model {
    * @remarks
    * The SQL pattern ID.
    * 
-   * >  You can call the [DescribeSQLPatterns](https://help.aliyun.com/document_detail/321868.html) operation to query the information about all SQL patterns in an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a period of time, including SQL pattern IDs.
+   * >  You can call the [DescribeSQLPatterns](https://help.aliyun.com/document_detail/321868.html) operation to query the information about all SQL patterns in an AnalyticDB for MySQL cluster within a period of time, including SQL pattern IDs.
    * 
    * @example
    * 3847585356974******
@@ -15761,7 +15761,7 @@ export class KillSparkLogAnalyzeTaskResponse extends $tea.Model {
 export class KillSparkSQLEngineRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -17546,7 +17546,7 @@ export class ModifyDBClusterDescriptionResponse extends $tea.Model {
 export class ModifyDBClusterMaintainTimeRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -22768,7 +22768,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
    * 
    *         *   AnalyticDB_Avg_QueryRT: the average amount of time consumed by queries.
    *         *   AnalyticDB_Max_QueryRT: the maximum amount of time consumed by a single query.
-   *         *   etl_avg_rt: the average amount of time consumed by extract-transform-load (ETL) operations.
+   *         *   etl_avg_rt: the average amount of time consumed by extract, transform, load (ETL) operations.
    *         *   etl_max_rt: the maximum amount of time consumed by a single ETL operation.
    * 
    *     *   **AnalyticDB_QueryWaitTime**: the query wait time.
@@ -22866,36 +22866,30 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
    * 
    *         *   AnalyticDB_WLM_TotalQueries_Count: the total number of WLM queries.
    * 
-   * *   APS
+   * *   AnalyticDB Pipeline Service (APS)
    * 
-   *     *   AnalyticDB_APS_BPS: the bytes per second (BPS) of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *     *   AnalyticDB_APS_BPS: the bytes per second (BPS) of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    *         *   APS_Read_BPS: the read BPS of APS.
    * 
-   *     *   AnalyticDB_APS_CPU: the CPU utilization of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *     *   AnalyticDB_APS_CPU: the CPU utilization of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    *         *   APS_CPU_Avg_Usage_Percentage: the average CPU utilization of APS.
    *         *   APS_CPU_Max_Usage_Percentage: the maximum CPU utilization of APS.
    * 
-   *     *   AnalyticDB_APS_Memory: the memory usage of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *     *   AnalyticDB_APS_Memory: the memory usage of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    *         *   APS_Memory_Avg_Usage_Percentage: the average memory usage of APS.
    *         *   APS_Memory_Max_Usage_Percentage: the maximum memory usage of APS.
    * 
-   *     *   AnalyticDB_APS_RPS: the number of records per second of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *     *   AnalyticDB_APS_RPS: the number of records per second of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    *         *   APS_Read_RPS: the number of read records per second of APS.
    * 
-   *     *   AnalyticDB_APS_RT: the response time of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *     *   AnalyticDB_APS_RT: the response time of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    *         *   APS_Read_Avg_RT: the average response time of APS.
    *         *   APS_Read_Max_RT: the maximum response time of APS.
-   * 
-   * *   *   *
-   *     *   *
-   *     *   *
-   *     *   *
-   *     *   *
    * 
    * @example
    * AnalyticDB_Storage_CPU_Avg_Usage_Percentage
@@ -29916,7 +29910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
    *   General endpoint: `adb.aliyuncs.com`.
@@ -30004,7 +29998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
    *   General endpoint: `adb.aliyuncs.com`.
@@ -30700,10 +30694,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the health status of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterHealthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30738,10 +30732,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the health status of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterHealthStatusRequest
    * @returns DescribeDBClusterHealthStatusResponse
@@ -30755,7 +30749,7 @@ export default class Client extends OpenApi {
    * Queries the performance data of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30809,7 +30803,7 @@ export default class Client extends OpenApi {
    * Queries the performance data of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterPerformanceRequest
    * @returns DescribeDBClusterPerformanceResponse
@@ -31804,7 +31798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+   * Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
    * 
    * @remarks
    *   General endpoint: `adb.aliyuncs.com`.
@@ -31856,7 +31850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+   * Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
    * 
    * @remarks
    *   General endpoint: `adb.aliyuncs.com`.
@@ -34319,9 +34313,9 @@ export default class Client extends OpenApi {
    * Shuts down a Spark SQL engine.
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    * 
    * @param request - KillSparkSQLEngineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34359,9 +34353,9 @@ export default class Client extends OpenApi {
    * Shuts down a Spark SQL engine.
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
    * 
    * @param request - KillSparkSQLEngineRequest
    * @returns KillSparkSQLEngineResponse
@@ -35204,7 +35198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the maintenance window of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Modifies the maintenance window of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -35242,7 +35236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the maintenance window of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Modifies the maintenance window of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
