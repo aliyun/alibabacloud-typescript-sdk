@@ -39,6 +39,53 @@ export class Artifact extends $tea.Model {
   }
 }
 
+export class AsyncDraftDeployResult extends $tea.Model {
+  artifactValidationDetail?: ValidateStatementResult;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * "Validation error: SQL validate failed"
+   */
+  message?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * FINISHED
+   */
+  ticketStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactValidationDetail: 'artifactValidationDetail',
+      deploymentId: 'deploymentId',
+      message: 'message',
+      success: 'success',
+      ticketStatus: 'ticketStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactValidationDetail: ValidateStatementResult,
+      deploymentId: 'string',
+      message: 'string',
+      success: 'boolean',
+      ticketStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AsyncResourcePlanOperationResult extends $tea.Model {
   /**
    * @example
@@ -208,6 +255,158 @@ export class BriefResourceSetting extends $tea.Model {
   }
 }
 
+export class Catalog extends $tea.Model {
+  name?: string;
+  properties?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      properties: 'properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Connector extends $tea.Model {
+  creator?: string;
+  creatorName?: string;
+  dependencies?: string[];
+  lookup?: boolean;
+  modifier?: string;
+  modifierName?: string;
+  name?: string;
+  properties?: Property[];
+  sink?: boolean;
+  source?: boolean;
+  supportedFormats?: string[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      creatorName: 'creatorName',
+      dependencies: 'dependencies',
+      lookup: 'lookup',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
+      name: 'name',
+      properties: 'properties',
+      sink: 'sink',
+      source: 'source',
+      supportedFormats: 'supportedFormats',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      creatorName: 'string',
+      dependencies: { 'type': 'array', 'itemType': 'string' },
+      lookup: 'boolean',
+      modifier: 'string',
+      modifierName: 'string',
+      name: 'string',
+      properties: { 'type': 'array', 'itemType': Property },
+      sink: 'boolean',
+      source: 'boolean',
+      supportedFormats: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUdfArtifactResult extends $tea.Model {
+  collidingClasses?: UdfClass[];
+  createSuccess?: boolean;
+  message?: string;
+  udfArtifact?: UdfArtifact;
+  static names(): { [key: string]: string } {
+    return {
+      collidingClasses: 'collidingClasses',
+      createSuccess: 'createSuccess',
+      message: 'message',
+      udfArtifact: 'udfArtifact',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collidingClasses: { 'type': 'array', 'itemType': UdfClass },
+      createSuccess: 'boolean',
+      message: 'string',
+      udfArtifact: UdfArtifact,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Database extends $tea.Model {
+  comment?: string;
+  name?: string;
+  properties?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'comment',
+      name: 'name',
+      properties: 'properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfArtifactResult extends $tea.Model {
+  deleteSuccess?: boolean;
+  message?: string;
+  referencedClasses?: UdfClass[];
+  static names(): { [key: string]: string } {
+    return {
+      deleteSuccess: 'deleteSuccess',
+      message: 'message',
+      referencedClasses: 'referencedClasses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteSuccess: 'boolean',
+      message: 'string',
+      referencedClasses: { 'type': 'array', 'itemType': UdfClass },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Deployment extends $tea.Model {
   artifact?: Artifact;
   batchResourceSetting?: BatchResourceSetting;
@@ -254,6 +453,7 @@ export class Deployment extends $tea.Model {
    */
   flinkConf?: { [key: string]: any };
   jobSummary?: JobSummary;
+  labels?: { [key: string]: any };
   localVariables?: LocalVariable[];
   logging?: Logging;
   modifiedAt?: string;
@@ -277,6 +477,11 @@ export class Deployment extends $tea.Model {
    * default-namespace
    */
   namespace?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000000003
+   */
+  referencedDeploymentDraftId?: string;
   streamingResourceSetting?: StreamingResourceSetting;
   /**
    * @example
@@ -298,6 +503,7 @@ export class Deployment extends $tea.Model {
       executionMode: 'executionMode',
       flinkConf: 'flinkConf',
       jobSummary: 'jobSummary',
+      labels: 'labels',
       localVariables: 'localVariables',
       logging: 'logging',
       modifiedAt: 'modifiedAt',
@@ -305,6 +511,7 @@ export class Deployment extends $tea.Model {
       modifierName: 'modifierName',
       name: 'name',
       namespace: 'namespace',
+      referencedDeploymentDraftId: 'referencedDeploymentDraftId',
       streamingResourceSetting: 'streamingResourceSetting',
       workspace: 'workspace',
     };
@@ -325,6 +532,7 @@ export class Deployment extends $tea.Model {
       executionMode: 'string',
       flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       jobSummary: JobSummary,
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       localVariables: { 'type': 'array', 'itemType': LocalVariable },
       logging: Logging,
       modifiedAt: 'string',
@@ -332,7 +540,126 @@ export class Deployment extends $tea.Model {
       modifierName: 'string',
       name: 'string',
       namespace: 'string',
+      referencedDeploymentDraftId: 'string',
       streamingResourceSetting: StreamingResourceSetting,
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeploymentDraft extends $tea.Model {
+  artifact?: Artifact;
+  createdAt?: number;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  creator?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-00000012****
+   */
+  deploymentDraftId?: string;
+  /**
+   * @example
+   * vvr-6.0.7-flink-1.15
+   */
+  engineVersion?: string;
+  /**
+   * @example
+   * STREAMING
+   */
+  executionMode?: string;
+  labels?: { [key: string]: any };
+  localVariables?: LocalVariable[];
+  lock?: Lock;
+  modifiedAt?: number;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  modifierName?: string;
+  /**
+   * @example
+   * test-draft
+   */
+  name?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-00000013****
+   */
+  parentId?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-0000012312****
+   */
+  referencedDeploymentId?: string;
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifact: 'artifact',
+      createdAt: 'createdAt',
+      creator: 'creator',
+      creatorName: 'creatorName',
+      deploymentDraftId: 'deploymentDraftId',
+      engineVersion: 'engineVersion',
+      executionMode: 'executionMode',
+      labels: 'labels',
+      localVariables: 'localVariables',
+      lock: 'lock',
+      modifiedAt: 'modifiedAt',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
+      name: 'name',
+      namespace: 'namespace',
+      parentId: 'parentId',
+      referencedDeploymentId: 'referencedDeploymentId',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifact: Artifact,
+      createdAt: 'number',
+      creator: 'string',
+      creatorName: 'string',
+      deploymentDraftId: 'string',
+      engineVersion: 'string',
+      executionMode: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      localVariables: { 'type': 'array', 'itemType': LocalVariable },
+      lock: Lock,
+      modifiedAt: 'number',
+      modifier: 'string',
+      modifierName: 'string',
+      name: 'string',
+      namespace: 'string',
+      parentId: 'string',
+      referencedDeploymentId: 'string',
       workspace: 'string',
     };
   }
@@ -408,6 +735,97 @@ export class DeploymentTarget extends $tea.Model {
     return {
       name: 'string',
       namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DraftDeployParams extends $tea.Model {
+  deploymentDraftId?: string;
+  deploymentTarget?: BriefDeploymentTarget;
+  /**
+   * @example
+   * false
+   */
+  skipValidate?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentDraftId: 'deploymentDraftId',
+      deploymentTarget: 'deploymentTarget',
+      skipValidate: 'skipValidate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentDraftId: 'string',
+      deploymentTarget: BriefDeploymentTarget,
+      skipValidate: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DraftDeployResult extends $tea.Model {
+  artifactValidationDetail?: ValidateStatementResult;
+  /**
+   * @example
+   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * ""
+   */
+  message?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      artifactValidationDetail: 'artifactValidationDetail',
+      deploymentId: 'deploymentId',
+      message: 'message',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactValidationDetail: ValidateStatementResult,
+      deploymentId: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Edge extends $tea.Model {
+  columnLineage?: Relation[];
+  tableLineage?: Relation[];
+  static names(): { [key: string]: string } {
+    return {
+      columnLineage: 'columnLineage',
+      tableLineage: 'tableLineage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnLineage: { 'type': 'array', 'itemType': Relation },
+      tableLineage: { 'type': 'array', 'itemType': Relation },
     };
   }
 
@@ -584,6 +1002,209 @@ export class ExpertResourceSetting extends $tea.Model {
     return {
       jobmanagerResourceSettingSpec: BasicResourceSettingSpec,
       resourcePlan: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Folder extends $tea.Model {
+  createdAt?: number;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-0000012312****
+   */
+  folderId?: string;
+  modifiedAt?: number;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-0000012390****
+   */
+  parentId?: string;
+  subFolder?: SubFolder[];
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      folderId: 'folderId',
+      modifiedAt: 'modifiedAt',
+      name: 'name',
+      namespace: 'namespace',
+      parentId: 'parentId',
+      subFolder: 'subFolder',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      folderId: 'string',
+      modifiedAt: 'number',
+      name: 'string',
+      namespace: 'string',
+      parentId: 'string',
+      subFolder: { 'type': 'array', 'itemType': SubFolder },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLineageInfoParams extends $tea.Model {
+  depth?: number;
+  direction?: string;
+  id?: string;
+  idType?: string;
+  isColumnLevel?: boolean;
+  isTemporary?: boolean;
+  namespace?: string;
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      depth: 'depth',
+      direction: 'direction',
+      id: 'id',
+      idType: 'idType',
+      isColumnLevel: 'isColumnLevel',
+      isTemporary: 'isTemporary',
+      namespace: 'namespace',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      depth: 'number',
+      direction: 'string',
+      id: 'string',
+      idType: 'string',
+      isColumnLevel: 'boolean',
+      isTemporary: 'boolean',
+      namespace: 'string',
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobFailureInfo extends $tea.Model {
+  failureSeverity?: string;
+  message?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failureSeverity: 'failureSeverity',
+      message: 'message',
+      reason: 'reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureSeverity: 'string',
+      message: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobParams extends $tea.Model {
+  rescaleJobParam?: RescaleJobParam;
+  updateJobConfigParam?: UpdateJobConfigParam;
+  static names(): { [key: string]: string } {
+    return {
+      rescaleJobParam: 'rescaleJobParam',
+      updateJobConfigParam: 'updateJobConfigParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rescaleJobParam: RescaleJobParam,
+      updateJobConfigParam: UpdateJobConfigParam,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobResult extends $tea.Model {
+  hotUpdateParams?: HotUpdateJobParams;
+  jobHotUpdateId?: string;
+  jobId?: string;
+  status?: HotUpdateJobStatus;
+  targetResourceSetting?: BriefResourceSetting;
+  static names(): { [key: string]: string } {
+    return {
+      hotUpdateParams: 'hotUpdateParams',
+      jobHotUpdateId: 'jobHotUpdateId',
+      jobId: 'jobId',
+      status: 'status',
+      targetResourceSetting: 'targetResourceSetting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotUpdateParams: HotUpdateJobParams,
+      jobHotUpdateId: 'string',
+      jobId: 'string',
+      status: HotUpdateJobStatus,
+      targetResourceSetting: BriefResourceSetting,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobStatus extends $tea.Model {
+  failure?: HotUpdateJobFailureInfo;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failure: 'failure',
+      requestId: 'requestId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failure: HotUpdateJobFailureInfo,
+      requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -807,6 +1428,28 @@ export class JobFailure extends $tea.Model {
   }
 }
 
+export class JobInfo extends $tea.Model {
+  id?: string;
+  properties?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      properties: 'properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class JobMetric extends $tea.Model {
   /**
    * @example
@@ -986,6 +1629,108 @@ export class JobSummary extends $tea.Model {
   }
 }
 
+export class LineageColumn extends $tea.Model {
+  columnName?: string;
+  columnNativeType?: string;
+  columnType?: string;
+  createdAt?: number;
+  creator?: string;
+  description?: string;
+  id?: string;
+  modifiedAt?: number;
+  modifier?: string;
+  nullable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'columnName',
+      columnNativeType: 'columnNativeType',
+      columnType: 'columnType',
+      createdAt: 'createdAt',
+      creator: 'creator',
+      description: 'description',
+      id: 'id',
+      modifiedAt: 'modifiedAt',
+      modifier: 'modifier',
+      nullable: 'nullable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      columnNativeType: 'string',
+      columnType: 'string',
+      createdAt: 'number',
+      creator: 'string',
+      description: 'string',
+      id: 'string',
+      modifiedAt: 'number',
+      modifier: 'string',
+      nullable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageInfo extends $tea.Model {
+  edges?: Edge;
+  jobInfos?: JobInfo[];
+  nodes?: Node[];
+  static names(): { [key: string]: string } {
+    return {
+      edges: 'edges',
+      jobInfos: 'jobInfos',
+      nodes: 'nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      edges: Edge,
+      jobInfos: { 'type': 'array', 'itemType': JobInfo },
+      nodes: { 'type': 'array', 'itemType': Node },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageTable extends $tea.Model {
+  columns?: LineageColumn[];
+  id?: string;
+  properties?: { [key: string]: any };
+  tableName?: string;
+  with?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      id: 'id',
+      properties: 'properties',
+      tableName: 'tableName',
+      with: 'with',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': LineageColumn },
+      id: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      tableName: 'string',
+      with: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LocalVariable extends $tea.Model {
   /**
    * @example
@@ -1008,6 +1753,37 @@ export class LocalVariable extends $tea.Model {
     return {
       name: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Lock extends $tea.Model {
+  holderId?: string;
+  holderName?: string;
+  id?: string;
+  namespace?: string;
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      holderId: 'holderId',
+      holderName: 'holderName',
+      id: 'id',
+      namespace: 'namespace',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      holderId: 'string',
+      holderName: 'string',
+      id: 'string',
+      namespace: 'string',
+      workspace: 'string',
     };
   }
 
@@ -1145,6 +1921,118 @@ export class Member extends $tea.Model {
   }
 }
 
+export class MetadataInfo extends $tea.Model {
+  key?: string;
+  virtual?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      virtual: 'virtual',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      virtual: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Node extends $tea.Model {
+  catalogName?: string;
+  connector?: string;
+  databaseName?: string;
+  id?: string;
+  isTemporary?: boolean;
+  tables?: LineageTable[];
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'catalogName',
+      connector: 'connector',
+      databaseName: 'databaseName',
+      id: 'id',
+      isTemporary: 'isTemporary',
+      tables: 'tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      connector: 'string',
+      databaseName: 'string',
+      id: 'string',
+      isTemporary: 'boolean',
+      tables: { 'type': 'array', 'itemType': LineageTable },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrimaryKey extends $tea.Model {
+  columns?: string[];
+  constraintName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      constraintName: 'constraintName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      constraintName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Property extends $tea.Model {
+  defaultValue?: string;
+  definesFormat?: boolean;
+  description?: string;
+  key?: string;
+  required?: boolean;
+  sensitive?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'defaultValue',
+      definesFormat: 'definesFormat',
+      description: 'description',
+      key: 'key',
+      required: 'required',
+      sensitive: 'sensitive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      definesFormat: 'boolean',
+      description: 'string',
+      key: 'string',
+      required: 'boolean',
+      sensitive: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PythonArtifact extends $tea.Model {
   additionalDependencies?: string[];
   additionalPythonArchives?: string[];
@@ -1175,6 +2063,53 @@ export class PythonArtifact extends $tea.Model {
       entryModule: 'string',
       mainArgs: 'string',
       pythonArtifactUri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Relation extends $tea.Model {
+  destination?: string;
+  jobId?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destination: 'destination',
+      jobId: 'jobId',
+      source: 'source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destination: 'string',
+      jobId: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RescaleJobParam extends $tea.Model {
+  jobParallelism?: number;
+  vertexParallelism?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      jobParallelism: 'jobParallelism',
+      vertexParallelism: 'vertexParallelism',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobParallelism: 'number',
+      vertexParallelism: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1330,6 +2265,31 @@ export class SavepointStatus extends $tea.Model {
   }
 }
 
+export class Schema extends $tea.Model {
+  columns?: TableColumn[];
+  primaryKey?: PrimaryKey[];
+  watermarkSpecs?: WatermarkSpec[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'columns',
+      primaryKey: 'primaryKey',
+      watermarkSpecs: 'watermarkSpecs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': TableColumn },
+      primaryKey: { 'type': 'array', 'itemType': PrimaryKey },
+      watermarkSpecs: { 'type': 'array', 'itemType': WatermarkSpec },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SqlArtifact extends $tea.Model {
   additionalDependencies?: string[];
   sqlScript?: string;
@@ -1344,6 +2304,31 @@ export class SqlArtifact extends $tea.Model {
     return {
       additionalDependencies: { 'type': 'array', 'itemType': 'string' },
       sqlScript: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SqlStatementExecuteResult extends $tea.Model {
+  errorDetails?: ErrorDetails;
+  executeSuccess?: boolean;
+  statement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDetails: 'errorDetails',
+      executeSuccess: 'executeSuccess',
+      statement: 'statement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDetails: ErrorDetails,
+      executeSuccess: 'boolean',
+      statement: 'string',
     };
   }
 
@@ -1503,6 +2488,333 @@ export class StreamingResourceSetting extends $tea.Model {
   }
 }
 
+export class SubFolder extends $tea.Model {
+  /**
+   * @example
+   * a579aec9-1d5e-3382-9d65-9887ff6cfaff
+   */
+  folderId?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * 95c0787c-408f-4e1f-88ba-ef0a84a2c2ee
+   */
+  parentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folderId: 'folderId',
+      name: 'name',
+      parentId: 'parentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderId: 'string',
+      name: 'string',
+      parentId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Table extends $tea.Model {
+  comment?: string;
+  name?: string;
+  partitionKeys?: string[];
+  properties?: { [key: string]: any };
+  schema?: Schema;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'comment',
+      name: 'name',
+      partitionKeys: 'partitionKeys',
+      properties: 'properties',
+      schema: 'schema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      partitionKeys: { 'type': 'array', 'itemType': 'string' },
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      schema: Schema,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableColumn extends $tea.Model {
+  expression?: string;
+  metadataInfo?: MetadataInfo;
+  name?: string;
+  nullable?: boolean;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      metadataInfo: 'metadataInfo',
+      name: 'name',
+      nullable: 'nullable',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      metadataInfo: MetadataInfo,
+      name: 'string',
+      nullable: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableMeta extends $tea.Model {
+  catalogName?: string;
+  databaseName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'catalogName',
+      databaseName: 'databaseName',
+      tableName: 'tableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      databaseName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UdfArtifact extends $tea.Model {
+  artifactType?: string;
+  createdAt?: number;
+  creator?: string;
+  dependencyJarUris?: string[];
+  jarUrl?: string;
+  modifiedAt?: number;
+  name?: string;
+  namespace?: string;
+  udfClasses?: UdfClass[];
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'artifactType',
+      createdAt: 'createdAt',
+      creator: 'creator',
+      dependencyJarUris: 'dependencyJarUris',
+      jarUrl: 'jarUrl',
+      modifiedAt: 'modifiedAt',
+      name: 'name',
+      namespace: 'namespace',
+      udfClasses: 'udfClasses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
+      createdAt: 'number',
+      creator: 'string',
+      dependencyJarUris: { 'type': 'array', 'itemType': 'string' },
+      jarUrl: 'string',
+      modifiedAt: 'number',
+      name: 'string',
+      namespace: 'string',
+      udfClasses: { 'type': 'array', 'itemType': UdfClass },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UdfClass extends $tea.Model {
+  className?: string;
+  classType?: string;
+  functionNames?: string[];
+  udfArtifactName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      className: 'className',
+      classType: 'classType',
+      functionNames: 'functionNames',
+      udfArtifactName: 'udfArtifactName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      classType: 'string',
+      functionNames: { 'type': 'array', 'itemType': 'string' },
+      udfArtifactName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UdfFunction extends $tea.Model {
+  className?: string;
+  functionName?: string;
+  udfArtifactName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      className: 'className',
+      functionName: 'functionName',
+      udfArtifactName: 'udfArtifactName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      functionName: 'string',
+      udfArtifactName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJobConfigParam extends $tea.Model {
+  newFlinkConf?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      newFlinkConf: 'newFlinkConf',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newFlinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUdfArtifactResult extends $tea.Model {
+  collidingClasses?: UdfClass[];
+  message?: string;
+  missingClasses?: UdfClass[];
+  udfArtifact?: UdfArtifact;
+  updateSuccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      collidingClasses: 'collidingClasses',
+      message: 'message',
+      missingClasses: 'missingClasses',
+      udfArtifact: 'udfArtifact',
+      updateSuccess: 'updateSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collidingClasses: { 'type': 'array', 'itemType': UdfClass },
+      message: 'string',
+      missingClasses: { 'type': 'array', 'itemType': UdfClass },
+      udfArtifact: UdfArtifact,
+      updateSuccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateStatementResult extends $tea.Model {
+  errorDetails?: ValidationErrorDetails;
+  /**
+   * @example
+   * "there have some errors""
+   */
+  validationResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDetails: 'errorDetails',
+      validationResult: 'validationResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDetails: ValidationErrorDetails,
+      validationResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidationErrorDetails extends $tea.Model {
+  columnNumber?: string;
+  endColumnNumber?: string;
+  endLineNumber?: string;
+  lineNumber?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnNumber: 'columnNumber',
+      endColumnNumber: 'endColumnNumber',
+      endLineNumber: 'endLineNumber',
+      lineNumber: 'lineNumber',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnNumber: 'string',
+      endColumnNumber: 'string',
+      endLineNumber: 'string',
+      lineNumber: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Variable extends $tea.Model {
   /**
    * @example
@@ -1548,6 +2860,28 @@ export class Variable extends $tea.Model {
       kind: 'string',
       name: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WatermarkSpec extends $tea.Model {
+  column?: string;
+  watermarkExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'column',
+      watermarkExpression: 'watermarkExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      watermarkExpression: 'string',
     };
   }
 
@@ -5523,6 +6857,8 @@ export class StartJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5551,6 +6887,8 @@ export class StartJobHeaders extends $tea.Model {
 export class StartJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The parameter that is used to start the job.
+   * 
    * This parameter is required.
    */
   body?: StartJobRequestBody;
@@ -5572,28 +6910,50 @@ export class StartJobRequest extends $tea.Model {
 }
 
 export class StartJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the job that you created was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Job;
   /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
    * @example
    * ""
    */
   errorCode?: string;
   /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -7807,7 +9167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * start job
+   * Creates and starts a job.
    * 
    * @deprecated OpenAPI StartJob is deprecated
    * 
@@ -7847,7 +9207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * start job
+   * Creates and starts a job.
    * 
    * @deprecated OpenAPI StartJob is deprecated
    * 
