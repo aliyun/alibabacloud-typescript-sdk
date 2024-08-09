@@ -14050,6 +14050,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
    * 1
    */
   eipAffinity?: number;
+  networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -14099,8 +14100,6 @@ export class CreateSnatEntryRequest extends $tea.Model {
    * >  If you specify multiple EIPs in the SNAT IP address pool, the service connection is allocated to multiple EIPs by using the hashing algorithm. The traffic of each EIP may be different. Therefore, we recommend that you associate the EIPs with an Internet Shared Bandwidth instance to prevent service interruptions caused by bandwidth exhaustion.
    * 
    * *   When you add SNAT entries for a VPC NAT gateway, this parameter specifies the NAT IP addresses in the SNAT entry. Separate multiple NAT IP addresses with commas (,).
-   * 
-   * This parameter is required.
    * 
    * @example
    * 47.98.XX.XX
@@ -14152,6 +14151,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       eipAffinity: 'EipAffinity',
+      networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -14169,6 +14169,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
     return {
       clientToken: 'string',
       eipAffinity: 'number',
+      networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -35745,6 +35746,7 @@ export class DescribeSnatTableEntriesRequest extends $tea.Model {
    * ngw-bp1uewa15k4iy5770****
    */
   natGatewayId?: string;
+  networkInterfaceIds?: string[];
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -35836,6 +35838,7 @@ export class DescribeSnatTableEntriesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       natGatewayId: 'NatGatewayId',
+      networkInterfaceIds: 'NetworkInterfaceIds',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -35855,6 +35858,7 @@ export class DescribeSnatTableEntriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       natGatewayId: 'string',
+      networkInterfaceIds: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -56845,6 +56849,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
    */
   clientToken?: string;
   eipAffinity?: number;
+  networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -56907,6 +56912,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       eipAffinity: 'EipAffinity',
+      networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -56923,6 +56929,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
     return {
       clientToken: 'string',
       eipAffinity: 'number',
+      networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -83100,6 +83107,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
    * ngw-bp1uewa15k4iy5770****
    */
   natGatewayId?: string;
+  networkInterfaceId?: string;
   /**
    * @remarks
    * The ID of the SNAT entry.
@@ -83166,6 +83174,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
     return {
       eipAffinity: 'EipAffinity',
       natGatewayId: 'NatGatewayId',
+      networkInterfaceId: 'NetworkInterfaceId',
       snatEntryId: 'SnatEntryId',
       snatEntryName: 'SnatEntryName',
       snatIp: 'SnatIp',
@@ -83180,6 +83189,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
     return {
       eipAffinity: 'string',
       natGatewayId: 'string',
+      networkInterfaceId: 'string',
       snatEntryId: 'string',
       snatEntryName: 'string',
       snatIp: 'string',
@@ -105638,6 +105648,10 @@ export default class Client extends OpenApi {
       query["EipAffinity"] = request.eipAffinity;
     }
 
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -116166,6 +116180,10 @@ export default class Client extends OpenApi {
       query["NatGatewayId"] = request.natGatewayId;
     }
 
+    if (!Util.isUnset(request.networkInterfaceIds)) {
+      query["NetworkInterfaceIds"] = request.networkInterfaceIds;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -125360,6 +125378,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eipAffinity)) {
       query["EipAffinity"] = request.eipAffinity;
+    }
+
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
