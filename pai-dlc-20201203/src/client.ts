@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -99,16 +98,56 @@ export class AssumeUserInfo extends $tea.Model {
 }
 
 export class CodeSourceItem extends $tea.Model {
+  /**
+   * @example
+   * master
+   */
   codeBranch?: string;
+  /**
+   * @example
+   * 44da1*******
+   */
   codeCommit?: string;
+  /**
+   * @example
+   * https://code.aliyun.com/pai-dlc/examples.git
+   */
   codeRepo?: string;
   codeRepoAccessToken?: string;
+  /**
+   * @example
+   * user
+   */
   codeRepoUserName?: string;
+  /**
+   * @example
+   * code-20210111103721-85qz*****
+   */
   codeSourceId?: string;
+  /**
+   * @example
+   * code source of dlc examples
+   */
   description?: string;
+  /**
+   * @example
+   * MyCodeSourceName1
+   */
   displayName?: string;
+  /**
+   * @example
+   * 2021-01-18T12:52:15Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-18T12:52:15Z
+   */
   gmtModifyTime?: string;
+  /**
+   * @example
+   * 115**********
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,9 +190,21 @@ export class ContainerSpec extends $tea.Model {
   args?: string[];
   command?: string[];
   env?: EnvVar[];
+  /**
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/pai-dlc/curl:v1.0.0
+   */
   image?: string;
+  /**
+   * @example
+   * data-init
+   */
   name?: string;
   resources?: ResourceRequirements;
+  /**
+   * @example
+   * /root
+   */
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -211,6 +262,10 @@ export class CredentialConfig extends $tea.Model {
 
 export class CredentialConfigItem extends $tea.Model {
   key?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   roles?: CredentialRole[];
   type?: string;
   static names(): { [key: string]: string } {
@@ -266,17 +321,65 @@ export class CredentialRole extends $tea.Model {
 }
 
 export class DataSourceItem extends $tea.Model {
+  /**
+   * @example
+   * data-20210114104214-vf9lowjt3pso
+   */
   dataSourceId?: string;
+  /**
+   * @example
+   * nas
+   */
   dataSourceType?: string;
+  /**
+   * @example
+   * data source of dlc examples
+   */
   description?: string;
+  /**
+   * @example
+   * nas-data
+   */
   displayName?: string;
+  /**
+   * @example
+   * oss-cn-beijing-internal.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * 1ca404****
+   */
   fileSystemId?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:00Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:00Z
+   */
   gmtModifyTime?: string;
+  /**
+   * @example
+   * /root/data/
+   */
   mountPath?: string;
+  /**
+   * @example
+   * {"key": "value"}
+   */
   options?: string;
+  /**
+   * @example
+   * oss://mybucket/path/to/dir
+   */
   path?: string;
+  /**
+   * @example
+   * 123456789
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -318,11 +421,35 @@ export class DataSourceItem extends $tea.Model {
 }
 
 export class DebuggerConfig extends $tea.Model {
+  /**
+   * @example
+   * {\"description\":\"这是一个新的pytorchjob模板\"}
+   */
   content?: string;
+  /**
+   * @example
+   * dc-vf9lowjt3pso
+   */
   debuggerConfigId?: string;
+  /**
+   * @example
+   * 这是一个Pytorch的基础配置模板
+   */
   description?: string;
+  /**
+   * @example
+   * Pytorch Experiment Config
+   */
   displayName?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:00Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:00Z
+   */
   gmtModifyTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -352,9 +479,25 @@ export class DebuggerConfig extends $tea.Model {
 }
 
 export class DebuggerJob extends $tea.Model {
+  /**
+   * @example
+   * dlc20210126170216-mtl37ge7gkvdz
+   */
   debuggerJobId?: string;
+  /**
+   * @example
+   * dlc debugger test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 2932
+   */
   duration?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:00Z
+   */
   gmtCreateTime?: string;
   gmtFailedTime?: string;
   gmtFinishTime?: string;
@@ -362,9 +505,25 @@ export class DebuggerJob extends $tea.Model {
   gmtStoppedTime?: string;
   gmtSubmittedTime?: string;
   gmtSucceedTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 12344556
+   */
   userId?: string;
+  /**
+   * @example
+   * workspace01
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * public
+   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -410,12 +569,40 @@ export class DebuggerJob extends $tea.Model {
 }
 
 export class DebuggerJobIssue extends $tea.Model {
+  /**
+   * @example
+   * {"Name": "CPUBottleneck",  "Triggered": 10, "Violations": 2,  "Details": "{}"}
+   */
   debuggerJobIssue?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:00Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * de-826ca1bcfba30
+   */
   jobDebuggerIssueId?: string;
+  /**
+   * @example
+   * dlc-20210126170216-mtl37ge7gkvdz
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1002300
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * GPU利用率低
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * ProfileReport
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -447,12 +634,40 @@ export class DebuggerJobIssue extends $tea.Model {
 }
 
 export class DebuggerResult extends $tea.Model {
+  /**
+   * @example
+   * {\"description\":\"这是一个新的pytorchjob模板\"}
+   */
   debuggerConfigContent?: string;
+  /**
+   * @example
+   * { "ProfileReport": { "Name": "CPUBottleneck","Triggered": 10,"Violations": 2,"Details": "{}"}, "LowCPU": { "Name": "CPUBottleneck","Triggered": 10,"Violations": 2,"Details": "{}"}}
+   */
   debuggerJobIssues?: string;
+  /**
+   * @example
+   * {"Running": 1, "Failed": 1, "Succeeded": 2}
+   */
   debuggerJobStatus?: string;
+  /**
+   * @example
+   * http://xxx.com/debug/report/download/new_xxxx.html
+   */
   debuggerReportURL?: string;
+  /**
+   * @example
+   * dlc debugger test
+   */
   jobDisplayName?: string;
+  /**
+   * @example
+   * dlc-20210126170216-mtl37ge7gkvdz
+   */
   jobId?: string;
+  /**
+   * @example
+   * 12344556
+   */
   jobUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -484,17 +699,61 @@ export class DebuggerResult extends $tea.Model {
 }
 
 export class EcsSpec extends $tea.Model {
+  /**
+   * @example
+   * GPU
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * 12
+   */
   cpu?: number;
+  /**
+   * @example
+   * 470.199.02
+   */
   defaultGPUDriver?: string;
+  /**
+   * @example
+   * 1
+   */
   gpu?: number;
+  /**
+   * @example
+   * NVIDIA v100
+   */
   gpuType?: string;
+  /**
+   * @example
+   * ecs.gn6e-c12g1.3xlarge
+   */
   instanceType?: string;
+  /**
+   * @example
+   * true
+   */
   isAvailable?: boolean;
+  /**
+   * @example
+   * 92
+   */
   memory?: number;
+  /**
+   * @example
+   * 0.1
+   */
   nonProtectSpotDiscount?: number;
   paymentTypes?: string[];
+  /**
+   * @example
+   * ECS
+   */
   resourceType?: string;
+  /**
+   * @example
+   * WithStock
+   */
   spotStockStatus?: string;
   supportedGPUDrivers?: string[];
   static names(): { [key: string]: string } {
@@ -539,7 +798,15 @@ export class EcsSpec extends $tea.Model {
 }
 
 export class EnvVar extends $tea.Model {
+  /**
+   * @example
+   * ENABLE_DEBUG
+   */
   name?: string;
+  /**
+   * @example
+   * true
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -593,6 +860,7 @@ export class EventInfo extends $tea.Model {
 
 export class ExtraPodSpec extends $tea.Model {
   initContainers?: ContainerSpec[];
+  lifecycle?: Lifecycle;
   podAnnotations?: { [key: string]: string };
   podLabels?: { [key: string]: string };
   sharedVolumeMountPaths?: string[];
@@ -600,6 +868,7 @@ export class ExtraPodSpec extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       initContainers: 'InitContainers',
+      lifecycle: 'Lifecycle',
       podAnnotations: 'PodAnnotations',
       podLabels: 'PodLabels',
       sharedVolumeMountPaths: 'SharedVolumeMountPaths',
@@ -610,6 +879,7 @@ export class ExtraPodSpec extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       initContainers: { 'type': 'array', 'itemType': ContainerSpec },
+      lifecycle: Lifecycle,
       podAnnotations: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       podLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       sharedVolumeMountPaths: { 'type': 'array', 'itemType': 'string' },
@@ -627,6 +897,10 @@ export class FreeResourceClusterControlItem extends $tea.Model {
   clusterName?: string;
   crossClusters?: boolean;
   enableFreeResource?: boolean;
+  /**
+   * @example
+   * frcc-whateversth
+   */
   freeResourceClusterControlId?: string;
   gmtCreateTime?: string;
   gmtModifyTime?: string;
@@ -663,7 +937,15 @@ export class FreeResourceClusterControlItem extends $tea.Model {
 }
 
 export class FreeResourceDetail extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   amount?: number;
+  /**
+   * @example
+   * CPU
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -685,13 +967,37 @@ export class FreeResourceDetail extends $tea.Model {
 }
 
 export class FreeResourceItem extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   availableNumber?: number;
   clusterID?: string;
   clusterName?: string;
+  /**
+   * @example
+   * freeres-whateversth
+   */
   freeResourceId?: string;
+  /**
+   * @example
+   * 2021-01-18T12:52:15Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-18T12:52:15Z
+   */
   gmtModifyTime?: string;
+  /**
+   * @example
+   * inner
+   */
   regionID?: string;
+  /**
+   * @example
+   * cpu
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -726,7 +1032,15 @@ export class FreeResourceItem extends $tea.Model {
 
 export class GPUDetail extends $tea.Model {
   GPU?: string;
+  /**
+   * @example
+   * Tesla-V100-32G
+   */
   GPUType?: string;
+  /**
+   * @example
+   * nvidia.com/gpu-tesla-v100-sxm2-16gb
+   */
   GPUTypeFullName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -751,6 +1065,10 @@ export class GPUDetail extends $tea.Model {
 
 export class ImageConfig extends $tea.Model {
   auth?: string;
+  /**
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com
+   */
   dockerRegistry?: string;
   password?: string;
   username?: string;
@@ -778,12 +1096,40 @@ export class ImageConfig extends $tea.Model {
 }
 
 export class ImageItem extends $tea.Model {
+  /**
+   * @example
+   * gpu
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * ken
+   */
   authorId?: string;
+  /**
+   * @example
+   * PyTorchJob
+   */
   framework?: string;
+  /**
+   * @example
+   * Community
+   */
   imageProviderType?: string;
+  /**
+   * @example
+   * tensorflow-training:2.3-cpu-py36-ubuntu18.04
+   */
   imageTag?: string;
+  /**
+   * @example
+   * registry.cn-beijing.aliyuncs.com/pai-dlc/tensorflow-training:2.3-cpu-py36-ubuntu18.04
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * registry-vpc.cn-beijing.aliyuncs.com/pai-dlc/tensorflow-training:2.3-cpu-py36-ubuntu18.04
+   */
   imageUrlVpc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -845,18 +1191,58 @@ export class JobDebuggerConfig extends $tea.Model {
 export class JobElasticSpec extends $tea.Model {
   AIMasterDockerImage?: string;
   AIMasterType?: string;
+  /**
+   * @example
+   * 16
+   */
   EDPMaxParallelism?: number;
+  /**
+   * @example
+   * 8
+   */
   EDPMinParallelism?: number;
   elasticStrategy?: string;
   enableAIMaster?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableEDP?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableElasticTraining?: boolean;
+  /**
+   * @example
+   * true
+   */
   enablePsJobElasticPS?: boolean;
   enablePsJobElasticWorker?: boolean;
+  /**
+   * @example
+   * true
+   */
   enablePsResourceEstimate?: boolean;
+  /**
+   * @example
+   * 8
+   */
   maxParallelism?: number;
+  /**
+   * @example
+   * 1
+   */
   minParallelism?: number;
+  /**
+   * @example
+   * 10
+   */
   PSMaxParallelism?: number;
+  /**
+   * @example
+   * 4
+   */
   PSMinParallelism?: number;
   static names(): { [key: string]: string } {
     return {
@@ -907,37 +1293,149 @@ export class JobItem extends $tea.Model {
   codeSource?: JobItemCodeSource;
   credentialConfig?: CredentialConfig;
   dataSources?: JobItemDataSources[];
+  /**
+   * @example
+   * tf-mnist-test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 3602
+   */
   duration?: number;
+  /**
+   * @example
+   * false
+   */
   enabledDebugger?: boolean;
   envs?: { [key: string]: string };
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtFailedTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:08Z
+   */
   gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtRunningTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtStoppedTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtSubmittedTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtSuccessedTime?: string;
+  /**
+   * @example
+   * dlc-20210126170216-mtl37ge7gkvdz
+   */
   jobId?: string;
   jobSpecs?: JobSpec[];
+  /**
+   * @example
+   * TFJob
+   */
   jobType?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * JobStoppedByUser
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * Job is stopped by user.
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * dlc-quota
+   */
   resourceId?: string;
+  /**
+   * @example
+   * L0
+   */
   resourceLevel?: string;
+  /**
+   * @example
+   * my_resource_group
+   */
   resourceName?: string;
+  /**
+   * @example
+   * ECS
+   */
   resourceType?: string;
   settings?: JobSettings;
+  /**
+   * @example
+   * Stopped
+   */
   status?: string;
+  /**
+   * @example
+   * Restarting
+   */
   subStatus?: string;
+  /**
+   * @example
+   * /root/code/
+   */
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
+  /**
+   * @example
+   * false
+   */
   useOversoldResource?: boolean;
+  /**
+   * @example
+   * python /root/code/mnist.py
+   */
   userCommand?: string;
+  /**
+   * @example
+   * 123456789
+   */
   userId?: string;
+  /**
+   * @example
+   * pai-dlc-role
+   */
   username?: string;
+  /**
+   * @example
+   * 268
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * dlc-workspace
+   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1026,19 +1524,75 @@ export class JobItem extends $tea.Model {
 
 export class JobSettings extends $tea.Model {
   advancedSettings?: { [key: string]: any };
+  /**
+   * @example
+   * 166924
+   */
   businessUserId?: string;
+  /**
+   * @example
+   * SilkFlow
+   */
   caller?: string;
+  /**
+   * @example
+   * 535.54.03
+   */
   driver?: string;
+  /**
+   * @example
+   * false
+   */
   enableErrorMonitoringInAIMaster?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableOssAppend?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableRDMA?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableSanityCheck?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableTideResource?: boolean;
+  /**
+   * @example
+   * --enable-log-hang-detection true
+   */
   errorMonitoringArgs?: string;
+  /**
+   * @example
+   * 30
+   */
   jobReservedMinutes?: number;
+  /**
+   * @example
+   * Always
+   */
   jobReservedPolicy?: string;
+  /**
+   * @example
+   * AcceptQuotaOverSold
+   */
   oversoldType?: string;
+  /**
+   * @example
+   * pid-123456
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * --sanity-check-timing=AfterJobFaultTolerant --sanity-check-timeout-ops=MarkJobFai
+   */
   sanityCheckArgs?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -1089,14 +1643,34 @@ export class JobSettings extends $tea.Model {
 }
 
 export class JobSpec extends $tea.Model {
+  /**
+   * @example
+   * ecs.c6.large
+   */
   ecsSpec?: string;
   extraPodSpec?: ExtraPodSpec;
+  /**
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/pai-dlc/tensorflow-training:1.12.2PAI-cpu-py27-ubuntu16.04
+   */
   image?: string;
   imageConfig?: ImageConfig;
+  /**
+   * @example
+   * 1
+   */
   podCount?: number;
   resourceConfig?: ResourceConfig;
   spotSpec?: SpotSpec;
+  /**
+   * @example
+   * Worker
+   */
   type?: string;
+  /**
+   * @example
+   * false
+   */
   useSpotInstance?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1131,11 +1705,37 @@ export class JobSpec extends $tea.Model {
   }
 }
 
+export class Lifecycle extends $tea.Model {
+  postStart?: LifecyclePostStart;
+  preStop?: LifecyclePreStop;
+  static names(): { [key: string]: string } {
+    return {
+      postStart: 'PostStart',
+      preStop: 'PreStop',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      postStart: LifecyclePostStart,
+      preStop: LifecyclePreStop,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogInfo extends $tea.Model {
   content?: string;
   id?: string;
   podId?: string;
   podUid?: string;
+  /**
+   * @example
+   * stderr, stdout
+   */
   source?: string;
   time?: string;
   static names(): { [key: string]: string } {
@@ -1166,7 +1766,15 @@ export class LogInfo extends $tea.Model {
 }
 
 export class Member extends $tea.Model {
+  /**
+   * @example
+   * ken_12345
+   */
   memberId?: string;
+  /**
+   * @example
+   * WorkspaceAdmin
+   */
   memberType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1188,7 +1796,15 @@ export class Member extends $tea.Model {
 }
 
 export class Metric extends $tea.Model {
+  /**
+   * @example
+   * 1616987726587
+   */
   time?: number;
+  /**
+   * @example
+   * 23.45
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1211,6 +1827,10 @@ export class Metric extends $tea.Model {
 
 export class NodeMetric extends $tea.Model {
   metrics?: Metric[];
+  /**
+   * @example
+   * asi_xxx
+   */
   nodeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1232,14 +1852,46 @@ export class NodeMetric extends $tea.Model {
 }
 
 export class PodItem extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:05Z
+   */
   gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:05Z
+   */
   gmtStartTime?: string;
   historyPods?: PodItem[];
+  /**
+   * @example
+   * 10.0.1.2
+   */
   ip?: string;
+  /**
+   * @example
+   * dlc-20210126170216-mtl37ge7gkvdz-worker-0
+   */
   podId?: string;
+  /**
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
   podUid?: string;
+  /**
+   * @example
+   * Stopped
+   */
   status?: string;
+  /**
+   * @example
+   * Worker
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1276,6 +1928,10 @@ export class PodItem extends $tea.Model {
 
 export class PodMetric extends $tea.Model {
   metrics?: Metric[];
+  /**
+   * @example
+   * dlc-20210329110128-746bf7cl47pr8-worker-0
+   */
   podId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1300,8 +1956,20 @@ export class Quota extends $tea.Model {
   clusterId?: string;
   clusterName?: string;
   quotaConfig?: QuotaConfig;
+  /**
+   * @example
+   * quotamtl37ge7gkvdz
+   */
   quotaId?: string;
+  /**
+   * @example
+   * dlc-quota
+   */
   quotaName?: string;
+  /**
+   * @example
+   * asiquota
+   */
   quotaType?: string;
   totalQuota?: QuotaDetail;
   totalTideQuota?: QuotaDetail;
@@ -1374,11 +2042,31 @@ export class QuotaConfig extends $tea.Model {
 }
 
 export class QuotaDetail extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   CPU?: string;
+  /**
+   * @example
+   * 5
+   */
   GPU?: string;
   GPUDetails?: GPUDetail[];
+  /**
+   * @example
+   * Tesla-V100
+   */
   GPUType?: string;
+  /**
+   * @example
+   * nvidia.com/gpu
+   */
   GPUTypeFullName?: string;
+  /**
+   * @example
+   * 10Gi
+   */
   memory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1408,10 +2096,30 @@ export class QuotaDetail extends $tea.Model {
 }
 
 export class ResourceConfig extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   CPU?: string;
+  /**
+   * @example
+   * 3
+   */
   GPU?: string;
+  /**
+   * @example
+   * Tesla-V100-16G
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 10Gi
+   */
   memory?: string;
+  /**
+   * @example
+   * 5Gi
+   */
   sharedMemory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1461,8 +2169,20 @@ export class ResourceRequirements extends $tea.Model {
 }
 
 export class Resources extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   CPU?: string;
+  /**
+   * @example
+   * 8
+   */
   GPU?: string;
+  /**
+   * @example
+   * 1024（单位GB）
+   */
   memory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1486,11 +2206,31 @@ export class Resources extends $tea.Model {
 }
 
 export class SanityCheckResultItem extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   checkNumber?: number;
+  /**
+   * @example
+   * ”2023-11-30T16:47:30.378817+08:00"
+   */
   finishedAt?: string;
   message?: string;
+  /**
+   * @example
+   * CheckInit
+   */
   phase?: string;
+  /**
+   * @example
+   * ”2023-11-30T16:47:30.343005+08:00“
+   */
   startedAt?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1520,21 +2260,85 @@ export class SanityCheckResultItem extends $tea.Model {
 }
 
 export class SmartCache extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   cacheWorkerNum?: number;
+  /**
+   * @example
+   * 100
+   */
   cacheWorkerSize?: number;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   duration?: string;
+  /**
+   * @example
+   * oss-cn-beijing-internal.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * 1ca404****
+   */
   fileSystemId?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T23:36:01Z
+   */
   gmtModifyTime?: string;
+  /**
+   * @example
+   * /root/data/
+   */
   mountPath?: string;
+  /**
+   * @example
+   * {"num_threads": 32}
+   */
   options?: string;
+  /**
+   * @example
+   * oss://buc/path/to/dir
+   */
   path?: string;
+  /**
+   * @example
+   * smartcache-20210114104214-vf9lowjt3pso
+   */
   smartCacheId?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * oss
+   */
   type?: string;
+  /**
+   * @example
+   * 189xxx
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1637,26 +2441,90 @@ export class StatusTransitionItem extends $tea.Model {
 }
 
 export class Tensorboard extends $tea.Model {
+  /**
+   * @example
+   * datasource-test
+   */
   dataSourceId?: string;
+  /**
+   * @example
+   * test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 1234567
+   */
   duration?: string;
+  /**
+   * @example
+   * 2021-01-12T14:35:00Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:00Z
+   */
   gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:00Z
+   */
   gmtModifyTime?: string;
+  /**
+   * @example
+   * dlc-20210114104214-vf9lowjt3pso
+   */
   jobId?: string;
   priority?: string;
   quotaId?: string;
   quotaName?: string;
+  /**
+   * @example
+   * Delete by user
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * Tensorboard is deleted
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @example
+   * /root/data
+   */
   summaryPath?: string;
   tensorboardDataSources?: TensorboardDataSourceSpec[];
+  /**
+   * @example
+   * tensorboard-xxx
+   */
   tensorboardId?: string;
   tensorboardSpec?: TensorboardSpec;
+  /**
+   * @example
+   * http://xxxxxx
+   */
   tensorboardUrl?: string;
+  /**
+   * @example
+   * lycxxxxx
+   */
   userId?: string;
+  /**
+   * @example
+   * tensorboard.pai
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1716,13 +2584,45 @@ export class Tensorboard extends $tea.Model {
 }
 
 export class TensorboardDataSourceSpec extends $tea.Model {
+  /**
+   * @example
+   * OSS
+   */
   dataSourceType?: string;
+  /**
+   * @example
+   * dlcJobName
+   */
   directoryName?: string;
+  /**
+   * @example
+   * oss://xxxxx/tensorboard/run1
+   */
   fullSummaryPath?: string;
+  /**
+   * @example
+   * d-vf2fdhxxxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * dlcJobName
+   */
   name?: string;
+  /**
+   * @example
+   * datasource
+   */
   sourceType?: string;
+  /**
+   * @example
+   * /tensorboard/run1
+   */
   summaryPath?: string;
+  /**
+   * @example
+   * oss://.oss-cn-shanghai-finance-1.aliyuncs.com/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1756,9 +2656,25 @@ export class TensorboardDataSourceSpec extends $tea.Model {
 }
 
 export class TensorboardSpec extends $tea.Model {
+  /**
+   * @example
+   * ecs.g6.large
+   */
   ecsType?: string;
+  /**
+   * @example
+   * sg-xxxxx
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxx
+   */
   switchId?: string;
+  /**
+   * @example
+   * vpc-xxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1784,14 +2700,34 @@ export class TensorboardSpec extends $tea.Model {
 }
 
 export class Workspace extends $tea.Model {
+  /**
+   * @example
+   * ken
+   */
   creator?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifyTime?: string;
   members?: Member[];
   quotas?: Quota[];
   totalResources?: Resources;
   workspaceAdmins?: Member[];
+  /**
+   * @example
+   * ws-20210126170216-mtl37ge7gkvdz
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * dlc-workspace
+   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1830,22 +2766,79 @@ export class CreateJobRequest extends $tea.Model {
   codeSource?: CreateJobRequestCodeSource;
   credentialConfig?: CredentialConfig;
   dataSources?: CreateJobRequestDataSources[];
+  /**
+   * @example
+   * “”
+   */
   debuggerConfigContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tf-mnist-test
+   */
   displayName?: string;
   elasticSpec?: JobElasticSpec;
   envs?: { [key: string]: string };
+  /**
+   * @example
+   * 1024
+   */
   jobMaxRunningTimeMinutes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   jobSpecs?: JobSpec[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TFJob
+   */
   jobType?: string;
+  /**
+   * @example
+   * key1=value1,key2=value2
+   */
   options?: string;
+  /**
+   * @example
+   * 8
+   */
   priority?: number;
+  /**
+   * @example
+   * rs-xxx
+   */
   resourceId?: string;
   settings?: JobSettings;
+  /**
+   * @example
+   * AllWorkers
+   */
   successPolicy?: string;
+  /**
+   * @example
+   * /root/code/
+   */
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * python /root/code/mnist.py
+   */
   userCommand?: string;
   userVpc?: CreateJobRequestUserVpc;
+  /**
+   * @example
+   * ws-20210126170216-xxxxxxx
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1903,7 +2896,15 @@ export class CreateJobRequest extends $tea.Model {
 }
 
 export class CreateJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc7*******
+   */
   jobId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1950,24 +2951,76 @@ export class CreateJobResponse extends $tea.Model {
 }
 
 export class CreateTensorboardRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   cpu?: number;
+  /**
+   * @example
+   * d-xxxxxxxx
+   */
   dataSourceId?: string;
   dataSourceType?: string;
   dataSources?: DataSourceItem[];
+  /**
+   * @example
+   * tensorboard
+   */
   displayName?: string;
+  /**
+   * @example
+   * dlc-20210126170216-mtl37ge7gkvdz
+   */
   jobId?: string;
+  /**
+   * @example
+   * 240
+   */
   maxRunningTimeMinutes?: number;
+  /**
+   * @example
+   * 1000
+   */
   memory?: number;
+  /**
+   * @example
+   * {"mountpath":"/root/data/"}
+   */
   options?: string;
   priority?: string;
   quotaId?: string;
+  /**
+   * @example
+   * dlc-xxxxxx
+   */
   sourceId?: string;
+  /**
+   * @example
+   * job
+   */
   sourceType?: string;
+  /**
+   * @example
+   * /root/data/
+   */
   summaryPath?: string;
+  /**
+   * @example
+   * /summary/
+   */
   summaryRelativePath?: string;
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   tensorboardSpec?: TensorboardSpec;
+  /**
+   * @example
+   * oss://.oss-cn-shanghai-finance-1.aliyuncs.com/
+   */
   uri?: string;
+  /**
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2023,9 +3076,25 @@ export class CreateTensorboardRequest extends $tea.Model {
 }
 
 export class CreateTensorboardResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ds-20210126170216-xxxxxxxx
+   */
   dataSourceId?: string;
+  /**
+   * @example
+   * dlc-20210126170216-xxxxxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * tbxxxxxxxx
+   */
   tensorboardId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2076,7 +3145,15 @@ export class CreateTensorboardResponse extends $tea.Model {
 }
 
 export class DeleteJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc*************
+   */
   jobId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2123,6 +3200,10 @@ export class DeleteJobResponse extends $tea.Model {
 }
 
 export class DeleteTensorboardRequest extends $tea.Model {
+  /**
+   * @example
+   * 46099
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2142,7 +3223,15 @@ export class DeleteTensorboardRequest extends $tea.Model {
 }
 
 export class DeleteTensorboardResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * tensorboard-20210114104214-vf9lowjt3pso
+   */
   tensorboardId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2189,6 +3278,10 @@ export class DeleteTensorboardResponse extends $tea.Model {
 }
 
 export class GetJobRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   needDetail?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2208,44 +3301,156 @@ export class GetJobRequest extends $tea.Model {
 }
 
 export class GetJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * a*****
+   */
   clusterId?: string;
   codeSource?: GetJobResponseBodyCodeSource;
   credentialConfig?: CredentialConfig;
   dataSources?: GetJobResponseBodyDataSources[];
+  /**
+   * @example
+   * tf-mnist-test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 3602
+   */
   duration?: number;
   elasticSpec?: JobElasticSpec;
+  /**
+   * @example
+   * false
+   */
   enabledDebugger?: boolean;
   envs?: { [key: string]: string };
+  /**
+   * @example
+   * 2021-01-12T14:35:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:08Z
+   */
   gmtFailedTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:08Z
+   */
   gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:21Z
+   */
   gmtRunningTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:08Z
+   */
   gmtStoppedTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtSubmittedTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:08Z
+   */
   gmtSuccessedTime?: string;
+  /**
+   * @example
+   * dlc*******
+   */
   jobId?: string;
   jobSpecs?: JobSpec[];
+  /**
+   * @example
+   * TFJob
+   */
   jobType?: string;
   pods?: GetJobResponseBodyPods[];
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * JobStoppedByUser
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * Job is stopped by user.
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * r******
+   */
   resourceId?: string;
+  /**
+   * @example
+   * L0
+   */
   resourceLevel?: string;
+  /**
+   * @example
+   * ECS
+   */
   resourceType?: string;
+  /**
+   * @example
+   * 0/10
+   */
   restartTimes?: string;
   settings?: JobSettings;
+  /**
+   * @example
+   * Stopped
+   */
   status?: string;
   statusHistory?: StatusTransitionItem[];
+  /**
+   * @example
+   * Restarting
+   */
   subStatus?: string;
   tenantId?: string;
+  /**
+   * @example
+   * /root/code/
+   */
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
+  /**
+   * @example
+   * python /root/code/mnist.py
+   */
   userCommand?: string;
+  /**
+   * @example
+   * 12*********
+   */
   userId?: string;
+  /**
+   * @example
+   * 268
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * dlc-workspace
+   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2366,8 +3571,20 @@ export class GetJobResponse extends $tea.Model {
 }
 
 export class GetJobEventsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-08T18:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 100
+   */
   maxEventsNum?: number;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2392,7 +3609,15 @@ export class GetJobEventsRequest extends $tea.Model {
 
 export class GetJobEventsResponseBody extends $tea.Model {
   events?: string[];
+  /**
+   * @example
+   * dlc-20210126170216-******
+   */
   jobId?: string;
+  /**
+   * @example
+   * 78F6FCE2-278F-4C4A-A6B7-DD8ECEA9C456
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2441,10 +3666,33 @@ export class GetJobEventsResponse extends $tea.Model {
 }
 
 export class GetJobMetricsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-09T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * GpuMemoryUsage
+   */
   metricType?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 5m
+   */
   timeStep?: string;
+  /**
+   * @example
+   * eyXXXX-XXXX.XXXXX
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2472,8 +3720,16 @@ export class GetJobMetricsRequest extends $tea.Model {
 }
 
 export class GetJobMetricsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc-20210126170216-*******
+   */
   jobId?: string;
   podMetrics?: PodMetric[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2522,7 +3778,18 @@ export class GetJobMetricsResponse extends $tea.Model {
 }
 
 export class GetJobSanityCheckResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sanityCheckNumber?: number;
+  /**
+   * @example
+   * DeviceCheck
+   */
   sanityCheckPhase?: string;
   token?: string;
   static names(): { [key: string]: string } {
@@ -2547,7 +3814,15 @@ export class GetJobSanityCheckResultRequest extends $tea.Model {
 }
 
 export class GetJobSanityCheckResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc-20210126170216-xxxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * B3789344-F1xxxBE-5xx2-A04D-xxxxx
+   */
   requestID?: string;
   sanityCheckResult?: SanityCheckResultItem[];
   static names(): { [key: string]: string } {
@@ -2597,9 +3872,25 @@ export class GetJobSanityCheckResultResponse extends $tea.Model {
 }
 
 export class GetPodEventsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-09T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 100
+   */
   maxEventsNum?: number;
+  /**
+   * @example
+   * dlc-20210126170216-*****-chief-0
+   */
   podUid?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2626,9 +3917,28 @@ export class GetPodEventsRequest extends $tea.Model {
 
 export class GetPodEventsResponseBody extends $tea.Model {
   events?: string[];
+  /**
+   * @example
+   * dlc-20210126170216-*****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dlc-20210126170216-*****-chief-0
+   */
   podId?: string;
+  /**
+   * @example
+   * 94a7cc7c-0033-48b5-85bd-71c63592c268
+   */
   podUid?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2681,10 +3991,30 @@ export class GetPodEventsResponse extends $tea.Model {
 }
 
 export class GetPodLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   downloadToFile?: boolean;
+  /**
+   * @example
+   * 2020-11-08T17:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 100
+   */
   maxLines?: number;
+  /**
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57****
+   */
   podUid?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2712,10 +4042,26 @@ export class GetPodLogsRequest extends $tea.Model {
 }
 
 export class GetPodLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc-20210126170216-******
+   */
   jobId?: string;
   logs?: string[];
+  /**
+   * @example
+   * dlc-20210126170216-****-chief-0
+   */
   podId?: string;
+  /**
+   * @example
+   * 94a7cc7c-0033-48b5-85bd-71c63592c268
+   */
   podUid?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2768,8 +4114,16 @@ export class GetPodLogsResponse extends $tea.Model {
 }
 
 export class GetTensorboardRequest extends $tea.Model {
+  /**
+   * @example
+   * dlc-xxxxxxxx
+   */
   jodId?: string;
   token?: string;
+  /**
+   * @example
+   * 46099
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2818,6 +4172,10 @@ export class GetTensorboardResponse extends $tea.Model {
 }
 
 export class GetTensorboardSharedUrlRequest extends $tea.Model {
+  /**
+   * @example
+   * 86400
+   */
   expireTimeSeconds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2837,7 +4195,15 @@ export class GetTensorboardSharedUrlRequest extends $tea.Model {
 }
 
 export class GetTensorboardSharedUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * http://pai-dlc-proxy-xxx.alicyuncs.com/xxx/xxx/token/
+   */
   tensorboardSharedUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2884,8 +4250,20 @@ export class GetTensorboardSharedUrlResponse extends $tea.Model {
 }
 
 export class GetTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * 60
+   */
   expireTime?: number;
+  /**
+   * @example
+   * dlc*******
+   */
   targetId?: string;
+  /**
+   * @example
+   * job
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2909,7 +4287,15 @@ export class GetTokenRequest extends $tea.Model {
 }
 
 export class GetTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9*****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2957,6 +4343,13 @@ export class GetTokenResponse extends $tea.Model {
 
 export class GetWebTerminalRequest extends $tea.Model {
   isShared?: boolean;
+  /**
+   * @remarks
+   * Pod UID。
+   * 
+   * @example
+   * 94a7cc7c-0033-48b5-85bd-71c63592c268
+   */
   podUid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3025,12 +4418,40 @@ export class GetWebTerminalResponse extends $tea.Model {
 }
 
 export class ListEcsSpecsRequest extends $tea.Model {
+  /**
+   * @example
+   * GPU
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * ecs.g6.large,ecs.g6.xlarge
+   */
   instanceTypes?: string;
+  /**
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ECS
+   */
   resourceType?: string;
+  /**
+   * @example
+   * Gpu
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3063,7 +4484,15 @@ export class ListEcsSpecsRequest extends $tea.Model {
 
 export class ListEcsSpecsResponseBody extends $tea.Model {
   ecsSpecs?: EcsSpec[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3112,6 +4541,10 @@ export class ListEcsSpecsResponse extends $tea.Model {
 }
 
 export class ListJobSanityCheckResultsRequest extends $tea.Model {
+  /**
+   * @example
+   * desc
+   */
   order?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3131,8 +4564,16 @@ export class ListJobSanityCheckResultsRequest extends $tea.Model {
 }
 
 export class ListJobSanityCheckResultsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1AC9xxx-3xxx-5xxx2-xxxx-FA5
+   */
   requestID?: string;
   sanityCheckResults?: SanityCheckResultItem[][];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3181,26 +4622,94 @@ export class ListJobSanityCheckResultsResponse extends $tea.Model {
 }
 
 export class ListJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 16****
+   */
   businessUserId?: string;
+  /**
+   * @example
+   * local
+   */
   caller?: string;
+  /**
+   * @example
+   * tf-mnist-test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 2020-11-09T14:45:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * false
+   */
   fromAllWorkspaces?: boolean;
+  /**
+   * @example
+   * dlc********
+   */
   jobId?: string;
+  /**
+   * @example
+   * TFJob
+   */
   jobType?: string;
+  /**
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @example
+   * flow-*******
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * r*****
+   */
   resourceId?: string;
   resourceQuotaName?: string;
+  /**
+   * @example
+   * true
+   */
   showOwn?: boolean;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   tags?: { [key: string]: string };
   userIdForFilter?: string;
   username?: string;
+  /**
+   * @example
+   * 1****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3260,26 +4769,94 @@ export class ListJobsRequest extends $tea.Model {
 }
 
 export class ListJobsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 16****
+   */
   businessUserId?: string;
+  /**
+   * @example
+   * local
+   */
   caller?: string;
+  /**
+   * @example
+   * tf-mnist-test
+   */
   displayName?: string;
+  /**
+   * @example
+   * 2020-11-09T14:45:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * false
+   */
   fromAllWorkspaces?: boolean;
+  /**
+   * @example
+   * dlc********
+   */
   jobId?: string;
+  /**
+   * @example
+   * TFJob
+   */
   jobType?: string;
+  /**
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @example
+   * flow-*******
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * r*****
+   */
   resourceId?: string;
   resourceQuotaName?: string;
+  /**
+   * @example
+   * true
+   */
   showOwn?: boolean;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   tagsShrink?: string;
   userIdForFilter?: string;
   username?: string;
+  /**
+   * @example
+   * 1****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3340,7 +4917,15 @@ export class ListJobsShrinkRequest extends $tea.Model {
 
 export class ListJobsResponseBody extends $tea.Model {
   jobs?: JobItem[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3389,24 +4974,80 @@ export class ListJobsResponse extends $tea.Model {
 }
 
 export class ListTensorboardsRequest extends $tea.Model {
+  /**
+   * @example
+   * TestTensorboard
+   */
   displayName?: string;
+  /**
+   * @example
+   * 2020-11-09T14:45:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * dlc-xxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: number;
   paymentType?: string;
   quotaId?: string;
   showOwn?: boolean;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * dlc-xxxxxx
+   */
   sourceId?: string;
+  /**
+   * @example
+   * job
+   */
   sourceType?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * tensorboard-xxx
+   */
   tensorboardId?: string;
   userId?: string;
   username?: string;
+  /**
+   * @example
+   * true
+   */
   verbose?: boolean;
+  /**
+   * @example
+   * 380
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3462,8 +5103,16 @@ export class ListTensorboardsRequest extends $tea.Model {
 }
 
 export class ListTensorboardsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   tensorboards?: Tensorboard[];
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3512,6 +5161,10 @@ export class ListTensorboardsResponse extends $tea.Model {
 }
 
 export class StartTensorboardRequest extends $tea.Model {
+  /**
+   * @example
+   * 380
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3531,7 +5184,15 @@ export class StartTensorboardRequest extends $tea.Model {
 }
 
 export class StartTensorboardResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * tensorboard-20210114104214-vf9lowjt3pso
+   */
   tensorboardId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3578,7 +5239,15 @@ export class StartTensorboardResponse extends $tea.Model {
 }
 
 export class StopJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc-20210126170216-xxxxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3625,6 +5294,10 @@ export class StopJobResponse extends $tea.Model {
 }
 
 export class StopTensorboardRequest extends $tea.Model {
+  /**
+   * @example
+   * 380
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3644,7 +5317,15 @@ export class StopTensorboardRequest extends $tea.Model {
 }
 
 export class StopTensorboardResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * tensorboard-20210114104214-xxxxxxxx
+   */
   tensorboardId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3691,6 +5372,10 @@ export class StopTensorboardResponse extends $tea.Model {
 }
 
 export class UpdateJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3710,7 +5395,15 @@ export class UpdateJobRequest extends $tea.Model {
 }
 
 export class UpdateJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dlc*************
+   */
   jobId?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3757,7 +5450,15 @@ export class UpdateJobResponse extends $tea.Model {
 }
 
 export class UpdateTensorboardRequest extends $tea.Model {
+  /**
+   * @example
+   * MaxRunningTimeMinutes
+   */
   maxRunningTimeMinutes?: number;
+  /**
+   * @example
+   * 380
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3779,7 +5480,15 @@ export class UpdateTensorboardRequest extends $tea.Model {
 }
 
 export class UpdateTensorboardResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * tensorboard-20210114104214-xxxxxxxx
+   */
   tensorboardId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3826,9 +5535,25 @@ export class UpdateTensorboardResponse extends $tea.Model {
 }
 
 export class JobItemCodeSource extends $tea.Model {
+  /**
+   * @example
+   * master
+   */
   branch?: string;
+  /**
+   * @example
+   * code-20210111103721-85qz78ia96lu
+   */
   codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b59f8596152987eaa8f3b2487bb72ea63
+   */
   commit?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3854,7 +5579,15 @@ export class JobItemCodeSource extends $tea.Model {
 }
 
 export class JobItemDataSources extends $tea.Model {
+  /**
+   * @example
+   * data-20210114104214-vf9lowjt3pso
+   */
   dataSourceId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3875,10 +5608,102 @@ export class JobItemDataSources extends $tea.Model {
   }
 }
 
+export class LifecyclePostStartExec extends $tea.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePostStart extends $tea.Model {
+  exec?: LifecyclePostStartExec;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: LifecyclePostStartExec,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePreStopExec extends $tea.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePreStop extends $tea.Model {
+  exec?: LifecyclePreStopExec;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: LifecyclePreStopExec,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobRequestCodeSource extends $tea.Model {
+  /**
+   * @example
+   * master
+   */
   branch?: string;
+  /**
+   * @example
+   * code-20210111103721-xxxxxxx
+   */
   codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b5******
+   */
   commit?: string;
+  /**
+   * @example
+   * /root/data
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3904,13 +5729,27 @@ export class CreateJobRequestCodeSource extends $tea.Model {
 }
 
 export class CreateJobRequestDataSources extends $tea.Model {
+  /**
+   * @example
+   * d-cn9dl*******
+   */
   dataSourceId?: string;
+  /**
+   * @example
+   * /root/data
+   */
   mountPath?: string;
+  options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
       mountPath: 'MountPath',
+      options: 'Options',
       uri: 'Uri',
     };
   }
@@ -3919,6 +5758,7 @@ export class CreateJobRequestDataSources extends $tea.Model {
     return {
       dataSourceId: 'string',
       mountPath: 'string',
+      options: 'string',
       uri: 'string',
     };
   }
@@ -3931,8 +5771,20 @@ export class CreateJobRequestDataSources extends $tea.Model {
 export class CreateJobRequestUserVpc extends $tea.Model {
   defaultRoute?: string;
   extendedCIDRs?: string[];
+  /**
+   * @example
+   * sg-abcdef****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vs-abcdef****
+   */
   switchId?: string;
+  /**
+   * @example
+   * vpc-abcdef****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3960,9 +5812,25 @@ export class CreateJobRequestUserVpc extends $tea.Model {
 }
 
 export class GetJobResponseBodyCodeSource extends $tea.Model {
+  /**
+   * @example
+   * master
+   */
   branch?: string;
+  /**
+   * @example
+   * code******
+   */
   codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b59f8596152987eaa8f3b2487xxxxxx
+   */
   commit?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3988,8 +5856,20 @@ export class GetJobResponseBodyCodeSource extends $tea.Model {
 }
 
 export class GetJobResponseBodyDataSources extends $tea.Model {
+  /**
+   * @example
+   * d*******
+   */
   dataSourceId?: string;
+  /**
+   * @example
+   * /mnt/data/
+   */
   mountPath?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4013,15 +5893,55 @@ export class GetJobResponseBodyDataSources extends $tea.Model {
 }
 
 export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtStartTime?: string;
+  /**
+   * @example
+   * 10.0.1.3
+   */
   ip?: string;
+  /**
+   * @example
+   * Worker
+   */
   podId?: string;
+  /**
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
   podUid?: string;
+  /**
+   * @example
+   * Normal
+   */
   resourceType?: string;
+  /**
+   * @example
+   * Failed
+   */
   status?: string;
+  /**
+   * @example
+   * Normal
+   */
   subStatus?: string;
+  /**
+   * @example
+   * Worker
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4059,16 +5979,56 @@ export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
 }
 
 export class GetJobResponseBodyPods extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:05Z
+   */
   gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtStartTime?: string;
   historyPods?: GetJobResponseBodyPodsHistoryPods[];
+  /**
+   * @example
+   * 10.0.1.2
+   */
   ip?: string;
+  /**
+   * @example
+   * Worker
+   */
   podId?: string;
+  /**
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
   podUid?: string;
+  /**
+   * @example
+   * Normal
+   */
   resourceType?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * Normal
+   */
   subStatus?: string;
+  /**
+   * @example
+   * Worker
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4183,12 +6143,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个DLC作业
-   *
-   * @param request CreateJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateJobResponse
+   * 创建一个DLC作业
+   * 
+   * @param request - CreateJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateJobResponse
    */
   async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(request);
@@ -4292,10 +6252,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个DLC作业
-   *
-   * @param request CreateJobRequest
-   * @return CreateJobResponse
+   * 创建一个DLC作业
+   * 
+   * @param request - CreateJobRequest
+   * @returns CreateJobResponse
    */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4304,12 +6264,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个Tensorboard
-   *
-   * @param request CreateTensorboardRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTensorboardResponse
+   * 创建一个Tensorboard
+   * 
+   * @param request - CreateTensorboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTensorboardResponse
    */
   async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
     Util.validateModel(request);
@@ -4409,10 +6369,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个Tensorboard
-   *
-   * @param request CreateTensorboardRequest
-   * @return CreateTensorboardResponse
+   * 创建一个Tensorboard
+   * 
+   * @param request - CreateTensorboardRequest
+   * @returns CreateTensorboardResponse
    */
   async createTensorboard(request: CreateTensorboardRequest): Promise<CreateTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4421,11 +6381,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个DLC作业
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteJobResponse
+   * 删除一个DLC作业
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobResponse
    */
   async deleteJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4446,9 +6406,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个DLC作业
-   *
-   * @return DeleteJobResponse
+   * 删除一个DLC作业
+   * @returns DeleteJobResponse
    */
   async deleteJob(JobId: string): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4457,12 +6416,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个数据源配置
-   *
-   * @param request DeleteTensorboardRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTensorboardResponse
+   * 删除一个数据源配置
+   * 
+   * @param request - DeleteTensorboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTensorboardResponse
    */
   async deleteTensorboardWithOptions(TensorboardId: string, request: DeleteTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTensorboardResponse> {
     Util.validateModel(request);
@@ -4490,10 +6449,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个数据源配置
-   *
-   * @param request DeleteTensorboardRequest
-   * @return DeleteTensorboardResponse
+   * 删除一个数据源配置
+   * 
+   * @param request - DeleteTensorboardRequest
+   * @returns DeleteTensorboardResponse
    */
   async deleteTensorboard(TensorboardId: string, request: DeleteTensorboardRequest): Promise<DeleteTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4502,12 +6461,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个DLC作业详情
-   *
-   * @param request GetJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobResponse
+   * 获取一个DLC作业详情
+   * 
+   * @param request - GetJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobResponse
    */
   async getJobWithOptions(JobId: string, request: GetJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
     Util.validateModel(request);
@@ -4535,10 +6494,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个DLC作业详情
-   *
-   * @param request GetJobRequest
-   * @return GetJobResponse
+   * 获取一个DLC作业详情
+   * 
+   * @param request - GetJobRequest
+   * @returns GetJobResponse
    */
   async getJob(JobId: string, request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4547,12 +6506,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取作业的事件
-   *
-   * @param request GetJobEventsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobEventsResponse
+   * 获取作业的事件
+   * 
+   * @param request - GetJobEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobEventsResponse
    */
   async getJobEventsWithOptions(JobId: string, request: GetJobEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobEventsResponse> {
     Util.validateModel(request);
@@ -4588,10 +6547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取作业的事件
-   *
-   * @param request GetJobEventsRequest
-   * @return GetJobEventsResponse
+   * 获取作业的事件
+   * 
+   * @param request - GetJobEventsRequest
+   * @returns GetJobEventsResponse
    */
   async getJobEvents(JobId: string, request: GetJobEventsRequest): Promise<GetJobEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4600,12 +6559,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个作业的资源监控指标
-   *
-   * @param request GetJobMetricsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobMetricsResponse
+   * 获取一个作业的资源监控指标
+   * 
+   * @param request - GetJobMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobMetricsResponse
    */
   async getJobMetricsWithOptions(JobId: string, request: GetJobMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobMetricsResponse> {
     Util.validateModel(request);
@@ -4649,10 +6608,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个作业的资源监控指标
-   *
-   * @param request GetJobMetricsRequest
-   * @return GetJobMetricsResponse
+   * 获取一个作业的资源监控指标
+   * 
+   * @param request - GetJobMetricsRequest
+   * @returns GetJobMetricsResponse
    */
   async getJobMetrics(JobId: string, request: GetJobMetricsRequest): Promise<GetJobMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4661,12 +6620,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取DLC作业某次算力健康检测结果
-   *
-   * @param request GetJobSanityCheckResultRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobSanityCheckResultResponse
+   * 获取DLC作业某次算力健康检测结果
+   * 
+   * @param request - GetJobSanityCheckResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobSanityCheckResultResponse
    */
   async getJobSanityCheckResultWithOptions(JobId: string, request: GetJobSanityCheckResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobSanityCheckResultResponse> {
     Util.validateModel(request);
@@ -4702,10 +6661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取DLC作业某次算力健康检测结果
-   *
-   * @param request GetJobSanityCheckResultRequest
-   * @return GetJobSanityCheckResultResponse
+   * 获取DLC作业某次算力健康检测结果
+   * 
+   * @param request - GetJobSanityCheckResultRequest
+   * @returns GetJobSanityCheckResultResponse
    */
   async getJobSanityCheckResult(JobId: string, request: GetJobSanityCheckResultRequest): Promise<GetJobSanityCheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4714,12 +6673,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取作业中一个运行实例的系统事件
-   *
-   * @param request GetPodEventsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPodEventsResponse
+   * 获取作业中一个运行实例的系统事件
+   * 
+   * @param request - GetPodEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPodEventsResponse
    */
   async getPodEventsWithOptions(JobId: string, PodId: string, request: GetPodEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodEventsResponse> {
     Util.validateModel(request);
@@ -4759,10 +6718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取作业中一个运行实例的系统事件
-   *
-   * @param request GetPodEventsRequest
-   * @return GetPodEventsResponse
+   * 获取作业中一个运行实例的系统事件
+   * 
+   * @param request - GetPodEventsRequest
+   * @returns GetPodEventsResponse
    */
   async getPodEvents(JobId: string, PodId: string, request: GetPodEventsRequest): Promise<GetPodEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4771,12 +6730,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取作业中一个运行实例的日志
-   *
-   * @param request GetPodLogsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPodLogsResponse
+   * 获取作业中一个运行实例的日志
+   * 
+   * @param request - GetPodLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPodLogsResponse
    */
   async getPodLogsWithOptions(JobId: string, PodId: string, request: GetPodLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodLogsResponse> {
     Util.validateModel(request);
@@ -4820,10 +6779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取作业中一个运行实例的日志
-   *
-   * @param request GetPodLogsRequest
-   * @return GetPodLogsResponse
+   * 获取作业中一个运行实例的日志
+   * 
+   * @param request - GetPodLogsRequest
+   * @returns GetPodLogsResponse
    */
   async getPodLogs(JobId: string, PodId: string, request: GetPodLogsRequest): Promise<GetPodLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4832,12 +6791,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个Tensorboard
-   *
-   * @param request GetTensorboardRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTensorboardResponse
+   * 获取一个Tensorboard
+   * 
+   * @param request - GetTensorboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTensorboardResponse
    */
   async getTensorboardWithOptions(TensorboardId: string, request: GetTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardResponse> {
     Util.validateModel(request);
@@ -4873,10 +6832,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一个Tensorboard
-   *
-   * @param request GetTensorboardRequest
-   * @return GetTensorboardResponse
+   * 获取一个Tensorboard
+   * 
+   * @param request - GetTensorboardRequest
+   * @returns GetTensorboardResponse
    */
   async getTensorboard(TensorboardId: string, request: GetTensorboardRequest): Promise<GetTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4885,12 +6844,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Get the shared url for tensorboard
-   *
-   * @param request GetTensorboardSharedUrlRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTensorboardSharedUrlResponse
+   * Get the shared url for tensorboard
+   * 
+   * @param request - GetTensorboardSharedUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTensorboardSharedUrlResponse
    */
   async getTensorboardSharedUrlWithOptions(TensorboardId: string, request: GetTensorboardSharedUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardSharedUrlResponse> {
     Util.validateModel(request);
@@ -4918,10 +6877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Get the shared url for tensorboard
-   *
-   * @param request GetTensorboardSharedUrlRequest
-   * @return GetTensorboardSharedUrlResponse
+   * Get the shared url for tensorboard
+   * 
+   * @param request - GetTensorboardSharedUrlRequest
+   * @returns GetTensorboardSharedUrlResponse
    */
   async getTensorboardSharedUrl(TensorboardId: string, request: GetTensorboardSharedUrlRequest): Promise<GetTensorboardSharedUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4930,12 +6889,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户Token
-   *
-   * @param request GetTokenRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTokenResponse
+   * 获取用户Token
+   * 
+   * @param request - GetTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTokenResponse
    */
   async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
@@ -4971,10 +6930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户Token
-   *
-   * @param request GetTokenRequest
-   * @return GetTokenResponse
+   * 获取用户Token
+   * 
+   * @param request - GetTokenRequest
+   * @returns GetTokenResponse
    */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4983,12 +6942,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Get the url for accessing pod's terminal in k8s
-   *
-   * @param request GetWebTerminalRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWebTerminalResponse
+   * Get the url for accessing pod's terminal in k8s
+   * 
+   * @param request - GetWebTerminalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWebTerminalResponse
    */
   async getWebTerminalWithOptions(JobId: string, PodId: string, request: GetWebTerminalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebTerminalResponse> {
     Util.validateModel(request);
@@ -5020,10 +6979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Get the url for accessing pod's terminal in k8s
-   *
-   * @param request GetWebTerminalRequest
-   * @return GetWebTerminalResponse
+   * Get the url for accessing pod's terminal in k8s
+   * 
+   * @param request - GetWebTerminalRequest
+   * @returns GetWebTerminalResponse
    */
   async getWebTerminal(JobId: string, PodId: string, request: GetWebTerminalRequest): Promise<GetWebTerminalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5032,12 +6991,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListEcsSpecs
-   *
-   * @param request ListEcsSpecsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEcsSpecsResponse
+   * ListEcsSpecs
+   * 
+   * @param request - ListEcsSpecsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEcsSpecsResponse
    */
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
     Util.validateModel(request);
@@ -5089,10 +7048,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListEcsSpecs
-   *
-   * @param request ListEcsSpecsRequest
-   * @return ListEcsSpecsResponse
+   * ListEcsSpecs
+   * 
+   * @param request - ListEcsSpecsRequest
+   * @returns ListEcsSpecsResponse
    */
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5101,12 +7060,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取某个DLC作业的多次算力健康检测结果
-   *
-   * @param request ListJobSanityCheckResultsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobSanityCheckResultsResponse
+   * 获取某个DLC作业的多次算力健康检测结果
+   * 
+   * @param request - ListJobSanityCheckResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobSanityCheckResultsResponse
    */
   async listJobSanityCheckResultsWithOptions(JobId: string, request: ListJobSanityCheckResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobSanityCheckResultsResponse> {
     Util.validateModel(request);
@@ -5134,10 +7093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取某个DLC作业的多次算力健康检测结果
-   *
-   * @param request ListJobSanityCheckResultsRequest
-   * @return ListJobSanityCheckResultsResponse
+   * 获取某个DLC作业的多次算力健康检测结果
+   * 
+   * @param request - ListJobSanityCheckResultsRequest
+   * @returns ListJobSanityCheckResultsResponse
    */
   async listJobSanityCheckResults(JobId: string, request: ListJobSanityCheckResultsRequest): Promise<ListJobSanityCheckResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5146,12 +7105,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据过滤条件获取DLC作业列表
-   *
-   * @param tmpReq ListJobsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobsResponse
+   * 根据过滤条件获取DLC作业列表
+   * 
+   * @param tmpReq - ListJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobsResponse
    */
   async listJobsWithOptions(tmpReq: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(tmpReq);
@@ -5265,10 +7224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据过滤条件获取DLC作业列表
-   *
-   * @param request ListJobsRequest
-   * @return ListJobsResponse
+   * 根据过滤条件获取DLC作业列表
+   * 
+   * @param request - ListJobsRequest
+   * @returns ListJobsResponse
    */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5277,12 +7236,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Tensorboard
-   *
-   * @param request ListTensorboardsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTensorboardsResponse
+   * 获取Tensorboard
+   * 
+   * @param request - ListTensorboardsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTensorboardsResponse
    */
   async listTensorboardsWithOptions(request: ListTensorboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTensorboardsResponse> {
     Util.validateModel(request);
@@ -5382,10 +7341,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Tensorboard
-   *
-   * @param request ListTensorboardsRequest
-   * @return ListTensorboardsResponse
+   * 获取Tensorboard
+   * 
+   * @param request - ListTensorboardsRequest
+   * @returns ListTensorboardsResponse
    */
   async listTensorboards(request: ListTensorboardsRequest): Promise<ListTensorboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5394,12 +7353,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开始运行tensorboard
-   *
-   * @param request StartTensorboardRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartTensorboardResponse
+   * 开始运行tensorboard
+   * 
+   * @param request - StartTensorboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTensorboardResponse
    */
   async startTensorboardWithOptions(TensorboardId: string, request: StartTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTensorboardResponse> {
     Util.validateModel(request);
@@ -5427,10 +7386,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开始运行tensorboard
-   *
-   * @param request StartTensorboardRequest
-   * @return StartTensorboardResponse
+   * 开始运行tensorboard
+   * 
+   * @param request - StartTensorboardRequest
+   * @returns StartTensorboardResponse
    */
   async startTensorboard(TensorboardId: string, request: StartTensorboardRequest): Promise<StartTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5439,11 +7398,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止一个DLC作业
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopJobResponse
+   * 停止一个DLC作业
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopJobResponse
    */
   async stopJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopJobResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5464,9 +7423,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止一个DLC作业
-   *
-   * @return StopJobResponse
+   * 停止一个DLC作业
+   * @returns StopJobResponse
    */
   async stopJob(JobId: string): Promise<StopJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5475,12 +7433,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止运行tensorboard
-   *
-   * @param request StopTensorboardRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopTensorboardResponse
+   * 停止运行tensorboard
+   * 
+   * @param request - StopTensorboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTensorboardResponse
    */
   async stopTensorboardWithOptions(TensorboardId: string, request: StopTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTensorboardResponse> {
     Util.validateModel(request);
@@ -5508,10 +7466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止运行tensorboard
-   *
-   * @param request StopTensorboardRequest
-   * @return StopTensorboardResponse
+   * 停止运行tensorboard
+   * 
+   * @param request - StopTensorboardRequest
+   * @returns StopTensorboardResponse
    */
   async stopTensorboard(TensorboardId: string, request: StopTensorboardRequest): Promise<StopTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5520,12 +7478,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新一个Job
-   *
-   * @param request UpdateJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateJobResponse
+   * 更新一个Job
+   * 
+   * @param request - UpdateJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobResponse
    */
   async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
@@ -5553,10 +7511,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新一个Job
-   *
-   * @param request UpdateJobRequest
-   * @return UpdateJobResponse
+   * 更新一个Job
+   * 
+   * @param request - UpdateJobRequest
+   * @returns UpdateJobResponse
    */
   async updateJob(JobId: string, request: UpdateJobRequest): Promise<UpdateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5565,12 +7523,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新tensorboard
-   *
-   * @param request UpdateTensorboardRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTensorboardResponse
+   * 更新tensorboard
+   * 
+   * @param request - UpdateTensorboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTensorboardResponse
    */
   async updateTensorboardWithOptions(TensorboardId: string, request: UpdateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTensorboardResponse> {
     Util.validateModel(request);
@@ -5602,10 +7560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新tensorboard
-   *
-   * @param request UpdateTensorboardRequest
-   * @return UpdateTensorboardResponse
+   * 更新tensorboard
+   * 
+   * @param request - UpdateTensorboardRequest
+   * @returns UpdateTensorboardResponse
    */
   async updateTensorboard(TensorboardId: string, request: UpdateTensorboardRequest): Promise<UpdateTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
