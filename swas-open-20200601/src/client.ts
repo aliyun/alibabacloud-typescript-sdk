@@ -10,16 +10,23 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddCustomImageShareAccountRequest extends $tea.Model {
   /**
    * @remarks
+   * The IDs of the Alibaba Cloud accounts with which you want to share the custom image.
+   * 
    * This parameter is required.
    */
   account?: number[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the custom image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +35,8 @@ export class AddCustomImageShareAccountRequest extends $tea.Model {
   imageId?: string;
   /**
    * @remarks
+   * The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,6 +68,9 @@ export class AddCustomImageShareAccountRequest extends $tea.Model {
 
 export class AddCustomImageShareAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 30637AD6-D977-4833-A54C-CC89483E****
    */
@@ -237,14 +249,6 @@ export class ApplyFirewallTemplateRequest extends $tea.Model {
   firewallTemplateId?: string;
   /**
    * @remarks
-   * The ID of the simple application server.
-   * 
-   * @example
-   * ace0706b2ac4454d984295a94213****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
    * The IDs of the simple application servers.
    * 
    * This parameter is required.
@@ -264,7 +268,6 @@ export class ApplyFirewallTemplateRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       firewallTemplateId: 'FirewallTemplateId',
-      instanceId: 'InstanceId',
       instanceIds: 'InstanceIds',
       regionId: 'RegionId',
     };
@@ -274,7 +277,6 @@ export class ApplyFirewallTemplateRequest extends $tea.Model {
     return {
       clientToken: 'string',
       firewallTemplateId: 'string',
-      instanceId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
     };
@@ -741,14 +743,7 @@ export class CreateCustomImageRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek2bti7cf7****
-   */
-  resoureGroupId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The ID of the system disk snapshot.
@@ -770,7 +765,7 @@ export class CreateCustomImageRequest extends $tea.Model {
       imageName: 'ImageName',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
-      resoureGroupId: 'ResoureGroupId',
+      resourceGroupId: 'ResourceGroupId',
       systemSnapshotId: 'SystemSnapshotId',
       tag: 'Tag',
     };
@@ -784,7 +779,7 @@ export class CreateCustomImageRequest extends $tea.Model {
       imageName: 'string',
       instanceId: 'string',
       regionId: 'string',
-      resoureGroupId: 'string',
+      resourceGroupId: 'string',
       systemSnapshotId: 'string',
       tag: { 'type': 'array', 'itemType': CreateCustomImageRequestTag },
     };
@@ -2619,14 +2614,6 @@ export class DeleteFirewallTemplateRulesRequest extends $tea.Model {
   firewallTemplateRuleId?: string[];
   /**
    * @remarks
-   * The ID of the simple application server to which the firewall template is applied.
-   * 
-   * @example
-   * 9ae7106e68eb4402b0dcbd48a9de****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
    * The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
    * 
    * This parameter is required.
@@ -2640,7 +2627,6 @@ export class DeleteFirewallTemplateRulesRequest extends $tea.Model {
       clientToken: 'ClientToken',
       firewallTemplateId: 'FirewallTemplateId',
       firewallTemplateRuleId: 'FirewallTemplateRuleId',
-      instanceId: 'InstanceId',
       regionId: 'RegionId',
     };
   }
@@ -2650,7 +2636,6 @@ export class DeleteFirewallTemplateRulesRequest extends $tea.Model {
       clientToken: 'string',
       firewallTemplateId: 'string',
       firewallTemplateRuleId: { 'type': 'array', 'itemType': 'string' },
-      instanceId: 'string',
       regionId: 'string',
     };
   }
@@ -2729,14 +2714,6 @@ export class DeleteFirewallTemplatesRequest extends $tea.Model {
   firewallTemplateId?: string[];
   /**
    * @remarks
-   * The ID of the simple application server to which the firewall templates belong.
-   * 
-   * @example
-   * ace0706b2ac4454d984295a94213****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
    * The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
    * 
    * This parameter is required.
@@ -2749,7 +2726,6 @@ export class DeleteFirewallTemplatesRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       firewallTemplateId: 'FirewallTemplateId',
-      instanceId: 'InstanceId',
       regionId: 'RegionId',
     };
   }
@@ -2758,7 +2734,6 @@ export class DeleteFirewallTemplatesRequest extends $tea.Model {
     return {
       clientToken: 'string',
       firewallTemplateId: { 'type': 'array', 'itemType': 'string' },
-      instanceId: 'string',
       regionId: 'string',
     };
   }
@@ -5088,14 +5063,6 @@ export class DescribeFirewallTemplateApplyResultsRequest extends $tea.Model {
   firewallTemplateId?: string;
   /**
    * @remarks
-   * The ID of the simple application server to which the template belongs.
-   * 
-   * @example
-   * ace0706b2ac4454d984295a94213****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
    * The page number.
    * 
    * @example
@@ -5129,7 +5096,6 @@ export class DescribeFirewallTemplateApplyResultsRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       firewallTemplateId: 'FirewallTemplateId',
-      instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -5141,7 +5107,6 @@ export class DescribeFirewallTemplateApplyResultsRequest extends $tea.Model {
     return {
       clientToken: 'string',
       firewallTemplateId: 'string',
-      instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -7505,12 +7470,17 @@ export class InvokeCommandResponse extends $tea.Model {
 
 export class ListCustomImageShareAccountsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the shared custom image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7518,17 +7488,29 @@ export class ListCustomImageShareAccountsRequest extends $tea.Model {
    */
   imageId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Maximum value: 50.
+   * 
+   * Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7561,23 +7543,39 @@ export class ListCustomImageShareAccountsRequest extends $tea.Model {
 }
 
 export class ListCustomImageShareAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the shared custom images.
+   */
   imageShareUsers?: ListCustomImageShareAccountsResponseBodyImageShareUsers[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 30637AD6-D977-4833-A54C-CC89483E****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -10141,14 +10139,6 @@ export class ModifyFirewallTemplateRequest extends $tea.Model {
   firewallTemplateRule?: ModifyFirewallTemplateRequestFirewallTemplateRule[];
   /**
    * @remarks
-   * The ID of the simple application server to which the firewall template is applied.
-   * 
-   * @example
-   * 2ad1ae67295445f598017499dc****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
    * The name of the firewall template.
    * 
    * @example
@@ -10171,7 +10161,6 @@ export class ModifyFirewallTemplateRequest extends $tea.Model {
       description: 'Description',
       firewallTemplateId: 'FirewallTemplateId',
       firewallTemplateRule: 'FirewallTemplateRule',
-      instanceId: 'InstanceId',
       name: 'Name',
       regionId: 'RegionId',
     };
@@ -10183,7 +10172,6 @@ export class ModifyFirewallTemplateRequest extends $tea.Model {
       description: 'string',
       firewallTemplateId: 'string',
       firewallTemplateRule: { 'type': 'array', 'itemType': ModifyFirewallTemplateRequestFirewallTemplateRule },
-      instanceId: 'string',
       name: 'string',
       regionId: 'string',
     };
@@ -10793,16 +10781,23 @@ export class ReleasePublicConnectionResponse extends $tea.Model {
 export class RemoveCustomImageShareAccountRequest extends $tea.Model {
   /**
    * @remarks
+   * The IDs of the Alibaba Cloud accounts with which you want to unshare the image.
+   * 
    * This parameter is required.
    */
   account?: number[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the shared custom image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10811,6 +10806,8 @@ export class RemoveCustomImageShareAccountRequest extends $tea.Model {
   imageId?: string;
   /**
    * @remarks
+   * The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10842,6 +10839,9 @@ export class RemoveCustomImageShareAccountRequest extends $tea.Model {
 
 export class RemoveCustomImageShareAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 30637AD6-D977-4833-A54C-CC89483E****
    */
@@ -16147,8 +16147,18 @@ export class DetachKeyPairResponseBodyResults extends $tea.Model {
 }
 
 export class ListCustomImageShareAccountsResponseBodyImageShareUsers extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the custom image is shared.
+   * 
+   * @example
+   * 2024-07-15 13:59:21.0
+   */
   sharedTime?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account whose custom image is shared.
+   * 
    * @example
    * 125111425233****
    */
@@ -18517,7 +18527,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 共享镜像给用户
+   * Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
+   * 
+   * @remarks
+   *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
+   * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
    * 
    * @param request - AddCustomImageShareAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18560,7 +18574,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 共享镜像给用户
+   * Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
+   * 
+   * @remarks
+   *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
+   * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
    * 
    * @param request - AddCustomImageShareAccountRequest
    * @returns AddCustomImageShareAccountResponse
@@ -18649,10 +18667,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.firewallTemplateId)) {
       query["FirewallTemplateId"] = request.firewallTemplateId;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
     }
 
     if (!Util.isUnset(request.instanceIds)) {
@@ -18879,8 +18893,8 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resoureGroupId)) {
-      query["ResoureGroupId"] = request.resoureGroupId;
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.systemSnapshotId)) {
@@ -19807,10 +19821,6 @@ export default class Client extends OpenApi {
       query["FirewallTemplateRuleId"] = request.firewallTemplateRuleId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -19865,10 +19875,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.firewallTemplateId)) {
       query["FirewallTemplateId"] = request.firewallTemplateId;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -20792,10 +20798,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.firewallTemplateId)) {
       query["FirewallTemplateId"] = request.firewallTemplateId;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -21791,7 +21793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像共享给的用户
+   * Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
    * 
    * @param request - ListCustomImageShareAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21838,7 +21840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像共享给的用户
+   * Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
    * 
    * @param request - ListCustomImageShareAccountsRequest
    * @returns ListCustomImageShareAccountsResponse
@@ -22997,10 +22999,6 @@ export default class Client extends OpenApi {
       query["FirewallTemplateRule"] = request.firewallTemplateRule;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -23343,7 +23341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消共享镜像到用户
+   * Unshares a custom image that is shared across Alibaba Cloud accounts.
    * 
    * @param request - RemoveCustomImageShareAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23386,7 +23384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消共享镜像到用户
+   * Unshares a custom image that is shared across Alibaba Cloud accounts.
    * 
    * @param request - RemoveCustomImageShareAccountRequest
    * @returns RemoveCustomImageShareAccountResponse
