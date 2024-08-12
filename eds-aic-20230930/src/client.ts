@@ -3724,17 +3724,10 @@ export class RecoveryFileRequest extends $tea.Model {
    */
   androidInstanceIdList?: string[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * bf-azhps4rdyi2th****
    */
   backupFileId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   backupFilePath?: string;
   /**
    * @example
@@ -8056,6 +8049,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文件恢复
+   * 
    * @param request - RecoveryFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RecoveryFileResponse
@@ -8101,6 +8096,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文件恢复
+   * 
    * @param request - RecoveryFileRequest
    * @returns RecoveryFileResponse
    */
