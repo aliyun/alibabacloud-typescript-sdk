@@ -17309,6 +17309,139 @@ export class GetGatewayAuthDetailResponse extends $tea.Model {
   }
 }
 
+export class GetGatewayConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gw-61f465fa2dd044069e2208c4912*****
+   */
+  gatewayUniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetGatewayConfigResponseBodyData;
+  /**
+   * @example
+   * code
+   */
+  dynamicCode?: string;
+  /**
+   * @example
+   * The specified parameter is invalid.
+   */
+  dynamicMessage?: string;
+  /**
+   * @example
+   * Success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * F6092602-C357-4750-89D9-E572FBEA****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetGatewayConfigResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGatewayConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGatewayConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayDomainDetailRequest extends $tea.Model {
   /**
    * @remarks
@@ -52837,6 +52970,375 @@ export class GetGatewayAuthDetailResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetGatewayConfigResponseBodyDataSlsConfigDetails extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
+  gatewayId?: number;
+  /**
+   * @example
+   * gw-61f465fa2dd044069e2208c4912*****
+   */
+  gatewayUniqueId?: string;
+  /**
+   * @example
+   * ""
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * ""
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 0
+   */
+  id?: number;
+  /**
+   * @example
+   * true
+   */
+  logOn?: boolean;
+  /**
+   * @example
+   * mse_gw_access_log
+   */
+  logStoreName?: string;
+  /**
+   * @example
+   * false
+   */
+  nginxCompatible?: boolean;
+  /**
+   * @example
+   * test
+   */
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      logOn: 'LogOn',
+      logStoreName: 'LogStoreName',
+      nginxCompatible: 'NginxCompatible',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      logOn: 'boolean',
+      logStoreName: 'string',
+      nginxCompatible: 'boolean',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayConfigResponseBodyDataXtraceDetails extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
+  gatewayId?: number;
+  /**
+   * @example
+   * gw-61f465fa2dd044069e2208c4912*****
+   */
+  gatewayUniqueId?: string;
+  /**
+   * @example
+   * 2024-08-12T09:39:07.000+0000
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-08-12T09:39:07.000+0000
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 255
+   */
+  id?: number;
+  /**
+   * @example
+   * 100
+   */
+  sample?: number;
+  /**
+   * @example
+   * 333
+   */
+  serviceId?: number;
+  /**
+   * @example
+   * 8888
+   */
+  servicePort?: string;
+  /**
+   * @example
+   * true
+   */
+  traceOn?: boolean;
+  /**
+   * @example
+   * OPENTELEMETRY
+   */
+  traceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      sample: 'Sample',
+      serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
+      traceOn: 'TraceOn',
+      traceType: 'TraceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      sample: 'number',
+      serviceId: 'number',
+      servicePort: 'string',
+      traceOn: 'boolean',
+      traceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayConfigResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {"requestMetadata":[],"responseHeaders":[],"requestHeaders":["x-test"],"responseMetadata":[]}
+   */
+  accessLogHeader?: string;
+  /**
+   * @example
+   * 32768
+   */
+  downstreamConnectionBufferLimits?: number;
+  /**
+   * @example
+   * 100
+   */
+  downstreamHttp2MaxConcurrentStream?: number;
+  /**
+   * @example
+   * 180
+   */
+  downstreamIdleTime?: number;
+  /**
+   * @example
+   * false
+   */
+  enableCustomAuthConfigPush?: string;
+  /**
+   * @example
+   * true
+   */
+  enableGenerateRequestId?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableGzip?: boolean;
+  /**
+   * @example
+   * true
+   */
+  enableHardwareAccelerate?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableHttp2?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableHttp3?: boolean;
+  /**
+   * @example
+   * true
+   */
+  enableProxyProtocol?: boolean;
+  /**
+   * @example
+   * true
+   */
+  enableSlashMerge?: boolean;
+  /**
+   * @example
+   * true
+   */
+  enableWaf?: boolean;
+  /**
+   * @example
+   * gw-61f465fa2dd044069e2208c4912*****
+   */
+  gatewayUniqueId?: string;
+  /**
+   * @example
+   * 1048576
+   */
+  initialConnectionWindowSize?: number;
+  /**
+   * @example
+   * 65535
+   */
+  initialStreamWindowSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  keepaliveHeaderTimeout?: number;
+  /**
+   * @example
+   * ""
+   */
+  logFilterConfig?: string;
+  /**
+   * @example
+   * "EnableProxyProtocol,EnableCustomAuthConfigPush"
+   */
+  noSupportedConfigList?: string;
+  /**
+   * @example
+   * KEEP_UNCHANGED
+   */
+  pathWithEscapedSlashes?: string;
+  /**
+   * @example
+   * true
+   */
+  preserveHeaderFormat?: boolean;
+  slsConfigDetails?: GetGatewayConfigResponseBodyDataSlsConfigDetails;
+  /**
+   * @example
+   * true
+   */
+  supportWaf?: boolean;
+  /**
+   * @example
+   * 30
+   */
+  upstreamIdleTimeout?: number;
+  /**
+   * @example
+   * 30
+   */
+  websocketTermGracePeriod?: number;
+  /**
+   * @example
+   * 0
+   */
+  xffTrustedNum?: number;
+  xtraceDetails?: GetGatewayConfigResponseBodyDataXtraceDetails;
+  /**
+   * @example
+   * ["gzip"]
+   */
+  zipAlgorithm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLogHeader: 'AccessLogHeader',
+      downstreamConnectionBufferLimits: 'DownstreamConnectionBufferLimits',
+      downstreamHttp2MaxConcurrentStream: 'DownstreamHttp2MaxConcurrentStream',
+      downstreamIdleTime: 'DownstreamIdleTime',
+      enableCustomAuthConfigPush: 'EnableCustomAuthConfigPush',
+      enableGenerateRequestId: 'EnableGenerateRequestId',
+      enableGzip: 'EnableGzip',
+      enableHardwareAccelerate: 'EnableHardwareAccelerate',
+      enableHttp2: 'EnableHttp2',
+      enableHttp3: 'EnableHttp3',
+      enableProxyProtocol: 'EnableProxyProtocol',
+      enableSlashMerge: 'EnableSlashMerge',
+      enableWaf: 'EnableWaf',
+      gatewayUniqueId: 'GatewayUniqueId',
+      initialConnectionWindowSize: 'InitialConnectionWindowSize',
+      initialStreamWindowSize: 'InitialStreamWindowSize',
+      keepaliveHeaderTimeout: 'KeepaliveHeaderTimeout',
+      logFilterConfig: 'LogFilterConfig',
+      noSupportedConfigList: 'NoSupportedConfigList',
+      pathWithEscapedSlashes: 'PathWithEscapedSlashes',
+      preserveHeaderFormat: 'PreserveHeaderFormat',
+      slsConfigDetails: 'SlsConfigDetails',
+      supportWaf: 'SupportWaf',
+      upstreamIdleTimeout: 'UpstreamIdleTimeout',
+      websocketTermGracePeriod: 'WebsocketTermGracePeriod',
+      xffTrustedNum: 'XffTrustedNum',
+      xtraceDetails: 'XtraceDetails',
+      zipAlgorithm: 'ZipAlgorithm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLogHeader: 'string',
+      downstreamConnectionBufferLimits: 'number',
+      downstreamHttp2MaxConcurrentStream: 'number',
+      downstreamIdleTime: 'number',
+      enableCustomAuthConfigPush: 'string',
+      enableGenerateRequestId: 'boolean',
+      enableGzip: 'boolean',
+      enableHardwareAccelerate: 'boolean',
+      enableHttp2: 'boolean',
+      enableHttp3: 'boolean',
+      enableProxyProtocol: 'boolean',
+      enableSlashMerge: 'boolean',
+      enableWaf: 'boolean',
+      gatewayUniqueId: 'string',
+      initialConnectionWindowSize: 'number',
+      initialStreamWindowSize: 'number',
+      keepaliveHeaderTimeout: 'number',
+      logFilterConfig: 'string',
+      noSupportedConfigList: 'string',
+      pathWithEscapedSlashes: 'string',
+      preserveHeaderFormat: 'boolean',
+      slsConfigDetails: GetGatewayConfigResponseBodyDataSlsConfigDetails,
+      supportWaf: 'boolean',
+      upstreamIdleTimeout: 'number',
+      websocketTermGracePeriod: 'number',
+      xffTrustedNum: 'number',
+      xtraceDetails: GetGatewayConfigResponseBodyDataXtraceDetails,
+      zipAlgorithm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayDomainDetailResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -77767,6 +78269,52 @@ export default class Client extends OpenApi {
   async getGatewayAuthDetail(request: GetGatewayAuthDetailRequest): Promise<GetGatewayAuthDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayAuthDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取网关全局配置
+   * 
+   * @param request - GetGatewayConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayConfigResponse
+   */
+  async getGatewayConfigWithOptions(request: GetGatewayConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetGatewayConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGatewayConfigResponse>(await this.callApi(params, req, runtime), new GetGatewayConfigResponse({}));
+  }
+
+  /**
+   * 获取网关全局配置
+   * 
+   * @param request - GetGatewayConfigRequest
+   * @returns GetGatewayConfigResponse
+   */
+  async getGatewayConfig(request: GetGatewayConfigRequest): Promise<GetGatewayConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getGatewayConfigWithOptions(request, runtime);
   }
 
   /**
