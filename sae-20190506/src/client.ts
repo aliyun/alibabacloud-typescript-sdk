@@ -27318,6 +27318,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * false
    */
   enableGreyTagRoute?: boolean;
+  enableIdle?: boolean;
   /**
    * @remarks
    * The environment variables. Variable description:
@@ -27449,6 +27450,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * "0"
    */
   microRegistration?: string;
+  microRegistrationConfig?: string;
   /**
    * @remarks
    * The percentage of the minimum number of available instances. Valid values:
@@ -27828,6 +27830,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
       enableGreyTagRoute: 'EnableGreyTagRoute',
+      enableIdle: 'EnableIdle',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -27838,6 +27841,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       liveness: 'Liveness',
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
+      microRegistrationConfig: 'MicroRegistrationConfig',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
@@ -27899,6 +27903,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       edasContainerVersion: 'string',
       enableAhas: 'string',
       enableGreyTagRoute: 'boolean',
+      enableIdle: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -27909,6 +27914,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       liveness: 'string',
       memory: 'number',
       microRegistration: 'string',
+      microRegistrationConfig: 'string',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataMountDesc },
