@@ -3047,6 +3047,264 @@ export class CreateDeploymentResponse extends $tea.Model {
   }
 }
 
+export class CreateDeploymentDraftHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentDraftRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  body?: DeploymentDraft;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: DeploymentDraft,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentDraftResponseBody extends $tea.Model {
+  data?: DeploymentDraft;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeploymentDraft,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentDraftResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDeploymentDraftResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDeploymentDraftResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderRequest extends $tea.Model {
+  body?: Folder;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Folder,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponseBody extends $tea.Model {
+  data?: Folder;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Folder,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFolderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -3382,6 +3640,162 @@ export class CreateSavepointResponse extends $tea.Model {
   }
 }
 
+export class CreateUdfArtifactHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUdfArtifactRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource file of the UDF.
+   * 
+   * This parameter is required.
+   */
+  body?: UdfArtifact;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: UdfArtifact,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUdfArtifactResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The result of creating an artifact configuration for the UDF.
+   */
+  data?: CreateUdfArtifactResult;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateUdfArtifactResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUdfArtifactResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUdfArtifactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateUdfArtifactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVariableHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -3539,6 +3953,137 @@ export class CreateVariableResponse extends $tea.Model {
   }
 }
 
+export class DeleteCustomConnectorHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomConnectorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was true, a list of deployments in which custom connectors were deleted was returned. If the value of success was false, a null value was returned.
+   */
+  data?: TableMeta[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': TableMeta },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomConnectorResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomConnectorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -3655,6 +4200,216 @@ export class DeleteDeploymentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDeploymentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentDraftHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentDraftResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentDraftResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDeploymentDraftResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDeploymentDraftResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c96306e2b****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFolderResponseBody,
     };
   }
 
@@ -4035,6 +4790,278 @@ export class DeleteSavepointResponse extends $tea.Model {
   }
 }
 
+export class DeleteUdfArtifactHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfArtifactResponseBody extends $tea.Model {
+  data?: DeleteUdfArtifactResult;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeleteUdfArtifactResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfArtifactResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUdfArtifactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUdfArtifactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfFunctionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the class that corresponds to the UDF.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Category
+   */
+  className?: string;
+  /**
+   * @remarks
+   * The name of the resource that corresponds to the UDF that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-udf
+   */
+  udfArtifactName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      className: 'className',
+      udfArtifactName: 'udfArtifactName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      udfArtifactName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUdfFunctionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUdfFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUdfFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVariableHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -4151,6 +5178,264 @@ export class DeleteVariableResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteVariableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDeploymentDraftAsyncHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDeploymentDraftAsyncRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  body?: DraftDeployParams;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: DraftDeployParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDeploymentDraftAsyncResponseBody extends $tea.Model {
+  data?: DeployDeploymentDraftAsyncResponseBodyData;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeployDeploymentDraftAsyncResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDeploymentDraftAsyncResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployDeploymentDraftAsyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeployDeploymentDraftAsyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlStatementHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 710d6a64d8c34d
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlStatementRequest extends $tea.Model {
+  body?: SqlStatementWithContext;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: SqlStatementWithContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlStatementResponseBody extends $tea.Model {
+  data?: SqlStatementExecuteResult;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SqlStatementExecuteResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSqlStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteSqlStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteSqlStatementResponseBody,
     };
   }
 
@@ -4516,6 +5801,376 @@ export class GenerateResourcePlanWithFlinkConfAsyncResponse extends $tea.Model {
   }
 }
 
+export class GetCatalogsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCatalogsRequest extends $tea.Model {
+  /**
+   * @example
+   * paimon
+   */
+  catalogName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'catalogName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCatalogsResponseBody extends $tea.Model {
+  data?: Catalog[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Catalog },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCatalogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCatalogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCatalogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabasesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabasesRequest extends $tea.Model {
+  /**
+   * @example
+   * paimon-ods
+   */
+  databaseName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'databaseName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabasesResponseBody extends $tea.Model {
+  data?: Database[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Database },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabasesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatabasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatabasesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeployDeploymentDraftResultHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 710d6a64d8****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeployDeploymentDraftResultResponseBody extends $tea.Model {
+  data?: AsyncDraftDeployResult;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AsyncDraftDeployResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeployDeploymentDraftResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeployDeploymentDraftResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeployDeploymentDraftResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -4648,6 +6303,379 @@ export class GetDeploymentResponse extends $tea.Model {
   }
 }
 
+export class GetDeploymentDraftHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeploymentDraftResponseBody extends $tea.Model {
+  data?: DeploymentDraft;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeploymentDraft,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeploymentDraftResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeploymentDraftResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeploymentDraftResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeploymentDraftLockHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeploymentDraftLockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c84d73be-40ad-4627-8bdd-fa1eba51b234
+   */
+  deploymentDraftId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentDraftId: 'deploymentDraftId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentDraftId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeploymentDraftLockResponseBody extends $tea.Model {
+  data?: Lock;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Lock,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeploymentDraftLockResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeploymentDraftLockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeploymentDraftLockResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderRequest extends $tea.Model {
+  /**
+   * @example
+   * 89097
+   */
+  folderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      folderId: 'folderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      folderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderResponseBody extends $tea.Model {
+  data?: Folder;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Folder,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFolderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGenerateResourcePlanResultHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -4772,6 +6800,114 @@ export class GetGenerateResourcePlanResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetGenerateResourcePlanResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotUpdateJobResultHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotUpdateJobResultResponseBody extends $tea.Model {
+  data?: HotUpdateJobResult;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: HotUpdateJobResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotUpdateJobResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotUpdateJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHotUpdateJobResultResponseBody,
     };
   }
 
@@ -5044,6 +7180,160 @@ export class GetLatestJobStartLogResponse extends $tea.Model {
   }
 }
 
+export class GetLineageInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 710d6a64d8****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLineageInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters about the lineage information.
+   */
+  body?: GetLineageInfoParams;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: GetLineageInfoParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLineageInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The lineage information.
+   */
+  data?: LineageInfo;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: LineageInfo,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLineageInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLineageInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLineageInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -5300,6 +7590,715 @@ export class GetSavepointResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSavepointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTablesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTablesRequest extends $tea.Model {
+  /**
+   * @example
+   * item
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'tableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTablesResponseBody extends $tea.Model {
+  data?: Table[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * ECE641B2-AB0B-4174-9C3B-885881558637
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Table },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTablesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUdfArtifactsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 710d6a64d8c34d
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUdfArtifactsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the JAR or Python file that corresponds to the UDF.
+   * 
+   * @example
+   * test-udf
+   */
+  udfArtifactName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      udfArtifactName: 'udfArtifactName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      udfArtifactName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUdfArtifactsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was true, the details of the JAR or Python file that corresponds to the UDF were returned. If the value of success was false, a null value was returned.
+   */
+  data?: UdfArtifact[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': UdfArtifact },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUdfArtifactsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUdfArtifactsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUdfArtifactsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The dynamic update result.
+   */
+  data?: HotUpdateJobResult;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: HotUpdateJobResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotUpdateJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotUpdateJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotUpdateJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomConnectorsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomConnectorsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was true, the list of custom connectors in the namespace was returned. If the value of success was false, a null value was returned.
+   */
+  data?: Connector[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Connector },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomConnectorsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomConnectorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomConnectorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentDraftsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentDraftsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentDraftsResponseBody extends $tea.Model {
+  data?: DeploymentDraft[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 69
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+      requestId: 'requestId',
+      success: 'success',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DeploymentDraft },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeploymentDraftsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDeploymentDraftsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDeploymentDraftsResponseBody,
     };
   }
 
@@ -6853,6 +9852,348 @@ export class ListVariablesResponse extends $tea.Model {
   }
 }
 
+export class RegisterCustomConnectorHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterCustomConnectorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The URL in which the JAR package of the custom connector is stored. The URL must be connected to the platform.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oss://flink/connector/mysql123
+   */
+  jarUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jarUrl: 'jarUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jarUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterCustomConnectorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was true, a list of deployments in which custom connectors were registered was returned. If the value of success was false, a null value was returned.
+   */
+  data?: Connector[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Connector },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterCustomConnectorResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterCustomConnectorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RegisterCustomConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterUdfFunctionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterUdfFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the class that corresponds to the UDF.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * orderRank
+   */
+  className?: string;
+  /**
+   * @remarks
+   * The name of the UDF. In most cases, the name of the UDF is the same as the class name. You can specify a name for the UDF.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * orderRank
+   */
+  functionName?: string;
+  /**
+   * @remarks
+   * The name of the JAR or Python file that corresponds to the UDF.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-udf
+   */
+  udfArtifactName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      className: 'className',
+      functionName: 'functionName',
+      udfArtifactName: 'udfArtifactName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      functionName: 'string',
+      udfArtifactName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterUdfFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the UDF.
+   */
+  data?: UdfFunction;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UdfFunction,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterUdfFunctionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterUdfFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RegisterUdfFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -7476,6 +10817,268 @@ export class UpdateDeploymentResponse extends $tea.Model {
   }
 }
 
+export class UpdateDeploymentDraftHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentDraftRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  body?: DeploymentDraft;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: DeploymentDraft,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentDraftResponseBody extends $tea.Model {
+  data?: DeploymentDraft;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeploymentDraft,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentDraftResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDeploymentDraftResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDeploymentDraftResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f89a0c1ca8****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  body?: Folder;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Folder,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderResponseBody extends $tea.Model {
+  data?: Folder;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Folder,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFolderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFolderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFolderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -7622,6 +11225,162 @@ export class UpdateMemberResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUdfArtifactHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUdfArtifactRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the JAR file of the UDF.
+   * 
+   * This parameter is required.
+   */
+  body?: UdfArtifact;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: UdfArtifact,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUdfArtifactResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The result of updating the JAR file of the UDF.
+   */
+  data?: UpdateUdfArtifactResult;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateUdfArtifactResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUdfArtifactResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUdfArtifactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUdfArtifactResponseBody,
     };
   }
 
@@ -7784,6 +11543,29 @@ export class ValidateSqlStatementResponse extends $tea.Model {
   }
 }
 
+export class DeployDeploymentDraftAsyncResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * b3dcdb25-bf36-457d-92ba-a36077e8****
+   */
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ticketId: 'ticketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateResourcePlanWithFlinkConfAsyncResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -7911,6 +11693,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * create a deploymentDraft
+   * 
+   * @param request - CreateDeploymentDraftRequest
+   * @param headers - CreateDeploymentDraftHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeploymentDraftResponse
+   */
+  async createDeploymentDraftWithOptions(namespace: string, request: CreateDeploymentDraftRequest, headers: CreateDeploymentDraftHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDeploymentDraftResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDeploymentDraft",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeploymentDraftResponse>(await this.callApi(params, req, runtime), new CreateDeploymentDraftResponse({}));
+  }
+
+  /**
+   * create a deploymentDraft
+   * 
+   * @param request - CreateDeploymentDraftRequest
+   * @returns CreateDeploymentDraftResponse
+   */
+  async createDeploymentDraft(namespace: string, request: CreateDeploymentDraftRequest): Promise<CreateDeploymentDraftResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateDeploymentDraftHeaders({ });
+    return await this.createDeploymentDraftWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * create a folder
+   * 
+   * @param request - CreateFolderRequest
+   * @param headers - CreateFolderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFolderResponse
+   */
+  async createFolderWithOptions(namespace: string, request: CreateFolderRequest, headers: CreateFolderHeaders, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFolder",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/folder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
+  }
+
+  /**
+   * create a folder
+   * 
+   * @param request - CreateFolderRequest
+   * @returns CreateFolderResponse
+   */
+  async createFolder(namespace: string, request: CreateFolderRequest): Promise<CreateFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateFolderHeaders({ });
+    return await this.createFolderWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Adds a user to a namespace as a member and grants permissions to the user.
    * 
    * @param request - CreateMemberRequest
@@ -8022,6 +11902,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
+   * 
+   * @param request - CreateUdfArtifactRequest
+   * @param headers - CreateUdfArtifactHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUdfArtifactResponse
+   */
+  async createUdfArtifactWithOptions(namespace: string, request: CreateUdfArtifactRequest, headers: CreateUdfArtifactHeaders, runtime: $Util.RuntimeOptions): Promise<CreateUdfArtifactResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateUdfArtifact",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/udfartifacts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUdfArtifactResponse>(await this.callApi(params, req, runtime), new CreateUdfArtifactResponse({}));
+  }
+
+  /**
+   * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
+   * 
+   * @param request - CreateUdfArtifactRequest
+   * @returns CreateUdfArtifactResponse
+   */
+  async createUdfArtifact(namespace: string, request: CreateUdfArtifactRequest): Promise<CreateUdfArtifactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateUdfArtifactHeaders({ });
+    return await this.createUdfArtifactWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Creates a variable.
    * 
    * @param request - CreateVariableRequest
@@ -8071,6 +12000,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a registered custom connector from a workspace.
+   * 
+   * @param headers - DeleteCustomConnectorHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomConnectorResponse
+   */
+  async deleteCustomConnectorWithOptions(namespace: string, connectorName: string, headers: DeleteCustomConnectorHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteCustomConnectorResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomConnector",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/connectors/${OpenApiUtil.getEncodeParam(connectorName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomConnectorResponse>(await this.callApi(params, req, runtime), new DeleteCustomConnectorResponse({}));
+  }
+
+  /**
+   * Deletes a registered custom connector from a workspace.
+   * @returns DeleteCustomConnectorResponse
+   */
+  async deleteCustomConnector(namespace: string, connectorName: string): Promise<DeleteCustomConnectorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteCustomConnectorHeaders({ });
+    return await this.deleteCustomConnectorWithOptions(namespace, connectorName, headers, runtime);
+  }
+
+  /**
    * Deletes a deployment based on the deployment ID.
    * 
    * @param headers - DeleteDeploymentHeaders
@@ -8112,6 +12085,94 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteDeploymentHeaders({ });
     return await this.deleteDeploymentWithOptions(namespace, deploymentId, headers, runtime);
+  }
+
+  /**
+   * delete a deploymentDraft
+   * 
+   * @param headers - DeleteDeploymentDraftHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDeploymentDraftResponse
+   */
+  async deleteDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, headers: DeleteDeploymentDraftHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDeploymentDraftResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDeploymentDraft",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts/${OpenApiUtil.getEncodeParam(deploymentDraftId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeploymentDraftResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentDraftResponse({}));
+  }
+
+  /**
+   * delete a deploymentDraft
+   * @returns DeleteDeploymentDraftResponse
+   */
+  async deleteDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<DeleteDeploymentDraftResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteDeploymentDraftHeaders({ });
+    return await this.deleteDeploymentDraftWithOptions(namespace, deploymentDraftId, headers, runtime);
+  }
+
+  /**
+   * delete a folder
+   * 
+   * @param headers - DeleteFolderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFolderResponse
+   */
+  async deleteFolderWithOptions(namespace: string, folderId: string, headers: DeleteFolderHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFolder",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/folder/${OpenApiUtil.getEncodeParam(folderId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
+  }
+
+  /**
+   * delete a folder
+   * @returns DeleteFolderResponse
+   */
+  async deleteFolder(namespace: string, folderId: string): Promise<DeleteFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteFolderHeaders({ });
+    return await this.deleteFolderWithOptions(namespace, folderId, headers, runtime);
   }
 
   /**
@@ -8247,6 +12308,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除UdfArtifact
+   * 
+   * @param headers - DeleteUdfArtifactHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUdfArtifactResponse
+   */
+  async deleteUdfArtifactWithOptions(namespace: string, udfArtifactName: string, headers: DeleteUdfArtifactHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteUdfArtifactResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUdfArtifact",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/udfartifacts/${OpenApiUtil.getEncodeParam(udfArtifactName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUdfArtifactResponse>(await this.callApi(params, req, runtime), new DeleteUdfArtifactResponse({}));
+  }
+
+  /**
+   * 删除UdfArtifact
+   * @returns DeleteUdfArtifactResponse
+   */
+  async deleteUdfArtifact(namespace: string, udfArtifactName: string): Promise<DeleteUdfArtifactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteUdfArtifactHeaders({ });
+    return await this.deleteUdfArtifactWithOptions(namespace, udfArtifactName, headers, runtime);
+  }
+
+  /**
+   * Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
+   * 
+   * @param request - DeleteUdfFunctionRequest
+   * @param headers - DeleteUdfFunctionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUdfFunctionResponse
+   */
+  async deleteUdfFunctionWithOptions(namespace: string, functionName: string, request: DeleteUdfFunctionRequest, headers: DeleteUdfFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteUdfFunctionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.className)) {
+      query["className"] = request.className;
+    }
+
+    if (!Util.isUnset(request.udfArtifactName)) {
+      query["udfArtifactName"] = request.udfArtifactName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUdfFunction",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/udfartifacts/function/${OpenApiUtil.getEncodeParam(functionName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUdfFunctionResponse>(await this.callApi(params, req, runtime), new DeleteUdfFunctionResponse({}));
+  }
+
+  /**
+   * Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
+   * 
+   * @param request - DeleteUdfFunctionRequest
+   * @returns DeleteUdfFunctionResponse
+   */
+  async deleteUdfFunction(namespace: string, functionName: string, request: DeleteUdfFunctionRequest): Promise<DeleteUdfFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteUdfFunctionHeaders({ });
+    return await this.deleteUdfFunctionWithOptions(namespace, functionName, request, headers, runtime);
+  }
+
+  /**
    * Deletes a variable.
    * 
    * @param headers - DeleteVariableHeaders
@@ -8288,6 +12451,104 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteVariableHeaders({ });
     return await this.deleteVariableWithOptions(namespace, name, headers, runtime);
+  }
+
+  /**
+   * deploy deploymentDraft async
+   * 
+   * @param request - DeployDeploymentDraftAsyncRequest
+   * @param headers - DeployDeploymentDraftAsyncHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployDeploymentDraftAsyncResponse
+   */
+  async deployDeploymentDraftAsyncWithOptions(namespace: string, request: DeployDeploymentDraftAsyncRequest, headers: DeployDeploymentDraftAsyncHeaders, runtime: $Util.RuntimeOptions): Promise<DeployDeploymentDraftAsyncResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeployDeploymentDraftAsync",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts/async-deploy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployDeploymentDraftAsyncResponse>(await this.callApi(params, req, runtime), new DeployDeploymentDraftAsyncResponse({}));
+  }
+
+  /**
+   * deploy deploymentDraft async
+   * 
+   * @param request - DeployDeploymentDraftAsyncRequest
+   * @returns DeployDeploymentDraftAsyncResponse
+   */
+  async deployDeploymentDraftAsync(namespace: string, request: DeployDeploymentDraftAsyncRequest): Promise<DeployDeploymentDraftAsyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeployDeploymentDraftAsyncHeaders({ });
+    return await this.deployDeploymentDraftAsyncWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 执行sql语句
+   * 
+   * @param request - ExecuteSqlStatementRequest
+   * @param headers - ExecuteSqlStatementHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteSqlStatementResponse
+   */
+  async executeSqlStatementWithOptions(namespace: string, request: ExecuteSqlStatementRequest, headers: ExecuteSqlStatementHeaders, runtime: $Util.RuntimeOptions): Promise<ExecuteSqlStatementResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteSqlStatement",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sql-statement/execute`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteSqlStatementResponse>(await this.callApi(params, req, runtime), new ExecuteSqlStatementResponse({}));
+  }
+
+  /**
+   * 执行sql语句
+   * 
+   * @param request - ExecuteSqlStatementRequest
+   * @returns ExecuteSqlStatementResponse
+   */
+  async executeSqlStatement(namespace: string, request: ExecuteSqlStatementRequest): Promise<ExecuteSqlStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExecuteSqlStatementHeaders({ });
+    return await this.executeSqlStatementWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -8406,6 +12667,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取catalog
+   * 
+   * @param request - GetCatalogsRequest
+   * @param headers - GetCatalogsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogsResponse
+   */
+  async getCatalogsWithOptions(namespace: string, request: GetCatalogsRequest, headers: GetCatalogsHeaders, runtime: $Util.RuntimeOptions): Promise<GetCatalogsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["catalogName"] = request.catalogName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCatalogs",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/catalogs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCatalogsResponse>(await this.callApi(params, req, runtime), new GetCatalogsResponse({}));
+  }
+
+  /**
+   * 获取catalog
+   * 
+   * @param request - GetCatalogsRequest
+   * @returns GetCatalogsResponse
+   */
+  async getCatalogs(namespace: string, request: GetCatalogsRequest): Promise<GetCatalogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetCatalogsHeaders({ });
+    return await this.getCatalogsWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 获取database
+   * 
+   * @param request - GetDatabasesRequest
+   * @param headers - GetDatabasesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabasesResponse
+   */
+  async getDatabasesWithOptions(namespace: string, catalogName: string, request: GetDatabasesRequest, headers: GetDatabasesHeaders, runtime: $Util.RuntimeOptions): Promise<GetDatabasesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.databaseName)) {
+      query["databaseName"] = request.databaseName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDatabases",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/catalogs/${OpenApiUtil.getEncodeParam(catalogName)}/databases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDatabasesResponse>(await this.callApi(params, req, runtime), new GetDatabasesResponse({}));
+  }
+
+  /**
+   * 获取database
+   * 
+   * @param request - GetDatabasesRequest
+   * @returns GetDatabasesResponse
+   */
+  async getDatabases(namespace: string, catalogName: string, request: GetDatabasesRequest): Promise<GetDatabasesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetDatabasesHeaders({ });
+    return await this.getDatabasesWithOptions(namespace, catalogName, request, headers, runtime);
+  }
+
+  /**
+   * get deploy deploymentDraft result
+   * 
+   * @param headers - GetDeployDeploymentDraftResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeployDeploymentDraftResultResponse
+   */
+  async getDeployDeploymentDraftResultWithOptions(namespace: string, ticketId: string, headers: GetDeployDeploymentDraftResultHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeployDeploymentDraftResultResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeployDeploymentDraftResult",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts/tickets/${OpenApiUtil.getEncodeParam(ticketId)}/async-deploy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeployDeploymentDraftResultResponse>(await this.callApi(params, req, runtime), new GetDeployDeploymentDraftResultResponse({}));
+  }
+
+  /**
+   * get deploy deploymentDraft result
+   * @returns GetDeployDeploymentDraftResultResponse
+   */
+  async getDeployDeploymentDraftResult(namespace: string, ticketId: string): Promise<GetDeployDeploymentDraftResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetDeployDeploymentDraftResultHeaders({ });
+    return await this.getDeployDeploymentDraftResultWithOptions(namespace, ticketId, headers, runtime);
+  }
+
+  /**
    * Obtains the details of a deployment.
    * 
    * @param headers - GetDeploymentHeaders
@@ -8450,6 +12863,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * get a deploymentDraft
+   * 
+   * @param headers - GetDeploymentDraftHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentDraftResponse
+   */
+  async getDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, headers: GetDeploymentDraftHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeploymentDraftResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeploymentDraft",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts/${OpenApiUtil.getEncodeParam(deploymentDraftId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeploymentDraftResponse>(await this.callApi(params, req, runtime), new GetDeploymentDraftResponse({}));
+  }
+
+  /**
+   * get a deploymentDraft
+   * @returns GetDeploymentDraftResponse
+   */
+  async getDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<GetDeploymentDraftResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetDeploymentDraftHeaders({ });
+    return await this.getDeploymentDraftWithOptions(namespace, deploymentDraftId, headers, runtime);
+  }
+
+  /**
+   * get deploymentDraft lock
+   * 
+   * @param request - GetDeploymentDraftLockRequest
+   * @param headers - GetDeploymentDraftLockHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentDraftLockResponse
+   */
+  async getDeploymentDraftLockWithOptions(namespace: string, request: GetDeploymentDraftLockRequest, headers: GetDeploymentDraftLockHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeploymentDraftLockResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentDraftId)) {
+      query["deploymentDraftId"] = request.deploymentDraftId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeploymentDraftLock",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts/getLock`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeploymentDraftLockResponse>(await this.callApi(params, req, runtime), new GetDeploymentDraftLockResponse({}));
+  }
+
+  /**
+   * get deploymentDraft lock
+   * 
+   * @param request - GetDeploymentDraftLockRequest
+   * @returns GetDeploymentDraftLockResponse
+   */
+  async getDeploymentDraftLock(namespace: string, request: GetDeploymentDraftLockRequest): Promise<GetDeploymentDraftLockResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetDeploymentDraftLockHeaders({ });
+    return await this.getDeploymentDraftLockWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * get a folder
+   * 
+   * @param request - GetFolderRequest
+   * @param headers - GetFolderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFolderResponse
+   */
+  async getFolderWithOptions(namespace: string, request: GetFolderRequest, headers: GetFolderHeaders, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderId)) {
+      query["folderId"] = request.folderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFolder",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/folder`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFolderResponse>(await this.callApi(params, req, runtime), new GetFolderResponse({}));
+  }
+
+  /**
+   * get a folder
+   * 
+   * @param request - GetFolderRequest
+   * @returns GetFolderResponse
+   */
+  async getFolder(namespace: string, request: GetFolderRequest): Promise<GetFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetFolderHeaders({ });
+    return await this.getFolderWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
    * 
    * @param headers - GetGenerateResourcePlanResultHeaders
@@ -8491,6 +13056,50 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetGenerateResourcePlanResultHeaders({ });
     return await this.getGenerateResourcePlanResultWithOptions(namespace, ticketId, headers, runtime);
+  }
+
+  /**
+   * 查询动态更新结果
+   * 
+   * @param headers - GetHotUpdateJobResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotUpdateJobResultResponse
+   */
+  async getHotUpdateJobResultWithOptions(namespace: string, jobHotUpdateId: string, headers: GetHotUpdateJobResultHeaders, runtime: $Util.RuntimeOptions): Promise<GetHotUpdateJobResultResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHotUpdateJobResult",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/jobs/hot-updates/${OpenApiUtil.getEncodeParam(jobHotUpdateId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHotUpdateJobResultResponse>(await this.callApi(params, req, runtime), new GetHotUpdateJobResultResponse({}));
+  }
+
+  /**
+   * 查询动态更新结果
+   * @returns GetHotUpdateJobResultResponse
+   */
+  async getHotUpdateJobResult(namespace: string, jobHotUpdateId: string): Promise<GetHotUpdateJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetHotUpdateJobResultHeaders({ });
+    return await this.getHotUpdateJobResultWithOptions(namespace, jobHotUpdateId, headers, runtime);
   }
 
   /**
@@ -8582,6 +13191,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the lineage information of a deployment.
+   * 
+   * @param request - GetLineageInfoRequest
+   * @param headers - GetLineageInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLineageInfoResponse
+   */
+  async getLineageInfoWithOptions(request: GetLineageInfoRequest, headers: GetLineageInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetLineageInfoResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLineageInfo",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/meta/v2/lineage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLineageInfoResponse>(await this.callApi(params, req, runtime), new GetLineageInfoResponse({}));
+  }
+
+  /**
+   * Obtains the lineage information of a deployment.
+   * 
+   * @param request - GetLineageInfoRequest
+   * @returns GetLineageInfoResponse
+   */
+  async getLineageInfo(request: GetLineageInfoRequest): Promise<GetLineageInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetLineageInfoHeaders({ });
+    return await this.getLineageInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the permissions of a member.
    * 
    * @param headers - GetMemberHeaders
@@ -8667,6 +13325,260 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetSavepointHeaders({ });
     return await this.getSavepointWithOptions(namespace, savepointId, headers, runtime);
+  }
+
+  /**
+   * 获取table
+   * 
+   * @param request - GetTablesRequest
+   * @param headers - GetTablesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTablesResponse
+   */
+  async getTablesWithOptions(namespace: string, catalogName: string, databaseName: string, request: GetTablesRequest, headers: GetTablesHeaders, runtime: $Util.RuntimeOptions): Promise<GetTablesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tableName)) {
+      query["tableName"] = request.tableName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTables",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/catalogs/${OpenApiUtil.getEncodeParam(catalogName)}/databases/${OpenApiUtil.getEncodeParam(databaseName)}/tables`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTablesResponse>(await this.callApi(params, req, runtime), new GetTablesResponse({}));
+  }
+
+  /**
+   * 获取table
+   * 
+   * @param request - GetTablesRequest
+   * @returns GetTablesResponse
+   */
+  async getTables(namespace: string, catalogName: string, databaseName: string, request: GetTablesRequest): Promise<GetTablesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetTablesHeaders({ });
+    return await this.getTablesWithOptions(namespace, catalogName, databaseName, request, headers, runtime);
+  }
+
+  /**
+   * Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
+   * 
+   * @param request - GetUdfArtifactsRequest
+   * @param headers - GetUdfArtifactsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUdfArtifactsResponse
+   */
+  async getUdfArtifactsWithOptions(namespace: string, request: GetUdfArtifactsRequest, headers: GetUdfArtifactsHeaders, runtime: $Util.RuntimeOptions): Promise<GetUdfArtifactsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.udfArtifactName)) {
+      query["udfArtifactName"] = request.udfArtifactName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUdfArtifacts",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/udfartifacts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUdfArtifactsResponse>(await this.callApi(params, req, runtime), new GetUdfArtifactsResponse({}));
+  }
+
+  /**
+   * Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
+   * 
+   * @param request - GetUdfArtifactsRequest
+   * @returns GetUdfArtifactsResponse
+   */
+  async getUdfArtifacts(namespace: string, request: GetUdfArtifactsRequest): Promise<GetUdfArtifactsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUdfArtifactsHeaders({ });
+    return await this.getUdfArtifactsWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Dynamically updates parameters or resources of a deployment that is running.
+   * 
+   * @param headers - HotUpdateJobHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HotUpdateJobResponse
+   */
+  async hotUpdateJobWithOptions(namespace: string, jobId: string, headers: HotUpdateJobHeaders, runtime: $Util.RuntimeOptions): Promise<HotUpdateJobResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "HotUpdateJob",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/jobs/${OpenApiUtil.getEncodeParam(jobId)}%3AhotUpdate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotUpdateJobResponse>(await this.callApi(params, req, runtime), new HotUpdateJobResponse({}));
+  }
+
+  /**
+   * Dynamically updates parameters or resources of a deployment that is running.
+   * @returns HotUpdateJobResponse
+   */
+  async hotUpdateJob(namespace: string, jobId: string): Promise<HotUpdateJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotUpdateJobHeaders({ });
+    return await this.hotUpdateJobWithOptions(namespace, jobId, headers, runtime);
+  }
+
+  /**
+   * Obtains a list of existing custom connectors.
+   * 
+   * @param headers - ListCustomConnectorsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomConnectorsResponse
+   */
+  async listCustomConnectorsWithOptions(namespace: string, headers: ListCustomConnectorsHeaders, runtime: $Util.RuntimeOptions): Promise<ListCustomConnectorsResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomConnectors",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/connectors`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomConnectorsResponse>(await this.callApi(params, req, runtime), new ListCustomConnectorsResponse({}));
+  }
+
+  /**
+   * Obtains a list of existing custom connectors.
+   * @returns ListCustomConnectorsResponse
+   */
+  async listCustomConnectors(namespace: string): Promise<ListCustomConnectorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListCustomConnectorsHeaders({ });
+    return await this.listCustomConnectorsWithOptions(namespace, headers, runtime);
+  }
+
+  /**
+   * list deploymentDrafts
+   * 
+   * @param request - ListDeploymentDraftsRequest
+   * @param headers - ListDeploymentDraftsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeploymentDraftsResponse
+   */
+  async listDeploymentDraftsWithOptions(namespace: string, request: ListDeploymentDraftsRequest, headers: ListDeploymentDraftsHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeploymentDraftsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDeploymentDrafts",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeploymentDraftsResponse>(await this.callApi(params, req, runtime), new ListDeploymentDraftsResponse({}));
+  }
+
+  /**
+   * list deploymentDrafts
+   * 
+   * @param request - ListDeploymentDraftsRequest
+   * @returns ListDeploymentDraftsResponse
+   */
+  async listDeploymentDrafts(namespace: string, request: ListDeploymentDraftsRequest): Promise<ListDeploymentDraftsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListDeploymentDraftsHeaders({ });
+    return await this.listDeploymentDraftsWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -9167,6 +14079,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
+   * 
+   * @param request - RegisterCustomConnectorRequest
+   * @param headers - RegisterCustomConnectorHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterCustomConnectorResponse
+   */
+  async registerCustomConnectorWithOptions(namespace: string, request: RegisterCustomConnectorRequest, headers: RegisterCustomConnectorHeaders, runtime: $Util.RuntimeOptions): Promise<RegisterCustomConnectorResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jarUrl)) {
+      query["jarUrl"] = request.jarUrl;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RegisterCustomConnector",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/connectors%3Aregister`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterCustomConnectorResponse>(await this.callApi(params, req, runtime), new RegisterCustomConnectorResponse({}));
+  }
+
+  /**
+   * Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
+   * 
+   * @param request - RegisterCustomConnectorRequest
+   * @returns RegisterCustomConnectorResponse
+   */
+  async registerCustomConnector(namespace: string, request: RegisterCustomConnectorRequest): Promise<RegisterCustomConnectorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new RegisterCustomConnectorHeaders({ });
+    return await this.registerCustomConnectorWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
+   * 
+   * @param request - RegisterUdfFunctionRequest
+   * @param headers - RegisterUdfFunctionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterUdfFunctionResponse
+   */
+  async registerUdfFunctionWithOptions(namespace: string, request: RegisterUdfFunctionRequest, headers: RegisterUdfFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<RegisterUdfFunctionResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.className)) {
+      query["className"] = request.className;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["functionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.udfArtifactName)) {
+      query["udfArtifactName"] = request.udfArtifactName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RegisterUdfFunction",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/udfartifacts/function%3AregisterUdfFunction`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterUdfFunctionResponse>(await this.callApi(params, req, runtime), new RegisterUdfFunctionResponse({}));
+  }
+
+  /**
+   * Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
+   * 
+   * @param request - RegisterUdfFunctionRequest
+   * @returns RegisterUdfFunctionResponse
+   */
+  async registerUdfFunction(namespace: string, request: RegisterUdfFunctionRequest): Promise<RegisterUdfFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new RegisterUdfFunctionHeaders({ });
+    return await this.registerUdfFunctionWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Creates and starts a job.
    * 
    * @deprecated OpenAPI StartJob is deprecated
@@ -9369,6 +14397,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * update a deploymentDraft
+   * 
+   * @param request - UpdateDeploymentDraftRequest
+   * @param headers - UpdateDeploymentDraftHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeploymentDraftResponse
+   */
+  async updateDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, request: UpdateDeploymentDraftRequest, headers: UpdateDeploymentDraftHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateDeploymentDraftResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDeploymentDraft",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-drafts/${OpenApiUtil.getEncodeParam(deploymentDraftId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDeploymentDraftResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentDraftResponse({}));
+  }
+
+  /**
+   * update a deploymentDraft
+   * 
+   * @param request - UpdateDeploymentDraftRequest
+   * @returns UpdateDeploymentDraftResponse
+   */
+  async updateDeploymentDraft(namespace: string, deploymentDraftId: string, request: UpdateDeploymentDraftRequest): Promise<UpdateDeploymentDraftResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateDeploymentDraftHeaders({ });
+    return await this.updateDeploymentDraftWithOptions(namespace, deploymentDraftId, request, headers, runtime);
+  }
+
+  /**
+   * update a folder
+   * 
+   * @param request - UpdateFolderRequest
+   * @param headers - UpdateFolderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFolderResponse
+   */
+  async updateFolderWithOptions(namespace: string, folderId: string, request: UpdateFolderRequest, headers: UpdateFolderHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFolder",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/folder/${OpenApiUtil.getEncodeParam(folderId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFolderResponse>(await this.callApi(params, req, runtime), new UpdateFolderResponse({}));
+  }
+
+  /**
+   * update a folder
+   * 
+   * @param request - UpdateFolderRequest
+   * @returns UpdateFolderResponse
+   */
+  async updateFolder(namespace: string, folderId: string, request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateFolderHeaders({ });
+    return await this.updateFolderWithOptions(namespace, folderId, request, headers, runtime);
+  }
+
+  /**
    * Updates the permissions of one or more members in a specific namespace.
    * 
    * @param request - UpdateMemberRequest
@@ -9415,6 +14541,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateMemberHeaders({ });
     return await this.updateMemberWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Updates the JAR file of the user-defined function (UDF) that you create.
+   * 
+   * @param request - UpdateUdfArtifactRequest
+   * @param headers - UpdateUdfArtifactHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUdfArtifactResponse
+   */
+  async updateUdfArtifactWithOptions(namespace: string, udfArtifactName: string, request: UpdateUdfArtifactRequest, headers: UpdateUdfArtifactHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateUdfArtifactResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUdfArtifact",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/udfartifacts/${OpenApiUtil.getEncodeParam(udfArtifactName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUdfArtifactResponse>(await this.callApi(params, req, runtime), new UpdateUdfArtifactResponse({}));
+  }
+
+  /**
+   * Updates the JAR file of the user-defined function (UDF) that you create.
+   * 
+   * @param request - UpdateUdfArtifactRequest
+   * @returns UpdateUdfArtifactResponse
+   */
+  async updateUdfArtifact(namespace: string, udfArtifactName: string, request: UpdateUdfArtifactRequest): Promise<UpdateUdfArtifactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateUdfArtifactHeaders({ });
+    return await this.updateUdfArtifactWithOptions(namespace, udfArtifactName, request, headers, runtime);
   }
 
   /**
