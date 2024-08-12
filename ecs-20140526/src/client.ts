@@ -79705,6 +79705,7 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
    * System maintenance is scheduled due to ***.
    */
   reason?: string;
+  reasonCode?: string;
   /**
    * @remarks
    * The type of the resource. Valid values:
@@ -79729,6 +79730,7 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
       instanceId: 'InstanceId',
       notBefore: 'NotBefore',
       reason: 'Reason',
+      reasonCode: 'ReasonCode',
       resourceType: 'ResourceType',
     };
   }
@@ -79745,6 +79747,7 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
       instanceId: 'string',
       notBefore: 'string',
       reason: 'string',
+      reasonCode: 'string',
       resourceType: 'string',
     };
   }
