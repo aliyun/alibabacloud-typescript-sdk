@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
@@ -14,12 +13,40 @@ import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AIGCFaceVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   faceContrastPicture?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   faceContrastPictureUrl?: string;
+  /**
+   * @example
+   * cn-shanghai-aliyun-cloudauth-xxxxx
+   */
   ossBucketName?: string;
+  /**
+   * @example
+   * verify/xxxxx/xxxxxx.jpeg
+   */
   ossObjectName?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   outerOrderNo?: string;
+  /**
+   * @example
+   * LR_FR_AIGC
+   */
   productCode?: string;
+  /**
+   * @example
+   * 100000xxxx
+   */
   sceneId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -51,8 +78,20 @@ export class AIGCFaceVerifyRequest extends $tea.Model {
 }
 
 export class AIGCFaceVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   resultObject?: AIGCFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -104,12 +143,36 @@ export class AIGCFaceVerifyResponse extends $tea.Model {
 }
 
 export class BankMetaVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 610*************1181
+   */
   bankCard?: string;
+  /**
+   * @example
+   * 429001********8211
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * 138******11
+   */
   mobile?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
+  /**
+   * @example
+   * BANK_CARD_2_META
+   */
   productType?: string;
   userName?: string;
+  /**
+   * @example
+   * VERIFY_BANK_CARD
+   */
   verifyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,8 +204,20 @@ export class BankMetaVerifyRequest extends $tea.Model {
 }
 
 export class BankMetaVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 473469C7-A***B-A3DC0DE3C83E
+   */
   requestId?: string;
   resultObject?: BankMetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -195,18 +270,70 @@ export class BankMetaVerifyResponse extends $tea.Model {
 
 export class CompareFaceVerifyRequest extends $tea.Model {
   crop?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   outerOrderNo?: string;
+  /**
+   * @example
+   * PV_FC
+   */
   productCode?: string;
+  /**
+   * @example
+   * 1000000006
+   */
   sceneId?: number;
+  /**
+   * @example
+   * 0bfa7c493f850e5178b9f8613634c9xx
+   */
   sourceCertifyId?: string;
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   sourceFaceContrastPicture?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   sourceFaceContrastPictureUrl?: string;
+  /**
+   * @example
+   * cn-shanghai-aliyun-cloudauth-xxxxx
+   */
   sourceOssBucketName?: string;
+  /**
+   * @example
+   * verify/xxxxx/xxxxxx.jpeg
+   */
   sourceOssObjectName?: string;
+  /**
+   * @example
+   * 0bfa7c493f850e5178b9f8613634c9xx
+   */
   targetCertifyId?: string;
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   targetFaceContrastPicture?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   targetFaceContrastPictureUrl?: string;
+  /**
+   * @example
+   * cn-shanghai-aliyun-cloudauth-xxxxx
+   */
   targetOssBucketName?: string;
+  /**
+   * @example
+   * verify/xxxxx/xxxxxx.jpeg
+   */
   targetOssObjectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -252,8 +379,20 @@ export class CompareFaceVerifyRequest extends $tea.Model {
 }
 
 export class CompareFaceVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 130A2C10-B9EE-4D84-88E3-5384FF039795
+   */
   requestId?: string;
   resultObject?: CompareFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -305,9 +444,25 @@ export class CompareFaceVerifyResponse extends $tea.Model {
 }
 
 export class CompareFacesRequest extends $tea.Model {
+  /**
+   * @example
+   * FacePic
+   */
   sourceImageType?: string;
+  /**
+   * @example
+   * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+   */
   sourceImageValue?: string;
+  /**
+   * @example
+   * FacePic
+   */
   targetImageType?: string;
+  /**
+   * @example
+   * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+   */
   targetImageValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -333,10 +488,26 @@ export class CompareFacesRequest extends $tea.Model {
 }
 
 export class CompareFacesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: CompareFacesResponseBodyData;
+  /**
+   * @example
+   * Error.InternalError
+   */
   message?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -390,23 +561,79 @@ export class CompareFacesResponse extends $tea.Model {
 
 export class ContrastFaceVerifyRequest extends $tea.Model {
   certName?: string;
+  /**
+   * @example
+   * 330103xxxxxxxxxxxx
+   */
   certNo?: string;
+  /**
+   * @example
+   * IDENTITY_CARD
+   */
   certType?: string;
+  /**
+   * @example
+   * 0bfa7c493f850e5178b9f8613634c9xx
+   */
   certifyId?: string;
   crop?: string;
+  /**
+   * @example
+   * McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
+   */
   deviceToken?: string;
   encryptType?: string;
   faceContrastFile?: string;
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   faceContrastPicture?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   faceContrastPictureUrl?: string;
+  /**
+   * @example
+   * 114.xxx.xxx.xxx
+   */
   ip?: string;
+  /**
+   * @example
+   * 130xxxxxxxx
+   */
   mobile?: string;
   model?: string;
+  /**
+   * @example
+   * cn-shanghai-aliyun-cloudauth-xxxxx
+   */
   ossBucketName?: string;
+  /**
+   * @example
+   * verify/xxxxx/xxxxxx.jpeg
+   */
   ossObjectName?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   outerOrderNo?: string;
+  /**
+   * @example
+   * ID_MIN
+   */
   productCode?: string;
+  /**
+   * @example
+   * 1000000006
+   */
   sceneId?: number;
+  /**
+   * @example
+   * 123456789
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -463,23 +690,79 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
 
 export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
   certName?: string;
+  /**
+   * @example
+   * 330103xxxxxxxxxxxx
+   */
   certNo?: string;
+  /**
+   * @example
+   * IDENTITY_CARD
+   */
   certType?: string;
+  /**
+   * @example
+   * 0bfa7c493f850e5178b9f8613634c9xx
+   */
   certifyId?: string;
   crop?: string;
+  /**
+   * @example
+   * McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
+   */
   deviceToken?: string;
   encryptType?: string;
   faceContrastFileObject?: Readable;
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   faceContrastPicture?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   faceContrastPictureUrl?: string;
+  /**
+   * @example
+   * 114.xxx.xxx.xxx
+   */
   ip?: string;
+  /**
+   * @example
+   * 130xxxxxxxx
+   */
   mobile?: string;
   model?: string;
+  /**
+   * @example
+   * cn-shanghai-aliyun-cloudauth-xxxxx
+   */
   ossBucketName?: string;
+  /**
+   * @example
+   * verify/xxxxx/xxxxxx.jpeg
+   */
   ossObjectName?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   outerOrderNo?: string;
+  /**
+   * @example
+   * ID_MIN
+   */
   productCode?: string;
+  /**
+   * @example
+   * 1000000006
+   */
   sceneId?: number;
+  /**
+   * @example
+   * 123456789
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -535,8 +818,20 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
 }
 
 export class ContrastFaceVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 130A2C10-B9EE-4D84-88E3-5384FF039795
+   */
   requestId?: string;
   resultObject?: ContrastFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -588,9 +883,25 @@ export class ContrastFaceVerifyResponse extends $tea.Model {
 }
 
 export class CreateAuthKeyRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   authYears?: number;
+  /**
+   * @example
+   * FACE_TEST
+   */
   bizType?: string;
+  /**
+   * @example
+   * false
+   */
   test?: boolean;
+  /**
+   * @example
+   * 3iJ1AY$oHcu7mC69
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -616,7 +927,15 @@ export class CreateAuthKeyRequest extends $tea.Model {
 }
 
 export class CreateAuthKeyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * auth.1KQMcnLd4m37LN2D0F0WCD-1qtQI$
+   */
   authKey?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -663,11 +982,41 @@ export class CreateAuthKeyResponse extends $tea.Model {
 }
 
 export class CreateVerifySettingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UserRegister
+   */
   bizType?: string;
+  /**
+   * @example
+   * false
+   */
   guideStep?: boolean;
+  /**
+   * @example
+   * true
+   */
   privacyStep?: boolean;
+  /**
+   * @example
+   * false
+   */
   resultStep?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RPBasic
+   */
   solution?: string;
   static names(): { [key: string]: string } {
     return {
@@ -698,8 +1047,20 @@ export class CreateVerifySettingRequest extends $tea.Model {
 
 export class CreateVerifySettingResponseBody extends $tea.Model {
   bizName?: string;
+  /**
+   * @example
+   * UserRegister
+   */
   bizType?: string;
+  /**
+   * @example
+   * D6163397-15C5-419C-9ACC-B7C83E0B4C10
+   */
   requestId?: string;
+  /**
+   * @example
+   * RPBasic
+   */
   solution?: string;
   stepList?: string[];
   static names(): { [key: string]: string } {
@@ -753,13 +1114,45 @@ export class CreateVerifySettingResponse extends $tea.Model {
 }
 
 export class CredentialVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 4601*****
+   */
   certNum?: string;
+  /**
+   * @example
+   * 0104
+   */
   credName?: string;
+  /**
+   * @example
+   * 01
+   */
   credType?: string;
+  /**
+   * @example
+   * 429001********8211
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * base64
+   */
   imageContext?: string;
+  /**
+   * @example
+   * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * 0
+   */
   isCheck?: string;
+  /**
+   * @example
+   * 1
+   */
   isOCR?: string;
   merchantId?: string;
   userName?: string;
@@ -799,8 +1192,20 @@ export class CredentialVerifyRequest extends $tea.Model {
 }
 
 export class CredentialVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * D6163397-15C5-419C-9ACC-B7C83E0B4C10
+   */
   requestId?: string;
   resultObject?: CredentialVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -852,9 +1257,25 @@ export class CredentialVerifyResponse extends $tea.Model {
 }
 
 export class DeepfakeDetectRequest extends $tea.Model {
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   faceBase64?: string;
+  /**
+   * @example
+   * IMAGE
+   */
   faceInputType?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   faceUrl?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c******
+   */
   outerOrderNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -880,8 +1301,23 @@ export class DeepfakeDetectRequest extends $tea.Model {
 }
 
 export class DeepfakeDetectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
+   */
   requestId?: string;
   resultObject?: DeepfakeDetectResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -933,12 +1369,40 @@ export class DeepfakeDetectResponse extends $tea.Model {
 }
 
 export class DescribeDeviceInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * FACE_TEST
+   */
   bizType?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 20200330
+   */
   expiredEndDay?: string;
+  /**
+   * @example
+   * 20190401
+   */
   expiredStartDay?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 3iJ1AY$oHcu7mC69
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -970,10 +1434,26 @@ export class DescribeDeviceInfoRequest extends $tea.Model {
 }
 
 export class DescribeDeviceInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   deviceInfoList?: DescribeDeviceInfoResponseBodyDeviceInfoList;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1026,8 +1506,20 @@ export class DescribeDeviceInfoResponse extends $tea.Model {
 }
 
 export class DescribeFaceVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 91707dc296d469ad38e4c5efa6a0f24b
+   */
   certifyId?: string;
+  /**
+   * @example
+   * JPG
+   */
   pictureReturnType?: string;
+  /**
+   * @example
+   * 1000000006
+   */
   sceneId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1051,8 +1543,20 @@ export class DescribeFaceVerifyRequest extends $tea.Model {
 }
 
 export class DescribeFaceVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 130A2C10-B9EE-4D84-88E3-5384FF039795
+   */
   requestId?: string;
   resultObject?: DescribeFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -1105,6 +1609,10 @@ export class DescribeFaceVerifyResponse extends $tea.Model {
 
 export class DescribeOssUploadTokenResponseBody extends $tea.Model {
   ossUploadToken?: DescribeOssUploadTokenResponseBodyOssUploadToken;
+  /**
+   * @example
+   * 2FA2C773-47DB-4156-B1EE-5B047321A939
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1151,11 +1659,35 @@ export class DescribeOssUploadTokenResponse extends $tea.Model {
 }
 
 export class DescribePageFaceVerifyDataRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 2023-04-30
+   */
   endDate?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ID_PLUS
+   */
   productCode?: string;
+  /**
+   * @example
+   * 36**01
+   */
   sceneId?: number;
+  /**
+   * @example
+   * 2023-04-10
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1185,14 +1717,46 @@ export class DescribePageFaceVerifyDataRequest extends $tea.Model {
 }
 
 export class DescribePageFaceVerifyDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: string;
   items?: DescribePageFaceVerifyDataResponseBodyItems[];
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 473469C7-A***B-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: string;
+  /**
+   * @example
+   * 5
+   */
   totalPage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1253,11 +1817,50 @@ export class DescribePageFaceVerifyDataResponse extends $tea.Model {
 }
 
 export class DescribeSmartStatisticsPageListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-11-16 23:59:59 +0800
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36**01
+   */
   sceneId?: string;
+  /**
+   * @example
+   * cloudauthst
+   */
   serviceCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-11-01 00:00:00 +0800
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1287,11 +1890,31 @@ export class DescribeSmartStatisticsPageListRequest extends $tea.Model {
 }
 
 export class DescribeSmartStatisticsPageListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   items?: DescribeSmartStatisticsPageListResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 96943***4E39F805
+   */
   requestId?: string;
+  /**
+   * @example
+   * 29
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 3
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1346,7 +1969,21 @@ export class DescribeSmartStatisticsPageListResponse extends $tea.Model {
 }
 
 export class DescribeVerifyResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39ecf51e-2f81-4dc5-90ee-ff86125b****
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FVBioOnlyTest
+   */
   bizType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1368,11 +2005,31 @@ export class DescribeVerifyResultRequest extends $tea.Model {
 }
 
 export class DescribeVerifyResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 97
+   */
   authorityComparisionScore?: number;
+  /**
+   * @example
+   * 97
+   */
   faceComparisonScore?: number;
+  /**
+   * @example
+   * 97
+   */
   idCardFaceComparisonScore?: number;
   material?: DescribeVerifyResultResponseBodyMaterial;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   verifyStatus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1427,6 +2084,13 @@ export class DescribeVerifyResultResponse extends $tea.Model {
 }
 
 export class DescribeVerifySDKRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1KQMcnLd4m37LN2D0F0WCD
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1446,7 +2110,15 @@ export class DescribeVerifySDKRequest extends $tea.Model {
 }
 
 export class DescribeVerifySDKResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * https://www.xxx.com
+   */
   sdkUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1493,20 +2165,82 @@ export class DescribeVerifySDKResponse extends $tea.Model {
 }
 
 export class DescribeVerifyTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39ecf51e-2f81-4dc5-90ee-ff86125be683
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RPBasicTest
+   */
   bizType?: string;
+  /**
+   * @example
+   * -
+   */
   callbackSeed?: string;
+  /**
+   * @example
+   * -
+   */
   callbackUrl?: string;
+  /**
+   * @example
+   * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+   */
   faceRetainedImageUrl?: string;
+  /**
+   * @example
+   * -
+   */
   failedRedirectUrl?: string;
+  /**
+   * @example
+   * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+   */
   idCardBackImageUrl?: string;
+  /**
+   * @example
+   * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+   */
   idCardFrontImageUrl?: string;
+  /**
+   * @example
+   * 330100xxxxxxxxxxxx
+   */
   idCardNumber?: string;
   name?: string;
+  /**
+   * @example
+   * -
+   */
   passedRedirectUrl?: string;
+  /**
+   * @example
+   * user111
+   */
   userId?: string;
+  /**
+   * @example
+   * 192.168.***.***
+   */
   userIp?: string;
+  /**
+   * @example
+   * 187********
+   */
   userPhoneNumber?: string;
+  /**
+   * @example
+   * 1577808000000
+   */
   userRegistTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1555,8 +2289,20 @@ export class DescribeVerifyTokenRequest extends $tea.Model {
 
 export class DescribeVerifyTokenResponseBody extends $tea.Model {
   ossUploadToken?: DescribeVerifyTokenResponseBodyOssUploadToken;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @example
+   * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+   */
   verifyPageUrl?: string;
+  /**
+   * @example
+   * c302c0797679457685410ee51a5ba375
+   */
   verifyToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1607,7 +2353,18 @@ export class DescribeVerifyTokenResponse extends $tea.Model {
 }
 
 export class DetectFaceAttributesRequest extends $tea.Model {
+  /**
+   * @example
+   * RPBasicTest
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
+   */
   materialValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1629,10 +2386,26 @@ export class DetectFaceAttributesRequest extends $tea.Model {
 }
 
 export class DetectFaceAttributesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: DetectFaceAttributesResponseBodyData;
+  /**
+   * @example
+   * Error.InternalError
+   */
   message?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1685,7 +2458,15 @@ export class DetectFaceAttributesResponse extends $tea.Model {
 }
 
 export class Id2MetaVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 412722198610274919
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -1710,8 +2491,20 @@ export class Id2MetaVerifyRequest extends $tea.Model {
 }
 
 export class Id2MetaVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * D6163397-15C5-419C-9ACC-B7C83E0B4C10
+   */
   requestId?: string;
   resultObject?: Id2MetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -1763,43 +2556,105 @@ export class Id2MetaVerifyResponse extends $tea.Model {
 }
 
 export class InitFaceVerifyRequest extends $tea.Model {
+  appQualityCheck?: string;
   authId?: string;
   birthday?: string;
   callbackToken?: string;
   callbackUrl?: string;
   certName?: string;
+  /**
+   * @example
+   * 330103xxxxxxxxxxxx
+   */
   certNo?: string;
+  /**
+   * @example
+   * IDENTITY_CARD
+   */
   certType?: string;
+  /**
+   * @example
+   * 0bfa7c493f850e5178b9f8613634c9xx
+   */
   certifyId?: string;
   certifyUrlStyle?: string;
   certifyUrlType?: string;
   crop?: string;
   encryptType?: string;
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
   faceContrastPicture?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
   faceContrastPictureUrl?: string;
   faceGuardOutput?: string;
+  /**
+   * @example
+   * 114.xxx.xxx.xxx
+   */
   ip?: string;
+  /**
+   * @example
+   * {"zimVer":"3.0.0","appVersion": "1","bioMetaInfo": "4.1.0:11501568,0","appName": "com.aliyun.antcloudauth","deviceType": "ios","osVersion": "iOS 10.3.2","apdidToken": "","deviceModel": "iPhone9,1"}
+   */
   metaInfo?: string;
+  /**
+   * @example
+   * 130xxxxxxxx
+   */
   mobile?: string;
   mode?: string;
   model?: string;
+  /**
+   * @example
+   * cn-shanghai-aliyun-cloudauth-xxxxx
+   */
   ossBucketName?: string;
+  /**
+   * @example
+   * verify/xxxxx/xxxxxx.jpeg
+   */
   ossObjectName?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   outerOrderNo?: string;
   procedurePriority?: string;
+  /**
+   * @example
+   * ID_PRO
+   */
   productCode?: string;
   rarelyCharacters?: string;
   readImg?: string;
+  /**
+   * @example
+   * www.aliyun.com
+   */
   returnUrl?: string;
+  /**
+   * @example
+   * 1000000006
+   */
   sceneId?: number;
   suitableType?: string;
   uiCustomUrl?: string;
+  /**
+   * @example
+   * 123456789
+   */
   userId?: string;
   validityDate?: string;
   videoEvidence?: string;
   voluntaryCustomizedContent?: string;
   static names(): { [key: string]: string } {
     return {
+      appQualityCheck: 'AppQualityCheck',
       authId: 'AuthId',
       birthday: 'Birthday',
       callbackToken: 'CallbackToken',
@@ -1840,6 +2695,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appQualityCheck: 'string',
       authId: 'string',
       birthday: 'string',
       callbackToken: 'string',
@@ -1884,8 +2740,20 @@ export class InitFaceVerifyRequest extends $tea.Model {
 }
 
 export class InitFaceVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 130A2C10-B9EE-4D84-88E3-5384FF039795
+   */
   requestId?: string;
   resultObject?: InitFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -2048,8 +2916,20 @@ export class LivenessFaceVerifyResponse extends $tea.Model {
 }
 
 export class Mobile3MetaDetailVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 520181199902104631
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * 150000xxxx
+   */
   mobile?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -2076,8 +2956,20 @@ export class Mobile3MetaDetailVerifyRequest extends $tea.Model {
 }
 
 export class Mobile3MetaDetailVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
+   */
   requestId?: string;
   resultObject?: Mobile3MetaDetailVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -2129,8 +3021,20 @@ export class Mobile3MetaDetailVerifyResponse extends $tea.Model {
 }
 
 export class Mobile3MetaSimpleVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 429001********8211
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * 150000****
+   */
   mobile?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -2157,8 +3061,20 @@ export class Mobile3MetaSimpleVerifyRequest extends $tea.Model {
 }
 
 export class Mobile3MetaSimpleVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
   resultObject?: Mobile3MetaSimpleVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -2210,7 +3126,15 @@ export class Mobile3MetaSimpleVerifyResponse extends $tea.Model {
 }
 
 export class MobileDetectRequest extends $tea.Model {
+  /**
+   * @example
+   * 138********,156********
+   */
   mobiles?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2232,8 +3156,20 @@ export class MobileDetectRequest extends $tea.Model {
 }
 
 export class MobileDetectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 969434DF-926B-4997-9881-4DE94E39F805
+   */
   requestId?: string;
   resultObject?: MobileDetectResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -2285,7 +3221,15 @@ export class MobileDetectResponse extends $tea.Model {
 }
 
 export class MobileOnlineStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * 130********
+   */
   mobile?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2307,8 +3251,20 @@ export class MobileOnlineStatusRequest extends $tea.Model {
 }
 
 export class MobileOnlineStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * B506328A-D84B-4750-82C7-6A207C585CF1
+   */
   requestId?: string;
   resultObject?: MobileOnlineStatusResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -2360,7 +3316,15 @@ export class MobileOnlineStatusResponse extends $tea.Model {
 }
 
 export class MobileOnlineTimeRequest extends $tea.Model {
+  /**
+   * @example
+   * 130********
+   */
   mobile?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2382,8 +3346,20 @@ export class MobileOnlineTimeRequest extends $tea.Model {
 }
 
 export class MobileOnlineTimeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * B506328A-D84B-4750-82C7-6A207C585CF1
+   */
   requestId?: string;
   resultObject?: MobileOnlineTimeResponseBodyResultObject;
   static names(): { [key: string]: string } {
@@ -2435,10 +3411,33 @@ export class MobileOnlineTimeResponse extends $tea.Model {
 }
 
 export class ModifyDeviceInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * FACE_TEST
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 1
+   */
   duration?: string;
+  /**
+   * @example
+   * 20190401
+   */
   expiredDay?: string;
+  /**
+   * @example
+   * 3iJ1AY$oHcu7mC69
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2466,11 +3465,35 @@ export class ModifyDeviceInfoRequest extends $tea.Model {
 }
 
 export class ModifyDeviceInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20190401
+   */
   beginDay?: string;
+  /**
+   * @example
+   * FACE_TEST
+   */
   bizType?: string;
+  /**
+   * @example
+   * wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 20200330
+   */
   expiredDay?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3iJ1AY$oHcu7mC69
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2525,13 +3548,57 @@ export class ModifyDeviceInfoResponse extends $tea.Model {
 }
 
 export class VerifyMaterialRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39ecf51e-2f81-4dc5-90ee-ff86125b****
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RPMinTest
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
+   */
   faceImageUrl?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example3.jpg
+   */
   idCardBackImageUrl?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example2.jpg
+   */
   idCardFrontImageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 02343218901123****
+   */
   idCardNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @example
+   * 54sdj
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2565,11 +3632,31 @@ export class VerifyMaterialRequest extends $tea.Model {
 }
 
 export class VerifyMaterialResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 97
+   */
   authorityComparisionScore?: number;
+  /**
+   * @example
+   * 97
+   */
   idCardFaceComparisonScore?: number;
   material?: VerifyMaterialResponseBodyMaterial;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   verifyStatus?: number;
+  /**
+   * @example
+   * c302c0797679457685410ee51a5ba375
+   */
   verifyToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2625,7 +3712,15 @@ export class VerifyMaterialResponse extends $tea.Model {
 
 export class AIGCFaceVerifyResponseBodyResultObject extends $tea.Model {
   certifyId?: string;
+  /**
+   * @example
+   * Y
+   */
   result?: string;
+  /**
+   * @example
+   * 1.0000
+   */
   score?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2649,7 +3744,15 @@ export class AIGCFaceVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class BankMetaVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * 101
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2672,7 +3775,15 @@ export class BankMetaVerifyResponseBodyResultObject extends $tea.Model {
 
 export class CompareFaceVerifyResponseBodyResultObject extends $tea.Model {
   certifyId?: string;
+  /**
+   * @example
+   * T
+   */
   passed?: string;
+  /**
+   * @example
+   * 99.60875
+   */
   verifyScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2696,7 +3807,15 @@ export class CompareFaceVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class CompareFacesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {"0.0001":"90.07","0.001":"80.01","0.01":"70.02"}
+   */
   confidenceThresholds?: string;
+  /**
+   * @example
+   * 98.7913
+   */
   similarityScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2719,9 +3838,25 @@ export class CompareFacesResponseBodyData extends $tea.Model {
 
 export class ContrastFaceVerifyResponseBodyResultObject extends $tea.Model {
   certifyId?: string;
+  /**
+   * @example
+   * null
+   */
   identityInfo?: string;
+  /**
+   * @example
+   * {"faceAttack": "F","facialPictureFront": {"qualityScore": 88.3615493774414,"verifyScore": 50.28594166529785}}
+   */
   materialInfo?: string;
+  /**
+   * @example
+   * T
+   */
   passed?: string;
+  /**
+   * @example
+   * 200
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2751,10 +3886,26 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $tea.Model {
 export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
   materialInfo?: string;
   ocrInfo?: string;
+  /**
+   * @example
+   * 1
+   */
   result?: string;
   riskScore?: { [key: string]: string };
+  /**
+   * @example
+   * PS,SCREEN_PHOTO
+   */
   riskTag?: string;
+  /**
+   * @example
+   * **
+   */
   verifyDetail?: string;
+  /**
+   * @example
+   * *
+   */
   verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2786,8 +3937,16 @@ export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class DeepfakeDetectResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   result?: string;
   riskScore?: { [key: string]: string };
+  /**
+   * @example
+   * SuspectDeepForgery,SuspectWarterMark
+   */
   riskTag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2811,10 +3970,30 @@ export class DeepfakeDetectResponseBodyResultObject extends $tea.Model {
 }
 
 export class DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo extends $tea.Model {
+  /**
+   * @example
+   * 20180101
+   */
   beginDay?: string;
+  /**
+   * @example
+   * FACE_TEST
+   */
   bizType?: string;
+  /**
+   * @example
+   * wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 20180101
+   */
   expiredDay?: string;
+  /**
+   * @example
+   * 3iJ1AY$oHcu7mC69
+   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2862,10 +4041,30 @@ export class DescribeDeviceInfoResponseBodyDeviceInfoList extends $tea.Model {
 
 export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
   deviceRisk?: string;
+  /**
+   * @example
+   * McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
+   */
   deviceToken?: string;
+  /**
+   * @example
+   * null
+   */
   identityInfo?: string;
+  /**
+   * @example
+   * {"faceAttack": "F","facialPictureFront": {"qualityScore": 88.3615493774414,"pictureUrl": "https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg","ossBucketName": "cn-shanghai-aliyun-cloudauth-1260051251634779","ossObjectName": "verify/1260051251634779/6ba7bcfccf33f56cdb44ed086f36ce3e0.jpeg"}}
+   */
   materialInfo?: string;
+  /**
+   * @example
+   * T
+   */
   passed?: string;
+  /**
+   * @example
+   * 200
+   */
   subCode?: string;
   success?: string;
   userInfo?: string;
@@ -2901,12 +4100,40 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $tea.Model {
+  /**
+   * @example
+   * cloudauth-zhangjiakou-external
+   */
   bucket?: string;
+  /**
+   * @example
+   * https://oss-cn-zhangjiakou.aliyuncs.com
+   */
   endPoint?: string;
+  /**
+   * @example
+   * 1582636610000
+   */
   expired?: number;
+  /**
+   * @example
+   * STS.NU8rUBj****
+   */
   key?: string;
+  /**
+   * @example
+   * prod/RdNLC@Ox2n-1s7NMt
+   */
   path?: string;
+  /**
+   * @example
+   * FwmnyoqT8dHj7nJLuM67T****
+   */
   secret?: string;
+  /**
+   * @example
+   * uWia500nTS5knZaDzq4/KqpvhcLnO****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2938,11 +4165,31 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $tea.Model
 }
 
 export class DescribePageFaceVerifyDataResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-24T00:00:00.000Z
+   */
   date?: string;
+  /**
+   * @example
+   * ID_PLUS
+   */
   productCode?: string;
+  /**
+   * @example
+   * 20**40
+   */
   sceneId?: string;
   sceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   successCount?: string;
+  /**
+   * @example
+   * 19
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2972,12 +4219,36 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeSmartStatisticsPageListResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 11/8
+   */
   date?: string;
+  /**
+   * @example
+   * 25
+   */
   passRate?: string;
+  /**
+   * @example
+   * SMART_VERIFY
+   */
   productCode?: string;
+  /**
+   * @example
+   * 20**40
+   */
   sceneId?: number;
   sceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   successCount?: number;
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3011,13 +4282,37 @@ export class DescribeSmartStatisticsPageListResponseBodyItems extends $tea.Model
 export class DescribeVerifyResultResponseBodyMaterialIdCardInfo extends $tea.Model {
   address?: string;
   authority?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example3.jpg
+   */
   backImageUrl?: string;
+  /**
+   * @example
+   * 19900101
+   */
   birth?: string;
+  /**
+   * @example
+   * 20201101
+   */
   endDate?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example2.jpg
+   */
   frontImageUrl?: string;
   name?: string;
   nationality?: string;
+  /**
+   * @example
+   * 02343218901123****
+   */
   number?: string;
+  /**
+   * @example
+   * 20201101
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3055,12 +4350,32 @@ export class DescribeVerifyResultResponseBodyMaterialIdCardInfo extends $tea.Mod
 }
 
 export class DescribeVerifyResultResponseBodyMaterial extends $tea.Model {
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/face-global-example.jpg
+   */
   faceGlobalUrl?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/face-image-example.jpg
+   */
   faceImageUrl?: string;
+  /**
+   * @example
+   * false
+   */
   faceMask?: boolean;
+  /**
+   * @example
+   * NORMAL
+   */
   faceQuality?: string;
   idCardInfo?: DescribeVerifyResultResponseBodyMaterialIdCardInfo;
   idCardName?: string;
+  /**
+   * @example
+   * 02343218901123****
+   */
   idCardNumber?: string;
   videoUrls?: string[];
   static names(): { [key: string]: string } {
@@ -3095,12 +4410,40 @@ export class DescribeVerifyResultResponseBodyMaterial extends $tea.Model {
 }
 
 export class DescribeVerifyTokenResponseBodyOssUploadToken extends $tea.Model {
+  /**
+   * @example
+   * cloudauth-zhangjiakou-external
+   */
   bucket?: string;
+  /**
+   * @example
+   * https://oss-cn-zhangjiakou.aliyuncs.com
+   */
   endPoint?: string;
+  /**
+   * @example
+   * 1582636610000
+   */
   expired?: number;
+  /**
+   * @example
+   * STS.NU8rUBj****
+   */
   key?: string;
+  /**
+   * @example
+   * prod/RdNLC@Ox2n-1s7NMt
+   */
   path?: string;
+  /**
+   * @example
+   * FwmnyoqT8dHj7nJLuM67T****
+   */
   secret?: string;
+  /**
+   * @example
+   * uWia500nTS5knZaDzq4/KqpvhcLnO****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3132,8 +4475,20 @@ export class DescribeVerifyTokenResponseBodyOssUploadToken extends $tea.Model {
 }
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose extends $tea.Model {
+  /**
+   * @example
+   * -1.5683923959732056
+   */
   pitchAngle?: number;
+  /**
+   * @example
+   * 7.163370132446289
+   */
   rollAngle?: number;
+  /**
+   * @example
+   * -6.925303936004639
+   */
   yawAngle?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3157,7 +4512,15 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 }
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling extends $tea.Model {
+  /**
+   * @example
+   * 95
+   */
   threshold?: number;
+  /**
+   * @example
+   * 97
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3179,12 +4542,36 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 }
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes extends $tea.Model {
+  /**
+   * @example
+   * 0.1419367790222168
+   */
   blur?: number;
+  /**
+   * @example
+   * 60
+   */
   facequal?: number;
+  /**
+   * @example
+   * Face
+   */
   facetype?: string;
+  /**
+   * @example
+   * None
+   */
   glasses?: string;
   headpose?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose;
+  /**
+   * @example
+   * 70
+   */
   integrity?: number;
+  /**
+   * @example
+   * Wear
+   */
   respirator?: string;
   smiling?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling;
   static names(): { [key: string]: string } {
@@ -3219,9 +4606,25 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 }
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect extends $tea.Model {
+  /**
+   * @example
+   * 473
+   */
   height?: number;
+  /**
+   * @example
+   * 354
+   */
   left?: number;
+  /**
+   * @example
+   * 453
+   */
   top?: number;
+  /**
+   * @example
+   * 473
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3289,7 +4692,15 @@ export class DetectFaceAttributesResponseBodyDataFaceInfos extends $tea.Model {
 
 export class DetectFaceAttributesResponseBodyData extends $tea.Model {
   faceInfos?: DetectFaceAttributesResponseBodyDataFaceInfos;
+  /**
+   * @example
+   * 1920
+   */
   imgHeight?: number;
+  /**
+   * @example
+   * 1080
+   */
   imgWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3313,6 +4724,10 @@ export class DetectFaceAttributesResponseBodyData extends $tea.Model {
 }
 
 export class Id2MetaVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3332,6 +4747,10 @@ export class Id2MetaVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class InitFaceVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 91707dc296d469ad38e4c5efa6a0f24b
+   */
   certifyId?: string;
   certifyUrl?: string;
   static names(): { [key: string]: string } {
@@ -3382,8 +4801,20 @@ export class LivenessFaceVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * CMCC
+   */
   ispName?: string;
+  /**
+   * @example
+   * 101
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3407,7 +4838,15 @@ export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $tea.Model 
 }
 
 export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * CMCC
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3430,9 +4869,25 @@ export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $tea.Model 
 
 export class MobileDetectResponseBodyResultObjectItems extends $tea.Model {
   area?: string;
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * CMCC
+   */
   ispName?: string;
+  /**
+   * @example
+   * 131********
+   */
   mobile?: string;
+  /**
+   * @example
+   * 101
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3460,6 +4915,10 @@ export class MobileDetectResponseBodyResultObjectItems extends $tea.Model {
 }
 
 export class MobileDetectResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   chargeCount?: string;
   items?: MobileDetectResponseBodyResultObjectItems[];
   static names(): { [key: string]: string } {
@@ -3482,8 +4941,20 @@ export class MobileDetectResponseBodyResultObject extends $tea.Model {
 }
 
 export class MobileOnlineStatusResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * CMCC
+   */
   ispName?: string;
+  /**
+   * @example
+   * 101
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3507,8 +4978,20 @@ export class MobileOnlineStatusResponseBodyResultObject extends $tea.Model {
 }
 
 export class MobileOnlineTimeResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * CMCC
+   */
   ispName?: string;
+  /**
+   * @example
+   * 5
+   */
   timeCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3534,13 +5017,37 @@ export class MobileOnlineTimeResponseBodyResultObject extends $tea.Model {
 export class VerifyMaterialResponseBodyMaterialIdCardInfo extends $tea.Model {
   address?: string;
   authority?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example3.jpg
+   */
   backImageUrl?: string;
+  /**
+   * @example
+   * 19900101
+   */
   birth?: string;
+  /**
+   * @example
+   * 20201101
+   */
   endDate?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example2.jpg
+   */
   frontImageUrl?: string;
   name?: string;
   nationality?: string;
+  /**
+   * @example
+   * 02343218901123****
+   */
   number?: string;
+  /**
+   * @example
+   * 20201101
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3578,12 +5085,32 @@ export class VerifyMaterialResponseBodyMaterialIdCardInfo extends $tea.Model {
 }
 
 export class VerifyMaterialResponseBodyMaterial extends $tea.Model {
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/face-global-example.jpg
+   */
   faceGlobalUrl?: string;
+  /**
+   * @example
+   * http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
+   */
   faceImageUrl?: string;
+  /**
+   * @example
+   * false
+   */
   faceMask?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   faceQuality?: string;
   idCardInfo?: VerifyMaterialResponseBodyMaterialIdCardInfo;
   idCardName?: string;
+  /**
+   * @example
+   * 02343218901123****
+   */
   idCardNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3638,11 +5165,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增AIGC人脸检测能力
-   *
-   * @param request AIGCFaceVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AIGCFaceVerifyResponse
+   * 新增AIGC人脸检测能力
+   * 
+   * @param request - AIGCFaceVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AIGCFaceVerifyResponse
    */
   async aIGCFaceVerifyWithOptions(request: AIGCFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<AIGCFaceVerifyResponse> {
     Util.validateModel(request);
@@ -3695,10 +5222,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新增AIGC人脸检测能力
-   *
-   * @param request AIGCFaceVerifyRequest
-   * @return AIGCFaceVerifyResponse
+   * 新增AIGC人脸检测能力
+   * 
+   * @param request - AIGCFaceVerifyRequest
+   * @returns AIGCFaceVerifyResponse
    */
   async aIGCFaceVerify(request: AIGCFaceVerifyRequest): Promise<AIGCFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3706,11 +5233,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 银行卡要素核验接口
-   *
-   * @param request BankMetaVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BankMetaVerifyResponse
+   * 银行卡要素核验接口
+   * 
+   * @param request - BankMetaVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BankMetaVerifyResponse
    */
   async bankMetaVerifyWithOptions(request: BankMetaVerifyRequest, runtime: $Util.RuntimeOptions): Promise<BankMetaVerifyResponse> {
     Util.validateModel(request);
@@ -3761,10 +5288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 银行卡要素核验接口
-   *
-   * @param request BankMetaVerifyRequest
-   * @return BankMetaVerifyResponse
+   * 银行卡要素核验接口
+   * 
+   * @param request - BankMetaVerifyRequest
+   * @returns BankMetaVerifyResponse
    */
   async bankMetaVerify(request: BankMetaVerifyRequest): Promise<BankMetaVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3772,9 +5299,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompareFaceVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CompareFaceVerifyResponse
+   * @param request - CompareFaceVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompareFaceVerifyResponse
    */
   async compareFaceVerifyWithOptions(request: CompareFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceVerifyResponse> {
     Util.validateModel(request);
@@ -3853,8 +5380,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompareFaceVerifyRequest
-   * @return CompareFaceVerifyResponse
+   * @param request - CompareFaceVerifyRequest
+   * @returns CompareFaceVerifyResponse
    */
   async compareFaceVerify(request: CompareFaceVerifyRequest): Promise<CompareFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3862,9 +5389,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompareFacesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CompareFacesResponse
+   * @param request - CompareFacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompareFacesResponse
    */
   async compareFacesWithOptions(request: CompareFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareFacesResponse> {
     Util.validateModel(request);
@@ -3903,8 +5430,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompareFacesRequest
-   * @return CompareFacesResponse
+   * @param request - CompareFacesRequest
+   * @returns CompareFacesResponse
    */
   async compareFaces(request: CompareFacesRequest): Promise<CompareFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3912,9 +5439,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ContrastFaceVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ContrastFaceVerifyResponse
+   * @param request - ContrastFaceVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContrastFaceVerifyResponse
    */
   async contrastFaceVerifyWithOptions(request: ContrastFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastFaceVerifyResponse> {
     Util.validateModel(request);
@@ -4015,8 +5542,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ContrastFaceVerifyRequest
-   * @return ContrastFaceVerifyResponse
+   * @param request - ContrastFaceVerifyRequest
+   * @returns ContrastFaceVerifyResponse
    */
   async contrastFaceVerify(request: ContrastFaceVerifyRequest): Promise<ContrastFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4099,9 +5626,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAuthKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAuthKeyResponse
+   * @param request - CreateAuthKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAuthKeyResponse
    */
   async createAuthKeyWithOptions(request: CreateAuthKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthKeyResponse> {
     Util.validateModel(request);
@@ -4140,8 +5667,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAuthKeyRequest
-   * @return CreateAuthKeyResponse
+   * @param request - CreateAuthKeyRequest
+   * @returns CreateAuthKeyResponse
    */
   async createAuthKey(request: CreateAuthKeyRequest): Promise<CreateAuthKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4149,9 +5676,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateVerifySettingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVerifySettingResponse
+   * @param request - CreateVerifySettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVerifySettingResponse
    */
   async createVerifySettingWithOptions(request: CreateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySettingResponse> {
     Util.validateModel(request);
@@ -4198,8 +5725,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateVerifySettingRequest
-   * @return CreateVerifySettingResponse
+   * @param request - CreateVerifySettingRequest
+   * @returns CreateVerifySettingResponse
    */
   async createVerifySetting(request: CreateVerifySettingRequest): Promise<CreateVerifySettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4207,11 +5734,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 凭证核验
-   *
-   * @param request CredentialVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CredentialVerifyResponse
+   * 凭证核验
+   * 
+   * @param request - CredentialVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialVerifyResponse
    */
   async credentialVerifyWithOptions(request: CredentialVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CredentialVerifyResponse> {
     Util.validateModel(request);
@@ -4276,10 +5803,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 凭证核验
-   *
-   * @param request CredentialVerifyRequest
-   * @return CredentialVerifyResponse
+   * 凭证核验
+   * 
+   * @param request - CredentialVerifyRequest
+   * @returns CredentialVerifyResponse
    */
   async credentialVerify(request: CredentialVerifyRequest): Promise<CredentialVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4287,11 +5814,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸凭证核验服务
-   *
-   * @param request DeepfakeDetectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeepfakeDetectResponse
+   * 人脸凭证核验服务
+   * 
+   * @param request - DeepfakeDetectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeepfakeDetectResponse
    */
   async deepfakeDetectWithOptions(request: DeepfakeDetectRequest, runtime: $Util.RuntimeOptions): Promise<DeepfakeDetectResponse> {
     Util.validateModel(request);
@@ -4332,10 +5859,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸凭证核验服务
-   *
-   * @param request DeepfakeDetectRequest
-   * @return DeepfakeDetectResponse
+   * 人脸凭证核验服务
+   * 
+   * @param request - DeepfakeDetectRequest
+   * @returns DeepfakeDetectResponse
    */
   async deepfakeDetect(request: DeepfakeDetectRequest): Promise<DeepfakeDetectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4343,9 +5870,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDeviceInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDeviceInfoResponse
+   * @param request - DescribeDeviceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDeviceInfoResponse
    */
   async describeDeviceInfoWithOptions(request: DescribeDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceInfoResponse> {
     Util.validateModel(request);
@@ -4396,8 +5923,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDeviceInfoRequest
-   * @return DescribeDeviceInfoResponse
+   * @param request - DescribeDeviceInfoRequest
+   * @returns DescribeDeviceInfoResponse
    */
   async describeDeviceInfo(request: DescribeDeviceInfoRequest): Promise<DescribeDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4405,9 +5932,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeFaceVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFaceVerifyResponse
+   * @param request - DescribeFaceVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaceVerifyResponse
    */
   async describeFaceVerifyWithOptions(request: DescribeFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceVerifyResponse> {
     Util.validateModel(request);
@@ -4442,8 +5969,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeFaceVerifyRequest
-   * @return DescribeFaceVerifyResponse
+   * @param request - DescribeFaceVerifyRequest
+   * @returns DescribeFaceVerifyResponse
    */
   async describeFaceVerify(request: DescribeFaceVerifyRequest): Promise<DescribeFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4451,9 +5978,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeOssUploadTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOssUploadTokenResponse
+   * @param request - DescribeOssUploadTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssUploadTokenResponse
    */
   async describeOssUploadTokenWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeOssUploadTokenResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -4472,7 +5999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DescribeOssUploadTokenResponse
+   * @returns DescribeOssUploadTokenResponse
    */
   async describeOssUploadToken(): Promise<DescribeOssUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4480,11 +6007,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Open API新增金融级数据统计API
-   *
-   * @param request DescribePageFaceVerifyDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePageFaceVerifyDataResponse
+   * Open API新增金融级数据统计API
+   * 
+   * @param request - DescribePageFaceVerifyDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePageFaceVerifyDataResponse
    */
   async describePageFaceVerifyDataWithOptions(request: DescribePageFaceVerifyDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribePageFaceVerifyDataResponse> {
     Util.validateModel(request);
@@ -4531,10 +6058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Open API新增金融级数据统计API
-   *
-   * @param request DescribePageFaceVerifyDataRequest
-   * @return DescribePageFaceVerifyDataResponse
+   * Open API新增金融级数据统计API
+   * 
+   * @param request - DescribePageFaceVerifyDataRequest
+   * @returns DescribePageFaceVerifyDataResponse
    */
   async describePageFaceVerifyData(request: DescribePageFaceVerifyDataRequest): Promise<DescribePageFaceVerifyDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4542,9 +6069,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSmartStatisticsPageListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSmartStatisticsPageListResponse
+   * @param request - DescribeSmartStatisticsPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSmartStatisticsPageListResponse
    */
   async describeSmartStatisticsPageListWithOptions(request: DescribeSmartStatisticsPageListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmartStatisticsPageListResponse> {
     Util.validateModel(request);
@@ -4591,8 +6118,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSmartStatisticsPageListRequest
-   * @return DescribeSmartStatisticsPageListResponse
+   * @param request - DescribeSmartStatisticsPageListRequest
+   * @returns DescribeSmartStatisticsPageListResponse
    */
   async describeSmartStatisticsPageList(request: DescribeSmartStatisticsPageListRequest): Promise<DescribeSmartStatisticsPageListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4600,9 +6127,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeVerifyResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeVerifyResultResponse
+   * @param request - DescribeVerifyResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyResultResponse
    */
   async describeVerifyResultWithOptions(request: DescribeVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyResultResponse> {
     Util.validateModel(request);
@@ -4633,8 +6160,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeVerifyResultRequest
-   * @return DescribeVerifyResultResponse
+   * @param request - DescribeVerifyResultRequest
+   * @returns DescribeVerifyResultResponse
    */
   async describeVerifyResult(request: DescribeVerifyResultRequest): Promise<DescribeVerifyResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4642,9 +6169,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeVerifySDKRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeVerifySDKResponse
+   * @param request - DescribeVerifySDKRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifySDKResponse
    */
   async describeVerifySDKWithOptions(request: DescribeVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySDKResponse> {
     Util.validateModel(request);
@@ -4671,8 +6198,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeVerifySDKRequest
-   * @return DescribeVerifySDKResponse
+   * @param request - DescribeVerifySDKRequest
+   * @returns DescribeVerifySDKResponse
    */
   async describeVerifySDK(request: DescribeVerifySDKRequest): Promise<DescribeVerifySDKResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4680,9 +6207,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeVerifyTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeVerifyTokenResponse
+   * @param request - DescribeVerifyTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyTokenResponse
    */
   async describeVerifyTokenWithOptions(request: DescribeVerifyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyTokenResponse> {
     Util.validateModel(request);
@@ -4765,8 +6292,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeVerifyTokenRequest
-   * @return DescribeVerifyTokenResponse
+   * @param request - DescribeVerifyTokenRequest
+   * @returns DescribeVerifyTokenResponse
    */
   async describeVerifyToken(request: DescribeVerifyTokenRequest): Promise<DescribeVerifyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4774,9 +6301,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DetectFaceAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectFaceAttributesResponse
+   * @param request - DetectFaceAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectFaceAttributesResponse
    */
   async detectFaceAttributesWithOptions(request: DetectFaceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceAttributesResponse> {
     Util.validateModel(request);
@@ -4807,8 +6334,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DetectFaceAttributesRequest
-   * @return DetectFaceAttributesResponse
+   * @param request - DetectFaceAttributesRequest
+   * @returns DetectFaceAttributesResponse
    */
   async detectFaceAttributes(request: DetectFaceAttributesRequest): Promise<DetectFaceAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4816,11 +6343,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 身份二要素接口
-   *
-   * @param request Id2MetaVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return Id2MetaVerifyResponse
+   * 身份二要素接口
+   * 
+   * @param request - Id2MetaVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id2MetaVerifyResponse
    */
   async id2MetaVerifyWithOptions(request: Id2MetaVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaVerifyResponse> {
     Util.validateModel(request);
@@ -4855,10 +6382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 身份二要素接口
-   *
-   * @param request Id2MetaVerifyRequest
-   * @return Id2MetaVerifyResponse
+   * 身份二要素接口
+   * 
+   * @param request - Id2MetaVerifyRequest
+   * @returns Id2MetaVerifyResponse
    */
   async id2MetaVerify(request: Id2MetaVerifyRequest): Promise<Id2MetaVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4866,13 +6393,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request InitFaceVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InitFaceVerifyResponse
+   * @param request - InitFaceVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitFaceVerifyResponse
    */
   async initFaceVerifyWithOptions(request: InitFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitFaceVerifyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appQualityCheck)) {
+      query["AppQualityCheck"] = request.appQualityCheck;
+    }
+
     if (!Util.isUnset(request.birthday)) {
       query["Birthday"] = request.birthday;
     }
@@ -5033,8 +6564,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request InitFaceVerifyRequest
-   * @return InitFaceVerifyResponse
+   * @param request - InitFaceVerifyRequest
+   * @returns InitFaceVerifyResponse
    */
   async initFaceVerify(request: InitFaceVerifyRequest): Promise<InitFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5042,9 +6573,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request LivenessFaceVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LivenessFaceVerifyResponse
+   * @param request - LivenessFaceVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LivenessFaceVerifyResponse
    */
   async livenessFaceVerifyWithOptions(request: LivenessFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<LivenessFaceVerifyResponse> {
     Util.validateModel(request);
@@ -5125,8 +6656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request LivenessFaceVerifyRequest
-   * @return LivenessFaceVerifyResponse
+   * @param request - LivenessFaceVerifyRequest
+   * @returns LivenessFaceVerifyResponse
    */
   async livenessFaceVerify(request: LivenessFaceVerifyRequest): Promise<LivenessFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5134,11 +6665,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 手机三要素详版接口
-   *
-   * @param request Mobile3MetaDetailVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return Mobile3MetaDetailVerifyResponse
+   * 手机三要素详版接口
+   * 
+   * @param request - Mobile3MetaDetailVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Mobile3MetaDetailVerifyResponse
    */
   async mobile3MetaDetailVerifyWithOptions(request: Mobile3MetaDetailVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaDetailVerifyResponse> {
     Util.validateModel(request);
@@ -5177,10 +6708,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 手机三要素详版接口
-   *
-   * @param request Mobile3MetaDetailVerifyRequest
-   * @return Mobile3MetaDetailVerifyResponse
+   * 手机三要素详版接口
+   * 
+   * @param request - Mobile3MetaDetailVerifyRequest
+   * @returns Mobile3MetaDetailVerifyResponse
    */
   async mobile3MetaDetailVerify(request: Mobile3MetaDetailVerifyRequest): Promise<Mobile3MetaDetailVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5188,11 +6719,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 手机号三要素简版接口
-   *
-   * @param request Mobile3MetaSimpleVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return Mobile3MetaSimpleVerifyResponse
+   * 手机号三要素简版接口
+   * 
+   * @param request - Mobile3MetaSimpleVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Mobile3MetaSimpleVerifyResponse
    */
   async mobile3MetaSimpleVerifyWithOptions(request: Mobile3MetaSimpleVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaSimpleVerifyResponse> {
     Util.validateModel(request);
@@ -5231,10 +6762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 手机号三要素简版接口
-   *
-   * @param request Mobile3MetaSimpleVerifyRequest
-   * @return Mobile3MetaSimpleVerifyResponse
+   * 手机号三要素简版接口
+   * 
+   * @param request - Mobile3MetaSimpleVerifyRequest
+   * @returns Mobile3MetaSimpleVerifyResponse
    */
   async mobile3MetaSimpleVerify(request: Mobile3MetaSimpleVerifyRequest): Promise<Mobile3MetaSimpleVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5242,11 +6773,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 号码检测
-   *
-   * @param request MobileDetectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MobileDetectResponse
+   * 号码检测
+   * 
+   * @param request - MobileDetectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MobileDetectResponse
    */
   async mobileDetectWithOptions(request: MobileDetectRequest, runtime: $Util.RuntimeOptions): Promise<MobileDetectResponse> {
     Util.validateModel(request);
@@ -5277,10 +6808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 号码检测
-   *
-   * @param request MobileDetectRequest
-   * @return MobileDetectResponse
+   * 号码检测
+   * 
+   * @param request - MobileDetectRequest
+   * @returns MobileDetectResponse
    */
   async mobileDetect(request: MobileDetectRequest): Promise<MobileDetectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5288,11 +6819,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询手机号在网状态
-   *
-   * @param request MobileOnlineStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MobileOnlineStatusResponse
+   * 查询手机号在网状态
+   * 
+   * @param request - MobileOnlineStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MobileOnlineStatusResponse
    */
   async mobileOnlineStatusWithOptions(request: MobileOnlineStatusRequest, runtime: $Util.RuntimeOptions): Promise<MobileOnlineStatusResponse> {
     Util.validateModel(request);
@@ -5323,10 +6854,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询手机号在网状态
-   *
-   * @param request MobileOnlineStatusRequest
-   * @return MobileOnlineStatusResponse
+   * 查询手机号在网状态
+   * 
+   * @param request - MobileOnlineStatusRequest
+   * @returns MobileOnlineStatusResponse
    */
   async mobileOnlineStatus(request: MobileOnlineStatusRequest): Promise<MobileOnlineStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5334,11 +6865,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询手机号在网时长
-   *
-   * @param request MobileOnlineTimeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MobileOnlineTimeResponse
+   * 查询手机号在网时长
+   * 
+   * @param request - MobileOnlineTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MobileOnlineTimeResponse
    */
   async mobileOnlineTimeWithOptions(request: MobileOnlineTimeRequest, runtime: $Util.RuntimeOptions): Promise<MobileOnlineTimeResponse> {
     Util.validateModel(request);
@@ -5369,10 +6900,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询手机号在网时长
-   *
-   * @param request MobileOnlineTimeRequest
-   * @return MobileOnlineTimeResponse
+   * 查询手机号在网时长
+   * 
+   * @param request - MobileOnlineTimeRequest
+   * @returns MobileOnlineTimeResponse
    */
   async mobileOnlineTime(request: MobileOnlineTimeRequest): Promise<MobileOnlineTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5380,9 +6911,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyDeviceInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDeviceInfoResponse
+   * @param request - ModifyDeviceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDeviceInfoResponse
    */
   async modifyDeviceInfoWithOptions(request: ModifyDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceInfoResponse> {
     Util.validateModel(request);
@@ -5425,8 +6956,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyDeviceInfoRequest
-   * @return ModifyDeviceInfoResponse
+   * @param request - ModifyDeviceInfoRequest
+   * @returns ModifyDeviceInfoResponse
    */
   async modifyDeviceInfo(request: ModifyDeviceInfoRequest): Promise<ModifyDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5434,9 +6965,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request VerifyMaterialRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return VerifyMaterialResponse
+   * @param request - VerifyMaterialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyMaterialResponse
    */
   async verifyMaterialWithOptions(request: VerifyMaterialRequest, runtime: $Util.RuntimeOptions): Promise<VerifyMaterialResponse> {
     Util.validateModel(request);
@@ -5491,8 +7022,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request VerifyMaterialRequest
-   * @return VerifyMaterialResponse
+   * @param request - VerifyMaterialRequest
+   * @returns VerifyMaterialResponse
    */
   async verifyMaterial(request: VerifyMaterialRequest): Promise<VerifyMaterialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
