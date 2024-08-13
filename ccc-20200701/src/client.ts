@@ -8079,6 +8079,126 @@ export class GetCaseFileUploadUrlResponse extends $tea.Model {
   }
 }
 
+export class GetChatMediaUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * media id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * $iAHNCNQCo3dhdgMGBAAFAAbaACOEAaQhIEeoAqpjjBl42N6o_kg7A88AAAGRIRRuBgTOACrxHgcACM8AAAGRIYJLBQ
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 8707EB29-BAED-4302-B999-40BA61877437
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatMediaUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Internal service issue. Detail:.
+   */
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatMediaUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatMediaUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatMediaUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetContactFlowRequest extends $tea.Model {
   /**
    * @remarks
@@ -12325,9 +12445,6 @@ export class LaunchAuthenticationResponse extends $tea.Model {
 
 export class LaunchSurveyRequest extends $tea.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 4685b65a-eb8f-11ec-8ea0-0242ac120002
    */
@@ -13906,6 +14023,135 @@ export class ListCallDetailRecordsV2Response extends $tea.Model {
   }
 }
 
+export class ListCallSummariesRequest extends $tea.Model {
+  contactIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactIdList: 'ContactIdList',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactIdList: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallSummariesShrinkRequest extends $tea.Model {
+  contactIdListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactIdListShrink: 'ContactIdList',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactIdListShrink: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallSummariesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListCallSummariesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 932579BC-811A-503D-B322-4C2E57087CAA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCallSummariesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallSummariesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCallSummariesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCallSummariesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCallTagsRequest extends $tea.Model {
   /**
    * @remarks
@@ -15446,6 +15692,238 @@ export class ListDocumentsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDocumentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Uincall
+   */
+  providerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      providerId: 'ProviderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      providerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsApplicationsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListFlashSmsApplicationsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListFlashSmsApplicationsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsApplicationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFlashSmsApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFlashSmsApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * 71b396fa-1*********-70b7c0
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * Uincall
+   */
+  providerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceId: 'InstanceId',
+      providerId: 'ProviderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceId: 'string',
+      providerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListFlashSmsTemplatesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListFlashSmsTemplatesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFlashSmsTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFlashSmsTemplatesResponseBody,
     };
   }
 
@@ -20370,6 +20848,107 @@ export class ListVoicemailsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListVoicemailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaitingChatsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test", "skillgroup2@ccc-test"]
+   */
+  skillGroupIdList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      skillGroupIdList: 'SkillGroupIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      skillGroupIdList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaitingChatsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListWaitingChatsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListWaitingChatsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaitingChatsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWaitingChatsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWaitingChatsResponseBody,
     };
   }
 
@@ -38018,6 +38597,60 @@ export class ListCallDetailRecordsV2ResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCallSummariesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * job-544789******759424
+   */
+  contactId?: string;
+  context?: string;
+  /**
+   * @example
+   * 1723449513735
+   */
+  createdTime?: number;
+  /**
+   * @example
+   * creator@ccc-test
+   */
+  creator?: string;
+  /**
+   * @example
+   * editor@ccc-test
+   */
+  editor?: string;
+  /**
+   * @example
+   * ac0dd304-****-****-****-4a90010f0d38
+   */
+  ticketId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      context: 'Context',
+      createdTime: 'CreatedTime',
+      creator: 'Creator',
+      editor: 'Editor',
+      ticketId: 'TicketId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      context: 'string',
+      createdTime: 'number',
+      creator: 'string',
+      editor: 'string',
+      ticketId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCallTagsResponseBodyDataList extends $tea.Model {
   /**
    * @example
@@ -39094,6 +39727,119 @@ export class ListDocumentsResponseBodyData extends $tea.Model {
       nextPageToken: 'string',
       schema: ListDocumentsResponseBodyDataSchema,
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsApplicationsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 71b396fa-***********-bd80e070b7c0
+   */
+  applicationId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  name?: string;
+  /**
+   * @example
+   * Uincall
+   */
+  providerId?: string;
+  /**
+   * @example
+   * {"user":"600******_dev","pwd":"85abf3**********f494e","account":"6004******"}
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      providerId: 'ProviderId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      instanceId: 'string',
+      name: 'string',
+      providerId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsApplicationsResponseBodyData extends $tea.Model {
+  list?: ListFlashSmsApplicationsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListFlashSmsApplicationsResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlashSmsTemplatesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1715*****38
+   */
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+      templateName: 'string',
     };
   }
 
@@ -50041,6 +50787,138 @@ export class ListVoicemailsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListWaitingChatsResponseBodyDataMessages extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * c361765f-******-4e07-b81c-4b5d9183fac6
+   */
+  senderId?: string;
+  senderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      senderId: 'SenderId',
+      senderType: 'SenderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      senderId: 'string',
+      senderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaitingChatsResponseBodyDataUserList extends $tea.Model {
+  avatarUrl?: string;
+  /**
+   * @example
+   * c361765f-******-4e07-b81c-4b5d9183fac6
+   */
+  userId?: string;
+  userName?: string;
+  /**
+   * @example
+   * CUSTOMER
+   */
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'AvatarUrl',
+      userId: 'UserId',
+      userName: 'UserName',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      userId: 'string',
+      userName: 'string',
+      userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWaitingChatsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 843073c2-*****-49fb-a616-738ddddfebdc
+   */
+  accessChannelId?: string;
+  /**
+   * @example
+   * Web
+   */
+  accessChannelType?: string;
+  /**
+   * @example
+   * false
+   */
+  beingAssigned?: boolean;
+  /**
+   * @example
+   * $23086709$EAUNIT
+   */
+  chatConversationId?: string;
+  /**
+   * @example
+   * 1718868572094
+   */
+  enqueueTime?: number;
+  /**
+   * @example
+   * chat-434537064047960064
+   */
+  jobId?: string;
+  messages?: ListWaitingChatsResponseBodyDataMessages[];
+  skillGroupId?: string;
+  userList?: ListWaitingChatsResponseBodyDataUserList[];
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelId: 'AccessChannelId',
+      accessChannelType: 'AccessChannelType',
+      beingAssigned: 'BeingAssigned',
+      chatConversationId: 'ChatConversationId',
+      enqueueTime: 'EnqueueTime',
+      jobId: 'JobId',
+      messages: 'Messages',
+      skillGroupId: 'SkillGroupId',
+      userList: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelId: 'string',
+      accessChannelType: 'string',
+      beingAssigned: 'boolean',
+      chatConversationId: 'string',
+      enqueueTime: 'number',
+      jobId: 'string',
+      messages: { 'type': 'array', 'itemType': ListWaitingChatsResponseBodyDataMessages },
+      skillGroupId: 'string',
+      userList: { 'type': 'array', 'itemType': ListWaitingChatsResponseBodyDataUserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MakeCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
   /**
    * @example
@@ -57681,6 +58559,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetChatMediaUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatMediaUrlResponse
+   */
+  async getChatMediaUrlWithOptions(request: GetChatMediaUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetChatMediaUrlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      body["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatMediaUrl",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatMediaUrlResponse>(await this.callApi(params, req, runtime), new GetChatMediaUrlResponse({}));
+  }
+
+  /**
+   * @param request - GetChatMediaUrlRequest
+   * @returns GetChatMediaUrlResponse
+   */
+  async getChatMediaUrl(request: GetChatMediaUrlRequest): Promise<GetChatMediaUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChatMediaUrlWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetContactFlowResponse
@@ -60195,6 +61119,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - ListCallSummariesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallSummariesResponse
+   */
+  async listCallSummariesWithOptions(tmpReq: ListCallSummariesRequest, runtime: $Util.RuntimeOptions): Promise<ListCallSummariesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListCallSummariesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contactIdList)) {
+      request.contactIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactIdList, "ContactIdList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.contactIdListShrink)) {
+      query["ContactIdList"] = request.contactIdListShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCallSummaries",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCallSummariesResponse>(await this.callApi(params, req, runtime), new ListCallSummariesResponse({}));
+  }
+
+  /**
+   * @param request - ListCallSummariesRequest
+   * @returns ListCallSummariesResponse
+   */
+  async listCallSummaries(request: ListCallSummariesRequest): Promise<ListCallSummariesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCallSummariesWithOptions(request, runtime);
+  }
+
+  /**
    * 列出号码标签
    * 
    * @param request - ListCallTagsRequest
@@ -60840,6 +61812,106 @@ export default class Client extends OpenApi {
   async listDocuments(request: ListDocumentsRequest): Promise<ListDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListFlashSmsApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlashSmsApplicationsResponse
+   */
+  async listFlashSmsApplicationsWithOptions(request: ListFlashSmsApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlashSmsApplicationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.providerId)) {
+      query["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFlashSmsApplications",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlashSmsApplicationsResponse>(await this.callApi(params, req, runtime), new ListFlashSmsApplicationsResponse({}));
+  }
+
+  /**
+   * @param request - ListFlashSmsApplicationsRequest
+   * @returns ListFlashSmsApplicationsResponse
+   */
+  async listFlashSmsApplications(request: ListFlashSmsApplicationsRequest): Promise<ListFlashSmsApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFlashSmsApplicationsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListFlashSmsTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlashSmsTemplatesResponse
+   */
+  async listFlashSmsTemplatesWithOptions(request: ListFlashSmsTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListFlashSmsTemplatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.providerId)) {
+      query["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFlashSmsTemplates",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlashSmsTemplatesResponse>(await this.callApi(params, req, runtime), new ListFlashSmsTemplatesResponse({}));
+  }
+
+  /**
+   * @param request - ListFlashSmsTemplatesRequest
+   * @returns ListFlashSmsTemplatesResponse
+   */
+  async listFlashSmsTemplates(request: ListFlashSmsTemplatesRequest): Promise<ListFlashSmsTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFlashSmsTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -62964,6 +64036,48 @@ export default class Client extends OpenApi {
   async listVoicemails(request: ListVoicemailsRequest): Promise<ListVoicemailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVoicemailsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListWaitingChatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWaitingChatsResponse
+   */
+  async listWaitingChatsWithOptions(request: ListWaitingChatsRequest, runtime: $Util.RuntimeOptions): Promise<ListWaitingChatsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWaitingChats",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWaitingChatsResponse>(await this.callApi(params, req, runtime), new ListWaitingChatsResponse({}));
+  }
+
+  /**
+   * @param request - ListWaitingChatsRequest
+   * @returns ListWaitingChatsResponse
+   */
+  async listWaitingChats(request: ListWaitingChatsRequest): Promise<ListWaitingChatsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWaitingChatsWithOptions(request, runtime);
   }
 
   /**
