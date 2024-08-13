@@ -5114,6 +5114,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
    * 1536751124000
    */
   lastScanTimeStart?: number;
+  marker?: number;
   /**
    * @remarks
    * The search keyword. Fuzzy match is supported.
@@ -5178,6 +5179,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
       lang: 'Lang',
       lastScanTimeEnd: 'LastScanTimeEnd',
       lastScanTimeStart: 'LastScanTimeStart',
+      marker: 'Marker',
       name: 'Name',
       pageSize: 'PageSize',
       riskLevelId: 'RiskLevelId',
@@ -5195,6 +5197,7 @@ export class DescribeOssObjectsRequest extends $tea.Model {
       lang: 'string',
       lastScanTimeEnd: 'number',
       lastScanTimeStart: 'number',
+      marker: 'number',
       name: 'string',
       pageSize: 'number',
       riskLevelId: 'number',
@@ -5223,6 +5226,8 @@ export class DescribeOssObjectsResponseBody extends $tea.Model {
    * A list of OSS objects.
    */
   items?: DescribeOssObjectsResponseBodyItems[];
+  marker?: string;
+  nextMarker?: string;
   /**
    * @remarks
    * The number of entries returned per page.
@@ -5247,13 +5252,17 @@ export class DescribeOssObjectsResponseBody extends $tea.Model {
    * 1
    */
   totalCount?: number;
+  truncated?: boolean;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       items: 'Items',
+      marker: 'Marker',
+      nextMarker: 'NextMarker',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
+      truncated: 'Truncated',
     };
   }
 
@@ -5261,9 +5270,12 @@ export class DescribeOssObjectsResponseBody extends $tea.Model {
     return {
       currentPage: 'number',
       items: { 'type': 'array', 'itemType': DescribeOssObjectsResponseBodyItems },
+      marker: 'string',
+      nextMarker: 'string',
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
+      truncated: 'boolean',
     };
   }
 
@@ -16526,6 +16538,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lastScanTimeStart)) {
       query["LastScanTimeStart"] = request.lastScanTimeStart;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
     }
 
     if (!Util.isUnset(request.name)) {
