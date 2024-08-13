@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,13 +8,44 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
+  /**
+   * @example
+   * pc
+   */
   clientChannel?: string;
+  /**
+   * @example
+   * 370b56f8-2812-4b6c-bfa6-2560791c****
+   */
   clientId?: string;
+  /**
+   * @example
+   * 22.21.XX.XX
+   */
   clientIp?: string;
+  /**
+   * @example
+   * windows_\\"Windows 10 Enterprise\\" 10.0 (Build 14393)
+   */
   clientOS?: string;
+  /**
+   * @example
+   * 2.0.1-D-20211008.101607
+   */
   clientVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Aliyun123***
+   */
   loginIdentifier?: string;
   supportTypes?: string[];
+  /**
+   * @example
+   * 2943802884B27030B6759F9132B2****
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,7 +82,15 @@ export class FindIdpListByLoginIdentifierResponseBody extends $tea.Model {
   idpInfos?: FindIdpListByLoginIdentifierResponseBodyIdpInfos[];
   officeSiteInfo?: FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo;
   popRegionConfig?: { [key: string]: string };
+  /**
+   * @example
+   * cn_hangzhou
+   */
   profileRegion?: string;
+  /**
+   * @example
+   * AD2D0761-1FE5-549D-B169-D3F8D19C****
+   */
   requestId?: string;
   tenantAliasInfo?: FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo;
   static names(): { [key: string]: string } {
@@ -108,37 +146,168 @@ export class FindIdpListByLoginIdentifierResponse extends $tea.Model {
 }
 
 export class GetLoginTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * 182901
+   */
   authenticationCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 05967f80-6f51-46cb-a27c-****
+   */
   clientId?: string;
+  /**
+   * @example
+   * windows_\\"Windows 10 Pro\\" 10.0 (Build 22631)
+   */
   clientOS?: string;
+  /**
+   * @example
+   * windows
+   */
   clientType?: string;
+  /**
+   * @example
+   * 7.3.0-20240619.143924
+   */
   clientVersion?: string;
+  /**
+   * @example
+   * SsoTokenLogin
+   */
   currentStage?: string;
+  /**
+   * @example
+   * cn-beijing+dir-j9dd****
+   */
   directoryId?: string;
+  /**
+   * @example
+   * null
+   */
   encryptedFingerPrintData?: string;
+  /**
+   * @example
+   * 4d7****8e90bb0484fc
+   */
   encryptedKey?: string;
+  /**
+   * @example
+   * 04d7****8e90bb0484fc;gJ1GLca1vQRRqQbRvByU0A==;5kOWZE7AtbQhki+4LAo69A==
+   */
   encryptedPassword?: string;
+  /**
+   * @example
+   * user01
+   */
   endUserId?: string;
+  /**
+   * @example
+   * null
+   */
   fingerPrintData?: string;
+  /**
+   * @example
+   * idp-iwntrlbb98q7v****
+   */
   idpId?: string;
+  /**
+   * @example
+   * null
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * true
+   */
   keepAlive?: boolean;
+  /**
+   * @example
+   * 00ugamMAoO1+u1MlhmgCeZJ75q094x3H/4kg7ZaTI3f/joVTVPIpJgfv9JFkPLNxnQjblrvsByNas08mc6FtVWvQPOE68fqmt6QMM4UbRtahm8luxEXvicF58qSPXW1hxOtV/Ev6d92VBz2Bck/N4CYyjD0iLocfN8jkBnt231****
+   */
   keepAliveToken?: string;
+  /**
+   * @example
+   * Fe04****
+   */
   loginIdentifier?: string;
+  /**
+   * @example
+   * null
+   */
   loginName?: string;
+  /**
+   * @example
+   * INTERNET
+   */
   networkType?: string;
+  /**
+   * @example
+   * Admin@1234****
+   */
   newPassword?: string;
+  /**
+   * @example
+   * cn-beijing+dir-j9dd****
+   */
   officeSiteId?: string;
+  /**
+   * @example
+   * Admin@1234****
+   */
   oldPassword?: string;
+  /**
+   * @example
+   * Admin@1234****
+   */
   password?: string;
+  /**
+   * @example
+   * 1822727****
+   */
   phone?: string;
+  /**
+   * @example
+   * 321123
+   */
   phoneVerifyCode?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @example
+   * c6f3cd91-65fc-4c7b-b189-2a73da0****
+   */
   sessionId?: string;
+  /**
+   * @example
+   * null
+   */
   ssoExtendsCookies?: string;
+  /**
+   * @example
+   * 04d707a6-fb23-44a7-aae7-8e90****
+   */
   ssoSessionToken?: string;
+  /**
+   * @example
+   * 1234***
+   */
   tokenCode?: string;
+  /**
+   * @example
+   * 04d707a6-fb23-44a7-aae7-8e90bb04****
+   */
   umidToken?: string;
+  /**
+   * @example
+   * C50973691A6D2BE23F2CDD73B85B****
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -220,32 +389,120 @@ export class GetLoginTokenRequest extends $tea.Model {
 }
 
 export class GetLoginTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * INTERNET
+   */
   accessType?: string;
+  /**
+   * @example
+   * ad
+   */
   accountType?: string;
+  /**
+   * @example
+   * easthp***.com
+   */
   adDomain?: string;
+  /**
+   * @example
+   * alice***@aliyun.com
+   */
   email?: string;
+  /**
+   * @example
+   * alice
+   */
   endUserId?: string;
+  /**
+   * @example
+   * idp-7ttvs4ove8bo5***
+   */
   idpId?: string;
+  /**
+   * @example
+   * edu
+   */
   industry?: string;
+  /**
+   * @example
+   * 006YwvYMsesWWsDBZnVB+Wq9AvJDVIqOY3YCktvtb7+KxMb3ClnNlV8+l/knhZYrXUmeP06IzkjF+IgcZ3vZKOyMprDyFHjCy1r27FRE/U7+geWCl8iQ+yF8GaCRHfJEkC2+ROs93HkT4tfHxyY1J8W7O7ZQGUC/cdCvm+cCP6FIy73IUuPuVR6PcKYXIp***
+   */
   keepAliveToken?: string;
+  /**
+   * @example
+   * test:wuying
+   */
   label?: string;
+  /**
+   * @example
+   * v185fdd7f6d39fa7861981639366085772e150a390a5bb7b43c4e62440d94fc392b945770e1596cebe90085ce0af4d****
+   */
   loginToken?: string;
+  /**
+   * @example
+   * MFABind
+   */
   nextStage?: string;
   officeSites?: string[];
   passwordStrategy?: GetLoginTokenResponseBodyPasswordStrategy;
+  /**
+   * @example
+   * 1826717****
+   */
   phone?: string;
   props?: { [key: string]: string };
+  /**
+   * @example
+   * 5OCLLKKOJU5HPBX66H3QCTWY******
+   */
   qrCodePng?: string;
+  /**
+   * @example
+   * PasswordExpired
+   */
   reason?: string;
+  /**
+   * @example
+   * EEA72491-B731-53D6-83ED-209769D6****
+   */
   requestId?: string;
   riskVerifyInfo?: GetLoginTokenResponseBodyRiskVerifyInfo;
+  /**
+   * @example
+   * 4JZNSDHDM3T6AZ4G2O5OWXBLLE4P****
+   */
   secret?: string;
+  /**
+   * @example
+   * cc15c91c-821b-4edd-9af2-6df66cc****
+   */
   sessionId?: string;
+  /**
+   * @example
+   * Rq201***
+   */
   tenantAlias?: string;
+  /**
+   * @example
+   * 13747924304****
+   */
   tenantId?: number;
   tenantInfos?: GetLoginTokenResponseBodyTenantInfos[];
+  /**
+   * @example
+   * cn-beijing
+   */
   vpcRegionId?: string;
+  /**
+   * @example
+   * Windowed
+   */
   windowDisplayMode?: string;
+  /**
+   * @example
+   * 0aba1403b337a***
+   */
   wyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -342,14 +599,55 @@ export class GetLoginTokenResponse extends $tea.Model {
 }
 
 export class RefreshLoginTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f4a0dc8e-1702-4728-9a60-95b27a35****
+   */
   clientId?: string;
+  /**
+   * @example
+   * windows
+   */
   clientType?: string;
+  /**
+   * @example
+   * alice
+   */
   endUserId?: string;
+  /**
+   * @example
+   * Alibaba****
+   */
   loginIdentifier?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * v1046341d8d4e2f05c4aa168196009613594aaf451499bfc75e54699efa7230bc968e1debb1fa4063b01e5d327b467****
+   */
   loginToken?: string;
+  /**
+   * @example
+   * cn-shenzhen+dir-436909****
+   */
   officeSiteId?: string;
   profileRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6442b2fd-ed3e-423a-8e6e-352d26a4****
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 2943802884B27030B6759F9132B2****
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -385,7 +683,15 @@ export class RefreshLoginTokenRequest extends $tea.Model {
 }
 
 export class RefreshLoginTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * v12369636c721ba6b3ddb1683341016775c3f63e4d0e78f120f9a0544ed826b7af7daf747c402f0d0730b52f451b70****
+   */
   loginToken?: string;
+  /**
+   * @example
+   * 419F31B9-1FDF-5644-ABA3-D00026FA****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -432,12 +738,32 @@ export class RefreshLoginTokenResponse extends $tea.Model {
 }
 
 export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $tea.Model {
+  /**
+   * @example
+   * simple
+   */
   accountType?: string;
+  /**
+   * @example
+   * null
+   */
   cookies?: string;
+  /**
+   * @example
+   * idp-hlyexfvwert9m8****
+   */
   idpId?: string;
   idpName?: string;
   idpProvider?: string;
+  /**
+   * @example
+   * true
+   */
   jumpSwitch?: string;
+  /**
+   * @example
+   * SAML
+   */
   ssoProtocol?: string;
   ssoServiceUrl?: string;
   static names(): { [key: string]: string } {
@@ -472,9 +798,25 @@ export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $tea.Model
 }
 
 export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $tea.Model {
+  /**
+   * @example
+   * INTERNET
+   */
   accessType?: string;
+  /**
+   * @example
+   * cn-shanghai+dir-448204****
+   */
   officeSiteId?: string;
+  /**
+   * @example
+   * 26842
+   */
   providerId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   ssoServiceUrl?: string;
   static names(): { [key: string]: string } {
@@ -503,7 +845,15 @@ export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $tea
 }
 
 export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $tea.Model {
+  /**
+   * @example
+   * INTERNET
+   */
   accessType?: string;
+  /**
+   * @example
+   * Or09****
+   */
   tenantAlias?: string;
   static names(): { [key: string]: string } {
     return {
@@ -526,6 +876,10 @@ export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $te
 
 export class GetLoginTokenResponseBodyPasswordStrategy extends $tea.Model {
   tenantAlternativeChars?: string[];
+  /**
+   * @example
+   * 12
+   */
   tenantPasswordLength?: number;
   static names(): { [key: string]: string } {
     return {
@@ -547,9 +901,25 @@ export class GetLoginTokenResponseBodyPasswordStrategy extends $tea.Model {
 }
 
 export class GetLoginTokenResponseBodyRiskVerifyInfo extends $tea.Model {
+  /**
+   * @example
+   * ppas***@aliyun.com
+   */
   email?: string;
+  /**
+   * @example
+   * 12000
+   */
   lastLockDuration?: number;
+  /**
+   * @example
+   * true
+   */
   locked?: boolean;
+  /**
+   * @example
+   * 1826717****
+   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -575,7 +945,15 @@ export class GetLoginTokenResponseBodyRiskVerifyInfo extends $tea.Model {
 }
 
 export class GetLoginTokenResponseBodyTenantInfos extends $tea.Model {
+  /**
+   * @example
+   * INTERNET
+   */
   accessType?: string;
+  /**
+   * @example
+   * Up830***
+   */
   tenantAlias?: string;
   static names(): { [key: string]: string } {
     return {
@@ -621,11 +999,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 身份认证查询接口
-   *
-   * @param request FindIdpListByLoginIdentifierRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FindIdpListByLoginIdentifierResponse
+   * 身份认证查询接口
+   * 
+   * @param request - FindIdpListByLoginIdentifierRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FindIdpListByLoginIdentifierResponse
    */
   async findIdpListByLoginIdentifierWithOptions(request: FindIdpListByLoginIdentifierRequest, runtime: $Util.RuntimeOptions): Promise<FindIdpListByLoginIdentifierResponse> {
     Util.validateModel(request);
@@ -680,10 +1058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 身份认证查询接口
-   *
-   * @param request FindIdpListByLoginIdentifierRequest
-   * @return FindIdpListByLoginIdentifierResponse
+   * 身份认证查询接口
+   * 
+   * @param request - FindIdpListByLoginIdentifierRequest
+   * @returns FindIdpListByLoginIdentifierResponse
    */
   async findIdpListByLoginIdentifier(request: FindIdpListByLoginIdentifierRequest): Promise<FindIdpListByLoginIdentifierResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -691,11 +1069,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetLoginToken
-   *
-   * @param request GetLoginTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLoginTokenResponse
+   * GetLoginToken
+   * 
+   * @param request - GetLoginTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLoginTokenResponse
    */
   async getLoginTokenWithOptions(request: GetLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginTokenResponse> {
     Util.validateModel(request);
@@ -846,10 +1224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetLoginToken
-   *
-   * @param request GetLoginTokenRequest
-   * @return GetLoginTokenResponse
+   * GetLoginToken
+   * 
+   * @param request - GetLoginTokenRequest
+   * @returns GetLoginTokenResponse
    */
   async getLoginToken(request: GetLoginTokenRequest): Promise<GetLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -857,9 +1235,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RefreshLoginTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefreshLoginTokenResponse
+   * @param request - RefreshLoginTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshLoginTokenResponse
    */
   async refreshLoginTokenWithOptions(request: RefreshLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshLoginTokenResponse> {
     Util.validateModel(request);
@@ -918,8 +1296,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RefreshLoginTokenRequest
-   * @return RefreshLoginTokenResponse
+   * @param request - RefreshLoginTokenRequest
+   * @returns RefreshLoginTokenResponse
    */
   async refreshLoginToken(request: RefreshLoginTokenRequest): Promise<RefreshLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
