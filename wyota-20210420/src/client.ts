@@ -3831,17 +3831,21 @@ export class ListTerminalsRequest extends $tea.Model {
    * DemoDevice
    */
   searchKeyword?: string;
+  serialNumbers?: string[];
   /**
    * @example
    * tg-default
    */
   terminalGroupId?: string;
+  uuids?: string[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       searchKeyword: 'SearchKeyword',
+      serialNumbers: 'SerialNumbers',
       terminalGroupId: 'TerminalGroupId',
+      uuids: 'Uuids',
     };
   }
 
@@ -3850,7 +3854,9 @@ export class ListTerminalsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       searchKeyword: 'string',
+      serialNumbers: { 'type': 'array', 'itemType': 'string' },
       terminalGroupId: 'string',
+      uuids: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -10556,6 +10562,15 @@ export default class Client extends OpenApi {
    */
   async listTerminalsWithOptions(request: ListTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<ListTerminalsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.serialNumbers)) {
+      query["SerialNumbers"] = request.serialNumbers;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
@@ -10574,6 +10589,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
