@@ -5082,12 +5082,14 @@ export class ReportUserFbIssueResponse extends $tea.Model {
 }
 
 export class SendOpsMessageToTerminalsRequest extends $tea.Model {
+  delay?: boolean;
   msg?: string;
   opsAction?: string;
   uuids?: string[];
   waitForAck?: boolean;
   static names(): { [key: string]: string } {
     return {
+      delay: 'Delay',
       msg: 'Msg',
       opsAction: 'OpsAction',
       uuids: 'Uuids',
@@ -5097,6 +5099,7 @@ export class SendOpsMessageToTerminalsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      delay: 'boolean',
       msg: 'string',
       opsAction: 'string',
       uuids: { 'type': 'array', 'itemType': 'string' },
@@ -11399,6 +11402,11 @@ export default class Client extends OpenApi {
    */
   async sendOpsMessageToTerminalsWithOptions(request: SendOpsMessageToTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<SendOpsMessageToTerminalsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.delay)) {
+      query["Delay"] = request.delay;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.msg)) {
       body["Msg"] = request.msg;
@@ -11422,6 +11430,7 @@ export default class Client extends OpenApi {
       ...OpenApiUtil.query(bodyFlat),
     };
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
