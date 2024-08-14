@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,18 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,11 +41,35 @@ export class CancelAsyncTaskRequest extends $tea.Model {
 }
 
 export class CancelAsyncTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @example
+   * FB698445-61DA-5361-BF73-1C5F1157E888
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -90,6 +124,13 @@ export class CancelAsyncTaskResponse extends $tea.Model {
 }
 
 export class ClearIntervenesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,11 +150,31 @@ export class ClearIntervenesRequest extends $tea.Model {
 }
 
 export class ClearIntervenesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ClearIntervenesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -168,14 +229,44 @@ export class ClearIntervenesResponse extends $tea.Model {
 }
 
 export class CreateGeneratedContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @example
+   * government
+   */
   contentDomain?: string;
   contentText?: string;
   keywords?: string[];
   prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
+  /**
+   * @example
+   * xxxx
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -211,14 +302,44 @@ export class CreateGeneratedContentRequest extends $tea.Model {
 }
 
 export class CreateGeneratedContentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @example
+   * government
+   */
   contentDomain?: string;
   contentText?: string;
   keywordsShrink?: string;
   prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
+  /**
+   * @example
+   * xxxx
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -254,11 +375,35 @@ export class CreateGeneratedContentShrinkRequest extends $tea.Model {
 }
 
 export class CreateGeneratedContentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * 42
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -313,6 +458,13 @@ export class CreateGeneratedContentResponse extends $tea.Model {
 }
 
 export class CreateTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2daaa2e0c209xb26acb97009ea77bd4b_p_efm
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -332,11 +484,31 @@ export class CreateTokenRequest extends $tea.Model {
 }
 
 export class CreateTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   data?: CreateTokenResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -391,8 +563,22 @@ export class CreateTokenResponse extends $tea.Model {
 }
 
 export class DeleteCustomTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
   commodityCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 85
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -416,11 +602,35 @@ export class DeleteCustomTextRequest extends $tea.Model {
 }
 
 export class DeleteCustomTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * false
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -475,12 +685,28 @@ export class DeleteCustomTextResponse extends $tea.Model {
 }
 
 export class DeleteGeneratedContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99
+   */
   id?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
       id: 'Id',
+      regionId: 'RegionId',
     };
   }
 
@@ -488,6 +714,7 @@ export class DeleteGeneratedContentRequest extends $tea.Model {
     return {
       agentKey: 'string',
       id: 'number',
+      regionId: 'string',
     };
   }
 
@@ -497,11 +724,35 @@ export class DeleteGeneratedContentRequest extends $tea.Model {
 }
 
 export class DeleteGeneratedContentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -556,7 +807,18 @@ export class DeleteGeneratedContentResponse extends $tea.Model {
 }
 
 export class DeleteInterveneRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 12345
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -578,11 +840,31 @@ export class DeleteInterveneRuleRequest extends $tea.Model {
 }
 
 export class DeleteInterveneRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: DeleteInterveneRuleResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 94512A33-8EC1-5452-A793-5C91F18ED2F0
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -637,7 +919,21 @@ export class DeleteInterveneRuleResponse extends $tea.Model {
 }
 
 export class DeleteMaterialByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -659,11 +955,35 @@ export class DeleteMaterialByIdRequest extends $tea.Model {
 }
 
 export class DeleteMaterialByIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * false
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -718,7 +1038,18 @@ export class DeleteMaterialByIdResponse extends $tea.Model {
 }
 
 export class DocumentExtractionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   urls?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -740,7 +1071,18 @@ export class DocumentExtractionRequest extends $tea.Model {
 }
 
 export class DocumentExtractionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   urlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -762,11 +1104,31 @@ export class DocumentExtractionShrinkRequest extends $tea.Model {
 }
 
 export class DocumentExtractionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   data?: DocumentExtractionResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -821,7 +1183,21 @@ export class DocumentExtractionResponse extends $tea.Model {
 }
 
 export class ExportGeneratedContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -843,11 +1219,35 @@ export class ExportGeneratedContentRequest extends $tea.Model {
 }
 
 export class ExportGeneratedContentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * xxx
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -902,6 +1302,13 @@ export class ExportGeneratedContentResponse extends $tea.Model {
 }
 
 export class ExportIntervenesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fed6555ec9e24b92aeecc34be484b887_p_efm
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -921,11 +1328,31 @@ export class ExportIntervenesRequest extends $tea.Model {
 }
 
 export class ExportIntervenesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ExportIntervenesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -980,13 +1407,47 @@ export class ExportIntervenesResponse extends $tea.Model {
 }
 
 export class FeedbackDialogueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fcb14f25c9ee41ccad33a049de8f941b_p_outbound_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * test
+   */
   customerResponse?: string;
+  /**
+   * @example
+   * test
+   */
   goodText?: string;
+  /**
+   * @example
+   * test
+   */
   modifiedResponse?: string;
+  /**
+   * @example
+   * thumbsDown
+   */
   rating?: string;
   ratingTags?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 75bf82fa-b71b-45d7-ae40-0b00e496cd9e
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1020,13 +1481,47 @@ export class FeedbackDialogueRequest extends $tea.Model {
 }
 
 export class FeedbackDialogueShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fcb14f25c9ee41ccad33a049de8f941b_p_outbound_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * test
+   */
   customerResponse?: string;
+  /**
+   * @example
+   * test
+   */
   goodText?: string;
+  /**
+   * @example
+   * test
+   */
   modifiedResponse?: string;
+  /**
+   * @example
+   * thumbsDown
+   */
   rating?: string;
   ratingTagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 75bf82fa-b71b-45d7-ae40-0b00e496cd9e
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1060,10 +1555,30 @@ export class FeedbackDialogueShrinkRequest extends $tea.Model {
 }
 
 export class FeedbackDialogueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1116,8 +1631,29 @@ export class FeedbackDialogueResponse extends $tea.Model {
 }
 
 export class FetchImageTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   articleTaskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["9d8c9185-3f75-4a20-aca1-c5bb53dd97b3"]
+   */
   taskIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1141,8 +1677,29 @@ export class FetchImageTaskRequest extends $tea.Model {
 }
 
 export class FetchImageTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   articleTaskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["9d8c9185-3f75-4a20-aca1-c5bb53dd97b3"]
+   */
   taskIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1166,11 +1723,31 @@ export class FetchImageTaskShrinkRequest extends $tea.Model {
 }
 
 export class FetchImageTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: FetchImageTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * DD656AF9-0839-521A-A3D2-F320009F9C87
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1225,7 +1802,18 @@ export class FetchImageTaskResponse extends $tea.Model {
 }
 
 export class GenerateFileUrlByKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
+   */
   fileKey?: string;
   fileName?: string;
   static names(): { [key: string]: string } {
@@ -1250,11 +1838,35 @@ export class GenerateFileUrlByKeyRequest extends $tea.Model {
 }
 
 export class GenerateFileUrlByKeyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * https://www.example.com/a.txt
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1309,10 +1921,42 @@ export class GenerateFileUrlByKeyResponse extends $tea.Model {
 }
 
 export class GenerateImageTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   articleTaskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   paragraphList?: GenerateImageTaskRequestParagraphList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1024*1024
+   */
   size?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * <auto>
+   */
   style?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1340,10 +1984,42 @@ export class GenerateImageTaskRequest extends $tea.Model {
 }
 
 export class GenerateImageTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   articleTaskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   paragraphListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1024*1024
+   */
   size?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * <auto>
+   */
   style?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1371,11 +2047,31 @@ export class GenerateImageTaskShrinkRequest extends $tea.Model {
 }
 
 export class GenerateImageTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * successful
+   */
   code?: string;
   data?: GenerateImageTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * F2F366D6-E9FE-1006-BB70-2C650896AAB5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1430,8 +2126,26 @@ export class GenerateImageTaskResponse extends $tea.Model {
 }
 
 export class GenerateUploadConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * test.docx
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * datasetUpload
+   */
   parentDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1455,11 +2169,31 @@ export class GenerateUploadConfigRequest extends $tea.Model {
 }
 
 export class GenerateUploadConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   data?: GenerateUploadConfigResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1514,6 +2248,13 @@ export class GenerateUploadConfigResponse extends $tea.Model {
 }
 
 export class GenerateViewPointRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
   referenceData?: GenerateViewPointRequestReferenceData;
   static names(): { [key: string]: string } {
@@ -1536,6 +2277,13 @@ export class GenerateViewPointRequest extends $tea.Model {
 }
 
 export class GenerateViewPointShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
   referenceDataShrink?: string;
   static names(): { [key: string]: string } {
@@ -1558,11 +2306,27 @@ export class GenerateViewPointShrinkRequest extends $tea.Model {
 }
 
 export class GenerateViewPointResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GenerateViewPointResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 94512A33-8EC1-5452-A793-5C91F18ED2F0
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1617,8 +2381,26 @@ export class GenerateViewPointResponse extends $tea.Model {
 }
 
 export class GetCustomTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 商品code
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1642,11 +2424,31 @@ export class GetCustomTextRequest extends $tea.Model {
 }
 
 export class GetCustomTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   data?: GetCustomTextResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1701,7 +2503,21 @@ export class GetCustomTextResponse extends $tea.Model {
 }
 
 export class GetDataSourceOrderConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d9a1f6146a37446495d9985c2e7b267e_p_outbound_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * miaobi
+   */
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1723,11 +2539,31 @@ export class GetDataSourceOrderConfigRequest extends $tea.Model {
 }
 
 export class GetDataSourceOrderConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetDataSourceOrderConfigResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 428DCC0D-3C63-5306-BD1B-124396AB97BE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1782,7 +2618,21 @@ export class GetDataSourceOrderConfigResponse extends $tea.Model {
 }
 
 export class GetGeneratedContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1804,11 +2654,31 @@ export class GetGeneratedContentRequest extends $tea.Model {
 }
 
 export class GetGeneratedContentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   data?: GetGeneratedContentResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1863,6 +2733,13 @@ export class GetGeneratedContentResponse extends $tea.Model {
 }
 
 export class GetInterveneGlobalReplyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fcb14f25c9ee41ccad33a049de8f941b_p_outbound_public
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1882,11 +2759,31 @@ export class GetInterveneGlobalReplyRequest extends $tea.Model {
 }
 
 export class GetInterveneGlobalReplyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: GetInterveneGlobalReplyResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1941,7 +2838,18 @@ export class GetInterveneGlobalReplyResponse extends $tea.Model {
 }
 
 export class GetInterveneImportTaskInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 19162157
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1963,11 +2871,31 @@ export class GetInterveneImportTaskInfoRequest extends $tea.Model {
 }
 
 export class GetInterveneImportTaskInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: GetInterveneImportTaskInfoResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2022,7 +2950,18 @@ export class GetInterveneImportTaskInfoResponse extends $tea.Model {
 }
 
 export class GetInterveneRuleDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2daaa2e0c209xb26acb97009ea77bd4b_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 12345
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2044,11 +2983,31 @@ export class GetInterveneRuleDetailRequest extends $tea.Model {
 }
 
 export class GetInterveneRuleDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: GetInterveneRuleDetailResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 428DCC0D-3C63-5306-BD1B-124396AB97BE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2103,6 +3062,13 @@ export class GetInterveneRuleDetailResponse extends $tea.Model {
 }
 
 export class GetInterveneTemplateFileUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2122,11 +3088,31 @@ export class GetInterveneTemplateFileUrlRequest extends $tea.Model {
 }
 
 export class GetInterveneTemplateFileUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: GetInterveneTemplateFileUrlResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * DA021073-17CE-5CCF-9FEB-93226C766887
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2181,7 +3167,21 @@ export class GetInterveneTemplateFileUrlResponse extends $tea.Model {
 }
 
 export class GetMaterialByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2203,11 +3203,31 @@ export class GetMaterialByIdRequest extends $tea.Model {
 }
 
 export class GetMaterialByIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
   data?: GetMaterialByIdResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2262,6 +3282,13 @@ export class GetMaterialByIdResponse extends $tea.Model {
 }
 
 export class GetPropertiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx_efm
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2281,11 +3308,31 @@ export class GetPropertiesRequest extends $tea.Model {
 }
 
 export class GetPropertiesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
   data?: GetPropertiesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2340,9 +3387,28 @@ export class GetPropertiesResponse extends $tea.Model {
 }
 
 export class ImportInterveneFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * import.xls
+   */
   docName?: string;
+  /**
+   * @example
+   * import.xsl
+   */
   fileKey?: string;
+  /**
+   * @example
+   * http://xxx/xxx.xls
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2368,11 +3434,31 @@ export class ImportInterveneFileRequest extends $tea.Model {
 }
 
 export class ImportInterveneFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ImportInterveneFileResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2427,9 +3513,28 @@ export class ImportInterveneFileResponse extends $tea.Model {
 }
 
 export class ImportInterveneFileAsyncRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * import.xls
+   */
   docName?: string;
+  /**
+   * @example
+   * import.xls
+   */
   fileKey?: string;
+  /**
+   * @example
+   * https://xxx/import.xls
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2455,11 +3560,31 @@ export class ImportInterveneFileAsyncRequest extends $tea.Model {
 }
 
 export class ImportInterveneFileAsyncResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ImportInterveneFileAsyncResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 94512A33-8EC1-5452-A793-5C91F18ED2F0
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2514,6 +3639,13 @@ export class ImportInterveneFileAsyncResponse extends $tea.Model {
 }
 
 export class InsertInterveneGlobalReplyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx_efm
+   */
   agentKey?: string;
   replyMessagList?: InsertInterveneGlobalReplyRequestReplyMessagList[];
   static names(): { [key: string]: string } {
@@ -2536,6 +3668,13 @@ export class InsertInterveneGlobalReplyRequest extends $tea.Model {
 }
 
 export class InsertInterveneGlobalReplyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx_efm
+   */
   agentKey?: string;
   replyMessagListShrink?: string;
   static names(): { [key: string]: string } {
@@ -2558,11 +3697,31 @@ export class InsertInterveneGlobalReplyShrinkRequest extends $tea.Model {
 }
 
 export class InsertInterveneGlobalReplyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: InsertInterveneGlobalReplyResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2617,6 +3776,13 @@ export class InsertInterveneGlobalReplyResponse extends $tea.Model {
 }
 
 export class InsertInterveneRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
   interveneRuleConfig?: InsertInterveneRuleRequestInterveneRuleConfig;
   static names(): { [key: string]: string } {
@@ -2639,6 +3805,13 @@ export class InsertInterveneRuleRequest extends $tea.Model {
 }
 
 export class InsertInterveneRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
   interveneRuleConfigShrink?: string;
   static names(): { [key: string]: string } {
@@ -2661,11 +3834,31 @@ export class InsertInterveneRuleShrinkRequest extends $tea.Model {
 }
 
 export class InsertInterveneRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: InsertInterveneRuleResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * DD656AF9-0839-521A-A3D2-F320009F9C87
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2720,13 +3913,44 @@ export class InsertInterveneRuleResponse extends $tea.Model {
 }
 
 export class ListAsyncTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   createTimeEnd?: string;
+  /**
+   * @example
+   * 2023-02-19 07:28:11
+   */
   createTimeStart?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * MaterialDocumentUpload
+   */
   taskCode?: string;
   taskName?: string;
+  /**
+   * @example
+   * 1
+   */
   taskStatus?: number;
   taskStatusList?: number[];
   taskType?: string;
@@ -2769,13 +3993,44 @@ export class ListAsyncTasksRequest extends $tea.Model {
 }
 
 export class ListAsyncTasksShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   createTimeEnd?: string;
+  /**
+   * @example
+   * 2023-02-19 07:28:11
+   */
   createTimeStart?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * MaterialDocumentUpload
+   */
   taskCode?: string;
   taskName?: string;
+  /**
+   * @example
+   * 1
+   */
   taskStatus?: number;
   taskStatusListShrink?: string;
   taskType?: string;
@@ -2818,14 +4073,42 @@ export class ListAsyncTasksShrinkRequest extends $tea.Model {
 }
 
 export class ListAsyncTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
   data?: ListAsyncTasksResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 428DCC0D-3C63-5306-BD1B-124396AB97BE
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2886,11 +4169,24 @@ export class ListAsyncTasksResponse extends $tea.Model {
 }
 
 export class ListBuildConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
+   */
   agentKey?: string;
+  regionId?: string;
+  /**
+   * @example
+   * media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      regionId: 'RegionId',
       type: 'Type',
     };
   }
@@ -2898,6 +4194,7 @@ export class ListBuildConfigsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      regionId: 'string',
       type: 'string',
     };
   }
@@ -2908,11 +4205,31 @@ export class ListBuildConfigsRequest extends $tea.Model {
 }
 
 export class ListBuildConfigsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ListBuildConfigsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @example
+   * DA021073-17CE-5CCF-9FEB-93226C766887
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2967,7 +4284,18 @@ export class ListBuildConfigsResponse extends $tea.Model {
 }
 
 export class ListCustomTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 商品code
+   */
   commodityCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2989,11 +4317,31 @@ export class ListCustomTextRequest extends $tea.Model {
 }
 
 export class ListCustomTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   data?: ListCustomTextResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3048,12 +4396,43 @@ export class ListCustomTextResponse extends $tea.Model {
 }
 
 export class ListDialoguesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * 2
+   */
   dialogueType?: number;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   endTime?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   startTime?: string;
+  /**
+   * @example
+   * xxx
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3085,14 +4464,46 @@ export class ListDialoguesRequest extends $tea.Model {
 }
 
 export class ListDialoguesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
   data?: ListDialoguesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3153,12 +4564,41 @@ export class ListDialoguesResponse extends $tea.Model {
 }
 
 export class ListGeneratedContentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * media
+   */
   contentDomain?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   endTime?: string;
+  query?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   startTime?: string;
+  taskId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3166,8 +4606,10 @@ export class ListGeneratedContentsRequest extends $tea.Model {
       contentDomain: 'ContentDomain',
       current: 'Current',
       endTime: 'EndTime',
+      query: 'Query',
       size: 'Size',
       startTime: 'StartTime',
+      taskId: 'TaskId',
       title: 'Title',
     };
   }
@@ -3178,8 +4620,10 @@ export class ListGeneratedContentsRequest extends $tea.Model {
       contentDomain: 'string',
       current: 'number',
       endTime: 'string',
+      query: 'string',
       size: 'number',
       startTime: 'string',
+      taskId: 'string',
       title: 'string',
     };
   }
@@ -3190,14 +4634,46 @@ export class ListGeneratedContentsRequest extends $tea.Model {
 }
 
 export class ListGeneratedContentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
   data?: ListGeneratedContentsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3258,10 +4734,29 @@ export class ListGeneratedContentsResponse extends $tea.Model {
 }
 
 export class ListHotNewsWithTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * society
+   */
   newsType?: string;
   newsTypes?: string[];
+  /**
+   * @example
+   * 10
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3289,10 +4784,29 @@ export class ListHotNewsWithTypeRequest extends $tea.Model {
 }
 
 export class ListHotNewsWithTypeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * society
+   */
   newsType?: string;
   newsTypesShrink?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3320,11 +4834,31 @@ export class ListHotNewsWithTypeShrinkRequest extends $tea.Model {
 }
 
 export class ListHotNewsWithTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
   data?: ListHotNewsWithTypeResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3379,8 +4913,23 @@ export class ListHotNewsWithTypeResponse extends $tea.Model {
 }
 
 export class ListInterveneCntRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fcb14f25c9ee41ccad33a049de8f941b_p_outbound_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3404,11 +4953,31 @@ export class ListInterveneCntRequest extends $tea.Model {
 }
 
 export class ListInterveneCntResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ListInterveneCntResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3463,8 +5032,23 @@ export class ListInterveneCntResponse extends $tea.Model {
 }
 
 export class ListInterveneImportTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3488,11 +5072,31 @@ export class ListInterveneImportTasksRequest extends $tea.Model {
 }
 
 export class ListInterveneImportTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
   data?: ListInterveneImportTasksResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3547,8 +5151,23 @@ export class ListInterveneImportTasksResponse extends $tea.Model {
 }
 
 export class ListInterveneRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3572,11 +5191,31 @@ export class ListInterveneRulesRequest extends $tea.Model {
 }
 
 export class ListInterveneRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ListInterveneRulesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * DA021073-17CE-5CCF-9FEB-93226C766887
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3631,11 +5270,30 @@ export class ListInterveneRulesResponse extends $tea.Model {
 }
 
 export class ListIntervenesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 33a2658aaabf4c24b45d50e575125311_p_beebot_public
+   */
   agentKey?: string;
   interveneType?: number;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   query?: string;
+  /**
+   * @example
+   * mqtt_outRule_1679019634514
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3665,11 +5323,31 @@ export class ListIntervenesRequest extends $tea.Model {
 }
 
 export class ListIntervenesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ListIntervenesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 428DCC0D-3C63-5306-BD1B-124396AB97BE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3724,21 +5402,72 @@ export class ListIntervenesResponse extends $tea.Model {
 }
 
 export class ListMaterialDocumentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 33a2658aaabf4c24b45d50e575125311_p_beebot_public
+   */
   agentKey?: string;
   content?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   createTimeEnd?: string;
+  /**
+   * @example
+   * 2023-02-19 07:28:11
+   */
   createTimeStart?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * jsonLine
+   */
   docType?: string;
+  /**
+   * @example
+   * excel
+   */
   docTypeList?: string[];
+  /**
+   * @example
+   * true
+   */
   generatePublicUrl?: boolean;
+  /**
+   * @example
+   * 69
+   */
   id?: number;
   keywords?: string[];
   query?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
   title?: string;
+  /**
+   * @example
+   * 2023-03-18 03:00:00
+   */
   updateTimeEnd?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   updateTimeStart?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3788,21 +5517,72 @@ export class ListMaterialDocumentsRequest extends $tea.Model {
 }
 
 export class ListMaterialDocumentsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 33a2658aaabf4c24b45d50e575125311_p_beebot_public
+   */
   agentKey?: string;
   content?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   createTimeEnd?: string;
+  /**
+   * @example
+   * 2023-02-19 07:28:11
+   */
   createTimeStart?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * jsonLine
+   */
   docType?: string;
+  /**
+   * @example
+   * excel
+   */
   docTypeListShrink?: string;
+  /**
+   * @example
+   * true
+   */
   generatePublicUrl?: boolean;
+  /**
+   * @example
+   * 69
+   */
   id?: number;
   keywordsShrink?: string;
   query?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
   title?: string;
+  /**
+   * @example
+   * 2023-03-18 03:00:00
+   */
   updateTimeEnd?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   updateTimeStart?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3852,14 +5632,46 @@ export class ListMaterialDocumentsShrinkRequest extends $tea.Model {
 }
 
 export class ListMaterialDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
   data?: ListMaterialDocumentsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3920,6 +5732,13 @@ export class ListMaterialDocumentsResponse extends $tea.Model {
 }
 
 export class ListVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 33a2658aaabf4c24b45d50e575125311_p_beebot_public
+   */
   agentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3939,11 +5758,31 @@ export class ListVersionsRequest extends $tea.Model {
 }
 
 export class ListVersionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
   data?: ListVersionsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3998,7 +5837,18 @@ export class ListVersionsResponse extends $tea.Model {
 }
 
 export class QueryAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 33a2658aaabf4c24b45d50e575125311_p_beebot_public
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4020,11 +5870,31 @@ export class QueryAsyncTaskRequest extends $tea.Model {
 }
 
 export class QueryAsyncTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: QueryAsyncTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 867C4ABE-4381-5BC2-9810-5A5F334F71CF
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4079,9 +5949,28 @@ export class QueryAsyncTaskResponse extends $tea.Model {
 }
 
 export class SaveCustomTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 商品code
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * 内容
+   */
   content?: string;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4107,11 +5996,35 @@ export class SaveCustomTextRequest extends $tea.Model {
 }
 
 export class SaveCustomTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * 5
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4166,8 +6079,26 @@ export class SaveCustomTextResponse extends $tea.Model {
 }
 
 export class SaveDataSourceOrderConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * miaobi
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userConfigDataSourceList?: SaveDataSourceOrderConfigRequestUserConfigDataSourceList[];
   static names(): { [key: string]: string } {
     return {
@@ -4191,8 +6122,26 @@ export class SaveDataSourceOrderConfigRequest extends $tea.Model {
 }
 
 export class SaveDataSourceOrderConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * miaobi
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userConfigDataSourceListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4216,11 +6165,35 @@ export class SaveDataSourceOrderConfigShrinkRequest extends $tea.Model {
 }
 
 export class SaveDataSourceOrderConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4275,19 +6248,57 @@ export class SaveDataSourceOrderConfigResponse extends $tea.Model {
 }
 
 export class SaveMaterialDocumentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
   author?: string;
+  /**
+   * @example
+   * false
+   */
   bothSavePrivateAndShare?: boolean;
   docKeywords?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * excel
+   */
   docType?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   externalUrl?: string;
   htmlContent?: string;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * IntellijSearch
+   */
   srcFrom?: string;
   summary?: string;
   textContent?: string;
   title?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4333,19 +6344,57 @@ export class SaveMaterialDocumentRequest extends $tea.Model {
 }
 
 export class SaveMaterialDocumentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
   agentKey?: string;
   author?: string;
+  /**
+   * @example
+   * false
+   */
   bothSavePrivateAndShare?: boolean;
   docKeywordsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * excel
+   */
   docType?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   externalUrl?: string;
   htmlContent?: string;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * IntellijSearch
+   */
   srcFrom?: string;
   summary?: string;
   textContent?: string;
   title?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4391,11 +6440,35 @@ export class SaveMaterialDocumentShrinkRequest extends $tea.Model {
 }
 
 export class SaveMaterialDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * 12
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4450,11 +6523,38 @@ export class SaveMaterialDocumentResponse extends $tea.Model {
 }
 
 export class SearchNewsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * false
+   */
   filterNotNull?: boolean;
+  /**
+   * @example
+   * false
+   */
   includeContent?: boolean;
+  /**
+   * @example
+   * 81
+   */
   page?: number;
+  /**
+   * @example
+   * 35
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 检索Query
+   */
   query?: string;
   searchSources?: string[];
   static names(): { [key: string]: string } {
@@ -4487,11 +6587,38 @@ export class SearchNewsRequest extends $tea.Model {
 }
 
 export class SearchNewsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * false
+   */
   filterNotNull?: boolean;
+  /**
+   * @example
+   * false
+   */
   includeContent?: boolean;
+  /**
+   * @example
+   * 81
+   */
   page?: number;
+  /**
+   * @example
+   * 35
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 检索Query
+   */
   query?: string;
   searchSourcesShrink?: string;
   static names(): { [key: string]: string } {
@@ -4524,14 +6651,46 @@ export class SearchNewsShrinkRequest extends $tea.Model {
 }
 
 export class SearchNewsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
   data?: SearchNewsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4592,10 +6751,36 @@ export class SearchNewsResponse extends $tea.Model {
 }
 
 export class SubmitAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2daaa2e0c209xb26acb97009ea77bd4b_p_efm
+   */
   agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MaterialDocumentUpload
+   */
   taskCode?: string;
+  /**
+   * @example
+   * 2023-10-14 14:30:00
+   */
   taskExecuteTime?: string;
+  /**
+   * @example
+   * 任务名称
+   */
   taskName?: string;
+  /**
+   * @example
+   * 任务提交参数
+   */
   taskParam?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4623,11 +6808,31 @@ export class SubmitAsyncTaskRequest extends $tea.Model {
 }
 
 export class SubmitAsyncTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
   data?: SubmitAsyncTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4682,10 +6887,36 @@ export class SubmitAsyncTaskResponse extends $tea.Model {
 }
 
 export class UpdateCustomTextRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 商品code
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * 内容
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 96
+   */
   id?: number;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4713,11 +6944,35 @@ export class UpdateCustomTextRequest extends $tea.Model {
 }
 
 export class UpdateCustomTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * 48
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4772,12 +7027,42 @@ export class UpdateCustomTextResponse extends $tea.Model {
 }
 
 export class UpdateGeneratedContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 正文
+   */
   content?: string;
+  /**
+   * @example
+   * 正文
+   */
   contentText?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36
+   */
   id?: number;
   keywords?: string[];
+  /**
+   * @example
+   * 创作xx文章
+   */
   prompt?: string;
+  /**
+   * @example
+   * 评论类文章
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4809,12 +7094,42 @@ export class UpdateGeneratedContentRequest extends $tea.Model {
 }
 
 export class UpdateGeneratedContentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
   agentKey?: string;
+  /**
+   * @example
+   * 正文
+   */
   content?: string;
+  /**
+   * @example
+   * 正文
+   */
   contentText?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36
+   */
   id?: number;
   keywordsShrink?: string;
+  /**
+   * @example
+   * 创作xx文章
+   */
   prompt?: string;
+  /**
+   * @example
+   * 评论类文章
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4846,11 +7161,35 @@ export class UpdateGeneratedContentShrinkRequest extends $tea.Model {
 }
 
 export class UpdateGeneratedContentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
+  /**
+   * @example
+   * false
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4905,19 +7244,61 @@ export class UpdateGeneratedContentResponse extends $tea.Model {
 }
 
 export class UpdateMaterialDocumentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
+   */
   agentKey?: string;
   author?: string;
   docKeywords?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * image
+   */
   docType?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   externalUrl?: string;
   htmlContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 44
+   */
   id?: number;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
+  regionId?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * UserUpload
+   */
   srcFrom?: string;
   summary?: string;
   textContent?: string;
   title?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4929,6 +7310,7 @@ export class UpdateMaterialDocumentRequest extends $tea.Model {
       htmlContent: 'HtmlContent',
       id: 'Id',
       pubTime: 'PubTime',
+      regionId: 'RegionId',
       shareAttr: 'ShareAttr',
       srcFrom: 'SrcFrom',
       summary: 'Summary',
@@ -4948,6 +7330,7 @@ export class UpdateMaterialDocumentRequest extends $tea.Model {
       htmlContent: 'string',
       id: 'number',
       pubTime: 'string',
+      regionId: 'string',
       shareAttr: 'number',
       srcFrom: 'string',
       summary: 'string',
@@ -4963,19 +7346,61 @@ export class UpdateMaterialDocumentRequest extends $tea.Model {
 }
 
 export class UpdateMaterialDocumentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
+   */
   agentKey?: string;
   author?: string;
   docKeywordsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * image
+   */
   docType?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   externalUrl?: string;
   htmlContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 44
+   */
   id?: number;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
+  regionId?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * UserUpload
+   */
   srcFrom?: string;
   summary?: string;
   textContent?: string;
   title?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4987,6 +7412,7 @@ export class UpdateMaterialDocumentShrinkRequest extends $tea.Model {
       htmlContent: 'HtmlContent',
       id: 'Id',
       pubTime: 'PubTime',
+      regionId: 'RegionId',
       shareAttr: 'ShareAttr',
       srcFrom: 'SrcFrom',
       summary: 'Summary',
@@ -5006,6 +7432,7 @@ export class UpdateMaterialDocumentShrinkRequest extends $tea.Model {
       htmlContent: 'string',
       id: 'number',
       pubTime: 'string',
+      regionId: 'string',
       shareAttr: 'number',
       srcFrom: 'string',
       summary: 'string',
@@ -5021,11 +7448,35 @@ export class UpdateMaterialDocumentShrinkRequest extends $tea.Model {
 }
 
 export class UpdateMaterialDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
   code?: string;
+  /**
+   * @example
+   * 82
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5081,6 +7532,10 @@ export class UpdateMaterialDocumentResponse extends $tea.Model {
 
 export class ClearIntervenesResponseBodyData extends $tea.Model {
   failIdList?: string[];
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5102,7 +7557,15 @@ export class ClearIntervenesResponseBodyData extends $tea.Model {
 }
 
 export class CreateTokenResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1705388704855
+   */
   expiredTime?: number;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5125,6 +7588,10 @@ export class CreateTokenResponseBodyData extends $tea.Model {
 
 export class DeleteInterveneRuleResponseBodyData extends $tea.Model {
   failIdList?: string[];
+  /**
+   * @example
+   * dt-s50ntwtywb4y
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5146,15 +7613,55 @@ export class DeleteInterveneRuleResponseBodyData extends $tea.Model {
 }
 
 export class DocumentExtractionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
   author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
   content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
   docId?: string;
+  /**
+   * @example
+   * 8df2d69d63a247b6b52ff455b2d426b6
+   */
   docUuid?: string;
+  /**
+   * @example
+   * 2024-05-14 08:54:33
+   */
   pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
   source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
   summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
   tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
   title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5192,6 +7699,10 @@ export class DocumentExtractionResponseBodyData extends $tea.Model {
 }
 
 export class ExportIntervenesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * http://xxx/xxx.xls
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5211,8 +7722,16 @@ export class ExportIntervenesResponseBodyData extends $tea.Model {
 }
 
 export class FetchImageTaskResponseBodyDataTaskInfoListImageList extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
   code?: string;
   message?: string;
+  /**
+   * @example
+   * https://a-hbr-temp-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/r-000aham3nsx9gc7a8r5l.csv?Expires=1678260131&OSSAccessKeyId=LTAIjGotF8wXIEjy&Signature=WpMfqBnjeR0w5UL1xFAd1J556Pw%3D
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5236,9 +7755,21 @@ export class FetchImageTaskResponseBodyDataTaskInfoListImageList extends $tea.Mo
 }
 
 export class FetchImageTaskResponseBodyDataTaskInfoList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   id?: number;
   imageList?: FetchImageTaskResponseBodyDataTaskInfoListImageList[];
+  /**
+   * @example
+   * net-7eb32699000d4193a3c59fc64ae1e55f
+   */
   taskId?: string;
+  /**
+   * @example
+   * SUCCESSED
+   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5283,9 +7814,31 @@ export class FetchImageTaskResponseBodyData extends $tea.Model {
 }
 
 export class GenerateImageTaskRequestParagraphList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 一直忧伤的猫
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   taskId?: string;
+  /**
+   * @example
+   * SUCCESSED
+   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5311,9 +7864,25 @@ export class GenerateImageTaskRequestParagraphList extends $tea.Model {
 }
 
 export class GenerateImageTaskResponseBodyDataTaskList extends $tea.Model {
+  /**
+   * @example
+   * 一直忧伤的猫
+   */
   content?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * e1be065b-adc3-435e-bd01-1c18c5ed75d3
+   */
   taskId?: string;
+  /**
+   * @example
+   * SUCCESSED
+   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5358,8 +7927,16 @@ export class GenerateImageTaskResponseBodyData extends $tea.Model {
 }
 
 export class GenerateUploadConfigResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
+   */
   fileKey?: string;
   formDatas?: { [key: string]: any };
+  /**
+   * @example
+   * https://bucket-name.oss-cn-hangzhou.aliyuncs.com
+   */
   postUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5421,12 +7998,40 @@ export class GenerateViewPointResponseBodyData extends $tea.Model {
 }
 
 export class GetCustomTextResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 内容
+   */
   content?: string;
+  /**
+   * @example
+   * 创建时间
+   */
   createTime?: string;
+  /**
+   * @example
+   * 创建用户
+   */
   createUser?: string;
+  /**
+   * @example
+   * 34
+   */
   id?: number;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
+  /**
+   * @example
+   * 修改时间
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 修改用户
+   */
   updateUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5458,9 +8063,21 @@ export class GetCustomTextResponseBodyData extends $tea.Model {
 }
 
 export class GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList extends $tea.Model {
+  /**
+   * @example
+   * QuarkCommonNews
+   */
   code?: string;
   name?: string;
+  /**
+   * @example
+   * 20
+   */
   number?: number;
+  /**
+   * @example
+   * SystemSearch
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5506,19 +8123,55 @@ export class GetDataSourceOrderConfigResponseBodyData extends $tea.Model {
 
 export class GetGeneratedContentResponseBodyData extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * media
+   */
   contentDomain?: string;
   contentText?: string;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1
+   */
   createUser?: string;
+  /**
+   * @example
+   * xxx
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 86
+   */
   id?: number;
   keywordList?: string[];
   keywords?: string;
   prompt?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   title?: string;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   updateUser?: string;
+  /**
+   * @example
+   * 0961a514-2e26-4aa6-b22b-f592d145fe47
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5566,7 +8219,15 @@ export class GetGeneratedContentResponseBodyData extends $tea.Model {
 }
 
 export class GetInterveneGlobalReplyResponseBodyDataReplyMessagList extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * namespace_qa_query
+   */
   replyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5607,10 +8268,30 @@ export class GetInterveneGlobalReplyResponseBodyData extends $tea.Model {
 }
 
 export class GetInterveneImportTaskInfoResponseBodyDataStatus extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
   msg?: string;
+  /**
+   * @example
+   * 80
+   */
   percentage?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 41405255
+   */
   taskId?: string;
+  /**
+   * @example
+   * ft-task-20190101m8rnK
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5657,8 +8338,16 @@ export class GetInterveneImportTaskInfoResponseBodyData extends $tea.Model {
 }
 
 export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerType?: number;
   message?: string;
+  /**
+   * @example
+   * namespace_qa_query
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5682,8 +8371,20 @@ export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConf
 }
 
 export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   effectType?: number;
+  /**
+   * @example
+   * 2023-11-25 14:21:15
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2023-11-25 14:21:15
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5709,8 +8410,16 @@ export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConf
 export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail extends $tea.Model {
   answerConfig?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig[];
   effectConfig?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig;
+  /**
+   * @example
+   * 0
+   */
   interveneType?: number;
   namespaceList?: string[];
+  /**
+   * @example
+   * 100418
+   */
   ruleId?: number;
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -5760,6 +8469,10 @@ export class GetInterveneRuleDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetInterveneTemplateFileUrlResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * http://xxx/xxx.xls
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5780,23 +8493,71 @@ export class GetInterveneTemplateFileUrlResponseBodyData extends $tea.Model {
 
 export class GetMaterialByIdResponseBodyData extends $tea.Model {
   author?: string;
+  /**
+   * @example
+   * 2023-03-21 11:34:19
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1
+   */
   createUser?: string;
   docKeywords?: string[];
+  /**
+   * @example
+   * pdf
+   */
   docType?: string;
+  /**
+   * @example
+   * https://www.example.com
+   */
   externalUrl?: string;
   htmlContent?: string;
+  /**
+   * @example
+   * 32
+   */
   id?: number;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
+  /**
+   * @example
+   * https://www.example.com
+   */
   publicUrl?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * user_upload
+   */
   srcFrom?: string;
   summary?: string;
   textContent?: string;
   thumbnailInBase64?: string;
   title?: string;
+  /**
+   * @example
+   * 2022-04-08 19:33:01
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   updateUser?: string;
+  /**
+   * @example
+   * https://www.example.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5852,6 +8613,10 @@ export class GetMaterialByIdResponseBodyData extends $tea.Model {
 }
 
 export class GetPropertiesResponseBodyDataConsoleConfig extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
   tipContent?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -5874,9 +8639,25 @@ export class GetPropertiesResponseBodyDataConsoleConfig extends $tea.Model {
 }
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   select?: boolean;
+  /**
+   * @example
+   * false
+   */
   stared?: boolean;
+  /**
+   * @example
+   * xx
+   */
   title?: string;
+  /**
+   * @example
+   * http://xxx.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5903,7 +8684,15 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesAr
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples extends $tea.Model {
   articles?: GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles[];
+  /**
+   * @example
+   * xx
+   */
   prompt?: string;
+  /**
+   * @example
+   * xxx
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5927,8 +8716,20 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples e
 }
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
   code?: string;
+  /**
+   * @example
+   * xx
+   */
   datasetName?: string;
+  /**
+   * @example
+   * xx
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5952,6 +8753,10 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources e
 }
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfig extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
   productDescription?: string;
   searchSamples?: GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples[];
   searchSources?: GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources[];
@@ -5978,6 +8783,10 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfig extends $tea.M
 
 export class GetPropertiesResponseBodyDataSearchSources extends $tea.Model {
   label?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5999,9 +8808,25 @@ export class GetPropertiesResponseBodyDataSearchSources extends $tea.Model {
 }
 
 export class GetPropertiesResponseBodyDataUserInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   agentId?: string;
+  /**
+   * @example
+   * 1
+   */
   tenantId?: string;
+  /**
+   * @example
+   * 1
+   */
   userId?: string;
+  /**
+   * @example
+   * admin
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6027,7 +8852,15 @@ export class GetPropertiesResponseBodyDataUserInfo extends $tea.Model {
 }
 
 export class GetPropertiesResponseBodyDataWanxiangImageSizeConfig extends $tea.Model {
+  /**
+   * @example
+   * 1:1
+   */
   name?: string;
+  /**
+   * @example
+   * 1024*1024
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6050,7 +8883,15 @@ export class GetPropertiesResponseBodyDataWanxiangImageSizeConfig extends $tea.M
 
 export class GetPropertiesResponseBodyDataWanxiangImageStyleConfig extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i4/O1CN01RzKicz1W0YWzYkWcK_!!6000000002726-2-tps-132-104.png
+   */
   pic?: string;
+  /**
+   * @example
+   * <auto>
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6079,6 +8920,10 @@ export class GetPropertiesResponseBodyData extends $tea.Model {
   generalConfigMap?: { [key: string]: any };
   intelligentSearchConfig?: GetPropertiesResponseBodyDataIntelligentSearchConfig;
   searchSources?: GetPropertiesResponseBodyDataSearchSources[];
+  /**
+   * @example
+   * true
+   */
   slrAuthorized?: boolean;
   userInfo?: GetPropertiesResponseBodyDataUserInfo;
   wanxiangImageSizeConfig?: GetPropertiesResponseBodyDataWanxiangImageSizeConfig[];
@@ -6118,6 +8963,10 @@ export class GetPropertiesResponseBodyData extends $tea.Model {
 
 export class ImportInterveneFileResponseBodyData extends $tea.Model {
   failIdList?: string[];
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6140,6 +8989,10 @@ export class ImportInterveneFileResponseBodyData extends $tea.Model {
 
 export class ImportInterveneFileAsyncResponseBodyData extends $tea.Model {
   failIdList?: string[];
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6184,6 +9037,10 @@ export class InsertInterveneGlobalReplyRequestReplyMessagList extends $tea.Model
 
 export class InsertInterveneGlobalReplyResponseBodyData extends $tea.Model {
   failIdList?: string[];
+  /**
+   * @example
+   * 4829
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6205,8 +9062,16 @@ export class InsertInterveneGlobalReplyResponseBodyData extends $tea.Model {
 }
 
 export class InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerType?: number;
   message?: string;
+  /**
+   * @example
+   * namespace_qa_query
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6230,8 +9095,20 @@ export class InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig extends $
 }
 
 export class InsertInterveneRuleRequestInterveneRuleConfigEffectConfig extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   effectType?: number;
+  /**
+   * @example
+   * 2023-03-28 06:04:29
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2023-03-28 06:04:29
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6255,7 +9132,18 @@ export class InsertInterveneRuleRequestInterveneRuleConfigEffectConfig extends $
 }
 
 export class InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList extends $tea.Model {
+  /**
+   * @remarks
+   * id
+   * 
+   * @example
+   * 37249
+   */
   id?: string;
+  /**
+   * @example
+   * 0
+   */
   operationType?: number;
   query?: string;
   static names(): { [key: string]: string } {
@@ -6283,9 +9171,21 @@ export class InsertInterveneRuleRequestInterveneRuleConfig extends $tea.Model {
   answerConfig?: InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig[];
   effectConfig?: InsertInterveneRuleRequestInterveneRuleConfigEffectConfig;
   interveneConfigList?: InsertInterveneRuleRequestInterveneRuleConfigInterveneConfigList[];
+  /**
+   * @example
+   * 0
+   */
   interveneType?: number;
   namespaceList?: string[];
+  /**
+   * @example
+   * 2
+   */
   ruleId?: number;
+  /**
+   * @example
+   * tf-test-rule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6317,6 +9217,10 @@ export class InsertInterveneRuleRequestInterveneRuleConfig extends $tea.Model {
 }
 
 export class InsertInterveneRuleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 12345
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6336,26 +9240,98 @@ export class InsertInterveneRuleResponseBodyData extends $tea.Model {
 }
 
 export class ListAsyncTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2020-12-23 15:41:58
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1111
+   */
   createUser?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * MaterialDocumentUpload
+   */
   taskCode?: string;
+  /**
+   * @example
+   * {}
+   */
   taskDefinition?: string;
+  /**
+   * @example
+   * 2023-03-09 00:00:00
+   */
   taskEndTime?: string;
   taskErrorMessage?: string;
+  /**
+   * @example
+   * 2023-10-14 14:30:00
+   */
   taskExecuteTime?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   taskInnerErrorMessage?: string;
+  /**
+   * @example
+   * {}
+   */
   taskIntermediateResult?: string;
   taskName?: string;
+  /**
+   * @example
+   * {}
+   */
   taskParam?: string;
+  /**
+   * @example
+   * {}
+   */
   taskProgressMessage?: string;
+  /**
+   * @example
+   * {}
+   */
   taskResult?: string;
+  /**
+   * @example
+   * 1
+   */
   taskRetryCount?: string;
+  /**
+   * @example
+   * 2023-03-20 10:53:00
+   */
   taskStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   taskStatus?: number;
+  /**
+   * @example
+   * test
+   */
   taskType?: string;
+  /**
+   * @example
+   * 2023-02-16 10:29:16
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 111
+   */
   updateUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6437,15 +9413,43 @@ export class ListBuildConfigsResponseBodyDataKeywords extends $tea.Model {
 }
 
 export class ListBuildConfigsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   buildIn?: boolean;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1
+   */
   createUser?: string;
   id?: number;
   keywords?: ListBuildConfigsResponseBodyDataKeywords[];
+  /**
+   * @example
+   * writingStyle
+   */
   tag?: string;
   tagDescription?: string;
+  /**
+   * @example
+   * media
+   */
   type?: string;
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   updateUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6483,12 +9487,40 @@ export class ListBuildConfigsResponseBodyData extends $tea.Model {
 }
 
 export class ListCustomTextResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 内容
+   */
   content?: string;
+  /**
+   * @example
+   * 创建时间
+   */
   createTime?: string;
+  /**
+   * @example
+   * 创建用户
+   */
   createUser?: string;
+  /**
+   * @example
+   * 40
+   */
   id?: number;
+  /**
+   * @example
+   * 标题
+   */
   title?: string;
+  /**
+   * @example
+   * 修改时间
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 修改用户
+   */
   updateUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6520,11 +9552,35 @@ export class ListCustomTextResponseBodyData extends $tea.Model {
 }
 
 export class ListDialoguesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
   bot?: string;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   createTime?: string;
+  /**
+   * @example
+   * xx
+   */
   createUser?: string;
+  /**
+   * @example
+   * 2
+   */
   dialogueType?: number;
+  /**
+   * @example
+   * xx
+   */
   taskId?: string;
+  /**
+   * @example
+   * x
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6555,19 +9611,55 @@ export class ListDialoguesResponseBodyData extends $tea.Model {
 
 export class ListGeneratedContentsResponseBodyData extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * media
+   */
   contentDomain?: string;
   contentText?: string;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   createTime?: string;
+  /**
+   * @example
+   * 123
+   */
   createUser?: string;
+  /**
+   * @example
+   * xxx
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 10
+   */
   id?: number;
   keywordList?: string[];
   keywords?: string;
   prompt?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
   title?: string;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1111
+   */
   updateUser?: string;
+  /**
+   * @example
+   * xxx
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6617,8 +9709,16 @@ export class ListGeneratedContentsResponseBodyData extends $tea.Model {
 export class ListHotNewsWithTypeResponseBodyDataNews extends $tea.Model {
   author?: string;
   content?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   docUuid?: string;
   imageUrls?: string[];
+  /**
+   * @example
+   * 2023-04-11 06:14:07
+   */
   pubTime?: string;
   searchSource?: string;
   searchSourceName?: string;
@@ -6626,7 +9726,15 @@ export class ListHotNewsWithTypeResponseBodyDataNews extends $tea.Model {
   summary?: string;
   tag?: string;
   title?: string;
+  /**
+   * @example
+   * 2023-10-14 14:30:00
+   */
   updateTime?: string;
+  /**
+   * @example
+   * http://xxxxx/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6671,8 +9779,16 @@ export class ListHotNewsWithTypeResponseBodyDataNews extends $tea.Model {
 
 export class ListHotNewsWithTypeResponseBodyData extends $tea.Model {
   news?: ListHotNewsWithTypeResponseBodyDataNews[];
+  /**
+   * @example
+   * society
+   */
   newsType?: string;
   newsTypeName?: string;
+  /**
+   * @example
+   * 77
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6699,8 +9815,20 @@ export class ListHotNewsWithTypeResponseBodyData extends $tea.Model {
 
 export class ListInterveneCntResponseBodyData extends $tea.Model {
   cntList?: any[];
+  /**
+   * @example
+   * 10
+   */
   pageCnt?: number;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6726,10 +9854,30 @@ export class ListInterveneCntResponseBodyData extends $tea.Model {
 }
 
 export class ListInterveneImportTasksResponseBodyDataStatusList extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   msg?: string;
+  /**
+   * @example
+   * 5
+   */
   percentage?: number;
+  /**
+   * @example
+   * Success
+   */
   status?: number;
+  /**
+   * @example
+   * 4854
+   */
   taskId?: string;
+  /**
+   * @example
+   * 12344454
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6757,9 +9905,21 @@ export class ListInterveneImportTasksResponseBodyDataStatusList extends $tea.Mod
 }
 
 export class ListInterveneImportTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   statusList?: ListInterveneImportTasksResponseBodyDataStatusList[];
+  /**
+   * @example
+   * 0
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6785,8 +9945,16 @@ export class ListInterveneImportTasksResponseBodyData extends $tea.Model {
 }
 
 export class ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerType?: number;
   message?: string;
+  /**
+   * @example
+   * namespace_qa_query
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6811,11 +9979,31 @@ export class ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig ext
 
 export class ListInterveneRulesResponseBodyDataInterveneRuleList extends $tea.Model {
   answerConfig?: ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig[];
+  /**
+   * @example
+   * 2023-06-05 15:17:01
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2023-04-03 02:42:01
+   */
   effectTime?: string;
+  /**
+   * @example
+   * 0
+   */
   interveneType?: number;
   namespaceList?: string[];
+  /**
+   * @example
+   * mr-iuo9pi9w555phfbb
+   */
   ruleId?: number;
+  /**
+   * @example
+   * ruletest
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6847,9 +10035,21 @@ export class ListInterveneRulesResponseBodyDataInterveneRuleList extends $tea.Mo
 }
 
 export class ListInterveneRulesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   count?: number;
   interveneRuleList?: ListInterveneRulesResponseBodyDataInterveneRuleList[];
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6875,6 +10075,13 @@ export class ListInterveneRulesResponseBodyData extends $tea.Model {
 }
 
 export class ListIntervenesResponseBodyDataInterveneList extends $tea.Model {
+  /**
+   * @remarks
+   * id
+   * 
+   * @example
+   * 36559
+   */
   id?: string;
   query?: string;
   static names(): { [key: string]: string } {
@@ -6898,8 +10105,20 @@ export class ListIntervenesResponseBodyDataInterveneList extends $tea.Model {
 
 export class ListIntervenesResponseBodyData extends $tea.Model {
   interveneList?: ListIntervenesResponseBodyDataInterveneList[];
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6926,25 +10145,73 @@ export class ListIntervenesResponseBodyData extends $tea.Model {
 
 export class ListMaterialDocumentsResponseBodyData extends $tea.Model {
   author?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1
+   */
   createUser?: string;
   createUserName?: string;
   docKeywords?: string[];
+  /**
+   * @example
+   * pdf
+   */
   docType?: string;
+  /**
+   * @example
+   * https://www.example.com
+   */
   externalUrl?: string;
   htmlContent?: string;
+  /**
+   * @example
+   * 35
+   */
   id?: number;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   pubTime?: string;
+  /**
+   * @example
+   * https://www.example.com
+   */
   publicUrl?: string;
+  /**
+   * @example
+   * 1
+   */
   shareAttr?: number;
+  /**
+   * @example
+   * user_upload
+   */
   srcFrom?: string;
   summary?: string;
   textContent?: string;
   thumbnailInBase64?: string;
   title?: string;
+  /**
+   * @example
+   * 2023-03-18 02:00:00
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   updateUser?: string;
   updateUserName?: string;
+  /**
+   * @example
+   * https://www.example.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7004,17 +10271,61 @@ export class ListMaterialDocumentsResponseBodyData extends $tea.Model {
 }
 
 export class ListVersionsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 43
+   */
   concurrentCount?: number;
+  /**
+   * @example
+   * 2023-04-23 02:00:34
+   */
   endTime?: string;
+  /**
+   * @example
+   * 55
+   */
   instanceCount?: number;
+  /**
+   * @example
+   * ga-bp12pismsw4v3tzhf62p1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7
+   */
   orderId?: number;
+  /**
+   * @example
+   * CUSTOMIZE
+   */
   productType?: string;
+  /**
+   * @example
+   * 13
+   */
   quota?: number;
+  /**
+   * @example
+   * 2023-05-27 04:11:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 65
+   */
   useQuota?: number;
   versionDetail?: string;
+  /**
+   * @example
+   * 试用版
+   */
   versionName?: string;
+  /**
+   * @example
+   * 87
+   */
   versionStatus?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7056,19 +10367,71 @@ export class ListVersionsResponseBodyData extends $tea.Model {
 }
 
 export class QueryAsyncTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-07-25 14:34:33
+   */
   createTime?: string;
+  /**
+   * @example
+   * 12121
+   */
   createUser?: string;
+  /**
+   * @example
+   * MaterialDocumentUpload
+   */
   taskCode?: string;
+  /**
+   * @example
+   * error
+   */
   taskErrorMessage?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
+  /**
+   * @example
+   * {}
+   */
   taskIntermediateResult?: string;
   taskName?: string;
+  /**
+   * @example
+   * {"fileKey":"oss://default/xxxx/xxxx/xxx","fileName":"xxxxx.doc"}
+   */
   taskParam?: string;
+  /**
+   * @example
+   * {}
+   */
   taskProgressMessage?: string;
+  /**
+   * @example
+   * {}
+   */
   taskResult?: string;
+  /**
+   * @example
+   * 3
+   */
   taskRetryCount?: string;
+  /**
+   * @example
+   * 1
+   */
   taskStatus?: number;
+  /**
+   * @example
+   * 2023-04-27 18:07:43
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 12121
+   */
   updateUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7114,9 +10477,30 @@ export class QueryAsyncTaskResponseBodyData extends $tea.Model {
 }
 
 export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * QuarkCommonNews
+   */
   code?: string;
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   number?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SystemSearch
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7142,18 +10526,66 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $t
 }
 
 export class SearchNewsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
   author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
   content?: string;
+  /**
+   * @example
+   * 9a598b44c6444da5907b8ea68a5f82c4
+   */
   docUuid?: string;
   imageUrls?: string[];
+  /**
+   * @example
+   * 2024-01-18 06:46:22
+   */
   pubTime?: string;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
   searchSource?: string;
+  /**
+   * @example
+   * 夸克检索
+   */
   searchSourceName?: string;
+  /**
+   * @example
+   * 央视网
+   */
   source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
   summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
   tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
   title?: string;
+  /**
+   * @example
+   * 2024-01-18 06:46:22
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 文章URL
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7197,8 +10629,20 @@ export class SearchNewsResponseBodyData extends $tea.Model {
 }
 
 export class SubmitAsyncTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
   taskId?: string;
+  /**
+   * @example
+   * {}
+   */
   taskIntermediateResult?: any;
+  /**
+   * @example
+   * 任务名称
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7245,11 +10689,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消异步任务
-   *
-   * @param request CancelAsyncTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelAsyncTaskResponse
+   * 取消异步任务
+   * 
+   * @param request - CancelAsyncTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAsyncTaskResponse
    */
   async cancelAsyncTaskWithOptions(request: CancelAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelAsyncTaskResponse> {
     Util.validateModel(request);
@@ -7282,10 +10726,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消异步任务
-   *
-   * @param request CancelAsyncTaskRequest
-   * @return CancelAsyncTaskResponse
+   * 取消异步任务
+   * 
+   * @param request - CancelAsyncTaskRequest
+   * @returns CancelAsyncTaskResponse
    */
   async cancelAsyncTask(request: CancelAsyncTaskRequest): Promise<CancelAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7293,11 +10737,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 清除所有干预内容
-   *
-   * @param request ClearIntervenesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ClearIntervenesResponse
+   * 清除所有干预内容
+   * 
+   * @param request - ClearIntervenesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearIntervenesResponse
    */
   async clearIntervenesWithOptions(request: ClearIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ClearIntervenesResponse> {
     Util.validateModel(request);
@@ -7324,10 +10768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 清除所有干预内容
-   *
-   * @param request ClearIntervenesRequest
-   * @return ClearIntervenesResponse
+   * 清除所有干预内容
+   * 
+   * @param request - ClearIntervenesRequest
+   * @returns ClearIntervenesResponse
    */
   async clearIntervenes(request: ClearIntervenesRequest): Promise<ClearIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7335,11 +10779,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-创建
-   *
-   * @param tmpReq CreateGeneratedContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGeneratedContentResponse
+   * 文档管理-创建
+   * 
+   * @param tmpReq - CreateGeneratedContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGeneratedContentResponse
    */
   async createGeneratedContentWithOptions(tmpReq: CreateGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<CreateGeneratedContentResponse> {
     Util.validateModel(tmpReq);
@@ -7406,10 +10850,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-创建
-   *
-   * @param request CreateGeneratedContentRequest
-   * @return CreateGeneratedContentResponse
+   * 文档管理-创建
+   * 
+   * @param request - CreateGeneratedContentRequest
+   * @returns CreateGeneratedContentResponse
    */
   async createGeneratedContent(request: CreateGeneratedContentRequest): Promise<CreateGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7417,11 +10861,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取授权token
-   *
-   * @param request CreateTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTokenResponse
+   * 获取授权token
+   * 
+   * @param request - CreateTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTokenResponse
    */
   async createTokenWithOptions(request: CreateTokenRequest, runtime: $Util.RuntimeOptions): Promise<CreateTokenResponse> {
     Util.validateModel(request);
@@ -7448,10 +10892,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取授权token
-   *
-   * @param request CreateTokenRequest
-   * @return CreateTokenResponse
+   * 获取授权token
+   * 
+   * @param request - CreateTokenRequest
+   * @returns CreateTokenResponse
    */
   async createToken(request: CreateTokenRequest): Promise<CreateTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7459,11 +10903,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除自定义文本
-   *
-   * @param request DeleteCustomTextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomTextResponse
+   * 删除自定义文本
+   * 
+   * @param request - DeleteCustomTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomTextResponse
    */
   async deleteCustomTextWithOptions(request: DeleteCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomTextResponse> {
     Util.validateModel(request);
@@ -7500,10 +10944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除自定义文本
-   *
-   * @param request DeleteCustomTextRequest
-   * @return DeleteCustomTextResponse
+   * 删除自定义文本
+   * 
+   * @param request - DeleteCustomTextRequest
+   * @returns DeleteCustomTextResponse
    */
   async deleteCustomText(request: DeleteCustomTextRequest): Promise<DeleteCustomTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7511,17 +10955,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-删除。
-   *
-   * @param request DeleteGeneratedContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGeneratedContentResponse
+   * 文档管理-删除。
+   * 
+   * @param request - DeleteGeneratedContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGeneratedContentResponse
    */
   async deleteGeneratedContentWithOptions(request: DeleteGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGeneratedContentResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -7548,10 +10996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-删除。
-   *
-   * @param request DeleteGeneratedContentRequest
-   * @return DeleteGeneratedContentResponse
+   * 文档管理-删除。
+   * 
+   * @param request - DeleteGeneratedContentRequest
+   * @returns DeleteGeneratedContentResponse
    */
   async deleteGeneratedContent(request: DeleteGeneratedContentRequest): Promise<DeleteGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7559,11 +11007,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除干预规则
-   *
-   * @param request DeleteInterveneRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInterveneRuleResponse
+   * 删除干预规则
+   * 
+   * @param request - DeleteInterveneRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInterveneRuleResponse
    */
   async deleteInterveneRuleWithOptions(request: DeleteInterveneRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInterveneRuleResponse> {
     Util.validateModel(request);
@@ -7596,10 +11044,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除干预规则
-   *
-   * @param request DeleteInterveneRuleRequest
-   * @return DeleteInterveneRuleResponse
+   * 删除干预规则
+   * 
+   * @param request - DeleteInterveneRuleRequest
+   * @returns DeleteInterveneRuleResponse
    */
   async deleteInterveneRule(request: DeleteInterveneRuleRequest): Promise<DeleteInterveneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7607,11 +11055,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据ID删除素材
-   *
-   * @param request DeleteMaterialByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMaterialByIdResponse
+   * 根据ID删除素材
+   * 
+   * @param request - DeleteMaterialByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMaterialByIdResponse
    */
   async deleteMaterialByIdWithOptions(request: DeleteMaterialByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaterialByIdResponse> {
     Util.validateModel(request);
@@ -7644,10 +11092,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据ID删除素材
-   *
-   * @param request DeleteMaterialByIdRequest
-   * @return DeleteMaterialByIdResponse
+   * 根据ID删除素材
+   * 
+   * @param request - DeleteMaterialByIdRequest
+   * @returns DeleteMaterialByIdResponse
    */
   async deleteMaterialById(request: DeleteMaterialByIdRequest): Promise<DeleteMaterialByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7655,11 +11103,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 从链接中提取文档内容
-   *
-   * @param tmpReq DocumentExtractionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DocumentExtractionResponse
+   * 从链接中提取文档内容
+   * 
+   * @param tmpReq - DocumentExtractionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocumentExtractionResponse
    */
   async documentExtractionWithOptions(tmpReq: DocumentExtractionRequest, runtime: $Util.RuntimeOptions): Promise<DocumentExtractionResponse> {
     Util.validateModel(tmpReq);
@@ -7698,10 +11146,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 从链接中提取文档内容
-   *
-   * @param request DocumentExtractionRequest
-   * @return DocumentExtractionResponse
+   * 从链接中提取文档内容
+   * 
+   * @param request - DocumentExtractionRequest
+   * @returns DocumentExtractionResponse
    */
   async documentExtraction(request: DocumentExtractionRequest): Promise<DocumentExtractionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7709,11 +11157,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-导出。
-   *
-   * @param request ExportGeneratedContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportGeneratedContentResponse
+   * 文档管理-导出。
+   * 
+   * @param request - ExportGeneratedContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportGeneratedContentResponse
    */
   async exportGeneratedContentWithOptions(request: ExportGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<ExportGeneratedContentResponse> {
     Util.validateModel(request);
@@ -7746,10 +11194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-导出。
-   *
-   * @param request ExportGeneratedContentRequest
-   * @return ExportGeneratedContentResponse
+   * 文档管理-导出。
+   * 
+   * @param request - ExportGeneratedContentRequest
+   * @returns ExportGeneratedContentResponse
    */
   async exportGeneratedContent(request: ExportGeneratedContentRequest): Promise<ExportGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7757,11 +11205,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出所有干预内容
-   *
-   * @param request ExportIntervenesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportIntervenesResponse
+   * 导出所有干预内容
+   * 
+   * @param request - ExportIntervenesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportIntervenesResponse
    */
   async exportIntervenesWithOptions(request: ExportIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ExportIntervenesResponse> {
     Util.validateModel(request);
@@ -7788,10 +11236,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出所有干预内容
-   *
-   * @param request ExportIntervenesRequest
-   * @return ExportIntervenesResponse
+   * 导出所有干预内容
+   * 
+   * @param request - ExportIntervenesRequest
+   * @returns ExportIntervenesResponse
    */
   async exportIntervenes(request: ExportIntervenesRequest): Promise<ExportIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7799,11 +11247,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 反馈某次生成的结果
-   *
-   * @param tmpReq FeedbackDialogueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FeedbackDialogueResponse
+   * 反馈某次生成的结果
+   * 
+   * @param tmpReq - FeedbackDialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FeedbackDialogueResponse
    */
   async feedbackDialogueWithOptions(tmpReq: FeedbackDialogueRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackDialogueResponse> {
     Util.validateModel(tmpReq);
@@ -7866,10 +11314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 反馈某次生成的结果
-   *
-   * @param request FeedbackDialogueRequest
-   * @return FeedbackDialogueResponse
+   * 反馈某次生成的结果
+   * 
+   * @param request - FeedbackDialogueRequest
+   * @returns FeedbackDialogueResponse
    */
   async feedbackDialogue(request: FeedbackDialogueRequest): Promise<FeedbackDialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7877,9 +11325,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq FetchImageTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FetchImageTaskResponse
+   * 获取图片任务执行结果
+   * 
+   * @param tmpReq - FetchImageTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchImageTaskResponse
    */
   async fetchImageTaskWithOptions(tmpReq: FetchImageTaskRequest, runtime: $Util.RuntimeOptions): Promise<FetchImageTaskResponse> {
     Util.validateModel(tmpReq);
@@ -7922,8 +11372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FetchImageTaskRequest
-   * @return FetchImageTaskResponse
+   * 获取图片任务执行结果
+   * 
+   * @param request - FetchImageTaskRequest
+   * @returns FetchImageTaskResponse
    */
   async fetchImageTask(request: FetchImageTaskRequest): Promise<FetchImageTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7931,11 +11383,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成临时可访问的公开url
-   *
-   * @param request GenerateFileUrlByKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateFileUrlByKeyResponse
+   * 生成临时可访问的公开url
+   * 
+   * @param request - GenerateFileUrlByKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateFileUrlByKeyResponse
    */
   async generateFileUrlByKeyWithOptions(request: GenerateFileUrlByKeyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateFileUrlByKeyResponse> {
     Util.validateModel(request);
@@ -7972,10 +11424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成临时可访问的公开url
-   *
-   * @param request GenerateFileUrlByKeyRequest
-   * @return GenerateFileUrlByKeyResponse
+   * 生成临时可访问的公开url
+   * 
+   * @param request - GenerateFileUrlByKeyRequest
+   * @returns GenerateFileUrlByKeyResponse
    */
   async generateFileUrlByKey(request: GenerateFileUrlByKeyRequest): Promise<GenerateFileUrlByKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7983,11 +11435,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 智能配图，图片生成任务
-   *
-   * @param tmpReq GenerateImageTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateImageTaskResponse
+   * 智能配图，图片生成任务
+   * 
+   * @param tmpReq - GenerateImageTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateImageTaskResponse
    */
   async generateImageTaskWithOptions(tmpReq: GenerateImageTaskRequest, runtime: $Util.RuntimeOptions): Promise<GenerateImageTaskResponse> {
     Util.validateModel(tmpReq);
@@ -8038,10 +11490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 智能配图，图片生成任务
-   *
-   * @param request GenerateImageTaskRequest
-   * @return GenerateImageTaskResponse
+   * 智能配图，图片生成任务
+   * 
+   * @param request - GenerateImageTaskRequest
+   * @returns GenerateImageTaskResponse
    */
   async generateImageTask(request: GenerateImageTaskRequest): Promise<GenerateImageTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8049,11 +11501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成上传配置
-   *
-   * @param request GenerateUploadConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateUploadConfigResponse
+   * 生成上传配置
+   * 
+   * @param request - GenerateUploadConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateUploadConfigResponse
    */
   async generateUploadConfigWithOptions(request: GenerateUploadConfigRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUploadConfigResponse> {
     Util.validateModel(request);
@@ -8090,10 +11542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成上传配置
-   *
-   * @param request GenerateUploadConfigRequest
-   * @return GenerateUploadConfigResponse
+   * 生成上传配置
+   * 
+   * @param request - GenerateUploadConfigRequest
+   * @returns GenerateUploadConfigResponse
    */
   async generateUploadConfig(request: GenerateUploadConfigRequest): Promise<GenerateUploadConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8101,11 +11553,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角生成
-   *
-   * @param tmpReq GenerateViewPointRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateViewPointResponse
+   * 视角生成
+   * 
+   * @param tmpReq - GenerateViewPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateViewPointResponse
    */
   async generateViewPointWithOptions(tmpReq: GenerateViewPointRequest, runtime: $Util.RuntimeOptions): Promise<GenerateViewPointResponse> {
     Util.validateModel(tmpReq);
@@ -8144,10 +11596,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 视角生成
-   *
-   * @param request GenerateViewPointRequest
-   * @return GenerateViewPointResponse
+   * 视角生成
+   * 
+   * @param request - GenerateViewPointRequest
+   * @returns GenerateViewPointResponse
    */
   async generateViewPoint(request: GenerateViewPointRequest): Promise<GenerateViewPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8155,11 +11607,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取自定义文本
-   *
-   * @param request GetCustomTextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCustomTextResponse
+   * 获取自定义文本
+   * 
+   * @param request - GetCustomTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomTextResponse
    */
   async getCustomTextWithOptions(request: GetCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomTextResponse> {
     Util.validateModel(request);
@@ -8196,10 +11648,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取自定义文本
-   *
-   * @param request GetCustomTextRequest
-   * @return GetCustomTextResponse
+   * 获取自定义文本
+   * 
+   * @param request - GetCustomTextRequest
+   * @returns GetCustomTextResponse
    */
   async getCustomText(request: GetCustomTextRequest): Promise<GetCustomTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8207,11 +11659,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统数据源配置和个人配置
-   *
-   * @param request GetDataSourceOrderConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDataSourceOrderConfigResponse
+   * 获取系统数据源配置和个人配置
+   * 
+   * @param request - GetDataSourceOrderConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataSourceOrderConfigResponse
    */
   async getDataSourceOrderConfigWithOptions(request: GetDataSourceOrderConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceOrderConfigResponse> {
     Util.validateModel(request);
@@ -8244,10 +11696,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统数据源配置和个人配置
-   *
-   * @param request GetDataSourceOrderConfigRequest
-   * @return GetDataSourceOrderConfigResponse
+   * 获取系统数据源配置和个人配置
+   * 
+   * @param request - GetDataSourceOrderConfigRequest
+   * @returns GetDataSourceOrderConfigResponse
    */
   async getDataSourceOrderConfig(request: GetDataSourceOrderConfigRequest): Promise<GetDataSourceOrderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8255,11 +11707,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-查询详情。
-   *
-   * @param request GetGeneratedContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetGeneratedContentResponse
+   * 文档管理-查询详情。
+   * 
+   * @param request - GetGeneratedContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGeneratedContentResponse
    */
   async getGeneratedContentWithOptions(request: GetGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<GetGeneratedContentResponse> {
     Util.validateModel(request);
@@ -8292,10 +11744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-查询详情。
-   *
-   * @param request GetGeneratedContentRequest
-   * @return GetGeneratedContentResponse
+   * 文档管理-查询详情。
+   * 
+   * @param request - GetGeneratedContentRequest
+   * @returns GetGeneratedContentResponse
    */
   async getGeneratedContent(request: GetGeneratedContentRequest): Promise<GetGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8303,11 +11755,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预全局回复
-   *
-   * @param request GetInterveneGlobalReplyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInterveneGlobalReplyResponse
+   * 获得干预全局回复
+   * 
+   * @param request - GetInterveneGlobalReplyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInterveneGlobalReplyResponse
    */
   async getInterveneGlobalReplyWithOptions(request: GetInterveneGlobalReplyRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneGlobalReplyResponse> {
     Util.validateModel(request);
@@ -8334,10 +11786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预全局回复
-   *
-   * @param request GetInterveneGlobalReplyRequest
-   * @return GetInterveneGlobalReplyResponse
+   * 获得干预全局回复
+   * 
+   * @param request - GetInterveneGlobalReplyRequest
+   * @returns GetInterveneGlobalReplyResponse
    */
   async getInterveneGlobalReply(request: GetInterveneGlobalReplyRequest): Promise<GetInterveneGlobalReplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8345,11 +11797,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得导入任务信息
-   *
-   * @param request GetInterveneImportTaskInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInterveneImportTaskInfoResponse
+   * 获得导入任务信息
+   * 
+   * @param request - GetInterveneImportTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInterveneImportTaskInfoResponse
    */
   async getInterveneImportTaskInfoWithOptions(request: GetInterveneImportTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneImportTaskInfoResponse> {
     Util.validateModel(request);
@@ -8382,10 +11834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得导入任务信息
-   *
-   * @param request GetInterveneImportTaskInfoRequest
-   * @return GetInterveneImportTaskInfoResponse
+   * 获得导入任务信息
+   * 
+   * @param request - GetInterveneImportTaskInfoRequest
+   * @returns GetInterveneImportTaskInfoResponse
    */
   async getInterveneImportTaskInfo(request: GetInterveneImportTaskInfoRequest): Promise<GetInterveneImportTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8393,11 +11845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预项规则详情
-   *
-   * @param request GetInterveneRuleDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInterveneRuleDetailResponse
+   * 获得干预项规则详情
+   * 
+   * @param request - GetInterveneRuleDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInterveneRuleDetailResponse
    */
   async getInterveneRuleDetailWithOptions(request: GetInterveneRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneRuleDetailResponse> {
     Util.validateModel(request);
@@ -8430,10 +11882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预项规则详情
-   *
-   * @param request GetInterveneRuleDetailRequest
-   * @return GetInterveneRuleDetailResponse
+   * 获得干预项规则详情
+   * 
+   * @param request - GetInterveneRuleDetailRequest
+   * @returns GetInterveneRuleDetailResponse
    */
   async getInterveneRuleDetail(request: GetInterveneRuleDetailRequest): Promise<GetInterveneRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8441,11 +11893,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预导入模版文件下载地址
-   *
-   * @param request GetInterveneTemplateFileUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInterveneTemplateFileUrlResponse
+   * 获得干预导入模版文件下载地址
+   * 
+   * @param request - GetInterveneTemplateFileUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInterveneTemplateFileUrlResponse
    */
   async getInterveneTemplateFileUrlWithOptions(request: GetInterveneTemplateFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneTemplateFileUrlResponse> {
     Util.validateModel(request);
@@ -8472,10 +11924,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预导入模版文件下载地址
-   *
-   * @param request GetInterveneTemplateFileUrlRequest
-   * @return GetInterveneTemplateFileUrlResponse
+   * 获得干预导入模版文件下载地址
+   * 
+   * @param request - GetInterveneTemplateFileUrlRequest
+   * @returns GetInterveneTemplateFileUrlResponse
    */
   async getInterveneTemplateFileUrl(request: GetInterveneTemplateFileUrlRequest): Promise<GetInterveneTemplateFileUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8483,11 +11935,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据ID获取素材内容
-   *
-   * @param request GetMaterialByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMaterialByIdResponse
+   * 根据ID获取素材内容
+   * 
+   * @param request - GetMaterialByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMaterialByIdResponse
    */
   async getMaterialByIdWithOptions(request: GetMaterialByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMaterialByIdResponse> {
     Util.validateModel(request);
@@ -8520,10 +11972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据ID获取素材内容
-   *
-   * @param request GetMaterialByIdRequest
-   * @return GetMaterialByIdResponse
+   * 根据ID获取素材内容
+   * 
+   * @param request - GetMaterialByIdRequest
+   * @returns GetMaterialByIdResponse
    */
   async getMaterialById(request: GetMaterialByIdRequest): Promise<GetMaterialByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8531,11 +11983,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取当前用户的配置
-   *
-   * @param request GetPropertiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPropertiesResponse
+   * 获取当前用户的配置
+   * 
+   * @param request - GetPropertiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPropertiesResponse
    */
   async getPropertiesWithOptions(request: GetPropertiesRequest, runtime: $Util.RuntimeOptions): Promise<GetPropertiesResponse> {
     Util.validateModel(request);
@@ -8562,10 +12014,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取当前用户的配置
-   *
-   * @param request GetPropertiesRequest
-   * @return GetPropertiesResponse
+   * 获取当前用户的配置
+   * 
+   * @param request - GetPropertiesRequest
+   * @returns GetPropertiesResponse
    */
   async getProperties(request: GetPropertiesRequest): Promise<GetPropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8573,11 +12025,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导入干预文件
-   *
-   * @param request ImportInterveneFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportInterveneFileResponse
+   * 导入干预文件
+   * 
+   * @param request - ImportInterveneFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportInterveneFileResponse
    */
   async importInterveneFileWithOptions(request: ImportInterveneFileRequest, runtime: $Util.RuntimeOptions): Promise<ImportInterveneFileResponse> {
     Util.validateModel(request);
@@ -8618,10 +12070,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导入干预文件
-   *
-   * @param request ImportInterveneFileRequest
-   * @return ImportInterveneFileResponse
+   * 导入干预文件
+   * 
+   * @param request - ImportInterveneFileRequest
+   * @returns ImportInterveneFileResponse
    */
   async importInterveneFile(request: ImportInterveneFileRequest): Promise<ImportInterveneFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8629,11 +12081,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 异步导入干预文件
-   *
-   * @param request ImportInterveneFileAsyncRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportInterveneFileAsyncResponse
+   * 异步导入干预文件
+   * 
+   * @param request - ImportInterveneFileAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportInterveneFileAsyncResponse
    */
   async importInterveneFileAsyncWithOptions(request: ImportInterveneFileAsyncRequest, runtime: $Util.RuntimeOptions): Promise<ImportInterveneFileAsyncResponse> {
     Util.validateModel(request);
@@ -8674,10 +12126,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 异步导入干预文件
-   *
-   * @param request ImportInterveneFileAsyncRequest
-   * @return ImportInterveneFileAsyncResponse
+   * 异步导入干预文件
+   * 
+   * @param request - ImportInterveneFileAsyncRequest
+   * @returns ImportInterveneFileAsyncResponse
    */
   async importInterveneFileAsync(request: ImportInterveneFileAsyncRequest): Promise<ImportInterveneFileAsyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8685,11 +12137,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置干预全局回复
-   *
-   * @param tmpReq InsertInterveneGlobalReplyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InsertInterveneGlobalReplyResponse
+   * 设置干预全局回复
+   * 
+   * @param tmpReq - InsertInterveneGlobalReplyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertInterveneGlobalReplyResponse
    */
   async insertInterveneGlobalReplyWithOptions(tmpReq: InsertInterveneGlobalReplyRequest, runtime: $Util.RuntimeOptions): Promise<InsertInterveneGlobalReplyResponse> {
     Util.validateModel(tmpReq);
@@ -8728,10 +12180,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置干预全局回复
-   *
-   * @param request InsertInterveneGlobalReplyRequest
-   * @return InsertInterveneGlobalReplyResponse
+   * 设置干预全局回复
+   * 
+   * @param request - InsertInterveneGlobalReplyRequest
+   * @returns InsertInterveneGlobalReplyResponse
    */
   async insertInterveneGlobalReply(request: InsertInterveneGlobalReplyRequest): Promise<InsertInterveneGlobalReplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8739,11 +12191,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 插入干预规则
-   *
-   * @param tmpReq InsertInterveneRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InsertInterveneRuleResponse
+   * 插入干预规则
+   * 
+   * @param tmpReq - InsertInterveneRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertInterveneRuleResponse
    */
   async insertInterveneRuleWithOptions(tmpReq: InsertInterveneRuleRequest, runtime: $Util.RuntimeOptions): Promise<InsertInterveneRuleResponse> {
     Util.validateModel(tmpReq);
@@ -8782,10 +12234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 插入干预规则
-   *
-   * @param request InsertInterveneRuleRequest
-   * @return InsertInterveneRuleResponse
+   * 插入干预规则
+   * 
+   * @param request - InsertInterveneRuleRequest
+   * @returns InsertInterveneRuleResponse
    */
   async insertInterveneRule(request: InsertInterveneRuleRequest): Promise<InsertInterveneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8793,11 +12245,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务列表
-   *
-   * @param tmpReq ListAsyncTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAsyncTasksResponse
+   * 查询任务列表
+   * 
+   * @param tmpReq - ListAsyncTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAsyncTasksResponse
    */
   async listAsyncTasksWithOptions(tmpReq: ListAsyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
     Util.validateModel(tmpReq);
@@ -8876,10 +12328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务列表
-   *
-   * @param request ListAsyncTasksRequest
-   * @return ListAsyncTasksResponse
+   * 查询任务列表
+   * 
+   * @param request - ListAsyncTasksRequest
+   * @returns ListAsyncTasksResponse
    */
   async listAsyncTasks(request: ListAsyncTasksRequest): Promise<ListAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8887,17 +12339,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统自定义预设
-   *
-   * @param request ListBuildConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBuildConfigsResponse
+   * 获取系统自定义预设
+   * 
+   * @param request - ListBuildConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBuildConfigsResponse
    */
   async listBuildConfigsWithOptions(request: ListBuildConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListBuildConfigsResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -8924,10 +12380,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统自定义预设
-   *
-   * @param request ListBuildConfigsRequest
-   * @return ListBuildConfigsResponse
+   * 获取系统自定义预设
+   * 
+   * @param request - ListBuildConfigsRequest
+   * @returns ListBuildConfigsResponse
    */
   async listBuildConfigs(request: ListBuildConfigsRequest): Promise<ListBuildConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8935,11 +12391,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 自定义文本列表
-   *
-   * @param request ListCustomTextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomTextResponse
+   * 自定义文本列表
+   * 
+   * @param request - ListCustomTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomTextResponse
    */
   async listCustomTextWithOptions(request: ListCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomTextResponse> {
     Util.validateModel(request);
@@ -8972,10 +12428,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 自定义文本列表
-   *
-   * @param request ListCustomTextRequest
-   * @return ListCustomTextResponse
+   * 自定义文本列表
+   * 
+   * @param request - ListCustomTextRequest
+   * @returns ListCustomTextResponse
    */
   async listCustomText(request: ListCustomTextRequest): Promise<ListCustomTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8983,11 +12439,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成历史列表
-   *
-   * @param request ListDialoguesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDialoguesResponse
+   * 生成历史列表
+   * 
+   * @param request - ListDialoguesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDialoguesResponse
    */
   async listDialoguesWithOptions(request: ListDialoguesRequest, runtime: $Util.RuntimeOptions): Promise<ListDialoguesResponse> {
     Util.validateModel(request);
@@ -9040,10 +12496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成历史列表
-   *
-   * @param request ListDialoguesRequest
-   * @return ListDialoguesResponse
+   * 生成历史列表
+   * 
+   * @param request - ListDialoguesRequest
+   * @returns ListDialoguesResponse
    */
   async listDialogues(request: ListDialoguesRequest): Promise<ListDialoguesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9051,11 +12507,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-列表。
-   *
-   * @param request ListGeneratedContentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGeneratedContentsResponse
+   * 文档管理-列表。
+   * 
+   * @param request - ListGeneratedContentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGeneratedContentsResponse
    */
   async listGeneratedContentsWithOptions(request: ListGeneratedContentsRequest, runtime: $Util.RuntimeOptions): Promise<ListGeneratedContentsResponse> {
     Util.validateModel(request);
@@ -9077,12 +12533,20 @@ export default class Client extends OpenApi {
       body["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
     if (!Util.isUnset(request.size)) {
       body["Size"] = request.size;
     }
 
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
     }
 
     if (!Util.isUnset(request.title)) {
@@ -9108,10 +12572,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-列表。
-   *
-   * @param request ListGeneratedContentsRequest
-   * @return ListGeneratedContentsResponse
+   * 文档管理-列表。
+   * 
+   * @param request - ListGeneratedContentsRequest
+   * @returns ListGeneratedContentsResponse
    */
   async listGeneratedContents(request: ListGeneratedContentsRequest): Promise<ListGeneratedContentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9119,11 +12583,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取分类的热点新闻
-   *
-   * @param tmpReq ListHotNewsWithTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHotNewsWithTypeResponse
+   * 获取分类的热点新闻
+   * 
+   * @param tmpReq - ListHotNewsWithTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotNewsWithTypeResponse
    */
   async listHotNewsWithTypeWithOptions(tmpReq: ListHotNewsWithTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListHotNewsWithTypeResponse> {
     Util.validateModel(tmpReq);
@@ -9174,10 +12638,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取分类的热点新闻
-   *
-   * @param request ListHotNewsWithTypeRequest
-   * @return ListHotNewsWithTypeResponse
+   * 获取分类的热点新闻
+   * 
+   * @param request - ListHotNewsWithTypeRequest
+   * @returns ListHotNewsWithTypeResponse
    */
   async listHotNewsWithType(request: ListHotNewsWithTypeRequest): Promise<ListHotNewsWithTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9185,11 +12649,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预项目数量列表
-   *
-   * @param request ListInterveneCntRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInterveneCntResponse
+   * 获得干预项目数量列表
+   * 
+   * @param request - ListInterveneCntRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInterveneCntResponse
    */
   async listInterveneCntWithOptions(request: ListInterveneCntRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneCntResponse> {
     Util.validateModel(request);
@@ -9226,10 +12690,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预项目数量列表
-   *
-   * @param request ListInterveneCntRequest
-   * @return ListInterveneCntResponse
+   * 获得干预项目数量列表
+   * 
+   * @param request - ListInterveneCntRequest
+   * @returns ListInterveneCntResponse
    */
   async listInterveneCnt(request: ListInterveneCntRequest): Promise<ListInterveneCntResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9237,11 +12701,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得导入任务列表
-   *
-   * @param request ListInterveneImportTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInterveneImportTasksResponse
+   * 获得导入任务列表
+   * 
+   * @param request - ListInterveneImportTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInterveneImportTasksResponse
    */
   async listInterveneImportTasksWithOptions(request: ListInterveneImportTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneImportTasksResponse> {
     Util.validateModel(request);
@@ -9278,10 +12742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得导入任务列表
-   *
-   * @param request ListInterveneImportTasksRequest
-   * @return ListInterveneImportTasksResponse
+   * 获得导入任务列表
+   * 
+   * @param request - ListInterveneImportTasksRequest
+   * @returns ListInterveneImportTasksResponse
    */
   async listInterveneImportTasks(request: ListInterveneImportTasksRequest): Promise<ListInterveneImportTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9289,11 +12753,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预规则列表
-   *
-   * @param request ListInterveneRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInterveneRulesResponse
+   * 获得干预规则列表
+   * 
+   * @param request - ListInterveneRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInterveneRulesResponse
    */
   async listInterveneRulesWithOptions(request: ListInterveneRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneRulesResponse> {
     Util.validateModel(request);
@@ -9330,10 +12794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预规则列表
-   *
-   * @param request ListInterveneRulesRequest
-   * @return ListInterveneRulesResponse
+   * 获得干预规则列表
+   * 
+   * @param request - ListInterveneRulesRequest
+   * @returns ListInterveneRulesResponse
    */
   async listInterveneRules(request: ListInterveneRulesRequest): Promise<ListInterveneRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9341,11 +12805,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预项列表
-   *
-   * @param request ListIntervenesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntervenesResponse
+   * 获得干预项列表
+   * 
+   * @param request - ListIntervenesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntervenesResponse
    */
   async listIntervenesWithOptions(request: ListIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervenesResponse> {
     Util.validateModel(request);
@@ -9394,10 +12858,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获得干预项列表
-   *
-   * @param request ListIntervenesRequest
-   * @return ListIntervenesResponse
+   * 获得干预项列表
+   * 
+   * @param request - ListIntervenesRequest
+   * @returns ListIntervenesResponse
    */
   async listIntervenes(request: ListIntervenesRequest): Promise<ListIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9405,11 +12869,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询素材列表
-   *
-   * @param tmpReq ListMaterialDocumentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMaterialDocumentsResponse
+   * 查询素材列表
+   * 
+   * @param tmpReq - ListMaterialDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMaterialDocumentsResponse
    */
   async listMaterialDocumentsWithOptions(tmpReq: ListMaterialDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListMaterialDocumentsResponse> {
     Util.validateModel(tmpReq);
@@ -9508,10 +12972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询素材列表
-   *
-   * @param request ListMaterialDocumentsRequest
-   * @return ListMaterialDocumentsResponse
+   * 查询素材列表
+   * 
+   * @param request - ListMaterialDocumentsRequest
+   * @returns ListMaterialDocumentsResponse
    */
   async listMaterialDocuments(request: ListMaterialDocumentsRequest): Promise<ListMaterialDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9519,11 +12983,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统所有实例信息
-   *
-   * @param request ListVersionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVersionsResponse
+   * 获取系统所有实例信息
+   * 
+   * @param request - ListVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVersionsResponse
    */
   async listVersionsWithOptions(request: ListVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVersionsResponse> {
     Util.validateModel(request);
@@ -9550,10 +13014,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统所有实例信息
-   *
-   * @param request ListVersionsRequest
-   * @return ListVersionsResponse
+   * 获取系统所有实例信息
+   * 
+   * @param request - ListVersionsRequest
+   * @returns ListVersionsResponse
    */
   async listVersions(request: ListVersionsRequest): Promise<ListVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9561,11 +13025,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据taskId查询异步任务状态
-   *
-   * @param request QueryAsyncTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAsyncTaskResponse
+   * 根据taskId查询异步任务状态
+   * 
+   * @param request - QueryAsyncTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAsyncTaskResponse
    */
   async queryAsyncTaskWithOptions(request: QueryAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<QueryAsyncTaskResponse> {
     Util.validateModel(request);
@@ -9598,10 +13062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据taskId查询异步任务状态
-   *
-   * @param request QueryAsyncTaskRequest
-   * @return QueryAsyncTaskResponse
+   * 根据taskId查询异步任务状态
+   * 
+   * @param request - QueryAsyncTaskRequest
+   * @returns QueryAsyncTaskResponse
    */
   async queryAsyncTask(request: QueryAsyncTaskRequest): Promise<QueryAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9609,11 +13073,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存自定义文本
-   *
-   * @param request SaveCustomTextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveCustomTextResponse
+   * 保存自定义文本
+   * 
+   * @param request - SaveCustomTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveCustomTextResponse
    */
   async saveCustomTextWithOptions(request: SaveCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<SaveCustomTextResponse> {
     Util.validateModel(request);
@@ -9654,10 +13118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存自定义文本
-   *
-   * @param request SaveCustomTextRequest
-   * @return SaveCustomTextResponse
+   * 保存自定义文本
+   * 
+   * @param request - SaveCustomTextRequest
+   * @returns SaveCustomTextResponse
    */
   async saveCustomText(request: SaveCustomTextRequest): Promise<SaveCustomTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9665,11 +13129,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存用户的信源配置
-   *
-   * @param tmpReq SaveDataSourceOrderConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveDataSourceOrderConfigResponse
+   * 保存用户的信源配置
+   * 
+   * @param tmpReq - SaveDataSourceOrderConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveDataSourceOrderConfigResponse
    */
   async saveDataSourceOrderConfigWithOptions(tmpReq: SaveDataSourceOrderConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveDataSourceOrderConfigResponse> {
     Util.validateModel(tmpReq);
@@ -9712,10 +13176,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存用户的信源配置
-   *
-   * @param request SaveDataSourceOrderConfigRequest
-   * @return SaveDataSourceOrderConfigResponse
+   * 保存用户的信源配置
+   * 
+   * @param request - SaveDataSourceOrderConfigRequest
+   * @returns SaveDataSourceOrderConfigResponse
    */
   async saveDataSourceOrderConfig(request: SaveDataSourceOrderConfigRequest): Promise<SaveDataSourceOrderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9723,11 +13187,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存素材
-   *
-   * @param tmpReq SaveMaterialDocumentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveMaterialDocumentResponse
+   * 保存素材
+   * 
+   * @param tmpReq - SaveMaterialDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveMaterialDocumentResponse
    */
   async saveMaterialDocumentWithOptions(tmpReq: SaveMaterialDocumentRequest, runtime: $Util.RuntimeOptions): Promise<SaveMaterialDocumentResponse> {
     Util.validateModel(tmpReq);
@@ -9814,10 +13278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 保存素材
-   *
-   * @param request SaveMaterialDocumentRequest
-   * @return SaveMaterialDocumentResponse
+   * 保存素材
+   * 
+   * @param request - SaveMaterialDocumentRequest
+   * @returns SaveMaterialDocumentResponse
    */
   async saveMaterialDocument(request: SaveMaterialDocumentRequest): Promise<SaveMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9825,11 +13289,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新闻检索
-   *
-   * @param tmpReq SearchNewsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchNewsResponse
+   * 新闻检索
+   * 
+   * @param tmpReq - SearchNewsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchNewsResponse
    */
   async searchNewsWithOptions(tmpReq: SearchNewsRequest, runtime: $Util.RuntimeOptions): Promise<SearchNewsResponse> {
     Util.validateModel(tmpReq);
@@ -9888,10 +13352,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新闻检索
-   *
-   * @param request SearchNewsRequest
-   * @return SearchNewsResponse
+   * 新闻检索
+   * 
+   * @param request - SearchNewsRequest
+   * @returns SearchNewsResponse
    */
   async searchNews(request: SearchNewsRequest): Promise<SearchNewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9899,11 +13363,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交异步任务
-   *
-   * @param request SubmitAsyncTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitAsyncTaskResponse
+   * 提交异步任务
+   * 
+   * @param request - SubmitAsyncTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAsyncTaskResponse
    */
   async submitAsyncTaskWithOptions(request: SubmitAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAsyncTaskResponse> {
     Util.validateModel(request);
@@ -9948,10 +13412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交异步任务
-   *
-   * @param request SubmitAsyncTaskRequest
-   * @return SubmitAsyncTaskResponse
+   * 提交异步任务
+   * 
+   * @param request - SubmitAsyncTaskRequest
+   * @returns SubmitAsyncTaskResponse
    */
   async submitAsyncTask(request: SubmitAsyncTaskRequest): Promise<SubmitAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9959,11 +13423,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新自定义文本
-   *
-   * @param request UpdateCustomTextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCustomTextResponse
+   * 更新自定义文本
+   * 
+   * @param request - UpdateCustomTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomTextResponse
    */
   async updateCustomTextWithOptions(request: UpdateCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomTextResponse> {
     Util.validateModel(request);
@@ -10008,10 +13472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新自定义文本
-   *
-   * @param request UpdateCustomTextRequest
-   * @return UpdateCustomTextResponse
+   * 更新自定义文本
+   * 
+   * @param request - UpdateCustomTextRequest
+   * @returns UpdateCustomTextResponse
    */
   async updateCustomText(request: UpdateCustomTextRequest): Promise<UpdateCustomTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10019,11 +13483,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-更新。
-   *
-   * @param tmpReq UpdateGeneratedContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGeneratedContentResponse
+   * 文档管理-更新。
+   * 
+   * @param tmpReq - UpdateGeneratedContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGeneratedContentResponse
    */
   async updateGeneratedContentWithOptions(tmpReq: UpdateGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGeneratedContentResponse> {
     Util.validateModel(tmpReq);
@@ -10082,10 +13546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档管理-更新。
-   *
-   * @param request UpdateGeneratedContentRequest
-   * @return UpdateGeneratedContentResponse
+   * 文档管理-更新。
+   * 
+   * @param request - UpdateGeneratedContentRequest
+   * @returns UpdateGeneratedContentResponse
    */
   async updateGeneratedContent(request: UpdateGeneratedContentRequest): Promise<UpdateGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10093,11 +13557,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据ID更新素材
-   *
-   * @param tmpReq UpdateMaterialDocumentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMaterialDocumentResponse
+   * 根据ID更新素材
+   * 
+   * @param tmpReq - UpdateMaterialDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMaterialDocumentResponse
    */
   async updateMaterialDocumentWithOptions(tmpReq: UpdateMaterialDocumentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMaterialDocumentResponse> {
     Util.validateModel(tmpReq);
@@ -10110,6 +13574,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -10184,10 +13652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据ID更新素材
-   *
-   * @param request UpdateMaterialDocumentRequest
-   * @return UpdateMaterialDocumentResponse
+   * 根据ID更新素材
+   * 
+   * @param request - UpdateMaterialDocumentRequest
+   * @returns UpdateMaterialDocumentResponse
    */
   async updateMaterialDocument(request: UpdateMaterialDocumentRequest): Promise<UpdateMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
