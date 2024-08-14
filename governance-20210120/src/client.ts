@@ -1172,6 +1172,457 @@ export class ListEnrolledAccountsResponse extends $tea.Model {
   }
 }
 
+export class ListEvaluationMetadataRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  language?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBody extends $tea.Model {
+  evaluationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadata[];
+  /**
+   * @example
+   * 16B208DD-86BD-5E7D-AC93-FFD44B6FBDF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationMetadata: 'EvaluationMetadata',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationMetadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadata },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEvaluationMetadataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEvaluationMetadataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsRequest extends $tea.Model {
+  /**
+   * @example
+   * 103144549568****
+   */
+  accountId?: number;
+  /**
+   * @example
+   * xfyve5****
+   */
+  id?: string;
+  /**
+   * @example
+   * 5
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      id: 'Id',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      id: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * AC9BD94C-D20C-4D27-88D4-89E8D75C****
+   */
+  requestId?: string;
+  resources?: ListEvaluationMetricDetailsResponseBodyResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': ListEvaluationMetricDetailsResponseBodyResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEvaluationMetricDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEvaluationMetricDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsRequest extends $tea.Model {
+  /**
+   * @example
+   * 176618589410****
+   */
+  accountId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 176618589410****
+   */
+  accountId?: number;
+  /**
+   * @example
+   * BD57329E-131A-59F4-8746-E1CD8D7B****
+   */
+  requestId?: string;
+  results?: ListEvaluationResultsResponseBodyResults;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      requestId: 'RequestId',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      requestId: 'string',
+      results: ListEvaluationResultsResponseBodyResults,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEvaluationResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEvaluationResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-07-11
+   */
+  endDate?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2024-06-11
+   */
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      regionId: 'RegionId',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      regionId: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AC9BD94C-D20C-4D27-88D4-89E8D75C051B
+   */
+  requestId?: string;
+  scoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistory;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      scoreHistory: 'ScoreHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      scoreHistory: ListEvaluationScoreHistoryResponseBodyScoreHistory,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEvaluationScoreHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEvaluationScoreHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEvaluationRequest extends $tea.Model {
+  /**
+   * @example
+   * 176618589410****
+   */
+  accountId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * ResourceDirectory
+   */
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      regionId: 'RegionId',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      regionId: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEvaluationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2D3E2A3A-F2B8-578D-9659-3195F94A****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEvaluationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunEvaluationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunEvaluationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAccountFactoryBaselineRequest extends $tea.Model {
   baselineId?: string;
   baselineItems?: UpdateAccountFactoryBaselineRequestBaselineItems[];
@@ -2023,6 +2474,536 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model
   }
 }
 
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance extends $tea.Model {
+  buttonName?: string;
+  /**
+   * @example
+   * https://ram.console.aliyun.com/users
+   */
+  buttonRef?: string;
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttonName: 'ButtonName',
+      buttonRef: 'ButtonRef',
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttonName: 'string',
+      buttonRef: 'string',
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions extends $tea.Model {
+  /**
+   * @example
+   * UnusedAccessKeyInRamUser
+   */
+  classification?: string;
+  costDescription?: string;
+  description?: string;
+  guidance?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance[];
+  notice?: string;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classification: 'Classification',
+      costDescription: 'CostDescription',
+      description: 'Description',
+      guidance: 'Guidance',
+      notice: 'Notice',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classification: 'string',
+      costDescription: 'string',
+      description: 'string',
+      guidance: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance },
+      notice: 'string',
+      suggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation extends $tea.Model {
+  actions?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions[];
+  /**
+   * @example
+   * Manual
+   */
+  remediationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      remediationType: 'RemediationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions },
+      remediationType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata extends $tea.Model {
+  remediation?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation[];
+  static names(): { [key: string]: string } {
+    return {
+      remediation: 'Remediation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediation: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata extends $tea.Model {
+  displayName?: string;
+  /**
+   * @example
+   * AkLastUsedTime
+   */
+  propertyName?: string;
+  /**
+   * @example
+   * String
+   */
+  propertyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      propertyName: 'PropertyName',
+      propertyType: 'PropertyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      propertyName: 'string',
+      propertyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata extends $tea.Model {
+  resourcePropertyMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata[];
+  static names(): { [key: string]: string } {
+    return {
+      resourcePropertyMetadata: 'ResourcePropertyMetadata',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourcePropertyMetadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extends $tea.Model {
+  /**
+   * @example
+   * Security
+   */
+  category?: string;
+  description?: string;
+  displayName?: string;
+  /**
+   * @example
+   * pxgtda****
+   */
+  id?: string;
+  /**
+   * @example
+   * High
+   */
+  recommendationLevel?: string;
+  remediationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata;
+  resourceMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata;
+  /**
+   * @example
+   * Account
+   */
+  scope?: string;
+  /**
+   * @example
+   * Released
+   */
+  stage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      description: 'Description',
+      displayName: 'DisplayName',
+      id: 'Id',
+      recommendationLevel: 'RecommendationLevel',
+      remediationMetadata: 'RemediationMetadata',
+      resourceMetadata: 'ResourceMetadata',
+      scope: 'Scope',
+      stage: 'Stage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      description: 'string',
+      displayName: 'string',
+      id: 'string',
+      recommendationLevel: 'string',
+      remediationMetadata: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata,
+      resourceMetadata: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata,
+      scope: 'string',
+      stage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $tea.Model {
+  metadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata[];
+  /**
+   * @example
+   * Metric
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties extends $tea.Model {
+  /**
+   * @example
+   * DisplayName
+   */
+  propertyName?: string;
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyName: 'PropertyName',
+      propertyValue: 'PropertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyName: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * RecentUnloginRamUser
+   */
+  resourceClassification?: string;
+  /**
+   * @example
+   * 26435103783237****
+   */
+  resourceId?: string;
+  resourceName?: string;
+  /**
+   * @example
+   * 176618589410****
+   */
+  resourceOwnerId?: number;
+  resourceProperties?: ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties[];
+  /**
+   * @example
+   * ACS::RAM::User
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceClassification: 'ResourceClassification',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceProperties: 'ResourceProperties',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceClassification: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceOwnerId: 'number',
+      resourceProperties: { 'type': 'array', 'itemType': ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties },
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $tea.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  nonCompliant?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nonCompliant: 'NonCompliant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nonCompliant: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResultsMetricResults extends $tea.Model {
+  errorInfo?: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo;
+  /**
+   * @example
+   * 2023-12-13T03:34:02Z
+   */
+  evaluationTime?: string;
+  /**
+   * @example
+   * r7xdcu****
+   */
+  id?: string;
+  resourcesSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary;
+  /**
+   * @example
+   * 0.67
+   */
+  result?: number;
+  /**
+   * @example
+   * Error
+   */
+  risk?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorInfo: 'ErrorInfo',
+      evaluationTime: 'EvaluationTime',
+      id: 'Id',
+      resourcesSummary: 'ResourcesSummary',
+      result: 'Result',
+      risk: 'Risk',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorInfo: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo,
+      evaluationTime: 'string',
+      id: 'string',
+      resourcesSummary: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary,
+      result: 'number',
+      risk: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResults extends $tea.Model {
+  /**
+   * @example
+   * 2023-12-13T03:35:00Z
+   */
+  evaluationTime?: string;
+  metricResults?: ListEvaluationResultsResponseBodyResultsMetricResults[];
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * 0.6453
+   */
+  totalScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationTime: 'EvaluationTime',
+      metricResults: 'MetricResults',
+      status: 'Status',
+      totalScore: 'TotalScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationTime: 'string',
+      metricResults: { 'type': 'array', 'itemType': ListEvaluationResultsResponseBodyResultsMetricResults },
+      status: 'string',
+      totalScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory extends $tea.Model {
+  /**
+   * @example
+   * 2024-06-30T03:34:02Z
+   */
+  evaluationTime?: string;
+  /**
+   * @example
+   * 0.6753
+   */
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationTime: 'EvaluationTime',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationTime: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryResponseBodyScoreHistory extends $tea.Model {
+  totalScoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory[];
+  static names(): { [key: string]: string } {
+    return {
+      totalScoreHistory: 'TotalScoreHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalScoreHistory: { 'type': 'array', 'itemType': ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
   /**
    * @example
@@ -2571,6 +3552,256 @@ export default class Client extends OpenApi {
   async listEnrolledAccounts(request: ListEnrolledAccountsRequest): Promise<ListEnrolledAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnrolledAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看治理检测定义
+   * 
+   * @param request - ListEvaluationMetadataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEvaluationMetadataResponse
+   */
+  async listEvaluationMetadataWithOptions(request: ListEvaluationMetadataRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationMetadataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEvaluationMetadata",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
+  }
+
+  /**
+   * 查看治理检测定义
+   * 
+   * @param request - ListEvaluationMetadataRequest
+   * @returns ListEvaluationMetadataResponse
+   */
+  async listEvaluationMetadata(request: ListEvaluationMetadataRequest): Promise<ListEvaluationMetadataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEvaluationMetadataWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取云治理中心治理检测项结果详情
+   * 
+   * @param request - ListEvaluationMetricDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEvaluationMetricDetailsResponse
+   */
+  async listEvaluationMetricDetailsWithOptions(request: ListEvaluationMetricDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationMetricDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEvaluationMetricDetails",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+  }
+
+  /**
+   * 获取云治理中心治理检测项结果详情
+   * 
+   * @param request - ListEvaluationMetricDetailsRequest
+   * @returns ListEvaluationMetricDetailsResponse
+   */
+  async listEvaluationMetricDetails(request: ListEvaluationMetricDetailsRequest): Promise<ListEvaluationMetricDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEvaluationMetricDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看检测结果
+   * 
+   * @param request - ListEvaluationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEvaluationResultsResponse
+   */
+  async listEvaluationResultsWithOptions(request: ListEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationResultsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEvaluationResults",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
+  }
+
+  /**
+   * 查看检测结果
+   * 
+   * @param request - ListEvaluationResultsRequest
+   * @returns ListEvaluationResultsResponse
+   */
+  async listEvaluationResults(request: ListEvaluationResultsRequest): Promise<ListEvaluationResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEvaluationResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看治理检测定义
+   * 
+   * @param request - ListEvaluationScoreHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEvaluationScoreHistoryResponse
+   */
+  async listEvaluationScoreHistoryWithOptions(request: ListEvaluationScoreHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationScoreHistoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEvaluationScoreHistory",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+  }
+
+  /**
+   * 查看治理检测定义
+   * 
+   * @param request - ListEvaluationScoreHistoryRequest
+   * @returns ListEvaluationScoreHistoryResponse
+   */
+  async listEvaluationScoreHistory(request: ListEvaluationScoreHistoryRequest): Promise<ListEvaluationScoreHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEvaluationScoreHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 运行云治理中心治理检测
+   * 
+   * @param request - RunEvaluationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunEvaluationResponse
+   */
+  async runEvaluationWithOptions(request: RunEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<RunEvaluationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunEvaluation",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
+  }
+
+  /**
+   * 运行云治理中心治理检测
+   * 
+   * @param request - RunEvaluationRequest
+   * @returns RunEvaluationResponse
+   */
+  async runEvaluation(request: RunEvaluationRequest): Promise<RunEvaluationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runEvaluationWithOptions(request, runtime);
   }
 
   /**
