@@ -3177,6 +3177,8 @@ export class ListInstancesRequest extends $tea.Model {
    */
   accessibility?: string;
   createUserId?: string;
+  gpuType?: string;
+  imageName?: string;
   /**
    * @example
    * dsw-730xxxxxxxxxx
@@ -3188,6 +3190,14 @@ export class ListInstancesRequest extends $tea.Model {
    */
   instanceName?: string;
   labels?: { [key: string]: any };
+  maxCpu?: string;
+  maxGpu?: string;
+  maxGpuMemory?: string;
+  maxMemory?: string;
+  minCpu?: string;
+  minGpu?: string;
+  minGpuMemory?: string;
+  minMemory?: string;
   /**
    * @example
    * DESC
@@ -3233,9 +3243,19 @@ export class ListInstancesRequest extends $tea.Model {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
       createUserId: 'CreateUserId',
+      gpuType: 'GpuType',
+      imageName: 'ImageName',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       labels: 'Labels',
+      maxCpu: 'MaxCpu',
+      maxGpu: 'MaxGpu',
+      maxGpuMemory: 'MaxGpuMemory',
+      maxMemory: 'MaxMemory',
+      minCpu: 'MinCpu',
+      minGpu: 'MinGpu',
+      minGpuMemory: 'MinGpuMemory',
+      minMemory: 'MinMemory',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -3252,9 +3272,19 @@ export class ListInstancesRequest extends $tea.Model {
       acceleratorType: 'string',
       accessibility: 'string',
       createUserId: 'string',
+      gpuType: 'string',
+      imageName: 'string',
       instanceId: 'string',
       instanceName: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      maxCpu: 'string',
+      maxGpu: 'string',
+      maxGpuMemory: 'string',
+      maxMemory: 'string',
+      minCpu: 'string',
+      minGpu: 'string',
+      minGpuMemory: 'string',
+      minMemory: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -3283,6 +3313,8 @@ export class ListInstancesShrinkRequest extends $tea.Model {
    */
   accessibility?: string;
   createUserId?: string;
+  gpuType?: string;
+  imageName?: string;
   /**
    * @example
    * dsw-730xxxxxxxxxx
@@ -3294,6 +3326,14 @@ export class ListInstancesShrinkRequest extends $tea.Model {
    */
   instanceName?: string;
   labelsShrink?: string;
+  maxCpu?: string;
+  maxGpu?: string;
+  maxGpuMemory?: string;
+  maxMemory?: string;
+  minCpu?: string;
+  minGpu?: string;
+  minGpuMemory?: string;
+  minMemory?: string;
   /**
    * @example
    * DESC
@@ -3339,9 +3379,19 @@ export class ListInstancesShrinkRequest extends $tea.Model {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
       createUserId: 'CreateUserId',
+      gpuType: 'GpuType',
+      imageName: 'ImageName',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       labelsShrink: 'Labels',
+      maxCpu: 'MaxCpu',
+      maxGpu: 'MaxGpu',
+      maxGpuMemory: 'MaxGpuMemory',
+      maxMemory: 'MaxMemory',
+      minCpu: 'MinCpu',
+      minGpu: 'MinGpu',
+      minGpuMemory: 'MinGpuMemory',
+      minMemory: 'MinMemory',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -3358,9 +3408,19 @@ export class ListInstancesShrinkRequest extends $tea.Model {
       acceleratorType: 'string',
       accessibility: 'string',
       createUserId: 'string',
+      gpuType: 'string',
+      imageName: 'string',
       instanceId: 'string',
       instanceName: 'string',
       labelsShrink: 'string',
+      maxCpu: 'string',
+      maxGpu: 'string',
+      maxGpuMemory: 'string',
+      maxMemory: 'string',
+      minCpu: 'string',
+      minGpu: 'string',
+      minGpuMemory: 'string',
+      minMemory: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7792,6 +7852,14 @@ export default class Client extends OpenApi {
       query["CreateUserId"] = request.createUserId;
     }
 
+    if (!Util.isUnset(request.gpuType)) {
+      query["GpuType"] = request.gpuType;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -7802,6 +7870,38 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labelsShrink)) {
       query["Labels"] = request.labelsShrink;
+    }
+
+    if (!Util.isUnset(request.maxCpu)) {
+      query["MaxCpu"] = request.maxCpu;
+    }
+
+    if (!Util.isUnset(request.maxGpu)) {
+      query["MaxGpu"] = request.maxGpu;
+    }
+
+    if (!Util.isUnset(request.maxGpuMemory)) {
+      query["MaxGpuMemory"] = request.maxGpuMemory;
+    }
+
+    if (!Util.isUnset(request.maxMemory)) {
+      query["MaxMemory"] = request.maxMemory;
+    }
+
+    if (!Util.isUnset(request.minCpu)) {
+      query["MinCpu"] = request.minCpu;
+    }
+
+    if (!Util.isUnset(request.minGpu)) {
+      query["MinGpu"] = request.minGpu;
+    }
+
+    if (!Util.isUnset(request.minGpuMemory)) {
+      query["MinGpuMemory"] = request.minGpuMemory;
+    }
+
+    if (!Util.isUnset(request.minMemory)) {
+      query["MinMemory"] = request.minMemory;
     }
 
     if (!Util.isUnset(request.order)) {
