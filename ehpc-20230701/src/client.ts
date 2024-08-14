@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,19 +8,83 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddonNodeTemplate extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @example
+   * 1
+   */
   autoRenewPeriod?: number;
   dataDisks?: AddonNodeTemplateDataDisks[];
+  /**
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @example
+   * true
+   */
   enableHT?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aliyun_3_x64_20G_alibase_20221102.vhd
+   */
   imageId?: string;
+  /**
+   * @example
+   * PostPaid
+   */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs.c7.4xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CentOS  7.6 64 位
+   */
   osName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CentOS  7.6 64 bit
+   */
   osNameEN?: string;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * Month
+   */
   periodUnit?: string;
+  /**
+   * @example
+   * 0.97
+   */
   spotPriceLimit?: number;
+  /**
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   systemDisk?: AddonNodeTemplateSystemDisk;
   static names(): { [key: string]: string } {
@@ -70,17 +133,61 @@ export class AddonNodeTemplate extends $tea.Model {
 }
 
 export class NodeTemplate extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @example
+   * 1
+   */
   autoRenewPeriod?: number;
   dataDisks?: NodeTemplateDataDisks[];
+  /**
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @example
+   * true
+   */
   enableHT?: boolean;
+  /**
+   * @example
+   * aliyun_3_x64_20G_alibase_20221102.vhd
+   */
   imageId?: string;
+  /**
+   * @example
+   * PostPaid
+   */
   instanceChargeType?: string;
+  /**
+   * @example
+   * ecs.c7.4xlarge
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * Month
+   */
   periodUnit?: string;
+  /**
+   * @example
+   * 0.97
+   */
   spotPriceLimit?: number;
+  /**
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   systemDisk?: NodeTemplateSystemDisk;
   static names(): { [key: string]: string } {
@@ -125,19 +232,66 @@ export class NodeTemplate extends $tea.Model {
 }
 
 export class QueueTemplate extends $tea.Model {
+  /**
+   * @example
+   * PriorityInstanceType
+   */
   allocationStrategy?: string;
   computeNodes?: NodeTemplate[];
+  /**
+   * @example
+   * true
+   */
   enableScaleIn?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableScaleOut?: boolean;
+  /**
+   * @example
+   * compute
+   */
   hostnamePrefix?: string;
   hostnameSuffix?: string;
+  /**
+   * @example
+   * 0
+   */
   initialCount?: number;
+  /**
+   * @example
+   * erdma
+   */
   interConnect?: string;
   keepAliveNodes?: string[];
+  /**
+   * @example
+   * 1000
+   */
   maxCount?: number;
+  /**
+   * @example
+   * 99
+   */
   maxCountPerCycle?: number;
+  /**
+   * @example
+   * 0
+   */
   minCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * comp
+   */
   name?: string;
+  /**
+   * @example
+   * AliyunECSInstanceForEHPCRole
+   */
   ramRole?: string;
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -186,11 +340,35 @@ export class QueueTemplate extends $tea.Model {
 }
 
 export class SharedStorageTemplate extends $tea.Model {
+  /**
+   * @example
+   * 008b63****
+   */
   fileSystemId?: string;
+  /**
+   * @example
+   * /home
+   */
   mountDirectory?: string;
+  /**
+   * @example
+   * -t nfs -o vers=3,nolock,noresvport
+   */
   mountOptions?: string;
+  /**
+   * @example
+   * 008b****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
+   */
   mountTargetDomain?: string;
+  /**
+   * @example
+   * /
+   */
   NASDirectory?: string;
+  /**
+   * @example
+   * NFS
+   */
   protocolType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -223,6 +401,13 @@ export class AddImageRequest extends $tea.Model {
   containerImageSpec?: AddImageRequestContainerImageSpec;
   description?: string;
   imageVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-image
+   */
   name?: string;
   VMImageSpec?: AddImageRequestVMImageSpec;
   static names(): { [key: string]: string } {
@@ -254,6 +439,13 @@ export class AddImageShrinkRequest extends $tea.Model {
   containerImageSpecShrink?: string;
   description?: string;
   imageVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-image
+   */
   name?: string;
   VMImageSpecShrink?: string;
   static names(): { [key: string]: string } {
@@ -282,8 +474,20 @@ export class AddImageShrinkRequest extends $tea.Model {
 }
 
 export class AddImageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * m-bp1akkkr1rkxtb******
+   */
   imageId?: string;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -334,7 +538,18 @@ export class AddImageResponse extends $tea.Model {
 export class CreateJobRequest extends $tea.Model {
   deploymentPolicy?: CreateJobRequestDeploymentPolicy;
   jobDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testjob
+   */
   jobName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tasks?: CreateJobRequestTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -362,7 +577,18 @@ export class CreateJobRequest extends $tea.Model {
 export class CreateJobShrinkRequest extends $tea.Model {
   deploymentPolicyShrink?: string;
   jobDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testjob
+   */
   jobName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tasksShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -388,12 +614,25 @@ export class CreateJobShrinkRequest extends $tea.Model {
 }
 
 export class CreateJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * job-xxxx
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
   requestId?: string;
+  tasks?: CreateJobResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
       requestId: 'RequestId',
+      tasks: 'Tasks',
     };
   }
 
@@ -401,6 +640,7 @@ export class CreateJobResponseBody extends $tea.Model {
     return {
       jobId: 'string',
       requestId: 'string',
+      tasks: { 'type': 'array', 'itemType': CreateJobResponseBodyTasks },
     };
   }
 
@@ -479,6 +719,13 @@ export class DeleteJobsShrinkRequest extends $tea.Model {
 }
 
 export class DeleteJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -524,8 +771,20 @@ export class DeleteJobsResponse extends $tea.Model {
 
 export class DescribeJobMetricDataRequest extends $tea.Model {
   arrayIndex?: number[];
+  /**
+   * @example
+   * job-xxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * cpu_utilization
+   */
   metricName?: string;
+  /**
+   * @example
+   * Task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -552,8 +811,20 @@ export class DescribeJobMetricDataRequest extends $tea.Model {
 
 export class DescribeJobMetricDataShrinkRequest extends $tea.Model {
   arrayIndexShrink?: string;
+  /**
+   * @example
+   * job-xxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * cpu_utilization
+   */
   metricName?: string;
+  /**
+   * @example
+   * Task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -579,8 +850,20 @@ export class DescribeJobMetricDataShrinkRequest extends $tea.Model {
 }
 
 export class DescribeJobMetricDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [{"timestamp":1709540685000,"Minimum":28.45,"Maximum":28.45,"Average":28.45}]
+   */
   dataPoints?: string;
+  /**
+   * @example
+   * 15
+   */
   period?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -630,7 +913,15 @@ export class DescribeJobMetricDataResponse extends $tea.Model {
 
 export class DescribeJobMetricLastRequest extends $tea.Model {
   arrayIndex?: number[];
+  /**
+   * @example
+   * job-xxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * Task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -655,7 +946,15 @@ export class DescribeJobMetricLastRequest extends $tea.Model {
 
 export class DescribeJobMetricLastShrinkRequest extends $tea.Model {
   arrayIndexShrink?: string;
+  /**
+   * @example
+   * job-xxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * Task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -680,6 +979,10 @@ export class DescribeJobMetricLastShrinkRequest extends $tea.Model {
 
 export class DescribeJobMetricLastResponseBody extends $tea.Model {
   metrics?: DescribeJobMetricLastResponseBodyMetrics[];
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -726,6 +1029,13 @@ export class DescribeJobMetricLastResponse extends $tea.Model {
 }
 
 export class GetImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * m-2ze74g5mvy4pjg******
+   */
   imageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -746,8 +1056,20 @@ export class GetImageRequest extends $tea.Model {
 
 export class GetImageResponseBody extends $tea.Model {
   image?: GetImageResponseBodyImage;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -798,6 +1120,10 @@ export class GetImageResponse extends $tea.Model {
 }
 
 export class GetJobRequest extends $tea.Model {
+  /**
+   * @example
+   * job-xxxx
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -818,6 +1144,13 @@ export class GetJobRequest extends $tea.Model {
 
 export class GetJobResponseBody extends $tea.Model {
   jobInfo?: GetJobResponseBodyJobInfo;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -865,7 +1198,15 @@ export class GetJobResponse extends $tea.Model {
 
 export class ListExecutorsRequest extends $tea.Model {
   filter?: ListExecutorsRequestFilter;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -890,7 +1231,15 @@ export class ListExecutorsRequest extends $tea.Model {
 
 export class ListExecutorsShrinkRequest extends $tea.Model {
   filterShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -915,9 +1264,25 @@ export class ListExecutorsShrinkRequest extends $tea.Model {
 
 export class ListExecutorsResponseBody extends $tea.Model {
   executors?: ListExecutorsResponseBodyExecutors[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 40
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -972,7 +1337,15 @@ export class ListExecutorsResponse extends $tea.Model {
 export class ListImagesRequest extends $tea.Model {
   imageIds?: string[];
   imageNames?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1000,7 +1373,15 @@ export class ListImagesRequest extends $tea.Model {
 export class ListImagesShrinkRequest extends $tea.Model {
   imageIdsShrink?: string;
   imageNamesShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1027,10 +1408,30 @@ export class ListImagesShrinkRequest extends $tea.Model {
 
 export class ListImagesResponseBody extends $tea.Model {
   images?: ListImagesResponseBodyImages[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1085,9 +1486,28 @@ export class ListImagesResponse extends $tea.Model {
 }
 
 export class ListJobExecutorsRequest extends $tea.Model {
+  /**
+   * @example
+   * Job-xxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * Task ID
+   * 
+   * @example
+   * task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1113,15 +1533,44 @@ export class ListJobExecutorsRequest extends $tea.Model {
 }
 
 export class ListJobExecutorsResponseBody extends $tea.Model {
+  executorStatus?: ListJobExecutorsResponseBodyExecutorStatus;
   executors?: ListJobExecutorsResponseBodyExecutors[];
+  /**
+   * @example
+   * job-xxxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxx-xxxx-xxx-xxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * task0
+   */
   taskName?: string;
+  /**
+   * @example
+   * 50
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
+      executorStatus: 'ExecutorStatus',
       executors: 'Executors',
       jobId: 'JobId',
       pageNumber: 'PageNumber',
@@ -1134,6 +1583,7 @@ export class ListJobExecutorsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      executorStatus: ListJobExecutorsResponseBodyExecutorStatus,
       executors: { 'type': 'array', 'itemType': ListJobExecutorsResponseBodyExecutors },
       jobId: 'string',
       pageNumber: 'string',
@@ -1176,7 +1626,15 @@ export class ListJobExecutorsResponse extends $tea.Model {
 
 export class ListJobsRequest extends $tea.Model {
   filter?: ListJobsRequestFilter;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: string;
   sortBy?: ListJobsRequestSortBy;
   static names(): { [key: string]: string } {
@@ -1204,7 +1662,15 @@ export class ListJobsRequest extends $tea.Model {
 
 export class ListJobsShrinkRequest extends $tea.Model {
   filterShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: string;
   sortByShrink?: string;
   static names(): { [key: string]: string } {
@@ -1232,9 +1698,28 @@ export class ListJobsShrinkRequest extends $tea.Model {
 
 export class ListJobsResponseBody extends $tea.Model {
   jobList?: ListJobsResponseBodyJobList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1287,6 +1772,13 @@ export class ListJobsResponse extends $tea.Model {
 }
 
 export class RemoveImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * m-bp14wakr1rkxtb******
+   */
   imageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1306,7 +1798,15 @@ export class RemoveImageRequest extends $tea.Model {
 }
 
 export class RemoveImageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1353,9 +1853,25 @@ export class RemoveImageResponse extends $tea.Model {
 }
 
 export class AddonNodeTemplateDataDisks extends $tea.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
   category?: string;
+  /**
+   * @example
+   * false
+   */
   deleteWithInstance?: boolean;
+  /**
+   * @example
+   * PL0
+   */
   level?: string;
+  /**
+   * @example
+   * 40
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1381,8 +1897,20 @@ export class AddonNodeTemplateDataDisks extends $tea.Model {
 }
 
 export class AddonNodeTemplateSystemDisk extends $tea.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
   category?: string;
+  /**
+   * @example
+   * PL0
+   */
   level?: string;
+  /**
+   * @example
+   * 40
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1406,9 +1934,25 @@ export class AddonNodeTemplateSystemDisk extends $tea.Model {
 }
 
 export class NodeTemplateDataDisks extends $tea.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
   category?: string;
+  /**
+   * @example
+   * false
+   */
   deleteWithInstance?: boolean;
+  /**
+   * @example
+   * PL0
+   */
   level?: string;
+  /**
+   * @example
+   * 40
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1434,8 +1978,20 @@ export class NodeTemplateDataDisks extends $tea.Model {
 }
 
 export class NodeTemplateSystemDisk extends $tea.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
   category?: string;
+  /**
+   * @example
+   * PL0
+   */
   level?: string;
+  /**
+   * @example
+   * 40
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1459,8 +2015,20 @@ export class NodeTemplateSystemDisk extends $tea.Model {
 }
 
 export class AddImageRequestContainerImageSpecRegistryCredential extends $tea.Model {
+  /**
+   * @example
+   * userpassword
+   */
   password?: string;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com
+   */
   server?: string;
+  /**
+   * @example
+   * username
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1484,10 +2052,26 @@ export class AddImageRequestContainerImageSpecRegistryCredential extends $tea.Mo
 }
 
 export class AddImageRequestContainerImageSpec extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
   isACREnterprise?: boolean;
+  /**
+   * @example
+   * True
+   */
   isACRRegistry?: boolean;
   registryCredential?: AddImageRequestContainerImageSpecRegistryCredential;
+  /**
+   * @example
+   * cri-xyz795ygf8k9****
+   */
   registryCriId?: string;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
+   */
   registryUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1515,6 +2099,10 @@ export class AddImageRequestContainerImageSpec extends $tea.Model {
 }
 
 export class AddImageRequestVMImageSpec extends $tea.Model {
+  /**
+   * @example
+   * m-bp1akkkr1rkxtb******
+   */
   imageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1553,6 +2141,10 @@ export class CreateJobRequestDeploymentPolicyNetwork extends $tea.Model {
 }
 
 export class CreateJobRequestDeploymentPolicy extends $tea.Model {
+  /**
+   * @example
+   * Dedicated
+   */
   allocationSpec?: string;
   network?: CreateJobRequestDeploymentPolicyNetwork;
   static names(): { [key: string]: string } {
@@ -1601,6 +2193,10 @@ export class CreateJobRequestTasksExecutorPolicyArraySpec extends $tea.Model {
 
 export class CreateJobRequestTasksExecutorPolicy extends $tea.Model {
   arraySpec?: CreateJobRequestTasksExecutorPolicyArraySpec;
+  /**
+   * @example
+   * 1
+   */
   maxCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1622,7 +2218,15 @@ export class CreateJobRequestTasksExecutorPolicy extends $tea.Model {
 }
 
 export class CreateJobRequestTasksTaskSpecResourceDisks extends $tea.Model {
+  /**
+   * @example
+   * 40
+   */
   size?: number;
+  /**
+   * @example
+   * System
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1644,8 +2248,16 @@ export class CreateJobRequestTasksTaskSpecResourceDisks extends $tea.Model {
 }
 
 export class CreateJobRequestTasksTaskSpecResource extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   cores?: number;
   disks?: CreateJobRequestTasksTaskSpecResourceDisks[];
+  /**
+   * @example
+   * 4
+   */
   memory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1693,6 +2305,10 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars e
 export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $tea.Model {
   command?: string[];
   environmentVars?: CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   image?: string;
   workingDir?: string;
   static names(): { [key: string]: string } {
@@ -1719,6 +2335,13 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $tea.Mod
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * m-xxxx
+   */
   image?: string;
   prologScript?: string;
   script?: string;
@@ -1792,6 +2415,10 @@ export class CreateJobRequestTasksTaskSpecVolumeMount extends $tea.Model {
 
 export class CreateJobRequestTasksTaskSpec extends $tea.Model {
   resource?: CreateJobRequestTasksTaskSpecResource;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskExecutor?: CreateJobRequestTasksTaskSpecTaskExecutor[];
   volumeMount?: CreateJobRequestTasksTaskSpecVolumeMount[];
   static names(): { [key: string]: string } {
@@ -1817,6 +2444,10 @@ export class CreateJobRequestTasksTaskSpec extends $tea.Model {
 
 export class CreateJobRequestTasks extends $tea.Model {
   executorPolicy?: CreateJobRequestTasksExecutorPolicy;
+  /**
+   * @example
+   * task0
+   */
   taskName?: string;
   taskSpec?: CreateJobRequestTasksTaskSpec;
   taskSustainable?: boolean;
@@ -1843,8 +2474,34 @@ export class CreateJobRequestTasks extends $tea.Model {
   }
 }
 
+export class CreateJobResponseBodyTasks extends $tea.Model {
+  executorIds?: string[];
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executorIds: 'ExecutorIds',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteJobsRequestJobSpecTaskSpec extends $tea.Model {
   arrayIndex?: number[];
+  /**
+   * @example
+   * task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1866,6 +2523,10 @@ export class DeleteJobsRequestJobSpecTaskSpec extends $tea.Model {
 }
 
 export class DeleteJobsRequestJobSpec extends $tea.Model {
+  /**
+   * @example
+   * job-xxxx
+   */
   jobId?: string;
   taskSpec?: DeleteJobsRequestJobSpecTaskSpec[];
   static names(): { [key: string]: string } {
@@ -1888,7 +2549,15 @@ export class DeleteJobsRequestJobSpec extends $tea.Model {
 }
 
 export class DescribeJobMetricLastResponseBodyMetrics extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   arrayIndex?: number;
+  /**
+   * @example
+   * {"memory_utilization": 37.42,"cpu_utilization": 1.008, "disk_utilization": 3.562}
+   */
   metric?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1910,8 +2579,20 @@ export class DescribeJobMetricLastResponseBodyMetrics extends $tea.Model {
 }
 
 export class GetImageResponseBodyImageContainerImageSpecRegistryCredential extends $tea.Model {
+  /**
+   * @example
+   * userpassword
+   */
   password?: string;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com
+   */
   server?: string;
+  /**
+   * @example
+   * username
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1935,10 +2616,26 @@ export class GetImageResponseBodyImageContainerImageSpecRegistryCredential exten
 }
 
 export class GetImageResponseBodyImageContainerImageSpec extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
   isACREnterprise?: boolean;
+  /**
+   * @example
+   * True
+   */
   isACRRegistry?: boolean;
   registryCredential?: GetImageResponseBodyImageContainerImageSpecRegistryCredential;
+  /**
+   * @example
+   * cri-xyz795ygf8k9****
+   */
   registryCriId?: string;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
+   */
   registryUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1966,9 +2663,25 @@ export class GetImageResponseBodyImageContainerImageSpec extends $tea.Model {
 }
 
 export class GetImageResponseBodyImageVMImageSpec extends $tea.Model {
+  /**
+   * @example
+   * x86_64
+   */
   architecture?: string;
+  /**
+   * @example
+   * m-uf60twafjtaart******
+   */
   imageId?: string;
+  /**
+   * @example
+   * CentOS  7.6 64 bit
+   */
   osTag?: string;
+  /**
+   * @example
+   * CentOS
+   */
   platform?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1995,12 +2708,35 @@ export class GetImageResponseBodyImageVMImageSpec extends $tea.Model {
 
 export class GetImageResponseBodyImage extends $tea.Model {
   containerImageSpec?: GetImageResponseBodyImageContainerImageSpec;
+  /**
+   * @example
+   * 2022-12-23T09:51:39Z
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VM
+   */
   imageType?: string;
+  /**
+   * @example
+   * app-image
+   */
   name?: string;
+  /**
+   * @example
+   * 40 GiB
+   */
   size?: string;
   VMImageSpec?: GetImageResponseBodyImageVMImageSpec;
+  /**
+   * @example
+   * v1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2053,6 +2789,10 @@ export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $tea.Model
 }
 
 export class GetJobResponseBodyJobInfoDeploymentPolicy extends $tea.Model {
+  /**
+   * @example
+   * Dedicated
+   */
   allocationSpec?: string;
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
   static names(): { [key: string]: string } {
@@ -2101,6 +2841,10 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec extends $tea.
 
 export class GetJobResponseBodyJobInfoTasksExecutorPolicy extends $tea.Model {
   arraySpec?: GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec;
+  /**
+   * @example
+   * 1
+   */
   maxCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2123,10 +2867,30 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicy extends $tea.Model {
 
 export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $tea.Model {
   arrayId?: number;
+  /**
+   * @example
+   * 2024-02-04 13:54:10
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2024-02-04 13:54:10
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2024-02-04 13:54:10
+   */
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * Creating executor
+   */
   statusReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2156,7 +2920,15 @@ export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $tea.Model {
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   size?: number;
+  /**
+   * @example
+   * System
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2178,8 +2950,16 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks extends $tea.Mo
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   cores?: number;
   disks?: GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks[];
+  /**
+   * @example
+   * 4
+   */
   memory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2203,7 +2983,15 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $tea.Model {
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $tea.Model {
+  /**
+   * @example
+   * m-xxxx
+   */
   image?: string;
+  /**
+   * @example
+   * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
+   */
   prologScript?: string;
   script?: string;
   static names(): { [key: string]: string } {
@@ -2271,6 +3059,10 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $tea.Model {
 export class GetJobResponseBodyJobInfoTasks extends $tea.Model {
   executorPolicy?: GetJobResponseBodyJobInfoTasksExecutorPolicy;
   executorStatus?: GetJobResponseBodyJobInfoTasksExecutorStatus[];
+  /**
+   * @example
+   * task0
+   */
   taskName?: string;
   taskSpec?: GetJobResponseBodyJobInfoTasksTaskSpec;
   taskSustainable?: boolean;
@@ -2304,7 +3096,15 @@ export class GetJobResponseBodyJobInfo extends $tea.Model {
   deploymentPolicy?: GetJobResponseBodyJobInfoDeploymentPolicy;
   endTime?: string;
   jobDescription?: string;
+  /**
+   * @example
+   * job-xxxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * testJob
+   */
   jobName?: string;
   startTime?: string;
   status?: string;
@@ -2345,8 +3145,20 @@ export class GetJobResponseBodyJobInfo extends $tea.Model {
 export class ListExecutorsRequestFilter extends $tea.Model {
   executorIds?: string[];
   ipAddresses?: string[];
+  /**
+   * @example
+   * testJob
+   */
   jobName?: string;
+  /**
+   * @example
+   * 1703819914
+   */
   timeCreatedAfter?: number;
+  /**
+   * @example
+   * 1703820113
+   */
   timeCreatedBefore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2374,16 +3186,53 @@ export class ListExecutorsRequestFilter extends $tea.Model {
 }
 
 export class ListExecutorsResponseBodyExecutors extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   arrayIndex?: number;
+  /**
+   * @example
+   * 2024-02-20 10:04:10
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2024-02-20 10:04:18
+   */
   endTime?: string;
+  /**
+   * @example
+   * job-xxxx-task0-1
+   */
   executorId?: string;
   hostName?: string[];
+  image?: string;
   ipAddress?: string[];
+  /**
+   * @example
+   * job-hy1nggvyukuvkrtfpe70
+   */
   jobId?: string;
+  /**
+   * @example
+   * testJob
+   */
   jobName?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * Succeeded to release executor resource
+   */
   statusReason?: string;
+  /**
+   * @example
+   * task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2392,6 +3241,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
       endTime: 'EndTime',
       executorId: 'ExecutorId',
       hostName: 'HostName',
+      image: 'Image',
       ipAddress: 'IpAddress',
       jobId: 'JobId',
       jobName: 'JobName',
@@ -2408,6 +3258,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
       endTime: 'string',
       executorId: 'string',
       hostName: { 'type': 'array', 'itemType': 'string' },
+      image: 'string',
       ipAddress: { 'type': 'array', 'itemType': 'string' },
       jobId: 'string',
       jobName: 'string',
@@ -2423,11 +3274,37 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
 }
 
 export class ListImagesResponseBodyImages extends $tea.Model {
+  /**
+   * @example
+   * 2022-12-09T07:06:34Z
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * m-bp181x855551ww5yq****
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VM
+   */
   imageType?: string;
+  /**
+   * @example
+   * app-image
+   */
   name?: string;
+  /**
+   * @example
+   * v1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2456,12 +3333,66 @@ export class ListImagesResponseBodyImages extends $tea.Model {
   }
 }
 
+export class ListJobExecutorsResponseBodyExecutorStatus extends $tea.Model {
+  deleted?: number;
+  exception?: number;
+  failed?: number;
+  initing?: number;
+  pending?: number;
+  running?: number;
+  succeeded?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deleted: 'Deleted',
+      exception: 'Exception',
+      failed: 'Failed',
+      initing: 'Initing',
+      pending: 'Pending',
+      running: 'Running',
+      succeeded: 'Succeeded',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleted: 'number',
+      exception: 'number',
+      failed: 'number',
+      initing: 'number',
+      pending: 'number',
+      running: 'number',
+      succeeded: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   arrayIndex?: number;
+  /**
+   * @example
+   * 2024-02-20 10:04:10
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2024-02-20 10:04:18
+   */
   endTime?: string;
+  executorId?: string;
   hostName?: string[];
   ipAddress?: string[];
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   statusReason?: string;
   static names(): { [key: string]: string } {
@@ -2469,6 +3400,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
       arrayIndex: 'ArrayIndex',
       createTime: 'CreateTime',
       endTime: 'EndTime',
+      executorId: 'ExecutorId',
       hostName: 'HostName',
       ipAddress: 'IpAddress',
       status: 'Status',
@@ -2481,6 +3413,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
       arrayIndex: 'number',
       createTime: 'string',
       endTime: 'string',
+      executorId: 'string',
       hostName: { 'type': 'array', 'itemType': 'string' },
       ipAddress: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
@@ -2495,7 +3428,15 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
 
 export class ListJobsRequestFilter extends $tea.Model {
   jobId?: string;
+  /**
+   * @example
+   * testJob
+   */
   jobName?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   timeCreatedAfter?: number;
   timeCreatedBefore?: number;
@@ -2525,7 +3466,15 @@ export class ListJobsRequestFilter extends $tea.Model {
 }
 
 export class ListJobsRequestSortBy extends $tea.Model {
+  /**
+   * @example
+   * time_start
+   */
   label?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2547,15 +3496,43 @@ export class ListJobsRequestSortBy extends $tea.Model {
 }
 
 export class ListJobsResponseBodyJobList extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-25 12:29:21
+   */
   createTime?: string;
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   executorCount?: number;
   jobDescription?: string;
+  /**
+   * @example
+   * job-xxx
+   */
   jobId?: string;
+  /**
+   * @example
+   * testJob
+   */
   jobName?: string;
+  /**
+   * @example
+   * 129xxxx
+   */
   ownerUid?: string;
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   taskCount?: number;
   taskSustainable?: boolean;
   static names(): { [key: string]: string } {
@@ -2619,11 +3596,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加托管侧用户自定义镜像
-   *
-   * @param tmpReq AddImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddImageResponse
+   * 添加托管侧用户自定义镜像
+   * 
+   * @param tmpReq - AddImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddImageResponse
    */
   async addImageWithOptions(tmpReq: AddImageRequest, runtime: $Util.RuntimeOptions): Promise<AddImageResponse> {
     Util.validateModel(tmpReq);
@@ -2676,10 +3653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加托管侧用户自定义镜像
-   *
-   * @param request AddImageRequest
-   * @return AddImageResponse
+   * 添加托管侧用户自定义镜像
+   * 
+   * @param request - AddImageRequest
+   * @returns AddImageResponse
    */
   async addImage(request: AddImageRequest): Promise<AddImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2687,11 +3664,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交任务
-   *
-   * @param tmpReq CreateJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateJobResponse
+   * 提交任务
+   * 
+   * @param tmpReq - CreateJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateJobResponse
    */
   async createJobWithOptions(tmpReq: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(tmpReq);
@@ -2740,10 +3717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交任务
-   *
-   * @param request CreateJobRequest
-   * @return CreateJobResponse
+   * 提交任务
+   * 
+   * @param request - CreateJobRequest
+   * @returns CreateJobResponse
    */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2751,11 +3728,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除作业
-   *
-   * @param tmpReq DeleteJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteJobsResponse
+   * 删除作业
+   * 
+   * @param tmpReq - DeleteJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobsResponse
    */
   async deleteJobsWithOptions(tmpReq: DeleteJobsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteJobsResponse> {
     Util.validateModel(tmpReq);
@@ -2796,10 +3773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除作业
-   *
-   * @param request DeleteJobsRequest
-   * @return DeleteJobsResponse
+   * 删除作业
+   * 
+   * @param request - DeleteJobsRequest
+   * @returns DeleteJobsResponse
    */
   async deleteJobs(request: DeleteJobsRequest): Promise<DeleteJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2807,11 +3784,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业性能数据
-   *
-   * @param tmpReq DescribeJobMetricDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeJobMetricDataResponse
+   * 查询作业性能数据
+   * 
+   * @param tmpReq - DescribeJobMetricDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJobMetricDataResponse
    */
   async describeJobMetricDataWithOptions(tmpReq: DescribeJobMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMetricDataResponse> {
     Util.validateModel(tmpReq);
@@ -2856,10 +3833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业性能数据
-   *
-   * @param request DescribeJobMetricDataRequest
-   * @return DescribeJobMetricDataResponse
+   * 查询作业性能数据
+   * 
+   * @param request - DescribeJobMetricDataRequest
+   * @returns DescribeJobMetricDataResponse
    */
   async describeJobMetricData(request: DescribeJobMetricDataRequest): Promise<DescribeJobMetricDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2867,11 +3844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业即时监控项
-   *
-   * @param tmpReq DescribeJobMetricLastRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeJobMetricLastResponse
+   * 查询作业即时监控项
+   * 
+   * @param tmpReq - DescribeJobMetricLastRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJobMetricLastResponse
    */
   async describeJobMetricLastWithOptions(tmpReq: DescribeJobMetricLastRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMetricLastResponse> {
     Util.validateModel(tmpReq);
@@ -2912,10 +3889,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业即时监控项
-   *
-   * @param request DescribeJobMetricLastRequest
-   * @return DescribeJobMetricLastResponse
+   * 查询作业即时监控项
+   * 
+   * @param request - DescribeJobMetricLastRequest
+   * @returns DescribeJobMetricLastResponse
    */
   async describeJobMetricLast(request: DescribeJobMetricLastRequest): Promise<DescribeJobMetricLastResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2923,11 +3900,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询托管侧镜像详情。
-   *
-   * @param request GetImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetImageResponse
+   * 查询托管侧镜像详情。
+   * 
+   * @param request - GetImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageResponse
    */
   async getImageWithOptions(request: GetImageRequest, runtime: $Util.RuntimeOptions): Promise<GetImageResponse> {
     Util.validateModel(request);
@@ -2954,10 +3931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询托管侧镜像详情。
-   *
-   * @param request GetImageRequest
-   * @return GetImageResponse
+   * 查询托管侧镜像详情。
+   * 
+   * @param request - GetImageRequest
+   * @returns GetImageResponse
    */
   async getImage(request: GetImageRequest): Promise<GetImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2965,11 +3942,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业详情
-   *
-   * @param request GetJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobResponse
+   * 查询作业详情
+   * 
+   * @param request - GetJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobResponse
    */
   async getJobWithOptions(request: GetJobRequest, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
     Util.validateModel(request);
@@ -2996,10 +3973,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业详情
-   *
-   * @param request GetJobRequest
-   * @return GetJobResponse
+   * 查询作业详情
+   * 
+   * @param request - GetJobRequest
+   * @returns GetJobResponse
    */
   async getJob(request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3007,11 +3984,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询全局Executor信息
-   *
-   * @param tmpReq ListExecutorsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExecutorsResponse
+   * 查询全局Executor信息
+   * 
+   * @param tmpReq - ListExecutorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutorsResponse
    */
   async listExecutorsWithOptions(tmpReq: ListExecutorsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutorsResponse> {
     Util.validateModel(tmpReq);
@@ -3052,10 +4029,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询全局Executor信息
-   *
-   * @param request ListExecutorsRequest
-   * @return ListExecutorsResponse
+   * 查询全局Executor信息
+   * 
+   * @param request - ListExecutorsRequest
+   * @returns ListExecutorsResponse
    */
   async listExecutors(request: ListExecutorsRequest): Promise<ListExecutorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3063,11 +4040,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看托管侧镜像列表
-   *
-   * @param tmpReq ListImagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListImagesResponse
+   * 查看托管侧镜像列表
+   * 
+   * @param tmpReq - ListImagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImagesResponse
    */
   async listImagesWithOptions(tmpReq: ListImagesRequest, runtime: $Util.RuntimeOptions): Promise<ListImagesResponse> {
     Util.validateModel(tmpReq);
@@ -3116,10 +4093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看托管侧镜像列表
-   *
-   * @param request ListImagesRequest
-   * @return ListImagesResponse
+   * 查看托管侧镜像列表
+   * 
+   * @param request - ListImagesRequest
+   * @returns ListImagesResponse
    */
   async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3127,11 +4104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业Executor信息
-   *
-   * @param request ListJobExecutorsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobExecutorsResponse
+   * 查询作业Executor信息
+   * 
+   * @param request - ListJobExecutorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobExecutorsResponse
    */
   async listJobExecutorsWithOptions(request: ListJobExecutorsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobExecutorsResponse> {
     Util.validateModel(request);
@@ -3170,10 +4147,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业Executor信息
-   *
-   * @param request ListJobExecutorsRequest
-   * @return ListJobExecutorsResponse
+   * 查询作业Executor信息
+   * 
+   * @param request - ListJobExecutorsRequest
+   * @returns ListJobExecutorsResponse
    */
   async listJobExecutors(request: ListJobExecutorsRequest): Promise<ListJobExecutorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3181,11 +4158,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业列表
-   *
-   * @param tmpReq ListJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobsResponse
+   * 查询作业列表
+   * 
+   * @param tmpReq - ListJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobsResponse
    */
   async listJobsWithOptions(tmpReq: ListJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(tmpReq);
@@ -3234,10 +4211,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询作业列表
-   *
-   * @param request ListJobsRequest
-   * @return ListJobsResponse
+   * 查询作业列表
+   * 
+   * @param request - ListJobsRequest
+   * @returns ListJobsResponse
    */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3245,11 +4222,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 移除托管侧镜像信息。
-   *
-   * @param request RemoveImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveImageResponse
+   * 移除托管侧镜像信息。
+   * 
+   * @param request - RemoveImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveImageResponse
    */
   async removeImageWithOptions(request: RemoveImageRequest, runtime: $Util.RuntimeOptions): Promise<RemoveImageResponse> {
     Util.validateModel(request);
@@ -3276,10 +4253,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 移除托管侧镜像信息。
-   *
-   * @param request RemoveImageRequest
-   * @return RemoveImageResponse
+   * 移除托管侧镜像信息。
+   * 
+   * @param request - RemoveImageRequest
+   * @returns RemoveImageResponse
    */
   async removeImage(request: RemoveImageRequest): Promise<RemoveImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
