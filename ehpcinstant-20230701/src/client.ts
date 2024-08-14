@@ -1171,6 +1171,7 @@ export class ListJobExecutorsRequest extends $tea.Model {
 }
 
 export class ListJobExecutorsResponseBody extends $tea.Model {
+  executorStatus?: ListJobExecutorsResponseBodyExecutorStatus;
   executors?: ListJobExecutorsResponseBodyExecutors[];
   /**
    * @example
@@ -1204,6 +1205,7 @@ export class ListJobExecutorsResponseBody extends $tea.Model {
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
+      executorStatus: 'ExecutorStatus',
       executors: 'Executors',
       jobId: 'JobId',
       pageNumber: 'PageNumber',
@@ -1216,6 +1218,7 @@ export class ListJobExecutorsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      executorStatus: ListJobExecutorsResponseBodyExecutorStatus,
       executors: { 'type': 'array', 'itemType': ListJobExecutorsResponseBodyExecutors },
       jobId: 'string',
       pageNumber: 'string',
@@ -2784,6 +2787,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
    */
   executorId?: string;
   hostName?: string[];
+  image?: string;
   ipAddress?: string[];
   /**
    * @example
@@ -2817,6 +2821,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
       endTime: 'EndTime',
       executorId: 'ExecutorId',
       hostName: 'HostName',
+      image: 'Image',
       ipAddress: 'IpAddress',
       jobId: 'JobId',
       jobName: 'JobName',
@@ -2833,6 +2838,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
       endTime: 'string',
       executorId: 'string',
       hostName: { 'type': 'array', 'itemType': 'string' },
+      image: 'string',
       ipAddress: { 'type': 'array', 'itemType': 'string' },
       jobId: 'string',
       jobName: 'string',
@@ -2914,6 +2920,43 @@ export class ListImagesResponseBodyImages extends $tea.Model {
   }
 }
 
+export class ListJobExecutorsResponseBodyExecutorStatus extends $tea.Model {
+  deleted?: number;
+  exception?: number;
+  failed?: number;
+  initing?: number;
+  pending?: number;
+  running?: number;
+  succeeded?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deleted: 'Deleted',
+      exception: 'Exception',
+      failed: 'Failed',
+      initing: 'Initing',
+      pending: 'Pending',
+      running: 'Running',
+      succeeded: 'Succeeded',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleted: 'number',
+      exception: 'number',
+      failed: 'number',
+      initing: 'number',
+      pending: 'number',
+      running: 'number',
+      succeeded: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
   /**
    * @example
@@ -2930,6 +2973,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
    * 2024-02-20 10:04:18
    */
   endTime?: string;
+  executorId?: string;
   hostName?: string[];
   ipAddress?: string[];
   /**
@@ -2947,6 +2991,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
       arrayIndex: 'ArrayIndex',
       createTime: 'CreateTime',
       endTime: 'EndTime',
+      executorId: 'ExecutorId',
       hostName: 'HostName',
       ipAddress: 'IpAddress',
       status: 'Status',
@@ -2959,6 +3004,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $tea.Model {
       arrayIndex: 'number',
       createTime: 'string',
       endTime: 'string',
+      executorId: 'string',
       hostName: { 'type': 'array', 'itemType': 'string' },
       ipAddress: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
