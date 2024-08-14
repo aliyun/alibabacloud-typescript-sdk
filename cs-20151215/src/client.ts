@@ -14418,6 +14418,7 @@ export class UpgradeClusterRequest extends $tea.Model {
    * 1.16.9-aliyun.1
    */
   nextVersion?: string;
+  rollingPolicy?: UpgradeClusterRequestRollingPolicy;
   /**
    * @remarks
    * This parameter is discontinued. Specify the Kubernetes version by using the next_version parameter.
@@ -14433,6 +14434,7 @@ export class UpgradeClusterRequest extends $tea.Model {
       componentName: 'component_name',
       masterOnly: 'master_only',
       nextVersion: 'next_version',
+      rollingPolicy: 'rolling_policy',
       version: 'version',
     };
   }
@@ -14442,6 +14444,7 @@ export class UpgradeClusterRequest extends $tea.Model {
       componentName: 'string',
       masterOnly: 'boolean',
       nextVersion: 'string',
+      rollingPolicy: UpgradeClusterRequestRollingPolicy,
       version: 'string',
     };
   }
@@ -26724,6 +26727,25 @@ export class UpdateUserPermissionsRequestBody extends $tea.Model {
   }
 }
 
+export class UpgradeClusterRequestRollingPolicy extends $tea.Model {
+  maxParallelism?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxParallelism: 'max_parallelism',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxParallelism: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeClusterAddonsRequestBody extends $tea.Model {
   /**
    * @remarks
@@ -34113,6 +34135,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextVersion)) {
       body["next_version"] = request.nextVersion;
+    }
+
+    if (!Util.isUnset(request.rollingPolicy)) {
+      body["rolling_policy"] = request.rollingPolicy;
     }
 
     if (!Util.isUnset(request.version)) {
