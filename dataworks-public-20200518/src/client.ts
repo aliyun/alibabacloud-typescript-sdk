@@ -200,14 +200,29 @@ export class Entity extends $tea.Model {
 export class LineageEntityVO extends $tea.Model {
   /**
    * @example
+   * attribute map
+   */
+  attributes?: { [key: string]: string };
+  /**
+   * @example
    * http://domain.test.url/entity
    */
   detailUrl?: string;
   /**
    * @example
+   * maxcompute-table
+   */
+  entityType?: string;
+  /**
+   * @example
    * tableName
    */
   name?: string;
+  /**
+   * @example
+   * owner
+   */
+  owner?: string;
   /**
    * @example
    * dbName
@@ -220,8 +235,11 @@ export class LineageEntityVO extends $tea.Model {
   qualifiedName?: string;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'Attributes',
       detailUrl: 'DetailUrl',
+      entityType: 'EntityType',
       name: 'Name',
+      owner: 'Owner',
       parentName: 'ParentName',
       qualifiedName: 'QualifiedName',
     };
@@ -229,10 +247,45 @@ export class LineageEntityVO extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       detailUrl: 'string',
+      entityType: 'string',
       name: 'string',
+      owner: 'string',
       parentName: 'string',
       qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageRelationRegisterBulkVO extends $tea.Model {
+  /**
+   * @example
+   * 1684327487964
+   */
+  createTimestamp?: number;
+  destEntities?: LineageEntityVO[];
+  relationship?: RelationshipVO;
+  srcEntities?: LineageEntityVO[];
+  static names(): { [key: string]: string } {
+    return {
+      createTimestamp: 'CreateTimestamp',
+      destEntities: 'DestEntities',
+      relationship: 'Relationship',
+      srcEntities: 'SrcEntities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimestamp: 'number',
+      destEntities: { 'type': 'array', 'itemType': LineageEntityVO },
+      relationship: RelationshipVO,
+      srcEntities: { 'type': 'array', 'itemType': LineageEntityVO },
     };
   }
 
@@ -274,20 +327,26 @@ export class LineageRelationRegisterVO extends $tea.Model {
 }
 
 export class RelationshipVO extends $tea.Model {
+  attributes?: { [key: string]: string };
+  relationshipGuid?: string;
   /**
    * @example
    * sql
    */
-  type?: string;
+  relationshipType?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
+      attributes: 'Attributes',
+      relationshipGuid: 'RelationshipGuid',
+      relationshipType: 'RelationshipType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      relationshipGuid: 'string',
+      relationshipType: 'string',
     };
   }
 
@@ -11046,6 +11105,7 @@ export class DeleteLineageRelationRequest extends $tea.Model {
    * dfazcdfdfccdedd
    */
   relationshipGuid?: string;
+  relationshipType?: string;
   /**
    * @remarks
    * The unique identifier of the source entity.
@@ -11060,6 +11120,7 @@ export class DeleteLineageRelationRequest extends $tea.Model {
     return {
       destEntityQualifiedName: 'DestEntityQualifiedName',
       relationshipGuid: 'RelationshipGuid',
+      relationshipType: 'RelationshipType',
       srcEntityQualifiedName: 'SrcEntityQualifiedName',
     };
   }
@@ -11068,6 +11129,7 @@ export class DeleteLineageRelationRequest extends $tea.Model {
     return {
       destEntityQualifiedName: 'string',
       relationshipGuid: 'string',
+      relationshipType: 'string',
       srcEntityQualifiedName: 'string',
     };
   }
@@ -19182,7 +19244,11 @@ export class GetDISyncTaskResponse extends $tea.Model {
 export class GetDagRequest extends $tea.Model {
   /**
    * @remarks
-   * The DAG ID. You can set this parameter to the value of the DagId parameter returned by the CreateDagComplement, CreateTest, or CreateManualDag operation.
+   * The ID of the DAG. You can use one of the following method to obtain the ID:
+   * 
+   * *   Call the [RunCycleDagNodes](https://help.aliyun.com/document_detail/2780209.html) operation and obtain the value of the **Data** response parameter.
+   * *   Call the [RunSmokeTest](https://help.aliyun.com/document_detail/2780210.html) operation and obtain the value of the **Data** response parameter.
+   * *   Call the [RunManualDagNodes](https://help.aliyun.com/document_detail/2780218.html) operation and obtain the value of the **DagId** response parameter.
    * 
    * This parameter is required.
    * 
@@ -46391,7 +46457,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    * @remarks
    * The details about the data source. You are not allowed to change the type of the data source. For example, you are not allowed to change the data source type from MaxCompute to MySQL. Examples of details of some common data sources:
    * 
-   * *   MaxCompute
+   * *   odps
    * 
    *         {
    *           "accessId": "xssssss",
@@ -46402,7 +46468,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "tag": "public"
    *         }
    * 
-   * *   MySQL
+   * *   mysql
    * 
    *         {
    *           "database": "xsaxsa",
@@ -46414,7 +46480,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "xsaxsa"
    *         }
    * 
-   * *   RDS
+   * *   rds
    * 
    *         {
    *           "configType": 1,
@@ -46426,7 +46492,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "rdsOwnerId": "11111111"
    *         }
    * 
-   * *   OSS
+   * *   oss
    * 
    *         {
    *           "accessId": "sssssxx",
@@ -46436,7 +46502,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "tag": "public"
    *         }
    * 
-   * *   SQL Server
+   * *   sqlserver
    * 
    *         {
    *           "jdbcUrl": "jdbc:sqlserver://xsaxsa-xsaxsa.database.xxx.cn:123;DatabaseName=xsxs-xsxs",
@@ -46445,7 +46511,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "sxaxacdacdd"
    *         }
    * 
-   * *   PolarDB
+   * *   polardb
    * 
    *         {
    *           "clusterId": "pc-sdadsadsa",
@@ -46457,7 +46523,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "asdadsads"
    *         }
    * 
-   * *   Oracle
+   * *   oracle
    * 
    *         {
    *           "jdbcUrl": "jdbc:oracle:saaa:@xxxxx:1521:PROD",
@@ -46466,7 +46532,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "sasfadfa"
    *         }
    * 
-   * *   MongoDB
+   * *   mongodb
    * 
    *         {
    *           "address": "[\\"xsaxxsa.mongodb.rds.aliyuncs.com:3717\\"]",
@@ -46476,7 +46542,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "dsadsadas"
    *         }
    * 
-   * *   EMR
+   * *   emr
    * 
    *         {
    *           "accessId": "xsaxsa",
@@ -46492,7 +46558,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "emrProjectId": "FP-sdadsad"
    *         }
    * 
-   * *   PostgreSQL
+   * *   postgresql
    * 
    *         {
    *           "jdbcUrl": "jdbc:postgresql://xxxx:1921/ssss",
@@ -46501,7 +46567,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "sdsasda"
    *         }
    * 
-   * *   AnalyticDB for MySQL
+   * *   analyticdb_for_mysql
    * 
    *         {
    *           "instanceId": "am-sadsada",
@@ -46511,7 +46577,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "connectionString": "am-xssxsxs.ads.aliyuncs.com:3306"
    *         }
    * 
-   * *   HybridDB for PostgreSQL
+   * *   hybriddb_for_postgresql
    * 
    *         {
    *           "connectionString": "gp-xsaxsaxa-master.gpdbmaster.rds.aliyuncs.com",
@@ -46523,7 +46589,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "username": "sadsad"
    *         }
    * 
-   * *   Hologres
+   * *   holo
    * 
    *         {
    *           "accessId": "xsaxsaxs",
@@ -46533,7 +46599,7 @@ export class UpdateDataSourceRequest extends $tea.Model {
    *           "tag": "aliyun"
    *         }
    * 
-   * *   Kafka
+   * *   kafka
    * 
    *         {
    *           "instanceId": "xsax-cn-xsaxsa",
@@ -87341,6 +87407,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.relationshipGuid)) {
       query["RelationshipGuid"] = request.relationshipGuid;
+    }
+
+    if (!Util.isUnset(request.relationshipType)) {
+      query["RelationshipType"] = request.relationshipType;
     }
 
     if (!Util.isUnset(request.srcEntityQualifiedName)) {
