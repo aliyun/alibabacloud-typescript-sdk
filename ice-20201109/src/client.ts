@@ -11831,6 +11831,7 @@ export class ListMediaProducingJobsRequest extends $tea.Model {
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
+  projectId?: string;
   /**
    * @example
    * CreationTime:Desc
@@ -11854,6 +11855,7 @@ export class ListMediaProducingJobsRequest extends $tea.Model {
       masterJobId: 'MasterJobId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      projectId: 'ProjectId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
       status: 'Status',
@@ -11868,6 +11870,7 @@ export class ListMediaProducingJobsRequest extends $tea.Model {
       masterJobId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      projectId: 'string',
       sortBy: 'string',
       startTime: 'string',
       status: 'string',
@@ -54249,6 +54252,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.sortBy)) {
