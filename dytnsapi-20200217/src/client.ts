@@ -905,6 +905,129 @@ export class DescribeEmptyNumberResponse extends $tea.Model {
   }
 }
 
+export class DescribeMobileOperatorAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
+  authCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  inputNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
+  mask?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMobileOperatorAttributeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  code?: string;
+  data?: DescribeMobileOperatorAttributeResponseBodyData;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  message?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: DescribeMobileOperatorAttributeResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMobileOperatorAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMobileOperatorAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMobileOperatorAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePhoneNumberAnalysisRequest extends $tea.Model {
   /**
    * @remarks
@@ -5818,6 +5941,71 @@ export class DescribeEmptyNumberResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeMobileOperatorAttributeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  basicCarrier?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  carrier?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  city?: string;
+  /**
+   * @example
+   * true
+   */
+  isNumberPortability?: boolean;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  province?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  realNumber?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  segmentCarrier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basicCarrier: 'BasicCarrier',
+      carrier: 'Carrier',
+      city: 'City',
+      isNumberPortability: 'IsNumberPortability',
+      province: 'Province',
+      realNumber: 'RealNumber',
+      segmentCarrier: 'SegmentCarrier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicCarrier: 'string',
+      carrier: 'string',
+      city: 'string',
+      isNumberPortability: 'boolean',
+      province: 'string',
+      realNumber: 'string',
+      segmentCarrier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePhoneNumberAnalysisResponseBodyDataList extends $tea.Model {
   /**
    * @example
@@ -8076,6 +8264,68 @@ export default class Client extends OpenApi {
   async describeEmptyNumber(request: DescribeEmptyNumberRequest): Promise<DescribeEmptyNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEmptyNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * 号码归属地查询v2
+   * 
+   * @param request - DescribeMobileOperatorAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMobileOperatorAttributeResponse
+   */
+  async describeMobileOperatorAttributeWithOptions(request: DescribeMobileOperatorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMobileOperatorAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMobileOperatorAttribute",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMobileOperatorAttributeResponse>(await this.callApi(params, req, runtime), new DescribeMobileOperatorAttributeResponse({}));
+  }
+
+  /**
+   * 号码归属地查询v2
+   * 
+   * @param request - DescribeMobileOperatorAttributeRequest
+   * @returns DescribeMobileOperatorAttributeResponse
+   */
+  async describeMobileOperatorAttribute(request: DescribeMobileOperatorAttributeRequest): Promise<DescribeMobileOperatorAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMobileOperatorAttributeWithOptions(request, runtime);
   }
 
   /**
