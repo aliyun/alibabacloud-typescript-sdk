@@ -13299,6 +13299,7 @@ export class DeleteRumAppResponse extends $tea.Model {
 }
 
 export class DeleteRumUploadFileRequest extends $tea.Model {
+  batchItems?: string;
   /**
    * @remarks
    * The file name, with the extension.
@@ -13310,6 +13311,8 @@ export class DeleteRumUploadFileRequest extends $tea.Model {
   /**
    * @remarks
    * The application ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * atc889zkcf@d8deedfa9bf****
@@ -13343,6 +13346,7 @@ export class DeleteRumUploadFileRequest extends $tea.Model {
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
+      batchItems: 'BatchItems',
       fileName: 'FileName',
       pid: 'Pid',
       regionId: 'RegionId',
@@ -13353,6 +13357,7 @@ export class DeleteRumUploadFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      batchItems: 'string',
       fileName: 'string',
       pid: 'string',
       regionId: 'string',
@@ -70232,6 +70237,10 @@ export default class Client extends OpenApi {
   async deleteRumUploadFileWithOptions(request: DeleteRumUploadFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRumUploadFileResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.batchItems)) {
+      query["BatchItems"] = request.batchItems;
+    }
+
     if (!Util.isUnset(request.fileName)) {
       query["FileName"] = request.fileName;
     }
