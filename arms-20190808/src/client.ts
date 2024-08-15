@@ -1495,7 +1495,54 @@ export class QueryDataResponse extends $tea.Model {
   }
 }
 
-export class DataBonreeSDKConfigModuleConfigValue extends $tea.Model {
+export class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends $tea.Model {
+  useCustom?: boolean;
+  customConfig?: { [key: string]: DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue };
+  description?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      useCustom: 'useCustom',
+      customConfig: 'customConfig',
+      description: 'description',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      useCustom: 'boolean',
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue },
+      description: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue extends $tea.Model {
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3440,6 +3487,10 @@ export class BindPrometheusGrafanaInstanceResponse extends $tea.Model {
 export class BlockAlarmNotificationRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the alert.
+   * 
+   * For more information about how to obtain the ID of an alert, see [ListAlertEvents](https://help.aliyun.com/document_detail/2612346.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3447,6 +3498,9 @@ export class BlockAlarmNotificationRequest extends $tea.Model {
    */
   alarmId?: number;
   /**
+   * @remarks
+   * The ID of the alert handler.
+   * 
    * @example
    * 2044049
    */
@@ -3461,6 +3515,8 @@ export class BlockAlarmNotificationRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The number of seconds that elapse before alert notifications are blocked. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3569,6 +3625,10 @@ export class BlockAlarmNotificationResponse extends $tea.Model {
 export class ChangeAlarmSeverityRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the alert.
+   * 
+   * For more information about how to obtain the ID of an alert, see [ListAlertEvents](https://help.aliyun.com/document_detail/2612346.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4046,7 +4106,9 @@ export class CheckServiceStatusResponse extends $tea.Model {
 export class ClaimAlarmRequest extends $tea.Model {
   /**
    * @remarks
-   * The alert ID.
+   * The ID of the alert.
+   * 
+   * For more information about how to obtain the ID of an alert, see [ListAlertEvents](https://help.aliyun.com/document_detail/2612346.html).
    * 
    * This parameter is required.
    * 
@@ -4131,7 +4193,11 @@ export class ClaimAlarmResponseBody extends $tea.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * `true`
+   * 
+   * `false`
    * 
    * @example
    * true
@@ -4190,7 +4256,9 @@ export class ClaimAlarmResponse extends $tea.Model {
 export class CloseAlarmRequest extends $tea.Model {
   /**
    * @remarks
-   * The alert ID.
+   * The ID of the alert.
+   * 
+   * For more information about how to obtain the ID of an alert, see [ListAlertEvents](https://help.aliyun.com/document_detail/2612346.html).
    * 
    * This parameter is required.
    * 
@@ -4200,7 +4268,7 @@ export class CloseAlarmRequest extends $tea.Model {
   alarmId?: number;
   /**
    * @remarks
-   * The ID of the handler.
+   * The ID of the alert handler.
    * 
    * @example
    * 2048065
@@ -4218,7 +4286,7 @@ export class CloseAlarmRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The solution to the alert.
+   * The alert solution.
    */
   solution?: string;
   static names(): { [key: string]: string } {
@@ -5371,7 +5439,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
    * The subtype of the environment. Valid values:
    * 
    * *   CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
-   * *   ECS: Elastic Compute Service (ECS)
+   * *   ECS: ECS
    * *   Cloud: cloud service
    * 
    * This parameter is required.
@@ -5384,8 +5452,8 @@ export class CreateEnvironmentRequest extends $tea.Model {
    * @remarks
    * The type of the environment. Valid values:
    * 
-   * *   CS: ACK
-   * *   ECS: ECS
+   * *   CS: Container Service
+   * *   ECS: Elastic Compute Service
    * *   Cloud: cloud service
    * 
    * This parameter is required.
@@ -5396,7 +5464,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
   environmentType?: string;
   /**
    * @remarks
-   * The payable resource plan. Valid values:
+   * The payable resource plan.
    * 
    * *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
    * *   Otherwise, leave the parameter empty.
@@ -5415,7 +5483,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
   grafanaWorkspaceId?: string;
   /**
    * @remarks
-   * Whether to initialize the environment.
+   * Specifies whether to initialize the environment.
    * 
    * @example
    * false
@@ -6135,12 +6203,14 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   alertStatus?: string;
   /**
    * @remarks
-   * *   APPLICATION_MONITORING_ALERT_RULE
-   * *   BROWSER_MONITORING_ALERT_RULE
-   * *   XTRACE_MONITORING_ALERT_RULE
-   * *   RUM_MONITORING_ALERT_RULE
-   * *   EBPF_MONITORING_ALERT_RULE
-   * *   PROMETHEUS_MONITORING_ALERT_RULE
+   * The type of the alert rule. Valid values:
+   * 
+   * *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+   * *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+   * *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
+   * *   XTRACE_MONITORING_ALERT_RULE: alert rule for Managed Service for OpenTelemetry
+   * *   EBPF_MONITORING_ALERT_RULE: alert rule for Application Monitoring eBPF Edition
+   * *   RUM_MONITORING_ALERT_RULE: alert rule for Real User Monitoring
    * 
    * This parameter is required.
    * 
@@ -6169,7 +6239,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   autoAddNewApplication?: boolean;
   /**
    * @remarks
-   * Application monitoring alarm rules - Alarm application automatically adds configuration. auto Add Match Type: Matching method: regular match (REGULAR)/regular non-match (NOT_REGULAR) auto Add Match Exp: regular expression
+   * The configurations that are automatically appended to monitor the application based on the specified alert rule. autoAddMatchType: the matching mode. Valid values: REGULAR and NOT_REGULAR. autoAddMatchExp: the regular expression
    * 
    * @example
    * {\\"autoAddMatchType\\":\\"REGULAR\\",\\"autoAddMatchExp\\":\\".*cbw.*\\"}
@@ -6290,7 +6360,12 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   notice?: string;
   /**
    * @remarks
-   * Notification Mode. Normal mode or Simplified mode.
+   * The notification mode. You can specify the normal mode or simple mode.
+   * 
+   * Valid values:
+   * 
+   * *   DIRECTED_MODE
+   * *   NORMAL_MODE
    * 
    * @example
    * NORMAL_MODE
@@ -7020,7 +7095,7 @@ export class CreateOrUpdateIMRobotRequest extends $tea.Model {
    * 
    * *   `dingding`: DingTalk chatbot
    * *   `wechat`: WeCom chatbot
-   * *   `feishu`: Lark chatbot.
+   * *   `feishu`: Lark chatbot
    * 
    * This parameter is required.
    * 
@@ -7405,6 +7480,11 @@ export class CreateOrUpdateNotificationPolicyResponse extends $tea.Model {
 
 export class CreateOrUpdateSilencePolicyRequest extends $tea.Model {
   /**
+   * @example
+   * PERMANENT
+   */
+  effectiveTimeType?: string;
+  /**
    * @remarks
    * The ID of the silence policy.
    * 
@@ -7461,23 +7541,39 @@ export class CreateOrUpdateSilencePolicyRequest extends $tea.Model {
    * enable
    */
   state?: string;
+  /**
+   * @example
+   * DAY
+   */
+  timePeriod?: string;
+  /**
+   * @example
+   * [{"startTime":"2024-08-04 22:13","endTime":"2024-08-04 22:21"}]
+   */
+  timeSlots?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveTimeType: 'EffectiveTimeType',
       id: 'Id',
       matchingRules: 'MatchingRules',
       name: 'Name',
       regionId: 'RegionId',
       state: 'State',
+      timePeriod: 'TimePeriod',
+      timeSlots: 'TimeSlots',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      effectiveTimeType: 'string',
       id: 'number',
       matchingRules: 'string',
       name: 'string',
       regionId: 'string',
       state: 'string',
+      timePeriod: 'string',
+      timeSlots: 'string',
     };
   }
 
@@ -8545,7 +8641,7 @@ export class CreateRumAppRequest extends $tea.Model {
    * The nick name.
    * 
    * @example
-   * test-user
+   * test-app
    */
   nickName?: string;
   /**
@@ -8664,7 +8760,7 @@ export class CreateRumAppShrinkRequest extends $tea.Model {
    * The nick name.
    * 
    * @example
-   * test-user
+   * test-app
    */
   nickName?: string;
   /**
@@ -8778,7 +8874,7 @@ export class CreateRumAppResponseBody extends $tea.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * success
@@ -9935,7 +10031,10 @@ export class DelAuthTokenResponse extends $tea.Model {
 export class DeleteAddonReleaseRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the add-on.
+   * The name of the add-on. If you assign a value to AddonName, the ReleaseName parameter is ignored and all AddonReleases that belong to the same add-on are deleted.
+   * 
+   * @example
+   * mysql
    */
   addonName?: string;
   /**
@@ -10304,10 +10403,9 @@ export class DeleteAlertContactGroupResponse extends $tea.Model {
 export class DeleteAlertRuleRequest extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether the alert rule was successfully deleted.
+   * The alert rule ID.
    * 
-   * *   `true`: The specified data is deleted.
-   * *   `false`: The specified data fails to be deleted.
+   * For more information about how to obtain the ID of an alert rule, see [GetAlertRules](https://help.aliyun.com/document_detail/2612348.html).
    * 
    * This parameter is required.
    * 
@@ -11653,7 +11751,7 @@ export class DeleteEnvironmentFeatureResponse extends $tea.Model {
 export class DeleteEventBridgeIntegrationRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the EventBridge integration. You can call the **ListEventBridgeIntegrations** operation to query the ID.
+   * Required. The ID of the EventBridge notification integration. You can call the **ListEventBridgeIntegrations** operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -12303,7 +12401,9 @@ export class DeleteIntegrationsResponse extends $tea.Model {
 export class DeleteNotificationPolicyRequest extends $tea.Model {
   /**
    * @remarks
-   * Deletes a notification policy based on its ID.
+   * The ID of the notification policy.
+   * 
+   * For more information about how to obtain the ID of a notification policy, see [ListNotificationPolicies](https://help.aliyun.com/document_detail/2612375.html).
    * 
    * This parameter is required.
    * 
@@ -13472,7 +13572,9 @@ export class DeleteScenarioResponse extends $tea.Model {
 export class DeleteSilencePolicyRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the silence policy.
+   * 
+   * For more information about how to obtain the ID of a silence policy, see [ListSilencePolicies](https://help.aliyun.com/document_detail/2612383.html).
    * 
    * This parameter is required.
    * 
@@ -15345,6 +15447,13 @@ export class DescribeEnvironmentResponse extends $tea.Model {
 }
 
 export class DescribeEnvironmentFeatureRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Language, en | zh.
+   * 
+   * @example
+   * en
+   */
   aliyunLang?: string;
   /**
    * @remarks
@@ -15362,21 +15471,9 @@ export class DescribeEnvironmentFeatureRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   app-agent-pilot
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   metric-agent
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   app-agent-pilot: App Pilot agent
+   * *   arms-cmonitor: ARMS CMonitor agent
+   * *   metric-agent: Prometheus agent
    * 
    * This parameter is required.
    * 
@@ -16280,7 +16377,7 @@ export class GetAlertRulesRequest extends $tea.Model {
    * *   STOPPED
    * *   PAUSED
    * 
-   * > The **PAUSED** status indicates that the alert rule is abnormal and is actively paused by the system. The alert rule may be paused because that it is not unique or the associated cluster has been deleted.
+   * >  The PAUSED state indicates that the alert rule is abnormal and has been suspended. This may be because the specified threshold value is excessively large, or the associated cluster has been deleted.
    * 
    * @example
    * RUNNING
@@ -16288,11 +16385,11 @@ export class GetAlertRulesRequest extends $tea.Model {
   alertStatus?: string;
   /**
    * @remarks
-   * The type of the alert rule.
+   * The type of the alert rule. Valid values:
    * 
    * *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
-   * *   BROWSER_MONITORING_ALERT_RULE: an alert rule for Browser Monitoring.
-   * *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus.
+   * *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+   * *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
    * 
    * @example
    * APPLICATION_MONITORING_ALERT_RULE
@@ -19376,7 +19473,7 @@ export class GetRumAppInfoResponseBody extends $tea.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * StartTime is mandatory for this action.
@@ -19897,6 +19994,13 @@ export class GetRumExceptionStackRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The file type. Valid values:
+   * 
+   * *   source-map: SourceMap files
+   * *   mapping: symbol table files for Android
+   * *   dsym: dSYM files for iOS
+   * 
    * @example
    * source-map
    */
@@ -20015,33 +20119,69 @@ export class GetRumExceptionStackResponse extends $tea.Model {
 
 export class GetRumOcuStatisticDataRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query. Unit: milliseconds.
+   * 
    * @example
    * 1687849260000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The filter condition. Three types of filter conditions are provided:
+   * 
+   * *   Application name: pid (Note that the application name is displayed, but the application ID is actually specified)
+   * *   Application type: siteType
+   * *   Data type: dataType
+   */
   filter?: GetRumOcuStatisticDataRequestFilter[];
+  /**
+   * @remarks
+   * The grouping fields. Valid values:
+   * 
+   * *   siteType: The total number of OCUs is grouped by application type.
+   * *   dataType: The total number of OCUs is grouped by data type.
+   * *   pid: The total number of OCUs is grouped by application ID.
+   * *   appName: The total number of OCUs is grouped by application name.
+   * *   startTime: The total number of OCUs is grouped by start time.
+   */
   group?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of the query. To query non-time series data, set the value to INSTANT. To query time series data, set the value to TIME_SERIES.
+   * 
    * @example
    * TIME_SERIES
    */
   queryType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Unit: milliseconds.
+   * 
    * @example
    * 1600063200000
    */
@@ -20079,33 +20219,69 @@ export class GetRumOcuStatisticDataRequest extends $tea.Model {
 
 export class GetRumOcuStatisticDataShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query. Unit: milliseconds.
+   * 
    * @example
    * 1687849260000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The filter condition. Three types of filter conditions are provided:
+   * 
+   * *   Application name: pid (Note that the application name is displayed, but the application ID is actually specified)
+   * *   Application type: siteType
+   * *   Data type: dataType
+   */
   filterShrink?: string;
+  /**
+   * @remarks
+   * The grouping fields. Valid values:
+   * 
+   * *   siteType: The total number of OCUs is grouped by application type.
+   * *   dataType: The total number of OCUs is grouped by data type.
+   * *   pid: The total number of OCUs is grouped by application ID.
+   * *   appName: The total number of OCUs is grouped by application name.
+   * *   startTime: The total number of OCUs is grouped by start time.
+   */
   groupShrink?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of the query. To query non-time series data, set the value to INSTANT. To query time series data, set the value to TIME_SERIES.
+   * 
    * @example
    * TIME_SERIES
    */
   queryType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Unit: milliseconds.
+   * 
    * @example
    * 1600063200000
    */
@@ -20143,15 +20319,26 @@ export class GetRumOcuStatisticDataShrinkRequest extends $tea.Model {
 
 export class GetRumOcuStatisticDataResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned struct.
+   */
   data?: GetRumOcuStatisticDataResponseBodyData;
+  /**
+   * @remarks
+   * The error message returned if the request failed.
+   */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 626037F5-FDEB-45B0-804C-B3C92797****
@@ -23078,7 +23265,7 @@ export class ListAlertEventsRequest extends $tea.Model {
   page?: number;
   /**
    * @remarks
-   * Whether to display the associated notification policies.
+   * Specifies whether to show the associated notification policy.
    * 
    * @example
    * false
@@ -24802,6 +24989,10 @@ export class ListEnvironmentsRequest extends $tea.Model {
    * CS_Pro
    */
   feePackage?: string;
+  /**
+   * @remarks
+   * The region IDs.
+   */
   filterRegionIds?: string;
   /**
    * @remarks
@@ -24934,6 +25125,10 @@ export class ListEnvironmentsShrinkRequest extends $tea.Model {
    * CS_Pro
    */
   feePackage?: string;
+  /**
+   * @remarks
+   * The region IDs.
+   */
   filterRegionIds?: string;
   /**
    * @remarks
@@ -27159,6 +27354,13 @@ export class ListSilencePoliciesResponse extends $tea.Model {
 }
 
 export class ListSyntheticDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array of filter conditions. This parameter is required.
+   * 
+   * *   To query the list of synthetic test results, set this parameter in the following format: [{"Key":"taskType","OpType":"in","Value":[Task type]}].
+   * *   To query the result details of a synthetic monitoring task, set this parameter in the following format: [{"Key":"dataId","OpType":"eq","Value":"dataId"}]. dataId is returned when you query the list of synthetic test results.
+   */
   advancedFilters?: ListSyntheticDetailRequestAdvancedFilters[];
   /**
    * @example
@@ -27166,6 +27368,17 @@ export class ListSyntheticDetailRequest extends $tea.Model {
    */
   category?: string;
   /**
+   * @remarks
+   * The type of the list that contains the results. This parameter is required. Valid values:
+   * 
+   * *   ICMP_LIST
+   * *   TCP_LIST
+   * *   DNS_LIST
+   * *   HTTP_LIST
+   * *   WEBSITE_LIST
+   * *   DOWNLOAD_LIST
+   * *   ALL
+   * 
    * @example
    * ICMP_LIST
    */
@@ -27176,6 +27389,13 @@ export class ListSyntheticDetailRequest extends $tea.Model {
    */
   endTime?: number;
   exactFilters?: ListSyntheticDetailRequestExactFilters[];
+  /**
+   * @remarks
+   * The filter condition. This parameter is required.
+   * 
+   * *   To query the result of a synthetic monitoring task, set this parameter in the following format: {"taskId":"${taskId}"}.
+   * *   To query the result details of a synthetic monitoring task, set this parameter in the following format: {"taskId":"${taskId}","dataId":"${dataId}"}.
+   */
   filters?: { [key: string]: string };
   /**
    * @example
@@ -27254,6 +27474,13 @@ export class ListSyntheticDetailRequest extends $tea.Model {
 }
 
 export class ListSyntheticDetailShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array of filter conditions. This parameter is required.
+   * 
+   * *   To query the list of synthetic test results, set this parameter in the following format: [{"Key":"taskType","OpType":"in","Value":[Task type]}].
+   * *   To query the result details of a synthetic monitoring task, set this parameter in the following format: [{"Key":"dataId","OpType":"eq","Value":"dataId"}]. dataId is returned when you query the list of synthetic test results.
+   */
   advancedFiltersShrink?: string;
   /**
    * @example
@@ -27261,6 +27488,17 @@ export class ListSyntheticDetailShrinkRequest extends $tea.Model {
    */
   category?: string;
   /**
+   * @remarks
+   * The type of the list that contains the results. This parameter is required. Valid values:
+   * 
+   * *   ICMP_LIST
+   * *   TCP_LIST
+   * *   DNS_LIST
+   * *   HTTP_LIST
+   * *   WEBSITE_LIST
+   * *   DOWNLOAD_LIST
+   * *   ALL
+   * 
    * @example
    * ICMP_LIST
    */
@@ -27271,6 +27509,13 @@ export class ListSyntheticDetailShrinkRequest extends $tea.Model {
    */
   endTime?: number;
   exactFiltersShrink?: string;
+  /**
+   * @remarks
+   * The filter condition. This parameter is required.
+   * 
+   * *   To query the result of a synthetic monitoring task, set this parameter in the following format: {"taskId":"${taskId}"}.
+   * *   To query the result details of a synthetic monitoring task, set this parameter in the following format: {"taskId":"${taskId}","dataId":"${dataId}"}.
+   */
   filtersShrink?: string;
   /**
    * @example
@@ -28465,7 +28710,9 @@ export class OpenXtraceDefaultSLRResponse extends $tea.Model {
 export class QueryAppMetadataRequest extends $tea.Model {
   /**
    * @remarks
-   * The list of metadata IDs. Separate multiple IDs with commas (,).
+   * The metadata IDs. Separate multiple IDs with commas (,).
+   * 
+   * You can obtain the exception ID on the **Exception Analysis** page of your application in the ARMS console.
    * 
    * This parameter is required.
    * 
@@ -28475,7 +28722,10 @@ export class QueryAppMetadataRequest extends $tea.Model {
   metaIds?: string;
   /**
    * @remarks
-   * The metadata type. Valid values: sql: obtains an SQL statement based on sqlId exception: obtains the exception stack based on exceptionId
+   * The metadata type. Valid values:
+   * 
+   * *   sql: obtains an SQL statement based on sqlId.
+   * *   exception: obtains the exception stack based on exceptionId.
    * 
    * This parameter is required.
    * 
@@ -28485,7 +28735,7 @@ export class QueryAppMetadataRequest extends $tea.Model {
   metaType?: string;
   /**
    * @remarks
-   * The process identifier (PID) of the application. For more information about how to obtain the PID, see "Obtain the PID of an application."
+   * The process identifier (PID) of the application. You can obtain the PID of an application by calling the **ListTraceApps** operation.
    * 
    * This parameter is required.
    * 
@@ -28495,7 +28745,7 @@ export class QueryAppMetadataRequest extends $tea.Model {
   pid?: string;
   /**
    * @remarks
-   * The region ID. Default value: cn-hangzhou.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -29021,6 +29271,11 @@ export class QueryCommercialUsageRequest extends $tea.Model {
   /**
    * @remarks
    * The time interval between data slices. Unit: seconds. Minimum value: 3600.
+   * 
+   * Valid values:
+   * 
+   * *   3600: hours
+   * *   86400: days
    * 
    * @example
    * 3600
@@ -36358,7 +36613,7 @@ export class UpdateRumAppRequest extends $tea.Model {
   restart?: boolean;
   /**
    * @remarks
-   * Set the application service domain name, support creation, modification, and deletion of service domain name configuration.
+   * The service domain name of the application. You can create, modify, and delete service domain name configurations.
    * 
    * @example
    * {\\"Op\\":\\"Update\\",\\"Domain\\":\\"example.com\\",\\"Config\\":{\\"Description\\":\\"message\\",\\"Tracing\\":\\"true\\",\\"PropagatorTypes\\":[\\"sw8\\"]}}
@@ -39927,6 +40182,7 @@ export class CreateOrUpdateSilencePolicyResponseBodySilencePolicyMatchingRules e
 }
 
 export class CreateOrUpdateSilencePolicyResponseBodySilencePolicy extends $tea.Model {
+  effectiveTimeType?: string;
   /**
    * @remarks
    * The ID of the silence policy.
@@ -39956,21 +40212,29 @@ export class CreateOrUpdateSilencePolicyResponseBodySilencePolicy extends $tea.M
    * enable
    */
   state?: string;
+  timePeriod?: string;
+  timeSlots?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveTimeType: 'EffectiveTimeType',
       id: 'Id',
       matchingRules: 'MatchingRules',
       name: 'Name',
       state: 'State',
+      timePeriod: 'TimePeriod',
+      timeSlots: 'TimeSlots',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      effectiveTimeType: 'string',
       id: 'number',
       matchingRules: { 'type': 'array', 'itemType': CreateOrUpdateSilencePolicyResponseBodySilencePolicyMatchingRules },
       name: 'string',
       state: 'string',
+      timePeriod: 'string',
+      timeSlots: 'string',
     };
   }
 
@@ -44357,7 +44621,7 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group ID bound to the environment.
+   * The ID of the security group associated with the environment.
    */
   securityGroupId?: string;
   /**
@@ -44526,7 +44790,14 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $tea.Mode
   name?: string;
   /**
    * @remarks
-   * The status.
+   * The installation status of the agent.
+   * 
+   * *   Installing: The agent is being installed.
+   * *   Success: The agent is installed.
+   * *   Failed: The agent failed to be installed.
+   * *   UnInstall: The agent is uninstalled or has not been installed.
+   * *   Uninstalling: The agent is being uninstalled.
+   * *   UnInstallFailed: The agent failed to be uninstalled.
    * 
    * @example
    * Success
@@ -44585,7 +44856,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureConta
   args?: string[];
   /**
    * @remarks
-   * The image of the container.
+   * The container image.
    * 
    * @example
    * registry-cn-hangzhou-vpc.ack.aliyuncs.com/acs/arms-prometheus-agent:v4.0.0
@@ -44593,7 +44864,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureConta
   image?: string;
   /**
    * @remarks
-   * The name of the container.
+   * The container name.
    * 
    * @example
    * arms-prometheus-operator
@@ -44621,12 +44892,23 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureConta
 }
 
 export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $tea.Model {
+  /**
+   * @remarks
+   * Binded resource ID.
+   * 
+   * @example
+   * c013823b55e4b4d6bb6b6f28682bd38a7
+   */
   bindResourceId?: string;
   /**
    * @remarks
    * The containers of the feature.
    */
   featureContainers?: DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers[];
+  /**
+   * @remarks
+   * IPs for Pod.
+   */
   ips?: string[];
   /**
    * @remarks
@@ -44644,6 +44926,13 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $te
    * arms-prom
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-bp1c9fcexoalq9po6cp8
+   */
   securityGroupId?: string;
   /**
    * @remarks
@@ -44657,6 +44946,13 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $te
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1qt6ict0dbxgv4wer8l
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44692,7 +44988,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $te
 export class DescribeEnvironmentFeatureResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The installation information of the feature.
+   * The installation information about the feature.
    */
   feature?: DescribeEnvironmentFeatureResponseBodyDataFeature;
   /**
@@ -47222,7 +47518,7 @@ export class GetPrometheusInstanceResponseBodyDataTags extends $tea.Model {
 export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * Permission type: read Write, read Only, http Read Only
+   * The permission type. Valid values: readWrite, readOnly, and httpReadOnly
    * 
    * @example
    * readWrite
@@ -47273,7 +47569,21 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * remote-write
    */
   clusterType?: string;
+  /**
+   * @remarks
+   * Backend data storage status.
+   * 
+   * @example
+   * RUNNING
+   */
   dbInstanceStatus?: string;
+  /**
+   * @remarks
+   * Whether to enable access token authentication.
+   * 
+   * @example
+   * true
+   */
   enableAuthToken?: string;
   /**
    * @remarks
@@ -47310,6 +47620,15 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * PREPAY
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * The product to which the prometheus instance belongs.
+   * - arms
+   * - cms
+   * 
+   * @example
+   * arms
+   */
   product?: string;
   /**
    * @remarks
@@ -47407,7 +47726,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * [{"headers":{},"regionId":"cn-hangzhou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c39a1048921e04fceb039db2fbb73\\*\\*\\*","sourceName":"arms-luyao-test","dataSource":"","userId":"167275301789\\*\\*\\*"},{"headers":{},"regionId":"cn-beijing","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c6b6485496d5b400abde22cb47b5\\*\\*\\*\\*","sourceName":"agent-321-test","dataSource":"","userId":"1672753017899\\*\\*\\*"},{"headers":{},"regionId":"cn-zhangjiakou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c261a4f3200c446659133f1ade789b15e","sourceName":"zaifeng-cardinality-01","dataSource":"","userId":"167275301789\\*\\*\\*"}]
    */
   subClustersJson?: string;
-  surpportAuthTypes?: string[];
+  supportAuthTypes?: string[];
   /**
    * @remarks
    * The tags of the instance.
@@ -47464,7 +47783,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       securityGroupId: 'SecurityGroupId',
       storageDuration: 'StorageDuration',
       subClustersJson: 'SubClustersJson',
-      surpportAuthTypes: 'SurpportAuthTypes',
+      supportAuthTypes: 'SupportAuthTypes',
       tags: 'Tags',
       userId: 'UserId',
       vSwitchId: 'VSwitchId',
@@ -47499,7 +47818,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       securityGroupId: 'string',
       storageDuration: 'number',
       subClustersJson: 'string',
-      surpportAuthTypes: { 'type': 'array', 'itemType': 'string' },
+      supportAuthTypes: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': GetPrometheusInstanceResponseBodyDataTags },
       userId: 'string',
       vSwitchId: 'string',
@@ -47991,20 +48310,42 @@ export class GetRetcodeLogstoreResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetRumAppInfoResponseBodyDataBonreeSDKConfig extends $tea.Model {
+export class GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig extends $tea.Model {
+  defaultConfig?: { [key: string]: DataBonreeSDKConfigModuleConfigDefaultConfigValue };
   enable?: boolean;
-  moduleConfig?: { [key: string]: DataBonreeSDKConfigModuleConfigValue };
+  versionConfigs?: { [key: string]: DataBonreeSDKConfigModuleConfigVersionConfigsValue };
   static names(): { [key: string]: string } {
     return {
+      defaultConfig: 'defaultConfig',
       enable: 'enable',
+      versionConfigs: 'versionConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultConfig: { 'type': 'map', 'keyType': 'string', 'valueType': DataBonreeSDKConfigModuleConfigDefaultConfigValue },
+      enable: 'boolean',
+      versionConfigs: { 'type': 'map', 'keyType': 'string', 'valueType': DataBonreeSDKConfigModuleConfigVersionConfigsValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoResponseBodyDataBonreeSDKConfig extends $tea.Model {
+  moduleConfig?: GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig;
+  static names(): { [key: string]: string } {
+    return {
       moduleConfig: 'moduleConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enable: 'boolean',
-      moduleConfig: { 'type': 'map', 'keyType': 'string', 'valueType': DataBonreeSDKConfigModuleConfigValue },
+      moduleConfig: GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig,
     };
   }
 
@@ -48016,15 +48357,15 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfig extends $tea.Model {
 export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $tea.Model {
   /**
    * @remarks
-   * Describe.
+   * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Domain name or IP.
+   * The domain name or IP address.
    * 
    * @example
    * example.com
@@ -48032,14 +48373,16 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $tea.Mode
   domain?: string;
   /**
    * @remarks
-   * Trace transparent transmission protocol list, must be transmitted when link tracking is enabled.
+   * The trace propagation protocols. This parameter is required if the tracing analysis feature is enabled.
    */
   propagatorTypes?: string[];
+  samplingRate?: number;
   /**
    * @remarks
-   * Whether to enable link tracking (need to enable the observable link Open Telemetry version), value:
-   * - `true`: Enable link tracking (after enabling, the relevant header will be inserted into the domain name request).
-   * - `false`: Do not enable link tracking.
+   * Indicates whether the tracing analysis feature is enabled. To enable the tracing analysis feature, you must activate Managed Service for OpenTelemetry. Valid values:
+   * 
+   * *   `true`: enables the tracing analysis feature. If you enable the tracing analysis feature, related headers are inserted into requests for the domain name.
+   * *   `false`: disables the tracing analysis feature.
    * 
    * @example
    * true
@@ -48050,6 +48393,7 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $tea.Mode
       description: 'Description',
       domain: 'Domain',
       propagatorTypes: 'PropagatorTypes',
+      samplingRate: 'SamplingRate',
       tracing: 'Tracing',
     };
   }
@@ -48059,6 +48403,7 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $tea.Mode
       description: 'string',
       domain: 'string',
       propagatorTypes: { 'type': 'array', 'itemType': 'string' },
+      samplingRate: 'number',
       tracing: 'boolean',
     };
   }
@@ -48199,7 +48544,7 @@ export class GetRumAppInfoResponseBodyData extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Service domain name configuration list (currently only supports mobile applications).
+   * The list of service domain configurations. Only mobile applications are supported.
    */
   serviceDomainConfigs?: GetRumAppInfoResponseBodyDataServiceDomainConfigs[];
   /**
@@ -48333,15 +48678,15 @@ export class GetRumAppsRequestTags extends $tea.Model {
 export class GetRumAppsResponseBodyAppListServiceDomainConfigs extends $tea.Model {
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Domain name or IP.
+   * The domain name or IP address.
    * 
    * @example
    * example.com
@@ -48349,14 +48694,15 @@ export class GetRumAppsResponseBodyAppListServiceDomainConfigs extends $tea.Mode
   domain?: string;
   /**
    * @remarks
-   * Trace transparent transmission protocol list, which must be transmitted when link tracing is enabled.
+   * The trace propagation protocols. This parameter is required if the tracing analysis feature is enabled.
    */
   propagatorTypes?: string[];
   /**
    * @remarks
-   * Whether to enable link tracking (need to enable the observable link Open Telemetry version), value:
-   * - `true`: Enable link tracking (after enabling, the relevant header will be inserted into the domain name request).
-   * - `false`: Do not enable link tracking.
+   * Indicates whether the tracing analysis feature is enabled. To enable the tracing analysis feature, you must activate Managed Service for OpenTelemetry. Valid values:
+   * 
+   * *   `true`: enables the tracing analysis feature. If you enable the tracing analysis feature, related headers are inserted into requests for the domain name.
+   * *   `false`: disables the tracing analysis feature.
    * 
    * @example
    * true
@@ -48506,7 +48852,7 @@ export class GetRumAppsResponseBodyAppList extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Service domain name configuration list. Currently only supports mobile applications.
+   * The list of service domain configurations. Only mobile applications are supported.
    */
   serviceDomainConfigs?: GetRumAppsResponseBodyAppListServiceDomainConfigs[];
   /**
@@ -48676,16 +49022,29 @@ export class GetRumExceptionStackResponseBodyData extends $tea.Model {
 
 export class GetRumOcuStatisticDataRequestFilter extends $tea.Model {
   /**
+   * @remarks
+   * The key of the filter condition. Three types of filter conditions are provided:
+   * 
+   * *   Application name: pid (Note that the application name is displayed, but the application ID is actually specified)
+   * *   Application type: siteType
+   * *   Data type: dataType
+   * 
    * @example
    * pid
    */
   key?: string;
   /**
+   * @remarks
+   * The type of the operator. Valid value: in.
+   * 
    * @example
    * in
    */
   opType?: string;
   /**
+   * @remarks
+   * The value of the filter condition. The value is a JSON array of strings.
+   * 
    * @example
    * ["b590xxxxx@2dcbxxxxx9", "b590xxxxx@2dcbxxxxx8"]
    */
@@ -48713,22 +49072,38 @@ export class GetRumOcuStatisticDataRequestFilter extends $tea.Model {
 
 export class GetRumOcuStatisticDataResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the next page exists.
+   * 
    * @example
    * true
    */
   complete?: boolean;
+  /**
+   * @remarks
+   * The queried data.
+   */
   items?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -53474,6 +53849,10 @@ export class ListAddonsResponseBodyDataDashboards extends $tea.Model {
 }
 
 export class ListAddonsResponseBodyDataEnvironmentsDependencies extends $tea.Model {
+  /**
+   * @remarks
+   * Dependency cluster types.
+   */
   clusterTypes?: string[];
   /**
    * @remarks
@@ -54055,7 +54434,7 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $tea.Model {
   labels?: string;
   /**
    * @remarks
-   * The information about the notification policy.
+   * The associated notification policies.
    */
   notificationPolicies?: ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies[];
   /**
@@ -54102,7 +54481,7 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The number of times the alert is triggered.
+   * The number of times the event is triggered.
    * 
    * @example
    * 10
@@ -59066,6 +59445,7 @@ export class ListSilencePoliciesResponseBodyPageBeanSilencePoliciesMatchingRules
 }
 
 export class ListSilencePoliciesResponseBodyPageBeanSilencePolicies extends $tea.Model {
+  effectiveTimeType?: string;
   /**
    * @remarks
    * The ID of the silence policy.
@@ -59095,21 +59475,29 @@ export class ListSilencePoliciesResponseBodyPageBeanSilencePolicies extends $tea
    * enable
    */
   state?: string;
+  timePeriod?: string;
+  timeSlots?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveTimeType: 'EffectiveTimeType',
       id: 'Id',
       matchingRules: 'MatchingRules',
       name: 'Name',
       state: 'State',
+      timePeriod: 'TimePeriod',
+      timeSlots: 'TimeSlots',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      effectiveTimeType: 'string',
       id: 'number',
       matchingRules: { 'type': 'array', 'itemType': ListSilencePoliciesResponseBodyPageBeanSilencePoliciesMatchingRules },
       name: 'string',
       state: 'string',
+      timePeriod: 'string',
+      timeSlots: 'string',
     };
   }
 
@@ -59173,16 +59561,28 @@ export class ListSilencePoliciesResponseBodyPageBean extends $tea.Model {
 
 export class ListSyntheticDetailRequestAdvancedFilters extends $tea.Model {
   /**
+   * @remarks
+   * The filter condition. The taskType and dataId fields are supported.
+   * 
+   * *   To query the list of synthetic test results, set the key to taskType.
+   * *   To query the result details of a synthetic monitoring task, set the key to dataId.
+   * 
    * @example
    * taskType
    */
   key?: string;
   /**
+   * @remarks
+   * The type of the filter condition. Valid values: eq and in. eq: equal to. in: include.
+   * 
    * @example
    * eq
    */
   opType?: string;
   /**
+   * @remarks
+   * The value of the filter condition. The type of the task. Valid values: 1: ICMP 2: TCP 3: DNS 4: HTTP 5: website speed measurement 6: file download
+   * 
    * @example
    * 1
    */
@@ -65726,7 +66126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Prometheus instance with the ID and name of a Flink workspace.
+   * Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
    * 
    * @param request - AddTagToFlinkClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65777,7 +66177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Prometheus instance with the ID and name of a Flink workspace.
+   * Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
    * 
    * @param request - AddTagToFlinkClusterRequest
    * @returns AddTagToFlinkClusterResponse
@@ -67522,6 +67922,19 @@ export default class Client extends OpenApi {
    */
   async createOrUpdateSilencePolicyWithOptions(request: CreateOrUpdateSilencePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSilencePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.effectiveTimeType)) {
+      query["EffectiveTimeType"] = request.effectiveTimeType;
+    }
+
+    if (!Util.isUnset(request.timePeriod)) {
+      query["TimePeriod"] = request.timePeriod;
+    }
+
+    if (!Util.isUnset(request.timeSlots)) {
+      query["TimeSlots"] = request.timeSlots;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.id)) {
       body["Id"] = request.id;
@@ -67544,6 +67957,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -72450,7 +72864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RUM OCU统计数据
+   * Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
+   * 
+   * @remarks
+   * You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
    * 
    * @param tmpReq - GetRumOcuStatisticDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72487,7 +72904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RUM OCU统计数据
+   * Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
+   * 
+   * @remarks
+   * You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
    * 
    * @param request - GetRumOcuStatisticDataRequest
    * @returns GetRumOcuStatisticDataResponse
