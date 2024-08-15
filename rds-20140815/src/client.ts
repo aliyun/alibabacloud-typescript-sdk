@@ -920,121 +920,6 @@ export class CalculateDBInstanceWeightResponse extends $tea.Model {
   }
 }
 
-export class CancelImportRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The migration task ID.
-   * 
-   * >  This parameter is returned when the migration task is started. For more information, see ImportDatabaseBetweenInstances.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 8562584
-   */
-  importId?: number;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy****
-   */
-  resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      importId: 'ImportId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      importId: 'number',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelImportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 17F57FEE-EA4F-4337-8D2E-9C23CAA63D74
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelImportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelImportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelImportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CheckAccountNameAvailableRequest extends $tea.Model {
   /**
    * @remarks
@@ -1934,6 +1819,14 @@ export class CloneDBInstanceRequest extends $tea.Model {
   category?: string;
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88**********
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
    * 
    * > By default, the new instance uses the same instance type as the original primary instance.
@@ -2042,7 +1935,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit that is used to calculate the billing cycle of the new instance. Valid values:
+   * The unit that is used to calculate the billing cycle of the new instance. This parameter takes effect only when you select the subscription billing method for the new instance. Valid values:
    * 
    * *   **Year**
    * *   **Month**
@@ -2171,6 +2064,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      clientToken: 'ClientToken',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -2206,6 +2100,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
+      clientToken: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
@@ -2313,6 +2208,14 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
    * HighAvailability
    */
   category?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88**********
+   */
+  clientToken?: string;
   /**
    * @remarks
    * The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
@@ -2423,7 +2326,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit that is used to calculate the billing cycle of the new instance. Valid values:
+   * The unit that is used to calculate the billing cycle of the new instance. This parameter takes effect only when you select the subscription billing method for the new instance. Valid values:
    * 
    * *   **Year**
    * *   **Month**
@@ -2552,6 +2455,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      clientToken: 'ClientToken',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -2587,6 +2491,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
+      clientToken: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
@@ -3292,7 +3197,7 @@ export class CreateAccountRequest extends $tea.Model {
    * @remarks
    * The account type. Valid values:
    * 
-   * *   **Normal**: standard account (default).
+   * *   **Normal** (default): standard account.
    * *   **Super**: privileged account.
    * *   **Sysadmin**: system admin account. The account type is available only for ApsaraDB RDS for SQL Server instances.
    * 
@@ -3469,14 +3374,6 @@ export class CreateBackupRequest extends $tea.Model {
    * rds_mysql
    */
   DBName?: string;
-  /**
-   * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
-  resourceGroupId?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3485,7 +3382,6 @@ export class CreateBackupRequest extends $tea.Model {
       backupType: 'BackupType',
       DBInstanceId: 'DBInstanceId',
       DBName: 'DBName',
-      resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
     };
   }
@@ -3497,7 +3393,6 @@ export class CreateBackupRequest extends $tea.Model {
       backupType: 'string',
       DBInstanceId: 'string',
       DBName: 'string',
-      resourceGroupId: 'string',
       resourceOwnerId: 'number',
     };
   }
@@ -3959,13 +3854,24 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * 2
    */
   amount?: number;
+  /**
+   * @remarks
+   * 是否自动创建代理。取值范围：
+   * 
+   * - **true**：开启自动创建，默认为通用代理。
+   * 
+   * - **false**：不开启自动创建。
+   * 
+   * @example
+   * false
+   */
   autoCreateProxy?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
    * 
-   * *   **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
-   * *   **false**: does not automatically complete the payment. An unpaid order is generated.
+   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
    * 
    * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
@@ -4787,13 +4693,24 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * 2
    */
   amount?: number;
+  /**
+   * @remarks
+   * 是否自动创建代理。取值范围：
+   * 
+   * - **true**：开启自动创建，默认为通用代理。
+   * 
+   * - **false**：不开启自动创建。
+   * 
+   * @example
+   * false
+   */
   autoCreateProxy?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
    * 
-   * *   **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
-   * *   **false**: does not automatically complete the payment. An unpaid order is generated.
+   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
    * 
    * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
@@ -7239,14 +7156,6 @@ export class CreateDatabaseRequest extends $tea.Model {
   DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
-  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -7257,7 +7166,6 @@ export class CreateDatabaseRequest extends $tea.Model {
       DBName: 'DBName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -7271,7 +7179,6 @@ export class CreateDatabaseRequest extends $tea.Model {
       DBName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -8261,6 +8168,7 @@ export class CreateMaskingRulesRequest extends $tea.Model {
   defaultAlgo?: string;
   maskingAlgo?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ruleConfig?: CreateMaskingRulesRequestRuleConfig;
@@ -8275,6 +8183,7 @@ export class CreateMaskingRulesRequest extends $tea.Model {
       defaultAlgo: 'DefaultAlgo',
       maskingAlgo: 'MaskingAlgo',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ruleConfig: 'RuleConfig',
@@ -8288,6 +8197,7 @@ export class CreateMaskingRulesRequest extends $tea.Model {
       defaultAlgo: 'string',
       maskingAlgo: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ruleConfig: CreateMaskingRulesRequestRuleConfig,
@@ -8309,6 +8219,7 @@ export class CreateMaskingRulesShrinkRequest extends $tea.Model {
   defaultAlgo?: string;
   maskingAlgo?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ruleConfigShrink?: string;
@@ -8323,6 +8234,7 @@ export class CreateMaskingRulesShrinkRequest extends $tea.Model {
       defaultAlgo: 'DefaultAlgo',
       maskingAlgo: 'MaskingAlgo',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ruleConfigShrink: 'RuleConfig',
@@ -8336,6 +8248,7 @@ export class CreateMaskingRulesShrinkRequest extends $tea.Model {
       defaultAlgo: 'string',
       maskingAlgo: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ruleConfigShrink: 'string',
@@ -9567,6 +9480,17 @@ export class CreatePostgresExtensionsResponse extends $tea.Model {
 }
 
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 是否自动创建代理。取值范围：
+   * 
+   * - **true**：开启自动创建，默认为通用代理。
+   * 
+   * - **false**：不开启自动创建。
+   * 
+   * @example
+   * false
+   */
   autoCreateProxy?: boolean;
   /**
    * @remarks
@@ -9575,7 +9499,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * 1.  **true**: enables the feature. Make sure that your account balance is sufficient.
    * 2.  **false**: disables the feature. An unpaid order is generated.
    * 
-   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * false
@@ -9702,10 +9626,10 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable the release protection feature for the read-only instance. Valid values:
    * 
-   * *   **true**: enables the feature.
-   * *   **false** (default): disables the feature.
+   * *   **true**
+   * *   **false** (default)
    * 
-   * >  You can enable the release protection feature for the read-only instance only when you set the **Billing Method** parameter to **Pay-As-You-Go**.
+   * >  You can enable the release protection feature for the read-only instance only when you set the **PayType** parameter to **Postpaid**.
    * 
    * @example
    * true
@@ -10567,7 +10491,7 @@ export class CreateYouhuiForOrderRequest extends $tea.Model {
    */
   regionId?: string;
   resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       activityId: 'ActivityId',
@@ -10586,7 +10510,7 @@ export class CreateYouhuiForOrderRequest extends $tea.Model {
       promotionId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -12165,6 +12089,7 @@ export class DeleteMaskingRulesRequest extends $tea.Model {
    */
   DBInstanceName?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -12176,6 +12101,7 @@ export class DeleteMaskingRulesRequest extends $tea.Model {
     return {
       DBInstanceName: 'DBInstanceName',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ruleName: 'RuleName',
@@ -12186,6 +12112,7 @@ export class DeleteMaskingRulesRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ruleName: 'string',
@@ -12381,7 +12308,7 @@ export class DeletePostgresExtensionsRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -13360,6 +13287,7 @@ export class DescribeAccountMaskingPrivilegeRequest extends $tea.Model {
    */
   DBInstanceName?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   userName?: string;
@@ -13367,6 +13295,7 @@ export class DescribeAccountMaskingPrivilegeRequest extends $tea.Model {
     return {
       DBInstanceName: 'DBInstanceName',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       userName: 'UserName',
@@ -13377,6 +13306,7 @@ export class DescribeAccountMaskingPrivilegeRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       userName: 'string',
@@ -15956,14 +15886,6 @@ export class DescribeBackupsRequest extends $tea.Model {
    * 30
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
-  resourceGroupId?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -15983,7 +15905,6 @@ export class DescribeBackupsRequest extends $tea.Model {
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
     };
@@ -15999,7 +15920,6 @@ export class DescribeBackupsRequest extends $tea.Model {
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceGroupId: 'string',
       resourceOwnerId: 'number',
       startTime: 'string',
     };
@@ -19468,7 +19388,7 @@ export class DescribeDBInstanceIPArrayListResponse extends $tea.Model {
 export class DescribeDBInstanceIpHostnameRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -19480,7 +19400,7 @@ export class DescribeDBInstanceIpHostnameRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * You can call the DescribeDBInstanceAttribute operation to query the region ID.
+   * The region ID. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/2628783.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -19531,7 +19451,7 @@ export class DescribeDBInstanceIpHostnameResponseBody extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The internal IP addresses and hostnames of the ECS instances on which the primary and secondary instances reside. Format: `IP address 1,Hostname 1;IP address 2,Hostname 2`.
+   * The internal IP addresses and hostnames of the ECS instance on which a primary ApsaraDB RDS for SQL Server instance and its secondary RDS instance reside. Format: `IP address 1, Hostname 1; IP address 2, Hostname 2`.
    * 
    * @example
    * 172.16.xx.xx,sdxxxxxxxxB;172.16.xx.xx,sdxxxxxxxxA
@@ -23791,14 +23711,6 @@ export class DescribeDatabasesRequest extends $tea.Model {
    * 30
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmy****
-   */
-  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -23810,7 +23722,6 @@ export class DescribeDatabasesRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -23825,7 +23736,6 @@ export class DescribeDatabasesRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -27796,6 +27706,7 @@ export class DescribeMaskingRulesRequest extends $tea.Model {
    */
   DBInstanceName?: string;
   ownerId?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ruleName?: string;
@@ -27803,6 +27714,7 @@ export class DescribeMaskingRulesRequest extends $tea.Model {
     return {
       DBInstanceName: 'DBInstanceName',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ruleName: 'RuleName',
@@ -27813,6 +27725,7 @@ export class DescribeMaskingRulesRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       ownerId: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ruleName: 'string',
@@ -29946,15 +29859,15 @@ export class DescribePriceRequest extends $tea.Model {
    * The commodity code of the instance. Valid values:
    * 
    * *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
-   * *   **rds**: The instance is a subscription primary instance. This is the default value. This value is available at the China site (aliyun.com).
+   * *   **rds** (default): The instance is a subscription primary instance. This value is available on the China site (aliyun.com).
    * *   **rords**: The instance is a pay-as-you-go read-only instance. This value is available at the China site (aliyun.com).
    * *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance. This value is available at the China site (aliyun.com).
-   * *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the International site (alibabacloud.com).
-   * *   **rds_intl**: The instance is a subscription primary instance. This value is available at the International site (alibabacloud.com).
-   * *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the International site (alibabacloud.com).
-   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the International site (alibabacloud.com).
+   * *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the international site (alibabacloud.com).
+   * *   **rds_intl**: The instance is a subscription primary instance. This value is available at the international site (alibabacloud.com).
+   * *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the international site (alibabacloud.com).
+   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the international site (alibabacloud.com).
    * 
-   * > If you want to query the price of a read-only instance, you must specify this parameter.
+   * >  If you want to query the price of a read-only instance, you must specify this parameter.
    * 
    * @example
    * rds
@@ -30217,15 +30130,15 @@ export class DescribePriceShrinkRequest extends $tea.Model {
    * The commodity code of the instance. Valid values:
    * 
    * *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
-   * *   **rds**: The instance is a subscription primary instance. This is the default value. This value is available at the China site (aliyun.com).
+   * *   **rds** (default): The instance is a subscription primary instance. This value is available on the China site (aliyun.com).
    * *   **rords**: The instance is a pay-as-you-go read-only instance. This value is available at the China site (aliyun.com).
    * *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance. This value is available at the China site (aliyun.com).
-   * *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the International site (alibabacloud.com).
-   * *   **rds_intl**: The instance is a subscription primary instance. This value is available at the International site (alibabacloud.com).
-   * *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the International site (alibabacloud.com).
-   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the International site (alibabacloud.com).
+   * *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the international site (alibabacloud.com).
+   * *   **rds_intl**: The instance is a subscription primary instance. This value is available at the international site (alibabacloud.com).
+   * *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the international site (alibabacloud.com).
+   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the international site (alibabacloud.com).
    * 
-   * > If you want to query the price of a read-only instance, you must specify this parameter.
+   * >  If you want to query the price of a read-only instance, you must specify this parameter.
    * 
    * @example
    * rds
@@ -32306,12 +32219,12 @@ export class DescribeSQLLogRecordsRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to generate an SQL audit log file or return SQL audit log entries. Valid values:
+   * Specifies whether to generate an SQL audit log file or return SQL audit logs. Valid values:
    * 
    * *   **File**: If you set this parameter to File, this operation generates an SQL audit log file and returns only common response parameters. After you call this operation, you must call the DescribeSQLLogFiles operation to obtain the download URL of the SQL audit log file.
-   * *   **Stream** (default): If you set this parameter to Stream, this operation returns SQL audit log entries.
+   * *   **Stream** (default): If you set this parameter to Stream, this operation returns SQL audit logs.
    * 
-   * >  If you set this parameter to **File**, only ApsaraDB RDS for MySQL instances that use local disks and ApsaraDB RDS for SQL Server instances are supported, and a maximum of one million log entries are returned.
+   * >  If you set this parameter to **File**, only ApsaraDB RDS for MySQL instances that use local disks and ApsaraDB RDS for SQL Server instances are supported, and a maximum of 1 million logs are returned.
    * 
    * @example
    * Stream
@@ -34606,7 +34519,7 @@ export class DescribeVSwitchesResponse extends $tea.Model {
 export class DescribeWhitelistTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -39259,116 +39172,6 @@ export class ModifyDBInstanceConfigResponse extends $tea.Model {
   }
 }
 
-export class ModifyDBInstanceConnectionModeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The connection mode of the instance. Valid values:
-   * 
-   * *   **Standard**: standard mode
-   * *   **Safe**: database proxy mode
-   * 
-   * The system automatically assigns a connection mode to the instance.
-   * 
-   * >  SQL Server 2012, SQL Server 2016, and SQL Server 2017 support only the standard mode.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Performance
-   */
-  connectionMode?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxx
-   */
-  DBInstanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connectionMode: 'ConnectionMode',
-      DBInstanceId: 'DBInstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionMode: 'string',
-      DBInstanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionModeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionModeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceConnectionModeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceConnectionModeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
   /**
    * @remarks
@@ -41183,139 +40986,6 @@ export class ModifyDBInstancePayTypeResponse extends $tea.Model {
   }
 }
 
-export class ModifyDBInstanceProxyConfigurationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5xxxxxxxxxx
-   */
-  DBInstanceId?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The key of the **configuration item** for the database proxy. Valid values:
-   * 
-   * *   **TransparentSwitch**: transparent switchover
-   * *   **PersistentConnections**: short-lived connection optimization
-   * *   **AttacksProtection**: brute-force attack protection
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TransparentSwitch
-   */
-  proxyConfigurationKey?: string;
-  /**
-   * @remarks
-   * The features and status of the database proxy:
-   * 
-   * *   **TransparentSwitch**: transparent switchover. Valid values:
-   * 
-   *     *   **Enable**: The feature is enabled. This is the default value.
-   *     *   **Disable**: The feature is disabled.
-   * 
-   * *   **PersistentConnections**: short-lived connection optimization. Valid values:
-   * 
-   *     *   **Enable**: The feature is enabled.
-   *     *   **Disable**: The feature is disabled. This is the default value.
-   * 
-   * *   **AttacksProtection**: brute-force attack protection. Valid values:
-   * 
-   *     *   **Enable**: The feature is enabled.
-   *     *   **Disable**: The feature is disabled. This is the default value.
-   * 
-   * Format: {"Feature 1":"Status 1","Feature 2":"Status 2"...}
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"status":"Enable"}
-   */
-  proxyConfigurationValue?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      ownerId: 'OwnerId',
-      proxyConfigurationKey: 'ProxyConfigurationKey',
-      proxyConfigurationValue: 'ProxyConfigurationValue',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      ownerId: 'number',
-      proxyConfigurationKey: 'string',
-      proxyConfigurationValue: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceProxyConfigurationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9705B5D2-C5B6-4526-B779-26D755EC1B8C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceProxyConfigurationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceProxyConfigurationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceProxyConfigurationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyDBInstanceSSLRequest extends $tea.Model {
   /**
    * @remarks
@@ -41332,7 +41002,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
   ACL?: string;
   /**
    * @remarks
-   * The type of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. If you set SSLEnabled to **1**, the default value of this parameter is **aliyun**. Valid values:
+   * The type of the server certificate. This parameter is supported only when the instance runs MySQL or PostgreSQL with cloud disks. If you set SSLEnabled to **1**, the default value of this parameter is **aliyun**. Valid values:
    * 
    * *   **aliyun**: a cloud certificate
    * *   **custom**: a custom certificate
@@ -41891,14 +41561,11 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   direction?: string;
   /**
    * @remarks
-   * The time when you want the change to take effect. Valid values:
+   * The effective time. Valid values:
    * 
    * *   **Immediate** (default)
    * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * 
-   * <!---->
-   * 
-   * *   ScheduleTime: The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * *   **ScheduleTime**: The change takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -41962,8 +41629,6 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   /**
    * @remarks
    * The specifications that you want to change for a serverless instance.
-   * 
-   * >  This parameter is available only on the China site (aliyun.com).
    */
   serverlessConfiguration?: ModifyDBInstanceSpecRequestServerlessConfiguration;
   /**
@@ -42212,14 +41877,11 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   direction?: string;
   /**
    * @remarks
-   * The time when you want the change to take effect. Valid values:
+   * The effective time. Valid values:
    * 
    * *   **Immediate** (default)
    * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * 
-   * <!---->
-   * 
-   * *   ScheduleTime: The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * *   **ScheduleTime**: The change takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -42283,8 +41945,6 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The specifications that you want to change for a serverless instance.
-   * 
-   * >  This parameter is available only on the China site (aliyun.com).
    */
   serverlessConfigurationShrink?: string;
   /**
@@ -42737,7 +42397,7 @@ export class ModifyDBNodeRequest extends $tea.Model {
    * @remarks
    * The information about the node.
    * 
-   * >  This parameter is supported for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+   * >  This parameter is used for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
    */
   DBNode?: ModifyDBNodeRequestDBNode[];
   /**
@@ -42753,9 +42413,10 @@ export class ModifyDBNodeRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Effective time, value:
-   * - Immediate (default value): takes effect immediately.
-   * - MaintainTime: Effective within the operational time period, please refer to ModifyDBInstanceMaintainTime.
+   * The time when you want the change to take effect. Valid values:
+   * 
+   * *   **Immediate** (default): The change immediately takes effect.
+   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
    * 
    * @example
    * Immediate
@@ -42875,7 +42536,7 @@ export class ModifyDBNodeShrinkRequest extends $tea.Model {
    * @remarks
    * The information about the node.
    * 
-   * >  This parameter is supported for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
+   * >  This parameter is used for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
    */
   DBNodeShrink?: string;
   /**
@@ -42891,9 +42552,10 @@ export class ModifyDBNodeShrinkRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Effective time, value:
-   * - Immediate (default value): takes effect immediately.
-   * - MaintainTime: Effective within the operational time period, please refer to ModifyDBInstanceMaintainTime.
+   * The time when you want the change to take effect. Valid values:
+   * 
+   * *   **Immediate** (default): The change immediately takes effect.
+   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
    * 
    * @example
    * Immediate
@@ -50786,117 +50448,6 @@ export class SwitchDBInstanceVpcResponse extends $tea.Model {
   }
 }
 
-export class SwitchGuardToMasterInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the disaster recovery instance. You can call the DescribeDBInstances operation to query the instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk5*****
-   */
-  DBInstanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
-   * 
-   * @example
-   * rg-acfmy****
-   */
-  resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchGuardToMasterInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-uf6wjk5*****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * EFB6083A-7699-489B-8278-C0CB4793A96E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchGuardToMasterInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SwitchGuardToMasterInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SwitchGuardToMasterInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class TagResourcesRequest extends $tea.Model {
   ownerId?: number;
   /**
@@ -53048,7 +52599,7 @@ export class CreateDBInstanceRequestServerlessConfig extends $tea.Model {
    * 
    * *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
-   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**
+   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
    * 
    * >  The value of this parameter must be less than or equal to the value of **MaxCapacity**.
    * 
@@ -55703,14 +55254,6 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   metaStatus?: string;
   /**
    * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy*****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
    * The storage class of the backup set. Valid values:
    * 
    * *   **0**: regular storage
@@ -55755,7 +55298,6 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       hostInstanceID: 'HostInstanceID',
       isAvail: 'IsAvail',
       metaStatus: 'MetaStatus',
-      resourceGroupId: 'ResourceGroupId',
       storageClass: 'StorageClass',
       storeStatus: 'StoreStatus',
     };
@@ -55785,7 +55327,6 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       hostInstanceID: 'string',
       isAvail: 'number',
       metaStatus: 'string',
-      resourceGroupId: 'string',
       storageClass: 'string',
       storeStatus: 'string',
     };
@@ -63046,14 +62587,6 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
    * The runtime information about the database.
    * 
    * >  This parameter is returned only for instances that run SQL Server.
@@ -63095,7 +62628,6 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
       engine: 'Engine',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      resourceGroupId: 'ResourceGroupId',
       runtimeInfo: 'RuntimeInfo',
       tablespace: 'Tablespace',
       totalCount: 'TotalCount',
@@ -63118,7 +62650,6 @@ export class DescribeDatabasesResponseBodyDatabasesDatabase extends $tea.Model {
       engine: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceGroupId: 'string',
       runtimeInfo: DescribeDatabasesResponseBodyDatabasesDatabaseRuntimeInfo,
       tablespace: 'string',
       totalCount: 'number',
@@ -72185,8 +71716,9 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
    * *   **true**
    * *   **false** (default)
    * 
-   * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
-   * > *   This parameter is available only on the China site (aliyun.com).
+   * > 
+   * 
+   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
    * 
    * @example
    * true
@@ -72203,8 +71735,9 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**
    * *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 14**
    * 
-   * > *   The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be specified only to an **integer**.
-   * > *   This parameter is available only on the China site (aliyun.com).
+   * > 
+   * 
+   * *   The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be specified only to an **integer**.
    * 
    * @example
    * 8
@@ -72218,8 +71751,9 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
    * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
    * 
-   * > *   The value of this parameter must be less than or equal to the value of MaxCapacity.
-   * > *   This parameter is available only on the China site (aliyun.com).
+   * > 
+   * 
+   * *   The value of this parameter must be less than or equal to the value of MaxCapacity.
    * 
    * @example
    * 0.5
@@ -72232,9 +71766,11 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
    * *   **true**
    * *   **false** (default)
    * 
-   * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts 30 to 120 seconds occurs during forced scaling. Process with caution.
-   * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
-   * > *   This parameter is available only on the China site (aliyun.com).
+   * > 
+   * 
+   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts 30 to 120 seconds occurs during forced scaling. Process with caution.
+   * 
+   * *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
    * 
    * @example
    * false
@@ -72266,7 +71802,7 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $tea.Mod
 export class ModifyDBNodeRequestDBNode extends $tea.Model {
   /**
    * @remarks
-   * The instance type of the node.
+   * The specification information about the node.
    * 
    * @example
    * mysql.n2.medium.xc
@@ -73525,90 +73061,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
-   * 
-   * @remarks
-   * This operation is phased out.
-   * ### [](#)Supported database engines
-   * *   RDS SQL Server
-   * ### [](#)Description
-   * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
-   * ### [](#)Usage notes
-   * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-   * 
-   * @param request - CancelImportRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CancelImportResponse
-   */
-  async cancelImportWithOptions(request: CancelImportRequest, runtime: $Util.RuntimeOptions): Promise<CancelImportResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.importId)) {
-      query["ImportId"] = request.importId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CancelImport",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelImportResponse>(await this.callApi(params, req, runtime), new CancelImportResponse({}));
-  }
-
-  /**
-   * Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
-   * 
-   * @remarks
-   * This operation is phased out.
-   * ### [](#)Supported database engines
-   * *   RDS SQL Server
-   * ### [](#)Description
-   * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
-   * ### [](#)Usage notes
-   * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-   * 
-   * @param request - CancelImportRequest
-   * @returns CancelImportResponse
-   */
-  async cancelImport(request: CancelImportRequest): Promise<CancelImportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelImportWithOptions(request, runtime);
-  }
-
-  /**
    * Checks whether the username of the account that you want to create on an instance is available.
    * 
    * @remarks
@@ -74145,6 +73597,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.category)) {
       query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!Util.isUnset(request.DBInstanceClass)) {
@@ -74733,10 +74189,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBName)) {
       query["DBName"] = request.DBName;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
@@ -75925,10 +75377,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -76416,6 +75864,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -78144,11 +77596,10 @@ export default class Client extends OpenApi {
    * Deletes a node from an instance that runs RDS Cluster Edition.
    * 
    * @remarks
-   * ### [](#)Supported database engines
-   * *   MySQL
-   * *   PostgreSQL
+   * ### [](#)Supported database engine
+   * MySQL
    * ### [](#)References
-   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * [Delete a node from an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464130.html)
    * 
    * @param tmpReq - DeleteDBNodesRequest
@@ -78217,11 +77668,10 @@ export default class Client extends OpenApi {
    * Deletes a node from an instance that runs RDS Cluster Edition.
    * 
    * @remarks
-   * ### [](#)Supported database engines
-   * *   MySQL
-   * *   PostgreSQL
+   * ### [](#)Supported database engine
+   * MySQL
    * ### [](#)References
-   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * [Delete a node from an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464130.html)
    * 
    * @param request - DeleteDBNodesRequest
@@ -78468,6 +77918,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -79104,6 +78558,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -79293,7 +78751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about scheduled O\\\\\\\\\\\\&M tasks for an instance.
+   * Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -79391,7 +78849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about scheduled O\\\\\\\\\\\\&M tasks for an instance.
+   * Queries the details about scheduled O\\\\\\\\\\\\\\\\\\\\&M tasks for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -80255,10 +79713,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
@@ -81853,18 +81307,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+   * Queries the internal IP address and hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
    * 
    * @remarks
    * ### [](#)Supported database engines
-   * RDS SQL Server
+   * SQL Server
    * ### [](#)Prerequisites
    * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
    * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time parameter of an instance in the Status section of the Basic Information page in the ApsaraDB RDS console.
    * ### [](#)References
-   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   * >  Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   * *   [Connect Kingdee K/3 WISE to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124188.html)
    * 
    * @param request - DescribeDBInstanceIpHostnameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81919,18 +81374,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+   * Queries the internal IP address and hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
    * 
    * @remarks
    * ### [](#)Supported database engines
-   * RDS SQL Server
+   * SQL Server
    * ### [](#)Prerequisites
    * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
    * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time parameter of an instance in the Status section of the Basic Information page in the ApsaraDB RDS console.
    * ### [](#)References
-   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   * >  Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+   * *   [Connect Kingdee K/3 WISE to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124188.html)
    * 
    * @param request - DescribeDBInstanceIpHostnameRequest
    * @returns DescribeDBInstanceIpHostnameResponse
@@ -83779,10 +83235,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -85720,6 +85172,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -87648,6 +87104,8 @@ export default class Client extends OpenApi {
    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
    * *   The exported files are retained for only two days.
+   *     **
+   *     **Note** If you have enabled Database Autonomy Service (DAS) Enterprise Edition V2 or V3 and have enabled the SQL Explorer and Audit feature, the exported files are retained for seven days. You can call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the information about the enabled DAS Enterprise Edition.
    * 
    * @param request - DescribeSQLLogFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -87719,6 +87177,8 @@ export default class Client extends OpenApi {
    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
    * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
    * *   The exported files are retained for only two days.
+   *     **
+   *     **Note** If you have enabled Database Autonomy Service (DAS) Enterprise Edition V2 or V3 and have enabled the SQL Explorer and Audit feature, the exported files are retained for seven days. You can call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the information about the enabled DAS Enterprise Edition.
    * 
    * @param request - DescribeSQLLogFilesRequest
    * @returns DescribeSQLLogFilesResponse
@@ -91389,74 +90849,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例访问模式
-   * 
-   * @remarks
-   * > The API has been taken offline
-   * 
-   * @param request - ModifyDBInstanceConnectionModeRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ModifyDBInstanceConnectionModeResponse
-   */
-  async modifyDBInstanceConnectionModeWithOptions(request: ModifyDBInstanceConnectionModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionModeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.connectionMode)) {
-      query["ConnectionMode"] = request.connectionMode;
-    }
-
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyDBInstanceConnectionMode",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDBInstanceConnectionModeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionModeResponse({}));
-  }
-
-  /**
-   * 修改实例访问模式
-   * 
-   * @remarks
-   * > The API has been taken offline
-   * 
-   * @param request - ModifyDBInstanceConnectionModeRequest
-   * @returns ModifyDBInstanceConnectionModeResponse
-   */
-  async modifyDBInstanceConnectionMode(request: ModifyDBInstanceConnectionModeRequest): Promise<ModifyDBInstanceConnectionModeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDBInstanceConnectionModeWithOptions(request, runtime);
-  }
-
-  /**
    * Modifies the endpoint and port of an instance.
    * 
    * @remarks
@@ -92551,74 +91943,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
-   * 
-   * @remarks
-   * > This operation is phased out.
-   * 
-   * @param request - ModifyDBInstanceProxyConfigurationRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ModifyDBInstanceProxyConfigurationResponse
-   */
-  async modifyDBInstanceProxyConfigurationWithOptions(request: ModifyDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceProxyConfigurationResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.proxyConfigurationKey)) {
-      query["ProxyConfigurationKey"] = request.proxyConfigurationKey;
-    }
-
-    if (!Util.isUnset(request.proxyConfigurationValue)) {
-      query["ProxyConfigurationValue"] = request.proxyConfigurationValue;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyDBInstanceProxyConfiguration",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDBInstanceProxyConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceProxyConfigurationResponse({}));
-  }
-
-  /**
-   * You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
-   * 
-   * @remarks
-   * > This operation is phased out.
-   * 
-   * @param request - ModifyDBInstanceProxyConfigurationRequest
-   * @returns ModifyDBInstanceProxyConfigurationResponse
-   */
-  async modifyDBInstanceProxyConfiguration(request: ModifyDBInstanceProxyConfigurationRequest): Promise<ModifyDBInstanceProxyConfigurationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDBInstanceProxyConfigurationWithOptions(request, runtime);
-  }
-
-  /**
    * Modifies the SSL encryption settings of an instance.
    * 
    * @remarks
@@ -93131,14 +92455,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the specifications and storage capacity of an instance.
+   * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
    * 
    * @remarks
-   * ### [](#)Supported database engines
+   * ### [](#)Supported database engine
    * *   MySQL
    * ### [](#)References
-   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+   * [Change instance specifications](https://help.aliyun.com/document_detail/2627998.html)
+   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
    * 
    * @param tmpReq - ModifyDBNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93223,14 +92547,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the specifications and storage capacity of an instance.
+   * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
    * 
    * @remarks
-   * ### [](#)Supported database engines
+   * ### [](#)Supported database engine
    * *   MySQL
    * ### [](#)References
-   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+   * [Change instance specifications](https://help.aliyun.com/document_detail/2627998.html)
+   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the related topics.
    * 
    * @param request - ModifyDBNodeRequest
    * @returns ModifyDBNodeResponse
@@ -97752,74 +97076,6 @@ export default class Client extends OpenApi {
   async switchDBInstanceVpc(request: SwitchDBInstanceVpcRequest): Promise<SwitchDBInstanceVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceVpcWithOptions(request, runtime);
-  }
-
-  /**
-   * Switches a disaster recovery instance to a primary instance.
-   * 
-   * @remarks
-   * This operation is phased out.
-   * 
-   * @param request - SwitchGuardToMasterInstanceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SwitchGuardToMasterInstanceResponse
-   */
-  async switchGuardToMasterInstanceWithOptions(request: SwitchGuardToMasterInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchGuardToMasterInstanceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SwitchGuardToMasterInstance",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SwitchGuardToMasterInstanceResponse>(await this.callApi(params, req, runtime), new SwitchGuardToMasterInstanceResponse({}));
-  }
-
-  /**
-   * Switches a disaster recovery instance to a primary instance.
-   * 
-   * @remarks
-   * This operation is phased out.
-   * 
-   * @param request - SwitchGuardToMasterInstanceRequest
-   * @returns SwitchGuardToMasterInstanceResponse
-   */
-  async switchGuardToMasterInstance(request: SwitchGuardToMasterInstanceRequest): Promise<SwitchGuardToMasterInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.switchGuardToMasterInstanceWithOptions(request, runtime);
   }
 
   /**
