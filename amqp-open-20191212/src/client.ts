@@ -2049,8 +2049,6 @@ export class ListDownStreamBindingsRequest extends $tea.Model {
    * @remarks
    * The maximum number of entries to return.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -2210,8 +2208,6 @@ export class ListExchangeUpStreamBindingsRequest extends $tea.Model {
   /**
    * @remarks
    * The maximum number of entries to return.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1
