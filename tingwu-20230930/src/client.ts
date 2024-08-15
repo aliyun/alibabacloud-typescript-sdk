@@ -1146,8 +1146,10 @@ export class CreateTranscriptionPhrasesResponseBodyData extends $tea.Model {
 
 export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
   autoChapters?: string;
+  customPrompt?: string;
   meetingAssistance?: string;
   pptExtraction?: string;
+  serviceInspection?: string;
   summarization?: string;
   textPolish?: string;
   transcription?: string;
@@ -1155,8 +1157,10 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoChapters: 'AutoChapters',
+      customPrompt: 'CustomPrompt',
       meetingAssistance: 'MeetingAssistance',
       pptExtraction: 'PptExtraction',
+      serviceInspection: 'ServiceInspection',
       summarization: 'Summarization',
       textPolish: 'TextPolish',
       transcription: 'Transcription',
@@ -1167,8 +1171,10 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoChapters: 'string',
+      customPrompt: 'string',
       meetingAssistance: 'string',
       pptExtraction: 'string',
+      serviceInspection: 'string',
       summarization: 'string',
       textPolish: 'string',
       transcription: 'string',
