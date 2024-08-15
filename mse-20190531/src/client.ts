@@ -44610,6 +44610,170 @@ export class UpdateNacosConfigResponse extends $tea.Model {
   }
 }
 
+export class UpdateNacosGrayConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * spring-cloud-a
+   */
+  appName?: string;
+  /**
+   * @example
+   * asdf
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  dataId?: string;
+  /**
+   * @example
+   * key=value1,value2
+   */
+  grayRule?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Tags
+   */
+  grayType?: string;
+  /**
+   * @example
+   * DEFAULT_GROUP
+   */
+  group?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mse_prepaid_public_cn-st2212****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 6cf708a5-****-89f2-3ba62c5ee9ba
+   */
+  namespaceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * {}
+   */
+  requestPars?: string;
+  /**
+   * @example
+   * true
+   */
+  stopGray?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      content: 'Content',
+      dataId: 'DataId',
+      grayRule: 'GrayRule',
+      grayType: 'GrayType',
+      group: 'Group',
+      instanceId: 'InstanceId',
+      namespaceId: 'NamespaceId',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+      stopGray: 'StopGray',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      content: 'string',
+      dataId: 'string',
+      grayRule: 'string',
+      grayType: 'string',
+      group: 'string',
+      instanceId: 'string',
+      namespaceId: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+      stopGray: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacosGrayConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * 316F5F64-F73D-42DC-8632-01E308B6****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNacosGrayConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNacosGrayConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateNacosGrayConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateNacosInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -86997,6 +87161,92 @@ export default class Client extends OpenApi {
   async updateNacosConfig(request: UpdateNacosConfigRequest): Promise<UpdateNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNacosConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新nacos灰度配置
+   * 
+   * @param request - UpdateNacosGrayConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNacosGrayConfigResponse
+   */
+  async updateNacosGrayConfigWithOptions(request: UpdateNacosGrayConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosGrayConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.grayRule)) {
+      query["GrayRule"] = request.grayRule;
+    }
+
+    if (!Util.isUnset(request.grayType)) {
+      query["GrayType"] = request.grayType;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      query["Group"] = request.group;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.stopGray)) {
+      query["StopGray"] = request.stopGray;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateNacosGrayConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateNacosGrayConfigResponse>(await this.callApi(params, req, runtime), new UpdateNacosGrayConfigResponse({}));
+  }
+
+  /**
+   * 更新nacos灰度配置
+   * 
+   * @param request - UpdateNacosGrayConfigRequest
+   * @returns UpdateNacosGrayConfigResponse
+   */
+  async updateNacosGrayConfig(request: UpdateNacosGrayConfigRequest): Promise<UpdateNacosGrayConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateNacosGrayConfigWithOptions(request, runtime);
   }
 
   /**

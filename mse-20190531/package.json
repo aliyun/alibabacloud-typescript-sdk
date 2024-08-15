@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/mse20190531",
-  "version": "6.9.0",
+  "version": "6.10.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
