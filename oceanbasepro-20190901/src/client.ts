@@ -7751,6 +7751,7 @@ export class DescribeOasSQLDetailsRequest extends $tea.Model {
    * ob317v4uif****
    */
   instanceId?: string;
+  parseTable?: boolean;
   /**
    * @remarks
    * SQL ID.
@@ -7788,6 +7789,7 @@ export class DescribeOasSQLDetailsRequest extends $tea.Model {
       dynamicSql: 'DynamicSql',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      parseTable: 'ParseTable',
       sqlId: 'SqlId',
       startTime: 'StartTime',
       tenantId: 'TenantId',
@@ -7800,6 +7802,7 @@ export class DescribeOasSQLDetailsRequest extends $tea.Model {
       dynamicSql: 'boolean',
       endTime: 'string',
       instanceId: 'string',
+      parseTable: 'boolean',
       sqlId: 'string',
       startTime: 'string',
       tenantId: 'string',
@@ -11985,6 +11988,9 @@ export class DescribeTenantMetricsRequest extends $tea.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * tfafd34fs****
    * 
@@ -11992,6 +11998,9 @@ export class DescribeTenantMetricsRequest extends $tea.Model {
    */
   tenantId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * [tdak3nac****,tdakc42df****]
    */
@@ -23856,6 +23865,7 @@ export class DescribeInstanceResponseBodyInstanceTenantCreatable extends $tea.Mo
 }
 
 export class DescribeInstanceResponseBodyInstance extends $tea.Model {
+  allowCreateProxySqlFirewallRule?: boolean;
   allowModifyInternetAddressConnectionLimit?: boolean;
   /**
    * @remarks
@@ -24059,6 +24069,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
   zones?: string[];
   static names(): { [key: string]: string } {
     return {
+      allowCreateProxySqlFirewallRule: 'AllowCreateProxySqlFirewallRule',
       allowModifyInternetAddressConnectionLimit: 'AllowModifyInternetAddressConnectionLimit',
       autoRenewal: 'AutoRenewal',
       autoUpgradeObVersion: 'AutoUpgradeObVersion',
@@ -24110,6 +24121,7 @@ export class DescribeInstanceResponseBodyInstance extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowCreateProxySqlFirewallRule: 'boolean',
       allowModifyInternetAddressConnectionLimit: 'boolean',
       autoRenewal: 'boolean',
       autoUpgradeObVersion: 'boolean',
@@ -27371,6 +27383,8 @@ export class DescribeOasSQLPlansResponseBodyData extends $tea.Model {
    * 513
    */
   mergedVersion?: number;
+  outlineId?: string;
+  outlineStatus?: string;
   /**
    * @remarks
    * Execution plan.
@@ -27413,6 +27427,7 @@ export class DescribeOasSQLPlansResponseBodyData extends $tea.Model {
    * "select 1 from t"
    */
   querySql?: string;
+  tableScan?: boolean;
   static names(): { [key: string]: string } {
     return {
       avgCpuTime: 'AvgCpuTime',
@@ -27422,12 +27437,15 @@ export class DescribeOasSQLPlansResponseBodyData extends $tea.Model {
       hitDiagnosis: 'HitDiagnosis',
       hitPercentage: 'HitPercentage',
       mergedVersion: 'MergedVersion',
+      outlineId: 'OutlineId',
+      outlineStatus: 'OutlineStatus',
       planExplain: 'PlanExplain',
       planHash: 'PlanHash',
       planType: 'PlanType',
       planUnionHash: 'PlanUnionHash',
       plans: 'Plans',
       querySql: 'QuerySql',
+      tableScan: 'TableScan',
     };
   }
 
@@ -27440,12 +27458,15 @@ export class DescribeOasSQLPlansResponseBodyData extends $tea.Model {
       hitDiagnosis: 'boolean',
       hitPercentage: 'number',
       mergedVersion: 'number',
+      outlineId: 'string',
+      outlineStatus: 'string',
       planExplain: DescribeOasSQLPlansResponseBodyDataPlanExplain,
       planHash: 'string',
       planType: 'string',
       planUnionHash: 'string',
       plans: { 'type': 'array', 'itemType': DescribeOasSQLPlansResponseBodyDataPlans },
       querySql: 'string',
+      tableScan: 'boolean',
     };
   }
 
@@ -35190,6 +35211,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
    * 100010
    */
   obUserId?: number;
+  paramsValue?: string;
   /**
    * @remarks
    * Average number of partition accessed during the execution period.
@@ -35420,6 +35442,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       obDbId: 'ObDbId',
       obServerId: 'ObServerId',
       obUserId: 'ObUserId',
+      paramsValue: 'ParamsValue',
       partitionCount: 'PartitionCount',
       planId: 'PlanId',
       planType: 'PlanType',
@@ -35478,6 +35501,7 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
       obDbId: 'number',
       obServerId: 'number',
       obUserId: 'number',
+      paramsValue: 'string',
       partitionCount: 'number',
       planId: 'number',
       planType: 'string',
@@ -37077,12 +37101,14 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
    */
   intranetPort?: number;
   intranetRpcPort?: number;
+  intranetSqlPort?: number;
   maxConnectionLimit?: number;
   /**
    * @example
    * 5000
    */
   maxConnectionNum?: number;
+  odpVersion?: string;
   parallelQueryDegree?: number;
   proxyClusterId?: string;
   /**
@@ -37136,8 +37162,10 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
       intranetAddressStatus: 'IntranetAddressStatus',
       intranetPort: 'IntranetPort',
       intranetRpcPort: 'IntranetRpcPort',
+      intranetSqlPort: 'IntranetSqlPort',
       maxConnectionLimit: 'MaxConnectionLimit',
       maxConnectionNum: 'MaxConnectionNum',
+      odpVersion: 'OdpVersion',
       parallelQueryDegree: 'ParallelQueryDegree',
       proxyClusterId: 'ProxyClusterId',
       tenantEndpointId: 'TenantEndpointId',
@@ -37166,8 +37194,10 @@ export class DescribeTenantResponseBodyTenantTenantConnections extends $tea.Mode
       intranetAddressStatus: 'string',
       intranetPort: 'number',
       intranetRpcPort: 'number',
+      intranetSqlPort: 'number',
       maxConnectionLimit: 'number',
       maxConnectionNum: 'number',
+      odpVersion: 'string',
       parallelQueryDegree: 'number',
       proxyClusterId: 'string',
       tenantEndpointId: 'string',
@@ -37680,6 +37710,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
    * 32
    */
   maxParallelQueryDegree?: number;
+  odpVersion?: string;
   /**
    * @example
    * POSTPAY
@@ -37851,6 +37882,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       lowerCaseTableNames: 'LowerCaseTableNames',
       masterIntranetAddressZone: 'MasterIntranetAddressZone',
       maxParallelQueryDegree: 'MaxParallelQueryDegree',
+      odpVersion: 'OdpVersion',
       payType: 'PayType',
       primaryZone: 'PrimaryZone',
       primaryZoneDeployType: 'PrimaryZoneDeployType',
@@ -37892,6 +37924,7 @@ export class DescribeTenantResponseBodyTenant extends $tea.Model {
       lowerCaseTableNames: 'number',
       masterIntranetAddressZone: 'string',
       maxParallelQueryDegree: 'number',
+      odpVersion: 'string',
       payType: 'string',
       primaryZone: 'string',
       primaryZoneDeployType: 'string',
@@ -48047,6 +48080,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.parseTable)) {
+      body["ParseTable"] = request.parseTable;
     }
 
     if (!Util.isUnset(request.sqlId)) {
