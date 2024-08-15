@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -83,13 +82,33 @@ export class DataProblemLevelGroupValue extends $tea.Model {
 }
 
 export class DataValue extends $tea.Model {
+  /**
+   * @example
+   * SMS
+   */
   code?: string;
   description?: string;
   configDescription?: string;
+  /**
+   * @example
+   * PROBLEM_REASON_DISASTER
+   */
   configCode?: string;
+  /**
+   * @example
+   * PROBLEM_REASON
+   */
   parentCode?: string;
+  /**
+   * @example
+   * 2
+   */
   configKey?: string;
   configValue?: string;
+  /**
+   * @example
+   * true
+   */
   requirement?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -123,6 +142,10 @@ export class DataValue extends $tea.Model {
 }
 
 export class AddProblemServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   problemId?: number;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -145,6 +168,13 @@ export class AddProblemServiceGroupRequest extends $tea.Model {
 }
 
 export class AddProblemServiceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5AD6E6BC-2582-4E0E-832D-52CB1B922253
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,9 +194,9 @@ export class AddProblemServiceGroupResponseBody extends $tea.Model {
 }
 
 export class AddProblemServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddProblemServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddProblemServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -211,9 +241,9 @@ export class BillingStatisticsResponseBody extends $tea.Model {
 }
 
 export class BillingStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BillingStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BillingStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -236,10 +266,30 @@ export class BillingStatisticsResponse extends $tea.Model {
 }
 
 export class CancelProblemRequest extends $tea.Model {
+  /**
+   * @example
+   * 取消原因
+   */
   cancelReason?: number;
+  /**
+   * @example
+   * 原因描述
+   */
   cancelReasonDescription?: string;
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 312
+   */
   problemId?: number;
+  /**
+   * @example
+   * PROBLEM_NOTIFY
+   */
   problemNotifyType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -267,6 +317,13 @@ export class CancelProblemRequest extends $tea.Model {
 }
 
 export class CancelProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B81E84B5-8FD1-45F3-969A-B5067AADCFFF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -286,9 +343,9 @@ export class CancelProblemResponseBody extends $tea.Model {
 }
 
 export class CancelProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -311,8 +368,20 @@ export class CancelProblemResponse extends $tea.Model {
 }
 
 export class CheckWebhookRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * https://oapi.dingtalk.com/robot/send?access_token=XXX
+   */
   webhook?: string;
+  /**
+   * @example
+   * DING_GROUP
+   */
   webhookType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -336,6 +405,13 @@ export class CheckWebhookRequest extends $tea.Model {
 }
 
 export class CheckWebhookResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -355,9 +431,9 @@ export class CheckWebhookResponseBody extends $tea.Model {
 }
 
 export class CheckWebhookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckWebhookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckWebhookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -380,7 +456,15 @@ export class CheckWebhookResponse extends $tea.Model {
 }
 
 export class ConfirmIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 101
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -402,6 +486,13 @@ export class ConfirmIntegrationConfigRequest extends $tea.Model {
 }
 
 export class ConfirmIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -421,9 +512,9 @@ export class ConfirmIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class ConfirmIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -446,10 +537,39 @@ export class ConfirmIntegrationConfigResponse extends $tea.Model {
 }
 
 export class CreateEscalationPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * 6b404f14-77d1-4b53-a1a1-30a58bREQUEST
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desc2322424
+   */
   escalationPlanDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name123
+   */
   escalationPlanName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   escalationPlanRules?: CreateEscalationPlanRequestEscalationPlanRules[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   escalationPlanScopeObjects?: CreateEscalationPlanRequestEscalationPlanScopeObjects[];
   isGlobal?: boolean;
   static names(): { [key: string]: string } {
@@ -480,7 +600,18 @@ export class CreateEscalationPlanRequest extends $tea.Model {
 }
 
 export class CreateEscalationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateEscalationPlanResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC21925D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -502,9 +633,9 @@ export class CreateEscalationPlanResponseBody extends $tea.Model {
 }
 
 export class CreateEscalationPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEscalationPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEscalationPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -527,14 +658,41 @@ export class CreateEscalationPlanResponse extends $tea.Model {
 }
 
 export class CreateIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * 12312
+   */
   assignUserId?: number;
   channels?: string[];
+  /**
+   * @example
+   * 2b63cdef-7ac3-4892-a76d-0f3389ef729f
+   */
   clientToken?: string;
+  /**
+   * @example
+   * LOW
+   */
   effect?: string;
   incidentDescription?: string;
+  /**
+   * @example
+   * P1
+   */
   incidentLevel?: string;
   incidentTitle?: string;
+  /**
+   * @example
+   * 12312
+   */
   relatedServiceId?: number;
+  /**
+   * @remarks
+   * 12000
+   * 
+   * @example
+   * 12312
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -570,7 +728,18 @@ export class CreateIncidentRequest extends $tea.Model {
 }
 
 export class CreateIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
   data?: CreateIncidentResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -592,9 +761,9 @@ export class CreateIncidentResponseBody extends $tea.Model {
 }
 
 export class CreateIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -617,8 +786,23 @@ export class CreateIncidentResponse extends $tea.Model {
 }
 
 export class CreateIncidentSubtotalRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12312
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -642,7 +826,18 @@ export class CreateIncidentSubtotalRequest extends $tea.Model {
 }
 
 export class CreateIncidentSubtotalResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateIncidentSubtotalResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -664,9 +859,9 @@ export class CreateIncidentSubtotalResponseBody extends $tea.Model {
 }
 
 export class CreateIncidentSubtotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIncidentSubtotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIncidentSubtotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -689,7 +884,15 @@ export class CreateIncidentSubtotalResponse extends $tea.Model {
 }
 
 export class CreateIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -711,7 +914,18 @@ export class CreateIntegrationConfigRequest extends $tea.Model {
 }
 
 export class CreateIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateIntegrationConfigResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -733,9 +947,9 @@ export class CreateIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class CreateIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -759,18 +973,70 @@ export class CreateIntegrationConfigResponse extends $tea.Model {
 
 export class CreateProblemRequest extends $tea.Model {
   affectServiceIds?: number[];
+  /**
+   * @example
+   * E789D869-DB13-4913-BAA8-A1F56F94B94D
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2020-10-02 00:00:00
+   */
   discoverTime?: string;
+  /**
+   * @example
+   * 123221
+   */
   incidentId?: number;
+  /**
+   * @example
+   * 32121
+   */
   mainHandlerId?: number;
+  /**
+   * @example
+   * 初步原因
+   */
   preliminaryReason?: string;
+  /**
+   * @example
+   * P2
+   */
   problemLevel?: string;
+  /**
+   * @example
+   * 故障A
+   */
   problemName?: string;
+  /**
+   * @example
+   * PROBLEM_NOTIFY
+   */
   problemNotifyType?: string;
+  /**
+   * @example
+   * HANDLING
+   */
   problemStatus?: string;
+  /**
+   * @example
+   * 进展摘要
+   */
   progressSummary?: string;
+  /**
+   * @example
+   * 343
+   */
   progressSummaryRichTextId?: number;
+  /**
+   * @example
+   * 2020-10-02 00:00:00
+   */
   recoveryTime?: string;
+  /**
+   * @example
+   * 123122
+   */
   relatedServiceId?: number;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -819,7 +1085,18 @@ export class CreateProblemRequest extends $tea.Model {
 }
 
 export class CreateProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateProblemResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E789D869-DB13-4933-BAA8-A1F56F94B94D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -841,9 +1118,9 @@ export class CreateProblemResponseBody extends $tea.Model {
 }
 
 export class CreateProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -866,12 +1143,42 @@ export class CreateProblemResponse extends $tea.Model {
 }
 
 export class CreateProblemEffectionServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * e0b6735e-1a04-4d6b-a625-d2350612492c
+   */
   clientToken?: string;
+  /**
+   * @example
+   * erdwcdc
+   */
   description?: string;
+  /**
+   * @example
+   * P2
+   */
   level?: string;
   pictureUrl?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 150000000
+   */
   problemId?: number;
+  /**
+   * @example
+   * 170000000
+   */
   serviceId?: number;
+  /**
+   * @example
+   * UN_RECOVERED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -903,7 +1210,18 @@ export class CreateProblemEffectionServiceRequest extends $tea.Model {
 }
 
 export class CreateProblemEffectionServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateProblemEffectionServiceResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -925,9 +1243,9 @@ export class CreateProblemEffectionServiceResponseBody extends $tea.Model {
 }
 
 export class CreateProblemEffectionServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProblemEffectionServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProblemEffectionServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -950,15 +1268,58 @@ export class CreateProblemEffectionServiceResponse extends $tea.Model {
 }
 
 export class CreateProblemMeasureRequest extends $tea.Model {
+  /**
+   * @example
+   * 标准
+   */
   checkStandard?: string;
+  /**
+   * @example
+   * 123
+   */
   checkUserId?: number;
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 措施内容
+   */
   content?: string;
+  /**
+   * @example
+   * 123
+   */
   directorId?: number;
+  /**
+   * @example
+   * 2020-01-23 00:00:00
+   */
   planFinishTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23
+   */
   problemId?: number;
+  /**
+   * @example
+   * 123
+   */
   stalkerId?: number;
+  /**
+   * @example
+   * IMPROVED
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -996,7 +1357,18 @@ export class CreateProblemMeasureRequest extends $tea.Model {
 }
 
 export class CreateProblemMeasureResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateProblemMeasureResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1018,9 +1390,9 @@ export class CreateProblemMeasureResponseBody extends $tea.Model {
 }
 
 export class CreateProblemMeasureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProblemMeasureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProblemMeasureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1043,8 +1415,19 @@ export class CreateProblemMeasureResponse extends $tea.Model {
 }
 
 export class CreateProblemSubtotalRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3814
+   */
   clientToken?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1231
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1068,7 +1451,18 @@ export class CreateProblemSubtotalRequest extends $tea.Model {
 }
 
 export class CreateProblemSubtotalResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * object
+   */
   data?: CreateProblemSubtotalResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd381A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1090,9 +1484,9 @@ export class CreateProblemSubtotalResponseBody extends $tea.Model {
 }
 
 export class CreateProblemSubtotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProblemSubtotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProblemSubtotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1115,10 +1509,33 @@ export class CreateProblemSubtotalResponse extends $tea.Model {
 }
 
 export class CreateProblemTimelineRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * test123
+   */
   content?: string;
+  /**
+   * @example
+   * NodeTest
+   */
   keyNode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 102
+   */
   problemId?: number;
+  /**
+   * @example
+   * 2021-06-06 12:11:22
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1146,7 +1563,18 @@ export class CreateProblemTimelineRequest extends $tea.Model {
 }
 
 export class CreateProblemTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateProblemTimelineResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1168,9 +1596,9 @@ export class CreateProblemTimelineResponseBody extends $tea.Model {
 }
 
 export class CreateProblemTimelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProblemTimelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProblemTimelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1193,8 +1621,26 @@ export class CreateProblemTimelineResponse extends $tea.Model {
 }
 
 export class CreateProblemTimelinesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * e0b6735e-1a04-4d6b-a625-d2350612492c
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 423
+   */
   problemId?: number;
+  /**
+   * @example
+   * 2018-01-01 18:01，谁做了什么事情\n2018-01-01 18:01，谁做了什么事情\n2018-01-01 18:01，谁做了什么事情
+   */
   timelineNodes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1218,7 +1664,18 @@ export class CreateProblemTimelinesRequest extends $tea.Model {
 }
 
 export class CreateProblemTimelinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateProblemTimelinesResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1240,9 +1697,9 @@ export class CreateProblemTimelinesResponseBody extends $tea.Model {
 }
 
 export class CreateProblemTimelinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProblemTimelinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProblemTimelinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1265,8 +1722,20 @@ export class CreateProblemTimelinesResponse extends $tea.Model {
 }
 
 export class CreateRichTextRequest extends $tea.Model {
+  /**
+   * @example
+   * 12221
+   */
   instanceId?: number;
+  /**
+   * @example
+   * INCIDENT 事件 ALERT告警 PROBLEM故障
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 这是一个富文本
+   */
   richText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1290,7 +1759,18 @@ export class CreateRichTextRequest extends $tea.Model {
 }
 
 export class CreateRichTextResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateRichTextResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1312,9 +1792,9 @@ export class CreateRichTextResponseBody extends $tea.Model {
 }
 
 export class CreateRichTextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRichTextResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRichTextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1337,25 +1817,118 @@ export class CreateRichTextResponse extends $tea.Model {
 }
 
 export class CreateRouteRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 65
+   */
   assignObjectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SERVICEGROUP
+   */
   assignObjectType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AND
+   */
   childRuleRelation?: string;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
   convergenceFields?: string[];
   convergenceType?: number;
   coverageProblemLevels?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @example
+   * false
+   */
   enableStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * P1
+   */
   incidentLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   matchCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   notifyChannels?: string[];
   problemEffectionServices?: number[];
   problemLevelGroup?: { [key: string]: ProblemLevelGroupValue };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   relatedServiceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   routeChildRules?: CreateRouteRuleRequestRouteChildRules[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INCIDENT
+   */
   routeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 这是一个规则
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   timeWindow?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MINUTE
+   */
   timeWindowUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1413,7 +1986,15 @@ export class CreateRouteRuleRequest extends $tea.Model {
 }
 
 export class CreateRouteRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 65
+   */
   data?: CreateRouteRuleResponseBodyData;
+  /**
+   * @example
+   * 请求ID
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1435,9 +2016,9 @@ export class CreateRouteRuleResponseBody extends $tea.Model {
 }
 
 export class CreateRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1460,10 +2041,25 @@ export class CreateRouteRuleResponse extends $tea.Model {
 }
 
 export class CreateServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
   escalationPlanId?: number;
+  /**
+   * @example
+   * 服务描述
+   */
   serviceDescription?: string;
   serviceGroupIdList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 服务名称
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1491,7 +2087,18 @@ export class CreateServiceRequest extends $tea.Model {
 }
 
 export class CreateServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   data?: CreateServiceResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1513,9 +2120,9 @@ export class CreateServiceResponseBody extends $tea.Model {
 }
 
 export class CreateServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1538,13 +2145,55 @@ export class CreateServiceResponse extends $tea.Model {
 }
 
 export class CreateServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ENABLE
+   */
   enableWebhook?: string;
   monitorSourceTemplates?: CreateServiceGroupRequestMonitorSourceTemplates[];
+  /**
+   * @example
+   * 服务描述
+   */
   serviceGroupDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 冲上云霄
+   */
   serviceGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userIds?: number[];
+  /**
+   * @remarks
+   * webhooklink
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * WWWWWWW
+   */
   webhookLink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WEIXIN_GROUP
+   */
   webhookType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1578,7 +2227,18 @@ export class CreateServiceGroupRequest extends $tea.Model {
 }
 
 export class CreateServiceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   data?: CreateServiceGroupResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1600,9 +2260,9 @@ export class CreateServiceGroupResponseBody extends $tea.Model {
 }
 
 export class CreateServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1625,10 +2285,32 @@ export class CreateServiceGroupResponse extends $tea.Model {
 }
 
 export class CreateServiceGroupSchedulingRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 12
+   */
   fastScheduling?: CreateServiceGroupSchedulingRequestFastScheduling;
   fineScheduling?: CreateServiceGroupSchedulingRequestFineScheduling;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FAST
+   */
   schedulingWay?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1656,6 +2338,13 @@ export class CreateServiceGroupSchedulingRequest extends $tea.Model {
 }
 
 export class CreateServiceGroupSchedulingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1675,9 +2364,9 @@ export class CreateServiceGroupSchedulingResponseBody extends $tea.Model {
 }
 
 export class CreateServiceGroupSchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateServiceGroupSchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceGroupSchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1700,16 +2389,72 @@ export class CreateServiceGroupSchedulingResponse extends $tea.Model {
 }
 
 export class CreateSubscriptionRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2021-11-03 10:10:10
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LONG_TERM
+   */
   expiredType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   notifyObjectList?: CreateSubscriptionRequestNotifyObjectList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
   notifyObjectType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   notifyStrategyList?: CreateSubscriptionRequestNotifyStrategyList[];
+  /**
+   * @example
+   * 1个月
+   */
   period?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SERVICE
+   */
   scope?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   scopeObjectList?: CreateSubscriptionRequestScopeObjectList[];
+  /**
+   * @example
+   * 2021-02-03 10:10:10
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testSubscription
+   */
   subscriptionTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1749,7 +2494,18 @@ export class CreateSubscriptionRequest extends $tea.Model {
 }
 
 export class CreateSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateSubscriptionResponseBodyData;
+  /**
+   * @remarks
+   * request id
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1771,9 +2527,9 @@ export class CreateSubscriptionResponseBody extends $tea.Model {
 }
 
 export class CreateSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1796,7 +2552,21 @@ export class CreateSubscriptionResponse extends $tea.Model {
 }
 
 export class CreateTenantApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DINGDING
+   */
   channel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7C56D225-7C34-40BB-9624-C8BA449260E6
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1818,7 +2588,18 @@ export class CreateTenantApplicationRequest extends $tea.Model {
 }
 
 export class CreateTenantApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateTenantApplicationResponseBodyData;
+  /**
+   * @remarks
+   * id of the req
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1840,9 +2621,9 @@ export class CreateTenantApplicationResponseBody extends $tea.Model {
 }
 
 export class CreateTenantApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTenantApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTenantApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1865,9 +2646,25 @@ export class CreateTenantApplicationResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  /**
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 5678@qq.com
+   */
   email?: string;
+  /**
+   * @example
+   * 188898989892
+   */
   phone?: string;
+  /**
+   * @example
+   * 4787654378343
+   */
   ramId?: number;
   roleIdList?: number[];
   username?: string;
@@ -1899,7 +2696,18 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: CreateUserResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1921,9 +2729,9 @@ export class CreateUserResponseBody extends $tea.Model {
 }
 
 export class CreateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1946,7 +2754,18 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class DeleteEscalationPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234534
+   */
   escalationPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1968,6 +2787,13 @@ export class DeleteEscalationPlanRequest extends $tea.Model {
 }
 
 export class DeleteEscalationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC21925D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1987,9 +2813,9 @@ export class DeleteEscalationPlanResponseBody extends $tea.Model {
 }
 
 export class DeleteEscalationPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEscalationPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEscalationPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2012,7 +2838,15 @@ export class DeleteEscalationPlanResponse extends $tea.Model {
 }
 
 export class DeleteIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 12321
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2034,6 +2868,13 @@ export class DeleteIncidentRequest extends $tea.Model {
 }
 
 export class DeleteIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2053,9 +2894,9 @@ export class DeleteIncidentResponseBody extends $tea.Model {
 }
 
 export class DeleteIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2078,7 +2919,15 @@ export class DeleteIncidentResponse extends $tea.Model {
 }
 
 export class DeleteIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 100
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2100,6 +2949,13 @@ export class DeleteIntegrationConfigRequest extends $tea.Model {
 }
 
 export class DeleteIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2119,9 +2975,9 @@ export class DeleteIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class DeleteIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2144,7 +3000,15 @@ export class DeleteIntegrationConfigResponse extends $tea.Model {
 }
 
 export class DeleteProblemRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1231
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2166,6 +3030,13 @@ export class DeleteProblemRequest extends $tea.Model {
 }
 
 export class DeleteProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2185,9 +3056,9 @@ export class DeleteProblemResponseBody extends $tea.Model {
 }
 
 export class DeleteProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2210,8 +3081,23 @@ export class DeleteProblemResponse extends $tea.Model {
 }
 
 export class DeleteProblemEffectionServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * e0b6735e-1a04-4d6b-a625-d2350612492c
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 567
+   */
   effectionServiceId?: number;
+  /**
+   * @example
+   * 876
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2235,6 +3121,13 @@ export class DeleteProblemEffectionServiceRequest extends $tea.Model {
 }
 
 export class DeleteProblemEffectionServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * e0b6735e-1a04-4d6b-a625-d2350612492c
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2254,9 +3147,9 @@ export class DeleteProblemEffectionServiceResponseBody extends $tea.Model {
 }
 
 export class DeleteProblemEffectionServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProblemEffectionServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProblemEffectionServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2279,8 +3172,20 @@ export class DeleteProblemEffectionServiceResponse extends $tea.Model {
 }
 
 export class DeleteProblemMeasureRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1213
+   */
   measureId?: number;
+  /**
+   * @example
+   * 2131
+   */
   problemId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2304,6 +3209,13 @@ export class DeleteProblemMeasureRequest extends $tea.Model {
 }
 
 export class DeleteProblemMeasureResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2323,9 +3235,9 @@ export class DeleteProblemMeasureResponseBody extends $tea.Model {
 }
 
 export class DeleteProblemMeasureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProblemMeasureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProblemMeasureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2348,8 +3260,20 @@ export class DeleteProblemMeasureResponse extends $tea.Model {
 }
 
 export class DeleteProblemTimelineRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 102
+   */
   problemId?: number;
+  /**
+   * @example
+   * 11
+   */
   problemTimelineId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2373,6 +3297,13 @@ export class DeleteProblemTimelineRequest extends $tea.Model {
 }
 
 export class DeleteProblemTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2392,9 +3323,9 @@ export class DeleteProblemTimelineResponseBody extends $tea.Model {
 }
 
 export class DeleteProblemTimelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProblemTimelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProblemTimelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2417,7 +3348,18 @@ export class DeleteProblemTimelineResponse extends $tea.Model {
 }
 
 export class DeleteRouteRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
   routeRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2439,6 +3381,10 @@ export class DeleteRouteRuleRequest extends $tea.Model {
 }
 
 export class DeleteRouteRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2458,9 +3404,9 @@ export class DeleteRouteRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2483,7 +3429,15 @@ export class DeleteRouteRuleResponse extends $tea.Model {
 }
 
 export class DeleteServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 10002000
+   */
   serviceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2505,6 +3459,13 @@ export class DeleteServiceRequest extends $tea.Model {
 }
 
 export class DeleteServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2524,9 +3485,9 @@ export class DeleteServiceResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2549,7 +3510,15 @@ export class DeleteServiceResponse extends $tea.Model {
 }
 
 export class DeleteServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1000
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2571,6 +3540,13 @@ export class DeleteServiceGroupRequest extends $tea.Model {
 }
 
 export class DeleteServiceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2590,9 +3566,9 @@ export class DeleteServiceGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2634,9 +3610,9 @@ export class DeleteServiceGroupSchedulingResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceGroupSchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceGroupSchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceGroupSchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2659,10 +3635,30 @@ export class DeleteServiceGroupSchedulingResponse extends $tea.Model {
 }
 
 export class DeleteServiceGroupUserRequest extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 88888
+   */
   newUserId?: number;
+  /**
+   * @example
+   * 777777
+   */
   oldUserId?: number;
+  /**
+   * @example
+   * true
+   */
   removeUser?: boolean;
+  /**
+   * @example
+   * 66666
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2690,6 +3686,13 @@ export class DeleteServiceGroupUserRequest extends $tea.Model {
 }
 
 export class DeleteServiceGroupUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2709,9 +3712,9 @@ export class DeleteServiceGroupUserResponseBody extends $tea.Model {
 }
 
 export class DeleteServiceGroupUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteServiceGroupUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceGroupUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2734,6 +3737,10 @@ export class DeleteServiceGroupUserResponse extends $tea.Model {
 }
 
 export class DeleteSubscriptionRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   subscriptionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2753,6 +3760,13 @@ export class DeleteSubscriptionRequest extends $tea.Model {
 }
 
 export class DeleteSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2772,9 +3786,9 @@ export class DeleteSubscriptionResponseBody extends $tea.Model {
 }
 
 export class DeleteSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2797,7 +3811,18 @@ export class DeleteSubscriptionResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
+  /**
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2819,6 +3844,13 @@ export class DeleteUserRequest extends $tea.Model {
 }
 
 export class DeleteUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2838,9 +3870,9 @@ export class DeleteUserResponseBody extends $tea.Model {
 }
 
 export class DeleteUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2863,8 +3895,20 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class DeliverIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * 212321
+   */
   assignUserId?: number;
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61CS9A221
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1223212
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2888,6 +3932,13 @@ export class DeliverIncidentRequest extends $tea.Model {
 }
 
 export class DeliverIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2FS
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2907,9 +3958,9 @@ export class DeliverIncidentResponseBody extends $tea.Model {
 }
 
 export class DeliverIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeliverIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeliverIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2932,7 +3983,18 @@ export class DeliverIncidentResponse extends $tea.Model {
 }
 
 export class DisableEscalationPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234534
+   */
   escalationPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2954,6 +4016,13 @@ export class DisableEscalationPlanRequest extends $tea.Model {
 }
 
 export class DisableEscalationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC21925D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2973,9 +4042,9 @@ export class DisableEscalationPlanResponseBody extends $tea.Model {
 }
 
 export class DisableEscalationPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableEscalationPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableEscalationPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2998,7 +4067,15 @@ export class DisableEscalationPlanResponse extends $tea.Model {
 }
 
 export class DisableIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 12345703
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3020,6 +4097,13 @@ export class DisableIntegrationConfigRequest extends $tea.Model {
 }
 
 export class DisableIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3039,9 +4123,9 @@ export class DisableIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class DisableIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3064,7 +4148,18 @@ export class DisableIntegrationConfigResponse extends $tea.Model {
 }
 
 export class DisableRouteRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   routeRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3086,7 +4181,21 @@ export class DisableRouteRuleRequest extends $tea.Model {
 }
 
 export class DisableRouteRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   * 
+   * @example
+   * null
+   */
   data?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3108,9 +4217,9 @@ export class DisableRouteRuleResponseBody extends $tea.Model {
 }
 
 export class DisableRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3133,7 +4242,15 @@ export class DisableRouteRuleResponse extends $tea.Model {
 }
 
 export class DisableServiceGroupWebhookRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3155,6 +4272,13 @@ export class DisableServiceGroupWebhookRequest extends $tea.Model {
 }
 
 export class DisableServiceGroupWebhookResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3174,9 +4298,9 @@ export class DisableServiceGroupWebhookResponseBody extends $tea.Model {
 }
 
 export class DisableServiceGroupWebhookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableServiceGroupWebhookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableServiceGroupWebhookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3199,6 +4323,10 @@ export class DisableServiceGroupWebhookResponse extends $tea.Model {
 }
 
 export class DisableSubscriptionRequest extends $tea.Model {
+  /**
+   * @example
+   * 89
+   */
   subscriptionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3218,6 +4346,13 @@ export class DisableSubscriptionRequest extends $tea.Model {
 }
 
 export class DisableSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3237,9 +4372,9 @@ export class DisableSubscriptionResponseBody extends $tea.Model {
 }
 
 export class DisableSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3262,7 +4397,18 @@ export class DisableSubscriptionResponse extends $tea.Model {
 }
 
 export class EnableEscalationPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234534
+   */
   escalationPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3284,6 +4430,13 @@ export class EnableEscalationPlanRequest extends $tea.Model {
 }
 
 export class EnableEscalationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC21925D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3303,9 +4456,9 @@ export class EnableEscalationPlanResponseBody extends $tea.Model {
 }
 
 export class EnableEscalationPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableEscalationPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableEscalationPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3328,7 +4481,15 @@ export class EnableEscalationPlanResponse extends $tea.Model {
 }
 
 export class EnableIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 101
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3350,6 +4511,13 @@ export class EnableIntegrationConfigRequest extends $tea.Model {
 }
 
 export class EnableIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3369,9 +4537,9 @@ export class EnableIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class EnableIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3394,7 +4562,21 @@ export class EnableIntegrationConfigResponse extends $tea.Model {
 }
 
 export class EnableRouteRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   routeRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3416,7 +4598,15 @@ export class EnableRouteRuleRequest extends $tea.Model {
 }
 
 export class EnableRouteRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   data?: number;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3438,9 +4628,9 @@ export class EnableRouteRuleResponseBody extends $tea.Model {
 }
 
 export class EnableRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3463,7 +4653,15 @@ export class EnableRouteRuleResponse extends $tea.Model {
 }
 
 export class EnableServiceGroupWebhookRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3485,6 +4683,13 @@ export class EnableServiceGroupWebhookRequest extends $tea.Model {
 }
 
 export class EnableServiceGroupWebhookResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3504,9 +4709,9 @@ export class EnableServiceGroupWebhookResponseBody extends $tea.Model {
 }
 
 export class EnableServiceGroupWebhookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableServiceGroupWebhookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableServiceGroupWebhookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3529,6 +4734,10 @@ export class EnableServiceGroupWebhookResponse extends $tea.Model {
 }
 
 export class EnableSubscriptionRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   subscriptionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3548,6 +4757,13 @@ export class EnableSubscriptionRequest extends $tea.Model {
 }
 
 export class EnableSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3567,9 +4783,9 @@ export class EnableSubscriptionResponseBody extends $tea.Model {
 }
 
 export class EnableSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3592,11 +4808,35 @@ export class EnableSubscriptionResponse extends $tea.Model {
 }
 
 export class FinishIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2DC
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   incidentFinishReason?: number;
+  /**
+   * @example
+   * 原因描述
+   */
   incidentFinishReasonDescription?: string;
+  /**
+   * @example
+   * 3
+   */
   incidentFinishSolution?: number;
+  /**
+   * @example
+   * 解决方案描述
+   */
   incidentFinishSolutionDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   incidentIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -3626,6 +4866,13 @@ export class FinishIncidentRequest extends $tea.Model {
 }
 
 export class FinishIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3645,9 +4892,9 @@ export class FinishIncidentResponseBody extends $tea.Model {
 }
 
 export class FinishIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FinishIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3670,7 +4917,15 @@ export class FinishIncidentResponse extends $tea.Model {
 }
 
 export class FinishProblemRequest extends $tea.Model {
+  /**
+   * @example
+   * 6338F42D-ED0B-442C-932C-657300AFB4BB
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 3123
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3692,6 +4947,13 @@ export class FinishProblemRequest extends $tea.Model {
 }
 
 export class FinishProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6338F42D-ED0B-442C-932C-657300AFB4BB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3711,9 +4973,9 @@ export class FinishProblemResponseBody extends $tea.Model {
 }
 
 export class FinishProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FinishProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3736,7 +4998,15 @@ export class FinishProblemResponse extends $tea.Model {
 }
 
 export class GeneratePictureLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * keys
+   */
   keys?: string[];
+  /**
+   * @example
+   * 50002020
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3758,7 +5028,18 @@ export class GeneratePictureLinkRequest extends $tea.Model {
 }
 
 export class GeneratePictureLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GeneratePictureLinkResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3780,9 +5061,9 @@ export class GeneratePictureLinkResponseBody extends $tea.Model {
 }
 
 export class GeneratePictureLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GeneratePictureLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GeneratePictureLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3806,7 +5087,15 @@ export class GeneratePictureLinkResponse extends $tea.Model {
 
 export class GeneratePictureUploadSignRequest extends $tea.Model {
   files?: GeneratePictureUploadSignRequestFiles[];
+  /**
+   * @example
+   * 123123
+   */
   instanceId?: number;
+  /**
+   * @example
+   * INCIDENT 事件 ALERT告警 PROBLEM故障
+   */
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3830,7 +5119,18 @@ export class GeneratePictureUploadSignRequest extends $tea.Model {
 }
 
 export class GeneratePictureUploadSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GeneratePictureUploadSignResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * e2d4306a-bf4d-4345-9ae6-158223c85dbd
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3852,9 +5152,9 @@ export class GeneratePictureUploadSignResponseBody extends $tea.Model {
 }
 
 export class GeneratePictureUploadSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GeneratePictureUploadSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GeneratePictureUploadSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3877,7 +5177,15 @@ export class GeneratePictureUploadSignResponse extends $tea.Model {
 }
 
 export class GenerateProblemPictureLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * oss key
+   */
   keys?: string[];
+  /**
+   * @example
+   * 50002021
+   */
   problemId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3899,7 +5207,18 @@ export class GenerateProblemPictureLinkRequest extends $tea.Model {
 }
 
 export class GenerateProblemPictureLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GenerateProblemPictureLinkResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-88067879ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3921,9 +5240,9 @@ export class GenerateProblemPictureLinkResponseBody extends $tea.Model {
 }
 
 export class GenerateProblemPictureLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateProblemPictureLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateProblemPictureLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3946,9 +5265,25 @@ export class GenerateProblemPictureLinkResponse extends $tea.Model {
 }
 
 export class GenerateProblemPictureUploadSignRequest extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   fileName?: string;
+  /**
+   * @example
+   * 1000
+   */
   fileSize?: number;
+  /**
+   * @example
+   * png
+   */
   fileType?: string;
+  /**
+   * @example
+   * 67876
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3974,7 +5309,18 @@ export class GenerateProblemPictureUploadSignRequest extends $tea.Model {
 }
 
 export class GenerateProblemPictureUploadSignResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GenerateProblemPictureUploadSignResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * e2d4306a-bf4d-4345-9ae6-158223c85dbd
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3996,9 +5342,9 @@ export class GenerateProblemPictureUploadSignResponseBody extends $tea.Model {
 }
 
 export class GenerateProblemPictureUploadSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateProblemPictureUploadSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateProblemPictureUploadSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4021,7 +5367,18 @@ export class GenerateProblemPictureUploadSignResponse extends $tea.Model {
 }
 
 export class GetEscalationPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 345
+   */
   escalationPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4043,7 +5400,18 @@ export class GetEscalationPlanRequest extends $tea.Model {
 }
 
 export class GetEscalationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetEscalationPlanResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4065,9 +5433,9 @@ export class GetEscalationPlanResponseBody extends $tea.Model {
 }
 
 export class GetEscalationPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEscalationPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEscalationPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4090,6 +5458,13 @@ export class GetEscalationPlanResponse extends $tea.Model {
 }
 
 export class GetEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4110,6 +5485,13 @@ export class GetEventRequest extends $tea.Model {
 
 export class GetEventResponseBody extends $tea.Model {
   data?: GetEventResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * XXXXXXXXXXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4131,9 +5513,9 @@ export class GetEventResponseBody extends $tea.Model {
 }
 
 export class GetEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4156,6 +5538,10 @@ export class GetEventResponse extends $tea.Model {
 }
 
 export class GetHomePageGuidanceRequest extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4176,6 +5562,13 @@ export class GetHomePageGuidanceRequest extends $tea.Model {
 
 export class GetHomePageGuidanceResponseBody extends $tea.Model {
   data?: GetHomePageGuidanceResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4197,9 +5590,9 @@ export class GetHomePageGuidanceResponseBody extends $tea.Model {
 }
 
 export class GetHomePageGuidanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHomePageGuidanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHomePageGuidanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4222,7 +5615,15 @@ export class GetHomePageGuidanceResponse extends $tea.Model {
 }
 
 export class GetIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * 2b63cdef-7ac3-4892-a76d-0f3389ef729f
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 32113
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4244,7 +5645,18 @@ export class GetIncidentRequest extends $tea.Model {
 }
 
 export class GetIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetIncidentResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 2b63cdef-7ac3-4892-a76d-0f3389ef7291
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4266,9 +5678,9 @@ export class GetIncidentResponseBody extends $tea.Model {
 }
 
 export class GetIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4291,6 +5703,10 @@ export class GetIncidentResponse extends $tea.Model {
 }
 
 export class GetIncidentListByIdListRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
   incidentIdList?: number[];
   static names(): { [key: string]: string } {
@@ -4313,7 +5729,18 @@ export class GetIncidentListByIdListRequest extends $tea.Model {
 }
 
 export class GetIncidentListByIdListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetIncidentListByIdListResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4335,9 +5762,9 @@ export class GetIncidentListByIdListResponseBody extends $tea.Model {
 }
 
 export class GetIncidentListByIdListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIncidentListByIdListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIncidentListByIdListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4360,6 +5787,10 @@ export class GetIncidentListByIdListResponse extends $tea.Model {
 }
 
 export class GetIncidentStatisticsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4379,7 +5810,18 @@ export class GetIncidentStatisticsRequest extends $tea.Model {
 }
 
 export class GetIncidentStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetIncidentStatisticsResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4401,9 +5843,9 @@ export class GetIncidentStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetIncidentStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIncidentStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIncidentStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4426,7 +5868,15 @@ export class GetIncidentStatisticsResponse extends $tea.Model {
 }
 
 export class GetIncidentSubtotalCountRequest extends $tea.Model {
+  /**
+   * @example
+   * 7C56D225-7C34-40BB-9624-C8BA449260E6
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   incidentIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -4448,6 +5898,10 @@ export class GetIncidentSubtotalCountRequest extends $tea.Model {
 }
 
 export class GetIncidentSubtotalCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetIncidentSubtotalCountResponseBodyData;
   static names(): { [key: string]: string } {
     return {
@@ -4467,9 +5921,9 @@ export class GetIncidentSubtotalCountResponseBody extends $tea.Model {
 }
 
 export class GetIncidentSubtotalCountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIncidentSubtotalCountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIncidentSubtotalCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4492,7 +5946,15 @@ export class GetIncidentSubtotalCountResponse extends $tea.Model {
 }
 
 export class GetIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 68
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4514,7 +5976,18 @@ export class GetIntegrationConfigRequest extends $tea.Model {
 }
 
 export class GetIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetIntegrationConfigResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4536,9 +6009,9 @@ export class GetIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class GetIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4561,7 +6034,18 @@ export class GetIntegrationConfigResponse extends $tea.Model {
 }
 
 export class GetProblemRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4584,6 +6068,10 @@ export class GetProblemRequest extends $tea.Model {
 
 export class GetProblemResponseBody extends $tea.Model {
   data?: GetProblemResponseBodyData;
+  /**
+   * @example
+   * C4BE3837-1A13-41VB-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4605,9 +6093,9 @@ export class GetProblemResponseBody extends $tea.Model {
 }
 
 export class GetProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4630,8 +6118,23 @@ export class GetProblemResponse extends $tea.Model {
 }
 
 export class GetProblemEffectionServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * e2d4306a-bf4d-4345-9ae6-158223c85dbd
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 9
+   */
   effectionServiceId?: number;
+  /**
+   * @example
+   * 46
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4655,7 +6158,18 @@ export class GetProblemEffectionServiceRequest extends $tea.Model {
 }
 
 export class GetProblemEffectionServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetProblemEffectionServiceResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * e2d4306a-bf4d-4345-9ae6-158223c85dbd
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4677,9 +6191,9 @@ export class GetProblemEffectionServiceResponseBody extends $tea.Model {
 }
 
 export class GetProblemEffectionServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProblemEffectionServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProblemEffectionServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4702,7 +6216,15 @@ export class GetProblemEffectionServiceResponse extends $tea.Model {
 }
 
 export class GetProblemImprovementRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 312312
+   */
   problemId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4724,7 +6246,18 @@ export class GetProblemImprovementRequest extends $tea.Model {
 }
 
 export class GetProblemImprovementResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetProblemImprovementResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3811
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4746,9 +6279,9 @@ export class GetProblemImprovementResponseBody extends $tea.Model {
 }
 
 export class GetProblemImprovementResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProblemImprovementResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProblemImprovementResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4771,12 +6304,36 @@ export class GetProblemImprovementResponse extends $tea.Model {
 }
 
 export class GetProblemPreviewRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840f13812
+   */
   clientToken?: string;
   effectServiceIds?: number[];
+  /**
+   * @example
+   * 213123
+   */
   incidentId?: number;
+  /**
+   * @example
+   * 12312
+   */
   problemId?: number;
+  /**
+   * @example
+   * P2
+   */
   problemLevel?: string;
+  /**
+   * @example
+   * PROBLEM_NOTIFY
+   */
   problemNotifyType?: string;
+  /**
+   * @example
+   * 21312
+   */
   relatedServiceId?: number;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -4811,7 +6368,18 @@ export class GetProblemPreviewRequest extends $tea.Model {
 }
 
 export class GetProblemPreviewResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetProblemPreviewResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c2840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4833,9 +6401,9 @@ export class GetProblemPreviewResponseBody extends $tea.Model {
 }
 
 export class GetProblemPreviewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProblemPreviewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProblemPreviewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4858,6 +6426,10 @@ export class GetProblemPreviewResponse extends $tea.Model {
 }
 
 export class GetResourceStatisticsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4877,7 +6449,18 @@ export class GetResourceStatisticsRequest extends $tea.Model {
 }
 
 export class GetResourceStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetResourceStatisticsResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4899,9 +6482,9 @@ export class GetResourceStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetResourceStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4924,8 +6507,20 @@ export class GetResourceStatisticsResponse extends $tea.Model {
 }
 
 export class GetRichTextRequest extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT 事件 ALERT告警 PROBLEM故障
+   */
   instanceId?: number;
+  /**
+   * @example
+   * INCIDENT
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 12221才
+   */
   richTextId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4949,7 +6544,18 @@ export class GetRichTextRequest extends $tea.Model {
 }
 
 export class GetRichTextResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetRichTextResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4971,9 +6577,9 @@ export class GetRichTextResponseBody extends $tea.Model {
 }
 
 export class GetRichTextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRichTextResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRichTextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4996,7 +6602,18 @@ export class GetRichTextResponse extends $tea.Model {
 }
 
 export class GetRouteRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   routeRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5019,6 +6636,10 @@ export class GetRouteRuleRequest extends $tea.Model {
 
 export class GetRouteRuleResponseBody extends $tea.Model {
   data?: GetRouteRuleResponseBodyData;
+  /**
+   * @example
+   * 6B9347ED-FD93-42B4-B9A4-7282962F5D6A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5040,9 +6661,9 @@ export class GetRouteRuleResponseBody extends $tea.Model {
 }
 
 export class GetRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5065,7 +6686,18 @@ export class GetRouteRuleResponse extends $tea.Model {
 }
 
 export class GetServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   serviceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5088,6 +6720,13 @@ export class GetServiceRequest extends $tea.Model {
 
 export class GetServiceResponseBody extends $tea.Model {
   data?: GetServiceResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5109,9 +6748,9 @@ export class GetServiceResponseBody extends $tea.Model {
 }
 
 export class GetServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5134,7 +6773,15 @@ export class GetServiceResponse extends $tea.Model {
 }
 
 export class GetServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2323232
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5157,6 +6804,10 @@ export class GetServiceGroupRequest extends $tea.Model {
 
 export class GetServiceGroupResponseBody extends $tea.Model {
   data?: GetServiceGroupResponseBodyData;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5178,9 +6829,9 @@ export class GetServiceGroupResponseBody extends $tea.Model {
 }
 
 export class GetServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5203,10 +6854,30 @@ export class GetServiceGroupResponse extends $tea.Model {
 }
 
 export class GetServiceGroupPersonSchedulingRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2020-09-31 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 77777
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 2020-09-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 66666
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5235,6 +6906,13 @@ export class GetServiceGroupPersonSchedulingRequest extends $tea.Model {
 
 export class GetServiceGroupPersonSchedulingResponseBody extends $tea.Model {
   data?: { [key: string]: any };
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5256,9 +6934,9 @@ export class GetServiceGroupPersonSchedulingResponseBody extends $tea.Model {
 }
 
 export class GetServiceGroupPersonSchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceGroupPersonSchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceGroupPersonSchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5281,7 +6959,18 @@ export class GetServiceGroupPersonSchedulingResponse extends $tea.Model {
 }
 
 export class GetServiceGroupSchedulingRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9999
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5304,6 +6993,13 @@ export class GetServiceGroupSchedulingRequest extends $tea.Model {
 
 export class GetServiceGroupSchedulingResponseBody extends $tea.Model {
   data?: GetServiceGroupSchedulingResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxxxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5325,9 +7021,9 @@ export class GetServiceGroupSchedulingResponseBody extends $tea.Model {
 }
 
 export class GetServiceGroupSchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceGroupSchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceGroupSchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5350,12 +7046,38 @@ export class GetServiceGroupSchedulingResponse extends $tea.Model {
 }
 
 export class GetServiceGroupSchedulingPreviewRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2021-09-01 00:00:00
+   */
   endTime?: string;
   fastScheduling?: GetServiceGroupSchedulingPreviewRequestFastScheduling;
   fineScheduling?: GetServiceGroupSchedulingPreviewRequestFineScheduling;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FAST
+   */
   schedulingWay?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 55555
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 2021-11-01 00:00:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5388,6 +7110,13 @@ export class GetServiceGroupSchedulingPreviewRequest extends $tea.Model {
 
 export class GetServiceGroupSchedulingPreviewResponseBody extends $tea.Model {
   data?: { [key: string]: any };
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5409,9 +7138,9 @@ export class GetServiceGroupSchedulingPreviewResponseBody extends $tea.Model {
 }
 
 export class GetServiceGroupSchedulingPreviewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceGroupSchedulingPreviewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceGroupSchedulingPreviewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5434,8 +7163,23 @@ export class GetServiceGroupSchedulingPreviewResponse extends $tea.Model {
 }
 
 export class GetServiceGroupSpecialPersonSchedulingRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 77777
+   */
   serviceGroupId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 66666
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5460,6 +7204,13 @@ export class GetServiceGroupSpecialPersonSchedulingRequest extends $tea.Model {
 
 export class GetServiceGroupSpecialPersonSchedulingResponseBody extends $tea.Model {
   data?: GetServiceGroupSpecialPersonSchedulingResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5481,9 +7232,9 @@ export class GetServiceGroupSpecialPersonSchedulingResponseBody extends $tea.Mod
 }
 
 export class GetServiceGroupSpecialPersonSchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetServiceGroupSpecialPersonSchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceGroupSpecialPersonSchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5506,11 +7257,47 @@ export class GetServiceGroupSpecialPersonSchedulingResponse extends $tea.Model {
 }
 
 export class GetSimilarIncidentStatisticsRequest extends $tea.Model {
+  /**
+   * @example
+   * 7C56D225-7C34-40BB-9624-C8BA449260E6
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-09 09:09:09
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   events?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 32
+   */
   incidentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx事件
+   */
   incidentTitle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23
+   */
   relatedServiceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5540,7 +7327,18 @@ export class GetSimilarIncidentStatisticsRequest extends $tea.Model {
 }
 
 export class GetSimilarIncidentStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetSimilarIncidentStatisticsResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 7C56D225-7C34-40BB-9624-C8BA449260E6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5562,9 +7360,9 @@ export class GetSimilarIncidentStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetSimilarIncidentStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSimilarIncidentStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSimilarIncidentStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5588,6 +7386,10 @@ export class GetSimilarIncidentStatisticsResponse extends $tea.Model {
 
 export class GetSubscriptionRequest extends $tea.Model {
   notFilterScopeObjectDeleted?: boolean;
+  /**
+   * @example
+   * 10
+   */
   subscriptionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5609,7 +7411,18 @@ export class GetSubscriptionRequest extends $tea.Model {
 }
 
 export class GetSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Object
+   */
   data?: GetSubscriptionResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5631,9 +7444,9 @@ export class GetSubscriptionResponseBody extends $tea.Model {
 }
 
 export class GetSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5656,6 +7469,13 @@ export class GetSubscriptionResponse extends $tea.Model {
 }
 
 export class GetTenantApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7C56D225-7C34-40BB-9624-C8BA449260E6
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5675,7 +7495,18 @@ export class GetTenantApplicationRequest extends $tea.Model {
 }
 
 export class GetTenantApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: GetTenantApplicationResponseBodyData;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5697,9 +7528,9 @@ export class GetTenantApplicationResponseBody extends $tea.Model {
 }
 
 export class GetTenantApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTenantApplicationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTenantApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5722,6 +7553,10 @@ export class GetTenantApplicationResponse extends $tea.Model {
 }
 
 export class GetTenantStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tenantRamId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5763,9 +7598,9 @@ export class GetTenantStatusResponseBody extends $tea.Model {
 }
 
 export class GetTenantStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTenantStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTenantStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5788,7 +7623,18 @@ export class GetTenantStatusResponse extends $tea.Model {
 }
 
 export class GetUserRequest extends $tea.Model {
+  /**
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5811,6 +7657,13 @@ export class GetUserRequest extends $tea.Model {
 
 export class GetUserResponseBody extends $tea.Model {
   data?: GetUserResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5832,9 +7685,9 @@ export class GetUserResponseBody extends $tea.Model {
 }
 
 export class GetUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5857,6 +7710,10 @@ export class GetUserResponse extends $tea.Model {
 }
 
 export class GetUserGuideStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5876,7 +7733,21 @@ export class GetUserGuideStatusRequest extends $tea.Model {
 }
 
 export class GetUserGuideStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * map
+   * 
+   * @example
+   * {   "data": {     "monitorGuide": false,     "userRamId": 1344371,     "serviceGuide": false,     "noticeGuide": false,     "userGuide": true,     "serviceGroupGuide": false,     "routeRuleGuide": false,     "incidentGuide": true   }
+   */
   data?: { [key: string]: any };
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5898,9 +7769,9 @@ export class GetUserGuideStatusResponseBody extends $tea.Model {
 }
 
 export class GetUserGuideStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserGuideStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserGuideStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5923,15 +7794,57 @@ export class GetUserGuideStatusResponse extends $tea.Model {
 }
 
 export class ListAlertsRequest extends $tea.Model {
+  /**
+   * @example
+   * P1
+   */
   alertLevel?: string;
+  /**
+   * @example
+   * 报警
+   */
   alertName?: string;
+  /**
+   * @example
+   * 流转规则A
+   */
   alertSourceName?: string;
+  /**
+   * @remarks
+   * 2020-09-10 21:00:00
+   * 
+   * @example
+   * 2020-10-01 23:59:59
+   */
   endTime?: string;
   monitorSourceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   relatedServiceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * 2020-09-10 13:00:00
+   * 
+   * @example
+   * 2020-10-01 00:00:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5970,9 +7883,25 @@ export class ListAlertsRequest extends $tea.Model {
 
 export class ListAlertsResponseBody extends $tea.Model {
   data?: ListAlertsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6000,9 +7929,9 @@ export class ListAlertsResponseBody extends $tea.Model {
 }
 
 export class ListAlertsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAlertsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlertsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6045,6 +7974,10 @@ export class ListByMonitorSourceIdRequest extends $tea.Model {
 
 export class ListByMonitorSourceIdResponseBody extends $tea.Model {
   data?: ListByMonitorSourceIdResponseBodyData[];
+  /**
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6066,9 +7999,9 @@ export class ListByMonitorSourceIdResponseBody extends $tea.Model {
 }
 
 export class ListByMonitorSourceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListByMonitorSourceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListByMonitorSourceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6091,8 +8024,23 @@ export class ListByMonitorSourceIdResponse extends $tea.Model {
 }
 
 export class ListChartDataForServiceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * 23es23s32xas23
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2021-10-09
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2021-09-09
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6116,7 +8064,18 @@ export class ListChartDataForServiceGroupRequest extends $tea.Model {
 }
 
 export class ListChartDataForServiceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListChartDataForServiceGroupResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1231212
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6138,9 +8097,9 @@ export class ListChartDataForServiceGroupResponseBody extends $tea.Model {
 }
 
 export class ListChartDataForServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListChartDataForServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChartDataForServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6163,8 +8122,23 @@ export class ListChartDataForServiceGroupResponse extends $tea.Model {
 }
 
 export class ListChartDataForUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * 3232dsd32sd32gr
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2021-10-09
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2021-09-09
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6188,7 +8162,18 @@ export class ListChartDataForUserRequest extends $tea.Model {
 }
 
 export class ListChartDataForUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListChartDataForUserResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1231212
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6210,9 +8195,9 @@ export class ListChartDataForUserResponseBody extends $tea.Model {
 }
 
 export class ListChartDataForUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListChartDataForUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChartDataForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6235,6 +8220,10 @@ export class ListChartDataForUserResponse extends $tea.Model {
 }
 
 export class ListConfigsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-CDE61E59A2E9
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6254,7 +8243,18 @@ export class ListConfigsRequest extends $tea.Model {
 }
 
 export class ListConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: { [key: string]: DataValue[] };
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * uuid
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6276,9 +8276,9 @@ export class ListConfigsResponseBody extends $tea.Model {
 }
 
 export class ListConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6301,8 +8301,20 @@ export class ListConfigsResponse extends $tea.Model {
 }
 
 export class ListDataReportForServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 2021-09-30
+   */
   endTime?: string;
+  /**
+   * @example
+   * A服务组
+   */
   serviceGroupName?: string;
+  /**
+   * @example
+   * 2021-09-09
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6327,9 +8339,28 @@ export class ListDataReportForServiceGroupRequest extends $tea.Model {
 
 export class ListDataReportForServiceGroupResponseBody extends $tea.Model {
   data?: ListDataReportForServiceGroupResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSIze?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6357,9 +8388,9 @@ export class ListDataReportForServiceGroupResponseBody extends $tea.Model {
 }
 
 export class ListDataReportForServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataReportForServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataReportForServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6382,9 +8413,25 @@ export class ListDataReportForServiceGroupResponse extends $tea.Model {
 }
 
 export class ListDataReportForUserRequest extends $tea.Model {
+  /**
+   * @example
+   * 2021-09-30
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2021-09-01
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6411,7 +8458,18 @@ export class ListDataReportForUserRequest extends $tea.Model {
 
 export class ListDataReportForUserResponseBody extends $tea.Model {
   data?: ListDataReportForUserResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6435,9 +8493,9 @@ export class ListDataReportForUserResponseBody extends $tea.Model {
 }
 
 export class ListDataReportForUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataReportForUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataReportForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6460,6 +8518,10 @@ export class ListDataReportForUserResponse extends $tea.Model {
 }
 
 export class ListDictionariesRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6479,7 +8541,18 @@ export class ListDictionariesRequest extends $tea.Model {
 }
 
 export class ListDictionariesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: { [key: string]: DataValue[] };
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6501,9 +8574,9 @@ export class ListDictionariesResponseBody extends $tea.Model {
 }
 
 export class ListDictionariesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDictionariesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDictionariesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6526,6 +8599,13 @@ export class ListDictionariesResponse extends $tea.Model {
 }
 
 export class ListEscalationPlanServicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6545,7 +8625,18 @@ export class ListEscalationPlanServicesRequest extends $tea.Model {
 }
 
 export class ListEscalationPlanServicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListEscalationPlanServicesResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6567,9 +8658,9 @@ export class ListEscalationPlanServicesResponseBody extends $tea.Model {
 }
 
 export class ListEscalationPlanServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEscalationPlanServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEscalationPlanServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6592,11 +8683,31 @@ export class ListEscalationPlanServicesResponse extends $tea.Model {
 }
 
 export class ListEscalationPlansRequest extends $tea.Model {
+  /**
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   clientToken?: string;
+  /**
+   * @example
+   * xxx
+   */
   escalationPlanName?: string;
   isGlobal?: boolean;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ssxx
+   */
   serviceName?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -6629,10 +8740,33 @@ export class ListEscalationPlansRequest extends $tea.Model {
 }
 
 export class ListEscalationPlansResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListEscalationPlansResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   requestId?: string;
+  /**
+   * @example
+   * 878
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6660,9 +8794,9 @@ export class ListEscalationPlansResponseBody extends $tea.Model {
 }
 
 export class ListEscalationPlansResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEscalationPlansResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEscalationPlansResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6729,9 +8863,9 @@ export class ListEscalationPlansByNoticeObjectResponseBody extends $tea.Model {
 }
 
 export class ListEscalationPlansByNoticeObjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEscalationPlansByNoticeObjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEscalationPlansByNoticeObjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6754,7 +8888,15 @@ export class ListEscalationPlansByNoticeObjectResponse extends $tea.Model {
 }
 
 export class ListIncidentDetailEscalationPlansRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2311
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6776,7 +8918,18 @@ export class ListIncidentDetailEscalationPlansRequest extends $tea.Model {
 }
 
 export class ListIncidentDetailEscalationPlansResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIncidentDetailEscalationPlansResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6798,9 +8951,9 @@ export class ListIncidentDetailEscalationPlansResponseBody extends $tea.Model {
 }
 
 export class ListIncidentDetailEscalationPlansResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIncidentDetailEscalationPlansResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIncidentDetailEscalationPlansResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6823,10 +8976,26 @@ export class ListIncidentDetailEscalationPlansResponse extends $tea.Model {
 }
 
 export class ListIncidentDetailTimelinesRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
   idSort?: string;
+  /**
+   * @example
+   * 123
+   */
   incidentId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6854,9 +9023,28 @@ export class ListIncidentDetailTimelinesRequest extends $tea.Model {
 }
 
 export class ListIncidentDetailTimelinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIncidentDetailTimelinesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -6885,9 +9073,9 @@ export class ListIncidentDetailTimelinesResponseBody extends $tea.Model {
 }
 
 export class ListIncidentDetailTimelinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIncidentDetailTimelinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIncidentDetailTimelinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6910,7 +9098,15 @@ export class ListIncidentDetailTimelinesResponse extends $tea.Model {
 }
 
 export class ListIncidentSubtotalsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE62E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 3123
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6932,7 +9128,18 @@ export class ListIncidentSubtotalsRequest extends $tea.Model {
 }
 
 export class ListIncidentSubtotalsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIncidentSubtotalsResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6954,9 +9161,9 @@ export class ListIncidentSubtotalsResponseBody extends $tea.Model {
 }
 
 export class ListIncidentSubtotalsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIncidentSubtotalsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIncidentSubtotalsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6979,8 +9186,20 @@ export class ListIncidentSubtotalsResponse extends $tea.Model {
 }
 
 export class ListIncidentTimelinesRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7004,10 +9223,33 @@ export class ListIncidentTimelinesRequest extends $tea.Model {
 }
 
 export class ListIncidentTimelinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIncidentTimelinesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 132
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7035,9 +9277,9 @@ export class ListIncidentTimelinesResponseBody extends $tea.Model {
 }
 
 export class ListIncidentTimelinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIncidentTimelinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIncidentTimelinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7060,16 +9302,60 @@ export class ListIncidentTimelinesResponse extends $tea.Model {
 }
 
 export class ListIncidentsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E1
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2021-11-10 00:00:00
+   */
   createEndTime?: string;
+  /**
+   * @example
+   * 2021-11-01 00:00:00
+   */
   createStartTime?: string;
+  /**
+   * @example
+   * LOW
+   */
   effect?: string;
+  /**
+   * @example
+   * P1
+   */
   incidentLevel?: string;
+  /**
+   * @example
+   * ASSIGNED
+   */
   incidentStatus?: string;
+  /**
+   * @example
+   * true
+   */
   me?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 12312
+   */
   relationServiceId?: number;
+  /**
+   * @example
+   * sa
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7109,10 +9395,33 @@ export class ListIncidentsRequest extends $tea.Model {
 }
 
 export class ListIncidentsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIncidentsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 60
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7140,9 +9449,9 @@ export class ListIncidentsResponseBody extends $tea.Model {
 }
 
 export class ListIncidentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIncidentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIncidentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7165,9 +9474,25 @@ export class ListIncidentsResponse extends $tea.Model {
 }
 
 export class ListIntegrationConfigTimelinesRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 101
+   */
   integrationConfigId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7193,10 +9518,42 @@ export class ListIntegrationConfigTimelinesRequest extends $tea.Model {
 }
 
 export class ListIntegrationConfigTimelinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIntegrationConfigTimelinesResponseBodyData[];
+  /**
+   * @remarks
+   * pageNumber
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * pageSize
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * totalCount
+   * 
+   * @example
+   * 103
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7224,9 +9581,9 @@ export class ListIntegrationConfigTimelinesResponseBody extends $tea.Model {
 }
 
 export class ListIntegrationConfigTimelinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIntegrationConfigTimelinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIntegrationConfigTimelinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7249,7 +9606,15 @@ export class ListIntegrationConfigTimelinesResponse extends $tea.Model {
 }
 
 export class ListIntegrationConfigsRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7271,7 +9636,18 @@ export class ListIntegrationConfigsRequest extends $tea.Model {
 }
 
 export class ListIntegrationConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListIntegrationConfigsResponseBodyData[];
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7293,9 +9669,9 @@ export class ListIntegrationConfigsResponseBody extends $tea.Model {
 }
 
 export class ListIntegrationConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIntegrationConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIntegrationConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7318,6 +9694,10 @@ export class ListIntegrationConfigsResponse extends $tea.Model {
 }
 
 export class ListMonitorSourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7337,7 +9717,18 @@ export class ListMonitorSourcesRequest extends $tea.Model {
 }
 
 export class ListMonitorSourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListMonitorSourcesResponseBodyData[];
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7359,9 +9750,9 @@ export class ListMonitorSourcesResponseBody extends $tea.Model {
 }
 
 export class ListMonitorSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListMonitorSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMonitorSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7384,10 +9775,33 @@ export class ListMonitorSourcesResponse extends $tea.Model {
 }
 
 export class ListProblemDetailOperationsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * desc,asc
+   */
   createTimeSort?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7415,10 +9829,33 @@ export class ListProblemDetailOperationsRequest extends $tea.Model {
 }
 
 export class ListProblemDetailOperationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListProblemDetailOperationsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 210
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7446,9 +9883,9 @@ export class ListProblemDetailOperationsResponseBody extends $tea.Model {
 }
 
 export class ListProblemDetailOperationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProblemDetailOperationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProblemDetailOperationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7471,8 +9908,20 @@ export class ListProblemDetailOperationsResponse extends $tea.Model {
 }
 
 export class ListProblemOperationsRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7496,10 +9945,33 @@ export class ListProblemOperationsRequest extends $tea.Model {
 }
 
 export class ListProblemOperationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListProblemOperationsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 132
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7527,9 +9999,9 @@ export class ListProblemOperationsResponseBody extends $tea.Model {
 }
 
 export class ListProblemOperationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProblemOperationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProblemOperationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7552,7 +10024,15 @@ export class ListProblemOperationsResponse extends $tea.Model {
 }
 
 export class ListProblemSubtotalsRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fdB812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1231
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7574,7 +10054,18 @@ export class ListProblemSubtotalsRequest extends $tea.Model {
 }
 
 export class ListProblemSubtotalsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListProblemSubtotalsResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0S4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7596,9 +10087,9 @@ export class ListProblemSubtotalsResponseBody extends $tea.Model {
 }
 
 export class ListProblemSubtotalsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProblemSubtotalsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProblemSubtotalsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7621,7 +10112,15 @@ export class ListProblemSubtotalsResponse extends $tea.Model {
 }
 
 export class ListProblemTimeLinesRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 10002010
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7644,6 +10143,13 @@ export class ListProblemTimeLinesRequest extends $tea.Model {
 
 export class ListProblemTimeLinesResponseBody extends $tea.Model {
   data?: ListProblemTimeLinesResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7665,9 +10171,9 @@ export class ListProblemTimeLinesResponseBody extends $tea.Model {
 }
 
 export class ListProblemTimeLinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProblemTimeLinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProblemTimeLinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7690,19 +10196,75 @@ export class ListProblemTimeLinesResponse extends $tea.Model {
 }
 
 export class ListProblemsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   affectServiceId?: number;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2020-03-05 15:50:59
+   */
   discoveryEndTime?: string;
+  /**
+   * @example
+   * 2020-03-05 15:50:59
+   */
   discoveryStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   mainHandlerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * P2
+   */
   problemLevel?: string;
+  /**
+   * @example
+   * HANDLING
+   */
   problemStatus?: string;
+  /**
+   * @example
+   * RESPONSIBLE
+   */
   queryType?: string;
+  /**
+   * @example
+   * 1
+   */
   repeaterId?: number;
+  /**
+   * @example
+   * 2020-03-05 15:50:59
+   */
   restoreEndTime?: string;
+  /**
+   * @example
+   * 2020-03-05 15:50:59
+   */
   restoreStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7749,9 +10311,28 @@ export class ListProblemsRequest extends $tea.Model {
 
 export class ListProblemsResponseBody extends $tea.Model {
   data?: ListProblemsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7779,9 +10360,9 @@ export class ListProblemsResponseBody extends $tea.Model {
 }
 
 export class ListProblemsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProblemsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProblemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7804,12 +10385,36 @@ export class ListProblemsResponse extends $tea.Model {
 }
 
 export class ListRouteRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
   notFilterRouteRuleDeleted?: boolean;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
   routeType?: number;
+  /**
+   * @example
+   * 规则名字
+   */
   ruleName?: Buffer;
+  /**
+   * @example
+   * 冲上云霄
+   */
   serviceName?: Buffer;
   static names(): { [key: string]: string } {
     return {
@@ -7842,9 +10447,25 @@ export class ListRouteRulesRequest extends $tea.Model {
 
 export class ListRouteRulesResponseBody extends $tea.Model {
   data?: ListRouteRulesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * C4BE3837-1A13B-A225-2C88188E8A43
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7872,9 +10493,9 @@ export class ListRouteRulesResponseBody extends $tea.Model {
 }
 
 export class ListRouteRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRouteRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRouteRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7941,9 +10562,9 @@ export class ListRouteRulesByAssignWhoIdResponseBody extends $tea.Model {
 }
 
 export class ListRouteRulesByAssignWhoIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRouteRulesByAssignWhoIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRouteRulesByAssignWhoIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7991,9 +10612,9 @@ export class ListRouteRulesByServiceResponseBody extends $tea.Model {
 }
 
 export class ListRouteRulesByServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRouteRulesByServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRouteRulesByServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8016,8 +10637,20 @@ export class ListRouteRulesByServiceResponse extends $tea.Model {
 }
 
 export class ListServiceGroupMonitorSourceTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * xxxx
+   */
   clientToken?: string;
+  /**
+   * @example
+   * xxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8042,6 +10675,13 @@ export class ListServiceGroupMonitorSourceTemplatesRequest extends $tea.Model {
 
 export class ListServiceGroupMonitorSourceTemplatesResponseBody extends $tea.Model {
   data?: ListServiceGroupMonitorSourceTemplatesResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8063,9 +10703,9 @@ export class ListServiceGroupMonitorSourceTemplatesResponseBody extends $tea.Mod
 }
 
 export class ListServiceGroupMonitorSourceTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServiceGroupMonitorSourceTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceGroupMonitorSourceTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8088,14 +10728,46 @@ export class ListServiceGroupMonitorSourceTemplatesResponse extends $tea.Model {
 }
 
 export class ListServiceGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   isScheduled?: boolean;
+  /**
+   * @example
+   * false
+   */
   orderByScheduleStatus?: boolean;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 王宇
+   */
   queryName?: string;
+  /**
+   * @example
+   * USER
+   */
   queryType?: string;
   serviceId?: number;
+  /**
+   * @example
+   * 100000
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8132,9 +10804,28 @@ export class ListServiceGroupsRequest extends $tea.Model {
 
 export class ListServiceGroupsResponseBody extends $tea.Model {
   data?: ListServiceGroupsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * sssss
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8162,9 +10853,9 @@ export class ListServiceGroupsResponseBody extends $tea.Model {
 }
 
 export class ListServiceGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServiceGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8209,9 +10900,9 @@ export class ListServiceGroupsByUserIdResponseBody extends $tea.Model {
 }
 
 export class ListServiceGroupsByUserIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServiceGroupsByUserIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceGroupsByUserIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8234,9 +10925,31 @@ export class ListServiceGroupsByUserIdResponse extends $tea.Model {
 }
 
 export class ListServicesRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 冲上云霄
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8263,9 +10976,28 @@ export class ListServicesRequest extends $tea.Model {
 
 export class ListServicesResponseBody extends $tea.Model {
   data?: ListServicesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8293,9 +11025,9 @@ export class ListServicesResponseBody extends $tea.Model {
 }
 
 export class ListServicesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListServicesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8318,14 +11050,62 @@ export class ListServicesResponse extends $tea.Model {
 }
 
 export class ListSourceEventsRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * 2020-09-18 13:00:00
+   * 
+   * @example
+   * 2020-10-01 23:59:59
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INCIDENT
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 9223370410626682599-1344383-78954515-1-0a6e01a1701447fd9ef18b079edd2c6d
+   */
   startRowKey?: string;
+  /**
+   * @remarks
+   * 2020-09-10 13:00:00
+   * 
+   * @example
+   * 2020-10-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 9223370410626682599-1344383-78954515-1-0a6e01a1701447fd9ef18b079edd2c6d
+   */
   stopRowKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8362,11 +11142,41 @@ export class ListSourceEventsRequest extends $tea.Model {
 
 export class ListSourceEventsResponseBody extends $tea.Model {
   data?: ListSourceEventsResponseBodyData[];
+  /**
+   * @remarks
+   * firstRowKey
+   * 
+   * @example
+   * 9223370412331485032-1344383-9967-1-08be8b08ef30441390072f3bfba71c94
+   */
   firstRowKey?: string;
+  /**
+   * @remarks
+   * lastRowKey
+   * 
+   * @example
+   * 9223370412331485036-1344383-9967-1-8d729a1b176f493ca3be643b391d5ced
+   */
   lastRowKey?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8398,9 +11208,9 @@ export class ListSourceEventsResponseBody extends $tea.Model {
 }
 
 export class ListSourceEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSourceEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSourceEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8423,6 +11233,10 @@ export class ListSourceEventsResponse extends $tea.Model {
 }
 
 export class ListSourceEventsForMonitorSourceRequest extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   monitorSourceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8443,6 +11257,13 @@ export class ListSourceEventsForMonitorSourceRequest extends $tea.Model {
 
 export class ListSourceEventsForMonitorSourceResponseBody extends $tea.Model {
   data?: ListSourceEventsForMonitorSourceResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8464,9 +11285,9 @@ export class ListSourceEventsForMonitorSourceResponseBody extends $tea.Model {
 }
 
 export class ListSourceEventsForMonitorSourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSourceEventsForMonitorSourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSourceEventsForMonitorSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8489,6 +11310,10 @@ export class ListSourceEventsForMonitorSourceResponse extends $tea.Model {
 }
 
 export class ListSubscriptionServiceGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * 89f51d2e-5527-4f6c-a6c6-4411b5496e9f
+   */
   clientToken?: string;
   serviceIds?: number[];
   static names(): { [key: string]: string } {
@@ -8511,7 +11336,18 @@ export class ListSubscriptionServiceGroupsRequest extends $tea.Model {
 }
 
 export class ListSubscriptionServiceGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListSubscriptionServiceGroupsResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 89f51d2e-5527-4f6c-a6c6-4411b5496e9f
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8533,9 +11369,9 @@ export class ListSubscriptionServiceGroupsResponseBody extends $tea.Model {
 }
 
 export class ListSubscriptionServiceGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubscriptionServiceGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubscriptionServiceGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8558,14 +11394,46 @@ export class ListSubscriptionServiceGroupsResponse extends $tea.Model {
 }
 
 export class ListSubscriptionsRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378FTOKENA11
+   */
   clientToken?: string;
   notFilterScopeObjectDeleted?: boolean;
+  /**
+   * @example
+   * test
+   */
   notifyObject?: string;
+  /**
+   * @example
+   * SERVICE
+   */
   notifyObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
+  /**
+   * @example
+   * TestName
+   */
   scopeObject?: string;
+  /**
+   * @example
+   * newTitle
+   */
   subscriptionTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8601,10 +11469,33 @@ export class ListSubscriptionsRequest extends $tea.Model {
 }
 
 export class ListSubscriptionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListSubscriptionsResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8632,9 +11523,9 @@ export class ListSubscriptionsResponseBody extends $tea.Model {
 }
 
 export class ListSubscriptionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubscriptionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubscriptionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8657,11 +11548,35 @@ export class ListSubscriptionsResponse extends $tea.Model {
 }
 
 export class ListTrendForSourceEventRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-10-10 23:59:59
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1000
+   */
   instanceId?: number;
+  /**
+   * @example
+   * INCIDENT
+   */
   instanceType?: string;
+  /**
+   * @example
+   * xxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2020-10-10 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1000
+   */
   timeUnit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8692,6 +11607,13 @@ export class ListTrendForSourceEventRequest extends $tea.Model {
 
 export class ListTrendForSourceEventResponseBody extends $tea.Model {
   data?: ListTrendForSourceEventResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8713,9 +11635,9 @@ export class ListTrendForSourceEventResponseBody extends $tea.Model {
 }
 
 export class ListTrendForSourceEventResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTrendForSourceEventResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTrendForSourceEventResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8738,7 +11660,21 @@ export class ListTrendForSourceEventResponse extends $tea.Model {
 }
 
 export class ListUserSerivceGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * 2b63cdef-7ac3-4892-a76d-0f3389ef729f
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8760,7 +11696,18 @@ export class ListUserSerivceGroupsRequest extends $tea.Model {
 }
 
 export class ListUserSerivceGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListUserSerivceGroupsResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2b63cdef-7ac3-4892-a76d-0f3389ef7291
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8782,9 +11729,9 @@ export class ListUserSerivceGroupsResponseBody extends $tea.Model {
 }
 
 export class ListUserSerivceGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserSerivceGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserSerivceGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8807,13 +11754,48 @@ export class ListUserSerivceGroupsResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1887879****
+   */
   phone?: string;
+  /**
+   * @example
+   * 1344383
+   */
   ramId?: string;
+  /**
+   * @example
+   * USER_LIST
+   */
   scene?: number;
+  /**
+   * @example
+   * DINGDING
+   */
   synergyChannel?: string;
+  /**
+   * @example
+   * 张三
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8847,10 +11829,33 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: ListUsersResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8878,9 +11883,9 @@ export class ListUsersResponseBody extends $tea.Model {
 }
 
 export class ListUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8922,7 +11927,15 @@ export class PushMonitorRequest extends $tea.Model {
 }
 
 export class PushMonitorResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   data?: any;
+  /**
+   * @example
+   * 5A30D240-1821-0246-B580-AB1468657AD2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8944,9 +11957,9 @@ export class PushMonitorResponseBody extends $tea.Model {
 }
 
 export class PushMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8969,8 +11982,20 @@ export class PushMonitorResponse extends $tea.Model {
 }
 
 export class RecoverProblemRequest extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   problemId?: number;
+  /**
+   * @example
+   * PROBLEM_UPDATE
+   */
   problemNotifyType?: string;
+  /**
+   * @example
+   * 2020-02-01 00:00:00
+   */
   recoveryTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8994,6 +12019,13 @@ export class RecoverProblemRequest extends $tea.Model {
 }
 
 export class RecoverProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EBC39DEF-C95B-46F8-9AE3-204F0B0A706D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9013,9 +12045,9 @@ export class RecoverProblemResponseBody extends $tea.Model {
 }
 
 export class RecoverProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecoverProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecoverProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9038,7 +12070,15 @@ export class RecoverProblemResponse extends $tea.Model {
 }
 
 export class RefreshIntegrationConfigKeyRequest extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 102
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9060,7 +12100,18 @@ export class RefreshIntegrationConfigKeyRequest extends $tea.Model {
 }
 
 export class RefreshIntegrationConfigKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: RefreshIntegrationConfigKeyResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9082,9 +12133,9 @@ export class RefreshIntegrationConfigKeyResponseBody extends $tea.Model {
 }
 
 export class RefreshIntegrationConfigKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshIntegrationConfigKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshIntegrationConfigKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9148,9 +12199,9 @@ export class RemoveIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class RemoveIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9173,6 +12224,10 @@ export class RemoveIntegrationConfigResponse extends $tea.Model {
 }
 
 export class RemoveProblemServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 13123
+   */
   problemId?: number;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -9195,6 +12250,13 @@ export class RemoveProblemServiceGroupRequest extends $tea.Model {
 }
 
 export class RemoveProblemServiceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5AD6E6BC-2582-4E0E-832D-52CB1B922253
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9214,9 +12276,9 @@ export class RemoveProblemServiceGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveProblemServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveProblemServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveProblemServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9239,8 +12301,20 @@ export class RemoveProblemServiceGroupResponse extends $tea.Model {
 }
 
 export class ReplayProblemRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3212
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 123
+   */
   problemId?: number;
+  /**
+   * @example
+   * 3123
+   */
   replayDutyUserId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9264,6 +12338,13 @@ export class ReplayProblemRequest extends $tea.Model {
 }
 
 export class ReplayProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B81E84B5-8FD1-45F3-969A-B5067AADCFFF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9283,9 +12364,9 @@ export class ReplayProblemResponseBody extends $tea.Model {
 }
 
 export class ReplayProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReplayProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplayProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9308,7 +12389,15 @@ export class ReplayProblemResponse extends $tea.Model {
 }
 
 export class RespondIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A221
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * 影响程度
+   */
   incidentIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -9330,6 +12419,13 @@ export class RespondIncidentRequest extends $tea.Model {
 }
 
 export class RespondIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 062E6568-E505-49D6-8DD0-8F11283EB0AB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9349,9 +12445,9 @@ export class RespondIncidentResponseBody extends $tea.Model {
 }
 
 export class RespondIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RespondIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RespondIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9374,8 +12470,20 @@ export class RespondIncidentResponse extends $tea.Model {
 }
 
 export class RevokeProblemRecoveryRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2EF
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1231
+   */
   problemId?: number;
+  /**
+   * @example
+   * PROBLEM_UPGRADE
+   */
   problemNotifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9399,6 +12507,13 @@ export class RevokeProblemRecoveryRequest extends $tea.Model {
 }
 
 export class RevokeProblemRecoveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9418,9 +12533,9 @@ export class RevokeProblemRecoveryResponseBody extends $tea.Model {
 }
 
 export class RevokeProblemRecoveryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeProblemRecoveryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeProblemRecoveryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9462,9 +12577,9 @@ export class UnbindUserResponseBody extends $tea.Model {
 }
 
 export class UnbindUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9487,9 +12602,31 @@ export class UnbindUserResponse extends $tea.Model {
 }
 
 export class UpdateEscalationPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * 6b404f14-77d1-4b53-a1a1-30a58bbcfc57
+   */
   clientToken?: string;
+  /**
+   * @example
+   * xxxx
+   */
   escalationPlanDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 433
+   */
   escalationPlanId?: number;
+  /**
+   * @example
+   * xxx
+   */
   escalationPlanName?: string;
   escalationPlanRules?: UpdateEscalationPlanRequestEscalationPlanRules[];
   escalationPlanScopeObjects?: UpdateEscalationPlanRequestEscalationPlanScopeObjects[];
@@ -9524,6 +12661,13 @@ export class UpdateEscalationPlanRequest extends $tea.Model {
 }
 
 export class UpdateEscalationPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A5A1FEAE-9C47-011C-9C73-A376BC2REQUEST
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9543,9 +12687,9 @@ export class UpdateEscalationPlanResponseBody extends $tea.Model {
 }
 
 export class UpdateEscalationPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEscalationPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEscalationPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9568,10 +12712,33 @@ export class UpdateEscalationPlanResponse extends $tea.Model {
 }
 
 export class UpdateIncidentRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A123
+   */
   clientToken?: string;
+  /**
+   * @example
+   * LOW
+   */
   effect?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12312
+   */
   incidentId?: number;
+  /**
+   * @example
+   * P1
+   */
   incidentLevel?: string;
+  /**
+   * @example
+   * 事件标题
+   */
   incidentTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9599,7 +12766,18 @@ export class UpdateIncidentRequest extends $tea.Model {
 }
 
 export class UpdateIncidentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: UpdateIncidentResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9621,9 +12799,9 @@ export class UpdateIncidentResponseBody extends $tea.Model {
 }
 
 export class UpdateIncidentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateIncidentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIncidentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9646,8 +12824,23 @@ export class UpdateIncidentResponse extends $tea.Model {
 }
 
 export class UpdateIntegrationConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * accessKey
+   * 
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   accessKey?: string;
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F987A6A98
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 103
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9671,6 +12864,13 @@ export class UpdateIntegrationConfigRequest extends $tea.Model {
 }
 
 export class UpdateIntegrationConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 10REQUES-AC5C-4B59-BE11-378F117A6A88
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9690,9 +12890,9 @@ export class UpdateIntegrationConfigResponseBody extends $tea.Model {
 }
 
 export class UpdateIntegrationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateIntegrationConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIntegrationConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9716,13 +12916,33 @@ export class UpdateIntegrationConfigResponse extends $tea.Model {
 
 export class UpdateProblemRequest extends $tea.Model {
   feedback?: string;
+  /**
+   * @example
+   * P1
+   */
   level?: string;
+  /**
+   * @example
+   * 678
+   */
   mainHandlerId?: number;
   preliminaryReason?: string;
+  /**
+   * @example
+   * 213432
+   */
   problemId?: number;
   problemName?: string;
   progressSummary?: string;
+  /**
+   * @example
+   * 23232
+   */
   progressSummaryRichTextId?: number;
+  /**
+   * @example
+   * 123
+   */
   relatedServiceId?: number;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -9761,6 +12981,13 @@ export class UpdateProblemRequest extends $tea.Model {
 }
 
 export class UpdateProblemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9780,9 +13007,9 @@ export class UpdateProblemResponseBody extends $tea.Model {
 }
 
 export class UpdateProblemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateProblemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProblemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9805,13 +13032,44 @@ export class UpdateProblemResponse extends $tea.Model {
 }
 
 export class UpdateProblemEffectionServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * clientToken
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 乐嘉国际大厦
+   */
   description?: string;
+  /**
+   * @example
+   * 103
+   */
   effectionServiceId?: number;
+  /**
+   * @example
+   * P1
+   */
   level?: string;
   picUrl?: string[];
+  /**
+   * @example
+   * 190000000
+   */
   problemId?: number;
+  /**
+   * @example
+   * 33
+   */
   serviceId?: number;
+  /**
+   * @example
+   * UN_RECOVERED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9845,6 +13103,13 @@ export class UpdateProblemEffectionServiceRequest extends $tea.Model {
 }
 
 export class UpdateProblemEffectionServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * ffbf594-e093-46ad-bdcd-df4d7097125a
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9864,9 +13129,9 @@ export class UpdateProblemEffectionServiceResponseBody extends $tea.Model {
 }
 
 export class UpdateProblemEffectionServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateProblemEffectionServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProblemEffectionServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9889,21 +13154,65 @@ export class UpdateProblemEffectionServiceResponse extends $tea.Model {
 }
 
 export class UpdateProblemImprovementRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3813
+   */
   clientToken?: string;
   customProblemReason?: string;
+  /**
+   * @example
+   * 1
+   */
   discoverSource?: number;
+  /**
+   * @example
+   * 123123
+   */
   dutyDepartmentId?: number;
   dutyDepartmentName?: string;
+  /**
+   * @example
+   * 1231
+   */
   dutyUserId?: number;
+  /**
+   * @example
+   * 1
+   */
   injectionMode?: string;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * 12312
+   */
   problemId?: number;
   problemReason?: string;
+  /**
+   * @example
+   * 2
+   */
   recentActivity?: string;
+  /**
+   * @example
+   * 2
+   */
   recoveryMode?: string;
   relationChanges?: string;
   remark?: string;
+  /**
+   * @example
+   * 1213
+   */
   replayDutyUserId?: number;
+  /**
+   * @example
+   * 10
+   */
   userReport?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9953,6 +13262,13 @@ export class UpdateProblemImprovementRequest extends $tea.Model {
 }
 
 export class UpdateProblemImprovementResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9972,9 +13288,9 @@ export class UpdateProblemImprovementResponseBody extends $tea.Model {
 }
 
 export class UpdateProblemImprovementResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateProblemImprovementResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProblemImprovementResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9997,16 +13313,56 @@ export class UpdateProblemImprovementResponse extends $tea.Model {
 }
 
 export class UpdateProblemMeasureRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   checkStandard?: string;
+  /**
+   * @example
+   * 123
+   */
   checkUserId?: number;
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
   content?: string;
+  /**
+   * @example
+   * 123
+   */
   directorId?: number;
+  /**
+   * @example
+   * 1231
+   */
   measureId?: number;
+  /**
+   * @example
+   * 2021-01-21 00:00:00
+   */
   planFinishTime?: string;
+  /**
+   * @example
+   * 1233
+   */
   problemId?: number;
+  /**
+   * @example
+   * 123
+   */
   stalkerId?: number;
+  /**
+   * @example
+   * UNIMPROVED
+   */
   status?: string;
+  /**
+   * @example
+   * 3
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10046,6 +13402,13 @@ export class UpdateProblemMeasureRequest extends $tea.Model {
 }
 
 export class UpdateProblemMeasureResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10065,9 +13428,9 @@ export class UpdateProblemMeasureResponseBody extends $tea.Model {
 }
 
 export class UpdateProblemMeasureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateProblemMeasureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProblemMeasureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10090,8 +13453,20 @@ export class UpdateProblemMeasureResponse extends $tea.Model {
 }
 
 export class UpdateProblemNoticeRequest extends $tea.Model {
+  /**
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1312
+   */
   problemId?: number;
+  /**
+   * @example
+   * PROBLEM_NOTIFY
+   */
   problemNotifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10115,6 +13490,13 @@ export class UpdateProblemNoticeRequest extends $tea.Model {
 }
 
 export class UpdateProblemNoticeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4361a0e1-6747-4834-96ce-0c4840fd3812
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10134,9 +13516,9 @@ export class UpdateProblemNoticeResponseBody extends $tea.Model {
 }
 
 export class UpdateProblemNoticeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateProblemNoticeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProblemNoticeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10159,11 +13541,31 @@ export class UpdateProblemNoticeResponse extends $tea.Model {
 }
 
 export class UpdateProblemTimelineRequest extends $tea.Model {
+  /**
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
   content?: string;
+  /**
+   * @example
+   * NodeTest
+   */
   keyNode?: string;
+  /**
+   * @example
+   * 234
+   */
   problemId?: number;
+  /**
+   * @example
+   * 3940
+   */
   problemTimelineId?: number;
+  /**
+   * @example
+   * 2021-01-08 10:10:10
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10193,6 +13595,13 @@ export class UpdateProblemTimelineRequest extends $tea.Model {
 }
 
 export class UpdateProblemTimelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10212,9 +13621,9 @@ export class UpdateProblemTimelineResponseBody extends $tea.Model {
 }
 
 export class UpdateProblemTimelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateProblemTimelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProblemTimelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10237,9 +13646,25 @@ export class UpdateProblemTimelineResponse extends $tea.Model {
 }
 
 export class UpdateRichTextRequest extends $tea.Model {
+  /**
+   * @example
+   * 123123
+   */
   instanceId?: number;
+  /**
+   * @example
+   * INCIDENT 事件 ALERT告警 PROBLEM故障
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 这是一个富文本
+   */
   richText?: string;
+  /**
+   * @example
+   * 123112313
+   */
   richTextId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10265,7 +13690,18 @@ export class UpdateRichTextRequest extends $tea.Model {
 }
 
 export class UpdateRichTextResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * data
+   */
   data?: UpdateRichTextResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10287,9 +13723,9 @@ export class UpdateRichTextResponseBody extends $tea.Model {
 }
 
 export class UpdateRichTextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRichTextResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRichTextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10312,25 +13748,118 @@ export class UpdateRichTextResponse extends $tea.Model {
 }
 
 export class UpdateRouteRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   assignObjectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SERVICEGROUP
+   */
   assignObjectType?: string;
+  /**
+   * @example
+   * AND
+   */
   childRuleRelation?: string;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
   convergenceFields?: string[];
   convergenceType?: number;
   coverageProblemLevels?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * P1
+   */
   incidentLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   matchCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   notifyChannels?: string[];
   problemEffectionServices?: number[];
   problemLevelGroup?: { [key: string]: ProblemLevelGroupValue };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   relatedServiceId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   routeChildRules?: UpdateRouteRuleRequestRouteChildRules[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   routeRuleId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALERT
+   */
   routeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 规则1
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   timeWindow?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MINUTE
+   */
   timeWindowUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10388,7 +13917,15 @@ export class UpdateRouteRuleRequest extends $tea.Model {
 }
 
 export class UpdateRouteRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   data?: number;
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10410,9 +13947,9 @@ export class UpdateRouteRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10435,11 +13972,27 @@ export class UpdateRouteRuleResponse extends $tea.Model {
 }
 
 export class UpdateServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
   escalationPlanId?: number;
+  /**
+   * @example
+   * 服务描述
+   */
   serviceDescription?: string;
   serviceGroupIdList?: number[];
+  /**
+   * @example
+   * 10002000
+   */
   serviceId?: number;
+  /**
+   * @example
+   * 服务名字
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10469,7 +14022,18 @@ export class UpdateServiceRequest extends $tea.Model {
 }
 
 export class UpdateServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   data?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10491,9 +14055,9 @@ export class UpdateServiceResponseBody extends $tea.Model {
 }
 
 export class UpdateServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10516,14 +14080,61 @@ export class UpdateServiceResponse extends $tea.Model {
 }
 
 export class UpdateServiceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ENABLE
+   */
   enableWebhook?: string;
   monitorSourceTemplates?: UpdateServiceGroupRequestMonitorSourceTemplates[];
+  /**
+   * @example
+   * 飞车
+   */
   serviceGroupDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 冲上云霄
+   */
   serviceGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wwwwwww
+   */
   webhookLink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WEIXINGROUP
+   */
   webhookType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10559,6 +14170,13 @@ export class UpdateServiceGroupRequest extends $tea.Model {
 }
 
 export class UpdateServiceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10578,9 +14196,9 @@ export class UpdateServiceGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateServiceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServiceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10603,10 +14221,32 @@ export class UpdateServiceGroupResponse extends $tea.Model {
 }
 
 export class UpdateServiceGroupSchedulingRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @example
+   * HOUR
+   */
   fastScheduling?: UpdateServiceGroupSchedulingRequestFastScheduling;
   fineScheduling?: UpdateServiceGroupSchedulingRequestFineScheduling;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FAST
+   */
   schedulingWay?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10634,6 +14274,13 @@ export class UpdateServiceGroupSchedulingRequest extends $tea.Model {
 }
 
 export class UpdateServiceGroupSchedulingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10653,9 +14300,9 @@ export class UpdateServiceGroupSchedulingResponseBody extends $tea.Model {
 }
 
 export class UpdateServiceGroupSchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServiceGroupSchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceGroupSchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10678,9 +14325,31 @@ export class UpdateServiceGroupSchedulingResponse extends $tea.Model {
 }
 
 export class UpdateServiceGroupSpecialDaySchedulingRequest extends $tea.Model {
+  /**
+   * @example
+   * C4BE3837-1A13-413B-A225-2C88188E8A43
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-08-19
+   */
   schedulingDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   schedulingSpecialDays?: UpdateServiceGroupSpecialDaySchedulingRequestSchedulingSpecialDays[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6666
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10706,6 +14375,13 @@ export class UpdateServiceGroupSpecialDaySchedulingRequest extends $tea.Model {
 }
 
 export class UpdateServiceGroupSpecialDaySchedulingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10725,9 +14401,9 @@ export class UpdateServiceGroupSpecialDaySchedulingResponseBody extends $tea.Mod
 }
 
 export class UpdateServiceGroupSpecialDaySchedulingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServiceGroupSpecialDaySchedulingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceGroupSpecialDaySchedulingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10750,16 +14426,75 @@ export class UpdateServiceGroupSpecialDaySchedulingResponse extends $tea.Model {
 }
 
 export class UpdateSubscriptionRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-05-09 10:10:23
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LONG_TERM
+   */
   expiredType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   notifyObjectList?: UpdateSubscriptionRequestNotifyObjectList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
   notifyObjectType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   notifyStrategyList?: UpdateSubscriptionRequestNotifyStrategyList[];
+  /**
+   * @example
+   * 1个月
+   */
   period?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SERVICE
+   */
   scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   scopeObjectList?: UpdateSubscriptionRequestScopeObjectList[];
+  /**
+   * @example
+   * 2021-04-04 10:10:11
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80002020
+   */
   subscriptionId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * newSubs244
+   */
   subscriptionTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10799,6 +14534,13 @@ export class UpdateSubscriptionRequest extends $tea.Model {
 }
 
 export class UpdateSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10818,9 +14560,9 @@ export class UpdateSubscriptionResponseBody extends $tea.Model {
 }
 
 export class UpdateSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10843,11 +14585,34 @@ export class UpdateSubscriptionResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
+  /**
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 78799****@qq.com
+   */
   email?: string;
+  /**
+   * @example
+   * 18887878****
+   */
   phone?: string;
+  /**
+   * @example
+   * 2243564
+   */
   ramId?: number;
   roleIdList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 111
+   */
   userId?: number;
   username?: string;
   static names(): { [key: string]: string } {
@@ -10880,6 +14645,13 @@ export class UpdateUserRequest extends $tea.Model {
 }
 
 export class UpdateUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * c26f36de-1ec8-496a-a828-880676c5ef81
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10899,9 +14671,9 @@ export class UpdateUserResponseBody extends $tea.Model {
 }
 
 export class UpdateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10924,7 +14696,15 @@ export class UpdateUserResponse extends $tea.Model {
 }
 
 export class UpdateUserGuideStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   clientToken?: string;
+  /**
+   * @example
+   * SERVICE_GROUP_GUIDE
+   */
   guideAction?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10946,6 +14726,13 @@ export class UpdateUserGuideStatusRequest extends $tea.Model {
 }
 
 export class UpdateUserGuideStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FD200FAE-E98F-496E-BFE6-4CE61E59A2E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10965,9 +14752,9 @@ export class UpdateUserGuideStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateUserGuideStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserGuideStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserGuideStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10990,6 +14777,10 @@ export class UpdateUserGuideStatusResponse extends $tea.Model {
 }
 
 export class VerifyRouteRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * 1111
+   */
   routeRuleId?: number;
   testSourceEvents?: VerifyRouteRuleRequestTestSourceEvents[];
   static names(): { [key: string]: string } {
@@ -11013,6 +14804,13 @@ export class VerifyRouteRuleRequest extends $tea.Model {
 
 export class VerifyRouteRuleResponseBody extends $tea.Model {
   data?: VerifyRouteRuleResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11034,9 +14832,9 @@ export class VerifyRouteRuleResponseBody extends $tea.Model {
 }
 
 export class VerifyRouteRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyRouteRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyRouteRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11138,7 +14936,21 @@ export class BillingStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanConditions extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * P1
+   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11160,11 +14972,33 @@ export class CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanConditi
 }
 
 export class CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrategies extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableWebhook?: boolean;
   escalationPlanType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   noticeChannels?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   noticeObjects?: number[];
   noticeRoleList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 40
+   */
   noticeTime?: string;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -11197,8 +15031,20 @@ export class CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrateg
 }
 
 export class CreateEscalationPlanRequestEscalationPlanRules extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   escalationPlanConditions?: CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanConditions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   escalationPlanStrategies?: CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrategies[];
+  /**
+   * @example
+   * UN_FINISH
+   */
   escalationPlanType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11222,7 +15068,18 @@ export class CreateEscalationPlanRequestEscalationPlanRules extends $tea.Model {
 }
 
 export class CreateEscalationPlanRequestEscalationPlanScopeObjects extends $tea.Model {
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23433
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11244,6 +15101,10 @@ export class CreateEscalationPlanRequestEscalationPlanScopeObjects extends $tea.
 }
 
 export class CreateEscalationPlanResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 234532
+   */
   escalationPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11282,6 +15143,10 @@ export class CreateIncidentResponseBodyData extends $tea.Model {
 }
 
 export class CreateIncidentSubtotalResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   subtotalId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11301,6 +15166,10 @@ export class CreateIncidentSubtotalResponseBodyData extends $tea.Model {
 }
 
 export class CreateIntegrationConfigResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 101
+   */
   integrationConfigId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11320,6 +15189,10 @@ export class CreateIntegrationConfigResponseBodyData extends $tea.Model {
 }
 
 export class CreateProblemResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 321331
+   */
   problemId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11339,6 +15212,10 @@ export class CreateProblemResponseBodyData extends $tea.Model {
 }
 
 export class CreateProblemEffectionServiceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 6442430
+   */
   effectionServiceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11358,6 +15235,10 @@ export class CreateProblemEffectionServiceResponseBodyData extends $tea.Model {
 }
 
 export class CreateProblemMeasureResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1231
+   */
   measureId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11377,6 +15258,10 @@ export class CreateProblemMeasureResponseBodyData extends $tea.Model {
 }
 
 export class CreateProblemSubtotalResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   subtotalId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11396,6 +15281,10 @@ export class CreateProblemSubtotalResponseBodyData extends $tea.Model {
 }
 
 export class CreateProblemTimelineResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 102
+   */
   problemTimelineId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11434,8 +15323,20 @@ export class CreateProblemTimelinesResponseBodyData extends $tea.Model {
 }
 
 export class CreateRichTextResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1231
+   */
   instanceId?: number;
+  /**
+   * @example
+   * 0 事件 1告警 2 故障
+   */
   instanceType?: number;
+  /**
+   * @example
+   * 这是一个富文本
+   */
   richText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11459,8 +15360,29 @@ export class CreateRichTextResponseBodyData extends $tea.Model {
 }
 
 export class CreateRouteRuleRequestRouteChildRulesConditions extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * payload.summary
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * equals
+   */
   operationSymbol?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11484,8 +15406,23 @@ export class CreateRouteRuleRequestRouteChildRulesConditions extends $tea.Model 
 }
 
 export class CreateRouteRuleRequestRouteChildRules extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   childConditionRelation?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   conditions?: CreateRouteRuleRequestRouteChildRulesConditions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
   problemLevel?: string;
   static names(): { [key: string]: string } {
@@ -11512,6 +15449,10 @@ export class CreateRouteRuleRequestRouteChildRules extends $tea.Model {
 }
 
 export class CreateRouteRuleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   routeRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11531,6 +15472,10 @@ export class CreateRouteRuleResponseBodyData extends $tea.Model {
 }
 
 export class CreateServiceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   serviceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11550,9 +15495,25 @@ export class CreateServiceResponseBodyData extends $tea.Model {
 }
 
 export class CreateServiceGroupRequestMonitorSourceTemplates extends $tea.Model {
+  /**
+   * @example
+   * 111
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
   templateContent?: string;
+  /**
+   * @example
+   * 111
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11578,6 +15539,10 @@ export class CreateServiceGroupRequestMonitorSourceTemplates extends $tea.Model 
 }
 
 export class CreateServiceGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11598,7 +15563,15 @@ export class CreateServiceGroupResponseBodyData extends $tea.Model {
 
 export class CreateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers extends $tea.Model {
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 6666
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
   static names(): { [key: string]: string } {
@@ -11625,9 +15598,21 @@ export class CreateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers ex
 }
 
 export class CreateServiceGroupSchedulingRequestFastScheduling extends $tea.Model {
+  /**
+   * @example
+   * FAST_CHOICE
+   */
   dutyPlan?: string;
   schedulingUsers?: CreateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers[];
+  /**
+   * @example
+   * 12
+   */
   singleDuration?: number;
+  /**
+   * @example
+   * DAY
+   */
   singleDurationUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11653,14 +15638,42 @@ export class CreateServiceGroupSchedulingRequestFastScheduling extends $tea.Mode
 }
 
 export class CreateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   cycleOrder?: number;
+  /**
+   * @example
+   * 2020-10-13
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2020-08-13
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 11
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
+  /**
+   * @example
+   * 早班
+   */
   shiftName?: string;
+  /**
+   * @example
+   * fasle
+   */
   skipOneDay?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11696,13 +15709,33 @@ export class CreateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShif
 }
 
 export class CreateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplateFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 2021-10-01 08:00:00
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2021-09-01 08:00:00
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
   schedulingUserName?: string;
+  /**
+   * @example
+   * false
+   */
   skipOneDay?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11736,10 +15769,22 @@ export class CreateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplate
 }
 
 export class CreateServiceGroupSchedulingRequestFineScheduling extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * DAY
+   */
   periodUnit?: string;
   schedulingFineShifts?: CreateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShifts[];
   schedulingTemplateFineShifts?: CreateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplateFineShifts[];
+  /**
+   * @example
+   * MORNING_NIGHT
+   */
   shiftType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11767,6 +15812,13 @@ export class CreateServiceGroupSchedulingRequestFineScheduling extends $tea.Mode
 }
 
 export class CreateSubscriptionRequestNotifyObjectList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   notifyObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11786,7 +15838,15 @@ export class CreateSubscriptionRequestNotifyObjectList extends $tea.Model {
 }
 
 export class CreateSubscriptionRequestNotifyStrategyListPeriodChannel extends $tea.Model {
+  /**
+   * @example
+   * SMS,PHONE
+   */
   nonWorkday?: string;
+  /**
+   * @example
+   * SMS,PHONE
+   */
   workday?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11808,9 +15868,25 @@ export class CreateSubscriptionRequestNotifyStrategyListPeriodChannel extends $t
 }
 
 export class CreateSubscriptionRequestNotifyStrategyListStrategiesConditions extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT_TRIGGER
+   */
   action?: string;
+  /**
+   * @example
+   * HIGH
+   */
   effection?: string;
+  /**
+   * @example
+   * P1
+   */
   level?: string;
+  /**
+   * @example
+   * PROBLEM_UPDATE
+   */
   problemNotifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11855,9 +15931,27 @@ export class CreateSubscriptionRequestNotifyStrategyListStrategies extends $tea.
 }
 
 export class CreateSubscriptionRequestNotifyStrategyList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SMS,PHONE
+   */
   channels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INCIDENT
+   */
   instanceType?: number;
   periodChannel?: CreateSubscriptionRequestNotifyStrategyListPeriodChannel;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   strategies?: CreateSubscriptionRequestNotifyStrategyListStrategies[];
   static names(): { [key: string]: string } {
     return {
@@ -11883,6 +15977,13 @@ export class CreateSubscriptionRequestNotifyStrategyList extends $tea.Model {
 }
 
 export class CreateSubscriptionRequestScopeObjectList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11902,6 +16003,10 @@ export class CreateSubscriptionRequestScopeObjectList extends $tea.Model {
 }
 
 export class CreateSubscriptionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 101
+   */
   subscriptionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11921,7 +16026,15 @@ export class CreateSubscriptionResponseBodyData extends $tea.Model {
 }
 
 export class CreateTenantApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * http://xxxx
+   */
   openUrl?: string;
+  /**
+   * @example
+   * OPENED 已开通 OPENING 开通中
+   */
   progress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11943,6 +16056,10 @@ export class CreateTenantApplicationResponseBodyData extends $tea.Model {
 }
 
 export class CreateUserResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11962,7 +16079,21 @@ export class CreateUserResponseBodyData extends $tea.Model {
 }
 
 export class GeneratePictureLinkResponseBodyDataLinks extends $tea.Model {
+  /**
+   * @remarks
+   * oss key
+   * 
+   * @example
+   * problem/38b2a36d-484d-4242-b9cf-d243e53a82c6
+   */
   key?: string;
+  /**
+   * @remarks
+   * url
+   * 
+   * @example
+   * http://gam-objects-bucket.oss-cn-shanghai.aliyuncs.com/problem/38b2a36d-484d-4242-b9cf-d243e53a82c6?Expires=1625662477&OSSAccessKeyId=LTAI5tEoRVPw8GMy1iLRCno7&Signature=1NFnt%2BnudD%2F%2BHVc31b6v5%2FFxoqg%3D
+   */
   link?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11984,6 +16115,10 @@ export class GeneratePictureLinkResponseBodyDataLinks extends $tea.Model {
 }
 
 export class GeneratePictureLinkResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * array
+   */
   links?: GeneratePictureLinkResponseBodyDataLinks[];
   static names(): { [key: string]: string } {
     return {
@@ -12003,8 +16138,20 @@ export class GeneratePictureLinkResponseBodyData extends $tea.Model {
 }
 
 export class GeneratePictureUploadSignRequestFiles extends $tea.Model {
+  /**
+   * @example
+   * 文件A
+   */
   fileName?: string;
+  /**
+   * @example
+   * 100
+   */
   fileSize?: number;
+  /**
+   * @example
+   * JPG
+   */
   fileType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12028,9 +16175,28 @@ export class GeneratePictureUploadSignRequestFiles extends $tea.Model {
 }
 
 export class GeneratePictureUploadSignResponseBodyDataFiles extends $tea.Model {
+  /**
+   * @example
+   * 文件A
+   */
   fileName?: string;
+  /**
+   * @example
+   * 100
+   */
   fileSize?: number;
+  /**
+   * @example
+   * JPG
+   */
   fileType?: string;
+  /**
+   * @remarks
+   * oss key
+   * 
+   * @example
+   * problem/25a2316c-b08d-41a5-9f41-b3185d529277
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12056,11 +16222,50 @@ export class GeneratePictureUploadSignResponseBodyDataFiles extends $tea.Model {
 }
 
 export class GeneratePictureUploadSignResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * accessKeyId
+   * 
+   * @example
+   * LTAI1tEoRVPw8GMy1iLRCno7
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * oss bucket name
+   * 
+   * @example
+   * gam-objects-bucket
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * files
+   */
   files?: GeneratePictureUploadSignResponseBodyDataFiles[];
+  /**
+   * @remarks
+   * policy
+   * 
+   * @example
+   * eyJleHBpcmF0aW9uIjoiMjAyMS0wNy0xM1QwNDowOTo0NS4yODJaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInByb2JsZW0iXV19
+   */
   policy?: string;
+  /**
+   * @remarks
+   * signature
+   * 
+   * @example
+   * SHqvIkwUNQd8Hervklir2K8U+ts=
+   */
   signature?: string;
+  /**
+   * @remarks
+   * url
+   * 
+   * @example
+   * https://gam-objects-bucket.oss-cn-shanghai.aliyuncs.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12090,7 +16295,18 @@ export class GeneratePictureUploadSignResponseBodyData extends $tea.Model {
 }
 
 export class GenerateProblemPictureLinkResponseBodyDataLinks extends $tea.Model {
+  /**
+   * @remarks
+   * oss key
+   * 
+   * @example
+   * problem/xxxxxxxxxx-484d-4242-b9cf-xxxxxxxxxx
+   */
   key?: string;
+  /**
+   * @example
+   * http://xxxx-xxxx-bucket.oss-cn-xxxx.aliyuncs.com/pxxxx/38xxxxd-4789-4242-b9cfxxxxxxxxc6?Expires=1xxxxxxxxxx7&OSSAccessKeyId=xxxxxxxxxxxxxx7&Signature=xxxxxxxxxxxxxxxxxxxxxx
+   */
   link?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12131,11 +16347,53 @@ export class GenerateProblemPictureLinkResponseBodyData extends $tea.Model {
 }
 
 export class GenerateProblemPictureUploadSignResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * ossaccessKeyId
+   * 
+   * @example
+   * XXXXXXXH8GMy1iLRCno7
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * oss bucket name
+   * 
+   * @example
+   * xxxx-xxxx-xxxx
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * oss key
+   * 
+   * @example
+   * problem/xxxxxxxxxxxxxxxx1-b3185d529277
+   */
   key?: string;
+  /**
+   * @remarks
+   * policy
+   * 
+   * @example
+   * eyJleHBpcmF0a0p0IjoiMjAyMS0wNy0xM1QwNDowOTo0NS4yODJaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInByb2JsZW0iXV19
+   */
   policy?: string;
+  /**
+   * @remarks
+   * signature
+   * 
+   * @example
+   * SHqvIkwUNQd0o0rvklir2K8U+ts=
+   */
   signature?: string;
+  /**
+   * @remarks
+   * url
+   * 
+   * @example
+   * https://xxx-xxx-bucket.oss-cn-shanghai.aliyuncs.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12165,7 +16423,15 @@ export class GenerateProblemPictureUploadSignResponseBodyData extends $tea.Model
 }
 
 export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanConditions extends $tea.Model {
+  /**
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @example
+   * P1
+   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12187,7 +16453,15 @@ export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanC
 }
 
 export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 234
+   */
   noticeObjectId?: number;
+  /**
+   * @example
+   * 张老三
+   */
   noticeObjectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12231,7 +16505,15 @@ export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanS
 }
 
 export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesServiceGroups extends $tea.Model {
+  /**
+   * @example
+   * 343
+   */
   id?: number;
+  /**
+   * @example
+   * VCD是
+   */
   serviceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12253,13 +16535,29 @@ export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanS
 }
 
 export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategies extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableWebhook?: boolean;
+  /**
+   * @example
+   * UN_ACKNOWLEDGE
+   */
   escalationPlanType?: string;
+  /**
+   * @example
+   * SMS
+   */
   noticeChannels?: string;
   noticeObjectList?: GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeObjectList[];
   noticeObjects?: number[];
   noticeRoleList?: number[];
   noticeRoleObjectList?: GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList[];
+  /**
+   * @example
+   * 40
+   */
   noticeTime?: number;
   serviceGroups?: GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesServiceGroups[];
   static names(): { [key: string]: string } {
@@ -12297,6 +16595,10 @@ export class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanS
 
 export class GetEscalationPlanResponseBodyDataEscalationPlanRules extends $tea.Model {
   escalationPlanConditions?: GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanConditions[];
+  /**
+   * @example
+   * 345
+   */
   escalationPlanRuleId?: number;
   escalationPlanStrategies?: GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategies[];
   static names(): { [key: string]: string } {
@@ -12322,9 +16624,21 @@ export class GetEscalationPlanResponseBodyDataEscalationPlanRules extends $tea.M
 
 export class GetEscalationPlanResponseBodyDataEscalationPlanScopeObjects extends $tea.Model {
   escalationPlanScopeObjects?: number;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
   scopeObjectDeletedType?: number;
+  /**
+   * @example
+   * 234
+   */
   scopeObjectId?: number;
+  /**
+   * @example
+   * xx服务
+   */
   scopeObjectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12352,9 +16666,25 @@ export class GetEscalationPlanResponseBodyDataEscalationPlanScopeObjects extends
 }
 
 export class GetEscalationPlanResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-09-09 09:09:09
+   */
   createTime?: string;
+  /**
+   * @example
+   * 描述1234
+   */
   escalationPlanDescription?: string;
+  /**
+   * @example
+   * 2345
+   */
   escalationPlanId?: number;
+  /**
+   * @example
+   * 升级计划234
+   */
   escalationPlanName?: string;
   escalationPlanRules?: GetEscalationPlanResponseBodyDataEscalationPlanRules[];
   escalationPlanScopeObjects?: GetEscalationPlanResponseBodyDataEscalationPlanScopeObjects[];
@@ -12389,9 +16719,25 @@ export class GetEscalationPlanResponseBodyData extends $tea.Model {
 }
 
 export class GetEventResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * “”
+   */
   eventJson?: string;
+  /**
+   * @example
+   * 2002-09-08 15:30:35
+   */
   eventTime?: string;
+  /**
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12417,9 +16763,25 @@ export class GetEventResponseBodyData extends $tea.Model {
 }
 
 export class GetHomePageGuidanceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   notifySubscriptionStatus?: boolean;
+  /**
+   * @example
+   * true
+   */
   serviceGroupStatus?: boolean;
+  /**
+   * @example
+   * true
+   */
   serviceStatus?: boolean;
+  /**
+   * @example
+   * true
+   */
   usersStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12446,35 +16808,131 @@ export class GetHomePageGuidanceResponseBodyData extends $tea.Model {
 
 export class GetIncidentResponseBodyData extends $tea.Model {
   assignToWhoIsValid?: number;
+  /**
+   * @example
+   * 12312
+   */
   assignUserId?: number;
+  /**
+   * @example
+   * 小明
+   */
   assignUserName?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   assignUserPhone?: string;
+  /**
+   * @example
+   * 2020-01-10 00:00:00
+   */
   createTime?: string;
   defaultAssignToWho?: number;
   defaultAssignToWhoIsValid?: number;
   defaultAssignToWhoName?: string;
+  /**
+   * @example
+   * 3000000
+   */
   durationTime?: number;
+  /**
+   * @example
+   * LOW
+   */
   effect?: string;
+  /**
+   * @example
+   * 事件描述
+   */
   incidentDescription?: string;
+  /**
+   * @example
+   * 3213
+   */
   incidentId?: number;
+  /**
+   * @example
+   * P4
+   */
   incidentLevel?: string;
+  /**
+   * @example
+   * I3443831000000016247759753663894
+   */
   incidentNumber?: string;
+  /**
+   * @example
+   * FINISHE
+   */
   incidentStatus?: string;
+  /**
+   * @example
+   * 事件标题
+   */
   incidentTitle?: string;
+  /**
+   * @example
+   * true
+   */
   isManual?: boolean;
+  /**
+   * @example
+   * true
+   */
   isUpgrade?: boolean;
+  /**
+   * @example
+   * 1 短信  2  邮件  3  电话  4 企微群 5 钉钉群 6飞书 7 群通知 8 slack
+   */
   notifyChannels?: string[];
+  /**
+   * @example
+   * 232113
+   */
   problemId?: number;
+  /**
+   * @example
+   * 3332113231453321
+   */
   problemNumber?: string;
   relRouteRuleDeleteType?: number;
   relServiceDeleteType?: number;
   relServiceGroupIsValid?: number;
+  /**
+   * @example
+   * 关联服务描述
+   */
   relatedServiceDescription?: string;
+  /**
+   * @example
+   * 13000
+   */
   relatedServiceGroupId?: number;
+  /**
+   * @example
+   * 服务组A
+   */
   relatedServiceGroupName?: string;
+  /**
+   * @example
+   * 312312
+   */
   relatedServiceId?: number;
+  /**
+   * @example
+   * 服务A
+   */
   relatedServiceName?: string;
+  /**
+   * @example
+   * 3123
+   */
   routeRuleId?: number;
+  /**
+   * @example
+   * 流转规则A
+   */
   routeRuleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12554,35 +17012,123 @@ export class GetIncidentResponseBodyData extends $tea.Model {
 }
 
 export class GetIncidentListByIdListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   assignToWhoIsValid?: number;
+  /**
+   * @example
+   * 12312
+   */
   assignUserId?: number;
   assignUserName?: string;
+  /**
+   * @example
+   * 139****1111
+   */
   assignUserPhone?: string;
+  /**
+   * @example
+   * 2010-03-09 15:53:45
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1212
+   */
   defaultAssignToWho?: number;
+  /**
+   * @example
+   * 1
+   */
   defaultAssignToWhoIsValid?: number;
   defaultAssignToWhoName?: string;
+  /**
+   * @example
+   * 3000000
+   */
   durationTime?: string;
+  /**
+   * @example
+   * LOW
+   */
   effect?: string;
   incidentDescription?: string;
+  /**
+   * @example
+   * 3213
+   */
   incidentId?: number;
+  /**
+   * @example
+   * P4
+   */
   incidentLevel?: string;
+  /**
+   * @example
+   * I13002001
+   */
   incidentNumber?: string;
+  /**
+   * @example
+   * FINISHE
+   */
   incidentStatus?: string;
   incidentTitle?: string;
+  /**
+   * @example
+   * true
+   */
   isManual?: boolean;
+  /**
+   * @example
+   * true
+   */
   isUpgrade?: boolean;
   notifyChannels?: string[];
+  /**
+   * @example
+   * 12312
+   */
   problemId?: number;
+  /**
+   * @example
+   * P1231231
+   */
   problemNumber?: string;
+  /**
+   * @example
+   * 1
+   */
   relRouteRuleDeleteType?: number;
+  /**
+   * @example
+   * 1
+   */
   relServiceDeleteType?: number;
+  /**
+   * @example
+   * 1
+   */
   relServiceGroupIsValid?: number;
   relatedServiceDescription?: string;
+  /**
+   * @example
+   * 13000
+   */
   relatedServiceGroupId?: number;
   relatedServiceGroupName?: string;
+  /**
+   * @example
+   * 213123
+   */
   relatedServiceId?: number;
   relatedServiceName?: string;
+  /**
+   * @example
+   * 10000
+   */
   routeRuleId?: number;
   routeRuleName?: string;
   static names(): { [key: string]: string } {
@@ -12663,9 +17209,25 @@ export class GetIncidentListByIdListResponseBodyData extends $tea.Model {
 }
 
 export class GetIncidentStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 113
+   */
   allFinish?: number;
+  /**
+   * @example
+   * 12
+   */
   allResponse?: number;
+  /**
+   * @example
+   * 11
+   */
   myFinish?: number;
+  /**
+   * @example
+   * 1
+   */
   myResponse?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12691,7 +17253,21 @@ export class GetIncidentStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class GetIncidentSubtotalCountResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * 24343424234
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * map
+   * 
+   * @example
+   * {12:12}
+   */
   subtotalCount?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -12713,12 +17289,40 @@ export class GetIncidentSubtotalCountResponseBodyData extends $tea.Model {
 }
 
 export class GetIntegrationConfigResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 601FA6A2-AC5C-4B59-BE11-378F887A6A11
+   */
   accessKey?: string;
+  /**
+   * @example
+   * 101
+   */
   integrationConfigId?: number;
+  /**
+   * @example
+   * True
+   */
   isReceivedEvent?: boolean;
+  /**
+   * @example
+   * 65
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceShortName?: string;
+  /**
+   * @example
+   * INTEGRATED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12750,9 +17354,25 @@ export class GetIntegrationConfigResponseBodyData extends $tea.Model {
 }
 
 export class GetProblemResponseBodyDataCancelProblemOperateLogs extends $tea.Model {
+  /**
+   * @example
+   * 取消故障
+   */
   actionName?: string;
+  /**
+   * @example
+   * 2020-09-08 15:38:38
+   */
   actionTime?: string;
+  /**
+   * @example
+   * 王宇
+   */
   operator?: string;
+  /**
+   * @example
+   * 66666
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12779,7 +17399,15 @@ export class GetProblemResponseBodyDataCancelProblemOperateLogs extends $tea.Mod
 
 export class GetProblemResponseBodyDataCoordinationGroups extends $tea.Model {
   isValid?: number;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 清扫大队
+   */
   serviceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12803,11 +17431,31 @@ export class GetProblemResponseBodyDataCoordinationGroups extends $tea.Model {
 }
 
 export class GetProblemResponseBodyDataEffectionServices extends $tea.Model {
+  /**
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @example
+   * P1
+   */
   effectionLevel?: number;
+  /**
+   * @example
+   * 1
+   */
   effectionServiceId?: number;
+  /**
+   * @example
+   * RESTORED
+   */
   effectionStatus?: number;
   serviceDeleteType?: number;
+  /**
+   * @example
+   * 购物车
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12837,9 +17485,25 @@ export class GetProblemResponseBodyDataEffectionServices extends $tea.Model {
 }
 
 export class GetProblemResponseBodyDataHandingProblemOperateLogs extends $tea.Model {
+  /**
+   * @example
+   * 取消故障
+   */
   actionName?: string;
+  /**
+   * @example
+   * 2010-03-09 15:53:45
+   */
   actionTime?: string;
+  /**
+   * @example
+   * 王宇
+   */
   operator?: string;
+  /**
+   * @example
+   * 233
+   */
   userId?: number;
   userIsValid?: number;
   static names(): { [key: string]: string } {
@@ -12868,9 +17532,25 @@ export class GetProblemResponseBodyDataHandingProblemOperateLogs extends $tea.Mo
 }
 
 export class GetProblemResponseBodyDataReplayProblemOperateLogs extends $tea.Model {
+  /**
+   * @example
+   * 复盘故障
+   */
   actionName?: string;
+  /**
+   * @example
+   * 2020-08-08 15:39:39
+   */
   actionTime?: string;
+  /**
+   * @example
+   * 周宇凡
+   */
   operator?: string;
+  /**
+   * @example
+   * 2323
+   */
   userId?: number;
   userIsValid?: number;
   static names(): { [key: string]: string } {
@@ -12899,9 +17579,25 @@ export class GetProblemResponseBodyDataReplayProblemOperateLogs extends $tea.Mod
 }
 
 export class GetProblemResponseBodyDataReplayingProblemOperateLogs extends $tea.Model {
+  /**
+   * @example
+   * 复盘故障
+   */
   actionName?: string;
+  /**
+   * @example
+   * 2020-08-08 15:39:39
+   */
   actionTime?: string;
+  /**
+   * @example
+   * 刘杰
+   */
   operator?: string;
+  /**
+   * @example
+   * 用户id
+   */
   userId?: number;
   userIsValid?: number;
   static names(): { [key: string]: string } {
@@ -12930,9 +17626,25 @@ export class GetProblemResponseBodyDataReplayingProblemOperateLogs extends $tea.
 }
 
 export class GetProblemResponseBodyDataRestoredProblemOperateLogs extends $tea.Model {
+  /**
+   * @example
+   * 恢复故障
+   */
   actionName?: string;
+  /**
+   * @example
+   * 2020-08-08 15:39:39
+   */
   actionTime?: string;
+  /**
+   * @example
+   * 王宇
+   */
   operator?: string;
+  /**
+   * @example
+   * 3232
+   */
   userId?: number;
   userIsValid?: number;
   static names(): { [key: string]: string } {
@@ -12961,6 +17673,10 @@ export class GetProblemResponseBodyDataRestoredProblemOperateLogs extends $tea.M
 }
 
 export class GetProblemResponseBodyDataTimelines extends $tea.Model {
+  /**
+   * @example
+   * 1,2,3,4,5,7,6,8,9,10
+   */
   keyNode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12981,36 +17697,133 @@ export class GetProblemResponseBodyDataTimelines extends $tea.Model {
 
 export class GetProblemResponseBodyData extends $tea.Model {
   cancelProblemOperateLogs?: GetProblemResponseBodyDataCancelProblemOperateLogs[];
+  /**
+   * @example
+   * 取消理由
+   */
   cancelReason?: number;
+  /**
+   * @example
+   * 理由
+   */
   cancelReasonDescription?: string;
   coordinationGroups?: GetProblemResponseBodyDataCoordinationGroups[];
+  /**
+   * @example
+   * 2010-03-09 15:53:45
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2010-03-09 15:53:45
+   */
   discoverTime?: string;
+  /**
+   * @example
+   * 300000
+   */
   durationTime?: number;
   effectionServices?: GetProblemResponseBodyDataEffectionServices[];
+  /**
+   * @example
+   * feedback
+   */
   feedback?: string;
   handingProblemOperateLogs?: GetProblemResponseBodyDataHandingProblemOperateLogs[];
+  /**
+   * @example
+   * 130000032
+   */
   incidentId?: number;
+  /**
+   * @example
+   * I3443835000012016260833157948165
+   */
   incidentNumber?: string;
   isRuleTrigger?: boolean;
+  /**
+   * @example
+   * 王宇
+   */
   mainHandler?: number;
+  /**
+   * @example
+   * 2000
+   */
   mainHandlerId?: number;
   mainHandlerIsValid?: number;
+  /**
+   * @example
+   * 1308987****
+   */
   mainHandlerPhone?: string;
+  /**
+   * @example
+   * 原因
+   */
   preliminaryReason?: string;
+  /**
+   * @remarks
+   * ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   problemId?: number;
+  /**
+   * @example
+   * P1
+   */
   problemLevel?: number;
+  /**
+   * @example
+   * 故障
+   */
   problemName?: string;
+  /**
+   * @example
+   * P34438300010030116260833538987481
+   */
   problemNumber?: string;
+  /**
+   * @example
+   * HANDLING
+   */
   problemStatus?: number;
+  /**
+   * @example
+   * 摘要
+   */
   progressSummary?: string;
+  /**
+   * @example
+   * 1231231
+   */
   progressSummaryRichTextId?: number;
+  /**
+   * @example
+   * 2010-03-09 15:53:45
+   */
   recoveryTime?: string;
+  /**
+   * @example
+   * 1
+   */
   relatedServiceId?: number;
   replayProblemOperateLogs?: GetProblemResponseBodyDataReplayProblemOperateLogs[];
   replayingProblemOperateLogs?: GetProblemResponseBodyDataReplayingProblemOperateLogs[];
   restoredProblemOperateLogs?: GetProblemResponseBodyDataRestoredProblemOperateLogs[];
+  /**
+   * @remarks
+   * serviceDeleteType
+   */
   serviceDeleteType?: number;
+  /**
+   * @example
+   * 服务
+   */
   serviceName?: string;
   timelines?: GetProblemResponseBodyDataTimelines[];
   static names(): { [key: string]: string } {
@@ -13095,12 +17908,36 @@ export class GetProblemResponseBodyData extends $tea.Model {
 }
 
 export class GetProblemEffectionServiceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ew
+   */
   description?: string;
+  /**
+   * @example
+   * 6442430
+   */
   effectionServiceId?: number;
+  /**
+   * @example
+   * P2
+   */
   level?: number;
   picUrl?: string[];
+  /**
+   * @example
+   * 170000000
+   */
   serviceId?: number;
+  /**
+   * @example
+   * 哈哈
+   */
   serviceName?: string;
+  /**
+   * @example
+   * UN_RECOVERED
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13133,19 +17970,47 @@ export class GetProblemEffectionServiceResponseBodyData extends $tea.Model {
 
 export class GetProblemImprovementResponseBodyDataMeasureList extends $tea.Model {
   checkStandard?: string;
+  /**
+   * @example
+   * 12
+   */
   checkUserId?: number;
   checkUserIsValid?: number;
   checkUserName?: string;
   content?: string;
+  /**
+   * @example
+   * 212
+   */
   directorId?: number;
   directorIsValid?: number;
   directorName?: string;
+  /**
+   * @example
+   * 12312
+   */
   measureId?: number;
+  /**
+   * @example
+   * 2021-05-01 00:00:00
+   */
   planFinishTime?: string;
+  /**
+   * @example
+   * 3121
+   */
   stalkerId?: number;
   stalkerIsValid?: number;
   stalkerName?: string;
+  /**
+   * @example
+   * UNIMPROVED
+   */
   status?: string;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13194,27 +18059,79 @@ export class GetProblemImprovementResponseBodyDataMeasureList extends $tea.Model
 
 export class GetProblemImprovementResponseBodyData extends $tea.Model {
   customProblemReason?: string;
+  /**
+   * @example
+   * 1
+   */
   discoverSource?: string;
+  /**
+   * @example
+   * 12312
+   */
   dutyDepartmentId?: string;
   dutyDepartmentName?: string;
+  /**
+   * @example
+   * 231
+   */
   dutyUserId?: number;
   dutyUserIsValid?: number;
   dutyUserName?: string;
+  /**
+   * @example
+   * 13098898****
+   */
   dutyUserPhone?: string;
+  /**
+   * @example
+   * 3
+   */
   injectionMode?: string;
+  /**
+   * @example
+   * true
+   */
   isManual?: boolean;
   measureList?: GetProblemImprovementResponseBodyDataMeasureList[];
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * 231231
+   */
   problemId?: string;
   problemReason?: string;
+  /**
+   * @example
+   * 2
+   */
   recentActivity?: string;
+  /**
+   * @example
+   * 2
+   */
   recoveryMode?: string;
   relationChanges?: string;
   remark?: string;
+  /**
+   * @example
+   * 23123
+   */
   replayDutyUserId?: number;
   replayDutyUserIsValid?: number;
   replayDutyUserName?: string;
+  /**
+   * @example
+   * 1308787****
+   */
   replayDutyUserPhone?: string;
+  /**
+   * @example
+   * 1
+   */
   userReport?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13297,6 +18214,10 @@ export class GetProblemPreviewResponseBodyDataMailUsers extends $tea.Model {
 }
 
 export class GetProblemPreviewResponseBodyDataMail extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   count?: number;
   users?: GetProblemPreviewResponseBodyDataMailUsers[];
   static names(): { [key: string]: string } {
@@ -13320,6 +18241,10 @@ export class GetProblemPreviewResponseBodyDataMail extends $tea.Model {
 
 export class GetProblemPreviewResponseBodyDataProblemCoordinationGroups extends $tea.Model {
   serviceGroupDescription?: string;
+  /**
+   * @example
+   * 1231
+   */
   serviceGroupId?: number;
   serviceGroupName?: string;
   static names(): { [key: string]: string } {
@@ -13344,6 +18269,10 @@ export class GetProblemPreviewResponseBodyDataProblemCoordinationGroups extends 
 }
 
 export class GetProblemPreviewResponseBodyDataProblemEffectionServices extends $tea.Model {
+  /**
+   * @example
+   * 1231
+   */
   serviceId?: number;
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -13367,21 +18296,65 @@ export class GetProblemPreviewResponseBodyDataProblemEffectionServices extends $
 
 export class GetProblemPreviewResponseBodyDataProblem extends $tea.Model {
   coordinationGroups?: GetProblemPreviewResponseBodyDataProblemCoordinationGroups[];
+  /**
+   * @example
+   * 2021-02-21 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2021-02-21 00:00:00
+   */
   discoverTime?: string;
   effectionServices?: GetProblemPreviewResponseBodyDataProblemEffectionServices[];
+  /**
+   * @example
+   * true
+   */
   isManual?: boolean;
+  /**
+   * @example
+   * true
+   */
   isUpgrade?: boolean;
+  /**
+   * @example
+   * 231
+   */
   mainHandlerId?: string;
   mainHandlerName?: string;
   preliminaryReason?: string;
+  /**
+   * @example
+   * 123123
+   */
   problemId?: number;
+  /**
+   * @example
+   * P2
+   */
   problemLevel?: string;
   problemName?: string;
+  /**
+   * @example
+   * HANDLING
+   */
   problemStatus?: string;
   progressSummary?: string;
+  /**
+   * @example
+   * 12312
+   */
   progressSummaryRichTextId?: number;
+  /**
+   * @example
+   * 2021-02-21 00:00:00
+   */
   recoveryTime?: string;
+  /**
+   * @example
+   * 213123
+   */
   relatedServiceId?: number;
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -13455,6 +18428,10 @@ export class GetProblemPreviewResponseBodyDataSmsUsers extends $tea.Model {
 }
 
 export class GetProblemPreviewResponseBodyDataSms extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   count?: number;
   users?: GetProblemPreviewResponseBodyDataSmsUsers[];
   static names(): { [key: string]: string } {
@@ -13496,6 +18473,10 @@ export class GetProblemPreviewResponseBodyDataVoiceUsers extends $tea.Model {
 }
 
 export class GetProblemPreviewResponseBodyDataVoice extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   count?: number;
   users?: GetProblemPreviewResponseBodyDataVoiceUsers[];
   static names(): { [key: string]: string } {
@@ -13537,6 +18518,10 @@ export class GetProblemPreviewResponseBodyDataWebhookServiceGroups extends $tea.
 }
 
 export class GetProblemPreviewResponseBodyDataWebhook extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   count?: number;
   serviceGroups?: GetProblemPreviewResponseBodyDataWebhookServiceGroups[];
   static names(): { [key: string]: string } {
@@ -13562,11 +18547,19 @@ export class GetProblemPreviewResponseBodyData extends $tea.Model {
   deAfterData?: string;
   deBeforeData?: string;
   mail?: GetProblemPreviewResponseBodyDataMail;
+  /**
+   * @remarks
+   * object
+   */
   problem?: GetProblemPreviewResponseBodyDataProblem;
   sms?: GetProblemPreviewResponseBodyDataSms;
   upAfterData?: string;
   upBeforeData?: string;
   voice?: GetProblemPreviewResponseBodyDataVoice;
+  /**
+   * @remarks
+   * webhook
+   */
   webhook?: GetProblemPreviewResponseBodyDataWebhook;
   static names(): { [key: string]: string } {
     return {
@@ -13602,9 +18595,25 @@ export class GetProblemPreviewResponseBodyData extends $tea.Model {
 }
 
 export class GetResourceStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   alertCount?: number;
+  /**
+   * @example
+   * 1331
+   */
   incidentCount?: number;
+  /**
+   * @example
+   * 2211
+   */
   integrationCount?: number;
+  /**
+   * @example
+   * 221
+   */
   problemCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13630,8 +18639,20 @@ export class GetResourceStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class GetRichTextResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 123123
+   */
   instanceId?: number;
+  /**
+   * @example
+   * 0 事件 1告警 2 故障
+   */
   instanceType?: number;
+  /**
+   * @example
+   * 这是一个富文本
+   */
   richText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13655,8 +18676,20 @@ export class GetRichTextResponseBodyData extends $tea.Model {
 }
 
 export class GetRouteRuleResponseBodyDataEventRouteChildRulesConditions extends $tea.Model {
+  /**
+   * @example
+   * alarmName
+   */
   key?: string;
+  /**
+   * @example
+   * contain
+   */
   operationSymbol?: string;
+  /**
+   * @example
+   * Zabbix server
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13680,13 +18713,41 @@ export class GetRouteRuleResponseBodyDataEventRouteChildRulesConditions extends 
 }
 
 export class GetRouteRuleResponseBodyDataEventRouteChildRules extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   childConditionRelation?: number;
+  /**
+   * @example
+   * 1000
+   */
   childRouteRuleId?: number;
   conditions?: GetRouteRuleResponseBodyDataEventRouteChildRulesConditions[];
+  /**
+   * @example
+   * false
+   */
   isValidChildRule?: boolean;
+  /**
+   * @example
+   * 1
+   */
   monitorIntegrationConfigId?: number;
+  /**
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * 1800
+   */
   parentRuleId?: number;
   problemLevel?: string;
   static names(): { [key: string]: string } {
@@ -13723,30 +18784,94 @@ export class GetRouteRuleResponseBodyDataEventRouteChildRules extends $tea.Model
 }
 
 export class GetRouteRuleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   assignObjectId?: number;
+  /**
+   * @example
+   * 刘德华
+   */
   assignObjectName?: string;
+  /**
+   * @example
+   * SERVICEGROUP
+   */
   assignObjectType?: string;
+  /**
+   * @example
+   * AND、OR
+   */
   childRuleRelation?: string;
   convergenceFields?: string[];
   convergenceType?: number;
   coverageProblemLevels?: string[];
+  /**
+   * @example
+   * 2020-09-08 15:30:30
+   */
   createTime?: string;
+  /**
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @example
+   * DISABLE
+   */
   enableStatus?: string;
   eventRouteChildRules?: GetRouteRuleResponseBodyDataEventRouteChildRules[];
+  /**
+   * @example
+   * P1
+   */
   incidentLevel?: string;
+  /**
+   * @example
+   * 3
+   */
   matchCount?: number;
   notifyChannelNames?: string[];
   notifyChannels?: string[];
   problemEffectionServices?: number[];
   problemLevelGroup?: { [key: string]: DataProblemLevelGroupValue };
   relServiceDeleteType?: number;
+  /**
+   * @example
+   * 1000
+   */
   relatedServiceId?: number;
+  /**
+   * @example
+   * 冲上云霄
+   */
   relatedServiceName?: string;
+  /**
+   * @example
+   * 180000000
+   */
   routeRuleId?: number;
+  /**
+   * @example
+   * INCIDENT
+   */
   routeType?: string;
+  /**
+   * @example
+   * 规则1
+   */
   ruleName?: string;
+  /**
+   * @example
+   * 3
+   */
   timeWindow?: number;
+  /**
+   * @example
+   * 2020-09-08 15:30:30
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13814,11 +18939,26 @@ export class GetRouteRuleResponseBodyData extends $tea.Model {
 }
 
 export class GetServiceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   escalationPlanId?: number;
   serviceDescription?: string;
   serviceGroupIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
   serviceId?: number;
   serviceName?: string;
+  /**
+   * @example
+   * 2020-03-08 12:53:53
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13848,10 +18988,26 @@ export class GetServiceResponseBodyData extends $tea.Model {
 }
 
 export class GetServiceGroupResponseBodyDataUsers extends $tea.Model {
+  /**
+   * @example
+   * 1390000****
+   */
   phone?: string;
   roleNameList?: string[];
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 10
+   */
   userId?: number;
+  /**
+   * @example
+   * jack
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13879,14 +19035,46 @@ export class GetServiceGroupResponseBodyDataUsers extends $tea.Model {
 }
 
 export class GetServiceGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2020-08-08 10:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * ENABLE
+   */
   enableWebhook?: string;
+  /**
+   * @example
+   * 服务描述
+   */
   serviceGroupDescription?: string;
+  /**
+   * @example
+   * 1000
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 冲上云霄
+   */
   serviceGroupName?: string;
+  /**
+   * @example
+   * 2020-05-03 15:39:39
+   */
   updateTime?: string;
   users?: GetServiceGroupResponseBodyDataUsers[];
+  /**
+   * @example
+   * wwwwwww
+   */
   webhookLink?: string;
+  /**
+   * @example
+   * WEIXIN_GROUP
+   */
   webhookType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13923,9 +19111,21 @@ export class GetServiceGroupResponseBodyData extends $tea.Model {
 
 export class GetServiceGroupSchedulingResponseBodyDataFastSchedulingSchedulingUsers extends $tea.Model {
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 66666
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
+  /**
+   * @example
+   * 张杰
+   */
   schedulingUserName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13953,10 +19153,26 @@ export class GetServiceGroupSchedulingResponseBodyDataFastSchedulingSchedulingUs
 }
 
 export class GetServiceGroupSchedulingResponseBodyDataFastScheduling extends $tea.Model {
+  /**
+   * @example
+   * FAST_CHOICE
+   */
   dutyPlan?: string;
+  /**
+   * @example
+   * 2222
+   */
   id?: number;
   schedulingUsers?: GetServiceGroupSchedulingResponseBodyDataFastSchedulingSchedulingUsers[];
+  /**
+   * @example
+   * 12
+   */
   singleDuration?: number;
+  /**
+   * @example
+   * DAY
+   */
   singleDurationUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13984,15 +19200,47 @@ export class GetServiceGroupSchedulingResponseBodyDataFastScheduling extends $te
 }
 
 export class GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   cycleOrder?: number;
+  /**
+   * @example
+   * 2020-10-13
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2020-08-13
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 1111
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
+  /**
+   * @example
+   * 刘德华
+   */
   schedulingUserName?: string;
+  /**
+   * @example
+   * 早班
+   */
   shiftName?: string;
+  /**
+   * @example
+   * false
+   */
   skipOneDay?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14030,14 +19278,34 @@ export class GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingFi
 }
 
 export class GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingTemplateFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 2021-10-01 00:00:00
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2021-09-01 00:00:00
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingUserId?: string;
   schedulingUserIdList?: number[];
   schedulingUserName?: string;
   shiftName?: string;
+  /**
+   * @example
+   * true
+   */
   skipOneDay?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14073,11 +19341,33 @@ export class GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingTe
 }
 
 export class GetServiceGroupSchedulingResponseBodyDataFineScheduling extends $tea.Model {
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * 精细排班ID
+   */
   id?: number;
+  /**
+   * @remarks
+   * 1
+   * 
+   * @example
+   * 循环周期
+   */
   period?: number;
+  /**
+   * @example
+   * DAY
+   */
   periodUnit?: string;
   schedulingFineShifts?: GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingFineShifts[];
   schedulingTemplateFineShifts?: GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingTemplateFineShifts[];
+  /**
+   * @example
+   * MORNING_NIGHT
+   */
   shiftType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14131,7 +19421,15 @@ export class GetServiceGroupSchedulingResponseBodyDataUsers extends $tea.Model {
 export class GetServiceGroupSchedulingResponseBodyData extends $tea.Model {
   fastScheduling?: GetServiceGroupSchedulingResponseBodyDataFastScheduling;
   fineScheduling?: GetServiceGroupSchedulingResponseBodyDataFineScheduling;
+  /**
+   * @example
+   * FINE
+   */
   schedulingWay?: string;
+  /**
+   * @example
+   * 99999
+   */
   serviceGroupId?: number;
   users?: GetServiceGroupSchedulingResponseBodyDataUsers[];
   static names(): { [key: string]: string } {
@@ -14160,7 +19458,15 @@ export class GetServiceGroupSchedulingResponseBodyData extends $tea.Model {
 }
 
 export class GetServiceGroupSchedulingPreviewRequestFastSchedulingSchedulingUsers extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 122222
+   */
   schedulingUserId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14182,9 +19488,27 @@ export class GetServiceGroupSchedulingPreviewRequestFastSchedulingSchedulingUser
 }
 
 export class GetServiceGroupSchedulingPreviewRequestFastScheduling extends $tea.Model {
+  /**
+   * @remarks
+   * FAST_CHOICE
+   * 
+   * @example
+   * FAST_CHOICE
+   */
   dutyPlan?: string;
   schedulingUsers?: GetServiceGroupSchedulingPreviewRequestFastSchedulingSchedulingUsers[];
+  /**
+   * @example
+   * 12
+   */
   singleDuration?: number;
+  /**
+   * @remarks
+   * DAY
+   * 
+   * @example
+   * DAY
+   */
   singleDurationUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14210,9 +19534,25 @@ export class GetServiceGroupSchedulingPreviewRequestFastScheduling extends $tea.
 }
 
 export class GetServiceGroupSchedulingPreviewRequestFineSchedulingSchedulingFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 2020-10-13
+   */
   schedulingEndTime?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2020-08-13
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 早班
+   */
   shiftName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14238,9 +19578,21 @@ export class GetServiceGroupSchedulingPreviewRequestFineSchedulingSchedulingFine
 }
 
 export class GetServiceGroupSchedulingPreviewRequestFineScheduling extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   period?: number;
+  /**
+   * @example
+   * DAY
+   */
   periodUnit?: string;
   schedulingFineShifts?: GetServiceGroupSchedulingPreviewRequestFineSchedulingSchedulingFineShifts[];
+  /**
+   * @example
+   * MORNING_NIGHT
+   */
   shiftType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14266,11 +19618,35 @@ export class GetServiceGroupSchedulingPreviewRequestFineScheduling extends $tea.
 }
 
 export class GetServiceGroupSpecialPersonSchedulingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-08-17
+   */
   schedulingDate?: string;
+  /**
+   * @example
+   * 2021-08-17  12:00:00
+   */
   schedulingEndTime?: string;
+  /**
+   * @example
+   * 2021-08-17  00:00:00
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 111111
+   */
   schedulingUserId?: number;
+  /**
+   * @example
+   * 8888
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 刘德华
+   */
   serviceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14300,19 +19676,75 @@ export class GetServiceGroupSpecialPersonSchedulingResponseBodyData extends $tea
 }
 
 export class GetSimilarIncidentStatisticsResponseBodyDataDailySimilarIncidentsSimilarIncidents extends $tea.Model {
+  /**
+   * @example
+   * 433
+   */
   assignUserId?: number;
+  /**
+   * @example
+   * 张老三
+   */
   assignUserName?: string;
+  /**
+   * @example
+   * 2021-09-09 09:09:09
+   */
   createTime?: string;
+  /**
+   * @example
+   * 6789765678
+   */
   durationTime?: number;
+  /**
+   * @example
+   * 1
+   */
   finishReason?: number;
+  /**
+   * @example
+   * xx原因
+   */
   finishReasonDescription?: string;
+  /**
+   * @example
+   * xxx方案
+   */
   finishSolutionDescription?: string;
+  /**
+   * @example
+   * 5
+   */
   incidentFinishSolution?: number;
+  /**
+   * @example
+   * 5435
+   */
   incidentId?: number;
+  /**
+   * @example
+   * I234432
+   */
   incidentNumber?: string;
+  /**
+   * @example
+   * 线性代数发多少
+   */
   incidentTitle?: string;
+  /**
+   * @example
+   * 334
+   */
   relatedRouteRuleId?: number;
+  /**
+   * @example
+   * xxx规则
+   */
   relatedRouteRuleName?: string;
+  /**
+   * @example
+   * 1003.567
+   */
   similarScore?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14358,11 +19790,31 @@ export class GetSimilarIncidentStatisticsResponseBodyDataDailySimilarIncidentsSi
 }
 
 export class GetSimilarIncidentStatisticsResponseBodyDataDailySimilarIncidents extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   commitment?: number;
+  /**
+   * @example
+   * 2021-03-07
+   */
   date?: string;
+  /**
+   * @example
+   * 1
+   */
   day?: number;
+  /**
+   * @example
+   * 2
+   */
   month?: number;
   similarIncidents?: GetSimilarIncidentStatisticsResponseBodyDataDailySimilarIncidentsSimilarIncidents[];
+  /**
+   * @example
+   * 1
+   */
   week?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14392,19 +19844,75 @@ export class GetSimilarIncidentStatisticsResponseBodyDataDailySimilarIncidents e
 }
 
 export class GetSimilarIncidentStatisticsResponseBodyDataTopFiveIncidents extends $tea.Model {
+  /**
+   * @example
+   * 43
+   */
   assignUserId?: string;
+  /**
+   * @example
+   * 张老三
+   */
   assignUserName?: string;
+  /**
+   * @example
+   * 2021-09-09 09:09:09
+   */
   createTime?: string;
+  /**
+   * @example
+   * 6787678767
+   */
   durationTime?: number;
+  /**
+   * @example
+   * 2
+   */
   finishReason?: number;
+  /**
+   * @example
+   * xxxx原因
+   */
   finishReasonDescription?: string;
+  /**
+   * @example
+   * xxx方案
+   */
   finishSolutionDescription?: string;
+  /**
+   * @example
+   * 5
+   */
   incidentFinishSolution?: number;
+  /**
+   * @example
+   * 32
+   */
   incidentId?: number;
+  /**
+   * @example
+   * I34324
+   */
   incidentNumber?: string;
+  /**
+   * @example
+   * xxx事件
+   */
   incidentTitle?: string;
+  /**
+   * @example
+   * 4343
+   */
   relatedRouteRuleId?: number;
+  /**
+   * @example
+   * xxx
+   */
   relatedRouteRuleName?: string;
+  /**
+   * @example
+   * 1992.21
+   */
   similarScore?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14450,10 +19958,33 @@ export class GetSimilarIncidentStatisticsResponseBodyDataTopFiveIncidents extend
 }
 
 export class GetSimilarIncidentStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 8
+   */
   countInSevenDays?: number;
+  /**
+   * @example
+   * 43
+   */
   countInSixMonths?: number;
+  /**
+   * @example
+   * {}
+   */
   dailySimilarIncidents?: GetSimilarIncidentStatisticsResponseBodyDataDailySimilarIncidents[];
+  /**
+   * @remarks
+   * id of the request
+   * 
+   * @example
+   * uyihg6789
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * topFiveIncidents
+   */
   topFiveIncidents?: GetSimilarIncidentStatisticsResponseBodyDataTopFiveIncidents[];
   static names(): { [key: string]: string } {
     return {
@@ -14481,9 +20012,25 @@ export class GetSimilarIncidentStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class GetSubscriptionResponseBodyDataNotifyObjectList extends $tea.Model {
+  /**
+   * @example
+   * 23
+   */
   id?: number;
+  /**
+   * @example
+   * TestName
+   */
   name?: string;
+  /**
+   * @example
+   * 19
+   */
   notifyObjectId?: number;
+  /**
+   * @example
+   * USER
+   */
   notifyObjectType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14509,9 +20056,25 @@ export class GetSubscriptionResponseBodyDataNotifyObjectList extends $tea.Model 
 }
 
 export class GetSubscriptionResponseBodyDataNotifyStrategyListStrategiesConditions extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT_TRIGGER
+   */
   action?: string;
+  /**
+   * @example
+   * HIGH
+   */
   effection?: string;
+  /**
+   * @example
+   * P1
+   */
   level?: string;
+  /**
+   * @example
+   * PROBLEM_NOTIFY
+   */
   problemNotifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14537,7 +20100,15 @@ export class GetSubscriptionResponseBodyDataNotifyStrategyListStrategiesConditio
 }
 
 export class GetSubscriptionResponseBodyDataNotifyStrategyListStrategiesPeriodChannel extends $tea.Model {
+  /**
+   * @example
+   * DINGDING
+   */
   nonWorkday?: string;
+  /**
+   * @example
+   * DINGDING
+   */
   workday?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14559,8 +20130,16 @@ export class GetSubscriptionResponseBodyDataNotifyStrategyListStrategiesPeriodCh
 }
 
 export class GetSubscriptionResponseBodyDataNotifyStrategyListStrategies extends $tea.Model {
+  /**
+   * @example
+   * SMS
+   */
   channels?: string;
   conditions?: GetSubscriptionResponseBodyDataNotifyStrategyListStrategiesConditions[];
+  /**
+   * @example
+   * 12
+   */
   id?: number;
   periodChannel?: GetSubscriptionResponseBodyDataNotifyStrategyListStrategiesPeriodChannel;
   static names(): { [key: string]: string } {
@@ -14587,6 +20166,10 @@ export class GetSubscriptionResponseBodyDataNotifyStrategyListStrategies extends
 }
 
 export class GetSubscriptionResponseBodyDataNotifyStrategyList extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT
+   */
   instanceType?: number;
   strategies?: GetSubscriptionResponseBodyDataNotifyStrategyListStrategies[];
   static names(): { [key: string]: string } {
@@ -14609,10 +20192,22 @@ export class GetSubscriptionResponseBodyDataNotifyStrategyList extends $tea.Mode
 }
 
 export class GetSubscriptionResponseBodyDataScopeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   id?: number;
   isValid?: number;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
   scopeObject?: string;
+  /**
+   * @example
+   * 10
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14640,17 +20235,57 @@ export class GetSubscriptionResponseBodyDataScopeObjectList extends $tea.Model {
 }
 
 export class GetSubscriptionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-08-9 10:10:10
+   */
   endTime?: string;
+  /**
+   * @example
+   * LONG_TERM
+   */
   expiredType?: string;
   notifyObjectList?: GetSubscriptionResponseBodyDataNotifyObjectList[];
+  /**
+   * @example
+   * USER
+   */
   notifyObjectType?: string;
   notifyStrategyList?: GetSubscriptionResponseBodyDataNotifyStrategyList[];
+  /**
+   * @example
+   * 1个月
+   */
   period?: string;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
+  /**
+   * @remarks
+   * Array
+   */
   scopeObjectList?: GetSubscriptionResponseBodyDataScopeObjectList[];
+  /**
+   * @example
+   * 2020-05-9 10:10:10
+   */
   startTime?: string;
+  /**
+   * @example
+   * ENABLE
+   */
   status?: string;
+  /**
+   * @example
+   * 68
+   */
   subscriptionId?: number;
+  /**
+   * @example
+   * newTitle
+   */
   subscriptionTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14692,10 +20327,26 @@ export class GetSubscriptionResponseBodyData extends $tea.Model {
 }
 
 export class GetTenantApplicationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 7356
+   */
   bizId?: string;
+  /**
+   * @example
+   * DINGDING
+   */
   channel?: string;
+  /**
+   * @example
+   * ding81913c*
+   */
   corporationId?: string;
   originalCorpId?: string;
+  /**
+   * @example
+   * NOT_OPEN
+   */
   progress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14742,7 +20393,15 @@ export class GetTenantStatusResponseBodyData extends $tea.Model {
 }
 
 export class GetUserResponseBodyDataServiceGroups extends $tea.Model {
+  /**
+   * @example
+   * 山口组
+   */
   name?: string;
+  /**
+   * @example
+   * 10000
+   */
   serviceGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14764,16 +20423,55 @@ export class GetUserResponseBodyDataServiceGroups extends $tea.Model {
 }
 
 export class GetUserResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * SUB
+   */
   accountType?: string;
+  /**
+   * @example
+   * 2021-09-09 09:09:09
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * email
+   * 
+   * @example
+   * 5678***@qq.com
+   */
   email?: string;
+  isActive?: number;
+  /**
+   * @example
+   * true
+   */
   isEditableUser?: boolean;
+  /**
+   * @example
+   * RELATE
+   */
   isRelated?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   phone?: string;
+  /**
+   * @remarks
+   * ramId
+   * 
+   * @example
+   * 1344383
+   */
   ramId?: string;
   roleIdList?: number[];
   roleNameList?: string[];
   serviceGroups?: GetUserResponseBodyDataServiceGroups[];
+  /**
+   * @example
+   * 63
+   */
   userId?: number;
   username?: string;
   static names(): { [key: string]: string } {
@@ -14781,6 +20479,7 @@ export class GetUserResponseBodyData extends $tea.Model {
       accountType: 'accountType',
       createTime: 'createTime',
       email: 'email',
+      isActive: 'isActive',
       isEditableUser: 'isEditableUser',
       isRelated: 'isRelated',
       phone: 'phone',
@@ -14798,6 +20497,7 @@ export class GetUserResponseBodyData extends $tea.Model {
       accountType: 'string',
       createTime: 'string',
       email: 'string',
+      isActive: 'number',
       isEditableUser: 'boolean',
       isRelated: 'string',
       phone: 'string',
@@ -14816,19 +20516,63 @@ export class GetUserResponseBodyData extends $tea.Model {
 }
 
 export class ListAlertsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 20000
+   */
   alertId?: number;
+  /**
+   * @example
+   * P1
+   */
   alertLevel?: string;
+  /**
+   * @example
+   * A123123123
+   */
   alertNumber?: string;
+  /**
+   * @example
+   * zabbix
+   */
   alertSourceName?: string;
+  /**
+   * @example
+   * 2020-03-05 15:53:55
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2021-09-08 18:30:00
+   */
   firstEventTime?: string;
   monitorSourceName?: string;
   relServiceDeleteType?: number;
+  /**
+   * @example
+   * 服务A
+   */
   relatedServiceName?: string;
   routeRuleDeleteType?: number;
+  /**
+   * @example
+   * 10000
+   */
   routeRuleId?: number;
+  /**
+   * @example
+   * 流转规则
+   */
   routeRuleName?: string;
+  /**
+   * @example
+   * 10
+   */
   sourceEventCount?: number;
+  /**
+   * @example
+   * 报警
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14896,15 +20640,55 @@ export class ListByMonitorSourceIdResponseBodyData extends $tea.Model {
 }
 
 export class ListChartDataForServiceGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {"P1HIGH":32}
+   */
   effectionLevel?: { [key: string]: any };
+  /**
+   * @example
+   * 43
+   */
   escalationIncidentCount?: number;
+  /**
+   * @example
+   * 32
+   */
   incidentCount?: number;
+  /**
+   * @example
+   * 323
+   */
   meanTimeToAcknowledge?: number;
+  /**
+   * @example
+   * 4343
+   */
   meanTimeToRepair?: number;
+  /**
+   * @example
+   * 2021-09-09
+   */
   time?: string;
+  /**
+   * @example
+   * 3334
+   */
   totalMeanTimeToAcknowledge?: number;
+  /**
+   * @example
+   * 4343
+   */
   totalMeanTimeToRepair?: number;
+  /**
+   * @example
+   * 23
+   */
   unAcknowledgedEscalationIncidentCount?: number;
+  /**
+   * @example
+   * 23
+   */
   unFinishEscalationIncidentCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14942,15 +20726,55 @@ export class ListChartDataForServiceGroupResponseBodyData extends $tea.Model {
 }
 
 export class ListChartDataForUserResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {"P1HIGH":32}
+   */
   effectionLevel?: { [key: string]: any };
+  /**
+   * @example
+   * 43
+   */
   escalationIncidentCount?: number;
+  /**
+   * @example
+   * 32
+   */
   incidentCount?: number;
+  /**
+   * @example
+   * 323
+   */
   meanTimeToAcknowledge?: number;
+  /**
+   * @example
+   * 4343
+   */
   meanTimeToRepair?: number;
+  /**
+   * @example
+   * 2021-09-09
+   */
   time?: string;
+  /**
+   * @example
+   * 3334
+   */
   totalMeanTimeToAcknowledge?: number;
+  /**
+   * @example
+   * 4343
+   */
   totalMeanTimeToRepair?: number;
+  /**
+   * @example
+   * 23
+   */
   unAcknowledgedEscalationIncidentCount?: number;
+  /**
+   * @example
+   * 23
+   */
   unFinishEscalationIncidentCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14988,15 +20812,61 @@ export class ListChartDataForUserResponseBodyData extends $tea.Model {
 }
 
 export class ListDataReportForServiceGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   escalationIncidentCount?: number;
+  /**
+   * @example
+   * 111
+   */
   finishIncidentCount?: number;
+  /**
+   * @example
+   * 19%
+   */
   finishProportion?: string;
+  /**
+   * @example
+   * 1
+   */
   incidentCount?: number;
+  /**
+   * @remarks
+   * MRRA
+   * 
+   * @example
+   * 3分19秒
+   */
   meanTimeToAcknowledge?: number;
+  /**
+   * @remarks
+   * MTTR
+   * 
+   * @example
+   * 3分19秒
+   */
   meanTimeToRepair?: number;
+  /**
+   * @example
+   * 100
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 服务组
+   */
   serviceGroupName?: string;
+  /**
+   * @example
+   * 200
+   */
   unAcknowledgedEscalationIncidentCount?: number;
+  /**
+   * @example
+   * 200
+   */
   unFinishEscalationIncidentCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15034,16 +20904,66 @@ export class ListDataReportForServiceGroupResponseBodyData extends $tea.Model {
 }
 
 export class ListDataReportForUserResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   distributionIncidentCount?: number;
+  /**
+   * @example
+   * 100
+   */
   escalationIncidentCount?: number;
+  /**
+   * @example
+   * 100
+   */
   finishIncidentNumber?: number;
+  /**
+   * @example
+   * 20%
+   */
   finishProportion?: string;
+  /**
+   * @remarks
+   * MRRA
+   * 
+   * @example
+   * 3分50秒
+   */
   meanTimeToAcknowledge?: string;
+  /**
+   * @remarks
+   * MTTA
+   * 
+   * @example
+   * 3分50秒
+   */
   meanTimeToRepair?: string;
+  /**
+   * @example
+   * 100
+   */
   unAcknowledgedEscalationIncidentCount?: number;
+  /**
+   * @example
+   * 100
+   */
   unDistributionIncidentCount?: number;
+  /**
+   * @example
+   * 100
+   */
   unFinishEscalationIncidentCount?: number;
+  /**
+   * @example
+   * 1111
+   */
   userId?: number;
+  /**
+   * @example
+   * wy
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15083,7 +21003,15 @@ export class ListDataReportForUserResponseBodyData extends $tea.Model {
 }
 
 export class ListEscalationPlanServicesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
+  /**
+   * @example
+   * 23
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15105,9 +21033,21 @@ export class ListEscalationPlanServicesResponseBodyData extends $tea.Model {
 }
 
 export class ListEscalationPlansResponseBodyDataEscalationPlanScopeObjects extends $tea.Model {
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
   scopeObjectDeletedType?: number;
+  /**
+   * @example
+   * 23
+   */
   scopeObjectId?: number;
+  /**
+   * @example
+   * 某服务1
+   */
   scopeObjectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15133,11 +21073,27 @@ export class ListEscalationPlansResponseBodyDataEscalationPlanScopeObjects exten
 }
 
 export class ListEscalationPlansResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 43
+   */
   escalationPlanId?: number;
+  /**
+   * @example
+   * 升级计划2345
+   */
   escalationPlanName?: string;
   escalationPlanScopeObjects?: ListEscalationPlansResponseBodyDataEscalationPlanScopeObjects[];
   isGlobal?: boolean;
+  /**
+   * @example
+   * 2021-09-09 09:09:09
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * ENABLE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15226,8 +21182,20 @@ export class ListEscalationPlansByNoticeObjectResponseBodyData extends $tea.Mode
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlanNoticeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 31231
+   */
   noticeObjectId?: number;
+  /**
+   * @example
+   * 小华
+   */
   noticeObjectName?: string;
+  /**
+   * @example
+   * 130xxxxxxxxx
+   */
   noticeObjectPhone?: string;
   roleNameList?: string[];
   static names(): { [key: string]: string } {
@@ -15254,7 +21222,15 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalat
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlanServiceGroupList extends $tea.Model {
+  /**
+   * @example
+   * 1231
+   */
   id?: number;
+  /**
+   * @example
+   * 服务组A
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15276,12 +21252,28 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalat
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlan extends $tea.Model {
+  /**
+   * @example
+   * UN_ACKNOWLEDGE
+   */
   escalationPlanType?: string;
   noticeChannels?: string[];
   noticeObjectList?: ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlanNoticeObjectList[];
+  /**
+   * @example
+   * 10
+   */
   noticeTime?: number;
   serviceGroupList?: ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlanServiceGroupList[];
+  /**
+   * @example
+   * 1629872386027
+   */
   startTime?: number;
+  /**
+   * @example
+   * UPGRADE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15313,8 +21305,20 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalat
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 31231
+   */
   noticeObjectId?: number;
+  /**
+   * @example
+   * 小华
+   */
   noticeObjectName?: string;
+  /**
+   * @example
+   * 130xxxxxxxxx
+   */
   noticeObjectPhone?: string;
   roleNameList?: string[];
   static names(): { [key: string]: string } {
@@ -15363,7 +21367,15 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscal
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanServiceGroupList extends $tea.Model {
+  /**
+   * @example
+   * 1231
+   */
   id?: number;
+  /**
+   * @example
+   * 服务组A
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15385,14 +21397,30 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscal
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlan extends $tea.Model {
+  /**
+   * @example
+   * UN_ACKNOWLEDGE
+   */
   escalationPlanType?: string;
   noticeChannels?: string[];
   noticeObjectList?: ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeObjectList[];
   noticeRoleList?: number[];
   noticeRoleObjectList?: ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList[];
+  /**
+   * @example
+   * 10
+   */
   noticeTime?: number;
   serviceGroupList?: ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanServiceGroupList[];
+  /**
+   * @example
+   * 1629872386027
+   */
   startTime?: number;
+  /**
+   * @example
+   * UPGRADE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15428,8 +21456,20 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscal
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 2311
+   */
   noticeObjectId?: number;
+  /**
+   * @example
+   * 小明
+   */
   noticeObjectName?: string;
+  /**
+   * @example
+   * 130xxxxxxxx
+   */
   noticeObjectPhone?: string;
   roleNameList?: string[];
   static names(): { [key: string]: string } {
@@ -15478,7 +21518,15 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalation
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanServiceGroupList extends $tea.Model {
+  /**
+   * @example
+   * 123132
+   */
   id?: number;
+  /**
+   * @example
+   * 服务组A
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15500,14 +21548,30 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalation
 }
 
 export class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlan extends $tea.Model {
+  /**
+   * @example
+   * UN_FINISH
+   */
   escalationPlanType?: string;
   noticeChannels?: string[];
   noticeObjectList?: ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeObjectList[];
   noticeRoleList?: number[];
   noticeRoleObjectList?: ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList[];
+  /**
+   * @example
+   * 10
+   */
   noticeTime?: number;
   serviceGroupList?: ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanServiceGroupList[];
+  /**
+   * @example
+   * 1629872386027
+   */
   startTime?: number;
+  /**
+   * @example
+   * UPGRADE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15544,7 +21608,15 @@ export class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalation
 
 export class ListIncidentDetailEscalationPlansResponseBodyData extends $tea.Model {
   convergenceEscalationPlan?: ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlan[];
+  /**
+   * @example
+   * 312123
+   */
   escalationPlanId?: number;
+  /**
+   * @example
+   * 升级策略A
+   */
   escalationPlanName?: string;
   nuAcknowledgeEscalationPlan?: ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlan[];
   unFinishEscalationPlan?: ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlan[];
@@ -15574,6 +21646,10 @@ export class ListIncidentDetailEscalationPlansResponseBodyData extends $tea.Mode
 }
 
 export class ListIncidentDetailTimelinesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT_ADD
+   */
   action?: string;
   createTime?: string;
   description?: string;
@@ -15617,9 +21693,21 @@ export class ListIncidentDetailTimelinesResponseBodyData extends $tea.Model {
 }
 
 export class ListIncidentSubtotalsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-06-23 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 12312
+   */
   createUserId?: number;
   createUserName?: string;
+  /**
+   * @example
+   * 130****1111
+   */
   createUserPhone?: string;
   description?: string;
   static names(): { [key: string]: string } {
@@ -15648,10 +21736,26 @@ export class ListIncidentSubtotalsResponseBodyData extends $tea.Model {
 }
 
 export class ListIncidentTimelinesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT_ADD
+   */
   action?: string;
+  /**
+   * @example
+   * 2021-06-23 00:00:00
+   */
   createTime?: string;
   description?: number;
+  /**
+   * @example
+   * 3321
+   */
   incidentId?: number;
+  /**
+   * @example
+   * I13002001
+   */
   incidentNumber?: string;
   incidentTitle?: string;
   relRouteRuleDeleteType?: number;
@@ -15698,21 +21802,97 @@ export class ListIncidentTimelinesResponseBodyData extends $tea.Model {
 
 export class ListIncidentsResponseBodyData extends $tea.Model {
   assignToWhoIsValid?: number;
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * @example
+   * 21312
+   */
   assignUserId?: number;
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   */
   assignUserName?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   assignUserPhone?: string;
+  /**
+   * @remarks
+   * 事件级别
+   * 
+   * @example
+   * 2020-10-1 00:00:00
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 时间指派人ID
+   * 
+   * @example
+   * HIGH
+   */
   effect?: string;
+  /**
+   * @remarks
+   * 修改时间
+   * 
+   * @example
+   * 12321
+   */
   incidentId?: number;
+  /**
+   * @remarks
+   * 影响程度
+   * 
+   * @example
+   * P4
+   */
   incidentLevel?: string;
+  /**
+   * @example
+   * I3000021
+   */
   incidentNumber?: string;
+  /**
+   * @remarks
+   * 关联流转规则ID
+   * 
+   * @example
+   * RESPONDED
+   */
   incidentStatus?: string;
+  /**
+   * @remarks
+   * 事件内容
+   */
   incidentTitle?: string;
+  /**
+   * @example
+   * true
+   */
   isManual?: boolean;
   relRouteRuleDeleteType?: number;
   relServiceDeleteType?: number;
+  /**
+   * @remarks
+   * 事件状态
+   * 
+   * @example
+   * 213123
+   */
   relatedServiceId?: number;
   relatedServiceName?: string;
+  /**
+   * @remarks
+   * 关联的服务ID
+   * 
+   * @example
+   * 123
+   */
   routeRuleId?: number;
   routeRuleName?: string;
   static names(): { [key: string]: string } {
@@ -15767,6 +21947,10 @@ export class ListIncidentsResponseBodyData extends $tea.Model {
 }
 
 export class ListIntegrationConfigTimelinesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-04-05 10:10:10
+   */
   createTime?: string;
   description?: string;
   title?: string;
@@ -15792,12 +21976,36 @@ export class ListIntegrationConfigTimelinesResponseBodyData extends $tea.Model {
 }
 
 export class ListIntegrationConfigsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1023
+   */
   integrationConfigId?: number;
+  /**
+   * @example
+   * false
+   */
   isReceivedEvent?: boolean;
+  /**
+   * @example
+   * 87
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceShortName?: string;
   monitorSourceType?: number;
+  /**
+   * @example
+   * NOT_INTEGRATED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15830,7 +22038,15 @@ export class ListIntegrationConfigsResponseBodyData extends $tea.Model {
 
 export class ListMonitorSourcesResponseBodyData extends $tea.Model {
   fieldKeys?: string[];
+  /**
+   * @example
+   * 12
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * Zabbix
+   */
   monitorSourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15854,12 +22070,40 @@ export class ListMonitorSourcesResponseBodyData extends $tea.Model {
 }
 
 export class ListProblemDetailOperationsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * PROBLEM_CANCEL
+   */
   action?: string;
+  /**
+   * @example
+   * 2021-01-23 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @example
+   * 服务A
+   */
   relatedServiceName?: string;
+  /**
+   * @example
+   * 备注
+   */
   remark?: string;
+  /**
+   * @example
+   * {“userName”:"小明"}
+   */
   snapshotData?: string;
+  /**
+   * @example
+   * 动态标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15891,14 +22135,50 @@ export class ListProblemDetailOperationsResponseBodyData extends $tea.Model {
 }
 
 export class ListProblemOperationsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * PROBLEM_CANCEL
+   */
   action?: string;
+  /**
+   * @example
+   * 2021-01-23 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @example
+   * 12312
+   */
   problemId?: number;
+  /**
+   * @example
+   * 这是一个故障
+   */
   problemName?: string;
+  /**
+   * @example
+   * P1231231
+   */
   problemNumber?: string;
+  /**
+   * @example
+   * 服务名称
+   */
   relatedServiceName?: string;
+  /**
+   * @example
+   * {“userName”:"小明"}
+   */
   snapshotData?: string;
+  /**
+   * @example
+   * 动态标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15935,8 +22215,20 @@ export class ListProblemOperationsResponseBodyData extends $tea.Model {
 
 export class ListProblemSubtotalsResponseBodyData extends $tea.Model {
   createRamName?: string;
+  /**
+   * @example
+   * 2020-10-02 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 123123
+   */
   createUserId?: number;
+  /**
+   * @example
+   * 130****11111
+   */
   createUserPhone?: string;
   description?: string;
   static names(): { [key: string]: string } {
@@ -15966,7 +22258,15 @@ export class ListProblemSubtotalsResponseBodyData extends $tea.Model {
 
 export class ListProblemTimeLinesResponseBodyDataUsersInContent extends $tea.Model {
   isValid?: number;
+  /**
+   * @example
+   * 232
+   */
   userId?: number;
+  /**
+   * @example
+   * 张老萨
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15990,12 +22290,40 @@ export class ListProblemTimeLinesResponseBodyDataUsersInContent extends $tea.Mod
 }
 
 export class ListProblemTimeLinesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 内容
+   */
   content?: string;
+  /**
+   * @example
+   * 2020-08-08 15:38:38
+   */
   createTime?: string;
+  /**
+   * @example
+   * true
+   */
   isKey?: boolean;
+  /**
+   * @example
+   * PROBLEM_INJECTION,PROBLEM_HAPPEN
+   */
   keyNode?: string;
+  /**
+   * @example
+   * 10000
+   */
   problemTimelineId?: number;
+  /**
+   * @example
+   * 2020-08-08 15:38:38
+   */
   time?: string;
+  /**
+   * @example
+   * 2020-08-08 15:38:38
+   */
   updateTime?: string;
   usersInContent?: ListProblemTimeLinesResponseBodyDataUsersInContent[];
   static names(): { [key: string]: string } {
@@ -16030,9 +22358,25 @@ export class ListProblemTimeLinesResponseBodyData extends $tea.Model {
 }
 
 export class ListProblemsResponseBodyDataAffectServices extends $tea.Model {
+  /**
+   * @example
+   * 服务描述
+   */
   serviceDescription?: string;
+  /**
+   * @example
+   * 100
+   */
   serviceId?: number;
+  /**
+   * @example
+   * 冲上云霄
+   */
   serviceName?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16059,26 +22403,102 @@ export class ListProblemsResponseBodyDataAffectServices extends $tea.Model {
 
 export class ListProblemsResponseBodyData extends $tea.Model {
   affectServices?: ListProblemsResponseBodyDataAffectServices[];
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   cancelTime?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   discoverTime?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   finishTime?: string;
+  /**
+   * @example
+   * 10000
+   */
   incidentId?: number;
+  /**
+   * @example
+   * true
+   */
   isManual?: boolean;
+  /**
+   * @example
+   * true
+   */
   isUpgrade?: boolean;
+  /**
+   * @example
+   * 100
+   */
   mainHandlerId?: number;
   mainHandlerIsValid?: number;
+  /**
+   * @example
+   * 王宇
+   */
   mainHandlerName?: string;
+  /**
+   * @example
+   * 1
+   */
   problemId?: number;
+  /**
+   * @example
+   * P1
+   */
   problemLevel?: string;
+  /**
+   * @example
+   * 故障
+   */
   problemName?: string;
+  /**
+   * @example
+   * P34438300000001116258132229577472
+   */
   problemNumber?: string;
+  /**
+   * @example
+   * HANDLING
+   */
   problemStatus?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   recoveryTime?: string;
+  /**
+   * @example
+   * 1
+   */
   relatedServiceId?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   replayTime?: string;
   serviceDeletedType?: number;
+  /**
+   * @example
+   * 服务1
+   */
   serviceName?: string;
+  /**
+   * @example
+   * 2020-09-08 15:59:59
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16140,24 +22560,92 @@ export class ListProblemsResponseBodyData extends $tea.Model {
 }
 
 export class ListRouteRulesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   assignObjectId?: number;
+  /**
+   * @example
+   * SERVICEGROUP
+   */
   assignObjectType?: string;
+  /**
+   * @example
+   * 2020-03-05 15:53:55
+   */
   createTime?: string;
+  /**
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @example
+   * DISABLE
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * P1
+   */
   incidentLevel?: string;
   isValid?: number;
+  /**
+   * @example
+   * 10
+   */
   matchCount?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceNames?: string;
   relServiceDeleteType?: number;
+  /**
+   * @example
+   * 1
+   */
   relatedServiceId?: number;
+  /**
+   * @example
+   * 关联服务名字
+   */
   relatedServiceName?: string;
+  /**
+   * @example
+   * 10000
+   */
   routeRuleId?: number;
+  /**
+   * @example
+   * INCIDENT
+   */
   routeType?: string;
+  /**
+   * @example
+   * 规则名字
+   */
   ruleName?: string;
+  /**
+   * @example
+   * 1344383
+   */
   tenantRamId?: number;
+  /**
+   * @example
+   * 时间窗口
+   */
   timeWindow?: number;
+  /**
+   * @example
+   * MINUTE
+   */
   timeWindowUnit?: number;
+  /**
+   * @example
+   * 2020-03-05 15:53:55
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16261,9 +22749,25 @@ export class ListRouteRulesByServiceResponseBodyData extends $tea.Model {
 
 export class ListServiceGroupMonitorSourceTemplatesResponseBodyData extends $tea.Model {
   fields?: string[];
+  /**
+   * @example
+   * 1000
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * ""
+   */
   templateContent?: string;
+  /**
+   * @example
+   * 1000
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16291,11 +22795,31 @@ export class ListServiceGroupMonitorSourceTemplatesResponseBodyData extends $tea
 }
 
 export class ListServiceGroupsResponseBodyDataUsers extends $tea.Model {
+  /**
+   * @example
+   * wy930***@163.com
+   */
   email?: string;
   isRelated?: number;
+  /**
+   * @example
+   * 1390000****
+   */
   phone?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 10
+   */
   userId?: number;
+  /**
+   * @example
+   * jack
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16325,14 +22849,46 @@ export class ListServiceGroupsResponseBodyDataUsers extends $tea.Model {
 }
 
 export class ListServiceGroupsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ENABLE
+   */
   enableWebhook?: string;
+  /**
+   * @example
+   * true
+   */
   isScheduled?: boolean;
+  /**
+   * @example
+   * 服务描述
+   */
   serviceGroupDescription?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 服务组
+   */
   serviceGroupName?: string;
+  /**
+   * @example
+   * 2020-08-09 15:50:30
+   */
   updateTime?: string;
   users?: ListServiceGroupsResponseBodyDataUsers[];
+  /**
+   * @example
+   * wwwwwwwwww
+   */
   webhookLink?: string;
+  /**
+   * @example
+   * WEIXIN_GROUP
+   */
   webhookType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16396,10 +22952,26 @@ export class ListServicesResponseBodyData extends $tea.Model {
   escalationPlanId?: number;
   escalationPlanName?: string;
   isValid?: number;
+  /**
+   * @example
+   * 服务描述
+   */
   serviceDescription?: string;
   serviceGroupIdList?: number[];
+  /**
+   * @example
+   * 1
+   */
   serviceId?: number;
+  /**
+   * @example
+   * 冲上云霄
+   */
   serviceName?: string;
+  /**
+   * @example
+   * 2020-09-08 14:30:30
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16433,13 +23005,45 @@ export class ListServicesResponseBodyData extends $tea.Model {
 }
 
 export class ListSourceEventsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
   eventJson?: string;
+  /**
+   * @example
+   * 2020-09-08 15:53:34
+   */
   eventTime?: string;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * INCIDENT
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * 1
+   */
   routeRuleId?: number;
+  /**
+   * @example
+   * 1
+   */
   tenantRamId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16473,9 +23077,25 @@ export class ListSourceEventsResponseBodyData extends $tea.Model {
 }
 
 export class ListSourceEventsForMonitorSourceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   eventJson?: string;
+  /**
+   * @example
+   * 2020-01-01 18:30:00
+   */
   eventTime?: string;
+  /**
+   * @example
+   * 1000
+   */
   monitorSourceId?: boolean;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16502,6 +23122,10 @@ export class ListSourceEventsForMonitorSourceResponseBodyData extends $tea.Model
 
 export class ListSubscriptionServiceGroupsResponseBodyData extends $tea.Model {
   serviceGroupDescription?: string;
+  /**
+   * @example
+   * 123113
+   */
   serviceId?: number;
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -16526,10 +23150,26 @@ export class ListSubscriptionServiceGroupsResponseBodyData extends $tea.Model {
 }
 
 export class ListSubscriptionsResponseBodyDataNotifyObjectList extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   id?: number;
   isValid?: number;
+  /**
+   * @example
+   * 张珊
+   */
   name?: string;
+  /**
+   * @example
+   * 10
+   */
   notifyObjectId?: number;
+  /**
+   * @example
+   * USER
+   */
   notifyObjectType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16557,10 +23197,26 @@ export class ListSubscriptionsResponseBodyDataNotifyObjectList extends $tea.Mode
 }
 
 export class ListSubscriptionsResponseBodyDataScopeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   id?: number;
   isValid?: number;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: number;
+  /**
+   * @example
+   * 阿里云服务
+   */
   scopeObject?: string;
+  /**
+   * @example
+   * 10
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16588,15 +23244,47 @@ export class ListSubscriptionsResponseBodyDataScopeObjectList extends $tea.Model
 }
 
 export class ListSubscriptionsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2022-05-09 10:10:10
+   */
   endTime?: string;
+  /**
+   * @example
+   * LONG_TERM
+   */
   expiredType?: string;
   notifyObjectList?: ListSubscriptionsResponseBodyDataNotifyObjectList[];
+  /**
+   * @example
+   * USER
+   */
   notifyObjectType?: number;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: number;
   scopeObjectList?: ListSubscriptionsResponseBodyDataScopeObjectList[];
+  /**
+   * @example
+   * 2020-05-09 10:10:10
+   */
   startTime?: string;
+  /**
+   * @example
+   * ENABLE
+   */
   status?: string;
+  /**
+   * @example
+   * 10
+   */
   subscriptionId?: number;
+  /**
+   * @example
+   * test
+   */
   subscriptionTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16634,10 +23322,30 @@ export class ListSubscriptionsResponseBodyData extends $tea.Model {
 }
 
 export class ListTrendForSourceEventResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 90.90%
+   */
   convergenceRate?: string;
+  /**
+   * @example
+   * 10920312312312
+   */
   maxSustainTime?: number;
+  /**
+   * @example
+   * true
+   */
   skipDay?: boolean;
+  /**
+   * @example
+   * {             "Grafana": [                 {                     "evenTime": "2021-11-15 14:29:59",                     "eventCount": 4,                     "monitorSourceName": "Grafana",                     "monitorSourceCounts": null,                     "sustainTime": 15646                 },                 {                     "evenTime": "2021-11-15 14:30:36",                     "eventCount": 7,                     "monitorSourceName": "Grafana",                     "monitorSourceCounts": null,                     "sustainTime": 52638                 }             ]         }
+   */
   sourceEventsStatMap?: { [key: string]: any };
+  /**
+   * @example
+   * 1000
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16665,8 +23373,20 @@ export class ListTrendForSourceEventResponseBodyData extends $tea.Model {
 }
 
 export class ListUserSerivceGroupsResponseBodyDataServiceGroups extends $tea.Model {
+  /**
+   * @example
+   * 描述
+   */
   serviceGroupDescription?: string;
+  /**
+   * @example
+   * 123
+   */
   serviceGroupId?: number;
+  /**
+   * @example
+   * 服务组A
+   */
   serviceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16690,11 +23410,31 @@ export class ListUserSerivceGroupsResponseBodyDataServiceGroups extends $tea.Mod
 }
 
 export class ListUserSerivceGroupsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 12121****@163.com
+   */
   email?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   phone?: string;
+  /**
+   * @example
+   * 321
+   */
   ramId?: number;
   serviceGroups?: ListUserSerivceGroupsResponseBodyDataServiceGroups[];
+  /**
+   * @example
+   * 321
+   */
   userId?: number;
+  /**
+   * @example
+   * 小明
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16724,18 +23464,57 @@ export class ListUserSerivceGroupsResponseBodyData extends $tea.Model {
 }
 
 export class ListUsersResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * SUB
+   */
   accountType?: number;
+  /**
+   * @example
+   * 23456tre
+   */
   appAccount?: string;
+  /**
+   * @example
+   * 2345****@qq.com
+   */
   email?: string;
+  gmtActive?: string;
+  gmtCreate?: string;
+  isActive?: number;
+  /**
+   * @example
+   * true
+   */
   isEditableUser?: number;
   isOperation?: number;
   isRam?: number;
+  /**
+   * @example
+   * RELATED关联  NOT_RELATED 未关联
+   */
   isRelated?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   phone?: string;
+  /**
+   * @example
+   * 53624523
+   */
   ramId?: number;
   roleIdList?: number[];
   roleNameList?: string[];
+  /**
+   * @example
+   * DINGDING
+   */
   synergyChannel?: string;
+  /**
+   * @example
+   * 1234
+   */
   userId?: number;
   username?: string;
   static names(): { [key: string]: string } {
@@ -16743,6 +23522,9 @@ export class ListUsersResponseBodyData extends $tea.Model {
       accountType: 'accountType',
       appAccount: 'appAccount',
       email: 'email',
+      gmtActive: 'gmtActive',
+      gmtCreate: 'gmtCreate',
+      isActive: 'isActive',
       isEditableUser: 'isEditableUser',
       isOperation: 'isOperation',
       isRam: 'isRam',
@@ -16762,6 +23544,9 @@ export class ListUsersResponseBodyData extends $tea.Model {
       accountType: 'number',
       appAccount: 'string',
       email: 'string',
+      gmtActive: 'string',
+      gmtCreate: 'string',
+      isActive: 'number',
       isEditableUser: 'number',
       isOperation: 'number',
       isRam: 'number',
@@ -16782,6 +23567,10 @@ export class ListUsersResponseBodyData extends $tea.Model {
 }
 
 export class RefreshIntegrationConfigKeyResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 859FA6A2-AC5C-4B09-BE23-986F887H6A232
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16801,7 +23590,21 @@ export class RefreshIntegrationConfigKeyResponseBodyData extends $tea.Model {
 }
 
 export class UpdateEscalationPlanRequestEscalationPlanRulesEscalationPlanConditions extends $tea.Model {
+  /**
+   * @remarks
+   * LOW HIGH
+   * 
+   * @example
+   * LOW
+   */
   effection?: string;
+  /**
+   * @remarks
+   * P1 P2 P3 P4
+   * 
+   * @example
+   * P1
+   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16823,11 +23626,23 @@ export class UpdateEscalationPlanRequestEscalationPlanRulesEscalationPlanConditi
 }
 
 export class UpdateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrategies extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableWebhook?: boolean;
+  /**
+   * @example
+   * UN_ACKNOWLEDGE
+   */
   escalationPlanType?: string;
   noticeChannels?: string[];
   noticeObjects?: number[];
   noticeRoleList?: number[];
+  /**
+   * @example
+   * 30
+   */
   noticeTime?: number;
   serviceGroupIds?: number[];
   static names(): { [key: string]: string } {
@@ -16862,7 +23677,15 @@ export class UpdateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrateg
 export class UpdateEscalationPlanRequestEscalationPlanRules extends $tea.Model {
   escalationPlanConditions?: UpdateEscalationPlanRequestEscalationPlanRulesEscalationPlanConditions[];
   escalationPlanStrategies?: UpdateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrategies[];
+  /**
+   * @example
+   * UN_ACKNOWLEDGE
+   */
   escalationPlanType?: string;
+  /**
+   * @example
+   * 872
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16888,8 +23711,26 @@ export class UpdateEscalationPlanRequestEscalationPlanRules extends $tea.Model {
 }
 
 export class UpdateEscalationPlanRequestEscalationPlanScopeObjects extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 87
+   */
   id?: number;
+  /**
+   * @example
+   * SERVICE
+   */
   scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16913,6 +23754,10 @@ export class UpdateEscalationPlanRequestEscalationPlanScopeObjects extends $tea.
 }
 
 export class UpdateIncidentResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2312
+   */
   incidentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16932,6 +23777,10 @@ export class UpdateIncidentResponseBodyData extends $tea.Model {
 }
 
 export class UpdateRichTextResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16951,8 +23800,29 @@ export class UpdateRichTextResponseBodyData extends $tea.Model {
 }
 
 export class UpdateRouteRuleRequestRouteChildRulesConditions extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * payload.summary
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * equals
+   */
   operationSymbol?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16976,10 +23846,39 @@ export class UpdateRouteRuleRequestRouteChildRulesConditions extends $tea.Model 
 }
 
 export class UpdateRouteRuleRequestRouteChildRules extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   childConditionRelation?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   childRouteRuleId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   conditions?: UpdateRouteRuleRequestRouteChildRulesConditions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   isValidChildRule?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
   problemLevel?: string;
   static names(): { [key: string]: string } {
@@ -17010,9 +23909,25 @@ export class UpdateRouteRuleRequestRouteChildRules extends $tea.Model {
 }
 
 export class UpdateServiceGroupRequestMonitorSourceTemplates extends $tea.Model {
+  /**
+   * @example
+   * 11111
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
+  /**
+   * @example
+   * xxxx
+   */
   templateContent?: string;
+  /**
+   * @example
+   * 1111
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17039,7 +23954,15 @@ export class UpdateServiceGroupRequestMonitorSourceTemplates extends $tea.Model 
 
 export class UpdateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers extends $tea.Model {
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 6666
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
   static names(): { [key: string]: string } {
@@ -17066,10 +23989,26 @@ export class UpdateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers ex
 }
 
 export class UpdateServiceGroupSchedulingRequestFastScheduling extends $tea.Model {
+  /**
+   * @example
+   * FAST_CHOICE
+   */
   dutyPlan?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
   schedulingUsers?: UpdateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers[];
+  /**
+   * @example
+   * 12
+   */
   singleDuration?: number;
+  /**
+   * @example
+   * DAY
+   */
   singleDurationUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17097,14 +24036,42 @@ export class UpdateServiceGroupSchedulingRequestFastScheduling extends $tea.Mode
 }
 
 export class UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   cycleOrder?: number;
+  /**
+   * @example
+   * 2020-10-13
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2020-08-13
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 32
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
+  /**
+   * @example
+   * 早班
+   */
   shiftName?: string;
+  /**
+   * @example
+   * true
+   */
   skipOneDay?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17140,13 +24107,33 @@ export class UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShif
 }
 
 export class UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplateFineShifts extends $tea.Model {
+  /**
+   * @example
+   * 2021-11-01 00:00：00
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @example
+   * 2021-10-01 00:00：00
+   */
   schedulingStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
   shiftName?: string;
+  /**
+   * @example
+   * false
+   */
   skipOneDay?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -17180,11 +24167,27 @@ export class UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplate
 }
 
 export class UpdateServiceGroupSchedulingRequestFineScheduling extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * DAY
+   */
   periodUnit?: string;
   schedulingFineShifts?: UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShifts[];
   schedulingTemplateFineShifts?: UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplateFineShifts[];
+  /**
+   * @example
+   * MORNING_NIGHT
+   */
   shiftType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17214,10 +24217,35 @@ export class UpdateServiceGroupSchedulingRequestFineScheduling extends $tea.Mode
 }
 
 export class UpdateServiceGroupSpecialDaySchedulingRequestSchedulingSpecialDays extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-08-19 12:00:00
+   */
   schedulingEndTime?: string;
   schedulingObjectType?: string;
+  /**
+   * @example
+   * 1
+   */
   schedulingOrder?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-08-19 08:00:00
+   */
   schedulingStartTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 64
+   */
   schedulingUserId?: number;
   schedulingUserIdList?: number[];
   static names(): { [key: string]: string } {
@@ -17248,7 +24276,18 @@ export class UpdateServiceGroupSpecialDaySchedulingRequestSchedulingSpecialDays 
 }
 
 export class UpdateSubscriptionRequestNotifyObjectList extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 19
+   */
   notifyObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17270,9 +24309,25 @@ export class UpdateSubscriptionRequestNotifyObjectList extends $tea.Model {
 }
 
 export class UpdateSubscriptionRequestNotifyStrategyListStrategiesConditions extends $tea.Model {
+  /**
+   * @example
+   * INCIDENT_TRIGGER
+   */
   action?: string;
+  /**
+   * @example
+   * HIGH
+   */
   effection?: string;
+  /**
+   * @example
+   * P1
+   */
   level?: string;
+  /**
+   * @example
+   * PROBLEM_NOTIFY
+   */
   problemNotifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17298,7 +24353,15 @@ export class UpdateSubscriptionRequestNotifyStrategyListStrategiesConditions ext
 }
 
 export class UpdateSubscriptionRequestNotifyStrategyListStrategiesPeriodChannel extends $tea.Model {
+  /**
+   * @example
+   * SMS,WEIXIN_GROUP
+   */
   nonWorkday?: string;
+  /**
+   * @example
+   * SMS,WEIXIN_GROUP
+   */
   workday?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17320,8 +24383,16 @@ export class UpdateSubscriptionRequestNotifyStrategyListStrategiesPeriodChannel 
 }
 
 export class UpdateSubscriptionRequestNotifyStrategyListStrategies extends $tea.Model {
+  /**
+   * @example
+   * SMS,WEIXIN_GROUP
+   */
   channels?: string;
   conditions?: UpdateSubscriptionRequestNotifyStrategyListStrategiesConditions[];
+  /**
+   * @example
+   * 10
+   */
   id?: string;
   periodChannel?: UpdateSubscriptionRequestNotifyStrategyListStrategiesPeriodChannel;
   static names(): { [key: string]: string } {
@@ -17348,7 +24419,18 @@ export class UpdateSubscriptionRequestNotifyStrategyListStrategies extends $tea.
 }
 
 export class UpdateSubscriptionRequestNotifyStrategyList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INCIDENT
+   */
   instanceType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   strategies?: UpdateSubscriptionRequestNotifyStrategyListStrategies[];
   static names(): { [key: string]: string } {
     return {
@@ -17370,7 +24452,18 @@ export class UpdateSubscriptionRequestNotifyStrategyList extends $tea.Model {
 }
 
 export class UpdateSubscriptionRequestScopeObjectList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   scopeObjectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17392,9 +24485,25 @@ export class UpdateSubscriptionRequestScopeObjectList extends $tea.Model {
 }
 
 export class VerifyRouteRuleRequestTestSourceEvents extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   eventJson?: string;
+  /**
+   * @example
+   * 2021-09-08 13:00:00
+   */
   eventTime?: string;
+  /**
+   * @example
+   * 1
+   */
   monitorSourceId?: number;
+  /**
+   * @example
+   * zabbix
+   */
   monitorSourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17420,7 +24529,15 @@ export class VerifyRouteRuleRequestTestSourceEvents extends $tea.Model {
 }
 
 export class VerifyRouteRuleResponseBodyDataEscalationPlans extends $tea.Model {
+  /**
+   * @example
+   * 111111
+   */
   escalationPlanId?: number;
+  /**
+   * @example
+   * 升级计划1
+   */
   escalationPlanName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17442,7 +24559,15 @@ export class VerifyRouteRuleResponseBodyDataEscalationPlans extends $tea.Model {
 }
 
 export class VerifyRouteRuleResponseBodyDataNotifySubscriptionNames extends $tea.Model {
+  /**
+   * @example
+   * 111111
+   */
   subscriptionId?: number;
+  /**
+   * @example
+   * 订阅名称
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17465,10 +24590,18 @@ export class VerifyRouteRuleResponseBodyDataNotifySubscriptionNames extends $tea
 
 export class VerifyRouteRuleResponseBodyData extends $tea.Model {
   escalationPlans?: VerifyRouteRuleResponseBodyDataEscalationPlans[];
+  /**
+   * @example
+   * true
+   */
   isValidRule?: boolean;
   monitorSourceIds?: number[];
   notifySubscriptionNames?: VerifyRouteRuleResponseBodyDataNotifySubscriptionNames[];
   routeRuleFailReason?: string[];
+  /**
+   * @example
+   * INCIDENT、ALERT
+   */
   routeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17521,6 +24654,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 添加故障协同组
+   * 
+   * @param request - AddProblemServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddProblemServiceGroupResponse
+   */
   async addProblemServiceGroupWithOptions(request: AddProblemServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddProblemServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17550,12 +24691,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddProblemServiceGroupResponse>(await this.callApi(params, req, runtime), new AddProblemServiceGroupResponse({}));
   }
 
+  /**
+   * 添加故障协同组
+   * 
+   * @param request - AddProblemServiceGroupRequest
+   * @returns AddProblemServiceGroupResponse
+   */
   async addProblemServiceGroup(request: AddProblemServiceGroupRequest): Promise<AddProblemServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addProblemServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 计费展示
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BillingStatisticsResponse
+   */
   async billingStatisticsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BillingStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -17574,12 +24728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BillingStatisticsResponse>(await this.callApi(params, req, runtime), new BillingStatisticsResponse({}));
   }
 
+  /**
+   * 计费展示
+   * @returns BillingStatisticsResponse
+   */
   async billingStatistics(): Promise<BillingStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.billingStatisticsWithOptions(headers, runtime);
   }
 
+  /**
+   * 故障取消
+   * 
+   * @param request - CancelProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelProblemResponse
+   */
   async cancelProblemWithOptions(request: CancelProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17621,12 +24787,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelProblemResponse>(await this.callApi(params, req, runtime), new CancelProblemResponse({}));
   }
 
+  /**
+   * 故障取消
+   * 
+   * @param request - CancelProblemRequest
+   * @returns CancelProblemResponse
+   */
   async cancelProblem(request: CancelProblemRequest): Promise<CancelProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 校验webhook地址
+   * 
+   * @param request - CheckWebhookRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckWebhookResponse
+   */
   async checkWebhookWithOptions(request: CheckWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckWebhookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17660,12 +24840,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckWebhookResponse>(await this.callApi(params, req, runtime), new CheckWebhookResponse({}));
   }
 
+  /**
+   * 校验webhook地址
+   * 
+   * @param request - CheckWebhookRequest
+   * @returns CheckWebhookResponse
+   */
   async checkWebhook(request: CheckWebhookRequest): Promise<CheckWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkWebhookWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 确认集成配置
+   * 
+   * @param request - ConfirmIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmIntegrationConfigResponse
+   */
   async confirmIntegrationConfigWithOptions(request: ConfirmIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConfirmIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17695,12 +24889,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmIntegrationConfigResponse>(await this.callApi(params, req, runtime), new ConfirmIntegrationConfigResponse({}));
   }
 
+  /**
+   * 确认集成配置
+   * 
+   * @param request - ConfirmIntegrationConfigRequest
+   * @returns ConfirmIntegrationConfigResponse
+   */
   async confirmIntegrationConfig(request: ConfirmIntegrationConfigRequest): Promise<ConfirmIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.confirmIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建升级计划
+   * 
+   * @param request - CreateEscalationPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEscalationPlanResponse
+   */
   async createEscalationPlanWithOptions(request: CreateEscalationPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEscalationPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17746,12 +24954,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEscalationPlanResponse>(await this.callApi(params, req, runtime), new CreateEscalationPlanResponse({}));
   }
 
+  /**
+   * 创建升级计划
+   * 
+   * @param request - CreateEscalationPlanRequest
+   * @returns CreateEscalationPlanResponse
+   */
   async createEscalationPlan(request: CreateEscalationPlanRequest): Promise<CreateEscalationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createEscalationPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 手动创建事件
+   * 
+   * @param request - CreateIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIncidentResponse
+   */
   async createIncidentWithOptions(request: CreateIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17809,12 +25031,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIncidentResponse>(await this.callApi(params, req, runtime), new CreateIncidentResponse({}));
   }
 
+  /**
+   * 手动创建事件
+   * 
+   * @param request - CreateIncidentRequest
+   * @returns CreateIncidentResponse
+   */
   async createIncident(request: CreateIncidentRequest): Promise<CreateIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 新增事件小计
+   * 
+   * @param request - CreateIncidentSubtotalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIncidentSubtotalResponse
+   */
   async createIncidentSubtotalWithOptions(request: CreateIncidentSubtotalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIncidentSubtotalResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17848,12 +25084,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIncidentSubtotalResponse>(await this.callApi(params, req, runtime), new CreateIncidentSubtotalResponse({}));
   }
 
+  /**
+   * 新增事件小计
+   * 
+   * @param request - CreateIncidentSubtotalRequest
+   * @returns CreateIncidentSubtotalResponse
+   */
   async createIncidentSubtotal(request: CreateIncidentSubtotalRequest): Promise<CreateIncidentSubtotalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIncidentSubtotalWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建集成配置
+   * 
+   * @param request - CreateIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIntegrationConfigResponse
+   */
   async createIntegrationConfigWithOptions(request: CreateIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17883,12 +25133,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIntegrationConfigResponse>(await this.callApi(params, req, runtime), new CreateIntegrationConfigResponse({}));
   }
 
+  /**
+   * 创建集成配置
+   * 
+   * @param request - CreateIntegrationConfigRequest
+   * @returns CreateIntegrationConfigResponse
+   */
   async createIntegrationConfig(request: CreateIntegrationConfigRequest): Promise<CreateIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障升级
+   * 
+   * @param request - CreateProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProblemResponse
+   */
   async createProblemWithOptions(request: CreateProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17970,12 +25234,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProblemResponse>(await this.callApi(params, req, runtime), new CreateProblemResponse({}));
   }
 
+  /**
+   * 故障升级
+   * 
+   * @param request - CreateProblemRequest
+   * @returns CreateProblemResponse
+   */
   async createProblem(request: CreateProblemRequest): Promise<CreateProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建影响服务
+   * 
+   * @param request - CreateProblemEffectionServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProblemEffectionServiceResponse
+   */
   async createProblemEffectionServiceWithOptions(request: CreateProblemEffectionServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProblemEffectionServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18025,12 +25303,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProblemEffectionServiceResponse>(await this.callApi(params, req, runtime), new CreateProblemEffectionServiceResponse({}));
   }
 
+  /**
+   * 创建影响服务
+   * 
+   * @param request - CreateProblemEffectionServiceRequest
+   * @returns CreateProblemEffectionServiceResponse
+   */
   async createProblemEffectionService(request: CreateProblemEffectionServiceRequest): Promise<CreateProblemEffectionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProblemEffectionServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改进措施新增
+   * 
+   * @param request - CreateProblemMeasureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProblemMeasureResponse
+   */
   async createProblemMeasureWithOptions(request: CreateProblemMeasureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProblemMeasureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18092,12 +25384,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProblemMeasureResponse>(await this.callApi(params, req, runtime), new CreateProblemMeasureResponse({}));
   }
 
+  /**
+   * 改进措施新增
+   * 
+   * @param request - CreateProblemMeasureRequest
+   * @returns CreateProblemMeasureResponse
+   */
   async createProblemMeasure(request: CreateProblemMeasureRequest): Promise<CreateProblemMeasureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProblemMeasureWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障新增备注小计
+   * 
+   * @param request - CreateProblemSubtotalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProblemSubtotalResponse
+   */
   async createProblemSubtotalWithOptions(request: CreateProblemSubtotalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProblemSubtotalResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18131,12 +25437,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProblemSubtotalResponse>(await this.callApi(params, req, runtime), new CreateProblemSubtotalResponse({}));
   }
 
+  /**
+   * 故障新增备注小计
+   * 
+   * @param request - CreateProblemSubtotalRequest
+   * @returns CreateProblemSubtotalResponse
+   */
   async createProblemSubtotal(request: CreateProblemSubtotalRequest): Promise<CreateProblemSubtotalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProblemSubtotalWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建故障时间线节点
+   * 
+   * @param request - CreateProblemTimelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProblemTimelineResponse
+   */
   async createProblemTimelineWithOptions(request: CreateProblemTimelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProblemTimelineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18178,12 +25498,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProblemTimelineResponse>(await this.callApi(params, req, runtime), new CreateProblemTimelineResponse({}));
   }
 
+  /**
+   * 创建故障时间线节点
+   * 
+   * @param request - CreateProblemTimelineRequest
+   * @returns CreateProblemTimelineResponse
+   */
   async createProblemTimeline(request: CreateProblemTimelineRequest): Promise<CreateProblemTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProblemTimelineWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 批量创建故障时间线节点
+   * 
+   * @param request - CreateProblemTimelinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProblemTimelinesResponse
+   */
   async createProblemTimelinesWithOptions(request: CreateProblemTimelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProblemTimelinesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18217,12 +25551,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProblemTimelinesResponse>(await this.callApi(params, req, runtime), new CreateProblemTimelinesResponse({}));
   }
 
+  /**
+   * 批量创建故障时间线节点
+   * 
+   * @param request - CreateProblemTimelinesRequest
+   * @returns CreateProblemTimelinesResponse
+   */
   async createProblemTimelines(request: CreateProblemTimelinesRequest): Promise<CreateProblemTimelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createProblemTimelinesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建富文本
+   * 
+   * @param request - CreateRichTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRichTextResponse
+   */
   async createRichTextWithOptions(request: CreateRichTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRichTextResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18256,12 +25604,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRichTextResponse>(await this.callApi(params, req, runtime), new CreateRichTextResponse({}));
   }
 
+  /**
+   * 创建富文本
+   * 
+   * @param request - CreateRichTextRequest
+   * @returns CreateRichTextResponse
+   */
   async createRichText(request: CreateRichTextRequest): Promise<CreateRichTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRichTextWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建流转规则
+   * 
+   * @param request - CreateRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRouteRuleResponse
+   */
   async createRouteRuleWithOptions(request: CreateRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18363,12 +25725,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouteRuleResponse>(await this.callApi(params, req, runtime), new CreateRouteRuleResponse({}));
   }
 
+  /**
+   * 创建流转规则
+   * 
+   * @param request - CreateRouteRuleRequest
+   * @returns CreateRouteRuleResponse
+   */
   async createRouteRule(request: CreateRouteRuleRequest): Promise<CreateRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRouteRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建服务
+   * 
+   * @param request - CreateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceResponse
+   */
   async createServiceWithOptions(request: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18410,12 +25786,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
   }
 
+  /**
+   * 创建服务
+   * 
+   * @param request - CreateServiceRequest
+   * @returns CreateServiceResponse
+   */
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建服务组
+   * 
+   * @param request - CreateServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceGroupResponse
+   */
   async createServiceGroupWithOptions(request: CreateServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18469,12 +25859,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceGroupResponse>(await this.callApi(params, req, runtime), new CreateServiceGroupResponse({}));
   }
 
+  /**
+   * 创建服务组
+   * 
+   * @param request - CreateServiceGroupRequest
+   * @returns CreateServiceGroupResponse
+   */
   async createServiceGroup(request: CreateServiceGroupRequest): Promise<CreateServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 新增服务组排班
+   * 
+   * @param request - CreateServiceGroupSchedulingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceGroupSchedulingResponse
+   */
   async createServiceGroupSchedulingWithOptions(request: CreateServiceGroupSchedulingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceGroupSchedulingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18516,12 +25920,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceGroupSchedulingResponse>(await this.callApi(params, req, runtime), new CreateServiceGroupSchedulingResponse({}));
   }
 
+  /**
+   * 新增服务组排班
+   * 
+   * @param request - CreateServiceGroupSchedulingRequest
+   * @returns CreateServiceGroupSchedulingResponse
+   */
   async createServiceGroupScheduling(request: CreateServiceGroupSchedulingRequest): Promise<CreateServiceGroupSchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceGroupSchedulingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建通知订阅
+   * 
+   * @param request - CreateSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubscriptionResponse
+   */
   async createSubscriptionWithOptions(request: CreateSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSubscriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18587,12 +26005,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSubscriptionResponse>(await this.callApi(params, req, runtime), new CreateSubscriptionResponse({}));
   }
 
+  /**
+   * 创建通知订阅
+   * 
+   * @param request - CreateSubscriptionRequest
+   * @returns CreateSubscriptionResponse
+   */
   async createSubscription(request: CreateSubscriptionRequest): Promise<CreateSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createSubscriptionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 云钉协同创建移动应用
+   * 
+   * @param request - CreateTenantApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTenantApplicationResponse
+   */
   async createTenantApplicationWithOptions(request: CreateTenantApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTenantApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18622,12 +26054,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTenantApplicationResponse>(await this.callApi(params, req, runtime), new CreateTenantApplicationResponse({}));
   }
 
+  /**
+   * 云钉协同创建移动应用
+   * 
+   * @param request - CreateTenantApplicationRequest
+   * @returns CreateTenantApplicationResponse
+   */
   async createTenantApplication(request: CreateTenantApplicationRequest): Promise<CreateTenantApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTenantApplicationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 创建用户
+   * 
+   * @param request - CreateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
+   */
   async createUserWithOptions(request: CreateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18673,12 +26119,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
+  /**
+   * 创建用户
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
+   */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除升级计划
+   * 
+   * @param request - DeleteEscalationPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEscalationPlanResponse
+   */
   async deleteEscalationPlanWithOptions(request: DeleteEscalationPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEscalationPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18708,12 +26168,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEscalationPlanResponse>(await this.callApi(params, req, runtime), new DeleteEscalationPlanResponse({}));
   }
 
+  /**
+   * 删除升级计划
+   * 
+   * @param request - DeleteEscalationPlanRequest
+   * @returns DeleteEscalationPlanResponse
+   */
   async deleteEscalationPlan(request: DeleteEscalationPlanRequest): Promise<DeleteEscalationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteEscalationPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 事件删除
+   * 
+   * @param request - DeleteIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIncidentResponse
+   */
   async deleteIncidentWithOptions(request: DeleteIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18743,12 +26217,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIncidentResponse>(await this.callApi(params, req, runtime), new DeleteIncidentResponse({}));
   }
 
+  /**
+   * 事件删除
+   * 
+   * @param request - DeleteIncidentRequest
+   * @returns DeleteIncidentResponse
+   */
   async deleteIncident(request: DeleteIncidentRequest): Promise<DeleteIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除集成配置
+   * 
+   * @param request - DeleteIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIntegrationConfigResponse
+   */
   async deleteIntegrationConfigWithOptions(request: DeleteIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18778,12 +26266,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIntegrationConfigResponse>(await this.callApi(params, req, runtime), new DeleteIntegrationConfigResponse({}));
   }
 
+  /**
+   * 删除集成配置
+   * 
+   * @param request - DeleteIntegrationConfigRequest
+   * @returns DeleteIntegrationConfigResponse
+   */
   async deleteIntegrationConfig(request: DeleteIntegrationConfigRequest): Promise<DeleteIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障刪除
+   * 
+   * @param request - DeleteProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProblemResponse
+   */
   async deleteProblemWithOptions(request: DeleteProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18813,12 +26315,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProblemResponse>(await this.callApi(params, req, runtime), new DeleteProblemResponse({}));
   }
 
+  /**
+   * 故障刪除
+   * 
+   * @param request - DeleteProblemRequest
+   * @returns DeleteProblemResponse
+   */
   async deleteProblem(request: DeleteProblemRequest): Promise<DeleteProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除故障影响服务
+   * 
+   * @param request - DeleteProblemEffectionServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProblemEffectionServiceResponse
+   */
   async deleteProblemEffectionServiceWithOptions(request: DeleteProblemEffectionServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProblemEffectionServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18852,12 +26368,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProblemEffectionServiceResponse>(await this.callApi(params, req, runtime), new DeleteProblemEffectionServiceResponse({}));
   }
 
+  /**
+   * 删除故障影响服务
+   * 
+   * @param request - DeleteProblemEffectionServiceRequest
+   * @returns DeleteProblemEffectionServiceResponse
+   */
   async deleteProblemEffectionService(request: DeleteProblemEffectionServiceRequest): Promise<DeleteProblemEffectionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProblemEffectionServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改进措施删除
+   * 
+   * @param request - DeleteProblemMeasureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProblemMeasureResponse
+   */
   async deleteProblemMeasureWithOptions(request: DeleteProblemMeasureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProblemMeasureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18891,12 +26421,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProblemMeasureResponse>(await this.callApi(params, req, runtime), new DeleteProblemMeasureResponse({}));
   }
 
+  /**
+   * 改进措施删除
+   * 
+   * @param request - DeleteProblemMeasureRequest
+   * @returns DeleteProblemMeasureResponse
+   */
   async deleteProblemMeasure(request: DeleteProblemMeasureRequest): Promise<DeleteProblemMeasureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProblemMeasureWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除影响服务
+   * 
+   * @param request - DeleteProblemTimelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProblemTimelineResponse
+   */
   async deleteProblemTimelineWithOptions(request: DeleteProblemTimelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProblemTimelineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18930,12 +26474,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProblemTimelineResponse>(await this.callApi(params, req, runtime), new DeleteProblemTimelineResponse({}));
   }
 
+  /**
+   * 删除影响服务
+   * 
+   * @param request - DeleteProblemTimelineRequest
+   * @returns DeleteProblemTimelineResponse
+   */
   async deleteProblemTimeline(request: DeleteProblemTimelineRequest): Promise<DeleteProblemTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProblemTimelineWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除流转规则
+   * 
+   * @param request - DeleteRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRouteRuleResponse
+   */
   async deleteRouteRuleWithOptions(request: DeleteRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18965,12 +26523,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRouteRuleResponse({}));
   }
 
+  /**
+   * 删除流转规则
+   * 
+   * @param request - DeleteRouteRuleRequest
+   * @returns DeleteRouteRuleResponse
+   */
   async deleteRouteRule(request: DeleteRouteRuleRequest): Promise<DeleteRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteRouteRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除服务
+   * 
+   * @param request - DeleteServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceResponse
+   */
   async deleteServiceWithOptions(request: DeleteServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19000,12 +26572,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
   }
 
+  /**
+   * 删除服务
+   * 
+   * @param request - DeleteServiceRequest
+   * @returns DeleteServiceResponse
+   */
   async deleteService(request: DeleteServiceRequest): Promise<DeleteServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除服务组
+   * 
+   * @param request - DeleteServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceGroupResponse
+   */
   async deleteServiceGroupWithOptions(request: DeleteServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19035,12 +26621,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceGroupResponse>(await this.callApi(params, req, runtime), new DeleteServiceGroupResponse({}));
   }
 
+  /**
+   * 删除服务组
+   * 
+   * @param request - DeleteServiceGroupRequest
+   * @returns DeleteServiceGroupResponse
+   */
   async deleteServiceGroup(request: DeleteServiceGroupRequest): Promise<DeleteServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除排班
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceGroupSchedulingResponse
+   */
   async deleteServiceGroupSchedulingWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceGroupSchedulingResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -19059,12 +26658,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceGroupSchedulingResponse>(await this.callApi(params, req, runtime), new DeleteServiceGroupSchedulingResponse({}));
   }
 
+  /**
+   * 删除排班
+   * @returns DeleteServiceGroupSchedulingResponse
+   */
   async deleteServiceGroupScheduling(): Promise<DeleteServiceGroupSchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceGroupSchedulingWithOptions(headers, runtime);
   }
 
+  /**
+   * 删除服务组成员
+   * 
+   * @param request - DeleteServiceGroupUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceGroupUserResponse
+   */
   async deleteServiceGroupUserWithOptions(request: DeleteServiceGroupUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceGroupUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19106,12 +26717,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceGroupUserResponse>(await this.callApi(params, req, runtime), new DeleteServiceGroupUserResponse({}));
   }
 
+  /**
+   * 删除服务组成员
+   * 
+   * @param request - DeleteServiceGroupUserRequest
+   * @returns DeleteServiceGroupUserResponse
+   */
   async deleteServiceGroupUser(request: DeleteServiceGroupUserRequest): Promise<DeleteServiceGroupUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceGroupUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除通知订阅
+   * 
+   * @param request - DeleteSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubscriptionResponse
+   */
   async deleteSubscriptionWithOptions(request: DeleteSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSubscriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19137,12 +26762,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSubscriptionResponse>(await this.callApi(params, req, runtime), new DeleteSubscriptionResponse({}));
   }
 
+  /**
+   * 删除通知订阅
+   * 
+   * @param request - DeleteSubscriptionRequest
+   * @returns DeleteSubscriptionResponse
+   */
   async deleteSubscription(request: DeleteSubscriptionRequest): Promise<DeleteSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSubscriptionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除用户
+   * 
+   * @param request - DeleteUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserResponse
+   */
   async deleteUserWithOptions(request: DeleteUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19172,12 +26811,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+   * 删除用户
+   * 
+   * @param request - DeleteUserRequest
+   * @returns DeleteUserResponse
+   */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 转交事件
+   * 
+   * @param request - DeliverIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeliverIncidentResponse
+   */
   async deliverIncidentWithOptions(request: DeliverIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeliverIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19211,12 +26864,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeliverIncidentResponse>(await this.callApi(params, req, runtime), new DeliverIncidentResponse({}));
   }
 
+  /**
+   * 转交事件
+   * 
+   * @param request - DeliverIncidentRequest
+   * @returns DeliverIncidentResponse
+   */
   async deliverIncident(request: DeliverIncidentRequest): Promise<DeliverIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deliverIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 禁用升级计划
+   * 
+   * @param request - DisableEscalationPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableEscalationPlanResponse
+   */
   async disableEscalationPlanWithOptions(request: DisableEscalationPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableEscalationPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19246,12 +26913,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableEscalationPlanResponse>(await this.callApi(params, req, runtime), new DisableEscalationPlanResponse({}));
   }
 
+  /**
+   * 禁用升级计划
+   * 
+   * @param request - DisableEscalationPlanRequest
+   * @returns DisableEscalationPlanResponse
+   */
   async disableEscalationPlan(request: DisableEscalationPlanRequest): Promise<DisableEscalationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableEscalationPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 禁用集成配置
+   * 
+   * @param request - DisableIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableIntegrationConfigResponse
+   */
   async disableIntegrationConfigWithOptions(request: DisableIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19281,12 +26962,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableIntegrationConfigResponse>(await this.callApi(params, req, runtime), new DisableIntegrationConfigResponse({}));
   }
 
+  /**
+   * 禁用集成配置
+   * 
+   * @param request - DisableIntegrationConfigRequest
+   * @returns DisableIntegrationConfigResponse
+   */
   async disableIntegrationConfig(request: DisableIntegrationConfigRequest): Promise<DisableIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 禁用规则
+   * 
+   * @param request - DisableRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableRouteRuleResponse
+   */
   async disableRouteRuleWithOptions(request: DisableRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19316,12 +27011,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableRouteRuleResponse>(await this.callApi(params, req, runtime), new DisableRouteRuleResponse({}));
   }
 
+  /**
+   * 禁用规则
+   * 
+   * @param request - DisableRouteRuleRequest
+   * @returns DisableRouteRuleResponse
+   */
   async disableRouteRule(request: DisableRouteRuleRequest): Promise<DisableRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableRouteRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 禁用服务组的webhook
+   * 
+   * @param request - DisableServiceGroupWebhookRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableServiceGroupWebhookResponse
+   */
   async disableServiceGroupWebhookWithOptions(request: DisableServiceGroupWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableServiceGroupWebhookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19351,12 +27060,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableServiceGroupWebhookResponse>(await this.callApi(params, req, runtime), new DisableServiceGroupWebhookResponse({}));
   }
 
+  /**
+   * 禁用服务组的webhook
+   * 
+   * @param request - DisableServiceGroupWebhookRequest
+   * @returns DisableServiceGroupWebhookResponse
+   */
   async disableServiceGroupWebhook(request: DisableServiceGroupWebhookRequest): Promise<DisableServiceGroupWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableServiceGroupWebhookWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 禁用集成配置
+   * 
+   * @param request - DisableSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSubscriptionResponse
+   */
   async disableSubscriptionWithOptions(request: DisableSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableSubscriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19382,12 +27105,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableSubscriptionResponse>(await this.callApi(params, req, runtime), new DisableSubscriptionResponse({}));
   }
 
+  /**
+   * 禁用集成配置
+   * 
+   * @param request - DisableSubscriptionRequest
+   * @returns DisableSubscriptionResponse
+   */
   async disableSubscription(request: DisableSubscriptionRequest): Promise<DisableSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableSubscriptionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 启用升级计划
+   * 
+   * @param request - EnableEscalationPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableEscalationPlanResponse
+   */
   async enableEscalationPlanWithOptions(request: EnableEscalationPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableEscalationPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19417,12 +27154,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableEscalationPlanResponse>(await this.callApi(params, req, runtime), new EnableEscalationPlanResponse({}));
   }
 
+  /**
+   * 启用升级计划
+   * 
+   * @param request - EnableEscalationPlanRequest
+   * @returns EnableEscalationPlanResponse
+   */
   async enableEscalationPlan(request: EnableEscalationPlanRequest): Promise<EnableEscalationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableEscalationPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 启用集成配置
+   * 
+   * @param request - EnableIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableIntegrationConfigResponse
+   */
   async enableIntegrationConfigWithOptions(request: EnableIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19452,12 +27203,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableIntegrationConfigResponse>(await this.callApi(params, req, runtime), new EnableIntegrationConfigResponse({}));
   }
 
+  /**
+   * 启用集成配置
+   * 
+   * @param request - EnableIntegrationConfigRequest
+   * @returns EnableIntegrationConfigResponse
+   */
   async enableIntegrationConfig(request: EnableIntegrationConfigRequest): Promise<EnableIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 启用规则
+   * 
+   * @param request - EnableRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableRouteRuleResponse
+   */
   async enableRouteRuleWithOptions(request: EnableRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19487,12 +27252,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableRouteRuleResponse>(await this.callApi(params, req, runtime), new EnableRouteRuleResponse({}));
   }
 
+  /**
+   * 启用规则
+   * 
+   * @param request - EnableRouteRuleRequest
+   * @returns EnableRouteRuleResponse
+   */
   async enableRouteRule(request: EnableRouteRuleRequest): Promise<EnableRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableRouteRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 启用服务组的webhook
+   * 
+   * @param request - EnableServiceGroupWebhookRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableServiceGroupWebhookResponse
+   */
   async enableServiceGroupWebhookWithOptions(request: EnableServiceGroupWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableServiceGroupWebhookResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19522,12 +27301,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableServiceGroupWebhookResponse>(await this.callApi(params, req, runtime), new EnableServiceGroupWebhookResponse({}));
   }
 
+  /**
+   * 启用服务组的webhook
+   * 
+   * @param request - EnableServiceGroupWebhookRequest
+   * @returns EnableServiceGroupWebhookResponse
+   */
   async enableServiceGroupWebhook(request: EnableServiceGroupWebhookRequest): Promise<EnableServiceGroupWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableServiceGroupWebhookWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 启用通知订阅
+   * 
+   * @param request - EnableSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSubscriptionResponse
+   */
   async enableSubscriptionWithOptions(request: EnableSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableSubscriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19553,12 +27346,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableSubscriptionResponse>(await this.callApi(params, req, runtime), new EnableSubscriptionResponse({}));
   }
 
+  /**
+   * 启用通知订阅
+   * 
+   * @param request - EnableSubscriptionRequest
+   * @returns EnableSubscriptionResponse
+   */
   async enableSubscription(request: EnableSubscriptionRequest): Promise<EnableSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableSubscriptionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 完结事件
+   * 
+   * @param request - FinishIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishIncidentResponse
+   */
   async finishIncidentWithOptions(request: FinishIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FinishIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19604,12 +27411,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FinishIncidentResponse>(await this.callApi(params, req, runtime), new FinishIncidentResponse({}));
   }
 
+  /**
+   * 完结事件
+   * 
+   * @param request - FinishIncidentRequest
+   * @returns FinishIncidentResponse
+   */
   async finishIncident(request: FinishIncidentRequest): Promise<FinishIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.finishIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障完结
+   * 
+   * @param request - FinishProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishProblemResponse
+   */
   async finishProblemWithOptions(request: FinishProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FinishProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19639,12 +27460,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FinishProblemResponse>(await this.callApi(params, req, runtime), new FinishProblemResponse({}));
   }
 
+  /**
+   * 故障完结
+   * 
+   * @param request - FinishProblemRequest
+   * @returns FinishProblemResponse
+   */
   async finishProblem(request: FinishProblemRequest): Promise<FinishProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.finishProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片连接获取
+   * 
+   * @param request - GeneratePictureLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GeneratePictureLinkResponse
+   */
   async generatePictureLinkWithOptions(request: GeneratePictureLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GeneratePictureLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19674,12 +27509,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GeneratePictureLinkResponse>(await this.callApi(params, req, runtime), new GeneratePictureLinkResponse({}));
   }
 
+  /**
+   * 图片连接获取
+   * 
+   * @param request - GeneratePictureLinkRequest
+   * @returns GeneratePictureLinkResponse
+   */
   async generatePictureLink(request: GeneratePictureLinkRequest): Promise<GeneratePictureLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generatePictureLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片批量上传
+   * 
+   * @param request - GeneratePictureUploadSignRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GeneratePictureUploadSignResponse
+   */
   async generatePictureUploadSignWithOptions(request: GeneratePictureUploadSignRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GeneratePictureUploadSignResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19713,12 +27562,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GeneratePictureUploadSignResponse>(await this.callApi(params, req, runtime), new GeneratePictureUploadSignResponse({}));
   }
 
+  /**
+   * 图片批量上传
+   * 
+   * @param request - GeneratePictureUploadSignRequest
+   * @returns GeneratePictureUploadSignResponse
+   */
   async generatePictureUploadSign(request: GeneratePictureUploadSignRequest): Promise<GeneratePictureUploadSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generatePictureUploadSignWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取图片下载url
+   * 
+   * @param request - GenerateProblemPictureLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateProblemPictureLinkResponse
+   */
   async generateProblemPictureLinkWithOptions(request: GenerateProblemPictureLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateProblemPictureLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19748,12 +27611,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateProblemPictureLinkResponse>(await this.callApi(params, req, runtime), new GenerateProblemPictureLinkResponse({}));
   }
 
+  /**
+   * 获取图片下载url
+   * 
+   * @param request - GenerateProblemPictureLinkRequest
+   * @returns GenerateProblemPictureLinkResponse
+   */
   async generateProblemPictureLink(request: GenerateProblemPictureLinkRequest): Promise<GenerateProblemPictureLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateProblemPictureLinkWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片上传验签
+   * 
+   * @param request - GenerateProblemPictureUploadSignRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateProblemPictureUploadSignResponse
+   */
   async generateProblemPictureUploadSignWithOptions(request: GenerateProblemPictureUploadSignRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateProblemPictureUploadSignResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19791,12 +27668,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateProblemPictureUploadSignResponse>(await this.callApi(params, req, runtime), new GenerateProblemPictureUploadSignResponse({}));
   }
 
+  /**
+   * 图片上传验签
+   * 
+   * @param request - GenerateProblemPictureUploadSignRequest
+   * @returns GenerateProblemPictureUploadSignResponse
+   */
   async generateProblemPictureUploadSign(request: GenerateProblemPictureUploadSignRequest): Promise<GenerateProblemPictureUploadSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateProblemPictureUploadSignWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 升级计划详情
+   * 
+   * @param request - GetEscalationPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEscalationPlanResponse
+   */
   async getEscalationPlanWithOptions(request: GetEscalationPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEscalationPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19826,12 +27717,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEscalationPlanResponse>(await this.callApi(params, req, runtime), new GetEscalationPlanResponse({}));
   }
 
+  /**
+   * 升级计划详情
+   * 
+   * @param request - GetEscalationPlanRequest
+   * @returns GetEscalationPlanResponse
+   */
   async getEscalationPlan(request: GetEscalationPlanRequest): Promise<GetEscalationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEscalationPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询最近一次告警
+   * 
+   * @param request - GetEventRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEventResponse
+   */
   async getEventWithOptions(request: GetEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEventResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19857,12 +27762,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEventResponse>(await this.callApi(params, req, runtime), new GetEventResponse({}));
   }
 
+  /**
+   * 查询最近一次告警
+   * 
+   * @param request - GetEventRequest
+   * @returns GetEventResponse
+   */
   async getEvent(request: GetEventRequest): Promise<GetEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEventWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询首页引导信息
+   * 
+   * @param request - GetHomePageGuidanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHomePageGuidanceResponse
+   */
   async getHomePageGuidanceWithOptions(request: GetHomePageGuidanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHomePageGuidanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19888,12 +27807,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHomePageGuidanceResponse>(await this.callApi(params, req, runtime), new GetHomePageGuidanceResponse({}));
   }
 
+  /**
+   * 查询首页引导信息
+   * 
+   * @param request - GetHomePageGuidanceRequest
+   * @returns GetHomePageGuidanceResponse
+   */
   async getHomePageGuidance(request: GetHomePageGuidanceRequest): Promise<GetHomePageGuidanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getHomePageGuidanceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 事件详情
+   * 
+   * @param request - GetIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIncidentResponse
+   */
   async getIncidentWithOptions(request: GetIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19923,12 +27856,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIncidentResponse>(await this.callApi(params, req, runtime), new GetIncidentResponse({}));
   }
 
+  /**
+   * 事件详情
+   * 
+   * @param request - GetIncidentRequest
+   * @returns GetIncidentResponse
+   */
   async getIncident(request: GetIncidentRequest): Promise<GetIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 根据事件ID批量查询事件详情
+   * 
+   * @param request - GetIncidentListByIdListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIncidentListByIdListResponse
+   */
   async getIncidentListByIdListWithOptions(request: GetIncidentListByIdListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIncidentListByIdListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19958,12 +27905,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIncidentListByIdListResponse>(await this.callApi(params, req, runtime), new GetIncidentListByIdListResponse({}));
   }
 
+  /**
+   * 根据事件ID批量查询事件详情
+   * 
+   * @param request - GetIncidentListByIdListRequest
+   * @returns GetIncidentListByIdListResponse
+   */
   async getIncidentListByIdList(request: GetIncidentListByIdListRequest): Promise<GetIncidentListByIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIncidentListByIdListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 事件统计
+   * 
+   * @param request - GetIncidentStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIncidentStatisticsResponse
+   */
   async getIncidentStatisticsWithOptions(request: GetIncidentStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIncidentStatisticsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19989,12 +27950,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIncidentStatisticsResponse>(await this.callApi(params, req, runtime), new GetIncidentStatisticsResponse({}));
   }
 
+  /**
+   * 事件统计
+   * 
+   * @param request - GetIncidentStatisticsRequest
+   * @returns GetIncidentStatisticsResponse
+   */
   async getIncidentStatistics(request: GetIncidentStatisticsRequest): Promise<GetIncidentStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIncidentStatisticsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询事件对应的小计数量
+   * 
+   * @param request - GetIncidentSubtotalCountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIncidentSubtotalCountResponse
+   */
   async getIncidentSubtotalCountWithOptions(request: GetIncidentSubtotalCountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIncidentSubtotalCountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20024,12 +27999,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIncidentSubtotalCountResponse>(await this.callApi(params, req, runtime), new GetIncidentSubtotalCountResponse({}));
   }
 
+  /**
+   * 查询事件对应的小计数量
+   * 
+   * @param request - GetIncidentSubtotalCountRequest
+   * @returns GetIncidentSubtotalCountResponse
+   */
   async getIncidentSubtotalCount(request: GetIncidentSubtotalCountRequest): Promise<GetIncidentSubtotalCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIncidentSubtotalCountWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取集成配置详情
+   * 
+   * @param request - GetIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIntegrationConfigResponse
+   */
   async getIntegrationConfigWithOptions(request: GetIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20059,12 +28048,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIntegrationConfigResponse>(await this.callApi(params, req, runtime), new GetIntegrationConfigResponse({}));
   }
 
+  /**
+   * 获取集成配置详情
+   * 
+   * @param request - GetIntegrationConfigRequest
+   * @returns GetIntegrationConfigResponse
+   */
   async getIntegrationConfig(request: GetIntegrationConfigRequest): Promise<GetIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询故障详情
+   * 
+   * @param request - GetProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProblemResponse
+   */
   async getProblemWithOptions(request: GetProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20094,12 +28097,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProblemResponse>(await this.callApi(params, req, runtime), new GetProblemResponse({}));
   }
 
+  /**
+   * 查询故障详情
+   * 
+   * @param request - GetProblemRequest
+   * @returns GetProblemResponse
+   */
   async getProblem(request: GetProblemRequest): Promise<GetProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询故障影响服务
+   * 
+   * @param request - GetProblemEffectionServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProblemEffectionServiceResponse
+   */
   async getProblemEffectionServiceWithOptions(request: GetProblemEffectionServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProblemEffectionServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20133,12 +28150,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProblemEffectionServiceResponse>(await this.callApi(params, req, runtime), new GetProblemEffectionServiceResponse({}));
   }
 
+  /**
+   * 查询故障影响服务
+   * 
+   * @param request - GetProblemEffectionServiceRequest
+   * @returns GetProblemEffectionServiceResponse
+   */
   async getProblemEffectionService(request: GetProblemEffectionServiceRequest): Promise<GetProblemEffectionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProblemEffectionServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改进分析详情
+   * 
+   * @param request - GetProblemImprovementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProblemImprovementResponse
+   */
   async getProblemImprovementWithOptions(request: GetProblemImprovementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProblemImprovementResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20168,12 +28199,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProblemImprovementResponse>(await this.callApi(params, req, runtime), new GetProblemImprovementResponse({}));
   }
 
+  /**
+   * 改进分析详情
+   * 
+   * @param request - GetProblemImprovementRequest
+   * @returns GetProblemImprovementResponse
+   */
   async getProblemImprovement(request: GetProblemImprovementRequest): Promise<GetProblemImprovementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProblemImprovementWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 通告预览
+   * 
+   * @param request - GetProblemPreviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProblemPreviewResponse
+   */
   async getProblemPreviewWithOptions(request: GetProblemPreviewRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProblemPreviewResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20227,12 +28272,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProblemPreviewResponse>(await this.callApi(params, req, runtime), new GetProblemPreviewResponse({}));
   }
 
+  /**
+   * 通告预览
+   * 
+   * @param request - GetProblemPreviewRequest
+   * @returns GetProblemPreviewResponse
+   */
   async getProblemPreview(request: GetProblemPreviewRequest): Promise<GetProblemPreviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProblemPreviewWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 概览数据统计
+   * 
+   * @param request - GetResourceStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceStatisticsResponse
+   */
   async getResourceStatisticsWithOptions(request: GetResourceStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceStatisticsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20258,12 +28317,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceStatisticsResponse>(await this.callApi(params, req, runtime), new GetResourceStatisticsResponse({}));
   }
 
+  /**
+   * 概览数据统计
+   * 
+   * @param request - GetResourceStatisticsRequest
+   * @returns GetResourceStatisticsResponse
+   */
   async getResourceStatistics(request: GetResourceStatisticsRequest): Promise<GetResourceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceStatisticsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询富文本
+   * 
+   * @param request - GetRichTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRichTextResponse
+   */
   async getRichTextWithOptions(request: GetRichTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRichTextResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20297,12 +28370,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRichTextResponse>(await this.callApi(params, req, runtime), new GetRichTextResponse({}));
   }
 
+  /**
+   * 查询富文本
+   * 
+   * @param request - GetRichTextRequest
+   * @returns GetRichTextResponse
+   */
   async getRichText(request: GetRichTextRequest): Promise<GetRichTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRichTextWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询流转规则详情
+   * 
+   * @param request - GetRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRouteRuleResponse
+   */
   async getRouteRuleWithOptions(request: GetRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20332,12 +28419,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRouteRuleResponse>(await this.callApi(params, req, runtime), new GetRouteRuleResponse({}));
   }
 
+  /**
+   * 查询流转规则详情
+   * 
+   * @param request - GetRouteRuleRequest
+   * @returns GetRouteRuleResponse
+   */
   async getRouteRule(request: GetRouteRuleRequest): Promise<GetRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRouteRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 服务详情
+   * 
+   * @param request - GetServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceResponse
+   */
   async getServiceWithOptions(request: GetServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20367,12 +28468,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
   }
 
+  /**
+   * 服务详情
+   * 
+   * @param request - GetServiceRequest
+   * @returns GetServiceResponse
+   */
   async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询服务组详情
+   * 
+   * @param request - GetServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceGroupResponse
+   */
   async getServiceGroupWithOptions(request: GetServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20402,12 +28517,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceGroupResponse>(await this.callApi(params, req, runtime), new GetServiceGroupResponse({}));
   }
 
+  /**
+   * 查询服务组详情
+   * 
+   * @param request - GetServiceGroupRequest
+   * @returns GetServiceGroupResponse
+   */
   async getServiceGroup(request: GetServiceGroupRequest): Promise<GetServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询用户某个服务组的排班
+   * 
+   * @param request - GetServiceGroupPersonSchedulingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceGroupPersonSchedulingResponse
+   */
   async getServiceGroupPersonSchedulingWithOptions(request: GetServiceGroupPersonSchedulingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceGroupPersonSchedulingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20449,12 +28578,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceGroupPersonSchedulingResponse>(await this.callApi(params, req, runtime), new GetServiceGroupPersonSchedulingResponse({}));
   }
 
+  /**
+   * 查询用户某个服务组的排班
+   * 
+   * @param request - GetServiceGroupPersonSchedulingRequest
+   * @returns GetServiceGroupPersonSchedulingResponse
+   */
   async getServiceGroupPersonScheduling(request: GetServiceGroupPersonSchedulingRequest): Promise<GetServiceGroupPersonSchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceGroupPersonSchedulingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询服务组排班详情
+   * 
+   * @param request - GetServiceGroupSchedulingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceGroupSchedulingResponse
+   */
   async getServiceGroupSchedulingWithOptions(request: GetServiceGroupSchedulingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceGroupSchedulingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20484,12 +28627,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceGroupSchedulingResponse>(await this.callApi(params, req, runtime), new GetServiceGroupSchedulingResponse({}));
   }
 
+  /**
+   * 查询服务组排班详情
+   * 
+   * @param request - GetServiceGroupSchedulingRequest
+   * @returns GetServiceGroupSchedulingResponse
+   */
   async getServiceGroupScheduling(request: GetServiceGroupSchedulingRequest): Promise<GetServiceGroupSchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceGroupSchedulingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 预览服务组排班
+   * 
+   * @param request - GetServiceGroupSchedulingPreviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceGroupSchedulingPreviewResponse
+   */
   async getServiceGroupSchedulingPreviewWithOptions(request: GetServiceGroupSchedulingPreviewRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceGroupSchedulingPreviewResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20539,12 +28696,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceGroupSchedulingPreviewResponse>(await this.callApi(params, req, runtime), new GetServiceGroupSchedulingPreviewResponse({}));
   }
 
+  /**
+   * 预览服务组排班
+   * 
+   * @param request - GetServiceGroupSchedulingPreviewRequest
+   * @returns GetServiceGroupSchedulingPreviewResponse
+   */
   async getServiceGroupSchedulingPreview(request: GetServiceGroupSchedulingPreviewRequest): Promise<GetServiceGroupSchedulingPreviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceGroupSchedulingPreviewWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询指定人员的服务组排班
+   * 
+   * @param request - GetServiceGroupSpecialPersonSchedulingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceGroupSpecialPersonSchedulingResponse
+   */
   async getServiceGroupSpecialPersonSchedulingWithOptions(request: GetServiceGroupSpecialPersonSchedulingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceGroupSpecialPersonSchedulingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20578,12 +28749,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceGroupSpecialPersonSchedulingResponse>(await this.callApi(params, req, runtime), new GetServiceGroupSpecialPersonSchedulingResponse({}));
   }
 
+  /**
+   * 查询指定人员的服务组排班
+   * 
+   * @param request - GetServiceGroupSpecialPersonSchedulingRequest
+   * @returns GetServiceGroupSpecialPersonSchedulingResponse
+   */
   async getServiceGroupSpecialPersonScheduling(request: GetServiceGroupSpecialPersonSchedulingRequest): Promise<GetServiceGroupSpecialPersonSchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceGroupSpecialPersonSchedulingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 相似事件统计信息
+   * 
+   * @param request - GetSimilarIncidentStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSimilarIncidentStatisticsResponse
+   */
   async getSimilarIncidentStatisticsWithOptions(request: GetSimilarIncidentStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSimilarIncidentStatisticsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20629,12 +28814,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSimilarIncidentStatisticsResponse>(await this.callApi(params, req, runtime), new GetSimilarIncidentStatisticsResponse({}));
   }
 
+  /**
+   * 相似事件统计信息
+   * 
+   * @param request - GetSimilarIncidentStatisticsRequest
+   * @returns GetSimilarIncidentStatisticsResponse
+   */
   async getSimilarIncidentStatistics(request: GetSimilarIncidentStatisticsRequest): Promise<GetSimilarIncidentStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSimilarIncidentStatisticsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 通知订阅详情
+   * 
+   * @param request - GetSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubscriptionResponse
+   */
   async getSubscriptionWithOptions(request: GetSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSubscriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20664,12 +28863,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSubscriptionResponse>(await this.callApi(params, req, runtime), new GetSubscriptionResponse({}));
   }
 
+  /**
+   * 通知订阅详情
+   * 
+   * @param request - GetSubscriptionRequest
+   * @returns GetSubscriptionResponse
+   */
   async getSubscription(request: GetSubscriptionRequest): Promise<GetSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSubscriptionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 云钉协同移动应用详情
+   * 
+   * @param request - GetTenantApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTenantApplicationResponse
+   */
   async getTenantApplicationWithOptions(request: GetTenantApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTenantApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20695,12 +28908,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTenantApplicationResponse>(await this.callApi(params, req, runtime), new GetTenantApplicationResponse({}));
   }
 
+  /**
+   * 云钉协同移动应用详情
+   * 
+   * @param request - GetTenantApplicationRequest
+   * @returns GetTenantApplicationResponse
+   */
   async getTenantApplication(request: GetTenantApplicationRequest): Promise<GetTenantApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTenantApplicationWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询租户开通运维事件中心的状态
+   * 
+   * @param request - GetTenantStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTenantStatusResponse
+   */
   async getTenantStatusWithOptions(request: GetTenantStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTenantStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20726,12 +28953,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTenantStatusResponse>(await this.callApi(params, req, runtime), new GetTenantStatusResponse({}));
   }
 
+  /**
+   * 查询租户开通运维事件中心的状态
+   * 
+   * @param request - GetTenantStatusRequest
+   * @returns GetTenantStatusResponse
+   */
   async getTenantStatus(request: GetTenantStatusRequest): Promise<GetTenantStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTenantStatusWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取用户详情
+   * 
+   * @param request - GetUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20761,12 +29002,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+   * 获取用户详情
+   * 
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询用户新手引导状态
+   * 
+   * @param request - GetUserGuideStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserGuideStatusResponse
+   */
   async getUserGuideStatusWithOptions(request: GetUserGuideStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserGuideStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20792,12 +29047,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserGuideStatusResponse>(await this.callApi(params, req, runtime), new GetUserGuideStatusResponse({}));
   }
 
+  /**
+   * 查询用户新手引导状态
+   * 
+   * @param request - GetUserGuideStatusRequest
+   * @returns GetUserGuideStatusResponse
+   */
   async getUserGuideStatus(request: GetUserGuideStatusRequest): Promise<GetUserGuideStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUserGuideStatusWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 报警列表查询
+   * 
+   * @param request - ListAlertsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertsResponse
+   */
   async listAlertsWithOptions(request: ListAlertsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlertsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20859,12 +29128,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlertsResponse>(await this.callApi(params, req, runtime), new ListAlertsResponse({}));
   }
 
+  /**
+   * 报警列表查询
+   * 
+   * @param request - ListAlertsRequest
+   * @returns ListAlertsResponse
+   */
   async listAlerts(request: ListAlertsRequest): Promise<ListAlertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAlertsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 监控关联规则列表
+   * 
+   * @param request - ListByMonitorSourceIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListByMonitorSourceIdResponse
+   */
   async listByMonitorSourceIdWithOptions(request: ListByMonitorSourceIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListByMonitorSourceIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20890,12 +29173,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListByMonitorSourceIdResponse>(await this.callApi(params, req, runtime), new ListByMonitorSourceIdResponse({}));
   }
 
+  /**
+   * 监控关联规则列表
+   * 
+   * @param request - ListByMonitorSourceIdRequest
+   * @returns ListByMonitorSourceIdResponse
+   */
   async listByMonitorSourceId(request: ListByMonitorSourceIdRequest): Promise<ListByMonitorSourceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listByMonitorSourceIdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 统计图表数据-个人
+   * 
+   * @param request - ListChartDataForServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChartDataForServiceGroupResponse
+   */
   async listChartDataForServiceGroupWithOptions(request: ListChartDataForServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChartDataForServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20929,12 +29226,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListChartDataForServiceGroupResponse>(await this.callApi(params, req, runtime), new ListChartDataForServiceGroupResponse({}));
   }
 
+  /**
+   * 统计图表数据-个人
+   * 
+   * @param request - ListChartDataForServiceGroupRequest
+   * @returns ListChartDataForServiceGroupResponse
+   */
   async listChartDataForServiceGroup(request: ListChartDataForServiceGroupRequest): Promise<ListChartDataForServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listChartDataForServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 统计图表数据-个人
+   * 
+   * @param request - ListChartDataForUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChartDataForUserResponse
+   */
   async listChartDataForUserWithOptions(request: ListChartDataForUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChartDataForUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20968,12 +29279,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListChartDataForUserResponse>(await this.callApi(params, req, runtime), new ListChartDataForUserResponse({}));
   }
 
+  /**
+   * 统计图表数据-个人
+   * 
+   * @param request - ListChartDataForUserRequest
+   * @returns ListChartDataForUserResponse
+   */
   async listChartDataForUser(request: ListChartDataForUserRequest): Promise<ListChartDataForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listChartDataForUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 全局码表配置
+   * 
+   * @param request - ListConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigsResponse
+   */
   async listConfigsWithOptions(request: ListConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20999,12 +29324,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConfigsResponse>(await this.callApi(params, req, runtime), new ListConfigsResponse({}));
   }
 
+  /**
+   * 全局码表配置
+   * 
+   * @param request - ListConfigsRequest
+   * @returns ListConfigsResponse
+   */
   async listConfigs(request: ListConfigsRequest): Promise<ListConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConfigsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询服务组事件统计报表
+   * 
+   * @param request - ListDataReportForServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataReportForServiceGroupResponse
+   */
   async listDataReportForServiceGroupWithOptions(request: ListDataReportForServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataReportForServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21038,12 +29377,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataReportForServiceGroupResponse>(await this.callApi(params, req, runtime), new ListDataReportForServiceGroupResponse({}));
   }
 
+  /**
+   * 查询服务组事件统计报表
+   * 
+   * @param request - ListDataReportForServiceGroupRequest
+   * @returns ListDataReportForServiceGroupResponse
+   */
   async listDataReportForServiceGroup(request: ListDataReportForServiceGroupRequest): Promise<ListDataReportForServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataReportForServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询用户事件统计报表
+   * 
+   * @param request - ListDataReportForUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataReportForUserResponse
+   */
   async listDataReportForUserWithOptions(request: ListDataReportForUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataReportForUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21081,12 +29434,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataReportForUserResponse>(await this.callApi(params, req, runtime), new ListDataReportForUserResponse({}));
   }
 
+  /**
+   * 查询用户事件统计报表
+   * 
+   * @param request - ListDataReportForUserRequest
+   * @returns ListDataReportForUserResponse
+   */
   async listDataReportForUser(request: ListDataReportForUserRequest): Promise<ListDataReportForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataReportForUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 字典列表
+   * 
+   * @param request - ListDictionariesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDictionariesResponse
+   */
   async listDictionariesWithOptions(request: ListDictionariesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictionariesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21112,12 +29479,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDictionariesResponse>(await this.callApi(params, req, runtime), new ListDictionariesResponse({}));
   }
 
+  /**
+   * 字典列表
+   * 
+   * @param request - ListDictionariesRequest
+   * @returns ListDictionariesResponse
+   */
   async listDictionaries(request: ListDictionariesRequest): Promise<ListDictionariesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDictionariesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取已选中的服务对象
+   * 
+   * @param request - ListEscalationPlanServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEscalationPlanServicesResponse
+   */
   async listEscalationPlanServicesWithOptions(request: ListEscalationPlanServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEscalationPlanServicesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21143,12 +29524,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEscalationPlanServicesResponse>(await this.callApi(params, req, runtime), new ListEscalationPlanServicesResponse({}));
   }
 
+  /**
+   * 获取已选中的服务对象
+   * 
+   * @param request - ListEscalationPlanServicesRequest
+   * @returns ListEscalationPlanServicesResponse
+   */
   async listEscalationPlanServices(request: ListEscalationPlanServicesRequest): Promise<ListEscalationPlanServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEscalationPlanServicesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 升级计划列表添加服务删除字段
+   * 
+   * @param request - ListEscalationPlansRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEscalationPlansResponse
+   */
   async listEscalationPlansWithOptions(request: ListEscalationPlansRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEscalationPlansResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21198,12 +29593,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEscalationPlansResponse>(await this.callApi(params, req, runtime), new ListEscalationPlansResponse({}));
   }
 
+  /**
+   * 升级计划列表添加服务删除字段
+   * 
+   * @param request - ListEscalationPlansRequest
+   * @returns ListEscalationPlansResponse
+   */
   async listEscalationPlans(request: ListEscalationPlansRequest): Promise<ListEscalationPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEscalationPlansWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 根据推送对象查询升级策略
+   * 
+   * @param request - ListEscalationPlansByNoticeObjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEscalationPlansByNoticeObjectResponse
+   */
   async listEscalationPlansByNoticeObjectWithOptions(request: ListEscalationPlansByNoticeObjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEscalationPlansByNoticeObjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21233,12 +29642,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEscalationPlansByNoticeObjectResponse>(await this.callApi(params, req, runtime), new ListEscalationPlansByNoticeObjectResponse({}));
   }
 
+  /**
+   * 根据推送对象查询升级策略
+   * 
+   * @param request - ListEscalationPlansByNoticeObjectRequest
+   * @returns ListEscalationPlansByNoticeObjectResponse
+   */
   async listEscalationPlansByNoticeObject(request: ListEscalationPlansByNoticeObjectRequest): Promise<ListEscalationPlansByNoticeObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEscalationPlansByNoticeObjectWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 事件详情升级策略
+   * 
+   * @param request - ListIncidentDetailEscalationPlansRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIncidentDetailEscalationPlansResponse
+   */
   async listIncidentDetailEscalationPlansWithOptions(request: ListIncidentDetailEscalationPlansRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIncidentDetailEscalationPlansResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21268,12 +29691,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIncidentDetailEscalationPlansResponse>(await this.callApi(params, req, runtime), new ListIncidentDetailEscalationPlansResponse({}));
   }
 
+  /**
+   * 事件详情升级策略
+   * 
+   * @param request - ListIncidentDetailEscalationPlansRequest
+   * @returns ListIncidentDetailEscalationPlansResponse
+   */
   async listIncidentDetailEscalationPlans(request: ListIncidentDetailEscalationPlansRequest): Promise<ListIncidentDetailEscalationPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIncidentDetailEscalationPlansWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询事件详情动态
+   * 
+   * @param request - ListIncidentDetailTimelinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIncidentDetailTimelinesResponse
+   */
   async listIncidentDetailTimelinesWithOptions(request: ListIncidentDetailTimelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIncidentDetailTimelinesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21315,12 +29752,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIncidentDetailTimelinesResponse>(await this.callApi(params, req, runtime), new ListIncidentDetailTimelinesResponse({}));
   }
 
+  /**
+   * 查询事件详情动态
+   * 
+   * @param request - ListIncidentDetailTimelinesRequest
+   * @returns ListIncidentDetailTimelinesResponse
+   */
   async listIncidentDetailTimelines(request: ListIncidentDetailTimelinesRequest): Promise<ListIncidentDetailTimelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIncidentDetailTimelinesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询事件小计
+   * 
+   * @param request - ListIncidentSubtotalsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIncidentSubtotalsResponse
+   */
   async listIncidentSubtotalsWithOptions(request: ListIncidentSubtotalsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIncidentSubtotalsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21350,12 +29801,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIncidentSubtotalsResponse>(await this.callApi(params, req, runtime), new ListIncidentSubtotalsResponse({}));
   }
 
+  /**
+   * 查询事件小计
+   * 
+   * @param request - ListIncidentSubtotalsRequest
+   * @returns ListIncidentSubtotalsResponse
+   */
   async listIncidentSubtotals(request: ListIncidentSubtotalsRequest): Promise<ListIncidentSubtotalsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIncidentSubtotalsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 事件动态
+   * 
+   * @param request - ListIncidentTimelinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIncidentTimelinesResponse
+   */
   async listIncidentTimelinesWithOptions(request: ListIncidentTimelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIncidentTimelinesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21389,12 +29854,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIncidentTimelinesResponse>(await this.callApi(params, req, runtime), new ListIncidentTimelinesResponse({}));
   }
 
+  /**
+   * 事件动态
+   * 
+   * @param request - ListIncidentTimelinesRequest
+   * @returns ListIncidentTimelinesResponse
+   */
   async listIncidentTimelines(request: ListIncidentTimelinesRequest): Promise<ListIncidentTimelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIncidentTimelinesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取事件列表
+   * 
+   * @param request - ListIncidentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIncidentsResponse
+   */
   async listIncidentsWithOptions(request: ListIncidentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIncidentsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21460,12 +29939,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIncidentsResponse>(await this.callApi(params, req, runtime), new ListIncidentsResponse({}));
   }
 
+  /**
+   * 获取事件列表
+   * 
+   * @param request - ListIncidentsRequest
+   * @returns ListIncidentsResponse
+   */
   async listIncidents(request: ListIncidentsRequest): Promise<ListIncidentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIncidentsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取集成配置动态
+   * 
+   * @param request - ListIntegrationConfigTimelinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationConfigTimelinesResponse
+   */
   async listIntegrationConfigTimelinesWithOptions(request: ListIntegrationConfigTimelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIntegrationConfigTimelinesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21503,12 +29996,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIntegrationConfigTimelinesResponse>(await this.callApi(params, req, runtime), new ListIntegrationConfigTimelinesResponse({}));
   }
 
+  /**
+   * 获取集成配置动态
+   * 
+   * @param request - ListIntegrationConfigTimelinesRequest
+   * @returns ListIntegrationConfigTimelinesResponse
+   */
   async listIntegrationConfigTimelines(request: ListIntegrationConfigTimelinesRequest): Promise<ListIntegrationConfigTimelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIntegrationConfigTimelinesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取集成配置列表
+   * 
+   * @param request - ListIntegrationConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationConfigsResponse
+   */
   async listIntegrationConfigsWithOptions(request: ListIntegrationConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIntegrationConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21538,12 +30045,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIntegrationConfigsResponse>(await this.callApi(params, req, runtime), new ListIntegrationConfigsResponse({}));
   }
 
+  /**
+   * 获取集成配置列表
+   * 
+   * @param request - ListIntegrationConfigsRequest
+   * @returns ListIntegrationConfigsResponse
+   */
   async listIntegrationConfigs(request: ListIntegrationConfigsRequest): Promise<ListIntegrationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIntegrationConfigsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * ListMonitorSources
+   * 
+   * @param request - ListMonitorSourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMonitorSourcesResponse
+   */
   async listMonitorSourcesWithOptions(request: ListMonitorSourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMonitorSourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21569,12 +30090,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMonitorSourcesResponse>(await this.callApi(params, req, runtime), new ListMonitorSourcesResponse({}));
   }
 
+  /**
+   * ListMonitorSources
+   * 
+   * @param request - ListMonitorSourcesRequest
+   * @returns ListMonitorSourcesResponse
+   */
   async listMonitorSources(request: ListMonitorSourcesRequest): Promise<ListMonitorSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMonitorSourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障详情动态
+   * 
+   * @param request - ListProblemDetailOperationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProblemDetailOperationsResponse
+   */
   async listProblemDetailOperationsWithOptions(request: ListProblemDetailOperationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProblemDetailOperationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21616,12 +30151,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProblemDetailOperationsResponse>(await this.callApi(params, req, runtime), new ListProblemDetailOperationsResponse({}));
   }
 
+  /**
+   * 故障详情动态
+   * 
+   * @param request - ListProblemDetailOperationsRequest
+   * @returns ListProblemDetailOperationsResponse
+   */
   async listProblemDetailOperations(request: ListProblemDetailOperationsRequest): Promise<ListProblemDetailOperationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProblemDetailOperationsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询故障7天内动态
+   * 
+   * @param request - ListProblemOperationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProblemOperationsResponse
+   */
   async listProblemOperationsWithOptions(request: ListProblemOperationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProblemOperationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21655,12 +30204,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProblemOperationsResponse>(await this.callApi(params, req, runtime), new ListProblemOperationsResponse({}));
   }
 
+  /**
+   * 查询故障7天内动态
+   * 
+   * @param request - ListProblemOperationsRequest
+   * @returns ListProblemOperationsResponse
+   */
   async listProblemOperations(request: ListProblemOperationsRequest): Promise<ListProblemOperationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProblemOperationsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询故障小计
+   * 
+   * @param request - ListProblemSubtotalsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProblemSubtotalsResponse
+   */
   async listProblemSubtotalsWithOptions(request: ListProblemSubtotalsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProblemSubtotalsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21690,12 +30253,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProblemSubtotalsResponse>(await this.callApi(params, req, runtime), new ListProblemSubtotalsResponse({}));
   }
 
+  /**
+   * 查询故障小计
+   * 
+   * @param request - ListProblemSubtotalsRequest
+   * @returns ListProblemSubtotalsResponse
+   */
   async listProblemSubtotals(request: ListProblemSubtotalsRequest): Promise<ListProblemSubtotalsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProblemSubtotalsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询故障操作时间线列表
+   * 
+   * @param request - ListProblemTimeLinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProblemTimeLinesResponse
+   */
   async listProblemTimeLinesWithOptions(request: ListProblemTimeLinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProblemTimeLinesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21725,12 +30302,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProblemTimeLinesResponse>(await this.callApi(params, req, runtime), new ListProblemTimeLinesResponse({}));
   }
 
+  /**
+   * 查询故障操作时间线列表
+   * 
+   * @param request - ListProblemTimeLinesRequest
+   * @returns ListProblemTimeLinesResponse
+   */
   async listProblemTimeLines(request: ListProblemTimeLinesRequest): Promise<ListProblemTimeLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProblemTimeLinesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障列表查询接口
+   * 
+   * @param request - ListProblemsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProblemsResponse
+   */
   async listProblemsWithOptions(request: ListProblemsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProblemsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21808,12 +30399,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProblemsResponse>(await this.callApi(params, req, runtime), new ListProblemsResponse({}));
   }
 
+  /**
+   * 故障列表查询接口
+   * 
+   * @param request - ListProblemsRequest
+   * @returns ListProblemsResponse
+   */
   async listProblems(request: ListProblemsRequest): Promise<ListProblemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProblemsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询流转规则列表
+   * 
+   * @param request - ListRouteRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRouteRulesResponse
+   */
   async listRouteRulesWithOptions(request: ListRouteRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRouteRulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21863,12 +30468,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRouteRulesResponse>(await this.callApi(params, req, runtime), new ListRouteRulesResponse({}));
   }
 
+  /**
+   * 查询流转规则列表
+   * 
+   * @param request - ListRouteRulesRequest
+   * @returns ListRouteRulesResponse
+   */
   async listRouteRules(request: ListRouteRulesRequest): Promise<ListRouteRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRouteRulesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取指定分配对象的流转规则
+   * 
+   * @param request - ListRouteRulesByAssignWhoIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRouteRulesByAssignWhoIdResponse
+   */
   async listRouteRulesByAssignWhoIdWithOptions(request: ListRouteRulesByAssignWhoIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRouteRulesByAssignWhoIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21898,12 +30517,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRouteRulesByAssignWhoIdResponse>(await this.callApi(params, req, runtime), new ListRouteRulesByAssignWhoIdResponse({}));
   }
 
+  /**
+   * 获取指定分配对象的流转规则
+   * 
+   * @param request - ListRouteRulesByAssignWhoIdRequest
+   * @returns ListRouteRulesByAssignWhoIdResponse
+   */
   async listRouteRulesByAssignWhoId(request: ListRouteRulesByAssignWhoIdRequest): Promise<ListRouteRulesByAssignWhoIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRouteRulesByAssignWhoIdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 根据服务id查询流转规则
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRouteRulesByServiceResponse
+   */
   async listRouteRulesByServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRouteRulesByServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -21922,12 +30554,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRouteRulesByServiceResponse>(await this.callApi(params, req, runtime), new ListRouteRulesByServiceResponse({}));
   }
 
+  /**
+   * 根据服务id查询流转规则
+   * @returns ListRouteRulesByServiceResponse
+   */
   async listRouteRulesByService(): Promise<ListRouteRulesByServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRouteRulesByServiceWithOptions(headers, runtime);
   }
 
+  /**
+   * 查询服务组监控源模版列表
+   * 
+   * @param request - ListServiceGroupMonitorSourceTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceGroupMonitorSourceTemplatesResponse
+   */
   async listServiceGroupMonitorSourceTemplatesWithOptions(request: ListServiceGroupMonitorSourceTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceGroupMonitorSourceTemplatesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21961,12 +30605,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceGroupMonitorSourceTemplatesResponse>(await this.callApi(params, req, runtime), new ListServiceGroupMonitorSourceTemplatesResponse({}));
   }
 
+  /**
+   * 查询服务组监控源模版列表
+   * 
+   * @param request - ListServiceGroupMonitorSourceTemplatesRequest
+   * @returns ListServiceGroupMonitorSourceTemplatesResponse
+   */
   async listServiceGroupMonitorSourceTemplates(request: ListServiceGroupMonitorSourceTemplatesRequest): Promise<ListServiceGroupMonitorSourceTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceGroupMonitorSourceTemplatesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询服务组列表
+   * 
+   * @param request - ListServiceGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceGroupsResponse
+   */
   async listServiceGroupsWithOptions(request: ListServiceGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22024,12 +30682,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceGroupsResponse>(await this.callApi(params, req, runtime), new ListServiceGroupsResponse({}));
   }
 
+  /**
+   * 查询服务组列表
+   * 
+   * @param request - ListServiceGroupsRequest
+   * @returns ListServiceGroupsResponse
+   */
   async listServiceGroups(request: ListServiceGroupsRequest): Promise<ListServiceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 根据成员id查服务组
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceGroupsByUserIdResponse
+   */
   async listServiceGroupsByUserIdWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceGroupsByUserIdResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -22048,12 +30719,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceGroupsByUserIdResponse>(await this.callApi(params, req, runtime), new ListServiceGroupsByUserIdResponse({}));
   }
 
+  /**
+   * 根据成员id查服务组
+   * @returns ListServiceGroupsByUserIdResponse
+   */
   async listServiceGroupsByUserId(): Promise<ListServiceGroupsByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceGroupsByUserIdWithOptions(headers, runtime);
   }
 
+  /**
+   * 查询服务组列表
+   * 
+   * @param request - ListServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServicesResponse
+   */
   async listServicesWithOptions(request: ListServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22091,12 +30774,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
+  /**
+   * 查询服务组列表
+   * 
+   * @param request - ListServicesRequest
+   * @returns ListServicesResponse
+   */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServicesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 原始告警列表查询
+   * 
+   * @param request - ListSourceEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSourceEventsResponse
+   */
   async listSourceEventsWithOptions(request: ListSourceEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSourceEventsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22154,12 +30851,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSourceEventsResponse>(await this.callApi(params, req, runtime), new ListSourceEventsResponse({}));
   }
 
+  /**
+   * 原始告警列表查询
+   * 
+   * @param request - ListSourceEventsRequest
+   * @returns ListSourceEventsResponse
+   */
   async listSourceEvents(request: ListSourceEventsRequest): Promise<ListSourceEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSourceEventsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询监控员最近10次告警
+   * 
+   * @param request - ListSourceEventsForMonitorSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSourceEventsForMonitorSourceResponse
+   */
   async listSourceEventsForMonitorSourceWithOptions(request: ListSourceEventsForMonitorSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSourceEventsForMonitorSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22185,12 +30896,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSourceEventsForMonitorSourceResponse>(await this.callApi(params, req, runtime), new ListSourceEventsForMonitorSourceResponse({}));
   }
 
+  /**
+   * 查询监控员最近10次告警
+   * 
+   * @param request - ListSourceEventsForMonitorSourceRequest
+   * @returns ListSourceEventsForMonitorSourceResponse
+   */
   async listSourceEventsForMonitorSource(request: ListSourceEventsForMonitorSourceRequest): Promise<ListSourceEventsForMonitorSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSourceEventsForMonitorSourceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 订阅通知服务组查询
+   * 
+   * @param request - ListSubscriptionServiceGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubscriptionServiceGroupsResponse
+   */
   async listSubscriptionServiceGroupsWithOptions(request: ListSubscriptionServiceGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubscriptionServiceGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22220,12 +30945,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubscriptionServiceGroupsResponse>(await this.callApi(params, req, runtime), new ListSubscriptionServiceGroupsResponse({}));
   }
 
+  /**
+   * 订阅通知服务组查询
+   * 
+   * @param request - ListSubscriptionServiceGroupsRequest
+   * @returns ListSubscriptionServiceGroupsResponse
+   */
   async listSubscriptionServiceGroups(request: ListSubscriptionServiceGroupsRequest): Promise<ListSubscriptionServiceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSubscriptionServiceGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 通知订阅列表
+   * 
+   * @param request - ListSubscriptionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubscriptionsResponse
+   */
   async listSubscriptionsWithOptions(request: ListSubscriptionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubscriptionsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22283,12 +31022,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListSubscriptionsResponse({}));
   }
 
+  /**
+   * 通知订阅列表
+   * 
+   * @param request - ListSubscriptionsRequest
+   * @returns ListSubscriptionsResponse
+   */
   async listSubscriptions(request: ListSubscriptionsRequest): Promise<ListSubscriptionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSubscriptionsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 查询原始告警趋势
+   * 
+   * @param request - ListTrendForSourceEventRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTrendForSourceEventResponse
+   */
   async listTrendForSourceEventWithOptions(request: ListTrendForSourceEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrendForSourceEventResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22334,12 +31087,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrendForSourceEventResponse>(await this.callApi(params, req, runtime), new ListTrendForSourceEventResponse({}));
   }
 
+  /**
+   * 查询原始告警趋势
+   * 
+   * @param request - ListTrendForSourceEventRequest
+   * @returns ListTrendForSourceEventResponse
+   */
   async listTrendForSourceEvent(request: ListTrendForSourceEventRequest): Promise<ListTrendForSourceEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTrendForSourceEventWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 用户预览
+   * 
+   * @param request - ListUserSerivceGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserSerivceGroupsResponse
+   */
   async listUserSerivceGroupsWithOptions(request: ListUserSerivceGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserSerivceGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22369,12 +31136,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserSerivceGroupsResponse>(await this.callApi(params, req, runtime), new ListUserSerivceGroupsResponse({}));
   }
 
+  /**
+   * 用户预览
+   * 
+   * @param request - ListUserSerivceGroupsRequest
+   * @returns ListUserSerivceGroupsResponse
+   */
   async listUserSerivceGroups(request: ListUserSerivceGroupsRequest): Promise<ListUserSerivceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUserSerivceGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 人员列表
+   * 
+   * @param request - ListUsersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22428,12 +31209,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * 人员列表
+   * 
+   * @param request - ListUsersRequest
+   * @returns ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listUsersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 监控数据接入API
+   * 
+   * @param request - PushMonitorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushMonitorResponse
+   */
   async pushMonitorWithOptions(apiKey: string, request: PushMonitorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushMonitorResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -22454,12 +31249,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PushMonitorResponse>(await this.callApi(params, req, runtime), new PushMonitorResponse({}));
   }
 
+  /**
+   * 监控数据接入API
+   * 
+   * @param request - PushMonitorRequest
+   * @returns PushMonitorResponse
+   */
   async pushMonitor(apiKey: string, request: PushMonitorRequest): Promise<PushMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pushMonitorWithOptions(apiKey, request, headers, runtime);
   }
 
+  /**
+   * 故障恢复
+   * 
+   * @param request - RecoverProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverProblemResponse
+   */
   async recoverProblemWithOptions(request: RecoverProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecoverProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22493,12 +31302,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoverProblemResponse>(await this.callApi(params, req, runtime), new RecoverProblemResponse({}));
   }
 
+  /**
+   * 故障恢复
+   * 
+   * @param request - RecoverProblemRequest
+   * @returns RecoverProblemResponse
+   */
   async recoverProblem(request: RecoverProblemRequest): Promise<RecoverProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recoverProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 刷新集成配置key
+   * 
+   * @param request - RefreshIntegrationConfigKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshIntegrationConfigKeyResponse
+   */
   async refreshIntegrationConfigKeyWithOptions(request: RefreshIntegrationConfigKeyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RefreshIntegrationConfigKeyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22528,12 +31351,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshIntegrationConfigKeyResponse>(await this.callApi(params, req, runtime), new RefreshIntegrationConfigKeyResponse({}));
   }
 
+  /**
+   * 刷新集成配置key
+   * 
+   * @param request - RefreshIntegrationConfigKeyRequest
+   * @returns RefreshIntegrationConfigKeyResponse
+   */
   async refreshIntegrationConfigKey(request: RefreshIntegrationConfigKeyRequest): Promise<RefreshIntegrationConfigKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.refreshIntegrationConfigKeyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 解除集成配置
+   * 
+   * @param request - RemoveIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveIntegrationConfigResponse
+   */
   async removeIntegrationConfigWithOptions(request: RemoveIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22563,12 +31400,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveIntegrationConfigResponse>(await this.callApi(params, req, runtime), new RemoveIntegrationConfigResponse({}));
   }
 
+  /**
+   * 解除集成配置
+   * 
+   * @param request - RemoveIntegrationConfigRequest
+   * @returns RemoveIntegrationConfigResponse
+   */
   async removeIntegrationConfig(request: RemoveIntegrationConfigRequest): Promise<RemoveIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除故障协同组
+   * 
+   * @param request - RemoveProblemServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveProblemServiceGroupResponse
+   */
   async removeProblemServiceGroupWithOptions(request: RemoveProblemServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveProblemServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22598,12 +31449,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveProblemServiceGroupResponse>(await this.callApi(params, req, runtime), new RemoveProblemServiceGroupResponse({}));
   }
 
+  /**
+   * 删除故障协同组
+   * 
+   * @param request - RemoveProblemServiceGroupRequest
+   * @returns RemoveProblemServiceGroupResponse
+   */
   async removeProblemServiceGroup(request: RemoveProblemServiceGroupRequest): Promise<RemoveProblemServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeProblemServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障复盘
+   * 
+   * @param request - ReplayProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplayProblemResponse
+   */
   async replayProblemWithOptions(request: ReplayProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReplayProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22637,12 +31502,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ReplayProblemResponse>(await this.callApi(params, req, runtime), new ReplayProblemResponse({}));
   }
 
+  /**
+   * 故障复盘
+   * 
+   * @param request - ReplayProblemRequest
+   * @returns ReplayProblemResponse
+   */
   async replayProblem(request: ReplayProblemRequest): Promise<ReplayProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.replayProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 事件响应
+   * 
+   * @param request - RespondIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RespondIncidentResponse
+   */
   async respondIncidentWithOptions(request: RespondIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RespondIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22672,12 +31551,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RespondIncidentResponse>(await this.callApi(params, req, runtime), new RespondIncidentResponse({}));
   }
 
+  /**
+   * 事件响应
+   * 
+   * @param request - RespondIncidentRequest
+   * @returns RespondIncidentResponse
+   */
   async respondIncident(request: RespondIncidentRequest): Promise<RespondIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.respondIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 故障撤销恢复
+   * 
+   * @param request - RevokeProblemRecoveryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeProblemRecoveryResponse
+   */
   async revokeProblemRecoveryWithOptions(request: RevokeProblemRecoveryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RevokeProblemRecoveryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22711,12 +31604,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeProblemRecoveryResponse>(await this.callApi(params, req, runtime), new RevokeProblemRecoveryResponse({}));
   }
 
+  /**
+   * 故障撤销恢复
+   * 
+   * @param request - RevokeProblemRecoveryRequest
+   * @returns RevokeProblemRecoveryResponse
+   */
   async revokeProblemRecovery(request: RevokeProblemRecoveryRequest): Promise<RevokeProblemRecoveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.revokeProblemRecoveryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 解绑用户
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindUserResponse
+   */
   async unbindUserWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnbindUserResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -22735,12 +31641,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindUserResponse>(await this.callApi(params, req, runtime), new UnbindUserResponse({}));
   }
 
+  /**
+   * 解绑用户
+   * @returns UnbindUserResponse
+   */
   async unbindUser(): Promise<UnbindUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.unbindUserWithOptions(headers, runtime);
   }
 
+  /**
+   * 更新升级计划
+   * 
+   * @param request - UpdateEscalationPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEscalationPlanResponse
+   */
   async updateEscalationPlanWithOptions(request: UpdateEscalationPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateEscalationPlanResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22790,12 +31708,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEscalationPlanResponse>(await this.callApi(params, req, runtime), new UpdateEscalationPlanResponse({}));
   }
 
+  /**
+   * 更新升级计划
+   * 
+   * @param request - UpdateEscalationPlanRequest
+   * @returns UpdateEscalationPlanResponse
+   */
   async updateEscalationPlan(request: UpdateEscalationPlanRequest): Promise<UpdateEscalationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateEscalationPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新事件详情
+   * 
+   * @param request - UpdateIncidentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIncidentResponse
+   */
   async updateIncidentWithOptions(request: UpdateIncidentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIncidentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22837,12 +31769,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIncidentResponse>(await this.callApi(params, req, runtime), new UpdateIncidentResponse({}));
   }
 
+  /**
+   * 更新事件详情
+   * 
+   * @param request - UpdateIncidentRequest
+   * @returns UpdateIncidentResponse
+   */
   async updateIncident(request: UpdateIncidentRequest): Promise<UpdateIncidentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateIncidentWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新集成配置
+   * 
+   * @param request - UpdateIntegrationConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIntegrationConfigResponse
+   */
   async updateIntegrationConfigWithOptions(request: UpdateIntegrationConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIntegrationConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22876,12 +31822,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIntegrationConfigResponse>(await this.callApi(params, req, runtime), new UpdateIntegrationConfigResponse({}));
   }
 
+  /**
+   * 更新集成配置
+   * 
+   * @param request - UpdateIntegrationConfigRequest
+   * @returns UpdateIntegrationConfigResponse
+   */
   async updateIntegrationConfig(request: UpdateIntegrationConfigRequest): Promise<UpdateIntegrationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateIntegrationConfigWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新故障
+   * 
+   * @param request - UpdateProblemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProblemResponse
+   */
   async updateProblemWithOptions(request: UpdateProblemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProblemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22943,12 +31903,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProblemResponse>(await this.callApi(params, req, runtime), new UpdateProblemResponse({}));
   }
 
+  /**
+   * 更新故障
+   * 
+   * @param request - UpdateProblemRequest
+   * @returns UpdateProblemResponse
+   */
   async updateProblem(request: UpdateProblemRequest): Promise<UpdateProblemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProblemWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新故障影响服务
+   * 
+   * @param request - UpdateProblemEffectionServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProblemEffectionServiceResponse
+   */
   async updateProblemEffectionServiceWithOptions(request: UpdateProblemEffectionServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProblemEffectionServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23002,12 +31976,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProblemEffectionServiceResponse>(await this.callApi(params, req, runtime), new UpdateProblemEffectionServiceResponse({}));
   }
 
+  /**
+   * 更新故障影响服务
+   * 
+   * @param request - UpdateProblemEffectionServiceRequest
+   * @returns UpdateProblemEffectionServiceResponse
+   */
   async updateProblemEffectionService(request: UpdateProblemEffectionServiceRequest): Promise<UpdateProblemEffectionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProblemEffectionServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改进分析更新
+   * 
+   * @param request - UpdateProblemImprovementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProblemImprovementResponse
+   */
   async updateProblemImprovementWithOptions(request: UpdateProblemImprovementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProblemImprovementResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23093,12 +32081,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProblemImprovementResponse>(await this.callApi(params, req, runtime), new UpdateProblemImprovementResponse({}));
   }
 
+  /**
+   * 改进分析更新
+   * 
+   * @param request - UpdateProblemImprovementRequest
+   * @returns UpdateProblemImprovementResponse
+   */
   async updateProblemImprovement(request: UpdateProblemImprovementRequest): Promise<UpdateProblemImprovementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProblemImprovementWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 改进措施更新
+   * 
+   * @param request - UpdateProblemMeasureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProblemMeasureResponse
+   */
   async updateProblemMeasureWithOptions(request: UpdateProblemMeasureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProblemMeasureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23164,12 +32166,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProblemMeasureResponse>(await this.callApi(params, req, runtime), new UpdateProblemMeasureResponse({}));
   }
 
+  /**
+   * 改进措施更新
+   * 
+   * @param request - UpdateProblemMeasureRequest
+   * @returns UpdateProblemMeasureResponse
+   */
   async updateProblemMeasure(request: UpdateProblemMeasureRequest): Promise<UpdateProblemMeasureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProblemMeasureWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新故障通知
+   * 
+   * @param request - UpdateProblemNoticeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProblemNoticeResponse
+   */
   async updateProblemNoticeWithOptions(request: UpdateProblemNoticeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProblemNoticeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23203,12 +32219,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProblemNoticeResponse>(await this.callApi(params, req, runtime), new UpdateProblemNoticeResponse({}));
   }
 
+  /**
+   * 更新故障通知
+   * 
+   * @param request - UpdateProblemNoticeRequest
+   * @returns UpdateProblemNoticeResponse
+   */
   async updateProblemNotice(request: UpdateProblemNoticeRequest): Promise<UpdateProblemNoticeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProblemNoticeWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新故障时间线节点
+   * 
+   * @param request - UpdateProblemTimelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProblemTimelineResponse
+   */
   async updateProblemTimelineWithOptions(request: UpdateProblemTimelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProblemTimelineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23254,12 +32284,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProblemTimelineResponse>(await this.callApi(params, req, runtime), new UpdateProblemTimelineResponse({}));
   }
 
+  /**
+   * 更新故障时间线节点
+   * 
+   * @param request - UpdateProblemTimelineRequest
+   * @returns UpdateProblemTimelineResponse
+   */
   async updateProblemTimeline(request: UpdateProblemTimelineRequest): Promise<UpdateProblemTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateProblemTimelineWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新富文本
+   * 
+   * @param request - UpdateRichTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRichTextResponse
+   */
   async updateRichTextWithOptions(request: UpdateRichTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRichTextResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23297,12 +32341,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRichTextResponse>(await this.callApi(params, req, runtime), new UpdateRichTextResponse({}));
   }
 
+  /**
+   * 更新富文本
+   * 
+   * @param request - UpdateRichTextRequest
+   * @returns UpdateRichTextResponse
+   */
   async updateRichText(request: UpdateRichTextRequest): Promise<UpdateRichTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateRichTextWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新流转规则
+   * 
+   * @param request - UpdateRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRouteRuleResponse
+   */
   async updateRouteRuleWithOptions(request: UpdateRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23404,12 +32462,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRouteRuleResponse>(await this.callApi(params, req, runtime), new UpdateRouteRuleResponse({}));
   }
 
+  /**
+   * 更新流转规则
+   * 
+   * @param request - UpdateRouteRuleRequest
+   * @returns UpdateRouteRuleResponse
+   */
   async updateRouteRule(request: UpdateRouteRuleRequest): Promise<UpdateRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateRouteRuleWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新服务
+   * 
+   * @param request - UpdateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceResponse
+   */
   async updateServiceWithOptions(request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23455,12 +32527,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
   }
 
+  /**
+   * 更新服务
+   * 
+   * @param request - UpdateServiceRequest
+   * @returns UpdateServiceResponse
+   */
   async updateService(request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新服务组
+   * 
+   * @param request - UpdateServiceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceGroupResponse
+   */
   async updateServiceGroupWithOptions(request: UpdateServiceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23518,12 +32604,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceGroupResponse>(await this.callApi(params, req, runtime), new UpdateServiceGroupResponse({}));
   }
 
+  /**
+   * 更新服务组
+   * 
+   * @param request - UpdateServiceGroupRequest
+   * @returns UpdateServiceGroupResponse
+   */
   async updateServiceGroup(request: UpdateServiceGroupRequest): Promise<UpdateServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 修改服务组排班
+   * 
+   * @param request - UpdateServiceGroupSchedulingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceGroupSchedulingResponse
+   */
   async updateServiceGroupSchedulingWithOptions(request: UpdateServiceGroupSchedulingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceGroupSchedulingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23565,12 +32665,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceGroupSchedulingResponse>(await this.callApi(params, req, runtime), new UpdateServiceGroupSchedulingResponse({}));
   }
 
+  /**
+   * 修改服务组排班
+   * 
+   * @param request - UpdateServiceGroupSchedulingRequest
+   * @returns UpdateServiceGroupSchedulingResponse
+   */
   async updateServiceGroupScheduling(request: UpdateServiceGroupSchedulingRequest): Promise<UpdateServiceGroupSchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceGroupSchedulingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 修改指定日期的服务组排班
+   * 
+   * @param request - UpdateServiceGroupSpecialDaySchedulingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceGroupSpecialDaySchedulingResponse
+   */
   async updateServiceGroupSpecialDaySchedulingWithOptions(request: UpdateServiceGroupSpecialDaySchedulingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceGroupSpecialDaySchedulingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23608,12 +32722,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceGroupSpecialDaySchedulingResponse>(await this.callApi(params, req, runtime), new UpdateServiceGroupSpecialDaySchedulingResponse({}));
   }
 
+  /**
+   * 修改指定日期的服务组排班
+   * 
+   * @param request - UpdateServiceGroupSpecialDaySchedulingRequest
+   * @returns UpdateServiceGroupSpecialDaySchedulingResponse
+   */
   async updateServiceGroupSpecialDayScheduling(request: UpdateServiceGroupSpecialDaySchedulingRequest): Promise<UpdateServiceGroupSpecialDaySchedulingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceGroupSpecialDaySchedulingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新通知订阅
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubscriptionResponse
+   */
   async updateSubscriptionWithOptions(request: UpdateSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSubscriptionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23679,12 +32807,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSubscriptionResponse>(await this.callApi(params, req, runtime), new UpdateSubscriptionResponse({}));
   }
 
+  /**
+   * 更新通知订阅
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @returns UpdateSubscriptionResponse
+   */
   async updateSubscription(request: UpdateSubscriptionRequest): Promise<UpdateSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSubscriptionWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新用户
+   * 
+   * @param request - UpdateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23734,12 +32876,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * 更新用户
+   * 
+   * @param request - UpdateUserRequest
+   * @returns UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 更新用户新手引导状态
+   * 
+   * @param request - UpdateUserGuideStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserGuideStatusResponse
+   */
   async updateUserGuideStatusWithOptions(request: UpdateUserGuideStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserGuideStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23769,12 +32925,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserGuideStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserGuideStatusResponse({}));
   }
 
+  /**
+   * 更新用户新手引导状态
+   * 
+   * @param request - UpdateUserGuideStatusRequest
+   * @returns UpdateUserGuideStatusResponse
+   */
   async updateUserGuideStatus(request: UpdateUserGuideStatusRequest): Promise<UpdateUserGuideStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateUserGuideStatusWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 验证流转规则
+   * 
+   * @param request - VerifyRouteRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyRouteRuleResponse
+   */
   async verifyRouteRuleWithOptions(request: VerifyRouteRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VerifyRouteRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23804,6 +32974,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyRouteRuleResponse>(await this.callApi(params, req, runtime), new VerifyRouteRuleResponse({}));
   }
 
+  /**
+   * 验证流转规则
+   * 
+   * @param request - VerifyRouteRuleRequest
+   * @returns VerifyRouteRuleResponse
+   */
   async verifyRouteRule(request: VerifyRouteRuleRequest): Promise<VerifyRouteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
