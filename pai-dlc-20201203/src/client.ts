@@ -69,6 +69,43 @@ export class AliyunAccounts extends $tea.Model {
   }
 }
 
+export class AssignNodeSpec extends $tea.Model {
+  /**
+   * @example
+   * lingjxxxxxxxx
+   */
+  antiAffinityNodeNames?: string;
+  /**
+   * @example
+   * true
+   */
+  enableAssignNode?: boolean;
+  /**
+   * @example
+   * lingjxxxxxxxx
+   */
+  nodeNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      antiAffinityNodeNames: 'AntiAffinityNodeNames',
+      enableAssignNode: 'EnableAssignNode',
+      nodeNames: 'NodeNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      antiAffinityNodeNames: 'string',
+      enableAssignNode: 'boolean',
+      nodeNames: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssumeUserInfo extends $tea.Model {
   accessKeyId?: string;
   id?: string;
@@ -1643,6 +1680,7 @@ export class JobSettings extends $tea.Model {
 }
 
 export class JobSpec extends $tea.Model {
+  assignNodeSpec?: AssignNodeSpec;
   /**
    * @example
    * ecs.c6.large
@@ -1674,6 +1712,7 @@ export class JobSpec extends $tea.Model {
   useSpotInstance?: boolean;
   static names(): { [key: string]: string } {
     return {
+      assignNodeSpec: 'AssignNodeSpec',
       ecsSpec: 'EcsSpec',
       extraPodSpec: 'ExtraPodSpec',
       image: 'Image',
@@ -1688,6 +1727,7 @@ export class JobSpec extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      assignNodeSpec: AssignNodeSpec,
       ecsSpec: 'string',
       extraPodSpec: ExtraPodSpec,
       image: 'string',
