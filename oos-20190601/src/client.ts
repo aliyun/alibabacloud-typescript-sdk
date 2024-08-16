@@ -3080,6 +3080,7 @@ export class DeleteExecutionsRequest extends $tea.Model {
    * ["exec-xxx"]
    */
   executionIds?: string;
+  force?: boolean;
   /**
    * @remarks
    * The region ID.
@@ -3091,6 +3092,7 @@ export class DeleteExecutionsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       executionIds: 'ExecutionIds',
+      force: 'Force',
       regionId: 'RegionId',
     };
   }
@@ -3098,6 +3100,7 @@ export class DeleteExecutionsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       executionIds: 'string',
+      force: 'boolean',
       regionId: 'string',
     };
   }
@@ -24832,6 +24835,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.executionIds)) {
       query["ExecutionIds"] = request.executionIds;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
     }
 
     if (!Util.isUnset(request.regionId)) {
