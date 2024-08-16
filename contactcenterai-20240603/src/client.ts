@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -8,12 +7,162 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AnalyzeConversationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogue?: AnalyzeConversationRequestDialogue;
+  exampleList?: AnalyzeConversationRequestExampleList[];
+  fields?: AnalyzeConversationRequestFields[];
+  /**
+   * @example
+   * tyxmTurbo
+   */
+  modelCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resultTypes?: string[];
+  sceneName?: string;
+  serviceInspection?: AnalyzeConversationRequestServiceInspection;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  stream?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dialogue: 'dialogue',
+      exampleList: 'exampleList',
+      fields: 'fields',
+      modelCode: 'modelCode',
+      resultTypes: 'resultTypes',
+      sceneName: 'sceneName',
+      serviceInspection: 'serviceInspection',
+      stream: 'stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogue: AnalyzeConversationRequestDialogue,
+      exampleList: { 'type': 'array', 'itemType': AnalyzeConversationRequestExampleList },
+      fields: { 'type': 'array', 'itemType': AnalyzeConversationRequestFields },
+      modelCode: 'string',
+      resultTypes: { 'type': 'array', 'itemType': 'string' },
+      sceneName: 'string',
+      serviceInspection: AnalyzeConversationRequestServiceInspection,
+      stream: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidUser.NotFound
+   */
+  errorCode?: string;
+  errorInfo?: string;
+  /**
+   * @example
+   * stop
+   */
+  finishReason?: string;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-C552DED7E8BF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorInfo: 'errorInfo',
+      finishReason: 'finishReason',
+      requestId: 'requestId',
+      success: 'success',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorInfo: 'string',
+      finishReason: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AnalyzeConversationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AnalyzeConversationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCompletionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dialogue?: RunCompletionRequestDialogue;
   fields?: RunCompletionRequestFields[];
+  /**
+   * @example
+   * ccai-14b
+   */
   modelCode?: string;
   serviceInspection?: RunCompletionRequestServiceInspection;
+  /**
+   * @example
+   * false
+   */
   stream?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -44,6 +193,10 @@ export class RunCompletionRequest extends $tea.Model {
 
 export class RunCompletionResponseBody extends $tea.Model {
   finishReason?: string;
+  /**
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
   text?: string;
   static names(): { [key: string]: string } {
@@ -93,8 +246,20 @@ export class RunCompletionResponse extends $tea.Model {
 }
 
 export class RunCompletionMessageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   messages?: RunCompletionMessageRequestMessages[];
+  /**
+   * @example
+   * ccai-14b
+   */
   modelCode?: string;
+  /**
+   * @example
+   * false
+   */
   stream?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -119,6 +284,10 @@ export class RunCompletionMessageRequest extends $tea.Model {
 
 export class RunCompletionMessageResponseBody extends $tea.Model {
   finishReason?: string;
+  /**
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
   text?: string;
   static names(): { [key: string]: string } {
@@ -167,9 +336,290 @@ export class RunCompletionMessageResponse extends $tea.Model {
   }
 }
 
+export class AnalyzeConversationRequestDialogueSentences extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestDialogue extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: AnalyzeConversationRequestDialogueSentences[];
+  /**
+   * @example
+   * session-01
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentences: 'sentences',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentences: { 'type': 'array', 'itemType': AnalyzeConversationRequestDialogueSentences },
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestExampleListSentenceList extends $tea.Model {
+  /**
+   * @example
+   * chat-01
+   */
+  chatId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatId: 'chatId',
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatId: 'string',
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestExampleList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  output?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentenceList?: AnalyzeConversationRequestExampleListSentenceList[];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      sentenceList: 'sentenceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      sentenceList: { 'type': 'array', 'itemType': AnalyzeConversationRequestExampleListSentenceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestFieldsEnumValues extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      enumValue: 'enumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestFields extends $tea.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  enumValues?: AnalyzeConversationRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      desc: 'desc',
+      enumValues: 'enumValues',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': AnalyzeConversationRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestServiceInspectionInspectionContents extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationRequestServiceInspection extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionContents?: AnalyzeConversationRequestServiceInspectionInspectionContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionIntroduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'inspectionContents',
+      inspectionIntroduction: 'inspectionIntroduction',
+      sceneIntroduction: 'sceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': AnalyzeConversationRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCompletionRequestDialogueSentences extends $tea.Model {
   chatId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,6 +644,10 @@ export class RunCompletionRequestDialogueSentences extends $tea.Model {
 
 export class RunCompletionRequestDialogue extends $tea.Model {
   sentences?: RunCompletionRequestDialogueSentences[];
+  /**
+   * @example
+   * d25zc9c7004f8dad2b454d
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -216,6 +670,10 @@ export class RunCompletionRequestDialogue extends $tea.Model {
 
 export class RunCompletionRequestFieldsEnumValues extends $tea.Model {
   desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   enumValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -237,9 +695,17 @@ export class RunCompletionRequestFieldsEnumValues extends $tea.Model {
 }
 
 export class RunCompletionRequestFields extends $tea.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
   code?: string;
   desc?: string;
   enumValues?: RunCompletionRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -266,6 +732,10 @@ export class RunCompletionRequestFields extends $tea.Model {
 
 export class RunCompletionRequestServiceInspectionInspectionContents extends $tea.Model {
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -312,7 +782,18 @@ export class RunCompletionRequestServiceInspection extends $tea.Model {
 }
 
 export class RunCompletionMessageRequestMessages extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -357,12 +838,85 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CCAI服务面API
-   *
-   * @param request RunCompletionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunCompletionResponse
+   * 根据类型调用大模型
+   * 
+   * @param request - AnalyzeConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeConversationResponse
+   */
+  async analyzeConversationWithOptions(workspaceId: string, appId: string, request: AnalyzeConversationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AnalyzeConversationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dialogue)) {
+      body["dialogue"] = request.dialogue;
+    }
+
+    if (!Util.isUnset(request.exampleList)) {
+      body["exampleList"] = request.exampleList;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.modelCode)) {
+      body["modelCode"] = request.modelCode;
+    }
+
+    if (!Util.isUnset(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!Util.isUnset(request.sceneName)) {
+      body["sceneName"] = request.sceneName;
+    }
+
+    if (!Util.isUnset(request.serviceInspection)) {
+      body["serviceInspection"] = request.serviceInspection;
+    }
+
+    if (!Util.isUnset(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AnalyzeConversation",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/analyze_conversation`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
+  }
+
+  /**
+   * 根据类型调用大模型
+   * 
+   * @param request - AnalyzeConversationRequest
+   * @returns AnalyzeConversationResponse
+   */
+  async analyzeConversation(workspaceId: string, appId: string, request: AnalyzeConversationRequest): Promise<AnalyzeConversationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.analyzeConversationWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * CCAI服务面API
+   * 
+   * @param request - RunCompletionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCompletionResponse
    */
   async runCompletionWithOptions(workspaceId: string, appId: string, request: RunCompletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunCompletionResponse> {
     Util.validateModel(request);
@@ -410,10 +964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CCAI服务面API
-   *
-   * @param request RunCompletionRequest
-   * @return RunCompletionResponse
+   * CCAI服务面API
+   * 
+   * @param request - RunCompletionRequest
+   * @returns RunCompletionResponse
    */
   async runCompletion(workspaceId: string, appId: string, request: RunCompletionRequest): Promise<RunCompletionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -422,12 +976,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CCAI服务面API
-   *
-   * @param request RunCompletionMessageRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunCompletionMessageResponse
+   * CCAI服务面API
+   * 
+   * @param request - RunCompletionMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCompletionMessageResponse
    */
   async runCompletionMessageWithOptions(workspaceId: string, appId: string, request: RunCompletionMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunCompletionMessageResponse> {
     Util.validateModel(request);
@@ -463,10 +1017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CCAI服务面API
-   *
-   * @param request RunCompletionMessageRequest
-   * @return RunCompletionMessageResponse
+   * CCAI服务面API
+   * 
+   * @param request - RunCompletionMessageRequest
+   * @returns RunCompletionMessageResponse
    */
   async runCompletionMessage(workspaceId: string, appId: string, request: RunCompletionMessageRequest): Promise<RunCompletionMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
