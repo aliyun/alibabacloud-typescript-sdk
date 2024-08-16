@@ -1631,6 +1631,7 @@ export class DescribeColumnsRequest extends $tea.Model {
    * 1
    */
   currentPage?: number;
+  engineType?: string;
   /**
    * @remarks
    * The ID of the instance to which data in the column of the table belongs.
@@ -1660,6 +1661,7 @@ export class DescribeColumnsRequest extends $tea.Model {
    * zh_cn
    */
   lang?: string;
+  modelTagId?: string;
   /**
    * @remarks
    * The search keyword. Fuzzy match is supported.
@@ -1686,6 +1688,7 @@ export class DescribeColumnsRequest extends $tea.Model {
    * MaxCompute
    */
   productCode?: string;
+  productId?: string;
   /**
    * @remarks
    * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
@@ -1750,39 +1753,51 @@ export class DescribeColumnsRequest extends $tea.Model {
    * it_table
    */
   tableName?: string;
+  templateId?: string;
+  templateRuleId?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      engineType: 'EngineType',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       lang: 'Lang',
+      modelTagId: 'ModelTagId',
       name: 'Name',
       pageSize: 'PageSize',
       productCode: 'ProductCode',
+      productId: 'ProductId',
       riskLevelId: 'RiskLevelId',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       sensLevelName: 'SensLevelName',
       tableId: 'TableId',
       tableName: 'TableName',
+      templateId: 'TemplateId',
+      templateRuleId: 'TemplateRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      engineType: 'string',
       instanceId: 'number',
       instanceName: 'string',
       lang: 'string',
+      modelTagId: 'string',
       name: 'string',
       pageSize: 'number',
       productCode: 'string',
+      productId: 'string',
       riskLevelId: 'number',
       ruleId: 'number',
       ruleName: 'string',
       sensLevelName: 'string',
       tableId: 'number',
       tableName: 'string',
+      templateId: 'string',
+      templateRuleId: 'string',
     };
   }
 
@@ -4980,6 +4995,7 @@ export class DescribeOssObjectDetailResponse extends $tea.Model {
 }
 
 export class DescribeOssObjectDetailV2Request extends $tea.Model {
+  bucketName?: string;
   /**
    * @example
    * 12300
@@ -4990,17 +5006,28 @@ export class DescribeOssObjectDetailV2Request extends $tea.Model {
    * zh_cn
    */
   lang?: string;
+  objectKey?: string;
+  serviceRegionId?: string;
+  templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      bucketName: 'BucketName',
       id: 'Id',
       lang: 'Lang',
+      objectKey: 'ObjectKey',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bucketName: 'string',
       id: 'string',
       lang: 'string',
+      objectKey: 'string',
+      serviceRegionId: 'string',
+      templateId: 'number',
     };
   }
 
@@ -8360,6 +8387,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
    * MaxCompute
    */
   productCode?: string;
+  regionId?: string;
   /**
    * @remarks
    * The ID of the revision record.
@@ -8476,6 +8504,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
       odpsRiskLevelName: 'OdpsRiskLevelName',
       odpsRiskLevelValue: 'OdpsRiskLevelValue',
       productCode: 'ProductCode',
+      regionId: 'RegionId',
       revisionId: 'RevisionId',
       revisionStatus: 'RevisionStatus',
       riskLevelId: 'RiskLevelId',
@@ -8501,6 +8530,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
       odpsRiskLevelName: 'string',
       odpsRiskLevelValue: 'number',
       productCode: 'string',
+      regionId: 'string',
       revisionId: 'number',
       revisionStatus: 'number',
       riskLevelId: 'number',
@@ -13300,6 +13330,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
    * rm-uf6b9897shxxx.test
    */
   parentId?: string;
+  regionId?: string;
   /**
    * @example
    * RDS
@@ -13345,6 +13376,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
       localName: 'LocalName',
       memberAccount: 'MemberAccount',
       parentId: 'ParentId',
+      regionId: 'RegionId',
       resourceType: 'ResourceType',
       supportConnectNodes: 'SupportConnectNodes',
       tenantId: 'TenantId',
@@ -13369,6 +13401,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
       localName: 'string',
       memberAccount: 'number',
       parentId: 'string',
+      regionId: 'string',
       resourceType: 'string',
       supportConnectNodes: 'string',
       tenantId: 'string',
@@ -15053,6 +15086,10 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -15065,6 +15102,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.modelTagId)) {
+      query["ModelTagId"] = request.modelTagId;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -15075,6 +15116,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
     }
 
     if (!Util.isUnset(request.riskLevelId)) {
@@ -15099,6 +15144,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tableName)) {
       query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateRuleId)) {
+      query["TemplateRuleId"] = request.templateRuleId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16470,12 +16523,28 @@ export default class Client extends OpenApi {
   async describeOssObjectDetailV2WithOptions(request: DescribeOssObjectDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailV2Response> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
     }
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.objectKey)) {
+      query["ObjectKey"] = request.objectKey;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
