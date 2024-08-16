@@ -33703,6 +33703,7 @@ export class ExportInsightSpaceResponseBodyResult extends $tea.Model {
    * Project
    */
   category?: string;
+  customCode?: string;
   description?: string;
   /**
    * @example
@@ -33754,6 +33755,7 @@ export class ExportInsightSpaceResponseBodyResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'category',
+      customCode: 'customCode',
       description: 'description',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
@@ -33772,6 +33774,7 @@ export class ExportInsightSpaceResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      customCode: 'string',
       description: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
