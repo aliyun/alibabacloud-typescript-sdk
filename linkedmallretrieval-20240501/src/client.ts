@@ -198,16 +198,22 @@ export class AISearchResponse extends $tea.Model {
 }
 
 export class AISearchV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
   /**
    * @example
    * 14199B5E-5906-52BD-800D-900268AEC9F6
    */
   sessionId?: string;
+  timeRange?: string;
   static names(): { [key: string]: string } {
     return {
       query: 'query',
       sessionId: 'sessionId',
+      timeRange: 'timeRange',
     };
   }
 
@@ -215,6 +221,7 @@ export class AISearchV2Request extends $tea.Model {
     return {
       query: 'string',
       sessionId: 'string',
+      timeRange: 'string',
     };
   }
 
@@ -447,6 +454,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sessionId)) {
       query["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
     }
 
     let req = new $OpenApi.OpenApiRequest({
