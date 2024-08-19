@@ -7957,6 +7957,175 @@ export class ModifyRuleStatusResponse extends $tea.Model {
   }
 }
 
+export class ScanOssObjectV1Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sddp-api-demo-bucket
+   */
+  bucketName?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  objectKeyList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      lang: 'Lang',
+      objectKeyList: 'ObjectKeyList',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      lang: 'string',
+      objectKeyList: { 'type': 'array', 'itemType': 'string' },
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1ShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sddp-api-demo-bucket
+   */
+  bucketName?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  objectKeyListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      lang: 'Lang',
+      objectKeyListShrink: 'ObjectKeyList',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      lang: 'string',
+      objectKeyListShrink: 'string',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 268
+   */
+  id?: number;
+  /**
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScanOssObjectV1ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScanOssObjectV1ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopMaskingProcessRequest extends $tea.Model {
   /**
    * @remarks
@@ -17851,6 +18020,70 @@ export default class Client extends OpenApi {
   async modifyRuleStatus(request: ModifyRuleStatusRequest): Promise<ModifyRuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRuleStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建文件扫描任务
+   * 
+   * @param tmpReq - ScanOssObjectV1Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScanOssObjectV1Response
+   */
+  async scanOssObjectV1WithOptions(tmpReq: ScanOssObjectV1Request, runtime: $Util.RuntimeOptions): Promise<ScanOssObjectV1Response> {
+    Util.validateModel(tmpReq);
+    let request = new ScanOssObjectV1ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.objectKeyList)) {
+      request.objectKeyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.objectKeyList, "ObjectKeyList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.objectKeyListShrink)) {
+      query["ObjectKeyList"] = request.objectKeyListShrink;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ScanOssObjectV1",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScanOssObjectV1Response>(await this.callApi(params, req, runtime), new ScanOssObjectV1Response({}));
+  }
+
+  /**
+   * 创建文件扫描任务
+   * 
+   * @param request - ScanOssObjectV1Request
+   * @returns ScanOssObjectV1Response
+   */
+  async scanOssObjectV1(request: ScanOssObjectV1Request): Promise<ScanOssObjectV1Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.scanOssObjectV1WithOptions(request, runtime);
   }
 
   /**
