@@ -426,6 +426,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
    * PostPaid
    */
   chargeType?: string;
+  clientToken?: string;
   gpuAcceleration?: boolean;
   /**
    * @remarks
@@ -484,6 +485,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
+      clientToken: 'ClientToken',
       gpuAcceleration: 'GpuAcceleration',
       imageId: 'ImageId',
       instanceGroupName: 'InstanceGroupName',
@@ -504,6 +506,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
       autoRenew: 'boolean',
       bizRegionId: 'string',
       chargeType: 'string',
+      clientToken: 'string',
       gpuAcceleration: 'boolean',
       imageId: 'string',
       instanceGroupName: 'string',
@@ -524,6 +527,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
 
 export class CreateAndroidInstanceGroupResponseBody extends $tea.Model {
   instanceGroupIds?: string[];
+  instanceGroupInfos?: CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos[];
   /**
    * @example
    * 22365781890****
@@ -537,6 +541,7 @@ export class CreateAndroidInstanceGroupResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceGroupIds: 'InstanceGroupIds',
+      instanceGroupInfos: 'InstanceGroupInfos',
       orderId: 'OrderId',
       requestId: 'RequestId',
     };
@@ -545,6 +550,7 @@ export class CreateAndroidInstanceGroupResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      instanceGroupInfos: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos },
       orderId: 'string',
       requestId: 'string',
     };
@@ -696,6 +702,7 @@ export class CreateAppResponse extends $tea.Model {
 }
 
 export class CreateCustomImageRequest extends $tea.Model {
+  clientToken?: string;
   /**
    * @example
    * create for cc5g group auth rules test
@@ -719,6 +726,7 @@ export class CreateCustomImageRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       description: 'Description',
       imageName: 'ImageName',
       instanceId: 'InstanceId',
@@ -727,6 +735,7 @@ export class CreateCustomImageRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       description: 'string',
       imageName: 'string',
       instanceId: 'string',
@@ -739,6 +748,7 @@ export class CreateCustomImageRequest extends $tea.Model {
 }
 
 export class CreateCustomImageResponseBody extends $tea.Model {
+  imageId?: string;
   /**
    * @example
    * 20393E53-8FF1-524C-B494-B478A5369733
@@ -746,12 +756,14 @@ export class CreateCustomImageResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      imageId: 'ImageId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imageId: 'string',
       requestId: 'string',
     };
   }
@@ -884,6 +896,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
    * off
    */
   localDrive?: string;
+  netRedirectPolicy?: CreatePolicyGroupRequestNetRedirectPolicy;
   policyGroupName?: string;
   /**
    * @example
@@ -901,6 +914,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       clipboard: 'Clipboard',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupName: 'PolicyGroupName',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
@@ -913,6 +927,71 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       clipboard: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      netRedirectPolicy: CreatePolicyGroupRequestNetRedirectPolicy,
+      policyGroupName: 'string',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyGroupShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * off
+   */
+  cameraRedirect?: string;
+  /**
+   * @example
+   * readwrite
+   */
+  clipboard?: string;
+  /**
+   * @example
+   * off
+   */
+  html5FileTransfer?: string;
+  /**
+   * @example
+   * off
+   */
+  localDrive?: string;
+  netRedirectPolicyShrink?: string;
+  policyGroupName?: string;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cameraRedirect: 'CameraRedirect',
+      clipboard: 'Clipboard',
+      html5FileTransfer: 'Html5FileTransfer',
+      localDrive: 'LocalDrive',
+      netRedirectPolicyShrink: 'NetRedirectPolicy',
+      policyGroupName: 'PolicyGroupName',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cameraRedirect: 'string',
+      clipboard: 'string',
+      html5FileTransfer: 'string',
+      localDrive: 'string',
+      netRedirectPolicyShrink: 'string',
       policyGroupName: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
@@ -1503,6 +1582,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
    * ag-25nt4kk9whjh****
    */
   instanceGroupId?: string;
+  instanceGroupIds?: string[];
   /**
    * @example
    * kp-5hh431emkpuoi****
@@ -1533,6 +1613,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
       androidInstanceIds: 'AndroidInstanceIds',
       androidInstanceName: 'AndroidInstanceName',
       instanceGroupId: 'InstanceGroupId',
+      instanceGroupIds: 'InstanceGroupIds',
       keyPairId: 'KeyPairId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -1546,6 +1627,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       androidInstanceName: 'string',
       instanceGroupId: 'string',
+      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
       keyPairId: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -3032,10 +3114,12 @@ export class ImportKeyPairResponse extends $tea.Model {
 export class InstallAppRequest extends $tea.Model {
   appIdList?: string[];
   instanceGroupIdList?: string[];
+  instanceIdList?: string[];
   static names(): { [key: string]: string } {
     return {
       appIdList: 'AppIdList',
       instanceGroupIdList: 'InstanceGroupIdList',
+      instanceIdList: 'InstanceIdList',
     };
   }
 
@@ -3043,6 +3127,7 @@ export class InstallAppRequest extends $tea.Model {
     return {
       appIdList: { 'type': 'array', 'itemType': 'string' },
       instanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3552,6 +3637,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
    * off
    */
   localDrive?: string;
+  netRedirectPolicy?: ModifyPolicyGroupRequestNetRedirectPolicy;
   /**
    * @example
    * pg-4bi18ebi9tfjh****
@@ -3574,6 +3660,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       clipboard: 'Clipboard',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
       resolutionHeight: 'ResolutionHeight',
@@ -3587,6 +3674,78 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       clipboard: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      netRedirectPolicy: ModifyPolicyGroupRequestNetRedirectPolicy,
+      policyGroupId: 'string',
+      policyGroupName: 'string',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * off
+   */
+  cameraRedirect?: string;
+  /**
+   * @example
+   * readwrite
+   */
+  clipboard?: string;
+  /**
+   * @example
+   * off
+   */
+  html5FileTransfer?: string;
+  /**
+   * @example
+   * off
+   */
+  localDrive?: string;
+  netRedirectPolicyShrink?: string;
+  /**
+   * @example
+   * pg-4bi18ebi9tfjh****
+   */
+  policyGroupId?: string;
+  policyGroupName?: string;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cameraRedirect: 'CameraRedirect',
+      clipboard: 'Clipboard',
+      html5FileTransfer: 'Html5FileTransfer',
+      localDrive: 'LocalDrive',
+      netRedirectPolicyShrink: 'NetRedirectPolicy',
+      policyGroupId: 'PolicyGroupId',
+      policyGroupName: 'PolicyGroupName',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cameraRedirect: 'string',
+      clipboard: 'string',
+      html5FileTransfer: 'string',
+      localDrive: 'string',
+      netRedirectPolicyShrink: 'string',
       policyGroupId: 'string',
       policyGroupName: 'string',
       resolutionHeight: 'number',
@@ -4802,6 +4961,28 @@ export class CheckResourceStockResponseBodyResourceStockModels extends $tea.Mode
   }
 }
 
+export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $tea.Model {
+  instanceGroupId?: string;
+  instanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceGroupId: 'InstanceGroupId',
+      instanceIds: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceGroupId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateKeyPairResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -4838,6 +5019,53 @@ export class CreateKeyPairResponseBodyData extends $tea.Model {
       keyPairId: 'string',
       keyPairName: 'string',
       privateKeyBody: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule extends $tea.Model {
+  policy?: string;
+  ruleType?: string;
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      ruleType: 'RuleType',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: 'string',
+      ruleType: 'string',
+      target: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyGroupRequestNetRedirectPolicy extends $tea.Model {
+  netRedirect?: string;
+  netRedirectRule?: CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule[];
+  static names(): { [key: string]: string } {
+    return {
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule },
     };
   }
 
@@ -5876,6 +6104,53 @@ export class ImportKeyPairResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule extends $tea.Model {
+  policy?: string;
+  ruleType?: string;
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      ruleType: 'RuleType',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: 'string',
+      ruleType: 'string',
+      target: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy extends $tea.Model {
+  netRedirect?: string;
+  netRedirectRule?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule[];
+  static names(): { [key: string]: string } {
+    return {
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
   /**
    * @example
@@ -5902,6 +6177,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
    * off
    */
   localDrive?: string;
+  netRedirectPolicy?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy;
   /**
    * @example
    * pg-9q6o8qpiy8opkj****
@@ -5925,6 +6201,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
       gmtCreate: 'GmtCreate',
       html5FileTransfer: 'Html5FileTransfer',
       localDrive: 'LocalDrive',
+      netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
       sessionResolutionHeight: 'SessionResolutionHeight',
@@ -5939,10 +6216,58 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
       gmtCreate: 'string',
       html5FileTransfer: 'string',
       localDrive: 'string',
+      netRedirectPolicy: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy,
       policyGroupId: 'string',
       policyGroupName: 'string',
       sessionResolutionHeight: 'string',
       sessionResolutionWidth: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule extends $tea.Model {
+  policy?: string;
+  ruleType?: string;
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      ruleType: 'RuleType',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: 'string',
+      ruleType: 'string',
+      target: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestNetRedirectPolicy extends $tea.Model {
+  netRedirect?: string;
+  netRedirectRule?: ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule[];
+  static names(): { [key: string]: string } {
+    return {
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule },
     };
   }
 
@@ -6246,6 +6571,10 @@ export default class Client extends OpenApi {
       query["ChargeType"] = request.chargeType;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.gpuAcceleration)) {
       query["GpuAcceleration"] = request.gpuAcceleration;
     }
@@ -6390,6 +6719,10 @@ export default class Client extends OpenApi {
   async createCustomImageWithOptions(request: CreateCustomImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomImageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
@@ -6475,12 +6808,18 @@ export default class Client extends OpenApi {
   /**
    * 创建策略
    * 
-   * @param request - CreatePolicyGroupRequest
+   * @param tmpReq - CreatePolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePolicyGroupResponse
    */
-  async createPolicyGroupWithOptions(request: CreatePolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyGroupResponse> {
-    Util.validateModel(request);
+  async createPolicyGroupWithOptions(tmpReq: CreatePolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePolicyGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.netRedirectPolicy)) {
+      request.netRedirectPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.netRedirectPolicy, "NetRedirectPolicy", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cameraRedirect)) {
       body["CameraRedirect"] = request.cameraRedirect;
@@ -6496,6 +6835,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.localDrive)) {
       body["LocalDrive"] = request.localDrive;
+    }
+
+    if (!Util.isUnset(request.netRedirectPolicyShrink)) {
+      body["NetRedirectPolicy"] = request.netRedirectPolicyShrink;
     }
 
     if (!Util.isUnset(request.policyGroupName)) {
@@ -6848,6 +7191,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceGroupId)) {
       query["InstanceGroupId"] = request.instanceGroupId;
+    }
+
+    if (!Util.isUnset(request.instanceGroupIds)) {
+      query["InstanceGroupIds"] = request.instanceGroupIds;
     }
 
     if (!Util.isUnset(request.keyPairId)) {
@@ -7654,6 +8001,10 @@ export default class Client extends OpenApi {
       query["InstanceGroupIdList"] = request.instanceGroupIdList;
     }
 
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7935,12 +8286,18 @@ export default class Client extends OpenApi {
   /**
    * 修改policy
    * 
-   * @param request - ModifyPolicyGroupRequest
+   * @param tmpReq - ModifyPolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPolicyGroupResponse
    */
-  async modifyPolicyGroupWithOptions(request: ModifyPolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyGroupResponse> {
-    Util.validateModel(request);
+  async modifyPolicyGroupWithOptions(tmpReq: ModifyPolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyPolicyGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.netRedirectPolicy)) {
+      request.netRedirectPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.netRedirectPolicy, "NetRedirectPolicy", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cameraRedirect)) {
       body["CameraRedirect"] = request.cameraRedirect;
@@ -7956,6 +8313,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.localDrive)) {
       body["LocalDrive"] = request.localDrive;
+    }
+
+    if (!Util.isUnset(request.netRedirectPolicyShrink)) {
+      body["NetRedirectPolicy"] = request.netRedirectPolicyShrink;
     }
 
     if (!Util.isUnset(request.policyGroupId)) {
