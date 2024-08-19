@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
@@ -16,6 +15,10 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AyncTradeDocumentPackageExtractSmartAppRequest extends $tea.Model {
   customExtractionRange?: string[];
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileUrl?: string;
   option?: string;
   templateName?: string;
@@ -47,6 +50,10 @@ export class AyncTradeDocumentPackageExtractSmartAppRequest extends $tea.Model {
 export class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends $tea.Model {
   customExtractionRangeShrink?: string;
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileUrl?: string;
   option?: string;
   templateName?: string;
@@ -79,6 +86,10 @@ export class AyncTradeDocumentPackageExtractSmartAppResponseBody extends $tea.Mo
   completed?: boolean;
   createTime?: string;
   data?: any;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   status?: string;
   success?: boolean;
@@ -134,15 +145,103 @@ export class AyncTradeDocumentPackageExtractSmartAppResponse extends $tea.Model 
   }
 }
 
+export class GetDocParserResultRequest extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-1e89d65c
+   */
+  id?: string;
+  layoutNum?: number;
+  layoutStepSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      layoutNum: 'LayoutNum',
+      layoutStepSize: 'LayoutStepSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      layoutNum: 'number',
+      layoutStepSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocParserResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocParserResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocParserResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocParserResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocStructureResultRequest extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-1e89d65c
+   */
   id?: string;
   imageStrategy?: string;
   revealMarkdown?: boolean;
+  useUrlResponseBody?: boolean;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       imageStrategy: 'ImageStrategy',
       revealMarkdown: 'RevealMarkdown',
+      useUrlResponseBody: 'UseUrlResponseBody',
     };
   }
 
@@ -151,6 +250,7 @@ export class GetDocStructureResultRequest extends $tea.Model {
       id: 'string',
       imageStrategy: 'string',
       revealMarkdown: 'boolean',
+      useUrlResponseBody: 'boolean',
     };
   }
 
@@ -160,11 +260,27 @@ export class GetDocStructureResultRequest extends $tea.Model {
 }
 
 export class GetDocStructureResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   completed?: boolean;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,11 +354,27 @@ export class GetDocumentCompareResultRequest extends $tea.Model {
 }
 
 export class GetDocumentCompareResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   completed?: boolean;
   data?: any;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -297,6 +429,10 @@ export class GetDocumentCompareResultResponse extends $tea.Model {
 }
 
 export class GetDocumentConvertResultRequest extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-1e89d65c
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -316,11 +452,34 @@ export class GetDocumentConvertResultRequest extends $tea.Model {
 }
 
 export class GetDocumentConvertResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   completed?: boolean;
   data?: GetDocumentConvertResultResponseBodyData[];
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -375,6 +534,10 @@ export class GetDocumentConvertResultResponse extends $tea.Model {
 }
 
 export class GetDocumentExtractResultRequest extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-1e89d65c
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -394,11 +557,27 @@ export class GetDocumentExtractResultRequest extends $tea.Model {
 }
 
 export class GetDocumentExtractResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   completed?: boolean;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -531,6 +710,10 @@ export class GetPageNumResponse extends $tea.Model {
 }
 
 export class GetTableUnderstandingResultRequest extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-1e89d65c
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -550,11 +733,27 @@ export class GetTableUnderstandingResultRequest extends $tea.Model {
 }
 
 export class GetTableUnderstandingResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   completed?: boolean;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -608,8 +807,100 @@ export class GetTableUnderstandingResultResponse extends $tea.Model {
   }
 }
 
+export class QueryDocParserStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-1e89d65c
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDocParserStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
+  code?: string;
+  data?: QueryDocParserStatusResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
+  message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDocParserStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDocParserStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDocParserStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDocParserStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitConvertImageToExcelJobRequest extends $tea.Model {
   forceMergeExcel?: boolean;
+  /**
+   * @example
+   * jpg
+   */
   imageNameExtension?: string;
   imageNames?: string[];
   imageUrls?: string[];
@@ -638,6 +929,10 @@ export class SubmitConvertImageToExcelJobRequest extends $tea.Model {
 
 export class SubmitConvertImageToExcelJobShrinkRequest extends $tea.Model {
   forceMergeExcel?: boolean;
+  /**
+   * @example
+   * jpg
+   */
   imageNameExtension?: string;
   imageNamesShrink?: string;
   imageUrlsShrink?: string;
@@ -665,9 +960,21 @@ export class SubmitConvertImageToExcelJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToExcelJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertImageToExcelJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -718,6 +1025,10 @@ export class SubmitConvertImageToExcelJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertImageToMarkdownJobRequest extends $tea.Model {
+  /**
+   * @example
+   * jpg
+   */
   imageNameExtension?: string;
   imageNames?: string[];
   imageUrls?: string[];
@@ -743,6 +1054,10 @@ export class SubmitConvertImageToMarkdownJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToMarkdownJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * jpg
+   */
   imageNameExtension?: string;
   imageNamesShrink?: string;
   imageUrlsShrink?: string;
@@ -768,9 +1083,21 @@ export class SubmitConvertImageToMarkdownJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToMarkdownJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertImageToMarkdownJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -821,6 +1148,10 @@ export class SubmitConvertImageToMarkdownJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertImageToPdfJobRequest extends $tea.Model {
+  /**
+   * @example
+   * JPG
+   */
   imageNameExtension?: string;
   imageNames?: string[];
   imageUrls?: string[];
@@ -846,6 +1177,10 @@ export class SubmitConvertImageToPdfJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToPdfJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * JPG
+   */
   imageNameExtension?: string;
   imageNamesShrink?: string;
   imageUrlsShrink?: string;
@@ -871,9 +1206,21 @@ export class SubmitConvertImageToPdfJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToPdfJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertImageToPdfJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -924,6 +1271,10 @@ export class SubmitConvertImageToPdfJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertImageToWordJobRequest extends $tea.Model {
+  /**
+   * @example
+   * jpg
+   */
   imageNameExtension?: string;
   imageNames?: string[];
   imageUrls?: string[];
@@ -949,6 +1300,10 @@ export class SubmitConvertImageToWordJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToWordJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * jpg
+   */
   imageNameExtension?: string;
   imageNamesShrink?: string;
   imageUrlsShrink?: string;
@@ -974,9 +1329,21 @@ export class SubmitConvertImageToWordJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToWordJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertImageToWordJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1027,7 +1394,15 @@ export class SubmitConvertImageToWordJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
+  /**
+   * @example
+   * convertPdfToExcel.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   forceExportInnerImage?: boolean;
   forceMergeExcel?: boolean;
@@ -1055,7 +1430,15 @@ export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToExcelJobAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * convertPdfToExcel.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   forceExportInnerImage?: boolean;
   forceMergeExcel?: boolean;
@@ -1083,9 +1466,21 @@ export class SubmitConvertPdfToExcelJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToExcelJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertPdfToExcelJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1136,7 +1531,15 @@ export class SubmitConvertPdfToExcelJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertPdfToImageJobRequest extends $tea.Model {
+  /**
+   * @example
+   * convertPdfToImage.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1158,7 +1561,15 @@ export class SubmitConvertPdfToImageJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToImageJobAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * convertPdfToImage.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -1180,9 +1591,21 @@ export class SubmitConvertPdfToImageJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToImageJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertPdfToImageJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1233,7 +1656,15 @@ export class SubmitConvertPdfToImageJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertPdfToMarkdownJobRequest extends $tea.Model {
+  /**
+   * @example
+   * convertPdfToExcel.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1255,7 +1686,15 @@ export class SubmitConvertPdfToMarkdownJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToMarkdownJobAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * convertPdfToExcel.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -1277,9 +1716,21 @@ export class SubmitConvertPdfToMarkdownJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToMarkdownJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertPdfToMarkdownJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1330,7 +1781,15 @@ export class SubmitConvertPdfToMarkdownJobResponse extends $tea.Model {
 }
 
 export class SubmitConvertPdfToWordJobRequest extends $tea.Model {
+  /**
+   * @example
+   * covertPdfToWord.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   forceExportInnerImage?: boolean;
   static names(): { [key: string]: string } {
@@ -1355,7 +1814,15 @@ export class SubmitConvertPdfToWordJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToWordJobAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * covertPdfToWord.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   forceExportInnerImage?: boolean;
   static names(): { [key: string]: string } {
@@ -1380,9 +1847,21 @@ export class SubmitConvertPdfToWordJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitConvertPdfToWordJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitConvertPdfToWordJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1433,11 +1912,24 @@ export class SubmitConvertPdfToWordJobResponse extends $tea.Model {
 }
 
 export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
+  /**
+   * @example
+   * docStructure.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   imageStrategy?: string;
   revealMarkdown?: boolean;
+  useUrlResponseBody?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
@@ -1445,6 +1937,7 @@ export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
       fileUrl: 'FileUrl',
       imageStrategy: 'ImageStrategy',
       revealMarkdown: 'RevealMarkdown',
+      useUrlResponseBody: 'UseUrlResponseBody',
     };
   }
 
@@ -1455,6 +1948,7 @@ export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
       fileUrl: 'string',
       imageStrategy: 'string',
       revealMarkdown: 'boolean',
+      useUrlResponseBody: 'boolean',
     };
   }
 
@@ -1464,11 +1958,24 @@ export class SubmitDigitalDocStructureJobRequest extends $tea.Model {
 }
 
 export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * docStructure.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   imageStrategy?: string;
   revealMarkdown?: boolean;
+  useUrlResponseBody?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
@@ -1476,6 +1983,7 @@ export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
       fileUrlObject: 'FileUrl',
       imageStrategy: 'ImageStrategy',
       revealMarkdown: 'RevealMarkdown',
+      useUrlResponseBody: 'UseUrlResponseBody',
     };
   }
 
@@ -1486,6 +1994,7 @@ export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
       fileUrlObject: 'Readable',
       imageStrategy: 'string',
       revealMarkdown: 'boolean',
+      useUrlResponseBody: 'boolean',
     };
   }
 
@@ -1495,10 +2004,22 @@ export class SubmitDigitalDocStructureJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitDigitalDocStructureJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: any;
   id?: string;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -1553,10 +2074,167 @@ export class SubmitDigitalDocStructureJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitDocParserJobRequest extends $tea.Model {
+  /**
+   * @example
+   * docStructure.pdf
+   */
+  fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
+  fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
+  fileUrl?: string;
+  formulaEnhancement?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrl: 'FileUrl',
+      formulaEnhancement: 'FormulaEnhancement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrl: 'string',
+      formulaEnhancement: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParserJobAdvanceRequest extends $tea.Model {
+  /**
+   * @example
+   * docStructure.pdf
+   */
+  fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
+  fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
+  fileUrlObject?: Readable;
+  formulaEnhancement?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileNameExtension: 'FileNameExtension',
+      fileUrlObject: 'FileUrl',
+      formulaEnhancement: 'FormulaEnhancement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileNameExtension: 'string',
+      fileUrlObject: 'Readable',
+      formulaEnhancement: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParserJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
+  code?: string;
+  data?: SubmitDocParserJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
+  message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitDocParserJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParserJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocParserJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDocParserJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDocStructureJobRequest extends $tea.Model {
   allowPptFormat?: boolean;
+  /**
+   * @example
+   * docStructure.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   formulaEnhancement?: boolean;
   structureType?: string;
@@ -1589,8 +2267,20 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
 
 export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
   allowPptFormat?: boolean;
+  /**
+   * @example
+   * docStructure.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   formulaEnhancement?: boolean;
   structureType?: string;
@@ -1622,9 +2312,21 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitDocStructureJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitDocStructureJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1676,7 +2378,15 @@ export class SubmitDocStructureJobResponse extends $tea.Model {
 
 export class SubmitDocumentExtractJobRequest extends $tea.Model {
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1701,7 +2411,15 @@ export class SubmitDocumentExtractJobRequest extends $tea.Model {
 
 export class SubmitDocumentExtractJobAdvanceRequest extends $tea.Model {
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -1725,9 +2443,21 @@ export class SubmitDocumentExtractJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitDocumentExtractJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitDocumentExtractJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1779,7 +2509,15 @@ export class SubmitDocumentExtractJobResponse extends $tea.Model {
 
 export class SubmitTableUnderstandingJobRequest extends $tea.Model {
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1804,7 +2542,15 @@ export class SubmitTableUnderstandingJobRequest extends $tea.Model {
 
 export class SubmitTableUnderstandingJobAdvanceRequest extends $tea.Model {
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileNameExtension?: string;
+  /**
+   * @example
+   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
+   */
   fileUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -1828,9 +2574,21 @@ export class SubmitTableUnderstandingJobAdvanceRequest extends $tea.Model {
 }
 
 export class SubmitTableUnderstandingJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * noPermission
+   */
   code?: string;
   data?: SubmitTableUnderstandingJobResponseBodyData;
+  /**
+   * @example
+   * You are not authorized to perform this operation.
+   */
   message?: string;
+  /**
+   * @example
+   * 43A29C77-405E-4CC0-BC55-EE694AD00655
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1881,9 +2639,25 @@ export class SubmitTableUnderstandingJobResponse extends $tea.Model {
 }
 
 export class GetDocumentConvertResultResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * e6d83e55df218650b9a296bfbc300076
+   */
   md5?: string;
+  /**
+   * @example
+   * 2355965
+   */
   size?: number;
+  /**
+   * @example
+   * pdf
+   */
   type?: string;
+  /**
+   * @example
+   * http://docmind-api-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/convert/docmind-20220816-15bc7965/0.pdf?Expires=1660722412&OSSAccessKeyId=LTAI5tFEK2uEApeeYzxNMEci&Signature=f%2FKluINWMuuVyA5w22Z1wkoRjEg%3D
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1927,7 +2701,33 @@ export class GetPageNumResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDocParserStatusResponseBodyData extends $tea.Model {
+  numberOfSuccessfulParsing?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      numberOfSuccessfulParsing: 'NumberOfSuccessfulParsing',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      numberOfSuccessfulParsing: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitConvertImageToExcelJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220810-7c5f9dd4
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1947,6 +2747,10 @@ export class SubmitConvertImageToExcelJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertImageToMarkdownJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220810-7c5f9dd4
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1966,6 +2770,10 @@ export class SubmitConvertImageToMarkdownJobResponseBodyData extends $tea.Model 
 }
 
 export class SubmitConvertImageToPdfJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220810-7c5f9dd4
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1985,6 +2793,10 @@ export class SubmitConvertImageToPdfJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertImageToWordJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220810-7c5f9dd4
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2004,6 +2816,10 @@ export class SubmitConvertImageToWordJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertPdfToExcelJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2023,6 +2839,10 @@ export class SubmitConvertPdfToExcelJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertPdfToImageJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220810-7c5f9dd4
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2042,6 +2862,10 @@ export class SubmitConvertPdfToImageJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertPdfToMarkdownJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2061,6 +2885,33 @@ export class SubmitConvertPdfToMarkdownJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertPdfToWordJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParserJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2080,6 +2931,10 @@ export class SubmitConvertPdfToWordJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitDocStructureJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2099,6 +2954,10 @@ export class SubmitDocStructureJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitDocumentExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2118,6 +2977,10 @@ export class SubmitDocumentExtractJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitTableUnderstandingJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * docmind-20220816-15bc7965
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2218,11 +3081,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 整票识别
-   *
-   * @param tmpReq AyncTradeDocumentPackageExtractSmartAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AyncTradeDocumentPackageExtractSmartAppResponse
+   * 整票识别
+   * 
+   * @param tmpReq - AyncTradeDocumentPackageExtractSmartAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AyncTradeDocumentPackageExtractSmartAppResponse
    */
   async ayncTradeDocumentPackageExtractSmartAppWithOptions(tmpReq: AyncTradeDocumentPackageExtractSmartAppRequest, runtime: $Util.RuntimeOptions): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
     Util.validateModel(tmpReq);
@@ -2271,10 +3134,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 整票识别
-   *
-   * @param request AyncTradeDocumentPackageExtractSmartAppRequest
-   * @return AyncTradeDocumentPackageExtractSmartAppResponse
+   * 整票识别
+   * 
+   * @param request - AyncTradeDocumentPackageExtractSmartAppRequest
+   * @returns AyncTradeDocumentPackageExtractSmartAppResponse
    */
   async ayncTradeDocumentPackageExtractSmartApp(request: AyncTradeDocumentPackageExtractSmartAppRequest): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2282,11 +3145,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档智能解析结果查询
-   *
-   * @param request GetDocStructureResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocStructureResultResponse
+   * 文档结构化流式接口
+   * 
+   * @param request - GetDocParserResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocParserResultResponse
+   */
+  async getDocParserResultWithOptions(request: GetDocParserResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocParserResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.layoutNum)) {
+      query["LayoutNum"] = request.layoutNum;
+    }
+
+    if (!Util.isUnset(request.layoutStepSize)) {
+      query["LayoutStepSize"] = request.layoutStepSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDocParserResult",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocParserResultResponse>(await this.callApi(params, req, runtime), new GetDocParserResultResponse({}));
+  }
+
+  /**
+   * 文档结构化流式接口
+   * 
+   * @param request - GetDocParserResultRequest
+   * @returns GetDocParserResultResponse
+   */
+  async getDocParserResult(request: GetDocParserResultRequest): Promise<GetDocParserResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDocParserResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 文档智能解析结果查询
+   * 
+   * @param request - GetDocStructureResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocStructureResultResponse
    */
   async getDocStructureResultWithOptions(request: GetDocStructureResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocStructureResultResponse> {
     Util.validateModel(request);
@@ -2301,6 +3214,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.revealMarkdown)) {
       query["RevealMarkdown"] = request.revealMarkdown;
+    }
+
+    if (!Util.isUnset(request.useUrlResponseBody)) {
+      query["UseUrlResponseBody"] = request.useUrlResponseBody;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2321,10 +3238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档智能解析结果查询
-   *
-   * @param request GetDocStructureResultRequest
-   * @return GetDocStructureResultResponse
+   * 文档智能解析结果查询
+   * 
+   * @param request - GetDocStructureResultRequest
+   * @returns GetDocStructureResultResponse
    */
   async getDocStructureResult(request: GetDocStructureResultRequest): Promise<GetDocStructureResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2332,11 +3249,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档对比结果查询
-   *
-   * @param request GetDocumentCompareResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentCompareResultResponse
+   * 文档对比结果查询
+   * 
+   * @param request - GetDocumentCompareResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentCompareResultResponse
    */
   async getDocumentCompareResultWithOptions(request: GetDocumentCompareResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentCompareResultResponse> {
     Util.validateModel(request);
@@ -2363,10 +3280,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档对比结果查询
-   *
-   * @param request GetDocumentCompareResultRequest
-   * @return GetDocumentCompareResultResponse
+   * 文档对比结果查询
+   * 
+   * @param request - GetDocumentCompareResultRequest
+   * @returns GetDocumentCompareResultResponse
    */
   async getDocumentCompareResult(request: GetDocumentCompareResultRequest): Promise<GetDocumentCompareResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2374,11 +3291,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档转换结果查询
-   *
-   * @param request GetDocumentConvertResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentConvertResultResponse
+   * 文档转换结果查询
+   * 
+   * @param request - GetDocumentConvertResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentConvertResultResponse
    */
   async getDocumentConvertResultWithOptions(request: GetDocumentConvertResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentConvertResultResponse> {
     Util.validateModel(request);
@@ -2405,10 +3322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档转换结果查询
-   *
-   * @param request GetDocumentConvertResultRequest
-   * @return GetDocumentConvertResultResponse
+   * 文档转换结果查询
+   * 
+   * @param request - GetDocumentConvertResultRequest
+   * @returns GetDocumentConvertResultResponse
    */
   async getDocumentConvertResult(request: GetDocumentConvertResultRequest): Promise<GetDocumentConvertResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2416,11 +3333,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档抽取结果查询
-   *
-   * @param request GetDocumentExtractResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentExtractResultResponse
+   * 文档抽取结果查询
+   * 
+   * @param request - GetDocumentExtractResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentExtractResultResponse
    */
   async getDocumentExtractResultWithOptions(request: GetDocumentExtractResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentExtractResultResponse> {
     Util.validateModel(request);
@@ -2447,10 +3364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档抽取结果查询
-   *
-   * @param request GetDocumentExtractResultRequest
-   * @return GetDocumentExtractResultResponse
+   * 文档抽取结果查询
+   * 
+   * @param request - GetDocumentExtractResultRequest
+   * @returns GetDocumentExtractResultResponse
    */
   async getDocumentExtractResult(request: GetDocumentExtractResultRequest): Promise<GetDocumentExtractResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2458,11 +3375,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary openmind
-   *
-   * @param request GetPageNumRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPageNumResponse
+   * openmind
+   * 
+   * @param request - GetPageNumRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPageNumResponse
    */
   async getPageNumWithOptions(request: GetPageNumRequest, runtime: $Util.RuntimeOptions): Promise<GetPageNumResponse> {
     Util.validateModel(request);
@@ -2489,10 +3406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary openmind
-   *
-   * @param request GetPageNumRequest
-   * @return GetPageNumResponse
+   * openmind
+   * 
+   * @param request - GetPageNumRequest
+   * @returns GetPageNumResponse
    */
   async getPageNum(request: GetPageNumRequest): Promise<GetPageNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2500,11 +3417,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 表格智能解析结果查询
-   *
-   * @param request GetTableUnderstandingResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTableUnderstandingResultResponse
+   * 表格智能解析结果查询
+   * 
+   * @param request - GetTableUnderstandingResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableUnderstandingResultResponse
    */
   async getTableUnderstandingResultWithOptions(request: GetTableUnderstandingResultRequest, runtime: $Util.RuntimeOptions): Promise<GetTableUnderstandingResultResponse> {
     Util.validateModel(request);
@@ -2531,10 +3448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 表格智能解析结果查询
-   *
-   * @param request GetTableUnderstandingResultRequest
-   * @return GetTableUnderstandingResultResponse
+   * 表格智能解析结果查询
+   * 
+   * @param request - GetTableUnderstandingResultRequest
+   * @returns GetTableUnderstandingResultResponse
    */
   async getTableUnderstandingResult(request: GetTableUnderstandingResultRequest): Promise<GetTableUnderstandingResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2542,11 +3459,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转excel
-   *
-   * @param tmpReq SubmitConvertImageToExcelJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertImageToExcelJobResponse
+   * 获取文档智能解析处理状态
+   * 
+   * @param request - QueryDocParserStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDocParserStatusResponse
+   */
+  async queryDocParserStatusWithOptions(request: QueryDocParserStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDocParserStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDocParserStatus",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDocParserStatusResponse>(await this.callApi(params, req, runtime), new QueryDocParserStatusResponse({}));
+  }
+
+  /**
+   * 获取文档智能解析处理状态
+   * 
+   * @param request - QueryDocParserStatusRequest
+   * @returns QueryDocParserStatusResponse
+   */
+  async queryDocParserStatus(request: QueryDocParserStatusRequest): Promise<QueryDocParserStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDocParserStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 图片转excel
+   * 
+   * @param tmpReq - SubmitConvertImageToExcelJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertImageToExcelJobResponse
    */
   async submitConvertImageToExcelJobWithOptions(tmpReq: SubmitConvertImageToExcelJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToExcelJobResponse> {
     Util.validateModel(tmpReq);
@@ -2595,10 +3554,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转excel
-   *
-   * @param request SubmitConvertImageToExcelJobRequest
-   * @return SubmitConvertImageToExcelJobResponse
+   * 图片转excel
+   * 
+   * @param request - SubmitConvertImageToExcelJobRequest
+   * @returns SubmitConvertImageToExcelJobResponse
    */
   async submitConvertImageToExcelJob(request: SubmitConvertImageToExcelJobRequest): Promise<SubmitConvertImageToExcelJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2606,11 +3565,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转markdown
-   *
-   * @param tmpReq SubmitConvertImageToMarkdownJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertImageToMarkdownJobResponse
+   * 图片转markdown
+   * 
+   * @param tmpReq - SubmitConvertImageToMarkdownJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertImageToMarkdownJobResponse
    */
   async submitConvertImageToMarkdownJobWithOptions(tmpReq: SubmitConvertImageToMarkdownJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToMarkdownJobResponse> {
     Util.validateModel(tmpReq);
@@ -2655,10 +3614,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转markdown
-   *
-   * @param request SubmitConvertImageToMarkdownJobRequest
-   * @return SubmitConvertImageToMarkdownJobResponse
+   * 图片转markdown
+   * 
+   * @param request - SubmitConvertImageToMarkdownJobRequest
+   * @returns SubmitConvertImageToMarkdownJobResponse
    */
   async submitConvertImageToMarkdownJob(request: SubmitConvertImageToMarkdownJobRequest): Promise<SubmitConvertImageToMarkdownJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2666,11 +3625,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转pdf
-   *
-   * @param tmpReq SubmitConvertImageToPdfJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertImageToPdfJobResponse
+   * 图片转pdf
+   * 
+   * @param tmpReq - SubmitConvertImageToPdfJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertImageToPdfJobResponse
    */
   async submitConvertImageToPdfJobWithOptions(tmpReq: SubmitConvertImageToPdfJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToPdfJobResponse> {
     Util.validateModel(tmpReq);
@@ -2715,10 +3674,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转pdf
-   *
-   * @param request SubmitConvertImageToPdfJobRequest
-   * @return SubmitConvertImageToPdfJobResponse
+   * 图片转pdf
+   * 
+   * @param request - SubmitConvertImageToPdfJobRequest
+   * @returns SubmitConvertImageToPdfJobResponse
    */
   async submitConvertImageToPdfJob(request: SubmitConvertImageToPdfJobRequest): Promise<SubmitConvertImageToPdfJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2726,11 +3685,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转word
-   *
-   * @param tmpReq SubmitConvertImageToWordJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertImageToWordJobResponse
+   * 图片转word
+   * 
+   * @param tmpReq - SubmitConvertImageToWordJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertImageToWordJobResponse
    */
   async submitConvertImageToWordJobWithOptions(tmpReq: SubmitConvertImageToWordJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToWordJobResponse> {
     Util.validateModel(tmpReq);
@@ -2775,10 +3734,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转word
-   *
-   * @param request SubmitConvertImageToWordJobRequest
-   * @return SubmitConvertImageToWordJobResponse
+   * 图片转word
+   * 
+   * @param request - SubmitConvertImageToWordJobRequest
+   * @returns SubmitConvertImageToWordJobResponse
    */
   async submitConvertImageToWordJob(request: SubmitConvertImageToWordJobRequest): Promise<SubmitConvertImageToWordJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2786,11 +3745,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转excel
-   *
-   * @param request SubmitConvertPdfToExcelJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertPdfToExcelJobResponse
+   * pdf转excel
+   * 
+   * @param request - SubmitConvertPdfToExcelJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertPdfToExcelJobResponse
    */
   async submitConvertPdfToExcelJobWithOptions(request: SubmitConvertPdfToExcelJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToExcelJobResponse> {
     Util.validateModel(request);
@@ -2829,10 +3788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转excel
-   *
-   * @param request SubmitConvertPdfToExcelJobRequest
-   * @return SubmitConvertPdfToExcelJobResponse
+   * pdf转excel
+   * 
+   * @param request - SubmitConvertPdfToExcelJobRequest
+   * @returns SubmitConvertPdfToExcelJobResponse
    */
   async submitConvertPdfToExcelJob(request: SubmitConvertPdfToExcelJobRequest): Promise<SubmitConvertPdfToExcelJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2915,11 +3874,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转图片
-   *
-   * @param request SubmitConvertPdfToImageJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertPdfToImageJobResponse
+   * pdf转图片
+   * 
+   * @param request - SubmitConvertPdfToImageJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertPdfToImageJobResponse
    */
   async submitConvertPdfToImageJobWithOptions(request: SubmitConvertPdfToImageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToImageJobResponse> {
     Util.validateModel(request);
@@ -2950,10 +3909,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转图片
-   *
-   * @param request SubmitConvertPdfToImageJobRequest
-   * @return SubmitConvertPdfToImageJobResponse
+   * pdf转图片
+   * 
+   * @param request - SubmitConvertPdfToImageJobRequest
+   * @returns SubmitConvertPdfToImageJobResponse
    */
   async submitConvertPdfToImageJob(request: SubmitConvertPdfToImageJobRequest): Promise<SubmitConvertPdfToImageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3036,11 +3995,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转markdown
-   *
-   * @param request SubmitConvertPdfToMarkdownJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertPdfToMarkdownJobResponse
+   * pdf转markdown
+   * 
+   * @param request - SubmitConvertPdfToMarkdownJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertPdfToMarkdownJobResponse
    */
   async submitConvertPdfToMarkdownJobWithOptions(request: SubmitConvertPdfToMarkdownJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToMarkdownJobResponse> {
     Util.validateModel(request);
@@ -3071,10 +4030,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转markdown
-   *
-   * @param request SubmitConvertPdfToMarkdownJobRequest
-   * @return SubmitConvertPdfToMarkdownJobResponse
+   * pdf转markdown
+   * 
+   * @param request - SubmitConvertPdfToMarkdownJobRequest
+   * @returns SubmitConvertPdfToMarkdownJobResponse
    */
   async submitConvertPdfToMarkdownJob(request: SubmitConvertPdfToMarkdownJobRequest): Promise<SubmitConvertPdfToMarkdownJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3157,11 +4116,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转word
-   *
-   * @param request SubmitConvertPdfToWordJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitConvertPdfToWordJobResponse
+   * pdf转word
+   * 
+   * @param request - SubmitConvertPdfToWordJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitConvertPdfToWordJobResponse
    */
   async submitConvertPdfToWordJobWithOptions(request: SubmitConvertPdfToWordJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToWordJobResponse> {
     Util.validateModel(request);
@@ -3196,10 +4155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pdf转word
-   *
-   * @param request SubmitConvertPdfToWordJobRequest
-   * @return SubmitConvertPdfToWordJobResponse
+   * pdf转word
+   * 
+   * @param request - SubmitConvertPdfToWordJobRequest
+   * @returns SubmitConvertPdfToWordJobResponse
    */
   async submitConvertPdfToWordJob(request: SubmitConvertPdfToWordJobRequest): Promise<SubmitConvertPdfToWordJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3282,11 +4241,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 电子解析
-   *
-   * @param request SubmitDigitalDocStructureJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitDigitalDocStructureJobResponse
+   * 电子解析
+   * 
+   * @param request - SubmitDigitalDocStructureJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDigitalDocStructureJobResponse
    */
   async submitDigitalDocStructureJobWithOptions(request: SubmitDigitalDocStructureJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDigitalDocStructureJobResponse> {
     Util.validateModel(request);
@@ -3311,6 +4270,10 @@ export default class Client extends OpenApi {
       query["RevealMarkdown"] = request.revealMarkdown;
     }
 
+    if (!Util.isUnset(request.useUrlResponseBody)) {
+      query["UseUrlResponseBody"] = request.useUrlResponseBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3329,10 +4292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 电子解析
-   *
-   * @param request SubmitDigitalDocStructureJobRequest
-   * @return SubmitDigitalDocStructureJobResponse
+   * 电子解析
+   * 
+   * @param request - SubmitDigitalDocStructureJobRequest
+   * @returns SubmitDigitalDocStructureJobResponse
    */
   async submitDigitalDocStructureJob(request: SubmitDigitalDocStructureJobRequest): Promise<SubmitDigitalDocStructureJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3415,11 +4378,140 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档智能解析
-   *
-   * @param request SubmitDocStructureJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitDocStructureJobResponse
+   * 文档智能解析流式输出
+   * 
+   * @param request - SubmitDocParserJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocParserJobResponse
+   */
+  async submitDocParserJobWithOptions(request: SubmitDocParserJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocParserJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileNameExtension)) {
+      query["FileNameExtension"] = request.fileNameExtension;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.formulaEnhancement)) {
+      query["FormulaEnhancement"] = request.formulaEnhancement;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDocParserJob",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDocParserJobResponse>(await this.callApi(params, req, runtime), new SubmitDocParserJobResponse({}));
+  }
+
+  /**
+   * 文档智能解析流式输出
+   * 
+   * @param request - SubmitDocParserJobRequest
+   * @returns SubmitDocParserJobResponse
+   */
+  async submitDocParserJob(request: SubmitDocParserJobRequest): Promise<SubmitDocParserJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDocParserJobWithOptions(request, runtime);
+  }
+
+  async submitDocParserJobAdvance(request: SubmitDocParserJobAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocParserJobResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.empty(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "docmind-api",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitDocParserJobReq = new SubmitDocParserJobRequest({ });
+    OpenApiUtil.convert(request, submitDocParserJobReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitDocParserJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitDocParserJobResp = await this.submitDocParserJobWithOptions(submitDocParserJobReq, runtime);
+    return submitDocParserJobResp;
+  }
+
+  /**
+   * 文档智能解析
+   * 
+   * @param request - SubmitDocStructureJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocStructureJobResponse
    */
   async submitDocStructureJobWithOptions(request: SubmitDocStructureJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocStructureJobResponse> {
     Util.validateModel(request);
@@ -3466,10 +4558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档智能解析
-   *
-   * @param request SubmitDocStructureJobRequest
-   * @return SubmitDocStructureJobResponse
+   * 文档智能解析
+   * 
+   * @param request - SubmitDocStructureJobRequest
+   * @returns SubmitDocStructureJobResponse
    */
   async submitDocStructureJob(request: SubmitDocStructureJobRequest): Promise<SubmitDocStructureJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3552,11 +4644,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档抽取
-   *
-   * @param request SubmitDocumentExtractJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitDocumentExtractJobResponse
+   * 文档抽取
+   * 
+   * @param request - SubmitDocumentExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocumentExtractJobResponse
    */
   async submitDocumentExtractJobWithOptions(request: SubmitDocumentExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentExtractJobResponse> {
     Util.validateModel(request);
@@ -3591,10 +4683,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档抽取
-   *
-   * @param request SubmitDocumentExtractJobRequest
-   * @return SubmitDocumentExtractJobResponse
+   * 文档抽取
+   * 
+   * @param request - SubmitDocumentExtractJobRequest
+   * @returns SubmitDocumentExtractJobResponse
    */
   async submitDocumentExtractJob(request: SubmitDocumentExtractJobRequest): Promise<SubmitDocumentExtractJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3677,11 +4769,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 表格智能解析
-   *
-   * @param request SubmitTableUnderstandingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitTableUnderstandingJobResponse
+   * 表格智能解析
+   * 
+   * @param request - SubmitTableUnderstandingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTableUnderstandingJobResponse
    */
   async submitTableUnderstandingJobWithOptions(request: SubmitTableUnderstandingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTableUnderstandingJobResponse> {
     Util.validateModel(request);
@@ -3716,10 +4808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 表格智能解析
-   *
-   * @param request SubmitTableUnderstandingJobRequest
-   * @return SubmitTableUnderstandingJobResponse
+   * 表格智能解析
+   * 
+   * @param request - SubmitTableUnderstandingJobRequest
+   * @returns SubmitTableUnderstandingJobResponse
    */
   async submitTableUnderstandingJob(request: SubmitTableUnderstandingJobRequest): Promise<SubmitTableUnderstandingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
