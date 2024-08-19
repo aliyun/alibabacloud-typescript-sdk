@@ -8451,18 +8451,39 @@ export class CreateExpressConnectTrafficQosRuleResponse extends $tea.Model {
 
 export class CreateFailoverTestJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the failover test.
+   * 
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * If you set the value to true, the system performs only a dry run without actually performing the actual request. If you set the value to false, the system performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
+   * The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8471,6 +8492,11 @@ export class CreateFailoverTestJobRequest extends $tea.Model {
   jobDuration?: number;
   /**
    * @remarks
+   * The type of the failover test. Valid values:
+   * 
+   * *   **StartNow**
+   * *   **StartLater**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8478,6 +8504,11 @@ export class CreateFailoverTestJobRequest extends $tea.Model {
    */
   jobType?: string;
   /**
+   * @remarks
+   * The name of the failover test.
+   * 
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * test
    */
@@ -8485,18 +8516,27 @@ export class CreateFailoverTestJobRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID of the failover test.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The IDs of failover test resources. You can add at most 16 resources.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   /**
    * @remarks
+   * The resource type of the failover test. Set the value to **PHYSICALCONNECTION**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8544,11 +8584,17 @@ export class CreateFailoverTestJobRequest extends $tea.Model {
 
 export class CreateFailoverTestJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the failover test.
+   * 
    * @example
    * ftj-xxxxxxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C44F62BE-9CE7-4277-B117-69243F3988BF
    */
@@ -32795,6 +32841,167 @@ export class DescribeIpv6GatewaysResponse extends $tea.Model {
   }
 }
 
+export class DescribeNatGatewayAssociateNetworkInterfacesRequest extends $tea.Model {
+  /**
+   * @example
+   * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
+   */
+  clientToken?: string;
+  filter?: DescribeNatGatewayAssociateNetworkInterfacesRequestFilter[];
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ngw-bp1uewa15k4iy5770****
+   */
+  natGatewayId?: string;
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmxazdjdhd****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tag?: DescribeNatGatewayAssociateNetworkInterfacesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      natGatewayId: 'NatGatewayId',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      filter: { 'type': 'array', 'itemType': DescribeNatGatewayAssociateNetworkInterfacesRequestFilter },
+      maxResults: 'number',
+      natGatewayId: 'string',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeNatGatewayAssociateNetworkInterfacesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $tea.Model {
+  associateNetworkInterfaces?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * ngw-bp1uewa15k4iy5770****
+   */
+  natGatewayId?: string;
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 2315DEB7-5E92-423A-91F7-4C1EC9AD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      associateNetworkInterfaces: 'AssociateNetworkInterfaces',
+      maxResults: 'MaxResults',
+      natGatewayId: 'NatGatewayId',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associateNetworkInterfaces: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces,
+      maxResults: 'number',
+      natGatewayId: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNatGatewayAssociateNetworkInterfacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNatGatewayAssociateNetworkInterfacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysRequest extends $tea.Model {
   /**
    * @remarks
@@ -50688,6 +50895,147 @@ export class ListVpcGatewayEndpointsResponse extends $tea.Model {
   }
 }
 
+export class ListVpcPublishedRouteEntriesRequest extends $tea.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @example
+   * 50
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vtb-bp145q7glnuzd****
+   */
+  routeTableId?: string;
+  /**
+   * @example
+   * ecr-dhw2xsds5****
+   */
+  targetInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ECR
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeTableId: 'RouteTableId',
+      targetInstanceId: 'TargetInstanceId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeTableId: 'string',
+      targetInstanceId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcPublishedRouteEntriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1D0971B2-A35A-42C1-A44C-E91360C36C0B
+   */
+  requestId?: string;
+  routeEntries?: ListVpcPublishedRouteEntriesResponseBodyRouteEntries[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      routeEntries: 'RouteEntries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      routeEntries: { 'type': 'array', 'itemType': ListVpcPublishedRouteEntriesResponseBodyRouteEntries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcPublishedRouteEntriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVpcPublishedRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVpcPublishedRouteEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpnCertificateAssociationsRequest extends $tea.Model {
   /**
    * @remarks
@@ -62190,6 +62538,119 @@ export class OpenTrafficMirrorServiceResponse extends $tea.Model {
   }
 }
 
+export class PublishVpcRouteEntriesRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeEntries?: PublishVpcRouteEntriesRequestRouteEntries[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecr-dhw2xsds5****
+   */
+  targetInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ECR
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dryRun: 'DryRun',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeEntries: 'RouteEntries',
+      targetInstanceId: 'TargetInstanceId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRun: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeEntries: { 'type': 'array', 'itemType': PublishVpcRouteEntriesRequestRouteEntries },
+      targetInstanceId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishVpcRouteEntriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 980960B0-2969-40BF-8542-EBB34FD358AB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishVpcRouteEntriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishVpcRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishVpcRouteEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishVpnRouteEntryRequest extends $tea.Model {
   /**
    * @remarks
@@ -69146,6 +69607,119 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse extends $tea.
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawVpcPublishedRouteEntriesRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeEntries?: WithdrawVpcPublishedRouteEntriesRequestRouteEntries[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecr-dhw2xsds5****
+   */
+  targetInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ECR
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dryRun: 'DryRun',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeEntries: 'RouteEntries',
+      targetInstanceId: 'TargetInstanceId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRun: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeEntries: { 'type': 'array', 'itemType': WithdrawVpcPublishedRouteEntriesRequestRouteEntries },
+      targetInstanceId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawVpcPublishedRouteEntriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawVpcPublishedRouteEntriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WithdrawVpcPublishedRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WithdrawVpcPublishedRouteEntriesResponseBody,
     };
   }
 
@@ -78487,6 +79061,181 @@ export class DescribeIpv6GatewaysResponseBodyIpv6Gateways extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ipv6Gateway: { 'type': 'array', 'itemType': DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesRequestFilter extends $tea.Model {
+  /**
+   * @example
+   * ResourceId
+   */
+  key?: string;
+  /**
+   * @example
+   * ep-8psre8c8936596cd****
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set extends $tea.Model {
+  /**
+   * @example
+   * 172.17.\*\*.**
+   */
+  IPv4Address?: string;
+  /**
+   * @example
+   * true
+   */
+  primary?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      IPv4Address: 'IPv4Address',
+      primary: 'Primary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4Address: 'string',
+      primary: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets extends $tea.Model {
+  IPv4Set?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4Set: 'IPv4Set',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4Set: { 'type': 'array', 'itemType': DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4SetsIPv4Set },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface extends $tea.Model {
+  IPv4Sets?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets;
+  /**
+   * @example
+   * eni-gw8g131ef2dnbu3k****
+   */
+  networkInterfaceId?: string;
+  /**
+   * @example
+   * ep-8psre8c8936596cd****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * 138859086900****
+   */
+  resourceOwnerId?: string;
+  /**
+   * @example
+   * PrivateLink
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IPv4Sets: 'IPv4Sets',
+      networkInterfaceId: 'NetworkInterfaceId',
+      resourceId: 'ResourceId',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4Sets: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets,
+      networkInterfaceId: 'string',
+      resourceId: 'string',
+      resourceOwnerId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfaces extends $tea.Model {
+  associateNetworkInterface?: DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface[];
+  static names(): { [key: string]: string } {
+    return {
+      associateNetworkInterface: 'AssociateNetworkInterface',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associateNetworkInterface: { 'type': 'array', 'itemType': DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterface },
     };
   }
 
@@ -95817,6 +96566,76 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $tea.Model {
   }
 }
 
+export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets extends $tea.Model {
+  /**
+   * @example
+   * Published
+   */
+  publishStatus?: string;
+  /**
+   * @example
+   * ECR
+   */
+  publishTargetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      publishStatus: 'PublishStatus',
+      publishTargetType: 'PublishTargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      publishStatus: 'string',
+      publishTargetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $tea.Model {
+  /**
+   * @example
+   * 10.0.0.0/24
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @example
+   * rte-bp1mnnr2al0naomnpv****
+   */
+  routeEntryId?: string;
+  routePublishTargets?: ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets[];
+  /**
+   * @example
+   * vtb-2ze3jgygk9bmsj23s****
+   */
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      routeEntryId: 'RouteEntryId',
+      routePublishTargets: 'RoutePublishTargets',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      routeEntryId: 'string',
+      routePublishTargets: { 'type': 'array', 'itemType': ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets },
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations extends $tea.Model {
   /**
    * @remarks
@@ -98011,6 +98830,42 @@ export class ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig extends $tea.M
   }
 }
 
+export class PublishVpcRouteEntriesRequestRouteEntries extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 121.41.165.123/32
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vtb-2ze3jgygk9bmsj23s****
+   */
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SecondApplyPhysicalConnectionLOARequestPMInfo extends $tea.Model {
   /**
    * @remarks
@@ -98450,6 +99305,42 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $tea.Model 
       port: 'string',
       protocol: 'string',
       sourceCidrIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawVpcPublishedRouteEntriesRequestRouteEntries extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10.0.0.0/24
+   */
+  destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vtb-bp145q7glnuzd****
+   */
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      routeTableId: 'string',
     };
   }
 
@@ -102864,7 +103755,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建故障演练任务
+   * Creates a failover test.
+   * 
+   * @remarks
+   * You cannot create a failover test in the following scenarios:
+   * *   You have created a failover test in the region and its type is StartNow.
+   * *   The Express Connect circuit or hosted connection has pending orders or overdue payments.
+   * *   A failover test is already performed on the Express Connect circuit or hosted connection.
+   * *   More than one hosted connection is created over the Express Connect circuit.
+   * *   More than one cross-account VBR is created on the Express Connect circuit.
+   * *   No VBR is associated with the hosted connection.
+   * *   The VLAN ID of the hosted connection is set to 0.
    * 
    * @param request - CreateFailoverTestJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102943,7 +103844,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建故障演练任务
+   * Creates a failover test.
+   * 
+   * @remarks
+   * You cannot create a failover test in the following scenarios:
+   * *   You have created a failover test in the region and its type is StartNow.
+   * *   The Express Connect circuit or hosted connection has pending orders or overdue payments.
+   * *   A failover test is already performed on the Express Connect circuit or hosted connection.
+   * *   More than one hosted connection is created over the Express Connect circuit.
+   * *   More than one cross-account VBR is created on the Express Connect circuit.
+   * *   No VBR is associated with the hosted connection.
+   * *   The VLAN ID of the hosted connection is set to 0.
    * 
    * @param request - CreateFailoverTestJobRequest
    * @returns CreateFailoverTestJobResponse
@@ -104826,7 +105737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an order for resource usage fees.
+   * Creates an order for resource occupation of an Express Connect circuit.
    * 
    * @remarks
    * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
@@ -104900,7 +105811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an order for resource usage fees.
+   * Creates an order for resource occupation of an Express Connect circuit.
    * 
    * @remarks
    * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
@@ -115057,6 +115968,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询NAT已绑定ENI信息
+   * 
+   * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNatGatewayAssociateNetworkInterfacesResponse
+   */
+  async describeNatGatewayAssociateNetworkInterfacesWithOptions(request: DescribeNatGatewayAssociateNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewayAssociateNetworkInterfacesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNatGatewayAssociateNetworkInterfaces",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNatGatewayAssociateNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new DescribeNatGatewayAssociateNetworkInterfacesResponse({}));
+  }
+
+  /**
+   * 查询NAT已绑定ENI信息
+   * 
+   * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
+   * @returns DescribeNatGatewayAssociateNetworkInterfacesResponse
+   */
+  async describeNatGatewayAssociateNetworkInterfaces(request: DescribeNatGatewayAssociateNetworkInterfacesRequest): Promise<DescribeNatGatewayAssociateNetworkInterfacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNatGatewayAssociateNetworkInterfacesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries NAT gateways that meet specific conditions in a specified region.
    * 
    * @remarks
@@ -122153,6 +123154,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询路由发布情况
+   * 
+   * @param request - ListVpcPublishedRouteEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpcPublishedRouteEntriesResponse
+   */
+  async listVpcPublishedRouteEntriesWithOptions(request: ListVpcPublishedRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcPublishedRouteEntriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVpcPublishedRouteEntries",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcPublishedRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVpcPublishedRouteEntriesResponse({}));
+  }
+
+  /**
+   * 查询路由发布情况
+   * 
+   * @param request - ListVpcPublishedRouteEntriesRequest
+   * @returns ListVpcPublishedRouteEntriesResponse
+   */
+  async listVpcPublishedRouteEntries(request: ListVpcPublishedRouteEntriesRequest): Promise<ListVpcPublishedRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVpcPublishedRouteEntriesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the association between VPN gateways and certificates in a region.
    * 
    * @remarks
@@ -127634,6 +128721,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发布VPC路由
+   * 
+   * @param request - PublishVpcRouteEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishVpcRouteEntriesResponse
+   */
+  async publishVpcRouteEntriesWithOptions(request: PublishVpcRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<PublishVpcRouteEntriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeEntries)) {
+      query["RouteEntries"] = request.routeEntries;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishVpcRouteEntries",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishVpcRouteEntriesResponse>(await this.callApi(params, req, runtime), new PublishVpcRouteEntriesResponse({}));
+  }
+
+  /**
+   * 发布VPC路由
+   * 
+   * @param request - PublishVpcRouteEntriesRequest
+   * @returns PublishVpcRouteEntriesResponse
+   */
+  async publishVpcRouteEntries(request: PublishVpcRouteEntriesRequest): Promise<PublishVpcRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishVpcRouteEntriesWithOptions(request, runtime);
+  }
+
+  /**
    * Advertises a VPN route to a VPC.
    * 
    * @param request - PublishVpnRouteEntryRequest
@@ -131467,6 +132632,84 @@ export default class Client extends OpenApi {
   async vpcDescribeVpcNatGatewayNetworkInterfaceQuota(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 撤回VPC已发布路由
+   * 
+   * @param request - WithdrawVpcPublishedRouteEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WithdrawVpcPublishedRouteEntriesResponse
+   */
+  async withdrawVpcPublishedRouteEntriesWithOptions(request: WithdrawVpcPublishedRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<WithdrawVpcPublishedRouteEntriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeEntries)) {
+      query["RouteEntries"] = request.routeEntries;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "WithdrawVpcPublishedRouteEntries",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<WithdrawVpcPublishedRouteEntriesResponse>(await this.callApi(params, req, runtime), new WithdrawVpcPublishedRouteEntriesResponse({}));
+  }
+
+  /**
+   * 撤回VPC已发布路由
+   * 
+   * @param request - WithdrawVpcPublishedRouteEntriesRequest
+   * @returns WithdrawVpcPublishedRouteEntriesResponse
+   */
+  async withdrawVpcPublishedRouteEntries(request: WithdrawVpcPublishedRouteEntriesRequest): Promise<WithdrawVpcPublishedRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.withdrawVpcPublishedRouteEntriesWithOptions(request, runtime);
   }
 
 }
