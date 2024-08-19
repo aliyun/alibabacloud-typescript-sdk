@@ -13,7 +13,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
    * This parameter is required.
    */
   dialogue?: AnalyzeConversationRequestDialogue;
-  exampleList?: AnalyzeConversationRequestExampleList[];
+  examples?: AnalyzeConversationRequestExamples[];
   fields?: AnalyzeConversationRequestFields[];
   /**
    * @example
@@ -38,7 +38,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dialogue: 'dialogue',
-      exampleList: 'exampleList',
+      examples: 'examples',
       fields: 'fields',
       modelCode: 'modelCode',
       resultTypes: 'resultTypes',
@@ -51,7 +51,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dialogue: AnalyzeConversationRequestDialogue,
-      exampleList: { 'type': 'array', 'itemType': AnalyzeConversationRequestExampleList },
+      examples: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamples },
       fields: { 'type': 'array', 'itemType': AnalyzeConversationRequestFields },
       modelCode: 'string',
       resultTypes: { 'type': 'array', 'itemType': 'string' },
@@ -399,18 +399,11 @@ export class AnalyzeConversationRequestDialogue extends $tea.Model {
   }
 }
 
-export class AnalyzeConversationRequestExampleListSentenceList extends $tea.Model {
-  /**
-   * @example
-   * chat-01
-   */
+export class AnalyzeConversationRequestExamplesSentences extends $tea.Model {
   chatId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * user
    */
   role?: string;
   /**
@@ -439,7 +432,7 @@ export class AnalyzeConversationRequestExampleListSentenceList extends $tea.Mode
   }
 }
 
-export class AnalyzeConversationRequestExampleList extends $tea.Model {
+export class AnalyzeConversationRequestExamples extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -449,18 +442,18 @@ export class AnalyzeConversationRequestExampleList extends $tea.Model {
    * @remarks
    * This parameter is required.
    */
-  sentenceList?: AnalyzeConversationRequestExampleListSentenceList[];
+  sentences?: AnalyzeConversationRequestExamplesSentences[];
   static names(): { [key: string]: string } {
     return {
       output: 'output',
-      sentenceList: 'sentenceList',
+      sentences: 'sentences',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       output: 'string',
-      sentenceList: { 'type': 'array', 'itemType': AnalyzeConversationRequestExampleListSentenceList },
+      sentences: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamplesSentences },
     };
   }
 
@@ -852,8 +845,8 @@ export default class Client extends OpenApi {
       body["dialogue"] = request.dialogue;
     }
 
-    if (!Util.isUnset(request.exampleList)) {
-      body["exampleList"] = request.exampleList;
+    if (!Util.isUnset(request.examples)) {
+      body["examples"] = request.examples;
     }
 
     if (!Util.isUnset(request.fields)) {
