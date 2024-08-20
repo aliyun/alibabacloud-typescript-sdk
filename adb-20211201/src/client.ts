@@ -2319,6 +2319,8 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
    * True
    */
   enableSpot?: boolean;
+  engine?: string;
+  engineParams?: { [key: string]: any };
   /**
    * @remarks
    * The name of the resource group.
@@ -2407,6 +2409,8 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
       enableSpot: 'EnableSpot',
+      engine: 'Engine',
+      engineParams: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -2424,6 +2428,8 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
       clusterSizeResource: 'string',
       DBClusterId: 'string',
       enableSpot: 'boolean',
+      engine: 'string',
+      engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',
@@ -2478,6 +2484,8 @@ export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
    * True
    */
   enableSpot?: boolean;
+  engine?: string;
+  engineParamsShrink?: string;
   /**
    * @remarks
    * The name of the resource group.
@@ -2566,6 +2574,8 @@ export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
       enableSpot: 'EnableSpot',
+      engine: 'Engine',
+      engineParamsShrink: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -2583,6 +2593,8 @@ export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
       clusterSizeResource: 'string',
       DBClusterId: 'string',
       enableSpot: 'boolean',
+      engine: 'string',
+      engineParamsShrink: 'string',
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',
@@ -16740,6 +16752,7 @@ export class ModifyAuditLogConfigRequest extends $tea.Model {
    * amv-t4nj8619bz2w3****
    */
   DBClusterId?: string;
+  engineType?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -16760,6 +16773,7 @@ export class ModifyAuditLogConfigRequest extends $tea.Model {
     return {
       auditLogStatus: 'AuditLogStatus',
       DBClusterId: 'DBClusterId',
+      engineType: 'EngineType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -16772,6 +16786,7 @@ export class ModifyAuditLogConfigRequest extends $tea.Model {
     return {
       auditLogStatus: 'string',
       DBClusterId: 'string',
+      engineType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -17674,6 +17689,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
    * true
    */
   enableSpot?: boolean;
+  engineParams?: { [key: string]: any };
   /**
    * @remarks
    * The name of the resource group.
@@ -17760,6 +17776,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
       enableSpot: 'EnableSpot',
+      engineParams: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -17777,6 +17794,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       clusterSizeResource: 'string',
       DBClusterId: 'string',
       enableSpot: 'boolean',
+      engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',
@@ -17831,6 +17849,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
    * true
    */
   enableSpot?: boolean;
+  engineParamsShrink?: string;
   /**
    * @remarks
    * The name of the resource group.
@@ -17917,6 +17936,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
       enableSpot: 'EnableSpot',
+      engineParamsShrink: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -17934,6 +17954,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
       clusterSizeResource: 'string',
       DBClusterId: 'string',
       enableSpot: 'boolean',
+      engineParamsShrink: 'string',
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',
@@ -23852,6 +23873,8 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
    * True
    */
   enableSpot?: string;
+  engine?: string;
+  engineParams?: { [key: string]: any };
   /**
    * @remarks
    * The name of the resource group.
@@ -23897,6 +23920,11 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
    * 512ACU
    */
   maxComputeResource?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  message?: string;
   /**
    * @remarks
    * A reserved parameter.
@@ -23953,11 +23981,14 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
       createTime: 'CreateTime',
       elasticMinComputeResource: 'ElasticMinComputeResource',
       enableSpot: 'EnableSpot',
+      engine: 'Engine',
+      engineParams: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
       groupUsers: 'GroupUsers',
       maxClusterCount: 'MaxClusterCount',
       maxComputeResource: 'MaxComputeResource',
+      message: 'Message',
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       rules: 'Rules',
@@ -23974,11 +24005,14 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
       createTime: 'string',
       elasticMinComputeResource: 'string',
       enableSpot: 'string',
+      engine: 'string',
+      engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       groupName: 'string',
       groupType: 'string',
       groupUsers: 'string',
       maxClusterCount: 'number',
       maxComputeResource: 'string',
+      message: 'string',
       minClusterCount: 'number',
       minComputeResource: 'string',
       rules: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRules },
@@ -28579,6 +28613,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateDBResourceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.engineParams)) {
+      request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
+    }
+
     if (!Util.isUnset(tmpReq.rules)) {
       request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
     }
@@ -28598,6 +28636,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableSpot)) {
       query["EnableSpot"] = request.enableSpot;
+    }
+
+    if (!Util.isUnset(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!Util.isUnset(request.engineParamsShrink)) {
+      query["EngineParams"] = request.engineParamsShrink;
     }
 
     if (!Util.isUnset(request.groupName)) {
@@ -34790,6 +34836,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -35263,6 +35313,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ModifyDBResourceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.engineParams)) {
+      request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
+    }
+
     if (!Util.isUnset(tmpReq.rules)) {
       request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
     }
@@ -35282,6 +35336,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableSpot)) {
       query["EnableSpot"] = request.enableSpot;
+    }
+
+    if (!Util.isUnset(request.engineParamsShrink)) {
+      query["EngineParams"] = request.engineParamsShrink;
     }
 
     if (!Util.isUnset(request.groupName)) {
