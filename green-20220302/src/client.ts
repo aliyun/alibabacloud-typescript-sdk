@@ -420,7 +420,7 @@ export class DescribeUploadTokenResponse extends $tea.Model {
 export class DescribeUrlModerationResultRequest extends $tea.Model {
   /**
    * @remarks
-   * The reqId field returned by the Url Async Moderation API.
+   * The ReqId field returned by an asynchronous URL moderation operation.
    * 
    * @example
    * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
@@ -446,7 +446,7 @@ export class DescribeUrlModerationResultRequest extends $tea.Model {
 export class DescribeUrlModerationResultResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -752,7 +752,27 @@ export class ImageAsyncModerationResponse extends $tea.Model {
 export class ImageModerationRequest extends $tea.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * The moderation services supported by Image Moderation 2.0. Valid values:
+   * 
+   * *   baselineCheck: common baseline moderation
+   * *   baselineCheck_pro: common baseline moderation_Professional
+   * *   baselineCheck_cb: common baseline moderation_For regions outside the Chinese mainland
+   * *   tonalityImprove: content governance moderation
+   * *   aigcCheck: AI-generated image identification
+   * *   profilePhotoCheck: avatar image moderation
+   * *   advertisingCheck: marketing material identification
+   * *   liveStreamCheck: moderation of screenshots of videos and live streams
+   * 
+   * Valid values:
+   * 
+   * *   liveStreamCheck: moderation of screenshots of videos and live streams
+   * *   baselineCheck: common baseline moderation
+   * *   aigcCheck: AI-generated image identification
+   * *   baselineCheck_pro: common baseline moderation_Professional
+   * *   advertisingCheck: marketing material identification
+   * *   baselineCheck_cb: common baseline moderation_For regions outside the Chinese mainland
+   * *   tonalityImprove: content governance moderation
+   * *   profilePhotoCheck: avatar image moderation
    * 
    * @example
    * baselineCheck
@@ -761,6 +781,9 @@ export class ImageModerationRequest extends $tea.Model {
   /**
    * @remarks
    * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * *   imageUrl: the URL of the object that you want to moderate. This parameter is required.
+   * *   dataId: the ID of the object that you want to moderate. This parameter is optional.
    * 
    * @example
    * {"imageUrl":"https://www.aliyun.com/test.jpg","dataId":"img1234567"}
@@ -788,7 +811,7 @@ export class ImageModerationRequest extends $tea.Model {
 export class ImageModerationResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -796,7 +819,7 @@ export class ImageModerationResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The moderation results.
    */
   data?: ImageModerationResponseBodyData;
   /**
@@ -809,7 +832,7 @@ export class ImageModerationResponseBody extends $tea.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate and troubleshoot issues.
    * 
    * @example
    * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
@@ -2228,6 +2251,7 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Mo
    * 81.22
    */
   confidence?: number;
+  description?: string;
   /**
    * @remarks
    * The labels returned after the image moderation.
@@ -2239,6 +2263,7 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Mo
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      description: 'Description',
       label: 'Label',
     };
   }
@@ -2246,6 +2271,7 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       confidence: 'number',
+      description: 'string',
       label: 'string',
     };
   }
@@ -2619,7 +2645,7 @@ export class DescribeUploadTokenResponseBodyData extends $tea.Model {
 export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $tea.Model {
   /**
    * @remarks
-   * ICP record number.
+   * The ICP number.
    * 
    * @example
    * xx
@@ -2627,12 +2653,19 @@ export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $tea.M
   icpNo?: string;
   /**
    * @remarks
-   * ICP filing type.
+   * The type of the ICP filing.
    * 
    * @example
    * xx
    */
   icpType?: string;
+  /**
+   * @remarks
+   * The type of site
+   * 
+   * @example
+   * game
+   */
   siteType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2658,7 +2691,7 @@ export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $tea.M
 export class DescribeUrlModerationResultResponseBodyDataResult extends $tea.Model {
   /**
    * @remarks
-   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places. Some labels do not have scores of confidence levels.
+   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
    * 
    * @example
    * 81.22
@@ -2666,7 +2699,7 @@ export class DescribeUrlModerationResultResponseBodyDataResult extends $tea.Mode
   confidence?: number;
   /**
    * @remarks
-   * The labels returned after the url async moderation.
+   * The labels returned after the asynchronous URL moderation.
    * 
    * @example
    * sexual_url
@@ -2694,7 +2727,7 @@ export class DescribeUrlModerationResultResponseBodyDataResult extends $tea.Mode
 export class DescribeUrlModerationResultResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The ID of the moderated object.
+   * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
    * 
    * @example
    * 26769ada6e264e7ba9aa048241e12be9
@@ -2702,12 +2735,12 @@ export class DescribeUrlModerationResultResponseBodyData extends $tea.Model {
   dataId?: string;
   /**
    * @remarks
-   * Supplementary information.
+   * The supplementary information.
    */
   extraInfo?: DescribeUrlModerationResultResponseBodyDataExtraInfo;
   /**
    * @remarks
-   * The reqId field returned by the Url Async Moderation API.
+   * The ReqId field returned by an asynchronous URL moderation operation.
    * 
    * @example
    * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
@@ -2715,7 +2748,7 @@ export class DescribeUrlModerationResultResponseBodyData extends $tea.Model {
   reqId?: string;
   /**
    * @remarks
-   * The results of url async moderation parameters such as the label parameter and the confidence parameter.
+   * The returned results.
    */
   result?: DescribeUrlModerationResultResponseBodyDataResult[];
   static names(): { [key: string]: string } {
@@ -3071,9 +3104,37 @@ export class ImageModerationResponseBodyDataExtOcrResult extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExtPublicFigureLocation extends $tea.Model {
+  /**
+   * @remarks
+   * The height
+   * 
+   * @example
+   * 44
+   */
   h?: number;
+  /**
+   * @remarks
+   * The weight
+   * 
+   * @example
+   * 33
+   */
   w?: number;
+  /**
+   * @remarks
+   * X coordinate
+   * 
+   * @example
+   * 11
+   */
   x?: number;
+  /**
+   * @remarks
+   * Y coordinate
+   * 
+   * @example
+   * 22
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3115,6 +3176,10 @@ export class ImageModerationResponseBodyDataExtPublicFigure extends $tea.Model {
    * xx
    */
   figureName?: string;
+  /**
+   * @remarks
+   * the data array of location info
+   */
   location?: ImageModerationResponseBodyDataExtPublicFigureLocation[];
   static names(): { [key: string]: string } {
     return {
@@ -3412,9 +3477,10 @@ export class ImageModerationResponseBodyDataResult extends $tea.Model {
    * 81.22
    */
   confidence?: number;
+  description?: string;
   /**
    * @remarks
-   * The labels returned after the image moderation.
+   * The labels returned after the image moderation. Multiple risk labels and the corresponding scores of confidence levels may be returned for an image.
    * 
    * @example
    * violent_explosion
@@ -3423,6 +3489,7 @@ export class ImageModerationResponseBodyDataResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      description: 'Description',
       label: 'Label',
     };
   }
@@ -3430,6 +3497,7 @@ export class ImageModerationResponseBodyDataResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       confidence: 'number',
+      description: 'string',
       label: 'string',
     };
   }
@@ -3444,6 +3512,8 @@ export class ImageModerationResponseBodyData extends $tea.Model {
    * @remarks
    * The ID of the moderated object.
    * 
+   * >  If you specify the dataId parameter in the request, the value of the dataId parameter is returned in the response.
+   * 
    * @example
    * fb5ffab1-993b-449f-b8d6-b97d5e3331f2
    */
@@ -3455,7 +3525,7 @@ export class ImageModerationResponseBodyData extends $tea.Model {
   ext?: ImageModerationResponseBodyDataExt;
   /**
    * @remarks
-   * The results of image moderation parameters such as the label parameter and the confidence parameter.
+   * The results of image moderation parameters such as the label parameter and the confidence parameter, which are an array structure.
    */
   result?: ImageModerationResponseBodyDataResult[];
   /**
@@ -4780,7 +4850,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 url 检测结果
+   * Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+   * 
+   * @remarks
+   *   Billing: This operation is free of charge.
+   * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
+   * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeUrlModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4811,7 +4886,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 url 检测结果
+   * Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+   * 
+   * @remarks
+   *   Billing: This operation is free of charge.
+   * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
+   * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeUrlModerationResultRequest
    * @returns DescribeUrlModerationResultResponse
@@ -4914,7 +4994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片审核
+   * Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
    * 
    * @param request - ImageModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4949,7 +5032,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片审核
+   * Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
    * 
    * @param request - ImageModerationRequest
    * @returns ImageModerationResponse
