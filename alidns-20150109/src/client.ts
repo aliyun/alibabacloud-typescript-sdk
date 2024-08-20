@@ -38463,6 +38463,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
    * 1709196249000
    */
   logTime?: number;
+  protocol?: string;
   /**
    * @example
    * example.com
@@ -38504,6 +38505,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
     return {
       dnsMsgId: 'DnsMsgId',
       logTime: 'LogTime',
+      protocol: 'Protocol',
       queryName: 'QueryName',
       queryType: 'QueryType',
       rt: 'Rt',
@@ -38520,6 +38522,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
     return {
       dnsMsgId: 'string',
       logTime: 'number',
+      protocol: 'string',
       queryName: 'string',
       queryType: 'string',
       rt: 'number',
