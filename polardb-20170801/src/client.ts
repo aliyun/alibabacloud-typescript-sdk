@@ -7232,6 +7232,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * pc-pz51ziv48317b2880
    */
   sourceDBCluster?: string;
+  sourceRegionId?: string;
   /**
    * @remarks
    * Indicates whether the cross-zone disaster recovery feature is enabled. Valid values: ON OFF 0: Customer Drill Mode
@@ -7386,6 +7387,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       SQLSize: 'SQLSize',
       serverlessType: 'ServerlessType',
       sourceDBCluster: 'SourceDBCluster',
+      sourceRegionId: 'SourceRegionId',
       standbyHAMode: 'StandbyHAMode',
       storageMax: 'StorageMax',
       storagePayType: 'StoragePayType',
@@ -7451,6 +7453,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       SQLSize: 'number',
       serverlessType: 'string',
       sourceDBCluster: 'string',
+      sourceRegionId: 'string',
       standbyHAMode: 'string',
       storageMax: 'number',
       storagePayType: 'string',
