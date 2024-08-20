@@ -2481,6 +2481,7 @@ export class StatusTransitionItem extends $tea.Model {
 }
 
 export class Tensorboard extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * datasource-test
@@ -2568,6 +2569,7 @@ export class Tensorboard extends $tea.Model {
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       dataSourceId: 'DataSourceId',
       displayName: 'DisplayName',
       duration: 'Duration',
@@ -2594,6 +2596,7 @@ export class Tensorboard extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       dataSourceId: 'string',
       displayName: 'string',
       duration: 'string',
@@ -2803,6 +2806,7 @@ export class Workspace extends $tea.Model {
 }
 
 export class CreateJobRequest extends $tea.Model {
+  accessibility?: string;
   codeSource?: CreateJobRequestCodeSource;
   credentialConfig?: CredentialConfig;
   dataSources?: CreateJobRequestDataSources[];
@@ -2882,6 +2886,7 @@ export class CreateJobRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       codeSource: 'CodeSource',
       credentialConfig: 'CredentialConfig',
       dataSources: 'DataSources',
@@ -2907,6 +2912,7 @@ export class CreateJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       codeSource: CreateJobRequestCodeSource,
       credentialConfig: CredentialConfig,
       dataSources: { 'type': 'array', 'itemType': CreateJobRequestDataSources },
@@ -2991,6 +2997,7 @@ export class CreateJobResponse extends $tea.Model {
 }
 
 export class CreateTensorboardRequest extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * 1
@@ -3064,6 +3071,7 @@ export class CreateTensorboardRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       cpu: 'Cpu',
       dataSourceId: 'DataSourceId',
       dataSourceType: 'DataSourceType',
@@ -3088,6 +3096,7 @@ export class CreateTensorboardRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       cpu: 'number',
       dataSourceId: 'string',
       dataSourceType: 'string',
@@ -4662,6 +4671,7 @@ export class ListJobSanityCheckResultsResponse extends $tea.Model {
 }
 
 export class ListJobsRequest extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * 16****
@@ -4753,6 +4763,7 @@ export class ListJobsRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
       displayName: 'DisplayName',
@@ -4779,6 +4790,7 @@ export class ListJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       businessUserId: 'string',
       caller: 'string',
       displayName: 'string',
@@ -4809,6 +4821,7 @@ export class ListJobsRequest extends $tea.Model {
 }
 
 export class ListJobsShrinkRequest extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * 16****
@@ -4900,6 +4913,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
       displayName: 'DisplayName',
@@ -4926,6 +4940,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       businessUserId: 'string',
       caller: 'string',
       displayName: 'string',
@@ -5014,6 +5029,7 @@ export class ListJobsResponse extends $tea.Model {
 }
 
 export class ListTensorboardsRequest extends $tea.Model {
+  accessibility?: string;
   /**
    * @example
    * TestTensorboard
@@ -5091,6 +5107,7 @@ export class ListTensorboardsRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       displayName: 'DisplayName',
       endTime: 'EndTime',
       jobId: 'JobId',
@@ -5115,6 +5132,7 @@ export class ListTensorboardsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       displayName: 'string',
       endTime: 'string',
       jobId: 'string',
@@ -6193,6 +6211,10 @@ export default class Client extends OpenApi {
   async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
     if (!Util.isUnset(request.codeSource)) {
       body["CodeSource"] = request.codeSource;
     }
@@ -6314,6 +6336,10 @@ export default class Client extends OpenApi {
   async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
     if (!Util.isUnset(request.cpu)) {
       body["Cpu"] = request.cpu;
     }
@@ -7161,6 +7187,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
     if (!Util.isUnset(request.businessUserId)) {
       query["BusinessUserId"] = request.businessUserId;
     }
@@ -7286,6 +7316,10 @@ export default class Client extends OpenApi {
   async listTensorboardsWithOptions(request: ListTensorboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTensorboardsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
     if (!Util.isUnset(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
