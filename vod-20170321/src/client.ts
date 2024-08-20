@@ -1058,7 +1058,7 @@ export class AddWatermarkRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * {"Width":"55","Height":"55","Dx":"9","Dy":"9","ReferPos":"BottonLeft","Type":"Image"}
+   * {"Width":"55","Height":"55","Dx":"9","Dy":"9","ReferPos":"BottonLeft"}
    */
   watermarkConfig?: string;
   static names(): { [key: string]: string } {
@@ -6214,6 +6214,153 @@ export class DescribeVodDomainLogResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVodDomainLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainMax95BpsDataRequest extends $tea.Model {
+  /**
+   * @example
+   * month
+   */
+  cycle?: string;
+  /**
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  /**
+   * @example
+   * 2017-01-12T13:00:00Z
+   */
+  endTime?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 2017-12-21T10:00:00Z
+   */
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycle: 'Cycle',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+      timePoint: 'TimePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycle: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainMax95BpsDataResponseBody extends $tea.Model {
+  detailData?: DescribeVodDomainMax95BpsDataResponseBodyDetailData;
+  /**
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  /**
+   * @example
+   * 16777590.28
+   */
+  domesticMax95Bps?: string;
+  /**
+   * @example
+   * 2017-01-11T13:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 16777590.28
+   */
+  max95Bps?: string;
+  /**
+   * @example
+   * 0
+   */
+  overseasMax95Bps?: string;
+  /**
+   * @example
+   * 25818875-5F78-4A*****F6-D7393642CA58
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailData: 'DetailData',
+      domainName: 'DomainName',
+      domesticMax95Bps: 'DomesticMax95Bps',
+      endTime: 'EndTime',
+      max95Bps: 'Max95Bps',
+      overseasMax95Bps: 'OverseasMax95Bps',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailData: DescribeVodDomainMax95BpsDataResponseBodyDetailData,
+      domainName: 'string',
+      domesticMax95Bps: 'string',
+      endTime: 'string',
+      max95Bps: 'string',
+      overseasMax95Bps: 'string',
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainMax95BpsDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainMax95BpsDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainMax95BpsDataResponseBody,
     };
   }
 
@@ -23564,6 +23711,69 @@ export class DescribeVodDomainLogResponseBodyDomainLogDetails extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       domainLogDetail: { 'type': 'array', 'itemType': DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail extends $tea.Model {
+  /**
+   * @example
+   * CN
+   */
+  area?: string;
+  /**
+   * @example
+   * 16777590.28
+   */
+  max95Bps?: number;
+  /**
+   * @example
+   * 2015-12-11T21:05:00Z
+   */
+  max95BpsPeakTime?: string;
+  /**
+   * @example
+   * 2024-01-18 10:11:32
+   */
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      area: 'Area',
+      max95Bps: 'Max95Bps',
+      max95BpsPeakTime: 'Max95BpsPeakTime',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      area: 'string',
+      max95Bps: 'number',
+      max95BpsPeakTime: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainMax95BpsDataResponseBodyDetailData extends $tea.Model {
+  max95Detail?: DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail[];
+  static names(): { [key: string]: string } {
+    return {
+      max95Detail: 'Max95Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max95Detail: { 'type': 'array', 'itemType': DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail },
     };
   }
 
@@ -41359,6 +41569,40 @@ export default class Client extends OpenApi {
   async describeVodDomainLog(request: DescribeVodDomainLogRequest): Promise<DescribeVodDomainLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainLogWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeVodDomainMax95BpsDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVodDomainMax95BpsDataResponse
+   */
+  async describeVodDomainMax95BpsDataWithOptions(request: DescribeVodDomainMax95BpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainMax95BpsDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainMax95BpsData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainMax95BpsDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainMax95BpsDataResponse({}));
+  }
+
+  /**
+   * @param request - DescribeVodDomainMax95BpsDataRequest
+   * @returns DescribeVodDomainMax95BpsDataResponse
+   */
+  async describeVodDomainMax95BpsData(request: DescribeVodDomainMax95BpsDataRequest): Promise<DescribeVodDomainMax95BpsDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainMax95BpsDataWithOptions(request, runtime);
   }
 
   /**
