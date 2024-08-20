@@ -937,6 +937,98 @@ export class AddTextFeedbackResponse extends $tea.Model {
   }
 }
 
+export class BatchGetProjectTaskRequest extends $tea.Model {
+  taskIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      taskIdList: 'taskIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetProjectTaskShrinkRequest extends $tea.Model {
+  taskIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIdListShrink: 'taskIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetProjectTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 11
+   */
+  requestId?: string;
+  resultList?: BatchGetProjectTaskResponseBodyResultList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      resultList: 'resultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resultList: { 'type': 'array', 'itemType': BatchGetProjectTaskResponseBodyResultList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetProjectTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchGetProjectTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchGetProjectTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckSessionRequest extends $tea.Model {
   /**
    * @example
@@ -2671,6 +2763,60 @@ export class SubmitProjectTaskResponse extends $tea.Model {
   }
 }
 
+export class BatchGetProjectTaskResponseBodyResultList extends $tea.Model {
+  errorMsg?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  /**
+   * @example
+   * 11
+   */
+  taskId?: string;
+  /**
+   * @example
+   * http
+   */
+  videoDownloadUrl?: string;
+  /**
+   * @example
+   * 1000
+   */
+  videoDuration?: number;
+  /**
+   * @example
+   * http
+   */
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMsg: 'errorMsg',
+      status: 'status',
+      taskId: 'taskId',
+      videoDownloadUrl: 'videoDownloadUrl',
+      videoDuration: 'videoDuration',
+      videoUrl: 'videoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMsg: 'string',
+      status: 'string',
+      taskId: 'string',
+      videoDownloadUrl: 'string',
+      videoDuration: 'number',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountTextResponseBodyCountTextCmdList extends $tea.Model {
   /**
    * @example
@@ -3225,6 +3371,57 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addTextFeedbackWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量查询项目信息
+   * 
+   * @param tmpReq - BatchGetProjectTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetProjectTaskResponse
+   */
+  async batchGetProjectTaskWithOptions(tmpReq: BatchGetProjectTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchGetProjectTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchGetProjectTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskIdList)) {
+      request.taskIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIdList, "taskIdList", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskIdListShrink)) {
+      query["taskIdList"] = request.taskIdListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchGetProjectTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/project/batchGetProjectTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchGetProjectTaskResponse>(await this.callApi(params, req, runtime), new BatchGetProjectTaskResponse({}));
+  }
+
+  /**
+   * 批量查询项目信息
+   * 
+   * @param request - BatchGetProjectTaskRequest
+   * @returns BatchGetProjectTaskResponse
+   */
+  async batchGetProjectTask(request: BatchGetProjectTaskRequest): Promise<BatchGetProjectTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchGetProjectTaskWithOptions(request, headers, runtime);
   }
 
   /**
