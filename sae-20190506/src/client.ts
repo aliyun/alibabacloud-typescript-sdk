@@ -7247,6 +7247,7 @@ export class CreateIngressRequest extends $tea.Model {
    * cn-beijing:sae-test
    */
   namespaceId?: string;
+  requestTimeout?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -7255,6 +7256,7 @@ export class CreateIngressRequest extends $tea.Model {
    * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
    */
   rules?: string;
+  securityPolicyId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -7273,7 +7275,9 @@ export class CreateIngressRequest extends $tea.Model {
       listenerProtocol: 'ListenerProtocol',
       loadBalanceType: 'LoadBalanceType',
       namespaceId: 'NamespaceId',
+      requestTimeout: 'RequestTimeout',
       rules: 'Rules',
+      securityPolicyId: 'SecurityPolicyId',
       slbId: 'SlbId',
     };
   }
@@ -7288,7 +7292,9 @@ export class CreateIngressRequest extends $tea.Model {
       listenerProtocol: 'string',
       loadBalanceType: 'string',
       namespaceId: 'string',
+      requestTimeout: 'number',
       rules: 'string',
+      securityPolicyId: 'string',
       slbId: 'string',
     };
   }
@@ -23239,11 +23245,13 @@ export class UpdateIngressRequest extends $tea.Model {
    * clb
    */
   loadBalanceType?: string;
+  requestTimeout?: number;
   /**
    * @example
    * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
    */
   rules?: string;
+  securityPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
       certId: 'CertId',
@@ -23254,7 +23262,9 @@ export class UpdateIngressRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       loadBalanceType: 'LoadBalanceType',
+      requestTimeout: 'RequestTimeout',
       rules: 'Rules',
+      securityPolicyId: 'SecurityPolicyId',
     };
   }
 
@@ -23268,7 +23278,9 @@ export class UpdateIngressRequest extends $tea.Model {
       listenerPort: 'string',
       listenerProtocol: 'string',
       loadBalanceType: 'string',
+      requestTimeout: 'number',
       rules: 'string',
+      securityPolicyId: 'string',
     };
   }
 
@@ -31889,11 +31901,13 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
    * cn-beijing:sae-test
    */
   namespaceId?: string;
+  requestTimeout?: number;
   /**
    * @remarks
    * The ID of the application specified in the forwarding rule.
    */
   rules?: DescribeIngressResponseBodyDataRules[];
+  securityPolicyId?: string;
   /**
    * @remarks
    * The type of the SLB instance based on the IP address. Valid values:
@@ -31925,7 +31939,9 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
       loadBalanceType: 'LoadBalanceType',
       name: 'Name',
       namespaceId: 'NamespaceId',
+      requestTimeout: 'RequestTimeout',
       rules: 'Rules',
+      securityPolicyId: 'SecurityPolicyId',
       slbId: 'SlbId',
       slbType: 'SlbType',
     };
@@ -31943,7 +31959,9 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
       loadBalanceType: 'string',
       name: 'string',
       namespaceId: 'string',
+      requestTimeout: 'number',
       rules: { 'type': 'array', 'itemType': DescribeIngressResponseBodyDataRules },
+      securityPolicyId: 'string',
       slbId: 'string',
       slbType: 'string',
     };
@@ -39310,6 +39328,14 @@ export default class Client extends OpenApi {
       query["NamespaceId"] = request.namespaceId;
     }
 
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
+    }
+
+    if (!Util.isUnset(request.securityPolicyId)) {
+      query["SecurityPolicyId"] = request.securityPolicyId;
+    }
+
     if (!Util.isUnset(request.slbId)) {
       query["SlbId"] = request.slbId;
     }
@@ -45107,6 +45133,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.loadBalanceType)) {
       query["LoadBalanceType"] = request.loadBalanceType;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
+    }
+
+    if (!Util.isUnset(request.securityPolicyId)) {
+      query["SecurityPolicyId"] = request.securityPolicyId;
     }
 
     let body : {[key: string ]: any} = { };
