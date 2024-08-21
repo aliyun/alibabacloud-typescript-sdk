@@ -821,6 +821,158 @@ export class CreateIndexResponse extends $tea.Model {
   }
 }
 
+export class CreateMemoryRequest extends $tea.Model {
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6bff4f317a14442fbc9f73d29dbd5fc3
+   */
+  memoryId?: string;
+  /**
+   * @example
+   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memoryId: 'memoryId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memoryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMemoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMemoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemoryNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemoryNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 68de06c95368463a8be4a84efc872cc5
+   */
+  memoryNodeId?: string;
+  /**
+   * @example
+   * 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memoryNodeId: 'memoryNodeId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memoryNodeId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemoryNodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMemoryNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMemoryNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAgentResponseBody extends $tea.Model {
   code?: string;
   data?: string;
@@ -1301,6 +1453,102 @@ export class DeleteIndexDocumentResponse extends $tea.Model {
   }
 }
 
+export class DeleteMemoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMemoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMemoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMemoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMemoryNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMemoryNodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMemoryNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMemoryNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileResponseBody extends $tea.Model {
   /**
    * @example
@@ -1487,6 +1735,143 @@ export class GetIndexJobStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetIndexJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMemoryResponseBody extends $tea.Model {
+  description?: string;
+  /**
+   * @example
+   * 6bff4f317a14442fbc9f73d29dbd5fc3
+   */
+  memoryId?: string;
+  /**
+   * @example
+   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   */
+  requestId?: string;
+  /**
+   * @example
+   * llm-us9hjmt32nysdm5v
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      memoryId: 'memoryId',
+      requestId: 'requestId',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      memoryId: 'string',
+      requestId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMemoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMemoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMemoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMemoryNodeResponseBody extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * 6bff4f317a14442fbc9f73d29dbd5fc3
+   */
+  memoryId?: string;
+  /**
+   * @example
+   * 68de06c95368463a8be4a84efc872cc5
+   */
+  memoryNodeId?: string;
+  /**
+   * @example
+   * 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * llm-us9hjmt32nysdm5v
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      memoryId: 'memoryId',
+      memoryNodeId: 'memoryNodeId',
+      requestId: 'requestId',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      memoryId: 'string',
+      memoryNodeId: 'string',
+      requestId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMemoryNodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMemoryNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMemoryNodeResponseBody,
     };
   }
 
@@ -2180,6 +2565,217 @@ export class ListIndicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIndicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoriesRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * dc270401186b433f975d7e1faaa34e0e
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  memories?: ListMemoriesResponseBodyMemories[];
+  /**
+   * @example
+   * dc270401186b433f975d7e1faaa34e0e
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 105
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * llm-us9hjmt32nysdm5v
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      memories: 'memories',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      memories: { 'type': 'array', 'itemType': ListMemoriesResponseBodyMemories },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMemoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMemoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoryNodesRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * dc270401186b433f975d7e1faaa34e0e
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoryNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  memoryNodes?: ListMemoryNodesResponseBodyMemoryNodes[];
+  /**
+   * @example
+   * dc270401186b433f975d7e1faaa34e0e
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      memoryNodes: 'memoryNodes',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      memoryNodes: { 'type': 'array', 'itemType': ListMemoryNodesResponseBodyMemoryNodes },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoryNodesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMemoryNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMemoryNodesResponseBody,
     };
   }
 
@@ -2906,6 +3502,144 @@ export class UpdateAndPublishAgentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAndPublishAgentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemoryRequest extends $tea.Model {
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMemoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMemoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemoryNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemoryNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMemoryNodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMemoryNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMemoryNodeResponseBody,
     };
   }
 
@@ -4277,6 +5011,58 @@ export class ListIndicesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListMemoriesResponseBodyMemories extends $tea.Model {
+  description?: string;
+  /**
+   * @example
+   * 3fc531f4519444beaafffa4538f60667
+   */
+  memoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      memoryId: 'memoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      memoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMemoryNodesResponseBodyMemoryNodes extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * 68de06c95368463a8be4a84efc872cc5
+   */
+  memoryNodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      memoryNodeId: 'memoryNodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      memoryNodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPublishedAgentResponseBodyDataListApplicationConfigHistoryConfig extends $tea.Model {
   enableAdbRecord?: boolean;
   enableRecord?: boolean;
@@ -5234,6 +6020,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Memory
+   * 
+   * @param request - CreateMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryResponse
+   */
+  async createMemoryWithOptions(workspaceId: string, request: CreateMemoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMemoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      query["description"] = request.description;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMemory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMemoryResponse>(await this.callApi(params, req, runtime), new CreateMemoryResponse({}));
+  }
+
+  /**
+   * 创建Memory
+   * 
+   * @param request - CreateMemoryRequest
+   * @returns CreateMemoryResponse
+   */
+  async createMemory(workspaceId: string, request: CreateMemoryRequest): Promise<CreateMemoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemoryWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建记忆Node
+   * 
+   * @param request - CreateMemoryNodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryNodeResponse
+   */
+  async createMemoryNodeWithOptions(workspaceId: string, memoryId: string, request: CreateMemoryNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMemoryNodeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      query["content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMemoryNode",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}/memoryNodes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMemoryNodeResponse>(await this.callApi(params, req, runtime), new CreateMemoryNodeResponse({}));
+  }
+
+  /**
+   * 创建记忆Node
+   * 
+   * @param request - CreateMemoryNodeRequest
+   * @returns CreateMemoryNodeResponse
+   */
+  async createMemoryNode(workspaceId: string, memoryId: string, request: CreateMemoryNodeRequest): Promise<CreateMemoryNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemoryNodeWithOptions(workspaceId, memoryId, request, headers, runtime);
+  }
+
+  /**
    * 删除智能体
    * 
    * @param headers - map
@@ -5436,6 +6312,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除memory
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemoryWithOptions(workspaceId: string, memoryId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMemoryResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMemory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMemoryResponse>(await this.callApi(params, req, runtime), new DeleteMemoryResponse({}));
+  }
+
+  /**
+   * 删除memory
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemory(workspaceId: string, memoryId: string): Promise<DeleteMemoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+  }
+
+  /**
+   * 删除记忆Node
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryNodeResponse
+   */
+  async deleteMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMemoryNodeResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMemoryNode",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}/memoryNodes/${OpenApiUtil.getEncodeParam(memoryNodeId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMemoryNodeResponse>(await this.callApi(params, req, runtime), new DeleteMemoryNodeResponse({}));
+  }
+
+  /**
+   * 删除记忆Node
+   * @returns DeleteMemoryNodeResponse
+   */
+  async deleteMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string): Promise<DeleteMemoryNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+  }
+
+  /**
    * 获取文档基本信息，包括文档名称、类型、状态等。
    * 
    * @param headers - map
@@ -5517,6 +6463,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取memory
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryResponse
+   */
+  async getMemoryWithOptions(workspaceId: string, memoryId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMemoryResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMemory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMemoryResponse>(await this.callApi(params, req, runtime), new GetMemoryResponse({}));
+  }
+
+  /**
+   * 获取memory
+   * @returns GetMemoryResponse
+   */
+  async getMemory(workspaceId: string, memoryId: string): Promise<GetMemoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+  }
+
+  /**
+   * 获取记忆Node
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryNodeResponse
+   */
+  async getMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMemoryNodeResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMemoryNode",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}/memoryNodes/${OpenApiUtil.getEncodeParam(memoryNodeId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMemoryNodeResponse>(await this.callApi(params, req, runtime), new GetMemoryNodeResponse({}));
+  }
+
+  /**
+   * 获取记忆Node
+   * @returns GetMemoryNodeResponse
+   */
+  async getMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string): Promise<GetMemoryNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
   }
 
   /**
@@ -5837,6 +6853,104 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIndicesWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取memory
+   * 
+   * @param request - ListMemoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoriesResponse
+   */
+  async listMemoriesWithOptions(workspaceId: string, request: ListMemoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMemoriesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMemories",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMemoriesResponse>(await this.callApi(params, req, runtime), new ListMemoriesResponse({}));
+  }
+
+  /**
+   * 获取memory
+   * 
+   * @param request - ListMemoriesRequest
+   * @returns ListMemoriesResponse
+   */
+  async listMemories(workspaceId: string, request: ListMemoriesRequest): Promise<ListMemoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoriesWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取记忆Node列表
+   * 
+   * @param request - ListMemoryNodesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoryNodesResponse
+   */
+  async listMemoryNodesWithOptions(workspaceId: string, memoryId: string, request: ListMemoryNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMemoryNodesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMemoryNodes",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}/memoryNodes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMemoryNodesResponse>(await this.callApi(params, req, runtime), new ListMemoryNodesResponse({}));
+  }
+
+  /**
+   * 获取记忆Node列表
+   * 
+   * @param request - ListMemoryNodesRequest
+   * @returns ListMemoryNodesResponse
+   */
+  async listMemoryNodes(workspaceId: string, memoryId: string, request: ListMemoryNodesRequest): Promise<ListMemoryNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoryNodesWithOptions(workspaceId, memoryId, request, headers, runtime);
   }
 
   /**
@@ -6164,6 +7278,96 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAndPublishAgentWithOptions(workspaceId, appCode, request, headers, runtime);
+  }
+
+  /**
+   * 更新memory
+   * 
+   * @param request - UpdateMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemoryWithOptions(workspaceId: string, memoryId: string, request: UpdateMemoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMemoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      query["description"] = request.description;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMemory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMemoryResponse>(await this.callApi(params, req, runtime), new UpdateMemoryResponse({}));
+  }
+
+  /**
+   * 更新memory
+   * 
+   * @param request - UpdateMemoryRequest
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemory(workspaceId: string, memoryId: string, request: UpdateMemoryRequest): Promise<UpdateMemoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryWithOptions(workspaceId, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * 更新记忆Node
+   * 
+   * @param request - UpdateMemoryNodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryNodeResponse
+   */
+  async updateMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, request: UpdateMemoryNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMemoryNodeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      query["content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMemoryNode",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/memories/${OpenApiUtil.getEncodeParam(memoryId)}/memoryNodes/${OpenApiUtil.getEncodeParam(memoryNodeId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMemoryNodeResponse>(await this.callApi(params, req, runtime), new UpdateMemoryNodeResponse({}));
+  }
+
+  /**
+   * 更新记忆Node
+   * 
+   * @param request - UpdateMemoryNodeRequest
+   * @returns UpdateMemoryNodeResponse
+   */
+  async updateMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string, request: UpdateMemoryNodeRequest): Promise<UpdateMemoryNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
   }
 
 }
