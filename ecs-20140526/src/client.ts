@@ -24448,7 +24448,7 @@ export class DescribeImageComponentsRequest extends $tea.Model {
   imageComponentId?: string[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 500.
+   * The maximum number of entries per page. Valid values: 1 to 500.
    * 
    * Default value: 50.
    * 
@@ -25154,7 +25154,7 @@ export class DescribeImageSharePermissionRequest extends $tea.Model {
    * 
    * Pages start from page 1.
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -54121,6 +54121,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
    * Zone
    */
   scope?: string;
+  startTime?: string;
   /**
    * @remarks
    * The list of tags.
@@ -54154,6 +54155,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scope: 'Scope',
+      startTime: 'StartTime',
       tag: 'Tag',
       zoneId: 'ZoneId',
     };
@@ -54179,6 +54181,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scope: 'string',
+      startTime: 'string',
       tag: { 'type': 'array', 'itemType': PurchaseReservedInstancesOfferingRequestTag },
       zoneId: 'string',
     };
@@ -60215,13 +60218,26 @@ export class StartImagePipelineExecutionResponse extends $tea.Model {
 
 export class StartInstanceRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   true: performs only a dry run. The system checks the AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * Default value: false.
+   * 
    * @example
    * true
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * Specifies whether to restore the instance to its initial health state. This parameter is applicable to instances that are equipped with local disks, such as d1, i1, and i2 instances. If a local disk of a d1, i1, or i2 instance fails, you can use this parameter to specify whether to restore the instance to its initial health state on startup. Valid values:
+   * 
+   * *   true: restores the instance to its initial health state on startup. After the instance is restored to its initial health state, data stored on the local disks of the instance is lost.
+   * *   false: does not perform operations and keeps the instance in the current state.
+   * 
+   * Default value: false.
    * 
    * @example
    * true
@@ -60229,12 +60245,7 @@ export class StartInstanceRequest extends $tea.Model {
   initLocalDisk?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-   * 
-   * Default value: false.
+   * The ID of the instance that you want to start.
    * 
    * This parameter is required.
    * 
@@ -60277,6 +60288,9 @@ export class StartInstanceRequest extends $tea.Model {
 
 export class StartInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -60326,7 +60340,12 @@ export class StartInstanceResponse extends $tea.Model {
 export class StartInstancesRequest extends $tea.Model {
   /**
    * @remarks
-   * The IDs of the ECS instances. You can specify up to 100 ECS instance IDs.
+   * The batch operation mode. Valid values:
+   * 
+   * *   AllTogether: starts all ECS instances at the same time. If all ECS instances are started, a success message is returned. If an ECS instance fails to be started, all the specified instances fail to be started and an error message is returned.
+   * *   SuccessFirst: separately starts each ECS instance. The response contains the operation results of each ECS instance.
+   * 
+   * Default value: AllTogether.
    * 
    * @example
    * AllTogether
@@ -60334,7 +60353,15 @@ export class StartInstancesRequest extends $tea.Model {
   batchOptimization?: string;
   /**
    * @remarks
-   * The region ID of the ECS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * *   true: performs only a dry run. The system checks the request for potential issues, including required parameters, request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, `DRYRUN.SUCCESS` is returned.
+   * 
+   * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
+   * 
+   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
+   * 
+   * Default value: false.
    * 
    * @example
    * false
@@ -60342,7 +60369,7 @@ export class StartInstancesRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of instance N. Valid values of N: 1 to 100.
+   * The IDs of the ECS instances. You can specify up to 100 ECS instance IDs.
    * 
    * This parameter is required.
    * 
@@ -60354,12 +60381,7 @@ export class StartInstancesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The batch operation mode. Valid values:
-   * 
-   * *   AllTogether: starts all ECS instances at the same time. If all ECS instances are started, a success message is returned. If an ECS instance fails to be started, all the specified instances fail to be started and an error message is returned.
-   * *   SuccessFirst: separately starts each ECS instance. The response contains the operation results of each ECS instance.
-   * 
-   * Default value: AllTogether.
+   * The region ID of the ECS instance. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -60403,12 +60425,12 @@ export class StartInstancesRequest extends $tea.Model {
 export class StartInstancesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The status of the instances before and after the operation is called and the operation results.
+   * The information about the ECS instance, such as the status of each instance before and after the operation is called and the operation results.
    */
   instanceResponses?: StartInstancesResponseBodyInstanceResponses;
   /**
    * @remarks
-   * The information about the ECS instance, such as the status of each instance before and after the operation is called and the operation results.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -83626,23 +83648,23 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * The error message returned when the command failed to be sent or run. Valid values:
    * 
    * *   If this parameter is empty, the command was run as expected.
-   * *   the specified instance does not exists
-   * *   the instance has released when create task
-   * *   the instance is not running when create task
-   * *   the command is not applicable
-   * *   the specified account does not exists
-   * *   the specified directory does not exists
-   * *   the cron job expression is invalid
-   * *   the aliyun service is not running on the instance
-   * *   the aliyun service in the instance does not response
-   * *   the aliyun service in the instance is upgrading now
-   * *   the aliyun service in the instance need upgrade
-   * *   the command delivery has been timeout
-   * *   the command execution has been timeout
-   * *   the command execution got an exception
-   * *   the command execution has been interrupted
-   * *   the command execution exit code is not zero
-   * *   the specified instance has been released
+   * *   The security group rules denied access to the aliyun service.
+   * *   The specified instance does not exist.
+   * *   The specified instance was released during task execution.
+   * *   The specified instance was not running during task execution.
+   * *   The OS type of the instance does not support the specified command type.
+   * *   The specified account does not exist.
+   * *   The specified directory does not exist.
+   * *   The cron expression is invalid.
+   * *   The aliyun service is not running on the instance.
+   * *   The aliyun service in the instance does not response.
+   * *   The aliyun service in the instance is upgrading during task execution.
+   * *   The aliyun service in the instance need to be upgraded to at least version to support the feature. indicates the earliest version that supports the feature. indicates the name of the feature.
+   * *   The command delivery has been timeout.
+   * *   The command execution has been timeout.
+   * *   The command execution got an exception.
+   * *   The command execution exit code is not zero.
+   * *   The specified instance was released during task execution.
    * 
    * @example
    * the specified instance does not exists
@@ -83756,6 +83778,13 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * Running
    */
   invokeRecordStatus?: string;
+  /**
+   * @remarks
+   * The launcher for script execution. The value cannot exceed 1 KB in length.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
   launcher?: string;
   /**
    * @remarks
@@ -84045,23 +84074,23 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
    * The error message returned when the command failed to be sent or run. Valid values:
    * 
    * *   If this parameter is empty, the command was run as expected.
-   * *   the specified instance does not exists
-   * *   the instance has released when create task
-   * *   the instance is not running when create task
-   * *   the command is not applicable
-   * *   the specified account does not exists
-   * *   the specified directory does not exists
-   * *   the cron job expression is invalid
-   * *   the aliyun service is not running on the instance
-   * *   the aliyun service in the instance does not response
-   * *   the aliyun service in the instance is upgrading now
-   * *   the aliyun service in the instance need upgrade
-   * *   the command delivery has been timeout
-   * *   the command execution has been timeout
-   * *   the command execution got an exception
-   * *   the command execution has been interrupted
-   * *   the command execution exit code is not zero
-   * *   the specified instance has been released
+   * *   The security group rules denied access to the aliyun service.
+   * *   The specified instance does not exist.
+   * *   The specified instance was released during task execution.
+   * *   The specified instance was not running during task execution.
+   * *   The OS type of the instance does not support the specified command type.
+   * *   The specified account does not exist.
+   * *   The specified directory does not exist.
+   * *   The cron expression is invalid.
+   * *   The aliyun service is not running on the instance.
+   * *   The aliyun service in the instance does not response.
+   * *   The aliyun service in the instance is upgrading during task execution.
+   * *   The aliyun service in the instance need to be upgraded to at least version to support the feature. indicates the earliest version that supports the feature. indicates the name of the feature.
+   * *   The command delivery has been timeout.
+   * *   The command execution has been timeout.
+   * *   The command execution got an exception.
+   * *   The command execution exit code is not zero.
+   * *   The specified instance was released during task execution.
    * 
    * @example
    * the specified instance does not exists
@@ -84452,6 +84481,13 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.M
    * Finished
    */
   invokeStatus?: string;
+  /**
+   * @remarks
+   * The launcher for script execution. The value cannot exceed 1 KB in length.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
   launcher?: string;
   /**
    * @remarks
@@ -100332,7 +100368,7 @@ export class StartImagePipelineExecutionRequestTemplateTag extends $tea.Model {
 export class StartInstancesResponseBodyInstanceResponsesInstanceResponse extends $tea.Model {
   /**
    * @remarks
-   * The error code returned for the operation on the instance. The status code 200 indicates that the request was successful. For more information, see the "Error codes" section of this topic.
+   * The error code that is returned for the operation on the ECS instance. The value 200 indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
    * 
    * @example
    * 200
@@ -100340,7 +100376,7 @@ export class StartInstancesResponseBodyInstanceResponsesInstanceResponse extends
   code?: string;
   /**
    * @remarks
-   * The status of the instance after the operation is called.
+   * The status of the ECS instance after the operation is called.
    * 
    * @example
    * Starting
@@ -100348,7 +100384,7 @@ export class StartInstancesResponseBodyInstanceResponsesInstanceResponse extends
   currentStatus?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the ECS instance.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -100356,7 +100392,7 @@ export class StartInstancesResponseBodyInstanceResponsesInstanceResponse extends
   instanceId?: string;
   /**
    * @remarks
-   * The error message returned for the operation on the instance. The status code 200 indicates that the request was successful. For more information, see the "Error codes" section of this topic.
+   * The error message that is returned for the operation on the ECS instance. The value success indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
    * 
    * @example
    * success
@@ -100364,7 +100400,7 @@ export class StartInstancesResponseBodyInstanceResponsesInstanceResponse extends
   message?: string;
   /**
    * @remarks
-   * The status of the instance before the operation is called.
+   * The status of the ECS instance before the operation is called.
    * 
    * @example
    * Stopped
@@ -101962,15 +101998,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Take note of the following items:
-   * *   The ENI must be in the **Available** state. You can attach an ENI to only one instance that resides in the same zone and VPC as the ENI.``
+   * *   The ENI must be in the **Available** state. You can attach an ENI to only one instance that resides in the same zone and VPC as the ENI.
    * *   The instance must be in the Running or Stopped state. When you attach ENIs to instances of specific instance types, make sure that the instances are in the Stopped state. For more information, see the "Instance types of the ECS instances that must be in the Stopped (Stopped) state" section in the [Bind an ENI](https://help.aliyun.com/document_detail/58503.html) topic.
-   *     **
-   *     **Note**If the last start time of the instance (including the start time of the instance if it is a new instance, the last restart time of the instance, and the last reactivation time of the instance) is before April 1st, 2018 and the instance is in the Running state, you must call the RebootInstance operation to restart the instance. If you do not call the RebootInstance operation to restart the instance, you cannot attach the ENI to the instance.
+   * >If the last start time of the instance (including the start time of the instance if it is a new instance, the last restart time of the instance, and the last reactivation time of the instance) is before April 1st, 2018 and the instance is in the Running state, you must call the RebootInstance operation to restart the instance. If you do not call the RebootInstance operation to restart the instance, you cannot attach the ENI to the instance.
    * *   You can attach multiple ENIs to one instance. For more information, see [ENI overview](https://help.aliyun.com/document_detail/58496.html).
    * *   The vSwitch to which the ENI is connected must be in the same zone and VPC as the vSwitch to which the instance is connected.
    * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status or events of the ENI to check whether the ENI is attached. The following figure shows the transitions between the statuses of the ENI.
-   * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221124/esgu/AttachNetworkInterface.jpg) If the ENI is in the Attaching state, the ENI attachment request is sent and the ENI is being attached to the specified instance. If the ENI is in the InUse state, the ENI is attached to the specified instance. If the ENI is in the Available state, the ENI failed to be attached.
-   * **For examples on how to call this operation, see **[Attach an ENI](https://help.aliyun.com/document_detail/471550.html).
+   *     ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/en-US/20230223/vqky/AttachNetworkInterface.png)
+   * - If the ENI is in the Attaching state, the ENI attachment request is sent and the ENI is being attached to the specified instance. 
+   * - If the ENI is in the InUse state, the ENI is attached to the specified instance.
+   * - If the ENI is in the Available state, the ENI failed to be attached.
+   * **For examples on how to call this operation, see** [Attach an ENI](https://help.aliyun.com/document_detail/471550.html).
    * 
    * @param request - AttachNetworkInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102045,15 +102083,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Take note of the following items:
-   * *   The ENI must be in the **Available** state. You can attach an ENI to only one instance that resides in the same zone and VPC as the ENI.``
+   * *   The ENI must be in the **Available** state. You can attach an ENI to only one instance that resides in the same zone and VPC as the ENI.
    * *   The instance must be in the Running or Stopped state. When you attach ENIs to instances of specific instance types, make sure that the instances are in the Stopped state. For more information, see the "Instance types of the ECS instances that must be in the Stopped (Stopped) state" section in the [Bind an ENI](https://help.aliyun.com/document_detail/58503.html) topic.
-   *     **
-   *     **Note**If the last start time of the instance (including the start time of the instance if it is a new instance, the last restart time of the instance, and the last reactivation time of the instance) is before April 1st, 2018 and the instance is in the Running state, you must call the RebootInstance operation to restart the instance. If you do not call the RebootInstance operation to restart the instance, you cannot attach the ENI to the instance.
+   * >If the last start time of the instance (including the start time of the instance if it is a new instance, the last restart time of the instance, and the last reactivation time of the instance) is before April 1st, 2018 and the instance is in the Running state, you must call the RebootInstance operation to restart the instance. If you do not call the RebootInstance operation to restart the instance, you cannot attach the ENI to the instance.
    * *   You can attach multiple ENIs to one instance. For more information, see [ENI overview](https://help.aliyun.com/document_detail/58496.html).
    * *   The vSwitch to which the ENI is connected must be in the same zone and VPC as the vSwitch to which the instance is connected.
    * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status or events of the ENI to check whether the ENI is attached. The following figure shows the transitions between the statuses of the ENI.
-   * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221124/esgu/AttachNetworkInterface.jpg) If the ENI is in the Attaching state, the ENI attachment request is sent and the ENI is being attached to the specified instance. If the ENI is in the InUse state, the ENI is attached to the specified instance. If the ENI is in the Available state, the ENI failed to be attached.
-   * **For examples on how to call this operation, see **[Attach an ENI](https://help.aliyun.com/document_detail/471550.html).
+   *     ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/en-US/20230223/vqky/AttachNetworkInterface.png)
+   * - If the ENI is in the Attaching state, the ENI attachment request is sent and the ENI is being attached to the specified instance. 
+   * - If the ENI is in the InUse state, the ENI is attached to the specified instance.
+   * - If the ENI is in the Available state, the ENI failed to be attached.
+   * **For examples on how to call this operation, see** [Attach an ENI](https://help.aliyun.com/document_detail/471550.html).
    * 
    * @param request - AttachNetworkInterfaceRequest
    * @returns AttachNetworkInterfaceResponse
@@ -109601,11 +109641,12 @@ export default class Client extends OpenApi {
    * *   After an ENI is deleted, the following situations occur:
    *     *   All private IP addresses (including primary and secondary private IP addresses) of the ENI are automatically released.
    *     *   The ENI is automatically removed from all security groups.
-   * *   The DeleteNetworkInterface operation is an asynchronous operation. After this operation is called to delete an ENI, you can check the status or events of the ENI to determine whether the ENI is deleted. The following figure shows the transitions between the states of the ENI.![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221208/xual/DeleteNetworkInterface.jpg)
+   * *   The DeleteNetworkInterface operation is an asynchronous operation. After this operation is called to delete an ENI, you can check the status or events of the ENI to determine whether the ENI is deleted. The following figure shows the transitions between the states of the ENI.
+   * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/en-US/20230223/krcd/DeleteNetworkInterface.png)
    *     *   If the ENI is in the Deleting state, the ENI deletion request is sent and the ENI is being deleted.
    *     *   If the ENI is not found, the ENI is deleted.
    *     *   If the ENI is stuck in the Deleting state, the ENI fails to be deleted. You can re-initiate the request to delete the ENI.
-   * **For information about examples on how to call the DeleteNetworkInterface operation, see **[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+   * For information about examples on how to call the DeleteNetworkInterface operation, see[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
    * 
    * @param request - DeleteNetworkInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -109669,11 +109710,12 @@ export default class Client extends OpenApi {
    * *   After an ENI is deleted, the following situations occur:
    *     *   All private IP addresses (including primary and secondary private IP addresses) of the ENI are automatically released.
    *     *   The ENI is automatically removed from all security groups.
-   * *   The DeleteNetworkInterface operation is an asynchronous operation. After this operation is called to delete an ENI, you can check the status or events of the ENI to determine whether the ENI is deleted. The following figure shows the transitions between the states of the ENI.![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221208/xual/DeleteNetworkInterface.jpg)
+   * *   The DeleteNetworkInterface operation is an asynchronous operation. After this operation is called to delete an ENI, you can check the status or events of the ENI to determine whether the ENI is deleted. The following figure shows the transitions between the states of the ENI.
+   * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/en-US/20230223/krcd/DeleteNetworkInterface.png)
    *     *   If the ENI is in the Deleting state, the ENI deletion request is sent and the ENI is being deleted.
    *     *   If the ENI is not found, the ENI is deleted.
    *     *   If the ENI is stuck in the Deleting state, the ENI fails to be deleted. You can re-initiate the request to delete the ENI.
-   * **For information about examples on how to call the DeleteNetworkInterface operation, see **[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+   * For information about examples on how to call the DeleteNetworkInterface operation, see[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
    * 
    * @param request - DeleteNetworkInterfaceRequest
    * @returns DeleteNetworkInterfaceResponse
@@ -114352,7 +114394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the accounts with which a custom image is shared. The response can be displayed by page. By default, 10 entries are displayed per page.
+   * Queries the accounts with which a custom image is shared. When you call this operation, you can specify parameters, such as RegionId and ImageId, in the request. The response can be displayed by page. By default, 10 entries are displayed on each page.
    * 
    * @param request - DescribeImageSharePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -114411,7 +114453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the accounts with which a custom image is shared. The response can be displayed by page. By default, 10 entries are displayed per page.
+   * Queries the accounts with which a custom image is shared. When you call this operation, you can specify parameters, such as RegionId and ImageId, in the request. The response can be displayed by page. By default, 10 entries are displayed on each page.
    * 
    * @param request - DescribeImageSharePermissionRequest
    * @returns DescribeImageSharePermissionResponse
@@ -129304,6 +129346,10 @@ export default class Client extends OpenApi {
       query["Scope"] = request.scope;
     }
 
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -132628,10 +132674,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * $.parameters[2].schema.description
+   * Starts an Elastic Compute Service (ECS) instance. After the operation is called, the instance enters the Starting state.
    * 
    * @remarks
-   * $.parameters[2].schema.example
+   * Take note of the following items:
+   * *   The ECS instance must be in the `Stopped` state.
+   * *   If `OperationLocks` in the response of the DescribeInstances operation contains `"LockReason" : "security"` for an instance, the instance is [locked for security reasons](https://help.aliyun.com/document_detail/25695.html) and cannot be started.
    * 
    * @param request - StartInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -132686,10 +132734,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * $.parameters[2].schema.description
+   * Starts an Elastic Compute Service (ECS) instance. After the operation is called, the instance enters the Starting state.
    * 
    * @remarks
-   * $.parameters[2].schema.example
+   * Take note of the following items:
+   * *   The ECS instance must be in the `Stopped` state.
+   * *   If `OperationLocks` in the response of the DescribeInstances operation contains `"LockReason" : "security"` for an instance, the instance is [locked for security reasons](https://help.aliyun.com/document_detail/25695.html) and cannot be started.
    * 
    * @param request - StartInstanceRequest
    * @returns StartInstanceResponse
@@ -132700,14 +132750,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts Elastic Compute Service (ECS) instances that are in the Stopped state. After the operation is called, the instances enter the Starting state.
+   * Starts Elastic Compute Service (ECS) instances that are in the Stopped state.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * Take note of the following items:
-   * *   The instances to be started must be in the **Stopped** (`Stopped`) state.
-   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
-   * *   You can use `BatchOptimization` to specify the batch operation mode and restart multiple instances at a time.
+   * When you call this operation, take note of the following items:
+   * *   The ECS instances that you want to start must be in the **Stopped** state.``
+   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the ECS instance is locked to ensure security. No operations are allowed on the ECS instance.
+   * *   You can start multiple ECS instances at the same time and use the `BatchOptimization` parameter to specify the batch operation mode.
    * 
    * @param request - StartInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -132766,14 +132815,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts Elastic Compute Service (ECS) instances that are in the Stopped state. After the operation is called, the instances enter the Starting state.
+   * Starts Elastic Compute Service (ECS) instances that are in the Stopped state.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * Take note of the following items:
-   * *   The instances to be started must be in the **Stopped** (`Stopped`) state.
-   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
-   * *   You can use `BatchOptimization` to specify the batch operation mode and restart multiple instances at a time.
+   * When you call this operation, take note of the following items:
+   * *   The ECS instances that you want to start must be in the **Stopped** state.``
+   * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the ECS instance is locked to ensure security. No operations are allowed on the ECS instance.
+   * *   You can start multiple ECS instances at the same time and use the `BatchOptimization` parameter to specify the batch operation mode.
    * 
    * @param request - StartInstancesRequest
    * @returns StartInstancesResponse
