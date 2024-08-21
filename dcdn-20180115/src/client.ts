@@ -14267,6 +14267,7 @@ export class DescribeDcdnIpaUserDomainsResponse extends $tea.Model {
 }
 
 export class DescribeDcdnKvAccountResponseBody extends $tea.Model {
+  capacity?: number;
   /**
    * @remarks
    * The available capacity of all namespaces.
@@ -14275,6 +14276,7 @@ export class DescribeDcdnKvAccountResponseBody extends $tea.Model {
    * 2GB
    */
   capacityString?: string;
+  capacityUsed?: number;
   /**
    * @remarks
    * All namespaces have used capacity.
@@ -14325,7 +14327,9 @@ export class DescribeDcdnKvAccountResponseBody extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      capacity: 'Capacity',
       capacityString: 'CapacityString',
+      capacityUsed: 'CapacityUsed',
       capacityUsedString: 'CapacityUsedString',
       namespaceList: 'NamespaceList',
       namespaceQuota: 'NamespaceQuota',
@@ -14337,7 +14341,9 @@ export class DescribeDcdnKvAccountResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      capacity: 'number',
       capacityString: 'string',
+      capacityUsed: 'number',
       capacityUsedString: 'string',
       namespaceList: { 'type': 'array', 'itemType': DescribeDcdnKvAccountResponseBodyNamespaceList },
       namespaceQuota: 'number',
