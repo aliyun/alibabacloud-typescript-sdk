@@ -2350,6 +2350,7 @@ export class DescribeDdosOriginInstanceBillRequest extends $tea.Model {
 }
 
 export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
+  assetStatus?: number;
   /**
    * @remarks
    * The payment status. Valid values:
@@ -2475,6 +2476,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
   totalFlowOv?: number;
   static names(): { [key: string]: string } {
     return {
+      assetStatus: 'AssetStatus',
       debtStatus: 'DebtStatus',
       flowList: 'FlowList',
       flowRegion: 'FlowRegion',
@@ -2495,6 +2497,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      assetStatus: 'number',
       debtStatus: 'number',
       flowList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyFlowList },
       flowRegion: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
