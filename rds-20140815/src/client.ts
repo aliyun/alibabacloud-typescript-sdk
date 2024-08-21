@@ -9479,6 +9479,94 @@ export class CreatePostgresExtensionsResponse extends $tea.Model {
   }
 }
 
+export class CreateRCDeploymentSetRequest extends $tea.Model {
+  clientToken?: string;
+  deploymentSetName?: string;
+  description?: string;
+  groupCount?: number;
+  onUnableToRedeployFailedInstance?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      deploymentSetName: 'DeploymentSetName',
+      description: 'Description',
+      groupCount: 'GroupCount',
+      onUnableToRedeployFailedInstance: 'OnUnableToRedeployFailedInstance',
+      regionId: 'RegionId',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      deploymentSetName: 'string',
+      description: 'string',
+      groupCount: 'number',
+      onUnableToRedeployFailedInstance: 'string',
+      regionId: 'string',
+      strategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCDeploymentSetResponseBody extends $tea.Model {
+  deploymentSetId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentSetId: 'DeploymentSetId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentSetId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCDeploymentSetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRCDeploymentSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRCDeploymentSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -9988,6 +10076,174 @@ export class CreateReadOnlyDBInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateReadOnlyDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateReplicationLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @example
+   * testdbuser
+   */
+  replicatorAccount?: string;
+  /**
+   * @example
+   * testpassword
+   */
+  replicatorPassword?: string;
+  /**
+   * @example
+   * pgm-****.pg.rds.aliyuncs.com
+   */
+  sourceAddress?: string;
+  /**
+   * @example
+   * aliyunRDS
+   */
+  sourceCategory?: string;
+  /**
+   * @example
+   * testInstance
+   */
+  sourceInstanceName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  sourceInstanceRegionId?: string;
+  /**
+   * @example
+   * 5432
+   */
+  sourcePort?: number;
+  /**
+   * @example
+   * 439946016
+   */
+  taskId?: number;
+  /**
+   * @example
+   * test01
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      dryRun: 'DryRun',
+      replicatorAccount: 'ReplicatorAccount',
+      replicatorPassword: 'ReplicatorPassword',
+      sourceAddress: 'SourceAddress',
+      sourceCategory: 'SourceCategory',
+      sourceInstanceName: 'SourceInstanceName',
+      sourceInstanceRegionId: 'SourceInstanceRegionId',
+      sourcePort: 'SourcePort',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      dryRun: 'boolean',
+      replicatorAccount: 'string',
+      replicatorPassword: 'string',
+      sourceAddress: 'string',
+      sourceCategory: 'string',
+      sourceInstanceName: 'string',
+      sourceInstanceRegionId: 'string',
+      sourcePort: 'number',
+      taskId: 'number',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateReplicationLinkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pgm-****.pg.rds.aliyuncs.com
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 564532302
+   */
+  taskId?: number;
+  /**
+   * @example
+   * test01
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      taskId: 'number',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateReplicationLinkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateReplicationLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateReplicationLinkResponseBody,
     };
   }
 
@@ -12424,6 +12680,379 @@ export class DeletePostgresExtensionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeletePostgresExtensionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCDeploymentSetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deploymentSetId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentSetId: 'DeploymentSetId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentSetId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCDeploymentSetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCDeploymentSetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCDeploymentSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCDeploymentSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstanceRequest extends $tea.Model {
+  force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'Force',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstancesRequest extends $tea.Model {
+  dryRun?: boolean;
+  force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string[];
+  regionId?: string;
+  terminateSubscription?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dryRun: 'DryRun',
+      force: 'Force',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      terminateSubscription: 'TerminateSubscription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRun: 'boolean',
+      force: 'boolean',
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      terminateSubscription: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstancesShrinkRequest extends $tea.Model {
+  dryRun?: boolean;
+  force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIdShrink?: string;
+  regionId?: string;
+  terminateSubscription?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dryRun: 'DryRun',
+      force: 'Force',
+      instanceIdShrink: 'InstanceId',
+      regionId: 'RegionId',
+      terminateSubscription: 'TerminateSubscription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRun: 'boolean',
+      force: 'boolean',
+      instanceIdShrink: 'string',
+      regionId: 'string',
+      terminateSubscription: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstancesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteReplicationLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  promoteToMaster?: boolean;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      promoteToMaster: 'PromoteToMaster',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      promoteToMaster: 'boolean',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteReplicationLinkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * 847BA085-B377-4BFA-8267-F82345ECE1D2
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3472****
+   */
+  taskId?: number;
+  /**
+   * @example
+   * test01
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      taskId: 'number',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteReplicationLinkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteReplicationLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteReplicationLinkResponseBody,
     };
   }
 
@@ -21259,10 +21888,10 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * Specifies whether to query instances that have expired. Valid values:
+   * Specifies whether the instances have expired. Valid values:
    * 
-   * *   **True**: queries instances that have expired.
-   * *   **False**: does not query instances that have expired.
+   * *   **True**
+   * *   **False**
    * 
    * @example
    * True
@@ -21324,7 +21953,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: any non-zero positive integer.
+   * The page number. Pages start from 1.
    * 
    * Default value: **1**.
    * 
@@ -23689,7 +24318,7 @@ export class DescribeDatabasesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: any non-zero positive integer.
+   * The page number. Pages start from 1.
    * 
    * Default value: **1**.
    * 
@@ -25224,7 +25853,7 @@ export class DescribeHistoryEventsRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Valid values: any non-zero positive integer. Default value: **1**.
+   * The page number. Pages start from page 1. Default value: **1**.
    * 
    * @example
    * 1
@@ -30626,6 +31255,579 @@ export class DescribeQuickSaleConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeRCDeploymentSetsRequest extends $tea.Model {
+  deploymentSetIds?: string;
+  deploymentSetName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentSetIds: 'DeploymentSetIds',
+      deploymentSetName: 'DeploymentSetName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentSetIds: 'string',
+      deploymentSetName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      strategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBody extends $tea.Model {
+  deploymentSets?: DescribeRCDeploymentSetsResponseBodyDeploymentSets;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentSets: 'DeploymentSets',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentSets: DescribeRCDeploymentSetsResponseBodyDeploymentSets,
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCDeploymentSetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCDeploymentSetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCImageListRequest extends $tea.Model {
+  architecture?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCImageListResponseBody extends $tea.Model {
+  images?: DescribeRCImageListResponseBodyImages[];
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': DescribeRCImageListResponseBodyImages },
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCImageListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCImageListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCImageListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
+  clusterId?: string;
+  cpu?: number;
+  creationTime?: string;
+  creditSpecification?: string;
+  dataDisks?: DescribeRCInstanceAttributeResponseBodyDataDisks;
+  /**
+   * **if can be null:**
+   * true
+   */
+  dedicatedHostAttribute?: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute;
+  deploymentSetId?: string;
+  description?: string;
+  diskType?: string;
+  ecsInstanceType?: string;
+  eipAddress?: DescribeRCInstanceAttributeResponseBodyEipAddress;
+  enableJumboFrame?: boolean;
+  expiredTime?: string;
+  hostName?: string;
+  hostType?: string;
+  imageId?: string;
+  innerIpAddress?: DescribeRCInstanceAttributeResponseBodyInnerIpAddress;
+  instanceId?: string;
+  instanceName?: string;
+  instanceNetworkType?: string;
+  instanceType?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthIn?: number;
+  internetMaxBandwidthOut?: number;
+  ioOptimized?: string;
+  memory?: number;
+  operationLocks?: DescribeRCInstanceAttributeResponseBodyOperationLocks;
+  publicIpAddress?: DescribeRCInstanceAttributeResponseBodyPublicIpAddress;
+  regionId?: string;
+  requestId?: string;
+  securityGroupIds?: DescribeRCInstanceAttributeResponseBodySecurityGroupIds;
+  serialNumber?: string;
+  status?: string;
+  stoppedMode?: string;
+  vlanId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  vpcAttributes?: DescribeRCInstanceAttributeResponseBodyVpcAttributes;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      cpu: 'Cpu',
+      creationTime: 'CreationTime',
+      creditSpecification: 'CreditSpecification',
+      dataDisks: 'DataDisks',
+      dedicatedHostAttribute: 'DedicatedHostAttribute',
+      deploymentSetId: 'DeploymentSetId',
+      description: 'Description',
+      diskType: 'DiskType',
+      ecsInstanceType: 'EcsInstanceType',
+      eipAddress: 'EipAddress',
+      enableJumboFrame: 'EnableJumboFrame',
+      expiredTime: 'ExpiredTime',
+      hostName: 'HostName',
+      hostType: 'HostType',
+      imageId: 'ImageId',
+      innerIpAddress: 'InnerIpAddress',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceNetworkType: 'InstanceNetworkType',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      ioOptimized: 'IoOptimized',
+      memory: 'Memory',
+      operationLocks: 'OperationLocks',
+      publicIpAddress: 'PublicIpAddress',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      securityGroupIds: 'SecurityGroupIds',
+      serialNumber: 'SerialNumber',
+      status: 'Status',
+      stoppedMode: 'StoppedMode',
+      vlanId: 'VlanId',
+      vpcAttributes: 'VpcAttributes',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      cpu: 'number',
+      creationTime: 'string',
+      creditSpecification: 'string',
+      dataDisks: DescribeRCInstanceAttributeResponseBodyDataDisks,
+      dedicatedHostAttribute: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute,
+      deploymentSetId: 'string',
+      description: 'string',
+      diskType: 'string',
+      ecsInstanceType: 'string',
+      eipAddress: DescribeRCInstanceAttributeResponseBodyEipAddress,
+      enableJumboFrame: 'boolean',
+      expiredTime: 'string',
+      hostName: 'string',
+      hostType: 'string',
+      imageId: 'string',
+      innerIpAddress: DescribeRCInstanceAttributeResponseBodyInnerIpAddress,
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceNetworkType: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthIn: 'number',
+      internetMaxBandwidthOut: 'number',
+      ioOptimized: 'string',
+      memory: 'number',
+      operationLocks: DescribeRCInstanceAttributeResponseBodyOperationLocks,
+      publicIpAddress: DescribeRCInstanceAttributeResponseBodyPublicIpAddress,
+      regionId: 'string',
+      requestId: 'string',
+      securityGroupIds: DescribeRCInstanceAttributeResponseBodySecurityGroupIds,
+      serialNumber: 'string',
+      status: 'string',
+      stoppedMode: 'string',
+      vlanId: 'string',
+      vpcAttributes: DescribeRCInstanceAttributeResponseBodyVpcAttributes,
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstancesRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstancesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  RCInstances?: DescribeRCInstancesResponseBodyRCInstances[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      RCInstances: 'RCInstances',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      RCInstances: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstances },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCMetricListRequest extends $tea.Model {
+  endTime?: string;
+  express?: string;
+  instanceId?: string;
+  length?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  metricName?: string;
+  nextToken?: string;
+  period?: string;
+  regionId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      express: 'Express',
+      instanceId: 'InstanceId',
+      length: 'Length',
+      metricName: 'MetricName',
+      nextToken: 'NextToken',
+      period: 'Period',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      express: 'string',
+      instanceId: 'string',
+      length: 'string',
+      metricName: 'string',
+      nextToken: 'string',
+      period: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCMetricListResponseBody extends $tea.Model {
+  code?: string;
+  datapoints?: string;
+  message?: string;
+  nextToken?: string;
+  period?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      datapoints: 'Datapoints',
+      message: 'Message',
+      nextToken: 'NextToken',
+      period: 'Period',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      datapoints: 'string',
+      message: 'string',
+      nextToken: 'string',
+      period: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCMetricListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCMetricListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCMetricListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRdsResourceSettingsRequest extends $tea.Model {
   ownerId?: number;
   /**
@@ -31263,6 +32465,135 @@ export class DescribeRenewalPriceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRenewalPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationLinkLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 8413252
+   */
+  taskId?: number;
+  /**
+   * @example
+   * test01
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * create
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      taskId: 'number',
+      taskName: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationLinkLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  items?: DescribeReplicationLinkLogsResponseBodyItems[];
+  /**
+   * @example
+   * 16C62438-491B-5C02-9B49-BA924A1372A2
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      items: 'Items',
+      requestId: 'RequestId',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      items: { 'type': 'array', 'itemType': DescribeReplicationLinkLogsResponseBodyItems },
+      requestId: 'string',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationLinkLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeReplicationLinkLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeReplicationLinkLogsResponseBody,
     };
   }
 
@@ -38155,7 +39486,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * Specifies whether to enable the log backup feature. Valid values:
    * 
    * *   **True** or **1**: enables the log backup feature.
-   * *   **False** or **0**: enables the log backup feature.
+   * *   **False** or **0**: disables the log backup feature.
    * 
    * > *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
    * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
@@ -38182,8 +39513,8 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * @remarks
    * Specifies whether to forcefully delete log backup files from the instance when the storage usage of the instance exceeds 80% or the amount of remaining storage on the instance is less than 5 GB. Valid values: **Enable and Disable**. You can retain the default value.
    * 
-   * > *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
-   * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
+   * > *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+   * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
    * 
    * @example
    * Enable
@@ -38230,7 +39561,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * The number of binary log files that you want to retain on the instance. Default value: **60**. Valid values: **6** to **100**.
    * 
    * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
-   * > *   If the instance runs MySQL, you can set this parameter to **-1**. The value **-1** specifies that an unlimited number of binary log files can be retained on the instance.
+   * > *   If the instance runs MySQL, you can set this parameter to \\*\\*-1\\*\\*. The value \\*\\*-1\\*\\* specifies that an unlimited number of binary log files can be retained on the instance.
    * 
    * @example
    * 60
@@ -38282,13 +39613,14 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The policy that is used to retain archived backup files if the instance is released. Default value: None. Valid values:
+   * The policy that is used to retain archived backup files if the instance is released. Valid values:
    * 
    * *   **None**: No archived backup files are retained.
    * *   **Lastest**: Only the last archived backup file is retained.
    * *   **All**: All archived backup files are retained.
    * 
-   * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
+   * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **DataBackupPolicy**.
+   * > *   If the instance uses cloud disks and was created on or after February 1, 2024, this parameter is automatically set to **Lastest**. If the instance uses local disks in the same scenario, this parameter is automatically set to **None**. For more information, see [Backup for deleted instances](https://help.aliyun.com/document_detail/2836955.html).
    * 
    * @example
    * None
@@ -45230,7 +46562,7 @@ export class ModifyParameterRequest extends $tea.Model {
    * @remarks
    * The time at which the modification takes effect. Valid values:
    * 
-   * *   **Immediately**: immediately modifies the parameter. This is the default value.
+   * *   **Immediate**: immediately modifies the parameter. This is the default value.
    * *   **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
    * *   **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
    * 
@@ -45499,6 +46831,179 @@ export class ModifyParameterGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyParameterGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceRequest extends $tea.Model {
+  autoPay?: boolean;
+  direction?: string;
+  dryRun?: boolean;
+  instanceId?: string;
+  instanceType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      direction: 'Direction',
+      dryRun: 'DryRun',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      direction: 'string',
+      dryRun: 'boolean',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceResponseBody extends $tea.Model {
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRCInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceChargeTypeRequest extends $tea.Model {
+  autoPay?: boolean;
+  dryRun?: boolean;
+  includeDataDisks?: boolean;
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      dryRun: 'DryRun',
+      includeDataDisks: 'IncludeDataDisks',
+      instanceChargeType: 'InstanceChargeType',
+      instanceIds: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      dryRun: 'boolean',
+      includeDataDisks: 'boolean',
+      instanceChargeType: 'string',
+      instanceIds: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceChargeTypeResponseBody extends $tea.Model {
+  feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feeOfInstances: 'FeeOfInstances',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feeOfInstances: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances,
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceChargeTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRCInstanceChargeTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRCInstanceChargeTypeResponseBody,
     };
   }
 
@@ -47488,7 +48993,7 @@ export class QueryRecommendByCodeRequest extends $tea.Model {
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -47505,7 +49010,7 @@ export class QueryRecommendByCodeRequest extends $tea.Model {
       ownerId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -47584,6 +49089,82 @@ export class QueryRecommendByCodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryRecommendByCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstanceRequest extends $tea.Model {
+  dryRun?: boolean;
+  forceStop?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dryRun: 'DryRun',
+      forceStop: 'ForceStop',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dryRun: 'boolean',
+      forceStop: 'boolean',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootRCInstanceResponseBody,
     };
   }
 
@@ -47739,6 +49320,115 @@ export class RebuildDBInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RebuildDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildReplicationLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildReplicationLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * pgm-bp1trqb4p1xd****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 65BDA532-28AF-4122-AA39-B382721EEE64
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 3472****
+   */
+  taskId?: number;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * test01
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      taskId: 'number',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebuildReplicationLinkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebuildReplicationLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebuildReplicationLinkResponseBody,
     };
   }
 
@@ -49004,6 +50694,87 @@ export class ResetAccountPasswordResponse extends $tea.Model {
   }
 }
 
+export class ResizeRCInstanceDiskRequest extends $tea.Model {
+  autoPay?: boolean;
+  dryRun?: boolean;
+  instanceId?: string;
+  newSize?: number;
+  regionId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      dryRun: 'DryRun',
+      instanceId: 'InstanceId',
+      newSize: 'NewSize',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      dryRun: 'boolean',
+      instanceId: 'string',
+      newSize: 'number',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeRCInstanceDiskResponseBody extends $tea.Model {
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeRCInstanceDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResizeRCInstanceDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResizeRCInstanceDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RestartDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -49681,6 +51452,264 @@ export class RevokeOperatorPermissionResponse extends $tea.Model {
   }
 }
 
+export class RunRCInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  amount?: number;
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  clientToken?: string;
+  dataDisk?: RunRCInstancesRequestDataDisk[];
+  deploymentSetId?: string;
+  description?: string;
+  imageId?: string;
+  instanceChargeType?: string;
+  instanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceType?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  ioOptimized?: string;
+  keyPairName?: string;
+  password?: string;
+  period?: number;
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  securityEnhancementStrategy?: string;
+  securityGroupId?: string;
+  systemDisk?: RunRCInstancesRequestSystemDisk;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      clientToken: 'ClientToken',
+      dataDisk: 'DataDisk',
+      deploymentSetId: 'DeploymentSetId',
+      description: 'Description',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      ioOptimized: 'IoOptimized',
+      keyPairName: 'KeyPairName',
+      password: 'Password',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      securityEnhancementStrategy: 'SecurityEnhancementStrategy',
+      securityGroupId: 'SecurityGroupId',
+      systemDisk: 'SystemDisk',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      clientToken: 'string',
+      dataDisk: { 'type': 'array', 'itemType': RunRCInstancesRequestDataDisk },
+      deploymentSetId: 'string',
+      description: 'string',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      ioOptimized: 'string',
+      keyPairName: 'string',
+      password: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      securityEnhancementStrategy: 'string',
+      securityGroupId: 'string',
+      systemDisk: RunRCInstancesRequestSystemDisk,
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  amount?: number;
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  clientToken?: string;
+  dataDiskShrink?: string;
+  deploymentSetId?: string;
+  description?: string;
+  imageId?: string;
+  instanceChargeType?: string;
+  instanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceType?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  ioOptimized?: string;
+  keyPairName?: string;
+  password?: string;
+  period?: number;
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  securityEnhancementStrategy?: string;
+  securityGroupId?: string;
+  systemDiskShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      clientToken: 'ClientToken',
+      dataDiskShrink: 'DataDisk',
+      deploymentSetId: 'DeploymentSetId',
+      description: 'Description',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      ioOptimized: 'IoOptimized',
+      keyPairName: 'KeyPairName',
+      password: 'Password',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      securityEnhancementStrategy: 'SecurityEnhancementStrategy',
+      securityGroupId: 'SecurityGroupId',
+      systemDiskShrink: 'SystemDisk',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      clientToken: 'string',
+      dataDiskShrink: 'string',
+      deploymentSetId: 'string',
+      description: 'string',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      ioOptimized: 'string',
+      keyPairName: 'string',
+      password: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      securityEnhancementStrategy: 'string',
+      securityGroupId: 'string',
+      systemDiskShrink: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesResponseBody extends $tea.Model {
+  instanceIdSets?: RunRCInstancesResponseBodyInstanceIdSets;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdSets: 'InstanceIdSets',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdSets: RunRCInstancesResponseBodyInstanceIdSets,
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunRCInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -49935,6 +51964,76 @@ export class StartDBInstanceResponse extends $tea.Model {
   }
 }
 
+export class StartRCInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRCInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartRCInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -50027,6 +52126,79 @@ export class StopDBInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstanceRequest extends $tea.Model {
+  forceStop?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forceStop: 'ForceStop',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forceStop: 'boolean',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopRCInstanceResponseBody,
     };
   }
 
@@ -50440,6 +52612,75 @@ export class SwitchDBInstanceVpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SwitchDBInstanceVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncRCKeyPairRequest extends $tea.Model {
+  keyPairName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPairName: 'KeyPairName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPairName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncRCKeyPairResponseBody extends $tea.Model {
+  data?: SyncRCKeyPairResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SyncRCKeyPairResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncRCKeyPairResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncRCKeyPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncRCKeyPairResponseBody,
     };
   }
 
@@ -67895,6 +70136,483 @@ export class DescribePriceResponseBodyServerlessPrice extends $tea.Model {
   }
 }
 
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacitiesCapacity extends $tea.Model {
+  availableAmount?: number;
+  usedAmount?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableAmount: 'AvailableAmount',
+      usedAmount: 'UsedAmount',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAmount: 'number',
+      usedAmount: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities extends $tea.Model {
+  capacity?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacitiesCapacity[];
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: { 'type': 'array', 'itemType': DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacitiesCapacity },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds extends $tea.Model {
+  instanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet extends $tea.Model {
+  capacities?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities;
+  createTime?: string;
+  deploymentSetDescription?: string;
+  deploymentSetId?: string;
+  deploymentSetName?: string;
+  deploymentStrategy?: string;
+  domain?: string;
+  granularity?: string;
+  groupCount?: number;
+  instanceAmount?: number;
+  instanceIds?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds;
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacities: 'Capacities',
+      createTime: 'CreateTime',
+      deploymentSetDescription: 'DeploymentSetDescription',
+      deploymentSetId: 'DeploymentSetId',
+      deploymentSetName: 'DeploymentSetName',
+      deploymentStrategy: 'DeploymentStrategy',
+      domain: 'Domain',
+      granularity: 'Granularity',
+      groupCount: 'GroupCount',
+      instanceAmount: 'InstanceAmount',
+      instanceIds: 'InstanceIds',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacities: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities,
+      createTime: 'string',
+      deploymentSetDescription: 'string',
+      deploymentSetId: 'string',
+      deploymentSetName: 'string',
+      deploymentStrategy: 'string',
+      domain: 'string',
+      granularity: 'string',
+      groupCount: 'number',
+      instanceAmount: 'number',
+      instanceIds: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds,
+      strategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSets extends $tea.Model {
+  deploymentSet?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet[];
+  static names(): { [key: string]: string } {
+    return {
+      deploymentSet: 'DeploymentSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentSet: { 'type': 'array', 'itemType': DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCImageListResponseBodyImages extends $tea.Model {
+  architecture?: string;
+  creationTime?: string;
+  description?: string;
+  imageId?: string;
+  imageName?: string;
+  imageVersion?: string;
+  isPublic?: boolean;
+  OSName?: string;
+  OSNameEn?: string;
+  OSType?: string;
+  size?: number;
+  status?: string;
+  usage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageVersion: 'ImageVersion',
+      isPublic: 'IsPublic',
+      OSName: 'OSName',
+      OSNameEn: 'OSNameEn',
+      OSType: 'OSType',
+      size: 'Size',
+      status: 'Status',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      creationTime: 'string',
+      description: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageVersion: 'string',
+      isPublic: 'boolean',
+      OSName: 'string',
+      OSNameEn: 'string',
+      OSType: 'string',
+      size: 'number',
+      status: 'string',
+      usage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk extends $tea.Model {
+  category?: string;
+  deleteWithInstance?: boolean;
+  encrypted?: string;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      encrypted: 'Encrypted',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      encrypted: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyDataDisks extends $tea.Model {
+  dataDisk?: DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk[];
+  static names(): { [key: string]: string } {
+    return {
+      dataDisk: 'DataDisk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisk: { 'type': 'array', 'itemType': DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute extends $tea.Model {
+  dedicatedHostId?: string;
+  dedicatedHostName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostId: 'DedicatedHostId',
+      dedicatedHostName: 'DedicatedHostName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostId: 'string',
+      dedicatedHostName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $tea.Model {
+  allocationId?: string;
+  bandwidth?: number;
+  internetChargeType?: string;
+  ipAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      bandwidth: 'Bandwidth',
+      internetChargeType: 'InternetChargeType',
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      bandwidth: 'number',
+      internetChargeType: 'string',
+      ipAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyInnerIpAddress extends $tea.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason extends $tea.Model {
+  lockReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyOperationLocks extends $tea.Model {
+  lockReason?: DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason[];
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: { 'type': 'array', 'itemType': DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyPublicIpAddress extends $tea.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodySecurityGroupIds extends $tea.Model {
+  securityGroupId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress extends $tea.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $tea.Model {
+  natIpAddress?: string;
+  privateIpAddress?: DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natIpAddress: 'NatIpAddress',
+      privateIpAddress: 'PrivateIpAddress',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natIpAddress: 'string',
+      privateIpAddress: DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress,
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
+  clusterName?: string;
+  dbType?: string;
+  description?: string;
+  gmtCreated?: string;
+  hostIp?: string;
+  hostName?: string;
+  instanceId?: string;
+  regionId?: string;
+  status?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      dbType: 'DbType',
+      description: 'Description',
+      gmtCreated: 'GmtCreated',
+      hostIp: 'HostIp',
+      hostName: 'HostName',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      status: 'Status',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      dbType: 'string',
+      description: 'string',
+      gmtCreated: 'string',
+      hostIp: 'string',
+      hostName: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      status: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRdsResourceSettingsResponseBodyRdsInstanceResourceSettingsRdsInstanceResourceSetting extends $tea.Model {
   endDate?: string;
   isTop?: string;
@@ -68588,6 +71306,134 @@ export class DescribeRenewalPriceResponseBodyRules extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       rule: { 'type': 'array', 'itemType': DescribeRenewalPriceResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicationLinkLogsResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * [Check rds empty]\\nCheck rds databases: success\\n[Check source connectivity]\\nCheck ip connectable: success\\nCheck port connectable: success\\nCheck database connectable: success\\nCheck account replication privilege: success\\nCheck account createrole privilege: success\\nCheck account monitor privilege: success\\n[Check source version]\\nCheck major version consistent: success\\n[Check source glibc version]\\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\\n[Check disk size]\\nCheck disk size enough: success\\n[Check wal keep size]\\nCheck wal keep size large enough: success\\n[Check spec params]\\nCheck if spec params too large: success\\n [Check triggers]\\nCheck triggers compatible: success\\n[Check user functions]\\nCheck user functions compatible: success\\n*Migrate check success*
+   */
+  detail?: string;
+  /**
+   * @example
+   * 2022-02-25T06:57:41Z
+   */
+  gmtCreated?: string;
+  /**
+   * @example
+   * 2022-03-01T06:39:51Z
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * None
+   */
+  replicationInfo?: string;
+  /**
+   * @example
+   * finish
+   */
+  replicationState?: string;
+  /**
+   * @example
+   * testdbuser
+   */
+  replicatorAccount?: string;
+  /**
+   * @example
+   * testpassword
+   */
+  replicatorPassword?: string;
+  /**
+   * @example
+   * pgm-****.pg.rds.aliyuncs.com
+   */
+  sourceAddress?: string;
+  /**
+   * @example
+   * aliyunRDS
+   */
+  sourceCategory?: string;
+  /**
+   * @example
+   * 5432
+   */
+  sourcePort?: number;
+  /**
+   * @example
+   * pgm-bp1l4dutw453****
+   */
+  targetInstanceId?: string;
+  /**
+   * @example
+   * 8413252
+   */
+  taskId?: number;
+  /**
+   * @example
+   * test01
+   */
+  taskName?: string;
+  /**
+   * @example
+   * increment
+   */
+  taskStage?: string;
+  /**
+   * @example
+   * success
+   */
+  taskStatus?: string;
+  /**
+   * @example
+   * create
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      replicationInfo: 'ReplicationInfo',
+      replicationState: 'ReplicationState',
+      replicatorAccount: 'ReplicatorAccount',
+      replicatorPassword: 'ReplicatorPassword',
+      sourceAddress: 'SourceAddress',
+      sourceCategory: 'SourceCategory',
+      sourcePort: 'SourcePort',
+      targetInstanceId: 'TargetInstanceId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskStage: 'TaskStage',
+      taskStatus: 'TaskStatus',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      replicationInfo: 'string',
+      replicationState: 'string',
+      replicatorAccount: 'string',
+      replicatorPassword: 'string',
+      sourceAddress: 'string',
+      sourceCategory: 'string',
+      sourcePort: 'number',
+      targetInstanceId: 'string',
+      taskId: 'number',
+      taskName: 'string',
+      taskStage: 'string',
+      taskStatus: 'string',
+      taskType: 'string',
     };
   }
 
@@ -71992,6 +74838,50 @@ export class ModifyPGHbaConfigRequestHbaItem extends $tea.Model {
   }
 }
 
+export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance extends $tea.Model {
+  currency?: string;
+  fee?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      fee: 'Fee',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      fee: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $tea.Model {
+  feeOfInstance?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      feeOfInstance: 'FeeOfInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feeOfInstance: { 'type': 'array', 'itemType': ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifySecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation extends $tea.Model {
   /**
    * @remarks
@@ -72396,6 +75286,97 @@ export class RemoveTagsFromResourceRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesRequestDataDisk extends $tea.Model {
+  category?: string;
+  deleteWithInstance?: boolean;
+  encrypted?: string;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      encrypted: 'Encrypted',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      encrypted: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesRequestSystemDisk extends $tea.Model {
+  category?: string;
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesResponseBodyInstanceIdSets extends $tea.Model {
+  instanceIdSet?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdSet: 'InstanceIdSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdSet: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncRCKeyPairResponseBodyData extends $tea.Model {
+  isSyncInfo?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isSyncInfo: 'IsSyncInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isSyncInfo: 'boolean',
     };
   }
 
@@ -76437,6 +79418,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建RDS CUSTOM部署集
+   * 
+   * @param request - CreateRCDeploymentSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRCDeploymentSetResponse
+   */
+  async createRCDeploymentSetWithOptions(request: CreateRCDeploymentSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateRCDeploymentSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deploymentSetName)) {
+      query["DeploymentSetName"] = request.deploymentSetName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupCount)) {
+      query["GroupCount"] = request.groupCount;
+    }
+
+    if (!Util.isUnset(request.onUnableToRedeployFailedInstance)) {
+      query["OnUnableToRedeployFailedInstance"] = request.onUnableToRedeployFailedInstance;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRCDeploymentSet",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRCDeploymentSetResponse>(await this.callApi(params, req, runtime), new CreateRCDeploymentSetResponse({}));
+  }
+
+  /**
+   * 创建RDS CUSTOM部署集
+   * 
+   * @param request - CreateRCDeploymentSetRequest
+   * @returns CreateRCDeploymentSetResponse
+   */
+  async createRCDeploymentSet(request: CreateRCDeploymentSetRequest): Promise<CreateRCDeploymentSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRCDeploymentSetWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a read-only instance.
    * 
    * @remarks
@@ -76638,6 +79685,88 @@ export default class Client extends OpenApi {
   async createReadOnlyDBInstance(request: CreateReadOnlyDBInstanceRequest): Promise<CreateReadOnlyDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createReadOnlyDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建复制链路
+   * 
+   * @param request - CreateReplicationLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReplicationLinkResponse
+   */
+  async createReplicationLinkWithOptions(request: CreateReplicationLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateReplicationLinkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.replicatorAccount)) {
+      query["ReplicatorAccount"] = request.replicatorAccount;
+    }
+
+    if (!Util.isUnset(request.replicatorPassword)) {
+      query["ReplicatorPassword"] = request.replicatorPassword;
+    }
+
+    if (!Util.isUnset(request.sourceAddress)) {
+      query["SourceAddress"] = request.sourceAddress;
+    }
+
+    if (!Util.isUnset(request.sourceCategory)) {
+      query["SourceCategory"] = request.sourceCategory;
+    }
+
+    if (!Util.isUnset(request.sourceInstanceName)) {
+      query["SourceInstanceName"] = request.sourceInstanceName;
+    }
+
+    if (!Util.isUnset(request.sourceInstanceRegionId)) {
+      query["SourceInstanceRegionId"] = request.sourceInstanceRegionId;
+    }
+
+    if (!Util.isUnset(request.sourcePort)) {
+      query["SourcePort"] = request.sourcePort;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateReplicationLink",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateReplicationLinkResponse>(await this.callApi(params, req, runtime), new CreateReplicationLinkResponse({}));
+  }
+
+  /**
+   * 创建复制链路
+   * 
+   * @param request - CreateReplicationLinkRequest
+   * @returns CreateReplicationLinkResponse
+   */
+  async createReplicationLink(request: CreateReplicationLinkRequest): Promise<CreateReplicationLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createReplicationLinkWithOptions(request, runtime);
   }
 
   /**
@@ -78130,6 +81259,216 @@ export default class Client extends OpenApi {
   async deletePostgresExtensions(request: DeletePostgresExtensionsRequest): Promise<DeletePostgresExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePostgresExtensionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除RDS CUSTOM部署集
+   * 
+   * @param request - DeleteRCDeploymentSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCDeploymentSetResponse
+   */
+  async deleteRCDeploymentSetWithOptions(request: DeleteRCDeploymentSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCDeploymentSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deploymentSetId)) {
+      query["DeploymentSetId"] = request.deploymentSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCDeploymentSet",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCDeploymentSetResponse>(await this.callApi(params, req, runtime), new DeleteRCDeploymentSetResponse({}));
+  }
+
+  /**
+   * 删除RDS CUSTOM部署集
+   * 
+   * @param request - DeleteRCDeploymentSetRequest
+   * @returns DeleteRCDeploymentSetResponse
+   */
+  async deleteRCDeploymentSet(request: DeleteRCDeploymentSetRequest): Promise<DeleteRCDeploymentSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCDeploymentSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除RDS用户专属主机实例
+   * 
+   * @param request - DeleteRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCInstanceResponse
+   */
+  async deleteRCInstanceWithOptions(request: DeleteRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCInstanceResponse>(await this.callApi(params, req, runtime), new DeleteRCInstanceResponse({}));
+  }
+
+  /**
+   * 删除RDS用户专属主机实例
+   * 
+   * @param request - DeleteRCInstanceRequest
+   * @returns DeleteRCInstanceResponse
+   */
+  async deleteRCInstance(request: DeleteRCInstanceRequest): Promise<DeleteRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除RDS用户专属主机实例
+   * 
+   * @param tmpReq - DeleteRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCInstancesResponse
+   */
+  async deleteRCInstancesWithOptions(tmpReq: DeleteRCInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteRCInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceId)) {
+      request.instanceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceId, "InstanceId", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.instanceIdShrink)) {
+      query["InstanceId"] = request.instanceIdShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.terminateSubscription)) {
+      query["TerminateSubscription"] = request.terminateSubscription;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCInstancesResponse>(await this.callApi(params, req, runtime), new DeleteRCInstancesResponse({}));
+  }
+
+  /**
+   * 批量删除RDS用户专属主机实例
+   * 
+   * @param request - DeleteRCInstancesRequest
+   * @returns DeleteRCInstancesResponse
+   */
+  async deleteRCInstances(request: DeleteRCInstancesRequest): Promise<DeleteRCInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除复制链路
+   * 
+   * @param request - DeleteReplicationLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReplicationLinkResponse
+   */
+  async deleteReplicationLinkWithOptions(request: DeleteReplicationLinkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteReplicationLinkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.promoteToMaster)) {
+      query["PromoteToMaster"] = request.promoteToMaster;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteReplicationLink",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteReplicationLinkResponse>(await this.callApi(params, req, runtime), new DeleteReplicationLinkResponse({}));
+  }
+
+  /**
+   * 删除复制链路
+   * 
+   * @param request - DeleteReplicationLinkRequest
+   * @returns DeleteReplicationLinkResponse
+   */
+  async deleteReplicationLink(request: DeleteReplicationLinkRequest): Promise<DeleteReplicationLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteReplicationLinkWithOptions(request, runtime);
   }
 
   /**
@@ -86409,6 +89748,216 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 描述RDS CUSTOM部署集
+   * 
+   * @param request - DescribeRCDeploymentSetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCDeploymentSetsResponse
+   */
+  async describeRCDeploymentSetsWithOptions(request: DescribeRCDeploymentSetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCDeploymentSetsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCDeploymentSets",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCDeploymentSetsResponse>(await this.callApi(params, req, runtime), new DescribeRCDeploymentSetsResponse({}));
+  }
+
+  /**
+   * 描述RDS CUSTOM部署集
+   * 
+   * @param request - DescribeRCDeploymentSetsRequest
+   * @returns DescribeRCDeploymentSetsResponse
+   */
+  async describeRCDeploymentSets(request: DescribeRCDeploymentSetsRequest): Promise<DescribeRCDeploymentSetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCDeploymentSetsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询镜像资源
+   * 
+   * @param request - DescribeRCImageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCImageListResponse
+   */
+  async describeRCImageListWithOptions(request: DescribeRCImageListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCImageListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCImageList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCImageListResponse>(await this.callApi(params, req, runtime), new DescribeRCImageListResponse({}));
+  }
+
+  /**
+   * 查询镜像资源
+   * 
+   * @param request - DescribeRCImageListRequest
+   * @returns DescribeRCImageListResponse
+   */
+  async describeRCImageList(request: DescribeRCImageListRequest): Promise<DescribeRCImageListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCImageListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询RDS用户专属主机实例
+   * 
+   * @param request - DescribeRCInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceAttributeResponse
+   */
+  async describeRCInstanceAttributeWithOptions(request: DescribeRCInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCInstanceAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceAttributeResponse({}));
+  }
+
+  /**
+   * 查询RDS用户专属主机实例
+   * 
+   * @param request - DescribeRCInstanceAttributeRequest
+   * @returns DescribeRCInstanceAttributeResponse
+   */
+  async describeRCInstanceAttribute(request: DescribeRCInstanceAttributeRequest): Promise<DescribeRCInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询RC实例列表
+   * 
+   * @param request - DescribeRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstancesResponse
+   */
+  async describeRCInstancesWithOptions(request: DescribeRCInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCInstancesResponse>(await this.callApi(params, req, runtime), new DescribeRCInstancesResponse({}));
+  }
+
+  /**
+   * 查询RC实例列表
+   * 
+   * @param request - DescribeRCInstancesRequest
+   * @returns DescribeRCInstancesResponse
+   */
+  async describeRCInstances(request: DescribeRCInstancesRequest): Promise<DescribeRCInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定云产品的指定监控项的监控数据
+   * 
+   * @param request - DescribeRCMetricListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCMetricListResponse
+   */
+  async describeRCMetricListWithOptions(request: DescribeRCMetricListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCMetricListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCMetricList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCMetricListResponse>(await this.callApi(params, req, runtime), new DescribeRCMetricListResponse({}));
+  }
+
+  /**
+   * 查询指定云产品的指定监控项的监控数据
+   * 
+   * @param request - DescribeRCMetricListRequest
+   * @returns DescribeRCMetricListResponse
+   */
+  async describeRCMetricList(request: DescribeRCMetricListRequest): Promise<DescribeRCMetricListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCMetricListWithOptions(request, runtime);
+  }
+
+  /**
    * This operation is deprecated.
    * 
    * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
@@ -86790,6 +90339,68 @@ export default class Client extends OpenApi {
   async describeRenewalPrice(request: DescribeRenewalPriceRequest): Promise<DescribeRenewalPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRenewalPriceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询复制链路操作日志
+   * 
+   * @param request - DescribeReplicationLinkLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeReplicationLinkLogsResponse
+   */
+  async describeReplicationLinkLogsWithOptions(request: DescribeReplicationLinkLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReplicationLinkLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeReplicationLinkLogs",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeReplicationLinkLogsResponse>(await this.callApi(params, req, runtime), new DescribeReplicationLinkLogsResponse({}));
+  }
+
+  /**
+   * 查询复制链路操作日志
+   * 
+   * @param request - DescribeReplicationLinkLogsRequest
+   * @returns DescribeReplicationLinkLogsResponse
+   */
+  async describeReplicationLinkLogs(request: DescribeReplicationLinkLogsRequest): Promise<DescribeReplicationLinkLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeReplicationLinkLogsWithOptions(request, runtime);
   }
 
   /**
@@ -94143,6 +97754,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ModifyRCInstance
+   * 
+   * @param request - ModifyRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCInstanceResponse
+   */
+  async modifyRCInstanceWithOptions(request: ModifyRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRCInstanceResponse>(await this.callApi(params, req, runtime), new ModifyRCInstanceResponse({}));
+  }
+
+  /**
+   * ModifyRCInstance
+   * 
+   * @param request - ModifyRCInstanceRequest
+   * @returns ModifyRCInstanceResponse
+   */
+  async modifyRCInstance(request: ModifyRCInstanceRequest): Promise<ModifyRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改RDS用户专属主机实例付费类型
+   * 
+   * @param request - ModifyRCInstanceChargeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCInstanceChargeTypeResponse
+   */
+  async modifyRCInstanceChargeTypeWithOptions(request: ModifyRCInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRCInstanceChargeTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.includeDataDisks)) {
+      query["IncludeDataDisks"] = request.includeDataDisks;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRCInstanceChargeType",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRCInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyRCInstanceChargeTypeResponse({}));
+  }
+
+  /**
+   * 修改RDS用户专属主机实例付费类型
+   * 
+   * @param request - ModifyRCInstanceChargeTypeRequest
+   * @returns ModifyRCInstanceChargeTypeResponse
+   */
+  async modifyRCInstanceChargeType(request: ModifyRCInstanceChargeTypeRequest): Promise<ModifyRCInstanceChargeTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRCInstanceChargeTypeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the latency threshold of the read/write splitting link and the read weights of a primary instance and its read-only instances.
    * 
    * @remarks
@@ -95235,6 +98970,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重启RDS用户专属主机实例
+   * 
+   * @param request - RebootRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootRCInstanceResponse
+   */
+  async rebootRCInstanceWithOptions(request: RebootRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.forceStop)) {
+      query["ForceStop"] = request.forceStop;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebootRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebootRCInstanceResponse>(await this.callApi(params, req, runtime), new RebootRCInstanceResponse({}));
+  }
+
+  /**
+   * 重启RDS用户专属主机实例
+   * 
+   * @param request - RebootRCInstanceRequest
+   * @returns RebootRCInstanceResponse
+   */
+  async rebootRCInstance(request: RebootRCInstanceRequest): Promise<RebootRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebootRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Rebuilds the secondary instance of a primary instance in a dedicated cluster.
    * 
    * @remarks
@@ -95308,6 +99097,56 @@ export default class Client extends OpenApi {
   async rebuildDBInstance(request: RebuildDBInstanceRequest): Promise<RebuildDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebuildDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Re-creates a data synchronization link for a disaster recovery ApsaraDB RDS instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
+   * 
+   * @param request - RebuildReplicationLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebuildReplicationLinkResponse
+   */
+  async rebuildReplicationLinkWithOptions(request: RebuildReplicationLinkRequest, runtime: $Util.RuntimeOptions): Promise<RebuildReplicationLinkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebuildReplicationLink",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebuildReplicationLinkResponse>(await this.callApi(params, req, runtime), new RebuildReplicationLinkResponse({}));
+  }
+
+  /**
+   * Re-creates a data synchronization link for a disaster recovery ApsaraDB RDS instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
+   * 
+   * @param request - RebuildReplicationLinkRequest
+   * @returns RebuildReplicationLinkResponse
+   */
+  async rebuildReplicationLink(request: RebuildReplicationLinkRequest): Promise<RebuildReplicationLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebuildReplicationLinkWithOptions(request, runtime);
   }
 
   /**
@@ -96135,6 +99974,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ResizeRCInstanceDisk
+   * 
+   * @param request - ResizeRCInstanceDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeRCInstanceDiskResponse
+   */
+  async resizeRCInstanceDiskWithOptions(request: ResizeRCInstanceDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResizeRCInstanceDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.newSize)) {
+      query["NewSize"] = request.newSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResizeRCInstanceDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResizeRCInstanceDiskResponse>(await this.callApi(params, req, runtime), new ResizeRCInstanceDiskResponse({}));
+  }
+
+  /**
+   * ResizeRCInstanceDisk
+   * 
+   * @param request - ResizeRCInstanceDiskRequest
+   * @returns ResizeRCInstanceDiskResponse
+   */
+  async resizeRCInstanceDisk(request: ResizeRCInstanceDiskRequest): Promise<ResizeRCInstanceDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resizeRCInstanceDiskWithOptions(request, runtime);
+  }
+
+  /**
    * Restarts an instance.
    * 
    * @remarks
@@ -96597,6 +100498,150 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建RDS用户专属主机实例
+   * 
+   * @param tmpReq - RunRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunRCInstancesResponse
+   */
+  async runRCInstancesWithOptions(tmpReq: RunRCInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RunRCInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunRCInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataDisk)) {
+      request.dataDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDisk, "DataDisk", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.systemDisk)) {
+      request.systemDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemDisk, "SystemDisk", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dataDiskShrink)) {
+      query["DataDisk"] = request.dataDiskShrink;
+    }
+
+    if (!Util.isUnset(request.deploymentSetId)) {
+      query["DeploymentSetId"] = request.deploymentSetId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.internetMaxBandwidthOut)) {
+      query["InternetMaxBandwidthOut"] = request.internetMaxBandwidthOut;
+    }
+
+    if (!Util.isUnset(request.ioOptimized)) {
+      query["IoOptimized"] = request.ioOptimized;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityEnhancementStrategy)) {
+      query["SecurityEnhancementStrategy"] = request.securityEnhancementStrategy;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.systemDiskShrink)) {
+      query["SystemDisk"] = request.systemDiskShrink;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunRCInstancesResponse>(await this.callApi(params, req, runtime), new RunRCInstancesResponse({}));
+  }
+
+  /**
+   * 创建RDS用户专属主机实例
+   * 
+   * @param request - RunRCInstancesRequest
+   * @returns RunRCInstancesResponse
+   */
+  async runRCInstances(request: RunRCInstancesRequest): Promise<RunRCInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Resumes an instance.
    * 
    * @remarks
@@ -96725,6 +100770,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动RDS用户专属主机实例
+   * 
+   * @param request - StartRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRCInstanceResponse
+   */
+  async startRCInstanceWithOptions(request: StartRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartRCInstanceResponse>(await this.callApi(params, req, runtime), new StartRCInstanceResponse({}));
+  }
+
+  /**
+   * 启动RDS用户专属主机实例
+   * 
+   * @param request - StartRCInstanceRequest
+   * @returns StartRCInstanceResponse
+   */
+  async startRCInstance(request: StartRCInstanceRequest): Promise<StartRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Suspends an ApsaraDB RDS instance.
    * 
    * @remarks
@@ -96802,6 +100893,56 @@ export default class Client extends OpenApi {
   async stopDBInstance(request: StopDBInstanceRequest): Promise<StopDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止RDS用户专属主机实例
+   * 
+   * @param request - StopRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRCInstanceResponse
+   */
+  async stopRCInstanceWithOptions(request: StopRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.forceStop)) {
+      query["ForceStop"] = request.forceStop;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopRCInstanceResponse>(await this.callApi(params, req, runtime), new StopRCInstanceResponse({}));
+  }
+
+  /**
+   * 停止RDS用户专属主机实例
+   * 
+   * @param request - StopRCInstanceRequest
+   * @returns StopRCInstanceResponse
+   */
+  async stopRCInstance(request: StopRCInstanceRequest): Promise<StopRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopRCInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -97076,6 +101217,52 @@ export default class Client extends OpenApi {
   async switchDBInstanceVpc(request: SwitchDBInstanceVpcRequest): Promise<SwitchDBInstanceVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceVpcWithOptions(request, runtime);
+  }
+
+  /**
+   * 同步密钥对
+   * 
+   * @param request - SyncRCKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncRCKeyPairResponse
+   */
+  async syncRCKeyPairWithOptions(request: SyncRCKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<SyncRCKeyPairResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncRCKeyPair",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncRCKeyPairResponse>(await this.callApi(params, req, runtime), new SyncRCKeyPairResponse({}));
+  }
+
+  /**
+   * 同步密钥对
+   * 
+   * @param request - SyncRCKeyPairRequest
+   * @returns SyncRCKeyPairResponse
+   */
+  async syncRCKeyPair(request: SyncRCKeyPairRequest): Promise<SyncRCKeyPairResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.syncRCKeyPairWithOptions(request, runtime);
   }
 
   /**
