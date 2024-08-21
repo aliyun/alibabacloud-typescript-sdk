@@ -2641,6 +2641,8 @@ export class CreateUploadVideoResponse extends $tea.Model {
 export class DecryptKMSDataKeyRequest extends $tea.Model {
   /**
    * @remarks
+   * The ciphertext to be decrypted.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9260,6 +9262,107 @@ export class DescribeVodRefreshTasksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVodRefreshTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodSSLCertificateListRequest extends $tea.Model {
+  /**
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * certabc
+   */
+  searchKeyword?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKeyword: 'SearchKeyword',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKeyword: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodSSLCertificateListResponseBody extends $tea.Model {
+  certificateListModel?: DescribeVodSSLCertificateListResponseBodyCertificateListModel;
+  /**
+   * @example
+   * 25818875-5F78-4AF6-D7393642CA58****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateListModel: 'CertificateListModel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateListModel: DescribeVodSSLCertificateListResponseBodyCertificateListModel,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodSSLCertificateListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodSSLCertificateListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodSSLCertificateListResponseBody,
     };
   }
 
@@ -18080,6 +18183,145 @@ export class SetVodDomainCertificateResponse extends $tea.Model {
   }
 }
 
+export class SetVodDomainSSLCertificateRequest extends $tea.Model {
+  /**
+   * @example
+   * 12342707
+   */
+  certId?: number;
+  /**
+   * @example
+   * cert_name
+   */
+  certName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  certRegion?: string;
+  /**
+   * @example
+   * cas
+   */
+  certType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  /**
+   * @example
+   * staging
+   */
+  env?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * ****
+   */
+  SSLPri?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * off
+   */
+  SSLProtocol?: string;
+  /**
+   * @example
+   * ****
+   */
+  SSLPub?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      certName: 'CertName',
+      certRegion: 'CertRegion',
+      certType: 'CertType',
+      domainName: 'DomainName',
+      env: 'Env',
+      ownerId: 'OwnerId',
+      SSLPri: 'SSLPri',
+      SSLProtocol: 'SSLProtocol',
+      SSLPub: 'SSLPub',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+      certName: 'string',
+      certRegion: 'string',
+      certType: 'string',
+      domainName: 'string',
+      env: 'string',
+      ownerId: 'number',
+      SSLPri: 'string',
+      SSLProtocol: 'string',
+      SSLPub: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetVodDomainSSLCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F4C6D5BE-BF13-45*****6C-516EA8906DCD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetVodDomainSSLCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetVodDomainSSLCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetVodDomainSSLCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAIImageAuditJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -22953,6 +23195,7 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * 2018-06-03T13:03:39Z
    */
   certExpireTime?: string;
+  certId?: string;
   /**
    * @remarks
    * The validity period of the certificate. Unit: months or years.
@@ -22977,6 +23220,8 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * Let\\"s Encrypt
    */
   certOrg?: string;
+  certRegion?: string;
+  certStartTime?: string;
   /**
    * @remarks
    * The type of the certificate. Valid values:
@@ -22989,6 +23234,8 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * free
    */
   certType?: string;
+  certUpdateTime?: string;
+  domainCnameStatus?: string;
   /**
    * @remarks
    * The accelerated domain name whose ICP filing status you want to update.
@@ -22997,6 +23244,7 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
    * example.com
    */
   domainName?: string;
+  serverCertificate?: string;
   /**
    * @remarks
    * The status of the SSL certificate.
@@ -23030,11 +23278,17 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
     return {
       certDomainName: 'CertDomainName',
       certExpireTime: 'CertExpireTime',
+      certId: 'CertId',
       certLife: 'CertLife',
       certName: 'CertName',
       certOrg: 'CertOrg',
+      certRegion: 'CertRegion',
+      certStartTime: 'CertStartTime',
       certType: 'CertType',
+      certUpdateTime: 'CertUpdateTime',
+      domainCnameStatus: 'DomainCnameStatus',
       domainName: 'DomainName',
+      serverCertificate: 'ServerCertificate',
       serverCertificateStatus: 'ServerCertificateStatus',
       status: 'Status',
     };
@@ -23044,11 +23298,17 @@ export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo exten
     return {
       certDomainName: 'string',
       certExpireTime: 'string',
+      certId: 'string',
       certLife: 'string',
       certName: 'string',
       certOrg: 'string',
+      certRegion: 'string',
+      certStartTime: 'string',
       certType: 'string',
+      certUpdateTime: 'string',
+      domainCnameStatus: 'string',
       domainName: 'string',
+      serverCertificate: 'string',
       serverCertificateStatus: 'string',
       status: 'string',
     };
@@ -24897,6 +25157,130 @@ export class DescribeVodRefreshTasksResponseBodyTasks extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       task: { 'type': 'array', 'itemType': DescribeVodRefreshTasksResponseBodyTasksTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
+  /**
+   * @example
+   * 235437
+   */
+  certId?: number;
+  /**
+   * @example
+   * video-ssl
+   */
+  certName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  certRegion?: string;
+  /**
+   * @example
+   * test
+   */
+  common?: string;
+  /**
+   * @example
+   * ****
+   */
+  fingerprint?: string;
+  /**
+   * @example
+   * ****
+   */
+  issuer?: string;
+  /**
+   * @example
+   * 1512388610
+   */
+  lastTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      certName: 'CertName',
+      certRegion: 'CertRegion',
+      common: 'Common',
+      fingerprint: 'Fingerprint',
+      issuer: 'Issuer',
+      lastTime: 'LastTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+      certName: 'string',
+      certRegion: 'string',
+      common: 'string',
+      fingerprint: 'string',
+      issuer: 'string',
+      lastTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList extends $tea.Model {
+  cert?: DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert[];
+  static names(): { [key: string]: string } {
+    return {
+      cert: 'Cert',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cert: { 'type': 'array', 'itemType': DescribeVodSSLCertificateListResponseBodyCertificateListModelCertListCert },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodSSLCertificateListResponseBodyCertificateListModel extends $tea.Model {
+  certList?: DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList;
+  /**
+   * @example
+   * 2
+   */
+  count?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certList: 'CertList',
+      count: 'Count',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certList: DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList,
+      count: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -42898,6 +43282,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询证书列表，支持翻页
+   * 
+   * @param request - DescribeVodSSLCertificateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVodSSLCertificateListResponse
+   */
+  async describeVodSSLCertificateListWithOptions(request: DescribeVodSSLCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodSSLCertificateListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKeyword)) {
+      query["SearchKeyword"] = request.searchKeyword;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodSSLCertificateList",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodSSLCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeVodSSLCertificateListResponse({}));
+  }
+
+  /**
+   * 查询证书列表，支持翻页
+   * 
+   * @param request - DescribeVodSSLCertificateListRequest
+   * @returns DescribeVodSSLCertificateListResponse
+   */
+  async describeVodSSLCertificateList(request: DescribeVodSSLCertificateListRequest): Promise<DescribeVodSSLCertificateListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodSSLCertificateListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the usage of storage-related resources, including the storage volume and outbound traffic.
    * 
    * @remarks
@@ -47359,6 +47805,88 @@ export default class Client extends OpenApi {
   async setVodDomainCertificate(request: SetVodDomainCertificateRequest): Promise<SetVodDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setVodDomainCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置证书
+   * 
+   * @param request - SetVodDomainSSLCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetVodDomainSSLCertificateResponse
+   */
+  async setVodDomainSSLCertificateWithOptions(request: SetVodDomainSSLCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetVodDomainSSLCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certRegion)) {
+      query["CertRegion"] = request.certRegion;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SSLPri)) {
+      query["SSLPri"] = request.SSLPri;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetVodDomainSSLCertificate",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetVodDomainSSLCertificateResponse>(await this.callApi(params, req, runtime), new SetVodDomainSSLCertificateResponse({}));
+  }
+
+  /**
+   * 设置证书
+   * 
+   * @param request - SetVodDomainSSLCertificateRequest
+   * @returns SetVodDomainSSLCertificateResponse
+   */
+  async setVodDomainSSLCertificate(request: SetVodDomainSSLCertificateRequest): Promise<SetVodDomainSSLCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setVodDomainSSLCertificateWithOptions(request, runtime);
   }
 
   /**
