@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,9 +31,9 @@ export class CancelTaskResponseBody extends $tea.Model {
 }
 
 export class CancelTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -53,8 +56,23 @@ export class CancelTaskResponse extends $tea.Model {
 }
 
 export class CreateResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   *      "AccountName": "cctest",
+   *      "AccountPassword": "Aa1234****"
+   * }
+   */
   body?: { [key: string]: any };
+  /**
+   * @example
+   * 1e810dfe1468721d0664a49b9d9f74f4
+   */
   clientToken?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,9 +96,25 @@ export class CreateResourceRequest extends $tea.Model {
 }
 
 export class CreateResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
+  /**
+   * @example
+   * cctest
+   */
   resourceId?: string;
+  /**
+   * @example
+   * Instance/r-8vbf5abe31c9c4d4/Account/cctest
+   */
   resourcePath?: string;
+  /**
+   * @example
+   * task-433aead756057fff8189a7ce5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,9 +140,9 @@ export class CreateResourceResponseBody extends $tea.Model {
 }
 
 export class CreateResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -131,7 +165,15 @@ export class CreateResourceResponse extends $tea.Model {
 }
 
 export class DeleteResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * 1e810dfe1468721d0664a49b9d9f74f4
+   */
   clientToken?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,7 +195,15 @@ export class DeleteResourceRequest extends $tea.Model {
 }
 
 export class DeleteResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
+  /**
+   * @example
+   * task-433aead756057fff8189a7ce5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,9 +225,9 @@ export class DeleteResourceResponseBody extends $tea.Model {
 }
 
 export class DeleteResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -200,7 +250,22 @@ export class DeleteResourceResponse extends $tea.Model {
 }
 
 export class GetPriceRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * {
+   *         "LoadBalancerName": "cc-test",
+   *         "LoadBalancerSpec": "slb.s3.small",
+   *         "InternetChargeType": "paybybandwidth",
+   *         "AddressType": "internet",
+   *         "PaymentType": "PayAsYouGo",
+   *         "Bandwidth": 6
+   *       }
+   */
   resourceAttributes?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -222,7 +287,22 @@ export class GetPriceRequest extends $tea.Model {
 }
 
 export class GetPriceShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * {
+   *         "LoadBalancerName": "cc-test",
+   *         "LoadBalancerSpec": "slb.s3.small",
+   *         "InternetChargeType": "paybybandwidth",
+   *         "AddressType": "internet",
+   *         "PaymentType": "PayAsYouGo",
+   *         "Bandwidth": 6
+   *       }
+   */
   resourceAttributesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -245,6 +325,10 @@ export class GetPriceShrinkRequest extends $tea.Model {
 
 export class GetPriceResponseBody extends $tea.Model {
   price?: GetPriceResponseBodyPrice;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -266,9 +350,9 @@ export class GetPriceResponseBody extends $tea.Model {
 }
 
 export class GetPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -292,6 +376,10 @@ export class GetPriceResponse extends $tea.Model {
 
 export class GetResourceTypeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * zh_CH
+   */
   xAcsAcceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,6 +401,10 @@ export class GetResourceTypeHeaders extends $tea.Model {
 }
 
 export class GetResourceTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   resourceType?: GetResourceTypeResponseBodyResourceType;
   static names(): { [key: string]: string } {
@@ -335,9 +427,9 @@ export class GetResourceTypeResponseBody extends $tea.Model {
 }
 
 export class GetResourceTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -361,8 +453,20 @@ export class GetResourceTypeResponse extends $tea.Model {
 
 export class GetResourcesRequest extends $tea.Model {
   filter?: { [key: string]: any };
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAdDWBF2****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -389,8 +493,20 @@ export class GetResourcesRequest extends $tea.Model {
 
 export class GetResourcesShrinkRequest extends $tea.Model {
   filterShrink?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAdDWBF2****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -416,11 +532,27 @@ export class GetResourcesShrinkRequest extends $tea.Model {
 }
 
 export class GetResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAdDWBF2****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   resource?: GetResourcesResponseBodyResource;
   resources?: GetResourcesResponseBodyResources[];
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -450,9 +582,9 @@ export class GetResourcesResponseBody extends $tea.Model {
 }
 
 export class GetResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -475,6 +607,10 @@ export class GetResourcesResponse extends $tea.Model {
 }
 
 export class GetTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   task?: GetTaskResponseBodyTask;
   static names(): { [key: string]: string } {
@@ -497,9 +633,9 @@ export class GetTaskResponseBody extends $tea.Model {
 }
 
 export class GetTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -522,6 +658,13 @@ export class GetTaskResponse extends $tea.Model {
 }
 
 export class ListDataSourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RegionId
+   */
   attributeName?: string;
   filter?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -544,6 +687,13 @@ export class ListDataSourcesRequest extends $tea.Model {
 }
 
 export class ListDataSourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RegionId
+   */
   attributeName?: string;
   filterShrink?: string;
   static names(): { [key: string]: string } {
@@ -567,6 +717,10 @@ export class ListDataSourcesShrinkRequest extends $tea.Model {
 
 export class ListDataSourcesResponseBody extends $tea.Model {
   dataSources?: ListDataSourcesResponseBodyDataSources[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -588,9 +742,9 @@ export class ListDataSourcesResponseBody extends $tea.Model {
 }
 
 export class ListDataSourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataSourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -614,6 +768,10 @@ export class ListDataSourcesResponse extends $tea.Model {
 
 export class ListProductsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * zh_CH
+   */
   xAcsAcceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -635,7 +793,15 @@ export class ListProductsHeaders extends $tea.Model {
 }
 
 export class ListProductsRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ECS
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -657,10 +823,26 @@ export class ListProductsRequest extends $tea.Model {
 }
 
 export class ListProductsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * Redis
+   */
   nextToken?: string;
   products?: ListProductsResponseBodyProducts[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -688,9 +870,9 @@ export class ListProductsResponseBody extends $tea.Model {
 }
 
 export class ListProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -714,6 +896,10 @@ export class ListProductsResponse extends $tea.Model {
 
 export class ListResourceTypesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * zh_CH
+   */
   xAcsAcceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -735,7 +921,15 @@ export class ListResourceTypesHeaders extends $tea.Model {
 }
 
 export class ListResourceTypesRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ECS::Disk
+   */
   nextToken?: string;
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -760,7 +954,15 @@ export class ListResourceTypesRequest extends $tea.Model {
 }
 
 export class ListResourceTypesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ECS::Disk
+   */
   nextToken?: string;
   resourceTypesShrink?: string;
   static names(): { [key: string]: string } {
@@ -785,10 +987,26 @@ export class ListResourceTypesShrinkRequest extends $tea.Model {
 }
 
 export class ListResourceTypesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ECS::Disk
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
   resourceTypes?: ListResourceTypesResponseBodyResourceTypes[];
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -816,9 +1034,9 @@ export class ListResourceTypesResponseBody extends $tea.Model {
 }
 
 export class ListResourceTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResourceTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -841,8 +1059,23 @@ export class ListResourceTypesResponse extends $tea.Model {
 }
 
 export class UpdateResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   *      "AccountPassword": "4321****",
+   *      "Description": "cctest"
+   * }
+   */
   body?: { [key: string]: any };
+  /**
+   * @example
+   * 1e810dfe1468721d0664a49b9d9f74f4
+   */
   clientToken?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -866,7 +1099,15 @@ export class UpdateResourceRequest extends $tea.Model {
 }
 
 export class UpdateResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
   requestId?: string;
+  /**
+   * @example
+   * task-433aead756057fff8189a7ce5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -888,9 +1129,9 @@ export class UpdateResourceResponseBody extends $tea.Model {
 }
 
 export class UpdateResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -913,12 +1154,36 @@ export class UpdateResourceResponse extends $tea.Model {
 }
 
 export class GetPriceResponseBodyPriceModuleDetails extends $tea.Model {
+  /**
+   * @example
+   * 0.02
+   */
   costAfterDiscount?: number;
+  /**
+   * @example
+   * 0.0
+   */
   invoiceDiscount?: number;
+  /**
+   * @example
+   * InstanceRent
+   */
   moduleCode?: string;
+  /**
+   * @example
+   * InstanceRent
+   */
   moduleName?: string;
+  /**
+   * @example
+   * 1000.0
+   */
   originalCost?: number;
-  priceType?: number;
+  /**
+   * @example
+   * 1.0
+   */
+  priceType?: string;
   static names(): { [key: string]: string } {
     return {
       costAfterDiscount: 'costAfterDiscount',
@@ -937,7 +1202,7 @@ export class GetPriceResponseBodyPriceModuleDetails extends $tea.Model {
       moduleCode: 'string',
       moduleName: 'string',
       originalCost: 'number',
-      priceType: 'number',
+      priceType: 'string',
     };
   }
 
@@ -947,6 +1212,10 @@ export class GetPriceResponseBodyPriceModuleDetails extends $tea.Model {
 }
 
 export class GetPriceResponseBodyPricePromotionDetails extends $tea.Model {
+  /**
+   * @example
+   * 37284
+   */
   promotionDesc?: string;
   promotionId?: number;
   promotionName?: string;
@@ -972,11 +1241,27 @@ export class GetPriceResponseBodyPricePromotionDetails extends $tea.Model {
 }
 
 export class GetPriceResponseBodyPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 0.0
+   */
   discountPrice?: number;
   moduleDetails?: GetPriceResponseBodyPriceModuleDetails[];
+  /**
+   * @example
+   * 760.0
+   */
   originalPrice?: number;
   promotionDetails?: GetPriceResponseBodyPricePromotionDetails[];
+  /**
+   * @example
+   * 0.0
+   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1132,9 +1417,25 @@ export class GetResourceTypeResponseBodyResourceTypeHandlers extends $tea.Model 
 }
 
 export class GetResourceTypeResponseBodyResourceTypeInfo extends $tea.Model {
+  /**
+   * @example
+   * paid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * region
+   */
   deliveryScope?: string;
+  /**
+   * @example
+   * An ECS instance is equivalent to a virtual machine, including the most basic computing components such as CPU, memory, operating system, network, and disk. You can easily customize and change the configuration of the instance. You have full control over the virtual machine.
+   */
   description?: string;
+  /**
+   * @example
+   * Instance
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1169,12 +1470,24 @@ export class GetResourceTypeResponseBodyResourceType extends $tea.Model {
   info?: GetResourceTypeResponseBodyResourceTypeInfo;
   listOnlyProperties?: string[];
   listResponseProperties?: string[];
+  /**
+   * @example
+   * /properties/InstanceId
+   */
   primaryIdentifier?: string;
+  /**
+   * @example
+   * ECS
+   */
   product?: string;
   properties?: { [key: string]: any };
   publicProperties?: string[];
   readOnlyProperties?: string[];
   required?: string[];
+  /**
+   * @example
+   * Instance
+   */
   resourceType?: string;
   sensitiveInfoProperties?: string[];
   updateOnlyProperties?: string[];
@@ -1233,7 +1546,15 @@ export class GetResourceTypeResponseBodyResourceType extends $tea.Model {
 }
 
 export class GetResourcesResponseBodyResource extends $tea.Model {
+  /**
+   * @example
+   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-8vbf5abe31c9c4d4","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
+   */
   resourceAttributes?: { [key: string]: any };
+  /**
+   * @example
+   * cctest
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1255,7 +1576,15 @@ export class GetResourcesResponseBodyResource extends $tea.Model {
 }
 
 export class GetResourcesResponseBodyResources extends $tea.Model {
+  /**
+   * @example
+   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-8vbf5abe31c9c4d4","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
+   */
   resourceAttributes?: { [key: string]: any };
+  /**
+   * @example
+   * cctest
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1277,7 +1606,19 @@ export class GetResourcesResponseBodyResources extends $tea.Model {
 }
 
 export class GetTaskResponseBodyTaskError extends $tea.Model {
+  /**
+   * @example
+   * OperationFailure.OperationFailed
+   */
   code?: string;
+  /**
+   * @example
+   * {
+   *      "requestId": "123****",
+   *      "errorCode": "InvalidRamUser.NoPermission",
+   *      "errorMsg": "Ram user is not authorized to perform the operation."
+   * }
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1299,15 +1640,52 @@ export class GetTaskResponseBodyTaskError extends $tea.Model {
 }
 
 export class GetTaskResponseBodyTask extends $tea.Model {
+  /**
+   * @example
+   * 2022-10-09T00:46:03Z
+   */
   createTime?: string;
   error?: GetTaskResponseBodyTaskError;
+  /**
+   * @example
+   * ECS
+   */
   product?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * i-8vbascjthm7kzhp3****
+   */
   resourceId?: string;
+  /**
+   * @example
+   * Instance/i-8vbascjthm7kzhp3****
+   * Instance/r-8vbf5abe31c9c4d4/Account/cctest
+   */
   resourcePath?: string;
+  /**
+   * @example
+   * Instance
+   */
   resourceType?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * Create
+   */
   taskAction?: string;
+  /**
+   * @example
+   * task-433aead756057fff8189a7ce5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1345,6 +1723,10 @@ export class GetTaskResponseBodyTask extends $tea.Model {
 }
 
 export class ListDataSourcesResponseBodyDataSources extends $tea.Model {
+  /**
+   * @example
+   * cn-beijing
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1364,7 +1746,15 @@ export class ListDataSourcesResponseBodyDataSources extends $tea.Model {
 }
 
 export class ListProductsResponseBodyProducts extends $tea.Model {
+  /**
+   * @example
+   * ECS
+   */
   productCode?: string;
+  /**
+   * @example
+   * Elastic Compute Service
+   */
   productName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1512,9 +1902,25 @@ export class ListResourceTypesResponseBodyResourceTypesHandlers extends $tea.Mod
 }
 
 export class ListResourceTypesResponseBodyResourceTypesInfo extends $tea.Model {
+  /**
+   * @example
+   * paid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * region
+   */
   deliveryScope?: string;
+  /**
+   * @example
+   * An ECS instance is equivalent to a virtual machine, including the most basic computing components such as CPU, memory, operating system, network, and disk. You can easily customize and change the configuration of the instance. You have full control over the virtual machine.
+   */
   description?: string;
+  /**
+   * @example
+   * Instance
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1549,12 +1955,24 @@ export class ListResourceTypesResponseBodyResourceTypes extends $tea.Model {
   info?: ListResourceTypesResponseBodyResourceTypesInfo;
   listOnlyProperties?: string[];
   listResponseProperties?: string[];
+  /**
+   * @example
+   * /properties/InstanceId
+   */
   primaryIdentifier?: string;
+  /**
+   * @example
+   * ECS
+   */
   product?: string;
   properties?: { [key: string]: any };
   publicProperties?: string[];
   readOnlyProperties?: string[];
   required?: string[];
+  /**
+   * @example
+   * Instance
+   */
   resourceType?: string;
   sensitiveInfoProperties?: string[];
   updateOnlyProperties?: string[];
@@ -1635,6 +2053,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 取消任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelTaskResponse
+   */
   async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1653,12 +2078,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
+  /**
+   * 取消任务
+   * @returns CancelTaskResponse
+   */
   async cancelTask(taskId: string): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelTaskWithOptions(taskId, headers, runtime);
   }
 
+  /**
+   * 创建资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - CreateResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceResponse
+   */
   async createResourceWithOptions(requestPath: string, request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1689,12 +2127,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
   }
 
+  /**
+   * 创建资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - CreateResourceRequest
+   * @returns CreateResourceResponse
+   */
   async createResource(requestPath: string, request: CreateResourceRequest): Promise<CreateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceWithOptions(requestPath, request, headers, runtime);
   }
 
+  /**
+   * 删除资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - DeleteResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceResponse
+   */
   async deleteResourceWithOptions(requestPath: string, request: DeleteResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1724,12 +2178,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
   }
 
+  /**
+   * 删除资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - DeleteResourceRequest
+   * @returns DeleteResourceResponse
+   */
   async deleteResource(requestPath: string, request: DeleteResourceRequest): Promise<DeleteResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceWithOptions(requestPath, request, headers, runtime);
   }
 
+  /**
+   * 查询价格
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param tmpReq - GetPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPriceResponse
+   */
   async getPriceWithOptions(requestPath: string, tmpReq: GetPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPriceResponse> {
     Util.validateModel(tmpReq);
     let request = new GetPriceShrinkRequest({ });
@@ -1765,12 +2235,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPriceResponse>(await this.callApi(params, req, runtime), new GetPriceResponse({}));
   }
 
+  /**
+   * 查询价格
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - GetPriceRequest
+   * @returns GetPriceResponse
+   */
   async getPrice(requestPath: string, request: GetPriceRequest): Promise<GetPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPriceWithOptions(requestPath, request, headers, runtime);
   }
 
+  /**
+   * 获取资源元数据
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param headers - GetResourceTypeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceTypeResponse
+   */
   async getResourceTypeWithOptions(requestPath: string, headers: GetResourceTypeHeaders, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -1798,12 +2283,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
   }
 
+  /**
+   * 获取资源元数据
+   * 
+   * @param requestPath - the whole path of resource string
+   * @returns GetResourceTypeResponse
+   */
   async getResourceType(requestPath: string): Promise<GetResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetResourceTypeHeaders({ });
     return await this.getResourceTypeWithOptions(requestPath, headers, runtime);
   }
 
+  /**
+   * 查询资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param tmpReq - GetResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourcesResponse
+   */
   async getResourcesWithOptions(requestPath: string, tmpReq: GetResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new GetResourcesShrinkRequest({ });
@@ -1847,6 +2347,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourcesResponse>(await this.callApi(params, req, runtime), new GetResourcesResponse({}));
   }
 
+  /**
+   * 查询资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - GetResourcesRequest
+   * @returns GetResourcesResponse
+   */
   async getResources(requestPath: string, request: GetResourcesRequest): Promise<GetResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1854,11 +2361,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GET /api/v1/tasks/{taskId}。
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetTaskResponse
+   * 查询任务
+   * 
+   * @remarks
+   * GET /api/v1/tasks/{taskId}。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResponse
    */
   async getTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -1879,9 +2389,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GET /api/v1/tasks/{taskId}。
-    *
-    * @return GetTaskResponse
+   * 查询任务
+   * 
+   * @remarks
+   * GET /api/v1/tasks/{taskId}。
+   * @returns GetTaskResponse
    */
   async getTask(taskId: string): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1889,6 +2401,15 @@ export default class Client extends OpenApi {
     return await this.getTaskWithOptions(taskId, headers, runtime);
   }
 
+  /**
+   * 列举资源属性可选值
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param tmpReq - ListDataSourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourcesResponse
+   */
   async listDataSourcesWithOptions(requestPath: string, tmpReq: ListDataSourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListDataSourcesShrinkRequest({ });
@@ -1924,6 +2445,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
   }
 
+  /**
+   * 列举资源属性可选值
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - ListDataSourcesRequest
+   * @returns ListDataSourcesResponse
+   */
   async listDataSources(requestPath: string, request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1931,12 +2459,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GET /api/v1/providers/{provider}/products。
-    *
-    * @param request ListProductsRequest
-    * @param headers ListProductsHeaders
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProductsResponse
+   * 列举资源类型
+   * 
+   * @remarks
+   * GET /api/v1/providers/{provider}/products。
+   * 
+   * @param request - ListProductsRequest
+   * @param headers - ListProductsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProductsResponse
    */
   async listProductsWithOptions(provider: string, request: ListProductsRequest, headers: ListProductsHeaders, runtime: $Util.RuntimeOptions): Promise<ListProductsResponse> {
     Util.validateModel(request);
@@ -1977,10 +2508,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GET /api/v1/providers/{provider}/products。
-    *
-    * @param request ListProductsRequest
-    * @return ListProductsResponse
+   * 列举资源类型
+   * 
+   * @remarks
+   * GET /api/v1/providers/{provider}/products。
+   * 
+   * @param request - ListProductsRequest
+   * @returns ListProductsResponse
    */
   async listProducts(provider: string, request: ListProductsRequest): Promise<ListProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1989,12 +2523,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
-    *
-    * @param tmpReq ListResourceTypesRequest
-    * @param headers ListResourceTypesHeaders
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListResourceTypesResponse
+   * 列举资源类型
+   * 
+   * @remarks
+   * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
+   * 
+   * @param tmpReq - ListResourceTypesRequest
+   * @param headers - ListResourceTypesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceTypesResponse
    */
   async listResourceTypesWithOptions(provider: string, product: string, tmpReq: ListResourceTypesRequest, headers: ListResourceTypesHeaders, runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
     Util.validateModel(tmpReq);
@@ -2045,10 +2582,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
-    *
-    * @param request ListResourceTypesRequest
-    * @return ListResourceTypesResponse
+   * 列举资源类型
+   * 
+   * @remarks
+   * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
+   * 
+   * @param request - ListResourceTypesRequest
+   * @returns ListResourceTypesResponse
    */
   async listResourceTypes(provider: string, product: string, request: ListResourceTypesRequest): Promise<ListResourceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2056,6 +2596,15 @@ export default class Client extends OpenApi {
     return await this.listResourceTypesWithOptions(provider, product, request, headers, runtime);
   }
 
+  /**
+   * 更新资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - UpdateResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceResponse
+   */
   async updateResourceWithOptions(requestPath: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2086,6 +2635,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
   }
 
+  /**
+   * 更新资源
+   * 
+   * @param requestPath - the whole path of resource string
+   * @param request - UpdateResourceRequest
+   * @returns UpdateResourceResponse
+   */
   async updateResource(requestPath: string, request: UpdateResourceRequest): Promise<UpdateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
