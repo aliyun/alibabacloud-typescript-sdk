@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -10,6 +9,10 @@ import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AccelerationInfo extends $tea.Model {
+  /**
+   * @example
+   * deprecated
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,10 +33,30 @@ export class AccelerationInfo extends $tea.Model {
 
 export class Alias extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
+  /**
+   * @example
+   * prod
+   */
   aliasName?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z07:00
+   */
   createdTime?: string;
+  /**
+   * @example
+   * alias for pre env
+   */
   description?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z07:00
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * 1
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,12 +86,36 @@ export class Alias extends $tea.Model {
 }
 
 export class AsyncConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   asyncTask?: boolean;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z07:00
+   */
   createdTime?: string;
   destinationConfig?: DestinationConfig;
+  /**
+   * @example
+   * acs:fc:cn-shanghai:1234/functions/my-func
+   */
   functionArn?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z07:00
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * 3600
+   */
   maxAsyncEventAgeInSeconds?: number;
+  /**
+   * @example
+   * 3
+   */
   maxAsyncRetryAttempts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -100,20 +147,76 @@ export class AsyncConfig extends $tea.Model {
 }
 
 export class AsyncTask extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   alreadyRetriedTimes?: number;
+  /**
+   * @example
+   * Succeeded
+   */
   destinationStatus?: string;
+  /**
+   * @example
+   * 1000
+   */
   durationMs?: number;
+  /**
+   * @example
+   * 1633449590000
+   */
   endTime?: number;
   events?: AsyncTaskEvent[];
+  /**
+   * @example
+   * acs:fc:cn-shanghai:1234/functions/my-func
+   */
   functionArn?: string;
+  /**
+   * @example
+   * D4-*******9FD1-882707E
+   */
   instanceId?: string;
+  /**
+   * @example
+   * prod
+   */
   qualifier?: string;
+  /**
+   * @example
+   * e026ae92-61e5-472f-b32d-1c9e3c4e****
+   */
   requestId?: string;
+  /**
+   * @example
+   * result
+   */
   returnPayload?: string;
+  /**
+   * @example
+   * 1633449590000
+   */
   startedTime?: number;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * UnhandledInvocationError
+   */
   taskErrorMessage?: string;
+  /**
+   * @example
+   * e026ae92-61e5-472f-b32d-1c9e3c4e****
+   */
   taskId?: string;
+  /**
+   * @example
+   * body
+   */
   taskPayload?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,9 +264,25 @@ export class AsyncTask extends $tea.Model {
 }
 
 export class AsyncTaskEvent extends $tea.Model {
+  /**
+   * @example
+   * body
+   */
   eventDetail?: string;
+  /**
+   * @example
+   * 1
+   */
   eventId?: number;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * 1647420449721
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -189,7 +308,15 @@ export class AsyncTaskEvent extends $tea.Model {
 }
 
 export class AuthConfig extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   authInfo?: string;
+  /**
+   * @example
+   * anonymous, function, jwt
+   */
   authType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -211,7 +338,15 @@ export class AuthConfig extends $tea.Model {
 }
 
 export class BatchWindow extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   countBasedWindow?: number;
+  /**
+   * @example
+   * 10
+   */
   timeBasedWindow?: number;
   static names(): { [key: string]: string } {
     return {
@@ -233,9 +368,21 @@ export class BatchWindow extends $tea.Model {
 }
 
 export class CDNTriggerConfig extends $tea.Model {
+  /**
+   * @example
+   * CdnDomainStarted
+   */
   eventName?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   eventVersion?: string;
   filter?: { [key: string]: string[] };
+  /**
+   * @example
+   * 缓存事件触发器
+   */
   notes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -261,8 +408,29 @@ export class CDNTriggerConfig extends $tea.Model {
 }
 
 export class CertConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my-cert
+   */
   certName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PEM format
+   */
   certificate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PEM format
+   */
   privateKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -286,7 +454,15 @@ export class CertConfig extends $tea.Model {
 }
 
 export class ConcurrencyConfig extends $tea.Model {
+  /**
+   * @example
+   * acs:fc:cn-shanghai:123:functions/demo
+   */
   functionArn?: string;
+  /**
+   * @example
+   * 10
+   */
   reservedConcurrency?: number;
   static names(): { [key: string]: string } {
     return {
@@ -309,8 +485,26 @@ export class ConcurrencyConfig extends $tea.Model {
 
 export class CreateAliasInput extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * prod
+   */
   aliasName?: string;
+  /**
+   * @example
+   * my alias
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -338,7 +532,18 @@ export class CreateAliasInput extends $tea.Model {
 export class CreateCustomDomainInput extends $tea.Model {
   authConfig?: AuthConfig;
   certConfig?: CertConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
@@ -374,26 +579,79 @@ export class CreateCustomDomainInput extends $tea.Model {
 
 export class CreateFunctionInput extends $tea.Model {
   code?: InputCodeLocation;
+  /**
+   * @example
+   * 1
+   */
   cpu?: number;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customRuntimeConfig?: CustomRuntimeConfig;
+  /**
+   * @example
+   * my function
+   */
   description?: string;
+  /**
+   * @example
+   * 512
+   */
   diskSize?: number;
   environmentVariables?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my-function-1
+   */
   functionName?: string;
   gpuConfig?: GPUConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * index.handler
+   */
   handler?: string;
+  /**
+   * @example
+   * 1
+   */
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  /**
+   * @example
+   * true
+   */
   internetAccess?: boolean;
   layers?: string[];
   logConfig?: LogConfig;
+  /**
+   * @example
+   * 512
+   */
   memorySize?: number;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @example
+   * acs:ram::188077086902****:role/fc-test
+   */
   role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * python3.10
+   */
   runtime?: string;
+  /**
+   * @example
+   * 60
+   */
   timeout?: number;
   tracingConfig?: TracingConfig;
   vpcConfig?: VPCConfig;
@@ -463,7 +721,15 @@ export class CreateFunctionInput extends $tea.Model {
 export class CreateLayerVersionInput extends $tea.Model {
   code?: InputCodeLocation;
   compatibleRuntime?: string[];
+  /**
+   * @example
+   * my first layer
+   */
   description?: string;
+  /**
+   * @example
+   * Apache
+   */
   license?: string;
   static names(): { [key: string]: string } {
     return {
@@ -489,12 +755,49 @@ export class CreateLayerVersionInput extends $tea.Model {
 }
 
 export class CreateTriggerInput extends $tea.Model {
+  /**
+   * @example
+   * trigger for test
+   */
   description?: string;
+  /**
+   * @example
+   * acs:ram::1234567890:role/fc-test
+   */
   invocationRole?: string;
+  /**
+   * @example
+   * LATEST
+   */
   qualifier?: string;
+  /**
+   * @example
+   * acs:oss:cn-shanghai:12345:mybucket
+   */
   sourceArn?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"events":["oss:ObjectCreated:*"],"filter":{"key":{"prefix":"/prefix","suffix":".zip"}}}
+   */
   triggerConfig?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss_create_object_demo
+   */
   triggerName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -526,6 +829,13 @@ export class CreateTriggerInput extends $tea.Model {
 }
 
 export class CreateVpcBindingInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-8vb8x8dggvr0axxxxxxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -546,13 +856,34 @@ export class CreateVpcBindingInput extends $tea.Model {
 
 export class CustomContainerConfig extends $tea.Model {
   accelerationInfo?: AccelerationInfo;
+  /**
+   * @example
+   * deprecated
+   */
   accelerationType?: string;
+  /**
+   * @example
+   * deprecated
+   */
   acrInstanceId?: string;
   command?: string[];
   entrypoint?: string[];
   healthCheckConfig?: CustomHealthCheckConfig;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1
+   */
   image?: string;
+  /**
+   * @example
+   * 9000
+   */
   port?: number;
+  registryConfig?: RegistryConfig;
+  /**
+   * @example
+   * stand-sh-registry-vpc.cn-shanghai.cr.aliyuncs.com/fc-demo2/springboot-helloworld@sha256:68d1****0d64d6
+   */
   resolvedImageUri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -564,6 +895,7 @@ export class CustomContainerConfig extends $tea.Model {
       healthCheckConfig: 'healthCheckConfig',
       image: 'image',
       port: 'port',
+      registryConfig: 'registryConfig',
       resolvedImageUri: 'resolvedImageUri',
     };
   }
@@ -578,6 +910,7 @@ export class CustomContainerConfig extends $tea.Model {
       healthCheckConfig: CustomHealthCheckConfig,
       image: 'string',
       port: 'number',
+      registryConfig: RegistryConfig,
       resolvedImageUri: 'string',
     };
   }
@@ -614,14 +947,38 @@ export class CustomDNS extends $tea.Model {
 
 export class CustomDomain extends $tea.Model {
   accountId?: string;
+  /**
+   * @example
+   * 2023-03-30
+   */
   apiVersion?: string;
   authConfig?: AuthConfig;
   certConfig?: CertConfig;
+  /**
+   * @example
+   * 2023-03-30T08:02:19Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 2023-03-30T08:02:19Z
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
   routeConfig?: RouteConfig;
+  /**
+   * @example
+   * 1
+   */
   subdomainCount?: string;
   tlsConfig?: TLSConfig;
   wafConfig?: WAFConfig;
@@ -665,11 +1022,35 @@ export class CustomDomain extends $tea.Model {
 }
 
 export class CustomHealthCheckConfig extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   failureThreshold?: number;
+  /**
+   * @example
+   * /ready
+   */
   httpGetUrl?: string;
+  /**
+   * @example
+   * 1
+   */
   initialDelaySeconds?: number;
+  /**
+   * @example
+   * 1
+   */
   periodSeconds?: number;
+  /**
+   * @example
+   * 2
+   */
   successThreshold?: number;
+  /**
+   * @example
+   * 2
+   */
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -702,6 +1083,10 @@ export class CustomRuntimeConfig extends $tea.Model {
   args?: string[];
   command?: string[];
   healthCheckConfig?: CustomHealthCheckConfig;
+  /**
+   * @example
+   * 9000
+   */
   port?: number;
   static names(): { [key: string]: string } {
     return {
@@ -727,7 +1112,15 @@ export class CustomRuntimeConfig extends $tea.Model {
 }
 
 export class DNSOption extends $tea.Model {
+  /**
+   * @example
+   * ndots
+   */
   name?: string;
+  /**
+   * @example
+   * 2
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,7 +1161,15 @@ export class DeadLetterQueue extends $tea.Model {
 }
 
 export class DeliveryOption extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   concurrency?: number;
+  /**
+   * @example
+   * RawData
+   */
   eventSchema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -790,6 +1191,10 @@ export class DeliveryOption extends $tea.Model {
 }
 
 export class Destination extends $tea.Model {
+  /**
+   * @example
+   * acs:fc:cn-shanghai:xxx:functions/f1
+   */
   destination?: string;
   static names(): { [key: string]: string } {
     return {
@@ -831,7 +1236,21 @@ export class DestinationConfig extends $tea.Model {
 }
 
 export class EqualRule extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /old
+   */
   match?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /new
+   */
   replacement?: string;
   static names(): { [key: string]: string } {
     return {
@@ -853,8 +1272,20 @@ export class EqualRule extends $tea.Model {
 }
 
 export class Error extends $tea.Model {
+  /**
+   * @example
+   * FunctionNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * function not found
+   */
   message?: string;
+  /**
+   * @example
+   * 1-64e70cf1-5cbef92ea8fc8c42899cf5d1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -879,10 +1310,18 @@ export class Error extends $tea.Model {
 
 export class EventBridgeTriggerConfig extends $tea.Model {
   asyncInvocationType?: boolean;
+  /**
+   * @example
+   * {}
+   */
   eventRuleFilterPattern?: string;
   eventSinkConfig?: EventSinkConfig;
   eventSourceConfig?: EventSourceConfig;
   runOptions?: RunOptions;
+  /**
+   * @example
+   * true
+   */
   triggerEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -932,6 +1371,10 @@ export class EventSinkConfig extends $tea.Model {
 
 export class EventSourceConfig extends $tea.Model {
   eventSourceParameters?: EventSourceParameters;
+  /**
+   * @example
+   * MNS
+   */
   eventSourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1006,38 +1449,130 @@ export class Filter extends $tea.Model {
 }
 
 export class Function extends $tea.Model {
+  /**
+   * @example
+   * 2825179536350****
+   */
   codeChecksum?: string;
+  /**
+   * @example
+   * 412
+   */
   codeSize?: number;
+  /**
+   * @example
+   * 1
+   */
   cpu?: number;
+  /**
+   * @example
+   * 2023-04-01T08:15:27Z
+   */
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customRuntimeConfig?: CustomRuntimeConfig;
+  /**
+   * @example
+   * my function
+   */
   description?: string;
+  /**
+   * @example
+   * 512
+   */
   diskSize?: number;
   environmentVariables?: { [key: string]: string };
+  /**
+   * @example
+   * acs:fc:cn-shanghai:123:functions/functionName
+   */
   functionArn?: string;
+  /**
+   * @example
+   * aa715851-1c20-4b89-a8fb-***
+   */
   functionId?: string;
+  /**
+   * @example
+   * my-function-1
+   */
   functionName?: string;
   gpuConfig?: GPUConfig;
+  /**
+   * @example
+   * index.handler
+   */
   handler?: string;
+  /**
+   * @example
+   * 1
+   */
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  /**
+   * @example
+   * true
+   */
   internetAccess?: boolean;
+  /**
+   * @example
+   * 2023-05-01T08:15:27Z
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * InProgress
+   */
   lastUpdateStatus?: string;
+  /**
+   * @example
+   * The system is currently processing the acceleration optimization for the image.
+   */
   lastUpdateStatusReason?: string;
+  /**
+   * @example
+   * ImageOptimizing
+   */
   lastUpdateStatusReasonCode?: string;
   layers?: FunctionLayer[];
   logConfig?: LogConfig;
+  /**
+   * @example
+   * 512
+   */
   memorySize?: number;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @example
+   * acs:ram::188077086902****:role/fc-test
+   */
   role?: string;
+  /**
+   * @example
+   * python3.10
+   */
   runtime?: string;
+  /**
+   * @example
+   * Pending
+   */
   state?: string;
+  /**
+   * @example
+   * Function creating
+   */
   stateReason?: string;
+  /**
+   * @example
+   * Creating
+   */
   stateReasonCode?: string;
+  /**
+   * @example
+   * 60
+   */
   timeout?: number;
   tracingConfig?: TracingConfig;
   vpcConfig?: VPCConfig;
@@ -1127,7 +1662,15 @@ export class Function extends $tea.Model {
 }
 
 export class FunctionLayer extends $tea.Model {
+  /**
+   * @example
+   * acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
+   */
   arn?: string;
+  /**
+   * @example
+   * 421
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1149,7 +1692,15 @@ export class FunctionLayer extends $tea.Model {
 }
 
 export class GPUConfig extends $tea.Model {
+  /**
+   * @example
+   * 2048
+   */
   gpuMemorySize?: number;
+  /**
+   * @example
+   * fc.gpu.ampere.1
+   */
   gpuType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1171,7 +1722,15 @@ export class GPUConfig extends $tea.Model {
 }
 
 export class GetResourceTagsOutput extends $tea.Model {
+  /**
+   * @example
+   * ALIYUN::FC::FUNCTION
+   */
   resouceType?: string;
+  /**
+   * @example
+   * acs:fc:cn-shanghai:****:functions/demo
+   */
   resourceArn?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -1196,7 +1755,15 @@ export class GetResourceTagsOutput extends $tea.Model {
 }
 
 export class HTTPTrigger extends $tea.Model {
+  /**
+   * @example
+   * https://svc-func-xxxxxxxx.cn-hangzhou.fcapp.run
+   */
   urlInternet?: string;
+  /**
+   * @example
+   * https://svc-func-xxxxxxxx.cn-hangzhou-vpc.fcapp.run
+   */
   urlIntranet?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1218,8 +1785,20 @@ export class HTTPTrigger extends $tea.Model {
 }
 
 export class HTTPTriggerConfig extends $tea.Model {
+  /**
+   * @example
+   * {"JWKS":{"foo":"bar"},"TokenLookup":"header:Authorization:Bearer,cookie:AuthorizationCookie","ClaimPassBy":"query:uid:uid,header:name:name"}
+   */
   authConfig?: string;
+  /**
+   * @example
+   * anonymous
+   */
   authType?: string;
+  /**
+   * @example
+   * true
+   */
   disableURLInternet?: boolean;
   methods?: string[];
   static names(): { [key: string]: string } {
@@ -1246,9 +1825,25 @@ export class HTTPTriggerConfig extends $tea.Model {
 }
 
 export class InputCodeLocation extends $tea.Model {
+  /**
+   * @example
+   * 2825179536350****
+   */
   checksum?: string;
+  /**
+   * @example
+   * demo-bucket
+   */
   ossBucketName?: string;
+  /**
+   * @example
+   * demo-object
+   */
   ossObjectName?: string;
+  /**
+   * @example
+   * UEsDBAoAAAAAANF
+   */
   zipFile?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1274,7 +1869,15 @@ export class InputCodeLocation extends $tea.Model {
 }
 
 export class InstanceInfo extends $tea.Model {
+  /**
+   * @example
+   * 1ef6b6ff-7f7b-485e-ab49-501ac681****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * LATEST
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1318,7 +1921,15 @@ export class InstanceLifecycleConfig extends $tea.Model {
 }
 
 export class JobConfig extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   maxRetryTime?: number;
+  /**
+   * @example
+   * 60
+   */
   triggerInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1340,7 +1951,15 @@ export class JobConfig extends $tea.Model {
 }
 
 export class Key extends $tea.Model {
+  /**
+   * @example
+   * serverless_
+   */
   prefix?: string;
+  /**
+   * @example
+   * .zip
+   */
   suffix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1362,16 +1981,55 @@ export class Key extends $tea.Model {
 }
 
 export class Layer extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   acl?: string;
   code?: OutputCodeLocation;
+  /**
+   * @example
+   * 2825179536350****
+   */
   codeChecksum?: string;
+  /**
+   * @example
+   * 421
+   */
   codeSize?: number;
   compatibleRuntime?: string[];
+  /**
+   * @example
+   * 2023-03-30T11:08:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * My first layer
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyLayer
+   */
   layerName?: string;
+  /**
+   * @example
+   * acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
+   */
   layerVersionArn?: string;
+  /**
+   * @example
+   * Apache
+   */
   license?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1411,7 +2069,15 @@ export class Layer extends $tea.Model {
 }
 
 export class LifecycleHook extends $tea.Model {
+  /**
+   * @example
+   * index.initializer
+   */
   handler?: string;
+  /**
+   * @example
+   * 10
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1434,6 +2100,10 @@ export class LifecycleHook extends $tea.Model {
 
 export class ListAliasesOutput extends $tea.Model {
   aliases?: Alias[];
+  /**
+   * @example
+   * test
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1456,6 +2126,10 @@ export class ListAliasesOutput extends $tea.Model {
 
 export class ListAsyncInvokeConfigOutput extends $tea.Model {
   configs?: AsyncConfig[];
+  /**
+   * @example
+   * 8bj81uI8n****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1500,6 +2174,10 @@ export class ListAsyncTaskOutput extends $tea.Model {
 
 export class ListConcurrencyConfigsOutput extends $tea.Model {
   configs?: ConcurrencyConfig[];
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1522,6 +2200,10 @@ export class ListConcurrencyConfigsOutput extends $tea.Model {
 
 export class ListCustomDomainOutput extends $tea.Model {
   customDomains?: CustomDomain[];
+  /**
+   * @example
+   * next_domain_name
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1544,6 +2226,10 @@ export class ListCustomDomainOutput extends $tea.Model {
 
 export class ListFunctionsOutput extends $tea.Model {
   functions?: Function[];
+  /**
+   * @example
+   * next_function_name
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1585,6 +2271,10 @@ export class ListInstancesOutput extends $tea.Model {
 
 export class ListLayerVersionOutput extends $tea.Model {
   layers?: Layer[];
+  /**
+   * @example
+   * 10
+   */
   nextVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1607,6 +2297,10 @@ export class ListLayerVersionOutput extends $tea.Model {
 
 export class ListLayersOutput extends $tea.Model {
   layers?: Layer[];
+  /**
+   * @example
+   * next-layer-name
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1628,6 +2322,10 @@ export class ListLayersOutput extends $tea.Model {
 }
 
 export class ListProvisionConfigsOutput extends $tea.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   provisionConfigs?: ProvisionConfig[];
   static names(): { [key: string]: string } {
@@ -1650,6 +2348,10 @@ export class ListProvisionConfigsOutput extends $tea.Model {
 }
 
 export class ListTagResourcesOutput extends $tea.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   requestId?: string;
   tagResources?: TagResource[];
@@ -1675,6 +2377,10 @@ export class ListTagResourcesOutput extends $tea.Model {
 }
 
 export class ListTaggedResourcesOutput extends $tea.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   resources?: Resource[];
   static names(): { [key: string]: string } {
@@ -1697,6 +2403,10 @@ export class ListTaggedResourcesOutput extends $tea.Model {
 }
 
 export class ListTriggersOutput extends $tea.Model {
+  /**
+   * @example
+   * next_token
+   */
   nextToken?: string;
   triggers?: Trigger[];
   static names(): { [key: string]: string } {
@@ -1719,7 +2429,15 @@ export class ListTriggersOutput extends $tea.Model {
 }
 
 export class ListVersionsOutput extends $tea.Model {
+  /**
+   * @example
+   * FORWARD
+   */
   direction?: string;
+  /**
+   * @example
+   * 3
+   */
   nextToken?: string;
   versions?: Version[];
   static names(): { [key: string]: string } {
@@ -1763,10 +2481,30 @@ export class ListVpcBindingsOutput extends $tea.Model {
 }
 
 export class LogConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableInstanceMetrics?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableRequestMetrics?: boolean;
+  /**
+   * @example
+   * DefaultRegex
+   */
   logBeginRule?: string;
+  /**
+   * @example
+   * test-logstore
+   */
   logstore?: string;
+  /**
+   * @example
+   * test-project
+   */
   project?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1794,8 +2532,20 @@ export class LogConfig extends $tea.Model {
 }
 
 export class MNSTopicTriggerConfig extends $tea.Model {
+  /**
+   * @example
+   * serverless
+   */
   filterTag?: string;
+  /**
+   * @example
+   * JSON
+   */
   notifyContentFormat?: string;
+  /**
+   * @example
+   * BACKOFF_RETRY
+   */
   notifyStrategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1819,8 +2569,16 @@ export class MNSTopicTriggerConfig extends $tea.Model {
 }
 
 export class NASConfig extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   groupId?: number;
   mountPoints?: NASMountConfig[];
+  /**
+   * @example
+   * 100
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1845,7 +2603,15 @@ export class NASConfig extends $tea.Model {
 
 export class NASMountConfig extends $tea.Model {
   enableTLS?: boolean;
+  /**
+   * @example
+   * /home/test
+   */
   mountDir?: string;
+  /**
+   * @example
+   * ***-uni85.cn-hangzhou.nas.com:/
+   */
   serverAddr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1888,10 +2654,30 @@ export class OSSMountConfig extends $tea.Model {
 }
 
 export class OSSMountPoint extends $tea.Model {
+  /**
+   * @example
+   * my-bucket
+   */
   bucketName?: string;
+  /**
+   * @example
+   * /my-dir
+   */
   bucketPath?: string;
+  /**
+   * @example
+   * http://oss-cn-shanghai.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * /mnt/dir
+   */
   mountDir?: string;
+  /**
+   * @example
+   * true
+   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1941,7 +2727,15 @@ export class OSSTriggerConfig extends $tea.Model {
 }
 
 export class OutputCodeLocation extends $tea.Model {
+  /**
+   * @example
+   * https://xyz.oss-cn-shanghai.aliyuncs.com/xxx/xxx/xxx
+   */
   location?: string;
+  /**
+   * @example
+   * OSS
+   */
   repositoryType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1963,7 +2757,15 @@ export class OutputCodeLocation extends $tea.Model {
 }
 
 export class OutputFuncCode extends $tea.Model {
+  /**
+   * @example
+   * 1234567890
+   */
   checksum?: string;
+  /**
+   * @example
+   * http://func-code.oss-cn-shanghai.aliyuncs.com/1a2b3c4d5e6f
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1985,9 +2787,27 @@ export class OutputFuncCode extends $tea.Model {
 }
 
 export class PathConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * myFunction
+   */
   functionName?: string;
   methods?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /api/*
+   */
   path?: string;
+  /**
+   * @example
+   * myAlias
+   */
   qualifier?: string;
   rewriteConfig?: RewriteConfig;
   static names(): { [key: string]: string } {
@@ -2016,12 +2836,36 @@ export class PathConfig extends $tea.Model {
 }
 
 export class ProvisionConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   alwaysAllocateCPU?: boolean;
+  /**
+   * @example
+   * true
+   */
   alwaysAllocateGPU?: boolean;
+  /**
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @example
+   * image not found
+   */
   currentError?: string;
+  /**
+   * @example
+   * acs:fc:cn-shanghai:124:functions/myFunction
+   */
   functionArn?: string;
   scheduledActions?: ScheduledAction[];
+  /**
+   * @example
+   * 5
+   */
   target?: number;
   targetTrackingPolicies?: TargetTrackingPolicy[];
   static names(): { [key: string]: string } {
@@ -2056,6 +2900,10 @@ export class ProvisionConfig extends $tea.Model {
 }
 
 export class PublishVersionInput extends $tea.Model {
+  /**
+   * @example
+   * my version
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2075,9 +2923,21 @@ export class PublishVersionInput extends $tea.Model {
 }
 
 export class PutAsyncInvokeConfigInput extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   asyncTask?: boolean;
   destinationConfig?: DestinationConfig;
+  /**
+   * @example
+   * 300
+   */
   maxAsyncEventAgeInSeconds?: number;
+  /**
+   * @example
+   * 3
+   */
   maxAsyncRetryAttempts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2103,6 +2963,13 @@ export class PutAsyncInvokeConfigInput extends $tea.Model {
 }
 
 export class PutConcurrencyInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   reservedConcurrency?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2122,9 +2989,24 @@ export class PutConcurrencyInput extends $tea.Model {
 }
 
 export class PutProvisionConfigInput extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   alwaysAllocateCPU?: boolean;
+  /**
+   * @example
+   * true
+   */
   alwaysAllocateGPU?: boolean;
   scheduledActions?: ScheduledAction[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   target?: number;
   targetTrackingPolicies?: TargetTrackingPolicy[];
   static names(): { [key: string]: string } {
@@ -2153,7 +3035,21 @@ export class PutProvisionConfigInput extends $tea.Model {
 }
 
 export class RegexRule extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ^/api/.+?/(.*)
+   */
   match?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /api/v2/$1
+   */
   replacement?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2174,8 +3070,134 @@ export class RegexRule extends $tea.Model {
   }
 }
 
+export class RegistryAuthConfig extends $tea.Model {
+  /**
+   * @example
+   * abc***
+   */
+  password?: string;
+  /**
+   * @example
+   * admin
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'password',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryCertConfig extends $tea.Model {
+  insecure?: boolean;
+  /**
+   * @example
+   * cm9vdF9jYV9jZXJ0
+   */
+  rootCaCertBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      insecure: 'insecure',
+      rootCaCertBase64: 'rootCaCertBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insecure: 'boolean',
+      rootCaCertBase64: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryConfig extends $tea.Model {
+  authConfig?: RegistryAuthConfig;
+  certConfig?: RegistryCertConfig;
+  networkConfig?: RegistryNetworkConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'authConfig',
+      certConfig: 'certConfig',
+      networkConfig: 'networkConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: RegistryAuthConfig,
+      certConfig: RegistryCertConfig,
+      networkConfig: RegistryNetworkConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegistryNetworkConfig extends $tea.Model {
+  /**
+   * @example
+   * sg-xxxxxxxxxxxxxx
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxxxxxxxxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxxxxxxxxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Resource extends $tea.Model {
+  /**
+   * @example
+   * ALIYUN::FC::FUNCTION
+   */
   resouceType?: string;
+  /**
+   * @example
+   * acs:fc:cn-shanghai:****:functions/demo
+   */
   resourceArn?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -2200,6 +3222,10 @@ export class Resource extends $tea.Model {
 }
 
 export class RetryStrategy extends $tea.Model {
+  /**
+   * @example
+   * BACKOFF_RETRY
+   */
   pushRetryStrategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2265,7 +3291,15 @@ export class RouteConfig extends $tea.Model {
 export class RunOptions extends $tea.Model {
   batchWindow?: BatchWindow;
   deadLetterQueue?: DeadLetterQueue;
+  /**
+   * @example
+   * ALL
+   */
   errorsTolerance?: string;
+  /**
+   * @example
+   * event-streaming
+   */
   mode?: string;
   retryStrategy?: RetryStrategy;
   static names(): { [key: string]: string } {
@@ -2294,6 +3328,10 @@ export class RunOptions extends $tea.Model {
 }
 
 export class SLSTriggerConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
   functionParameter?: { [key: string]: string };
   jobConfig?: JobConfig;
@@ -2325,7 +3363,15 @@ export class SLSTriggerConfig extends $tea.Model {
 }
 
 export class SLSTriggerLogConfig extends $tea.Model {
+  /**
+   * @example
+   * my-sls-logstore-name
+   */
   logstore?: string;
+  /**
+   * @example
+   * my-sls-project-name
+   */
   project?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2347,11 +3393,45 @@ export class SLSTriggerLogConfig extends $tea.Model {
 }
 
 export class ScheduledAction extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-10T10:10:10
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cron(0 0 22 * * *)
+   */
   scheduleExpression?: string;
+  /**
+   * @example
+   * 2023-03-10T10:10:10
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 50
+   */
   target?: number;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'endTime',
@@ -2359,6 +3439,7 @@ export class ScheduledAction extends $tea.Model {
       scheduleExpression: 'scheduleExpression',
       startTime: 'startTime',
       target: 'target',
+      timeZone: 'timeZone',
     };
   }
 
@@ -2369,6 +3450,7 @@ export class ScheduledAction extends $tea.Model {
       scheduleExpression: 'string',
       startTime: 'string',
       target: 'number',
+      timeZone: 'string',
     };
   }
 
@@ -2378,7 +3460,15 @@ export class ScheduledAction extends $tea.Model {
 }
 
 export class SourceConfig extends $tea.Model {
+  /**
+   * @example
+   * my-sls-logstore-name
+   */
   logstore?: string;
+  /**
+   * @example
+   * 1704790317
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2400,13 +3490,45 @@ export class SourceConfig extends $tea.Model {
 }
 
 export class SourceDTSParameters extends $tea.Model {
+  /**
+   * @example
+   * dts-cn-shanghai-vpc.com:18003
+   */
   brokerUrl?: string;
+  /**
+   * @example
+   * 1677340805
+   */
   initCheckPoint?: number;
+  /**
+   * @example
+   * dtsTest123
+   */
   password?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * dtse34j22j025a****
+   */
   sid?: string;
+  /**
+   * @example
+   * e34z2gm325q****
+   */
   taskId?: string;
+  /**
+   * @example
+   * cn_shanghai_vpc_rm_uf6398ykj0218****_dts_trigger_upgrade_from_old_version2
+   */
   topic?: string;
+  /**
+   * @example
+   * dts_trigger
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2440,14 +3562,50 @@ export class SourceDTSParameters extends $tea.Model {
 }
 
 export class SourceKafkaParameters extends $tea.Model {
+  /**
+   * @example
+   * DEFAULT_GROUP
+   */
   consumerGroup?: string;
+  /**
+   * @example
+   * r-8vb64581862c****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Default
+   */
   network?: string;
+  /**
+   * @example
+   * latest
+   */
   offsetReset?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * sg-bp1iv19sp1msc7zot4****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * popvip_center_robot_order
+   */
   topic?: string;
+  /**
+   * @example
+   * vsw-bp179l3llg3jjxwrq72****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vpc-8vblalsi0vbhizr77****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2483,8 +3641,20 @@ export class SourceKafkaParameters extends $tea.Model {
 }
 
 export class SourceMNSParameters extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   isBase64Decode?: boolean;
+  /**
+   * @example
+   * demo
+   */
   queueName?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2508,8 +3678,20 @@ export class SourceMNSParameters extends $tea.Model {
 }
 
 export class SourceMQTTParameters extends $tea.Model {
+  /**
+   * @example
+   * mqtt-****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * testTopic
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2533,9 +3715,25 @@ export class SourceMQTTParameters extends $tea.Model {
 }
 
 export class SourceRabbitMQParameters extends $tea.Model {
+  /**
+   * @example
+   * amqp-cn-nif22u74****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * demo
+   */
   queueName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * eb-connect
+   */
   virtualHostName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2561,22 +3759,90 @@ export class SourceRabbitMQParameters extends $tea.Model {
 }
 
 export class SourceRocketMQParameters extends $tea.Model {
+  /**
+   * @example
+   * ACL
+   */
   authType?: string;
+  /**
+   * @example
+   * Tag
+   */
   filterType?: string;
+  /**
+   * @example
+   * GID_group1
+   */
   groupID?: string;
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com
+   */
   instanceEndpoint?: string;
+  /**
+   * @example
+   * MQ_INST_164901546557****_BAAN****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   instanceNetwork?: string;
+  /**
+   * @example
+   * 123
+   */
   instancePassword?: string;
+  /**
+   * @example
+   * sg-hp35r2hc3a3sv8q2****
+   */
   instanceSecurityGroupId?: string;
+  /**
+   * @example
+   * Cloud_5
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 6W0xz2uPfiwp****
+   */
   instanceUsername?: string;
+  /**
+   * @example
+   * vsw-uf6gwtbn6etadpvz7****
+   */
   instanceVSwitchIds?: string;
+  /**
+   * @example
+   * vpc-uf6of9452b2pba82c****
+   */
   instanceVpcId?: string;
+  /**
+   * @example
+   * CONSUME_FROM_TIMESTAMP
+   */
   offset?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @example
+   * test
+   */
   tag?: string;
+  /**
+   * @example
+   * 1636597951964
+   */
   timestamp?: number;
+  /**
+   * @example
+   * myTopic
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2628,8 +3894,23 @@ export class SourceRocketMQParameters extends $tea.Model {
 }
 
 export class TLSConfig extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cipherSuites?: string[];
+  /**
+   * @example
+   * TLSv1.3
+   */
   maxVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TLSv1.0
+   */
   minVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2653,7 +3934,15 @@ export class TLSConfig extends $tea.Model {
 }
 
 export class Tag extends $tea.Model {
+  /**
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2675,9 +3964,25 @@ export class Tag extends $tea.Model {
 }
 
 export class TagResource extends $tea.Model {
+  /**
+   * @example
+   * acs:fc:cn-shanghai:****:functions/demo
+   */
   resourceId?: string;
+  /**
+   * @example
+   * ALIYUN::FC::FUNCTION
+   */
   resourceType?: string;
+  /**
+   * @example
+   * key1
+   */
   tagKey?: string;
+  /**
+   * @example
+   * key1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2703,7 +4008,18 @@ export class TagResource extends $tea.Model {
 }
 
 export class TagResourceInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acs:fc:cn-shanghai:xxx:functions/f1
+   */
   resourceArn?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -2725,8 +4041,20 @@ export class TagResourceInput extends $tea.Model {
 }
 
 export class TagResourcesInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @example
+   * FUNCTION
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tag?: Tag[];
   static names(): { [key: string]: string } {
     return {
@@ -2750,13 +4078,61 @@ export class TagResourcesInput extends $tea.Model {
 }
 
 export class TargetTrackingPolicy extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-10T10:10:10
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   maxCapacity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.6
+   */
   metricTarget?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CPUUtilization
+   */
   metricType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   minCapacity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_1
+   */
   name?: string;
+  /**
+   * @example
+   * 2023-03-10T10:10:10
+   */
   startTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'endTime',
@@ -2766,6 +4142,7 @@ export class TargetTrackingPolicy extends $tea.Model {
       minCapacity: 'minCapacity',
       name: 'name',
       startTime: 'startTime',
+      timeZone: 'timeZone',
     };
   }
 
@@ -2778,6 +4155,7 @@ export class TargetTrackingPolicy extends $tea.Model {
       minCapacity: 'number',
       name: 'string',
       startTime: 'string',
+      timeZone: 'string',
     };
   }
 
@@ -2787,8 +4165,20 @@ export class TargetTrackingPolicy extends $tea.Model {
 }
 
 export class TimerTriggerConfig extends $tea.Model {
+  /**
+   * @example
+   * 0 0 4 * * *
+   */
   cronExpression?: string;
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @example
+   * {"workflowInstanceId":"39639"}
+   */
   payload?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2813,6 +4203,10 @@ export class TimerTriggerConfig extends $tea.Model {
 
 export class TracingConfig extends $tea.Model {
   params?: { [key: string]: string };
+  /**
+   * @example
+   * Jaeger
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2890,7 +4284,15 @@ export class Trigger extends $tea.Model {
 
 export class UpdateAliasInput extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
+  /**
+   * @example
+   * my alias
+   */
   description?: string;
+  /**
+   * @example
+   * 1
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2916,6 +4318,10 @@ export class UpdateAliasInput extends $tea.Model {
 export class UpdateCustomDomainInput extends $tea.Model {
   authConfig?: AuthConfig;
   certConfig?: CertConfig;
+  /**
+   * @example
+   * HTTP
+   */
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
@@ -2949,25 +4355,61 @@ export class UpdateCustomDomainInput extends $tea.Model {
 
 export class UpdateFunctionInput extends $tea.Model {
   code?: InputCodeLocation;
+  /**
+   * @example
+   * 1
+   */
   cpu?: number;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customRuntimeConfig?: CustomRuntimeConfig;
+  /**
+   * @example
+   * my function
+   */
   description?: string;
+  /**
+   * @example
+   * 512
+   */
   diskSize?: number;
   environmentVariables?: { [key: string]: string };
   gpuConfig?: GPUConfig;
+  /**
+   * @example
+   * index.handler
+   */
   handler?: string;
+  /**
+   * @example
+   * 1
+   */
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  /**
+   * @example
+   * true
+   */
   internetAccess?: boolean;
   layers?: string[];
   logConfig?: LogConfig;
+  /**
+   * @example
+   * 512
+   */
   memorySize?: number;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @example
+   * acs:ram::188077086902****:role/fc-test
+   */
   role?: string;
   runtime?: string;
+  /**
+   * @example
+   * 60
+   */
   timeout?: number;
   tracingConfig?: TracingConfig;
   vpcConfig?: VPCConfig;
@@ -3033,9 +4475,25 @@ export class UpdateFunctionInput extends $tea.Model {
 }
 
 export class UpdateTriggerInput extends $tea.Model {
+  /**
+   * @example
+   * trigger for test
+   */
   description?: string;
+  /**
+   * @example
+   * acs:ram::1234567890:role/fc-test
+   */
   invocationRole?: string;
+  /**
+   * @example
+   * LATEST
+   */
   qualifier?: string;
+  /**
+   * @example
+   * {"events":["oss:ObjectCreated:*"],"filter":{"key":{"prefix":"/prefix","suffix":".zip"}}}
+   */
   triggerConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3061,8 +4519,16 @@ export class UpdateTriggerInput extends $tea.Model {
 }
 
 export class VPCConfig extends $tea.Model {
+  /**
+   * @example
+   * sg-bp18hj1wtxgy3b0***
+   */
   securityGroupId?: string;
   vSwitchIds?: string[];
+  /**
+   * @example
+   * vpc-***
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3086,9 +4552,25 @@ export class VPCConfig extends $tea.Model {
 }
 
 export class Version extends $tea.Model {
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z07:00
+   */
   createdTime?: string;
+  /**
+   * @example
+   * my version
+   */
   description?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z07:00
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * 1
+   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3114,6 +4596,10 @@ export class Version extends $tea.Model {
 }
 
 export class WAFConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enableWAF?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3133,7 +4619,21 @@ export class WAFConfig extends $tea.Model {
 }
 
 export class WildcardRule extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /api/*
+   */
   match?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /$1
+   */
   replacement?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3155,6 +4655,12 @@ export class WildcardRule extends $tea.Model {
 }
 
 export class CreateAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request parameters for creating an alias.
+   * 
+   * This parameter is required.
+   */
   body?: CreateAliasInput;
   static names(): { [key: string]: string } {
     return {
@@ -3199,6 +4705,12 @@ export class CreateAliasResponse extends $tea.Model {
 }
 
 export class CreateCustomDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the custom domain name.
+   * 
+   * This parameter is required.
+   */
   body?: CreateCustomDomainInput;
   static names(): { [key: string]: string } {
     return {
@@ -3243,6 +4755,12 @@ export class CreateCustomDomainResponse extends $tea.Model {
 }
 
 export class CreateFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about function configurations.
+   * 
+   * This parameter is required.
+   */
   body?: CreateFunctionInput;
   static names(): { [key: string]: string } {
     return {
@@ -3287,6 +4805,12 @@ export class CreateFunctionResponse extends $tea.Model {
 }
 
 export class CreateLayerVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about layer configurations.
+   * 
+   * This parameter is required.
+   */
   body?: CreateLayerVersionInput;
   static names(): { [key: string]: string } {
     return {
@@ -3331,6 +4855,12 @@ export class CreateLayerVersionResponse extends $tea.Model {
 }
 
 export class CreateTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The trigger configurations.
+   * 
+   * This parameter is required.
+   */
   body?: CreateTriggerInput;
   static names(): { [key: string]: string } {
     return {
@@ -3375,6 +4905,12 @@ export class CreateTriggerResponse extends $tea.Model {
 }
 
 export class CreateVpcBindingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the virtual private cloud (VPC) binding.
+   * 
+   * This parameter is required.
+   */
   body?: CreateVpcBindingInput;
   static names(): { [key: string]: string } {
     return {
@@ -3438,6 +4974,13 @@ export class DeleteAliasResponse extends $tea.Model {
 }
 
 export class DeleteAsyncInvokeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3589,6 +5132,13 @@ export class DeleteLayerVersionResponse extends $tea.Model {
 }
 
 export class DeleteProvisionConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The function alias or LATEST.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3699,6 +5249,13 @@ export class GetAliasResponse extends $tea.Model {
 }
 
 export class GetAsyncInvokeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3743,6 +5300,13 @@ export class GetAsyncInvokeConfigResponse extends $tea.Model {
 }
 
 export class GetAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3837,6 +5401,13 @@ export class GetCustomDomainResponse extends $tea.Model {
 }
 
 export class GetFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3881,6 +5452,13 @@ export class GetFunctionResponse extends $tea.Model {
 }
 
 export class GetFunctionCodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3975,6 +5553,13 @@ export class GetLayerVersionByArnResponse extends $tea.Model {
 }
 
 export class GetProvisionConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The function alias or LATEST.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4045,8 +5630,31 @@ export class GetTriggerResponse extends $tea.Model {
 
 export class InvokeFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The ID of the asynchronous task. You must enable the asynchronous task feature in advance.
+   * 
+   * >  If you use an SDK to invoke a function, we recommend that you specify a business-related ID to facilitate subsequent operations. For example, a video processing function can use video file names as invocation IDs. This way, you can easily check whether a video is successfully processed or terminated before it is processed. The ID can start only with letters or underscores. An ID can contain *letters, digits (0 - 9), underscores*, and hyphens (-). It can be up to 128 characters in length. If you do not specify the ID of the asynchronous invocation, the system automatically generates an ID.
+   * 
+   * @example
+   * test-id
+   */
   xFcAsyncTaskId?: string;
+  /**
+   * @remarks
+   * The type of function invocation. Valid values: Sync and Async.
+   * 
+   * @example
+   * Sync
+   */
   xFcInvocationType?: string;
+  /**
+   * @remarks
+   * The log type of function invocation. Valid values: None and Tail.
+   * 
+   * @example
+   * Tail
+   */
   xFcLogType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4072,7 +5680,21 @@ export class InvokeFunctionHeaders extends $tea.Model {
 }
 
 export class InvokeFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request parameters of function invocation.
+   * 
+   * @example
+   * event
+   */
   body?: Readable;
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4119,8 +5741,29 @@ export class InvokeFunctionResponse extends $tea.Model {
 }
 
 export class ListAliasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of aliases returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The alias prefix.
+   * 
+   * @example
+   * my-alias
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4169,8 +5812,29 @@ export class ListAliasesResponse extends $tea.Model {
 }
 
 export class ListAsyncInvokeConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The function name. If you do not configure this parameter, the asynchronous invocation configurations of all functions are displayed.
+   * 
+   * @example
+   * my-func
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to be returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The paging information. This parameter specifies the start point of the query.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4219,14 +5883,95 @@ export class ListAsyncInvokeConfigsResponse extends $tea.Model {
 }
 
 export class ListAsyncTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to return input parameters of the asynchronous tasks. Valid values:
+   * 
+   * *   true: returns the `invocationPayload` parameter in the response.
+   * *   false: does not return the `invocationPayload` parameter in the response.
+   * 
+   * >  The `invocationPayload` parameter indicates the input parameters of an asynchronous task.
+   * 
+   * @example
+   * true
+   */
   includePayload?: boolean;
+  /**
+   * @remarks
+   * The number of asynchronous tasks to return. Valid values: [1,100]. Default value: 50.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID prefix of asynchronous tasks. If this parameter is specified, a list of asynchronous tasks whose IDs match the prefix is returned.
+   * 
+   * @example
+   * job-
+   */
   prefix?: string;
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
+  /**
+   * @remarks
+   * The order in which the returned asynchronous tasks are sorted.
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
+   * @example
+   * asc
+   */
   sortOrderByTime?: string;
+  /**
+   * @remarks
+   * The start time of the period during which the asynchronous tasks are initiated.
+   * 
+   * @example
+   * 1640966400000
+   */
   startedTimeBegin?: number;
+  /**
+   * @remarks
+   * The end time of the period during which the asynchronous tasks are initiated.
+   * 
+   * @example
+   * 1640966400000
+   */
   startedTimeEnd?: number;
+  /**
+   * @remarks
+   * The state of asynchronous tasks. The following items list the states of an asynchronous task:
+   * 
+   * *   Enqueued: The asynchronous invocation is enqueued and is waiting to be executed.
+   * *   Succeeded: The invocation is successful.
+   * *   Failed: The invocation fails.
+   * *   Running: The invocation is being executed.
+   * *   Stopped: The invocation is terminated.
+   * *   Stopping: The invocation is being terminated.
+   * *   Invalid: The invocation is invalid and not executed due to specific reasons. For example, the function is deleted.
+   * *   Expired: The maximum validity period of messages is specified for asynchronous invocation. The invocation is discarded and not executed because the specified maximum validity period has elapsed.
+   * *   Retrying: The asynchronous invocation is being retried due to an execution error.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4287,8 +6032,29 @@ export class ListAsyncTasksResponse extends $tea.Model {
 }
 
 export class ListConcurrencyConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The function name. If you leave this parameter empty, the concurrency configurations of all functions are returned.
+   * 
+   * @example
+   * my-func
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4337,8 +6103,29 @@ export class ListConcurrencyConfigsResponse extends $tea.Model {
 }
 
 export class ListCustomDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of custom domain names returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The domain name prefix.
+   * 
+   * @example
+   * foo
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4387,8 +6174,29 @@ export class ListCustomDomainsResponse extends $tea.Model {
 }
 
 export class ListFunctionVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The sorting mode of function versions. Valid values: BACKWARD and FORWARD.
+   * 
+   * @example
+   * BACKWARD
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The number of function versions that are returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4437,11 +6245,38 @@ export class ListFunctionVersionsResponse extends $tea.Model {
 }
 
 export class ListFunctionsRequest extends $tea.Model {
+  /**
+   * @example
+   * v3
+   */
+  fcVersion?: string;
+  /**
+   * @remarks
+   * The number of functions to return. The minimum value is 1 and the maximum value is 100.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The prefix of the function name.
+   * 
+   * @example
+   * my-func
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
+      fcVersion: 'fcVersion',
       limit: 'limit',
       nextToken: 'nextToken',
       prefix: 'prefix',
@@ -4450,6 +6285,7 @@ export class ListFunctionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fcVersion: 'string',
       limit: 'number',
       nextToken: 'string',
       prefix: 'string',
@@ -4487,7 +6323,21 @@ export class ListFunctionsResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The function version or alias.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
+  /**
+   * @remarks
+   * Specifies whether to list all instances. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   withAllActive?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4534,7 +6384,21 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ListLayerVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of versions to be returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The initial version of the layer.
+   * 
+   * @example
+   * 1
+   */
   startVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4581,10 +6445,45 @@ export class ListLayerVersionsResponse extends $tea.Model {
 }
 
 export class ListLayersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of layers that are returned
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Specifies whether the layer is official. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   official?: string;
+  /**
+   * @remarks
+   * The name prefix of the layer.
+   * 
+   * @example
+   * my-layer
+   */
   prefix?: string;
+  /**
+   * @remarks
+   * Specifies whether the layer is public. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   public?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4637,8 +6536,29 @@ export class ListLayersResponse extends $tea.Model {
 }
 
 export class ListProvisionConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the function. If this parameter is not specified, the provisioned configurations of all functions are listed.
+   * 
+   * @example
+   * my-func
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * Number of provisioned configurations to return.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4687,10 +6607,43 @@ export class ListProvisionConfigsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of resources to return.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::FC:FUNCTION
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * You can query up to 20 tags at a time.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4718,10 +6671,43 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of resources to return.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   */
   resourceIdShrink?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::FC:FUNCTION
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * You can query up to 20 tags at a time.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4774,8 +6760,29 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTriggersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of triggers returned.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The token for the next page.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The trigger name prefix.
+   * 
+   * @example
+   * my-trigger
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4849,6 +6856,12 @@ export class ListVpcBindingsResponse extends $tea.Model {
 }
 
 export class PublishFunctionVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the function version.
+   * 
+   * This parameter is required.
+   */
   body?: PublishVersionInput;
   static names(): { [key: string]: string } {
     return {
@@ -4893,7 +6906,20 @@ export class PublishFunctionVersionResponse extends $tea.Model {
 }
 
 export class PutAsyncInvokeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The asynchronous invocation configurations.
+   * 
+   * This parameter is required.
+   */
   body?: PutAsyncInvokeConfigInput;
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4940,6 +6966,12 @@ export class PutAsyncInvokeConfigResponse extends $tea.Model {
 }
 
 export class PutConcurrencyConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The concurrency configurations.
+   * 
+   * This parameter is required.
+   */
   body?: PutConcurrencyInput;
   static names(): { [key: string]: string } {
     return {
@@ -4984,7 +7016,23 @@ export class PutConcurrencyConfigResponse extends $tea.Model {
 }
 
 export class PutLayerACLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specify the access permission of the layer. A value of 1 indicates public and a value of 0 indicates private. The default value is 0.
+   * 
+   * @example
+   * 1
+   */
   acl?: string;
+  /**
+   * @remarks
+   * Specify whether the layer is a public layer. Valid values: true and false.
+   * 
+   * @example
+   * true
+   * 
+   * @deprecated
+   */
   public?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5028,7 +7076,20 @@ export class PutLayerACLResponse extends $tea.Model {
 }
 
 export class PutProvisionConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the provisioned configuration.
+   * 
+   * This parameter is required.
+   */
   body?: PutProvisionConfigInput;
+  /**
+   * @remarks
+   * The function alias or LATEST.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5075,6 +7136,13 @@ export class PutProvisionConfigResponse extends $tea.Model {
 }
 
 export class StopAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The version or alias of the function.
+   * 
+   * @example
+   * LATEST
+   */
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5116,6 +7184,12 @@ export class StopAsyncTaskResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the resource tag.
+   * 
+   * This parameter is required.
+   */
   body?: TagResourcesInput;
   static names(): { [key: string]: string } {
     return {
@@ -5157,9 +7231,35 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete all tags.
+   * 
+   * @example
+   * true
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The resource identifiers.
+   * 
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * function
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag to remove. You can specify a maximum of 50 tags.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5185,9 +7285,35 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete all tags.
+   * 
+   * @example
+   * true
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The resource identifiers.
+   * 
+   * This parameter is required.
+   */
   resourceIdShrink?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * function
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag to remove. You can specify a maximum of 50 tags.
+   */
   tagKeyShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5235,6 +7361,12 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The alias information to be updated.
+   * 
+   * This parameter is required.
+   */
   body?: UpdateAliasInput;
   static names(): { [key: string]: string } {
     return {
@@ -5279,6 +7411,12 @@ export class UpdateAliasResponse extends $tea.Model {
 }
 
 export class UpdateCustomDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the custom domain name.
+   * 
+   * This parameter is required.
+   */
   body?: UpdateCustomDomainInput;
   static names(): { [key: string]: string } {
     return {
@@ -5323,6 +7461,12 @@ export class UpdateCustomDomainResponse extends $tea.Model {
 }
 
 export class UpdateFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The function information
+   * 
+   * This parameter is required.
+   */
   body?: UpdateFunctionInput;
   static names(): { [key: string]: string } {
     return {
@@ -5367,6 +7511,12 @@ export class UpdateFunctionResponse extends $tea.Model {
 }
 
 export class UpdateTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The trigger configurations.
+   * 
+   * This parameter is required.
+   */
   body?: UpdateTriggerInput;
   static names(): { [key: string]: string } {
     return {
@@ -5411,7 +7561,25 @@ export class UpdateTriggerResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be up to 128 characters in length and can be an empty string.
+   * 
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5456,12 +7624,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建函数别名。
-   *
-   * @param request CreateAliasRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAliasResponse
+   * 创建函数别名。
+   * 
+   * @param request - CreateAliasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAliasResponse
    */
   async createAliasWithOptions(functionName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
@@ -5484,10 +7652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建函数别名。
-   *
-   * @param request CreateAliasRequest
-   * @return CreateAliasResponse
+   * 创建函数别名。
+   * 
+   * @param request - CreateAliasRequest
+   * @returns CreateAliasResponse
    */
   async createAlias(functionName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5496,12 +7664,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义域名。
-   *
-   * @param request CreateCustomDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomDomainResponse
+   * Creates a custom domain name.
+   * 
+   * @remarks
+   * If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
+   * 
+   * @param request - CreateCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomDomainResponse
    */
   async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
     Util.validateModel(request);
@@ -5524,10 +7695,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义域名。
-   *
-   * @param request CreateCustomDomainRequest
-   * @return CreateCustomDomainResponse
+   * Creates a custom domain name.
+   * 
+   * @remarks
+   * If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
+   * 
+   * @param request - CreateCustomDomainRequest
+   * @returns CreateCustomDomainResponse
    */
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5536,12 +7710,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a function.
-   *
-   * @param request CreateFunctionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFunctionResponse
+   * Creates a function.
+   * 
+   * @remarks
+   * In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
+   * 
+   * @param request - CreateFunctionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFunctionResponse
    */
   async createFunctionWithOptions(request: CreateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
     Util.validateModel(request);
@@ -5564,10 +7741,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a function.
-   *
-   * @param request CreateFunctionRequest
-   * @return CreateFunctionResponse
+   * Creates a function.
+   * 
+   * @remarks
+   * In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
+   * 
+   * @param request - CreateFunctionRequest
+   * @returns CreateFunctionResponse
    */
   async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5576,12 +7756,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建层版本。
-   *
-   * @param request CreateLayerVersionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLayerVersionResponse
+   * 创建层版本。
+   * 
+   * @param request - CreateLayerVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLayerVersionResponse
    */
   async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
     Util.validateModel(request);
@@ -5604,10 +7784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建层版本。
-   *
-   * @param request CreateLayerVersionRequest
-   * @return CreateLayerVersionResponse
+   * 创建层版本。
+   * 
+   * @param request - CreateLayerVersionRequest
+   * @returns CreateLayerVersionResponse
    */
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5616,12 +7796,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建函数触发器。
-   *
-   * @param request CreateTriggerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTriggerResponse
+   * 创建函数触发器。
+   * 
+   * @param request - CreateTriggerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTriggerResponse
    */
   async createTriggerWithOptions(functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
@@ -5644,10 +7824,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建函数触发器。
-   *
-   * @param request CreateTriggerRequest
-   * @return CreateTriggerResponse
+   * 创建函数触发器。
+   * 
+   * @param request - CreateTriggerRequest
+   * @returns CreateTriggerResponse
    */
   async createTrigger(functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5656,12 +7836,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a VPC connection.
-   *
-   * @param request CreateVpcBindingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVpcBindingResponse
+   * Creates a VPC connection.
+   * 
+   * @param request - CreateVpcBindingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVpcBindingResponse
    */
   async createVpcBindingWithOptions(functionName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
     Util.validateModel(request);
@@ -5684,10 +7864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a VPC connection.
-   *
-   * @param request CreateVpcBindingRequest
-   * @return CreateVpcBindingResponse
+   * Creates a VPC connection.
+   * 
+   * @param request - CreateVpcBindingRequest
+   * @returns CreateVpcBindingResponse
    */
   async createVpcBinding(functionName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5696,11 +7876,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an alias.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAliasResponse
+   * Deletes an alias.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAliasResponse
    */
   async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5721,9 +7901,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an alias.
-   *
-   * @return DeleteAliasResponse
+   * Deletes an alias.
+   * @returns DeleteAliasResponse
    */
   async deleteAlias(functionName: string, aliasName: string): Promise<DeleteAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5732,12 +7911,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an asynchronous invocation configuration.
-   *
-   * @param request DeleteAsyncInvokeConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAsyncInvokeConfigResponse
+   * Deletes an asynchronous invocation configuration.
+   * 
+   * @param request - DeleteAsyncInvokeConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAsyncInvokeConfigResponse
    */
   async deleteAsyncInvokeConfigWithOptions(functionName: string, request: DeleteAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncInvokeConfigResponse> {
     Util.validateModel(request);
@@ -5765,10 +7944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an asynchronous invocation configuration.
-   *
-   * @param request DeleteAsyncInvokeConfigRequest
-   * @return DeleteAsyncInvokeConfigResponse
+   * Deletes an asynchronous invocation configuration.
+   * 
+   * @param request - DeleteAsyncInvokeConfigRequest
+   * @returns DeleteAsyncInvokeConfigResponse
    */
   async deleteAsyncInvokeConfig(functionName: string, request: DeleteAsyncInvokeConfigRequest): Promise<DeleteAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5777,11 +7956,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a concurrency configuration.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConcurrencyConfigResponse
+   * Deletes a concurrency configuration.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConcurrencyConfigResponse
    */
   async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5802,9 +7981,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a concurrency configuration.
-   *
-   * @return DeleteConcurrencyConfigResponse
+   * Deletes a concurrency configuration.
+   * @returns DeleteConcurrencyConfigResponse
    */
   async deleteConcurrencyConfig(functionName: string): Promise<DeleteConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5813,11 +7991,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom domain name.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomDomainResponse
+   * Deletes a custom domain name.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomDomainResponse
    */
   async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5838,9 +8016,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom domain name.
-   *
-   * @return DeleteCustomDomainResponse
+   * Deletes a custom domain name.
+   * @returns DeleteCustomDomainResponse
    */
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5849,11 +8026,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a function.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFunctionResponse
+   * Deletes a function.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFunctionResponse
    */
   async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5874,9 +8051,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a function.
-   *
-   * @return DeleteFunctionResponse
+   * Deletes a function.
+   * @returns DeleteFunctionResponse
    */
   async deleteFunction(functionName: string): Promise<DeleteFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5885,11 +8061,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a function version.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFunctionVersionResponse
+   * Deletes a function version.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFunctionVersionResponse
    */
   async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5910,9 +8086,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a function version.
-   *
-   * @return DeleteFunctionVersionResponse
+   * Deletes a function version.
+   * @returns DeleteFunctionVersionResponse
    */
   async deleteFunctionVersion(functionName: string, versionId: string): Promise<DeleteFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5921,11 +8096,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a layer version.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLayerVersionResponse
+   * Deletes a layer version.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLayerVersionResponse
    */
   async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5946,9 +8121,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a layer version.
-   *
-   * @return DeleteLayerVersionResponse
+   * Deletes a layer version.
+   * @returns DeleteLayerVersionResponse
    */
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5957,12 +8131,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a provisioned configuration.
-   *
-   * @param request DeleteProvisionConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteProvisionConfigResponse
+   * Deletes a provisioned configuration.
+   * 
+   * @param request - DeleteProvisionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProvisionConfigResponse
    */
   async deleteProvisionConfigWithOptions(functionName: string, request: DeleteProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProvisionConfigResponse> {
     Util.validateModel(request);
@@ -5990,10 +8164,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a provisioned configuration.
-   *
-   * @param request DeleteProvisionConfigRequest
-   * @return DeleteProvisionConfigResponse
+   * Deletes a provisioned configuration.
+   * 
+   * @param request - DeleteProvisionConfigRequest
+   * @returns DeleteProvisionConfigResponse
    */
   async deleteProvisionConfig(functionName: string, request: DeleteProvisionConfigRequest): Promise<DeleteProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6002,11 +8176,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a trigger.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTriggerResponse
+   * Deletes a trigger.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTriggerResponse
    */
   async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6027,9 +8201,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a trigger.
-   *
-   * @return DeleteTriggerResponse
+   * Deletes a trigger.
+   * @returns DeleteTriggerResponse
    */
   async deleteTrigger(functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6038,11 +8211,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteVpcBindingResponse
+   * Deletes an access control policy from a specified policy group for a VPC firewall.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVpcBindingResponse
    */
   async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6063,9 +8236,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
-   *
-   * @return DeleteVpcBindingResponse
+   * Deletes an access control policy from a specified policy group for a VPC firewall.
+   * @returns DeleteVpcBindingResponse
    */
   async deleteVpcBinding(functionName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6074,11 +8246,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about an alias.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAliasResponse
+   * Queries information about an alias.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAliasResponse
    */
   async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6099,9 +8271,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about an alias.
-   *
-   * @return GetAliasResponse
+   * Queries information about an alias.
+   * @returns GetAliasResponse
    */
   async getAlias(functionName: string, aliasName: string): Promise<GetAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6110,12 +8281,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets asynchronous invocation configurations of a function.
-   *
-   * @param request GetAsyncInvokeConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAsyncInvokeConfigResponse
+   * Gets asynchronous invocation configurations of a function.
+   * 
+   * @param request - GetAsyncInvokeConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAsyncInvokeConfigResponse
    */
   async getAsyncInvokeConfigWithOptions(functionName: string, request: GetAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncInvokeConfigResponse> {
     Util.validateModel(request);
@@ -6143,10 +8314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets asynchronous invocation configurations of a function.
-   *
-   * @param request GetAsyncInvokeConfigRequest
-   * @return GetAsyncInvokeConfigResponse
+   * Gets asynchronous invocation configurations of a function.
+   * 
+   * @param request - GetAsyncInvokeConfigRequest
+   * @returns GetAsyncInvokeConfigResponse
    */
   async getAsyncInvokeConfig(functionName: string, request: GetAsyncInvokeConfigRequest): Promise<GetAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6155,12 +8326,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an asynchronous task.
-   *
-   * @param request GetAsyncTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAsyncTaskResponse
+   * Queries the information about an asynchronous task.
+   * 
+   * @param request - GetAsyncTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAsyncTaskResponse
    */
   async getAsyncTaskWithOptions(functionName: string, taskId: string, request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
     Util.validateModel(request);
@@ -6188,10 +8359,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an asynchronous task.
-   *
-   * @param request GetAsyncTaskRequest
-   * @return GetAsyncTaskResponse
+   * Queries the information about an asynchronous task.
+   * 
+   * @param request - GetAsyncTaskRequest
+   * @returns GetAsyncTaskResponse
    */
   async getAsyncTask(functionName: string, taskId: string, request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6200,11 +8371,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a concurrency configuration.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConcurrencyConfigResponse
+   * Obtains a concurrency configuration.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConcurrencyConfigResponse
    */
   async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6225,9 +8396,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a concurrency configuration.
-   *
-   * @return GetConcurrencyConfigResponse
+   * Obtains a concurrency configuration.
+   * @returns GetConcurrencyConfigResponse
    */
   async getConcurrencyConfig(functionName: string): Promise<GetConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6236,11 +8406,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about a custom domain name.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCustomDomainResponse
+   * Queries information about a custom domain name.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomDomainResponse
    */
   async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6261,9 +8431,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about a custom domain name.
-   *
-   * @return GetCustomDomainResponse
+   * Queries information about a custom domain name.
+   * @returns GetCustomDomainResponse
    */
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6272,12 +8441,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about a function.
-   *
-   * @param request GetFunctionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFunctionResponse
+   * Queries information about a function.
+   * 
+   * @param request - GetFunctionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFunctionResponse
    */
   async getFunctionWithOptions(functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
     Util.validateModel(request);
@@ -6305,10 +8474,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about a function.
-   *
-   * @param request GetFunctionRequest
-   * @return GetFunctionResponse
+   * Queries information about a function.
+   * 
+   * @param request - GetFunctionRequest
+   * @returns GetFunctionResponse
    */
   async getFunction(functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6317,12 +8486,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a code package of a function.
-   *
-   * @param request GetFunctionCodeRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFunctionCodeResponse
+   * Queries a code package of a function.
+   * 
+   * @param request - GetFunctionCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFunctionCodeResponse
    */
   async getFunctionCodeWithOptions(functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
     Util.validateModel(request);
@@ -6350,10 +8519,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a code package of a function.
-   *
-   * @param request GetFunctionCodeRequest
-   * @return GetFunctionCodeResponse
+   * Queries a code package of a function.
+   * 
+   * @param request - GetFunctionCodeRequest
+   * @returns GetFunctionCodeResponse
    */
   async getFunctionCode(functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6362,11 +8531,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries versions of a layer.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLayerVersionResponse
+   * Queries versions of a layer.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLayerVersionResponse
    */
   async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6387,9 +8556,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries versions of a layer.
-   *
-   * @return GetLayerVersionResponse
+   * Queries versions of a layer.
+   * @returns GetLayerVersionResponse
    */
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6398,11 +8566,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtain version information of a layer by using ARNs.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLayerVersionByArnResponse
+   * Obtain version information of a layer by using ARNs.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLayerVersionByArnResponse
    */
   async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6423,9 +8591,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtain version information of a layer by using ARNs.
-   *
-   * @return GetLayerVersionByArnResponse
+   * Obtain version information of a layer by using ARNs.
+   * @returns GetLayerVersionByArnResponse
    */
   async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6434,12 +8601,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries provisioned configurations.
-   *
-   * @param request GetProvisionConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProvisionConfigResponse
+   * Queries provisioned configurations.
+   * 
+   * @param request - GetProvisionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProvisionConfigResponse
    */
   async getProvisionConfigWithOptions(functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
     Util.validateModel(request);
@@ -6467,10 +8634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries provisioned configurations.
-   *
-   * @param request GetProvisionConfigRequest
-   * @return GetProvisionConfigResponse
+   * Queries provisioned configurations.
+   * 
+   * @param request - GetProvisionConfigRequest
+   * @returns GetProvisionConfigResponse
    */
   async getProvisionConfig(functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6479,11 +8646,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about a trigger.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTriggerResponse
+   * Queries information about a trigger.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTriggerResponse
    */
   async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6504,9 +8671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about a trigger.
-   *
-   * @return GetTriggerResponse
+   * Queries information about a trigger.
+   * @returns GetTriggerResponse
    */
   async getTrigger(functionName: string, triggerName: string): Promise<GetTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6515,12 +8681,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Invokes a function.
-   *
-   * @param request InvokeFunctionRequest
-   * @param headers InvokeFunctionHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InvokeFunctionResponse
+   * Invokes a function.
+   * 
+   * @param request - InvokeFunctionRequest
+   * @param headers - InvokeFunctionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeFunctionResponse
    */
   async invokeFunctionWithOptions(functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<InvokeFunctionResponse> {
     Util.validateModel(request);
@@ -6584,10 +8750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Invokes a function.
-   *
-   * @param request InvokeFunctionRequest
-   * @return InvokeFunctionResponse
+   * Invokes a function.
+   * 
+   * @param request - InvokeFunctionRequest
+   * @returns InvokeFunctionResponse
    */
   async invokeFunction(functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6596,12 +8762,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries aliases.
-   *
-   * @param request ListAliasesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAliasesResponse
+   * Queries aliases.
+   * 
+   * @param request - ListAliasesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAliasesResponse
    */
   async listAliasesWithOptions(functionName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     Util.validateModel(request);
@@ -6637,10 +8803,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries aliases.
-   *
-   * @param request ListAliasesRequest
-   * @return ListAliasesResponse
+   * Queries aliases.
+   * 
+   * @param request - ListAliasesRequest
+   * @returns ListAliasesResponse
    */
   async listAliases(functionName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6649,12 +8815,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all asynchronous configurations of a function.
-   *
-   * @param request ListAsyncInvokeConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAsyncInvokeConfigsResponse
+   * Queries all asynchronous configurations of a function.
+   * 
+   * @param request - ListAsyncInvokeConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAsyncInvokeConfigsResponse
    */
   async listAsyncInvokeConfigsWithOptions(request: ListAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
@@ -6690,10 +8856,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all asynchronous configurations of a function.
-   *
-   * @param request ListAsyncInvokeConfigsRequest
-   * @return ListAsyncInvokeConfigsResponse
+   * Queries all asynchronous configurations of a function.
+   * 
+   * @param request - ListAsyncInvokeConfigsRequest
+   * @returns ListAsyncInvokeConfigsResponse
    */
   async listAsyncInvokeConfigs(request: ListAsyncInvokeConfigsRequest): Promise<ListAsyncInvokeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6702,12 +8868,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Lists asynchronous tasks.
-   *
-   * @param request ListAsyncTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAsyncTasksResponse
+   * Lists asynchronous tasks.
+   * 
+   * @param request - ListAsyncTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAsyncTasksResponse
    */
   async listAsyncTasksWithOptions(functionName: string, request: ListAsyncTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
     Util.validateModel(request);
@@ -6767,10 +8933,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Lists asynchronous tasks.
-   *
-   * @param request ListAsyncTasksRequest
-   * @return ListAsyncTasksResponse
+   * Lists asynchronous tasks.
+   * 
+   * @param request - ListAsyncTasksRequest
+   * @returns ListAsyncTasksResponse
    */
   async listAsyncTasks(functionName: string, request: ListAsyncTasksRequest): Promise<ListAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6779,12 +8945,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出函数并发度配置。
-   *
-   * @param request ListConcurrencyConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConcurrencyConfigsResponse
+   * 列出函数并发度配置。
+   * 
+   * @param request - ListConcurrencyConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConcurrencyConfigsResponse
    */
   async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
     Util.validateModel(request);
@@ -6820,10 +8986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出函数并发度配置。
-   *
-   * @param request ListConcurrencyConfigsRequest
-   * @return ListConcurrencyConfigsResponse
+   * 列出函数并发度配置。
+   * 
+   * @param request - ListConcurrencyConfigsRequest
+   * @returns ListConcurrencyConfigsResponse
    */
   async listConcurrencyConfigs(request: ListConcurrencyConfigsRequest): Promise<ListConcurrencyConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6832,12 +8998,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries custom domain names.
-   *
-   * @param request ListCustomDomainsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomDomainsResponse
+   * Queries custom domain names.
+   * 
+   * @param request - ListCustomDomainsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomDomainsResponse
    */
   async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
     Util.validateModel(request);
@@ -6873,10 +9039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries custom domain names.
-   *
-   * @param request ListCustomDomainsRequest
-   * @return ListCustomDomainsResponse
+   * Queries custom domain names.
+   * 
+   * @param request - ListCustomDomainsRequest
+   * @returns ListCustomDomainsResponse
    */
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6885,12 +9051,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries versions of a function.
-   *
-   * @param request ListFunctionVersionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFunctionVersionsResponse
+   * Queries versions of a function.
+   * 
+   * @param request - ListFunctionVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFunctionVersionsResponse
    */
   async listFunctionVersionsWithOptions(functionName: string, request: ListFunctionVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionVersionsResponse> {
     Util.validateModel(request);
@@ -6926,10 +9092,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries versions of a function.
-   *
-   * @param request ListFunctionVersionsRequest
-   * @return ListFunctionVersionsResponse
+   * Queries versions of a function.
+   * 
+   * @param request - ListFunctionVersionsRequest
+   * @returns ListFunctionVersionsResponse
    */
   async listFunctionVersions(functionName: string, request: ListFunctionVersionsRequest): Promise<ListFunctionVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6938,16 +9104,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出函数。
-   *
-   * @param request ListFunctionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFunctionsResponse
+   * 列出函数。
+   * 
+   * @param request - ListFunctionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFunctionsResponse
    */
   async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fcVersion)) {
+      query["fcVersion"] = request.fcVersion;
+    }
+
     if (!Util.isUnset(request.limit)) {
       query["limit"] = request.limit;
     }
@@ -6979,10 +9149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出函数。
-   *
-   * @param request ListFunctionsRequest
-   * @return ListFunctionsResponse
+   * 列出函数。
+   * 
+   * @param request - ListFunctionsRequest
+   * @returns ListFunctionsResponse
    */
   async listFunctions(request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6991,12 +9161,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of function instances.
-   *
-   * @param request ListInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * Queries a list of function instances.
+   * 
+   * @param request - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(functionName: string, request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
@@ -7028,10 +9198,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of function instances.
-   *
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * Queries a list of function instances.
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7040,12 +9210,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets a list of layer versions.
-   *
-   * @param request ListLayerVersionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLayerVersionsResponse
+   * Gets a list of layer versions.
+   * 
+   * @param request - ListLayerVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLayerVersionsResponse
    */
   async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
     Util.validateModel(request);
@@ -7077,10 +9247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets a list of layer versions.
-   *
-   * @param request ListLayerVersionsRequest
-   * @return ListLayerVersionsResponse
+   * Gets a list of layer versions.
+   * 
+   * @param request - ListLayerVersionsRequest
+   * @returns ListLayerVersionsResponse
    */
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7089,12 +9259,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets a list of layers.
-   *
-   * @param request ListLayersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLayersResponse
+   * Gets a list of layers.
+   * 
+   * @param request - ListLayersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLayersResponse
    */
   async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
     Util.validateModel(request);
@@ -7138,10 +9308,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets a list of layers.
-   *
-   * @param request ListLayersRequest
-   * @return ListLayersResponse
+   * Gets a list of layers.
+   * 
+   * @param request - ListLayersRequest
+   * @returns ListLayersResponse
    */
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7150,12 +9320,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of provisioned configurations.
-   *
-   * @param request ListProvisionConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProvisionConfigsResponse
+   * Queries a list of provisioned configurations.
+   * 
+   * @param request - ListProvisionConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProvisionConfigsResponse
    */
   async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
     Util.validateModel(request);
@@ -7191,10 +9361,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of provisioned configurations.
-   *
-   * @param request ListProvisionConfigsRequest
-   * @return ListProvisionConfigsResponse
+   * Queries a list of provisioned configurations.
+   * 
+   * @param request - ListProvisionConfigsRequest
+   * @returns ListProvisionConfigsResponse
    */
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7203,12 +9373,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Lists all tagged resources.
-   *
-   * @param tmpReq ListTagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Lists all tagged resources.
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -7262,10 +9432,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Lists all tagged resources.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Lists all tagged resources.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7274,12 +9444,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the triggers of a function.
-   *
-   * @param request ListTriggersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTriggersResponse
+   * Queries the triggers of a function.
+   * 
+   * @param request - ListTriggersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTriggersResponse
    */
   async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
@@ -7315,10 +9485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the triggers of a function.
-   *
-   * @param request ListTriggersRequest
-   * @return ListTriggersResponse
+   * Queries the triggers of a function.
+   * 
+   * @param request - ListTriggersRequest
+   * @returns ListTriggersResponse
    */
   async listTriggers(functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7327,11 +9497,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of existing VPC connections.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVpcBindingsResponse
+   * Queries a list of existing VPC connections.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVpcBindingsResponse
    */
   async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7352,9 +9522,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of existing VPC connections.
-   *
-   * @return ListVpcBindingsResponse
+   * Queries a list of existing VPC connections.
+   * @returns ListVpcBindingsResponse
    */
   async listVpcBindings(functionName: string): Promise<ListVpcBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7363,12 +9532,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes a function version.
-   *
-   * @param request PublishFunctionVersionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishFunctionVersionResponse
+   * Publishes a function version.
+   * 
+   * @param request - PublishFunctionVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishFunctionVersionResponse
    */
   async publishFunctionVersionWithOptions(functionName: string, request: PublishFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFunctionVersionResponse> {
     Util.validateModel(request);
@@ -7391,10 +9560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes a function version.
-   *
-   * @param request PublishFunctionVersionRequest
-   * @return PublishFunctionVersionResponse
+   * Publishes a function version.
+   * 
+   * @param request - PublishFunctionVersionRequest
+   * @returns PublishFunctionVersionResponse
    */
   async publishFunctionVersion(functionName: string, request: PublishFunctionVersionRequest): Promise<PublishFunctionVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7403,12 +9572,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates or modifies an asynchronous invocation configuration for a function.
-   *
-   * @param request PutAsyncInvokeConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PutAsyncInvokeConfigResponse
+   * Creates or modifies an asynchronous invocation configuration for a function.
+   * 
+   * @param request - PutAsyncInvokeConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutAsyncInvokeConfigResponse
    */
   async putAsyncInvokeConfigWithOptions(functionName: string, request: PutAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAsyncInvokeConfigResponse> {
     Util.validateModel(request);
@@ -7437,10 +9606,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates or modifies an asynchronous invocation configuration for a function.
-   *
-   * @param request PutAsyncInvokeConfigRequest
-   * @return PutAsyncInvokeConfigResponse
+   * Creates or modifies an asynchronous invocation configuration for a function.
+   * 
+   * @param request - PutAsyncInvokeConfigRequest
+   * @returns PutAsyncInvokeConfigResponse
    */
   async putAsyncInvokeConfig(functionName: string, request: PutAsyncInvokeConfigRequest): Promise<PutAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7449,12 +9618,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures concurrency of a function.
-   *
-   * @param request PutConcurrencyConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PutConcurrencyConfigResponse
+   * Configures concurrency of a function.
+   * 
+   * @param request - PutConcurrencyConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutConcurrencyConfigResponse
    */
   async putConcurrencyConfigWithOptions(functionName: string, request: PutConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutConcurrencyConfigResponse> {
     Util.validateModel(request);
@@ -7477,10 +9646,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures concurrency of a function.
-   *
-   * @param request PutConcurrencyConfigRequest
-   * @return PutConcurrencyConfigResponse
+   * Configures concurrency of a function.
+   * 
+   * @param request - PutConcurrencyConfigRequest
+   * @returns PutConcurrencyConfigResponse
    */
   async putConcurrencyConfig(functionName: string, request: PutConcurrencyConfigRequest): Promise<PutConcurrencyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7489,12 +9658,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies permissions of a layer.
-   *
-   * @param request PutLayerACLRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PutLayerACLResponse
+   * Modifies permissions of a layer.
+   * 
+   * @param request - PutLayerACLRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutLayerACLResponse
    */
   async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
     Util.validateModel(request);
@@ -7526,10 +9695,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies permissions of a layer.
-   *
-   * @param request PutLayerACLRequest
-   * @return PutLayerACLResponse
+   * Modifies permissions of a layer.
+   * 
+   * @param request - PutLayerACLRequest
+   * @returns PutLayerACLResponse
    */
   async putLayerACL(layerName: string, request: PutLayerACLRequest): Promise<PutLayerACLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7538,12 +9707,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates provisioned configurations.
-   *
-   * @param request PutProvisionConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PutProvisionConfigResponse
+   * Creates provisioned configurations.
+   * 
+   * @param request - PutProvisionConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutProvisionConfigResponse
    */
   async putProvisionConfigWithOptions(functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
     Util.validateModel(request);
@@ -7572,10 +9741,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates provisioned configurations.
-   *
-   * @param request PutProvisionConfigRequest
-   * @return PutProvisionConfigResponse
+   * Creates provisioned configurations.
+   * 
+   * @param request - PutProvisionConfigRequest
+   * @returns PutProvisionConfigResponse
    */
   async putProvisionConfig(functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7584,12 +9753,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops an asynchronous task.
-   *
-   * @param request StopAsyncTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopAsyncTaskResponse
+   * Stops an asynchronous task.
+   * 
+   * @param request - StopAsyncTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAsyncTaskResponse
    */
   async stopAsyncTaskWithOptions(functionName: string, taskId: string, request: StopAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAsyncTaskResponse> {
     Util.validateModel(request);
@@ -7617,10 +9786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops an asynchronous task.
-   *
-   * @param request StopAsyncTaskRequest
-   * @return StopAsyncTaskResponse
+   * Stops an asynchronous task.
+   * 
+   * @param request - StopAsyncTaskRequest
+   * @returns StopAsyncTaskResponse
    */
   async stopAsyncTask(functionName: string, taskId: string, request: StopAsyncTaskRequest): Promise<StopAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7629,12 +9798,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to a resource.
-   *
-   * @param request TagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Adds tags to a resource.
+   * 
+   * @remarks
+   * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -7657,10 +9829,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to a resource.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Adds tags to a resource.
+   * 
+   * @remarks
+   * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7669,12 +9844,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from a resource.
-   *
-   * @param tmpReq UntagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Removes tags from a resource.
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -7724,10 +9899,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from a resource.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Removes tags from a resource.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7736,12 +9911,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an alias.
-   *
-   * @param request UpdateAliasRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAliasResponse
+   * Updates an alias.
+   * 
+   * @param request - UpdateAliasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAliasResponse
    */
   async updateAliasWithOptions(functionName: string, aliasName: string, request: UpdateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
     Util.validateModel(request);
@@ -7764,10 +9939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an alias.
-   *
-   * @param request UpdateAliasRequest
-   * @return UpdateAliasResponse
+   * Updates an alias.
+   * 
+   * @param request - UpdateAliasRequest
+   * @returns UpdateAliasResponse
    */
   async updateAlias(functionName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7776,12 +9951,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update a custom domain name.
-   *
-   * @param request UpdateCustomDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCustomDomainResponse
+   * Update a custom domain name.
+   * 
+   * @param request - UpdateCustomDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomDomainResponse
    */
   async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
     Util.validateModel(request);
@@ -7804,10 +9979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update a custom domain name.
-   *
-   * @param request UpdateCustomDomainRequest
-   * @return UpdateCustomDomainResponse
+   * Update a custom domain name.
+   * 
+   * @param request - UpdateCustomDomainRequest
+   * @returns UpdateCustomDomainResponse
    */
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7816,12 +9991,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about a function.
-   *
-   * @param request UpdateFunctionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFunctionResponse
+   * Updates the information about a function.
+   * 
+   * @param request - UpdateFunctionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFunctionResponse
    */
   async updateFunctionWithOptions(functionName: string, request: UpdateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
     Util.validateModel(request);
@@ -7844,10 +10019,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about a function.
-   *
-   * @param request UpdateFunctionRequest
-   * @return UpdateFunctionResponse
+   * Updates the information about a function.
+   * 
+   * @param request - UpdateFunctionRequest
+   * @returns UpdateFunctionResponse
    */
   async updateFunction(functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7856,12 +10031,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a trigger.
-   *
-   * @param request UpdateTriggerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTriggerResponse
+   * Modifies a trigger.
+   * 
+   * @param request - UpdateTriggerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTriggerResponse
    */
   async updateTriggerWithOptions(functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
     Util.validateModel(request);
@@ -7884,10 +10059,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a trigger.
-   *
-   * @param request UpdateTriggerRequest
-   * @return UpdateTriggerResponse
+   * Modifies a trigger.
+   * 
+   * @param request - UpdateTriggerRequest
+   * @returns UpdateTriggerResponse
    */
   async updateTrigger(functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
