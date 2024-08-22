@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,13 +8,41 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class Artifact extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   creator?: number;
   credential?: Credential;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   location?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   modifier?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,13 +76,41 @@ export class Artifact extends $tea.Model {
 }
 
 export class Category extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   creator?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   modifier?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   parentBizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,12 +188,40 @@ export class ConfigurationOverrides extends $tea.Model {
 }
 
 export class Credential extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accessId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dir?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   expire?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   host?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,7 +272,15 @@ export class JobDriver extends $tea.Model {
 }
 
 export class PrincipalAction extends $tea.Model {
+  /**
+   * @example
+   * acs:emr::workspaceId:action/create_queue
+   */
   actionArn?: string;
+  /**
+   * @example
+   * acs:emr::workspaceId:user/237593691541622267
+   */
   principalArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,7 +355,15 @@ export class RunLog extends $tea.Model {
 }
 
 export class SparkConf extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -308,7 +407,21 @@ export class SqlOutput extends $tea.Model {
 }
 
 export class Tag extends $tea.Model {
+  /**
+   * @remarks
+   * 标签key值。
+   * 
+   * @example
+   * workflowId
+   */
   key?: string;
+  /**
+   * @remarks
+   * 标签key值。
+   * 
+   * @example
+   * wf-123test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -332,9 +445,17 @@ export class Tag extends $tea.Model {
 export class Task extends $tea.Model {
   archives?: string[];
   artifactUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   bizId?: string;
   categoryBizId?: string;
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   creator?: number;
   defaultCatalogId?: string;
   defaultDatabase?: string;
@@ -344,28 +465,85 @@ export class Task extends $tea.Model {
   extraArtifactIds?: string[];
   extraSparkSubmitParams?: string;
   files?: string[];
+  fusion?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtModified?: string;
   hasChanged?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   hasCommited?: boolean;
   isStreaming?: boolean;
   jars?: string[];
   lastRunResourceQueueId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   modifier?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   pyFiles?: string[];
+  /**
+   * @example
+   * 100
+   */
   sparkArgs?: string;
   sparkConf?: SparkConf[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkDriverCores?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkDriverMemory?: number;
   sparkEntrypoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkExecutorCores?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkExecutorMemory?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkLogLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkLogPath?: string;
   sparkSubmitClause?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkVersion?: string;
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -383,6 +561,7 @@ export class Task extends $tea.Model {
       extraArtifactIds: 'extraArtifactIds',
       extraSparkSubmitParams: 'extraSparkSubmitParams',
       files: 'files',
+      fusion: 'fusion',
       gmtCreated: 'gmtCreated',
       gmtModified: 'gmtModified',
       hasChanged: 'hasChanged',
@@ -425,6 +604,7 @@ export class Task extends $tea.Model {
       extraArtifactIds: { 'type': 'array', 'itemType': 'string' },
       extraSparkSubmitParams: 'string',
       files: { 'type': 'array', 'itemType': 'string' },
+      fusion: 'boolean',
       gmtCreated: 'string',
       gmtModified: 'string',
       hasChanged: 'boolean',
@@ -534,22 +714,70 @@ export class TaskSnapshot extends $tea.Model {
 }
 
 export class Template extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   creator?: number;
+  displaySparkVersion?: string;
+  fusion?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   modifier?: number;
   sparkConf?: SparkConf[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkDriverCores?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkDriverMemory?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkExecutorCores?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkExecutorMemory?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkLogLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkLogPath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sparkVersion?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
       creator: 'creator',
+      displaySparkVersion: 'displaySparkVersion',
+      fusion: 'fusion',
       gmtCreated: 'gmtCreated',
       gmtModified: 'gmtModified',
       modifier: 'modifier',
@@ -568,6 +796,8 @@ export class Template extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       creator: 'number',
+      displaySparkVersion: 'string',
+      fusion: 'boolean',
       gmtCreated: 'string',
       gmtModified: 'string',
       modifier: 'number',
@@ -589,7 +819,21 @@ export class Template extends $tea.Model {
 }
 
 export class TimeRange extends $tea.Model {
+  /**
+   * @remarks
+   * 时间范围结束时间。
+   * 
+   * @example
+   * 1688370894339
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * 时间范围开始时间。
+   * 
+   * @example
+   * 1688370894339
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -611,8 +855,28 @@ export class TimeRange extends $tea.Model {
 }
 
 export class AddMembersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   memberArns?: string[];
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * w-975bcfda9625****
+   */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -636,6 +900,13 @@ export class AddMembersRequest extends $tea.Model {
 }
 
 export class AddMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -680,6 +951,13 @@ export class AddMembersResponse extends $tea.Model {
 }
 
 export class CancelJobRunRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -699,7 +977,21 @@ export class CancelJobRunRequest extends $tea.Model {
 }
 
 export class CancelJobRunResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * jr-1a2bc3
+   */
   jobRunId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -746,11 +1038,53 @@ export class CancelJobRunResponse extends $tea.Model {
 }
 
 export class CreateSqlStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL code. You can specify one or more SQL statements.
+   * 
+   * @example
+   * SHOW TABLES
+   */
   codeContent?: string;
+  /**
+   * @remarks
+   * The default Data Lake Formation (DLF) catalog ID.
+   * 
+   * @example
+   * default_catalog
+   */
   defaultCatalog?: string;
+  /**
+   * @remarks
+   * The name of the default database.
+   * 
+   * @example
+   * default
+   */
   defaultDatabase?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: 1 to 10000.
+   * 
+   * @example
+   * 1000
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The SQL compute ID. You can create an SQL compute in the workspace created in EMR Serverless Spark.
+   * 
+   * @example
+   * sc-dfahdfjafhajd****
+   */
   sqlComputeId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -780,7 +1114,18 @@ export class CreateSqlStatementRequest extends $tea.Model {
 }
 
 export class CreateSqlStatementResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CreateSqlStatementResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -827,6 +1172,13 @@ export class CreateSqlStatementResponse extends $tea.Model {
 }
 
 export class GetJobRunRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -846,7 +1198,18 @@ export class GetJobRunRequest extends $tea.Model {
 }
 
 export class GetJobRunResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the job.
+   */
   jobRun?: GetJobRunResponseBodyJobRun;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -893,6 +1256,13 @@ export class GetJobRunResponse extends $tea.Model {
 }
 
 export class GetSqlStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -912,7 +1282,18 @@ export class GetSqlStatementRequest extends $tea.Model {
 }
 
 export class GetSqlStatementResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetSqlStatementResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -959,8 +1340,22 @@ export class GetSqlStatementResponse extends $tea.Model {
 }
 
 export class GrantRoleToUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * 
+   * @example
+   * acs:emr::w-975bcfda9625****:role/Owner
+   */
   roleArn?: string;
   userArns?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -984,6 +1379,13 @@ export class GrantRoleToUsersRequest extends $tea.Model {
 }
 
 export class GrantRoleToUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1028,17 +1430,85 @@ export class GrantRoleToUsersResponse extends $tea.Model {
 }
 
 export class ListJobRunsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the user who creates a Spark job.
+   * 
+   * @example
+   * 1509789347011222
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The range of end time.
+   */
   endTime?: ListJobRunsRequestEndTime;
   jobRunDeploymentId?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * j-xxx
+   */
   jobRunId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * emr-spark-demo-job
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource queue on which the Spark jobs run.
+   * 
+   * @example
+   * dev_queue
+   */
   resourceQueueId?: string;
+  /**
+   * @remarks
+   * The range of start time.
+   */
   startTime?: ListJobRunsRequestStartTime;
+  /**
+   * @remarks
+   * The job states.
+   * 
+   * @example
+   * ["Running","Submitted"]
+   */
   states?: string[];
+  /**
+   * @remarks
+   * The tags of the job.
+   */
   tags?: ListJobRunsRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -1080,17 +1550,85 @@ export class ListJobRunsRequest extends $tea.Model {
 }
 
 export class ListJobRunsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the user who creates a Spark job.
+   * 
+   * @example
+   * 1509789347011222
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The range of end time.
+   */
   endTimeShrink?: string;
   jobRunDeploymentId?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * j-xxx
+   */
   jobRunId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * emr-spark-demo-job
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource queue on which the Spark jobs run.
+   * 
+   * @example
+   * dev_queue
+   */
   resourceQueueId?: string;
+  /**
+   * @remarks
+   * The range of start time.
+   */
   startTimeShrink?: string;
+  /**
+   * @remarks
+   * The job states.
+   * 
+   * @example
+   * ["Running","Submitted"]
+   */
   statesShrink?: string;
+  /**
+   * @remarks
+   * The tags of the job.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1132,10 +1670,42 @@ export class ListJobRunsShrinkRequest extends $tea.Model {
 }
 
 export class ListJobRunsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of Spark jobs.
+   */
   jobRuns?: ListJobRunsResponseBodyJobRuns[];
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1188,9 +1758,47 @@ export class ListJobRunsResponse extends $tea.Model {
 }
 
 export class ListReleaseVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the version.
+   * 
+   * Valid values:
+   * 
+   * *   stable
+   * *   beta
+   * 
+   * @example
+   * stable
+   */
   releaseType?: string;
+  /**
+   * @remarks
+   * The version of Serverless Spark.
+   * 
+   * @example
+   * esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The status of the version. Valid values:
+   * 
+   * Valid values:
+   * 
+   * *   ONLINE
+   * *   OFFLINE
+   * 
+   * @example
+   * ONLINE
+   */
   releaseVersionStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1216,10 +1824,42 @@ export class ListReleaseVersionsRequest extends $tea.Model {
 }
 
 export class ListReleaseVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The versions.
+   */
   releaseVersions?: ListReleaseVersionsResponseBodyReleaseVersions[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1273,10 +1913,45 @@ export class ListReleaseVersionsResponse extends $tea.Model {
 
 export class ListSessionClustersRequest extends $tea.Model {
   kind?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * @example
+   * root
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   * 
+   * @example
+   * emr-spark-demo-job
+   */
   sessionClusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1306,10 +1981,42 @@ export class ListSessionClustersRequest extends $tea.Model {
 }
 
 export class ListSessionClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The SQL computes.
+   */
   sessionClusters?: ListSessionClustersResponseBodySessionClusters[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1362,7 +2069,26 @@ export class ListSessionClustersResponse extends $tea.Model {
 }
 
 export class ListWorkspaceQueuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The environment type.
+   * 
+   * Valid values:
+   * 
+   * *   dev
+   * *   production
+   * 
+   * @example
+   * production
+   */
   environment?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1384,10 +2110,42 @@ export class ListWorkspaceQueuesRequest extends $tea.Model {
 }
 
 export class ListWorkspaceQueuesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of queues.
+   */
   queues?: ListWorkspaceQueuesResponseBodyQueues[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1440,10 +2198,45 @@ export class ListWorkspaceQueuesResponse extends $tea.Model {
 }
 
 export class ListWorkspacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Fuzzy match is supported.
+   * 
+   * @example
+   * test_workspace
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The workspace status.
+   * 
+   * @example
+   * running
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1471,10 +2264,42 @@ export class ListWorkspacesRequest extends $tea.Model {
 }
 
 export class ListWorkspacesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The workspaces.
+   */
   workspaces?: ListWorkspacesResponseBodyWorkspaces[];
   static names(): { [key: string]: string } {
     return {
@@ -1527,23 +2352,99 @@ export class ListWorkspacesResponse extends $tea.Model {
 }
 
 export class StartJobRunRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 8e6aae2810c8f67229ca70bb31cd6028
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The code type of the job. Valid values:
+   * 
+   * *   SQL
+   * *   JAR
+   * *   PYTHON
+   * 
+   * @example
+   * SQL
+   */
   codeType?: string;
+  /**
+   * @remarks
+   * The advanced configurations of Spark.
+   */
   configurationOverrides?: StartJobRunRequestConfigurationOverrides;
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * The timeout period of the job.
+   * 
+   * @example
+   * 100
+   */
   executionTimeoutSeconds?: number;
+  fusion?: boolean;
+  /**
+   * @remarks
+   * The information about Spark Driver.
+   */
   jobDriver?: JobDriver;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * jr-12345
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * spark_job_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of Spark.
+   * 
+   * @example
+   * esr-3.3.1
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The name of the resource queue on which the Spark job runs.
+   * 
+   * @example
+   * dev_queue
+   */
   resourceQueueId?: string;
+  /**
+   * @remarks
+   * The tags of the job.
+   */
   tags?: Tag[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'clientToken',
       codeType: 'codeType',
       configurationOverrides: 'configurationOverrides',
+      displayReleaseVersion: 'displayReleaseVersion',
       executionTimeoutSeconds: 'executionTimeoutSeconds',
+      fusion: 'fusion',
       jobDriver: 'jobDriver',
       jobId: 'jobId',
       name: 'name',
@@ -1559,7 +2460,9 @@ export class StartJobRunRequest extends $tea.Model {
       clientToken: 'string',
       codeType: 'string',
       configurationOverrides: StartJobRunRequestConfigurationOverrides,
+      displayReleaseVersion: 'string',
       executionTimeoutSeconds: 'number',
+      fusion: 'boolean',
       jobDriver: JobDriver,
       jobId: 'string',
       name: 'string',
@@ -1576,7 +2479,21 @@ export class StartJobRunRequest extends $tea.Model {
 }
 
 export class StartJobRunResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * jr-54321
+   */
   jobRunId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1623,6 +2540,13 @@ export class StartJobRunResponse extends $tea.Model {
 }
 
 export class TerminateSqlStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1642,6 +2566,13 @@ export class TerminateSqlStatementRequest extends $tea.Model {
 }
 
 export class TerminateSqlStatementResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1736,6 +2667,10 @@ export class JobDriverSparkSubmit extends $tea.Model {
 }
 
 export class SqlOutputRows extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1799,6 +2734,13 @@ export class SqlOutputSchema extends $tea.Model {
 }
 
 export class CreateSqlStatementResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the SQL query.
+   * 
+   * @example
+   * st-1231dfafadfa***
+   */
   statementId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1818,6 +2760,10 @@ export class CreateSqlStatementResponseBodyData extends $tea.Model {
 }
 
 export class GetJobRunResponseBodyJobRunConfigurationOverrides extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations.
+   */
   configurations?: Configuration[];
   static names(): { [key: string]: string } {
     return {
@@ -1837,7 +2783,21 @@ export class GetJobRunResponseBodyJobRunConfigurationOverrides extends $tea.Mode
 }
 
 export class GetJobRunResponseBodyJobRunStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * ERR-100000
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * connection refused
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1859,29 +2819,141 @@ export class GetJobRunResponseBodyJobRunStateChangeReason extends $tea.Model {
 }
 
 export class GetJobRunResponseBodyJobRun extends $tea.Model {
+  /**
+   * @remarks
+   * The code type of the job. Valid values:
+   * 
+   * *   SQL
+   * *   JAR
+   * *   PYTHON
+   * 
+   * @example
+   * SQL
+   */
   codeType?: string;
+  /**
+   * @remarks
+   * The job configurations of Spark.
+   */
   configurationOverrides?: GetJobRunResponseBodyJobRunConfigurationOverrides;
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * The end time of the job.
+   * 
+   * @example
+   * 1684119314000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The timeout period of the job.
+   * 
+   * @example
+   * 3600
+   */
   executionTimeoutSeconds?: number;
+  fusion?: boolean;
+  /**
+   * @remarks
+   * The information about Spark Driver.
+   */
   jobDriver?: JobDriver;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * jr-231231
+   */
   jobRunId?: string;
+  /**
+   * @remarks
+   * The path where the operational logs are stored.
+   */
   log?: RunLog;
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * jobName
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version of the Spark engine on which the job runs.
+   * 
+   * @example
+   * esr-3.3.1
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The ID of the user who created the job.
+   * 
+   * @example
+   * 1509789347011222
+   */
   resourceOwnerId?: string;
+  /**
+   * @remarks
+   * The name of the queue on which the job runs.
+   * 
+   * @example
+   * root_queue
+   */
   resourceQueueId?: string;
+  /**
+   * @remarks
+   * The job state.
+   * 
+   * @example
+   * Running
+   */
   state?: string;
+  /**
+   * @remarks
+   * The reason of the job status change.
+   */
   stateChangeReason?: GetJobRunResponseBodyJobRunStateChangeReason;
+  /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
+   * @example
+   * 1684119314000
+   */
   submitTime?: number;
+  /**
+   * @remarks
+   * The tags of the job.
+   */
   tags?: Tag[];
+  /**
+   * @remarks
+   * The web UI of the job.
+   * 
+   * @example
+   * http://spark-ui
+   */
   webUI?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-1234abcd
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       codeType: 'codeType',
       configurationOverrides: 'configurationOverrides',
+      displayReleaseVersion: 'displayReleaseVersion',
       endTime: 'endTime',
       executionTimeoutSeconds: 'executionTimeoutSeconds',
+      fusion: 'fusion',
       jobDriver: 'jobDriver',
       jobRunId: 'jobRunId',
       log: 'log',
@@ -1902,8 +2974,10 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
     return {
       codeType: 'string',
       configurationOverrides: GetJobRunResponseBodyJobRunConfigurationOverrides,
+      displayReleaseVersion: 'string',
       endTime: 'number',
       executionTimeoutSeconds: 'number',
+      fusion: 'boolean',
       jobDriver: JobDriver,
       jobRunId: 'string',
       log: RunLog,
@@ -1926,7 +3000,21 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
 }
 
 export class GetSqlStatementResponseBodyDataSqlOutputs extends $tea.Model {
+  /**
+   * @remarks
+   * The queried data, which is a string in the JSON format.
+   * 
+   * @example
+   * [{\\"values\\":[\\"test_db\\",\\"test_table\\",false]}
+   */
   rows?: string;
+  /**
+   * @remarks
+   * The information about the schema, which is a string in the JSON format.
+   * 
+   * @example
+   * {\\"type\\":\\"struct\\",\\"fields\\":[{\\"name\\":\\"namespace\\",\\"type\\":\\"string\\",\\"nullable\\":false,\\"metadata\\":{}},{\\"name\\":\\"tableName\\",\\"type\\":\\"string\\",\\"nullable\\":false,\\"metadata\\":{}},{\\"name\\":\\"isTemporary\\",\\"type\\":\\"boolean\\",\\"nullable\\":false,\\"metadata\\":{}}]}
+   */
   schema?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1948,11 +3036,55 @@ export class GetSqlStatementResponseBodyDataSqlOutputs extends $tea.Model {
 }
 
 export class GetSqlStatementResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of time that is consumed by SQL queries.
+   */
   executionTime?: number[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * ERROR-102
+   */
   sqlErrorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * error message
+   */
   sqlErrorMessage?: string;
+  /**
+   * @remarks
+   * The query results.
+   */
   sqlOutputs?: GetSqlStatementResponseBodyDataSqlOutputs[];
+  /**
+   * @remarks
+   * The query status.
+   * 
+   * Valid values:
+   * 
+   * *   running
+   * *   available
+   * *   cancelled
+   * *   error
+   * *   cancelling
+   * 
+   * @example
+   * running
+   */
   state?: string;
+  /**
+   * @remarks
+   * The query ID.
+   * 
+   * @example
+   * st-1231311abadfaa
+   */
   statementId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1982,7 +3114,21 @@ export class GetSqlStatementResponseBodyData extends $tea.Model {
 }
 
 export class ListJobRunsRequestEndTime extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the end time range.
+   * 
+   * @example
+   * 1710432000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the end time range.
+   * 
+   * @example
+   * 1709740800000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2004,7 +3150,21 @@ export class ListJobRunsRequestEndTime extends $tea.Model {
 }
 
 export class ListJobRunsRequestStartTime extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the start time range.
+   * 
+   * @example
+   * 1710432000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the start time range.
+   * 
+   * @example
+   * 1709740800000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2026,7 +3186,21 @@ export class ListJobRunsRequestStartTime extends $tea.Model {
 }
 
 export class ListJobRunsRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of tag N.
+   * 
+   * @example
+   * tag_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2048,6 +3222,10 @@ export class ListJobRunsRequestTags extends $tea.Model {
 }
 
 export class ListJobRunsResponseBodyJobRunsConfigurationOverrides extends $tea.Model {
+  /**
+   * @remarks
+   * The SparkConf objects.
+   */
   configurations?: Configuration[];
   static names(): { [key: string]: string } {
     return {
@@ -2067,7 +3245,21 @@ export class ListJobRunsResponseBodyJobRunsConfigurationOverrides extends $tea.M
 }
 
 export class ListJobRunsResponseBodyJobRunsStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2089,29 +3281,136 @@ export class ListJobRunsResponseBodyJobRunsStateChangeReason extends $tea.Model 
 }
 
 export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
+  /**
+   * @remarks
+   * The code type of the job. Valid values:
+   * 
+   * SQL
+   * 
+   * JAR
+   * 
+   * PYTHON
+   * 
+   * @example
+   * SQL
+   */
   codeType?: string;
+  /**
+   * @remarks
+   * The advanced configurations of Spark.
+   */
   configurationOverrides?: ListJobRunsResponseBodyJobRunsConfigurationOverrides;
+  /**
+   * @remarks
+   * The ID of the user who created the job.
+   * 
+   * @example
+   * 1509789347011222
+   */
   creator?: string;
+  displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * The end time of the job.
+   * 
+   * @example
+   * 1684119314000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The timeout period of the job.
+   * 
+   * @example
+   * 3600
+   */
   executionTimeoutSeconds?: number;
+  fusion?: boolean;
+  /**
+   * @remarks
+   * The information about Spark Driver.
+   */
   jobDriver?: JobDriver;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * jr-231231
+   */
   jobRunId?: string;
+  /**
+   * @remarks
+   * The path where the operational logs are stored.
+   */
   log?: RunLog;
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * jobName
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version of Spark on which the jobs run.
+   * 
+   * @example
+   * esr-native-3.4.0
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The job state.
+   * 
+   * @example
+   * Running
+   */
   state?: string;
+  /**
+   * @remarks
+   * The reason of the job status change.
+   */
   stateChangeReason?: ListJobRunsResponseBodyJobRunsStateChangeReason;
+  /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
+   * @example
+   * 1684119314000
+   */
   submitTime?: number;
+  /**
+   * @remarks
+   * The tags of the job.
+   */
   tags?: Tag[];
+  /**
+   * @remarks
+   * The web UI of the job.
+   * 
+   * @example
+   * http://spark-ui
+   */
   webUI?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-1234abcd
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       codeType: 'codeType',
       configurationOverrides: 'configurationOverrides',
       creator: 'creator',
+      displayReleaseVersion: 'displayReleaseVersion',
       endTime: 'endTime',
       executionTimeoutSeconds: 'executionTimeoutSeconds',
+      fusion: 'fusion',
       jobDriver: 'jobDriver',
       jobRunId: 'jobRunId',
       log: 'log',
@@ -2131,8 +3430,10 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
       codeType: 'string',
       configurationOverrides: ListJobRunsResponseBodyJobRunsConfigurationOverrides,
       creator: 'string',
+      displayReleaseVersion: 'string',
       endTime: 'number',
       executionTimeoutSeconds: 'number',
+      fusion: 'boolean',
       jobDriver: JobDriver,
       jobRunId: 'string',
       log: RunLog,
@@ -2153,18 +3454,75 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
 }
 
 export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The version number of open source Spark.
+   * 
+   * @example
+   * Spark 3.3.1
+   */
   communityVersion?: string;
+  /**
+   * @remarks
+   * The CPU architectures.
+   */
   cpuArchitectures?: string[];
+  displayReleaseVersion?: string;
+  fusion?: boolean;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1716215854101
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The type of the Infrastructure as a Service (IaaS) layer.
+   * 
+   * @example
+   * ASI
+   */
   iaasType?: string;
+  /**
+   * @remarks
+   * The version.
+   * 
+   * @example
+   * esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
+   */
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The version of Scala.
+   * 
+   * @example
+   * 2.12
+   */
   scalaVersion?: string;
+  /**
+   * @remarks
+   * The status of the version.
+   * 
+   * @example
+   * ONLINE
+   */
   state?: string;
+  /**
+   * @remarks
+   * The type of the version.
+   * 
+   * @example
+   * stable
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
       communityVersion: 'communityVersion',
       cpuArchitectures: 'cpuArchitectures',
+      displayReleaseVersion: 'displayReleaseVersion',
+      fusion: 'fusion',
       gmtCreate: 'gmtCreate',
       iaasType: 'iaasType',
       releaseVersion: 'releaseVersion',
@@ -2178,6 +3536,8 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
     return {
       communityVersion: 'string',
       cpuArchitectures: { 'type': 'array', 'itemType': 'string' },
+      displayReleaseVersion: 'string',
+      fusion: 'boolean',
       gmtCreate: 'number',
       iaasType: 'string',
       releaseVersion: 'string',
@@ -2193,8 +3553,29 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
 }
 
 export class ListSessionClustersResponseBodySessionClustersApplicationConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the configuration file.
+   * 
+   * @example
+   * spark-default.conf
+   */
   configFileName?: string;
+  /**
+   * @remarks
+   * The key of the configuration item.
+   * 
+   * @example
+   * spark.app.name
+   */
   configItemKey?: string;
+  /**
+   * @remarks
+   * The value of the configuration item.
+   * 
+   * @example
+   * test_application
+   */
   configItemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2218,6 +3599,13 @@ export class ListSessionClustersResponseBodySessionClustersApplicationConfigs ex
 }
 
 export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic startup is enabled.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2237,7 +3625,21 @@ export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguratio
 }
 
 export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic termination is enabled.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The idle timeout period. The SQL Compute is automatically terminated if the idle timeout period is exceeded.
+   * 
+   * @example
+   * 45
+   */
   idleTimeoutMinutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2259,7 +3661,21 @@ export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration
 }
 
 export class ListSessionClustersResponseBodySessionClustersStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * The status change code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The status change message.
+   * 
+   * @example
+   * ok
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2281,29 +3697,98 @@ export class ListSessionClustersResponseBodySessionClustersStateChangeReason ext
 }
 
 export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL Compute configurations, which are equivalent to the configurations of the Spark job.
+   */
   applicationConfigs?: ListSessionClustersResponseBodySessionClustersApplicationConfigs[];
+  /**
+   * @remarks
+   * The automatic startup configurations.
+   */
   autoStartConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration;
+  /**
+   * @remarks
+   * The automatic termination configurations.
+   */
   autoStopConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration;
+  displayReleaseVersion?: string;
   domain?: string;
   draftId?: string;
+  fusion?: boolean;
   kind?: string;
+  /**
+   * @remarks
+   * The name of the SQL Compute.
+   * 
+   * @example
+   * adhoc_query
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the queue on which the SQL Compute runs.
+   * 
+   * @example
+   * dev_queue
+   */
   queueName?: string;
   releaseVersion?: string;
+  /**
+   * @remarks
+   * The SQL Compute ID.
+   * 
+   * @example
+   * sc-123131
+   */
   sessionClusterId?: string;
+  /**
+   * @remarks
+   * The status of the SQL Compute.
+   * 
+   * @example
+   * Running
+   */
   state?: string;
+  /**
+   * @remarks
+   * The details of the last status change of the SQL Compute.
+   */
   stateChangeReason?: ListSessionClustersResponseBodySessionClustersStateChangeReason;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 123131
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The name of the user.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
   webUI?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-1234abcd
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationConfigs: 'applicationConfigs',
       autoStartConfiguration: 'autoStartConfiguration',
       autoStopConfiguration: 'autoStopConfiguration',
+      displayReleaseVersion: 'displayReleaseVersion',
       domain: 'domain',
       draftId: 'draftId',
+      fusion: 'fusion',
       kind: 'kind',
       name: 'name',
       queueName: 'queueName',
@@ -2323,8 +3808,10 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
       applicationConfigs: { 'type': 'array', 'itemType': ListSessionClustersResponseBodySessionClustersApplicationConfigs },
       autoStartConfiguration: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration,
       autoStopConfiguration: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration,
+      displayReleaseVersion: 'string',
       domain: 'string',
       draftId: 'string',
+      fusion: 'boolean',
       kind: 'string',
       name: 'string',
       queueName: 'string',
@@ -2345,10 +3832,45 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
 }
 
 export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of a behavior.
+   * 
+   * @example
+   * acs:emr::workspaceId:action/create_queue
+   */
   actionArn?: string;
+  /**
+   * @remarks
+   * The name of the permission.
+   * 
+   * @example
+   * view
+   */
   actionName?: string;
+  /**
+   * @remarks
+   * The dependencies of the operation.
+   * 
+   * @example
+   * ["view"]
+   */
   dependencies?: string[];
+  /**
+   * @remarks
+   * The description of the operation.
+   * 
+   * @example
+   * 文件目录遍历、文件浏览
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the permission.
+   * 
+   * @example
+   * 文件目录遍历、文件浏览
+   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2376,18 +3898,103 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $tea.Mode
 }
 
 export class ListWorkspaceQueuesResponseBodyQueues extends $tea.Model {
+  /**
+   * @remarks
+   * The operations allowed for the queue.
+   */
   allowActions?: ListWorkspaceQueuesResponseBodyQueuesAllowActions[];
+  /**
+   * @remarks
+   * The ID of the user who created the queue.
+   * 
+   * @example
+   * 237109
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The environment types of the queue.
+   */
   environments?: string[];
+  /**
+   * @remarks
+   * The maximum capacity of resources that can be used in the queue.
+   * 
+   * @example
+   * {"cpu": "2","memory": "2Gi"}
+   */
   maxResource?: string;
+  /**
+   * @remarks
+   * The minimum capacity of resources that can be used in the queue.
+   * 
+   * @example
+   * {"cpu": "2","memory": "2Gi"}
+   */
   minResource?: string;
+  /**
+   * @remarks
+   * The queue label.
+   * 
+   * @example
+   * dev_queue
+   */
   properties?: string;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * @example
+   * dev_queue
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The queue architecture.
+   * 
+   * @example
+   * {"arch": "x86"}
+   */
   queueScope?: string;
+  /**
+   * @remarks
+   * The status of the queue.
+   * 
+   * @example
+   * RUNNING
+   */
   queueStatus?: string;
+  /**
+   * @remarks
+   * The queue type.
+   * 
+   * @example
+   * instance, instanceChildren
+   */
   queueType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The capacity of resources that are used in the queue.
+   * 
+   * @example
+   * {"cpu": "2","memory": "2Gi"}
+   */
   usedResource?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-1234abcd
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2431,7 +4038,21 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $tea.Model {
 }
 
 export class ListWorkspacesResponseBodyWorkspacesStateChangeReason extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2453,24 +4074,155 @@ export class ListWorkspacesResponseBodyWorkspacesStateChangeReason extends $tea.
 }
 
 export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled. This parameter is required only if the paymentType parameter is set to Subscription.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The auto-renewal duration. This parameter is required only if the paymentType parameter is set to Subscription.
+   * 
+   * @example
+   * 1
+   */
   autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The unit of the auto-renewal duration. This parameter is required only if the paymentType parameter is set to Subscription.
+   * 
+   * @example
+   * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
+   */
   autoRenewPeriodUnit?: string;
+  /**
+   * @remarks
+   * The time when the workspace was created.
+   * 
+   * @example
+   * 1684115879955
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The information of the Data Lake Formation (DLF) catalog.
+   * 
+   * @example
+   * default
+   */
   dlfCatalogId?: string;
+  dlfType?: string;
+  /**
+   * @remarks
+   * The subscription period. This parameter is required only if the paymentType parameter is set to Subscription.
+   * 
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The time when the workspace was released.
+   * 
+   * @example
+   * 1687103999999
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The reason for the failure.
+   * 
+   * @example
+   * out of stock
+   */
   failReason?: string;
+  /**
+   * @remarks
+   * The unit of the subscription duration. This parameter is required only if the paymentType parameter is set to Subscription.
+   * 
+   * @example
+   * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
+   */
   paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * The status of the payment.
+   * 
+   * @example
+   * PAID/UNPAID
+   */
   paymentStatus?: string;
+  /**
+   * @remarks
+   * The payment type.
+   * 
+   * @example
+   * PayAsYouGo or Subscription
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The reason why the workspace is released.
+   * 
+   * @example
+   * SERVICE_RELEASE
+   */
   releaseType?: string;
+  /**
+   * @remarks
+   * The resource specifications.
+   * 
+   * @example
+   * 100cu
+   */
   resourceSpec?: string;
+  /**
+   * @remarks
+   * The information about the workspace status change.
+   */
   stateChangeReason?: ListWorkspacesResponseBodyWorkspacesStateChangeReason;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * spark-result
+   */
   storage?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-******
+   */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The name of the workspace.
+   * 
+   * @example
+   * spark批作业空间-1
+   */
   workspaceName?: string;
+  /**
+   * @remarks
+   * The workspace status.
+   * 
+   * @example
+   * STARTING,RUNNING,TERMINATED
+   */
   workspaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2479,6 +4231,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
       autoRenewPeriodUnit: 'autoRenewPeriodUnit',
       createTime: 'createTime',
       dlfCatalogId: 'dlfCatalogId',
+      dlfType: 'dlfType',
       duration: 'duration',
       endTime: 'endTime',
       failReason: 'failReason',
@@ -2503,6 +4256,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
       autoRenewPeriodUnit: 'string',
       createTime: 'number',
       dlfCatalogId: 'string',
+      dlfType: 'string',
       duration: 'number',
       endTime: 'number',
       failReason: 'string',
@@ -2526,8 +4280,29 @@ export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
 }
 
 export class StartJobRunRequestConfigurationOverridesConfigurations extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration file of SparkConf.
+   * 
+   * @example
+   * spark-default.conf
+   */
   configFileName?: string;
+  /**
+   * @remarks
+   * The key of SparkConf.
+   * 
+   * @example
+   * spark.app.name
+   */
   configItemKey?: string;
+  /**
+   * @remarks
+   * The value of SparkConf.
+   * 
+   * @example
+   * test_app
+   */
   configItemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2551,6 +4326,10 @@ export class StartJobRunRequestConfigurationOverridesConfigurations extends $tea
 }
 
 export class StartJobRunRequestConfigurationOverrides extends $tea.Model {
+  /**
+   * @remarks
+   * The SparkConf objects.
+   */
   configurations?: StartJobRunRequestConfigurationOverridesConfigurations[];
   static names(): { [key: string]: string } {
     return {
@@ -2593,12 +4372,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a RAM user or RAM role to a workspace as a member.
-   *
-   * @param request AddMembersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMembersResponse
+   * Adds a RAM user or RAM role to a workspace as a member.
+   * 
+   * @param request - AddMembersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMembersResponse
    */
   async addMembersWithOptions(request: AddMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddMembersResponse> {
     Util.validateModel(request);
@@ -2636,10 +4415,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a RAM user or RAM role to a workspace as a member.
-   *
-   * @param request AddMembersRequest
-   * @return AddMembersResponse
+   * Adds a RAM user or RAM role to a workspace as a member.
+   * 
+   * @param request - AddMembersRequest
+   * @returns AddMembersResponse
    */
   async addMembers(request: AddMembersRequest): Promise<AddMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2648,12 +4427,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Terminates a Spark job.
-   *
-   * @param request CancelJobRunRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelJobRunResponse
+   * Terminates a Spark job.
+   * 
+   * @param request - CancelJobRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelJobRunResponse
    */
   async cancelJobRunWithOptions(workspaceId: string, jobRunId: string, request: CancelJobRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelJobRunResponse> {
     Util.validateModel(request);
@@ -2681,10 +4460,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Terminates a Spark job.
-   *
-   * @param request CancelJobRunRequest
-   * @return CancelJobRunResponse
+   * Terminates a Spark job.
+   * 
+   * @param request - CancelJobRunRequest
+   * @returns CancelJobRunResponse
    */
   async cancelJobRun(workspaceId: string, jobRunId: string, request: CancelJobRunRequest): Promise<CancelJobRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2693,12 +4472,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 使用session运行SQL
-   *
-   * @param request CreateSqlStatementRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSqlStatementResponse
+   * 使用session运行SQL
+   * 
+   * @param request - CreateSqlStatementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSqlStatementResponse
    */
   async createSqlStatementWithOptions(workspaceId: string, request: CreateSqlStatementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSqlStatementResponse> {
     Util.validateModel(request);
@@ -2748,10 +4527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 使用session运行SQL
-   *
-   * @param request CreateSqlStatementRequest
-   * @return CreateSqlStatementResponse
+   * 使用session运行SQL
+   * 
+   * @param request - CreateSqlStatementRequest
+   * @returns CreateSqlStatementResponse
    */
   async createSqlStatement(workspaceId: string, request: CreateSqlStatementRequest): Promise<CreateSqlStatementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2760,12 +4539,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtain the job details.
-   *
-   * @param request GetJobRunRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobRunResponse
+   * Obtain the job details.
+   * 
+   * @param request - GetJobRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobRunResponse
    */
   async getJobRunWithOptions(workspaceId: string, jobRunId: string, request: GetJobRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobRunResponse> {
     Util.validateModel(request);
@@ -2793,10 +4572,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtain the job details.
-   *
-   * @param request GetJobRunRequest
-   * @return GetJobRunResponse
+   * Obtain the job details.
+   * 
+   * @param request - GetJobRunRequest
+   * @returns GetJobRunResponse
    */
   async getJobRun(workspaceId: string, jobRunId: string, request: GetJobRunRequest): Promise<GetJobRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2805,12 +4584,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Sql Statement状态
-   *
-   * @param request GetSqlStatementRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSqlStatementResponse
+   * 获取Sql Statement状态
+   * 
+   * @param request - GetSqlStatementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSqlStatementResponse
    */
   async getSqlStatementWithOptions(workspaceId: string, statementId: string, request: GetSqlStatementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSqlStatementResponse> {
     Util.validateModel(request);
@@ -2838,10 +4617,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Sql Statement状态
-   *
-   * @param request GetSqlStatementRequest
-   * @return GetSqlStatementResponse
+   * 获取Sql Statement状态
+   * 
+   * @param request - GetSqlStatementRequest
+   * @returns GetSqlStatementResponse
    */
   async getSqlStatement(workspaceId: string, statementId: string, request: GetSqlStatementRequest): Promise<GetSqlStatementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2850,12 +4629,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns a specified role to users.
-   *
-   * @param request GrantRoleToUsersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GrantRoleToUsersResponse
+   * Assigns a specified role to users.
+   * 
+   * @param request - GrantRoleToUsersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantRoleToUsersResponse
    */
   async grantRoleToUsersWithOptions(request: GrantRoleToUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GrantRoleToUsersResponse> {
     Util.validateModel(request);
@@ -2893,10 +4672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns a specified role to users.
-   *
-   * @param request GrantRoleToUsersRequest
-   * @return GrantRoleToUsersResponse
+   * Assigns a specified role to users.
+   * 
+   * @param request - GrantRoleToUsersRequest
+   * @returns GrantRoleToUsersResponse
    */
   async grantRoleToUsers(request: GrantRoleToUsersRequest): Promise<GrantRoleToUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2905,12 +4684,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of Spark jobs.
-   *
-   * @param tmpReq ListJobRunsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobRunsResponse
+   * Queries a list of Spark jobs.
+   * 
+   * @param tmpReq - ListJobRunsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobRunsResponse
    */
   async listJobRunsWithOptions(workspaceId: string, tmpReq: ListJobRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobRunsResponse> {
     Util.validateModel(tmpReq);
@@ -3000,10 +4779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of Spark jobs.
-   *
-   * @param request ListJobRunsRequest
-   * @return ListJobRunsResponse
+   * Queries a list of Spark jobs.
+   * 
+   * @param request - ListJobRunsRequest
+   * @returns ListJobRunsResponse
    */
   async listJobRuns(workspaceId: string, request: ListJobRunsRequest): Promise<ListJobRunsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3012,12 +4791,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取发布版本列表
-   *
-   * @param request ListReleaseVersionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListReleaseVersionsResponse
+   * 获取发布版本列表
+   * 
+   * @param request - ListReleaseVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReleaseVersionsResponse
    */
   async listReleaseVersionsWithOptions(request: ListReleaseVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReleaseVersionsResponse> {
     Util.validateModel(request);
@@ -3057,10 +4836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取发布版本列表
-   *
-   * @param request ListReleaseVersionsRequest
-   * @return ListReleaseVersionsResponse
+   * 获取发布版本列表
+   * 
+   * @param request - ListReleaseVersionsRequest
+   * @returns ListReleaseVersionsResponse
    */
   async listReleaseVersions(request: ListReleaseVersionsRequest): Promise<ListReleaseVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3069,12 +4848,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询run列表
-   *
-   * @param request ListSessionClustersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSessionClustersResponse
+   * 查询run列表
+   * 
+   * @param request - ListSessionClustersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSessionClustersResponse
    */
   async listSessionClustersWithOptions(workspaceId: string, request: ListSessionClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSessionClustersResponse> {
     Util.validateModel(request);
@@ -3122,10 +4901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询run列表
-   *
-   * @param request ListSessionClustersRequest
-   * @return ListSessionClustersResponse
+   * 查询run列表
+   * 
+   * @param request - ListSessionClustersRequest
+   * @returns ListSessionClustersResponse
    */
   async listSessionClusters(workspaceId: string, request: ListSessionClustersRequest): Promise<ListSessionClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3134,12 +4913,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看工作空间队列列表
-   *
-   * @param request ListWorkspaceQueuesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWorkspaceQueuesResponse
+   * 查看工作空间队列列表
+   * 
+   * @param request - ListWorkspaceQueuesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspaceQueuesResponse
    */
   async listWorkspaceQueuesWithOptions(workspaceId: string, request: ListWorkspaceQueuesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceQueuesResponse> {
     Util.validateModel(request);
@@ -3171,10 +4950,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看工作空间队列列表
-   *
-   * @param request ListWorkspaceQueuesRequest
-   * @return ListWorkspaceQueuesResponse
+   * 查看工作空间队列列表
+   * 
+   * @param request - ListWorkspaceQueuesRequest
+   * @returns ListWorkspaceQueuesResponse
    */
   async listWorkspaceQueues(workspaceId: string, request: ListWorkspaceQueuesRequest): Promise<ListWorkspaceQueuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3183,12 +4962,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of workspaces.
-   *
-   * @param request ListWorkspacesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWorkspacesResponse
+   * Queries a list of workspaces.
+   * 
+   * @param request - ListWorkspacesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspacesResponse
    */
   async listWorkspacesWithOptions(request: ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
     Util.validateModel(request);
@@ -3232,10 +5011,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of workspaces.
-   *
-   * @param request ListWorkspacesRequest
-   * @return ListWorkspacesResponse
+   * Queries a list of workspaces.
+   * 
+   * @param request - ListWorkspacesRequest
+   * @returns ListWorkspacesResponse
    */
   async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3244,12 +5023,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts a Spark job.
-   *
-   * @param request StartJobRunRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartJobRunResponse
+   * Starts a Spark job.
+   * 
+   * @param request - StartJobRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartJobRunResponse
    */
   async startJobRunWithOptions(workspaceId: string, request: StartJobRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartJobRunResponse> {
     Util.validateModel(request);
@@ -3271,8 +5050,16 @@ export default class Client extends OpenApi {
       body["configurationOverrides"] = request.configurationOverrides;
     }
 
+    if (!Util.isUnset(request.displayReleaseVersion)) {
+      body["displayReleaseVersion"] = request.displayReleaseVersion;
+    }
+
     if (!Util.isUnset(request.executionTimeoutSeconds)) {
       body["executionTimeoutSeconds"] = request.executionTimeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.fusion)) {
+      body["fusion"] = request.fusion;
     }
 
     if (!Util.isUnset(request.jobDriver)) {
@@ -3319,10 +5106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts a Spark job.
-   *
-   * @param request StartJobRunRequest
-   * @return StartJobRunResponse
+   * Starts a Spark job.
+   * 
+   * @param request - StartJobRunRequest
+   * @returns StartJobRunResponse
    */
   async startJobRun(workspaceId: string, request: StartJobRunRequest): Promise<StartJobRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3331,12 +5118,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 终止 session statement
-   *
-   * @param request TerminateSqlStatementRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TerminateSqlStatementResponse
+   * 终止 session statement
+   * 
+   * @param request - TerminateSqlStatementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateSqlStatementResponse
    */
   async terminateSqlStatementWithOptions(workspaceId: string, statementId: string, request: TerminateSqlStatementRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminateSqlStatementResponse> {
     Util.validateModel(request);
@@ -3364,10 +5151,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 终止 session statement
-   *
-   * @param request TerminateSqlStatementRequest
-   * @return TerminateSqlStatementResponse
+   * 终止 session statement
+   * 
+   * @param request - TerminateSqlStatementRequest
+   * @returns TerminateSqlStatementResponse
    */
   async terminateSqlStatement(workspaceId: string, statementId: string, request: TerminateSqlStatementRequest): Promise<TerminateSqlStatementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
