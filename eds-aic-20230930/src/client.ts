@@ -5027,45 +5027,17 @@ export class CreateKeyPairResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule extends $tea.Model {
-  policy?: string;
-  ruleType?: string;
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      ruleType: 'RuleType',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: 'string',
-      ruleType: 'string',
-      target: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreatePolicyGroupRequestNetRedirectPolicy extends $tea.Model {
   netRedirect?: string;
-  netRedirectRule?: CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule[];
   static names(): { [key: string]: string } {
     return {
       netRedirect: 'NetRedirect',
-      netRedirectRule: 'NetRedirectRule',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       netRedirect: 'string',
-      netRedirectRule: { 'type': 'array', 'itemType': CreatePolicyGroupRequestNetRedirectPolicyNetRedirectRule },
     };
   }
 
@@ -5927,6 +5899,7 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
    * acp-25nt4kk9whhok****
    */
   resourceId?: string;
+  result?: string;
   /**
    * @example
    * 2022-10-11T08:53:32Z
@@ -5953,6 +5926,7 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
       invokeId: 'InvokeId',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
+      result: 'Result',
       startTime: 'StartTime',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
@@ -5966,6 +5940,7 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
       invokeId: 'string',
       regionId: 'string',
       resourceId: 'string',
+      result: 'string',
       startTime: 'string',
       taskId: 'string',
       taskStatus: 'string',
@@ -6104,45 +6079,17 @@ export class ImportKeyPairResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule extends $tea.Model {
-  policy?: string;
-  ruleType?: string;
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      ruleType: 'RuleType',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: 'string',
-      ruleType: 'string',
-      target: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy extends $tea.Model {
   netRedirect?: string;
-  netRedirectRule?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule[];
   static names(): { [key: string]: string } {
     return {
       netRedirect: 'NetRedirect',
-      netRedirectRule: 'NetRedirectRule',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       netRedirect: 'string',
-      netRedirectRule: { 'type': 'array', 'itemType': ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyNetRedirectRule },
     };
   }
 
@@ -6229,45 +6176,17 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
   }
 }
 
-export class ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule extends $tea.Model {
-  policy?: string;
-  ruleType?: string;
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      ruleType: 'RuleType',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: 'string',
-      ruleType: 'string',
-      target: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyPolicyGroupRequestNetRedirectPolicy extends $tea.Model {
   netRedirect?: string;
-  netRedirectRule?: ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule[];
   static names(): { [key: string]: string } {
     return {
       netRedirect: 'NetRedirect',
-      netRedirectRule: 'NetRedirectRule',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       netRedirect: 'string',
-      netRedirectRule: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestNetRedirectPolicyNetRedirectRule },
     };
   }
 
