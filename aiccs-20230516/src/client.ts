@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,9 +8,33 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddBlacklistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 有效天数
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   expiredDay?: string;
+  /**
+   * @remarks
+   * 号码列表
+   * 
+   * This parameter is required.
+   */
   numbers?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -43,9 +66,33 @@ export class AddBlacklistRequest extends $tea.Model {
 }
 
 export class AddBlacklistShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 有效天数
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   expiredDay?: string;
+  /**
+   * @remarks
+   * 号码列表
+   * 
+   * This parameter is required.
+   */
   numbersShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值
+   */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -77,11 +124,31 @@ export class AddBlacklistShrinkRequest extends $tea.Model {
 }
 
 export class AddBlacklistResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: AddBlacklistResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -136,30 +203,159 @@ export class AddBlacklistResponse extends $tea.Model {
 }
 
 export class AddTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼时间
+   */
   callTimeList?: AddTaskRequestCallTimeList[];
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * 当发送闪信配置为1时，闪信模板ID必填
+   * 
+   * @example
+   * 96
+   */
+  flashSmsTemplateId?: number;
+  /**
+   * @remarks
+   * 发送闪信配置
+   * 
+   * @example
+   * 0
+   */
+  flashSmsType?: number;
+  /**
+   * @remarks
+   * 并发数
+   * 
+   * @example
+   * 99
+   */
   maxConcurrency?: number;
+  /**
+   * @remarks
+   * 任务名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 播放间隔时长
+   * 
+   * @example
+   * 89
+   */
   playSleepVal?: number;
+  /**
+   * @remarks
+   * 录音播放次数
+   * 
+   * @example
+   * 51
+   */
   playTimes?: number;
+  /**
+   * @remarks
+   * 重呼配置
+   * 
+   * @example
+   * 53
+   */
   recallType?: number;
+  /**
+   * @remarks
+   * 录音地址
+   * 
+   * @example
+   * 示例值
+   */
   recordPath?: string;
+  /**
+   * @remarks
+   * 重呼次数
+   * 
+   * @example
+   * 37
+   */
   repeatCount?: number;
+  /**
+   * @remarks
+   * 重呼间隔
+   * 
+   * @example
+   * 14
+   */
   repeatInterval?: number;
+  /**
+   * @remarks
+   * 重呼条件
+   */
   repeatReason?: string[];
+  /**
+   * @remarks
+   * 重呼时间
+   */
   repeatTimes?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 短信发送规则
+   */
   sendSmsPlan?: AddTaskRequestSendSmsPlan[];
+  /**
+   * @remarks
+   * 任务启动日期
+   * 
+   * @example
+   * 2022-09-16
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * 任务类型
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   taskType?: number;
+  /**
+   * @remarks
+   * 话术模板ID
+   * 
+   * @example
+   * 17
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 话术模板类型
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
       callTimeList: 'CallTimeList',
       callbackUrl: 'CallbackUrl',
+      flashSmsTemplateId: 'FlashSmsTemplateId',
+      flashSmsType: 'FlashSmsType',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -185,6 +381,8 @@ export class AddTaskRequest extends $tea.Model {
     return {
       callTimeList: { 'type': 'array', 'itemType': AddTaskRequestCallTimeList },
       callbackUrl: 'string',
+      flashSmsTemplateId: 'number',
+      flashSmsType: 'number',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -212,30 +410,159 @@ export class AddTaskRequest extends $tea.Model {
 }
 
 export class AddTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼时间
+   */
   callTimeListShrink?: string;
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * 当发送闪信配置为1时，闪信模板ID必填
+   * 
+   * @example
+   * 96
+   */
+  flashSmsTemplateId?: number;
+  /**
+   * @remarks
+   * 发送闪信配置
+   * 
+   * @example
+   * 0
+   */
+  flashSmsType?: number;
+  /**
+   * @remarks
+   * 并发数
+   * 
+   * @example
+   * 99
+   */
   maxConcurrency?: number;
+  /**
+   * @remarks
+   * 任务名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 播放间隔时长
+   * 
+   * @example
+   * 89
+   */
   playSleepVal?: number;
+  /**
+   * @remarks
+   * 录音播放次数
+   * 
+   * @example
+   * 51
+   */
   playTimes?: number;
+  /**
+   * @remarks
+   * 重呼配置
+   * 
+   * @example
+   * 53
+   */
   recallType?: number;
+  /**
+   * @remarks
+   * 录音地址
+   * 
+   * @example
+   * 示例值
+   */
   recordPath?: string;
+  /**
+   * @remarks
+   * 重呼次数
+   * 
+   * @example
+   * 37
+   */
   repeatCount?: number;
+  /**
+   * @remarks
+   * 重呼间隔
+   * 
+   * @example
+   * 14
+   */
   repeatInterval?: number;
+  /**
+   * @remarks
+   * 重呼条件
+   */
   repeatReasonShrink?: string;
+  /**
+   * @remarks
+   * 重呼时间
+   */
   repeatTimesShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 短信发送规则
+   */
   sendSmsPlanShrink?: string;
+  /**
+   * @remarks
+   * 任务启动日期
+   * 
+   * @example
+   * 2022-09-16
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * 任务类型
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   taskType?: number;
+  /**
+   * @remarks
+   * 话术模板ID
+   * 
+   * @example
+   * 17
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 话术模板类型
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
       callTimeListShrink: 'CallTimeList',
       callbackUrl: 'CallbackUrl',
+      flashSmsTemplateId: 'FlashSmsTemplateId',
+      flashSmsType: 'FlashSmsType',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -261,6 +588,8 @@ export class AddTaskShrinkRequest extends $tea.Model {
     return {
       callTimeListShrink: 'string',
       callbackUrl: 'string',
+      flashSmsTemplateId: 'number',
+      flashSmsType: 'number',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -288,14 +617,36 @@ export class AddTaskShrinkRequest extends $tea.Model {
 }
 
 export class AddTaskResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值
+   */
   message?: string;
   model?: AddTaskResponseBodyModel;
+  /**
+   * @example
+   * 5453cc9b-02bc-4dbb-9527-f28a9100b912
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1686225227338
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       model: 'Model',
@@ -307,6 +658,7 @@ export class AddTaskResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       message: 'string',
       model: AddTaskResponseBodyModel,
@@ -347,12 +699,34 @@ export class AddTaskResponse extends $tea.Model {
 }
 
 export class AgentCancelCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 64
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * abc
+   */
   agentTag?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbers?: string[];
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 用户自定义标签列表
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -384,12 +758,34 @@ export class AgentCancelCallRequest extends $tea.Model {
 }
 
 export class AgentCancelCallShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 64
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * abc
+   */
   agentTag?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbersShrink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 用户自定义标签列表
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -421,11 +817,31 @@ export class AgentCancelCallShrinkRequest extends $tea.Model {
 }
 
 export class AgentCancelCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值
+   */
   message?: string;
   model?: AgentCancelCallResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -480,14 +896,50 @@ export class AgentCancelCallResponse extends $tea.Model {
 }
 
 export class AgentRecoverCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 5
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * abc
+   */
   agentTag?: string;
+  /**
+   * @remarks
+   * 查询开始导入时间
+   * 
+   * @example
+   * 2020-03-06 10:10:10
+   */
   beginImportTime?: string;
+  /**
+   * @remarks
+   * 查询结束导入时间
+   * 
+   * @example
+   * 2021-03-06 10:10:10
+   */
   endImportTime?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbers?: string[];
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 用户自定义标签列表
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -523,14 +975,50 @@ export class AgentRecoverCallRequest extends $tea.Model {
 }
 
 export class AgentRecoverCallShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 5
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * abc
+   */
   agentTag?: string;
+  /**
+   * @remarks
+   * 查询开始导入时间
+   * 
+   * @example
+   * 2020-03-06 10:10:10
+   */
   beginImportTime?: string;
+  /**
+   * @remarks
+   * 查询结束导入时间
+   * 
+   * @example
+   * 2021-03-06 10:10:10
+   */
   endImportTime?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbersShrink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 用户自定义标签列表
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -566,11 +1054,34 @@ export class AgentRecoverCallShrinkRequest extends $tea.Model {
 }
 
 export class AgentRecoverCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: AgentRecoverCallResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -625,16 +1136,73 @@ export class AgentRecoverCallResponse extends $tea.Model {
 }
 
 export class DetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 批次id
+   * 
+   * @example
+   * 75
+   */
   batchId?: number;
+  /**
+   * @remarks
+   * 结束导入时间
+   * 
+   * @example
+   * 2023-04-25 15:19:02
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * 号码状态
+   * 
+   * @example
+   * 1
+   */
   numberStatus?: number;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbers?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * 页数
+   * 
+   * @example
+   * 77
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * 每页条数
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 开始导入时间
+   * 
+   * @example
+   * 2023-04-25 15:19:02
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * 任务id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 90
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -674,16 +1242,73 @@ export class DetailsRequest extends $tea.Model {
 }
 
 export class DetailsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 批次id
+   * 
+   * @example
+   * 75
+   */
   batchId?: number;
+  /**
+   * @remarks
+   * 结束导入时间
+   * 
+   * @example
+   * 2023-04-25 15:19:02
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * 号码状态
+   * 
+   * @example
+   * 1
+   */
   numberStatus?: number;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbersShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 页数
+   * 
+   * @example
+   * 77
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * 每页条数
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 开始导入时间
+   * 
+   * @example
+   * 2023-04-25 15:19:02
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * 任务id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 90
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -723,11 +1348,31 @@ export class DetailsShrinkRequest extends $tea.Model {
 }
 
 export class DetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值
+   */
   message?: string;
   model?: DetailsResponseBodyModel;
+  /**
+   * @example
+   * 389b2d0a-37e2-406d-b576-1fc0827be46a
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1686279332221
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -782,30 +1427,157 @@ export class DetailsResponse extends $tea.Model {
 }
 
 export class EditTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼时间
+   */
   callTimeList?: EditTaskRequestCallTimeList[];
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * 当发送闪信配置为1时，闪信模板ID必填
+   * 
+   * @example
+   * 60
+   */
+  flashSmsTemplateId?: number;
+  /**
+   * @remarks
+   * 发送闪信配置,默认为0,0不发送闪信.1发送闪信
+   * 
+   * @example
+   * 0
+   */
+  flashSmsType?: number;
+  /**
+   * @remarks
+   * 并发数
+   * 
+   * @example
+   * 83
+   */
   maxConcurrency?: number;
+  /**
+   * @remarks
+   * 任务名称
+   * 
+   * @example
+   * 示例值示例值
+   */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 播放间隔时长
+   * 
+   * @example
+   * 29
+   */
   playSleepVal?: number;
+  /**
+   * @remarks
+   * 录音播放次数
+   * 
+   * @example
+   * 60
+   */
   playTimes?: number;
+  /**
+   * @remarks
+   * 重呼配置
+   * 
+   * @example
+   * 1
+   */
   recallType?: number;
+  /**
+   * @remarks
+   * 录音地址
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   recordPath?: string;
+  /**
+   * @remarks
+   * 重呼次数
+   * 
+   * @example
+   * 51
+   */
   repeatCount?: number;
+  /**
+   * @remarks
+   * 重呼间隔
+   * 
+   * @example
+   * 91
+   */
   repeatInterval?: number;
+  /**
+   * @remarks
+   * 重呼条件
+   */
   repeatReason?: number[];
+  /**
+   * @remarks
+   * 重呼时间
+   */
   repeatTimes?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 短信发送规则
+   */
   sendSmsPlan?: EditTaskRequestSendSmsPlan[];
+  /**
+   * @remarks
+   * 任务状态
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * 任务id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 29
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * 话术模板ID
+   * 
+   * @example
+   * 24
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 话术模板类型
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
       callTimeList: 'CallTimeList',
       callbackUrl: 'CallbackUrl',
+      flashSmsTemplateId: 'FlashSmsTemplateId',
+      flashSmsType: 'FlashSmsType',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -831,6 +1603,8 @@ export class EditTaskRequest extends $tea.Model {
     return {
       callTimeList: { 'type': 'array', 'itemType': EditTaskRequestCallTimeList },
       callbackUrl: 'string',
+      flashSmsTemplateId: 'number',
+      flashSmsType: 'number',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -858,30 +1632,157 @@ export class EditTaskRequest extends $tea.Model {
 }
 
 export class EditTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼时间
+   */
   callTimeListShrink?: string;
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * 当发送闪信配置为1时，闪信模板ID必填
+   * 
+   * @example
+   * 60
+   */
+  flashSmsTemplateId?: number;
+  /**
+   * @remarks
+   * 发送闪信配置,默认为0,0不发送闪信.1发送闪信
+   * 
+   * @example
+   * 0
+   */
+  flashSmsType?: number;
+  /**
+   * @remarks
+   * 并发数
+   * 
+   * @example
+   * 83
+   */
   maxConcurrency?: number;
+  /**
+   * @remarks
+   * 任务名称
+   * 
+   * @example
+   * 示例值示例值
+   */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 播放间隔时长
+   * 
+   * @example
+   * 29
+   */
   playSleepVal?: number;
+  /**
+   * @remarks
+   * 录音播放次数
+   * 
+   * @example
+   * 60
+   */
   playTimes?: number;
+  /**
+   * @remarks
+   * 重呼配置
+   * 
+   * @example
+   * 1
+   */
   recallType?: number;
+  /**
+   * @remarks
+   * 录音地址
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   recordPath?: string;
+  /**
+   * @remarks
+   * 重呼次数
+   * 
+   * @example
+   * 51
+   */
   repeatCount?: number;
+  /**
+   * @remarks
+   * 重呼间隔
+   * 
+   * @example
+   * 91
+   */
   repeatInterval?: number;
+  /**
+   * @remarks
+   * 重呼条件
+   */
   repeatReasonShrink?: string;
+  /**
+   * @remarks
+   * 重呼时间
+   */
   repeatTimesShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 短信发送规则
+   */
   sendSmsPlanShrink?: string;
+  /**
+   * @remarks
+   * 任务状态
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * 任务id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 29
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * 话术模板ID
+   * 
+   * @example
+   * 24
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 话术模板类型
+   * 
+   * @example
+   * 1
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
       callTimeListShrink: 'CallTimeList',
       callbackUrl: 'CallbackUrl',
+      flashSmsTemplateId: 'FlashSmsTemplateId',
+      flashSmsType: 'FlashSmsType',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       ownerId: 'OwnerId',
@@ -907,6 +1808,8 @@ export class EditTaskShrinkRequest extends $tea.Model {
     return {
       callTimeListShrink: 'string',
       callbackUrl: 'string',
+      flashSmsTemplateId: 'number',
+      flashSmsType: 'number',
       maxConcurrency: 'number',
       name: 'string',
       ownerId: 'number',
@@ -934,14 +1837,36 @@ export class EditTaskShrinkRequest extends $tea.Model {
 }
 
 export class EditTaskResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: EditTaskResponseBodyModel;
+  /**
+   * @example
+   * 5453cc9b-02bc-4dbb-9527-f28a9100b912
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1686225227338
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       model: 'Model',
@@ -953,6 +1878,7 @@ export class EditTaskResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       message: 'string',
       model: EditTaskResponseBodyModel,
@@ -993,12 +1919,34 @@ export class EditTaskResponse extends $tea.Model {
 }
 
 export class ImportNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   customers?: ImportNumberRequestCustomers[];
+  /**
+   * @example
+   * 0
+   */
   failReturn?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
   outId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 92
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1030,12 +1978,34 @@ export class ImportNumberRequest extends $tea.Model {
 }
 
 export class ImportNumberShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   customersShrink?: string;
+  /**
+   * @example
+   * 0
+   */
   failReturn?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
   outId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 92
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1067,11 +2037,31 @@ export class ImportNumberShrinkRequest extends $tea.Model {
 }
 
 export class ImportNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   message?: string;
   model?: ImportNumberResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1128,7 +2118,15 @@ export class ImportNumberResponse extends $tea.Model {
 export class PageRequest extends $tea.Model {
   numbers?: string[];
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1162,7 +2160,15 @@ export class PageRequest extends $tea.Model {
 export class PageShrinkRequest extends $tea.Model {
   numbersShrink?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1194,11 +2200,31 @@ export class PageShrinkRequest extends $tea.Model {
 }
 
 export class PageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   message?: string;
   model?: PageResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1253,13 +2279,54 @@ export class PageResponse extends $tea.Model {
 }
 
 export class SmsTemplateCreateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 短信内容
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   content?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 短信签名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ef2i29fsljf
+   */
   sign?: string;
+  /**
+   * @remarks
+   * 短信类型
+   * 
+   * @example
+   * 73
+   */
   smsType?: number;
+  /**
+   * @remarks
+   * 模板名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * 模板类型
+   * 
+   * @example
+   * 56
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1293,11 +2360,35 @@ export class SmsTemplateCreateRequest extends $tea.Model {
 }
 
 export class SmsTemplateCreateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 23
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值
+   */
   message?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
   model?: string;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1353,14 +2444,63 @@ export class SmsTemplateCreateResponse extends $tea.Model {
 
 export class SmsTemplatePageListRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * 页码
+   * 
+   * @example
+   * 24
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * 每页条数
+   * 
+   * @example
+   * 97
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 短信签名
+   * 
+   * @example
+   * 114ah23m
+   */
   sign?: string;
+  /**
+   * @remarks
+   * 短信类型
+   * 
+   * @example
+   * 42
+   */
   smsType?: number;
+  /**
+   * @remarks
+   * 模板状态
+   * 
+   * @example
+   * 92
+   */
   status?: number;
+  /**
+   * @remarks
+   * 模板ID
+   * 
+   * @example
+   * 83
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 模板类型
+   * 
+   * @example
+   * 19
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1398,11 +2538,31 @@ export class SmsTemplatePageListRequest extends $tea.Model {
 }
 
 export class SmsTemplatePageListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值
+   */
   message?: string;
   model?: SmsTemplatePageListResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1457,12 +2617,42 @@ export class SmsTemplatePageListResponse extends $tea.Model {
 }
 
 export class TaskCallChatsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 72
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * AA
+   */
   agentTag?: string;
+  /**
+   * @remarks
+   * 外呼ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9b2eb6b8-7a27-4357-b5ec-104450086e24
+   */
   callId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * @example
+   * 26
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1494,11 +2684,31 @@ export class TaskCallChatsRequest extends $tea.Model {
 }
 
 export class TaskCallChatsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: TaskCallChatsResponseBodyModel[];
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1556,6 +2766,13 @@ export class TaskCallInfoRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1581,11 +2798,31 @@ export class TaskCallInfoRequest extends $tea.Model {
 }
 
 export class TaskCallInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 15
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: TaskCallInfoResponseBodyModel;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 62
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1640,16 +2877,74 @@ export class TaskCallInfoResponse extends $tea.Model {
 }
 
 export class TaskCallListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 导入号码时返回的批次号
+   * 
+   * @example
+   * 1
+   */
   batchId?: string;
+  /**
+   * @remarks
+   * 开始外呼时间
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-01-25 00:00:00
+   */
   callDate?: string;
+  /**
+   * @remarks
+   * 结束外呼时间
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-01-25 00:00:00
+   */
   endCallDate?: string;
+  /**
+   * @remarks
+   * 意向标签
+   */
   intentTags?: string[];
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbers?: string[];
   ownerId?: number;
+  /**
+   * @remarks
+   * 页数
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 39
+   */
   page?: number;
+  /**
+   * @remarks
+   * 每页外呼记录数,正整数，默认10000
+   * 
+   * @example
+   * 97
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1689,16 +2984,74 @@ export class TaskCallListRequest extends $tea.Model {
 }
 
 export class TaskCallListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 导入号码时返回的批次号
+   * 
+   * @example
+   * 1
+   */
   batchId?: string;
+  /**
+   * @remarks
+   * 开始外呼时间
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-01-25 00:00:00
+   */
   callDate?: string;
+  /**
+   * @remarks
+   * 结束外呼时间
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-01-25 00:00:00
+   */
   endCallDate?: string;
+  /**
+   * @remarks
+   * 意向标签
+   */
   intentTagsShrink?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbersShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * 页数
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 39
+   */
   page?: number;
+  /**
+   * @remarks
+   * 每页外呼记录数,正整数，默认10000
+   * 
+   * @example
+   * 97
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1738,11 +3091,31 @@ export class TaskCallListShrinkRequest extends $tea.Model {
 }
 
 export class TaskCallListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: TaskCallListResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1802,6 +3175,15 @@ export class TaskCancelCallRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tags?: string[];
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1836,6 +3218,15 @@ export class TaskCancelCallShrinkRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tagsShrink?: string;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1865,11 +3256,31 @@ export class TaskCancelCallShrinkRequest extends $tea.Model {
 }
 
 export class TaskCancelCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: TaskCancelCallResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1924,12 +3335,40 @@ export class TaskCancelCallResponse extends $tea.Model {
 }
 
 export class TaskListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2023-04-05 12:11:11
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 最后外呼时间
+   * 
+   * @example
+   * 2023-04-05 12:11:11
+   */
   lastCallTime?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 任务状态。1 未启用，2 启用中，4 已停止
+   * 
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * @example
+   * 2
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1962,11 +3401,31 @@ export class TaskListRequest extends $tea.Model {
 
 export class TaskListResponseBody extends $tea.Model {
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * 30
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   message?: string;
   model?: TaskListResponseBodyModel[];
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 80
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2023,13 +3482,44 @@ export class TaskListResponse extends $tea.Model {
 }
 
 export class TaskRecoverCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 查询开始导入时间
+   * 
+   * @example
+   * "2023-01-09 18:58:19"
+   */
   beginImportTime?: string;
+  /**
+   * @remarks
+   * 查询结束导入时间
+   * 
+   * @example
+   * "2023-01-09 18:58:19"
+   */
   endImportTime?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbers?: string[];
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 用户自定义标签列表
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2063,13 +3553,44 @@ export class TaskRecoverCallRequest extends $tea.Model {
 }
 
 export class TaskRecoverCallShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 查询开始导入时间
+   * 
+   * @example
+   * "2023-01-09 18:58:19"
+   */
   beginImportTime?: string;
+  /**
+   * @remarks
+   * 查询结束导入时间
+   * 
+   * @example
+   * "2023-01-09 18:58:19"
+   */
   endImportTime?: string;
+  /**
+   * @remarks
+   * 号码列表
+   */
   numbersShrink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 用户自定义标签列表
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2103,11 +3624,31 @@ export class TaskRecoverCallShrinkRequest extends $tea.Model {
 }
 
 export class TaskRecoverCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值
+   */
   message?: string;
   model?: { [key: string]: any };
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2165,6 +3706,13 @@ export class TemplateListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 必须空参
+   * 
+   * @example
+   * 9
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2190,11 +3738,31 @@ export class TemplateListRequest extends $tea.Model {
 }
 
 export class TemplateListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: TemplateListResponseBodyModel[];
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * false
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2249,8 +3817,29 @@ export class TemplateListResponse extends $tea.Model {
 }
 
 export class UpdateAgentStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 58
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 坐席状态 1:在线；2:忙碌；3:小休；4:离线
+   * 
+   * @example
+   * 1
+   */
   agentStatus?: number;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * abac
+   */
   agentTag?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -2283,11 +3872,31 @@ export class UpdateAgentStatusRequest extends $tea.Model {
 }
 
 export class UpdateAgentStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   message?: string;
   model?: { [key: string]: any };
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2342,10 +3951,25 @@ export class UpdateAgentStatusResponse extends $tea.Model {
 }
 
 export class UpdateTaskCustomerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼客户
+   * 
+   * This parameter is required.
+   */
   customers?: UpdateTaskCustomerRequestCustomers[];
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 59
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2373,10 +3997,25 @@ export class UpdateTaskCustomerRequest extends $tea.Model {
 }
 
 export class UpdateTaskCustomerShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼客户
+   * 
+   * This parameter is required.
+   */
   customersShrink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 59
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2404,11 +4043,31 @@ export class UpdateTaskCustomerShrinkRequest extends $tea.Model {
 }
 
 export class UpdateTaskCustomerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   message?: string;
   model?: UpdateTaskCustomerResponseBodyModel;
+  /**
+   * @example
+   * 8EFC6D10-307B-1ECA-A8C6-7CBDF776AAD2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 1683440860035
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2463,6 +4122,10 @@ export class UpdateTaskCustomerResponse extends $tea.Model {
 }
 
 export class AddBlacklistResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 错误手机号
+   */
   unHandleNumbers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2501,7 +4164,18 @@ export class AddTaskRequestCallTimeList extends $tea.Model {
 }
 
 export class AddTaskRequestSendSmsPlan extends $tea.Model {
+  /**
+   * @remarks
+   * 意向标签
+   */
   intentTags?: string[];
+  /**
+   * @remarks
+   * 短信模板ID
+   * 
+   * @example
+   * 71
+   */
   smsTemplateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2523,6 +4197,13 @@ export class AddTaskRequestSendSmsPlan extends $tea.Model {
 }
 
 export class AddTaskResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * @example
+   * 47
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2542,6 +4223,10 @@ export class AddTaskResponseBodyModel extends $tea.Model {
 }
 
 export class AgentCancelCallResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 错误手机列表
+   */
   unHandleNumbers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2561,6 +4246,10 @@ export class AgentCancelCallResponseBodyModel extends $tea.Model {
 }
 
 export class AgentRecoverCallResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 错误手机列表
+   */
   unHandleNumbers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2580,18 +4269,109 @@ export class AgentRecoverCallResponseBodyModel extends $tea.Model {
 }
 
 export class DetailsResponseBodyModelList extends $tea.Model {
+  /**
+   * @remarks
+   * 批次号
+   * 
+   * @example
+   * 27
+   */
   batchId?: number;
+  /**
+   * @remarks
+   * 呼叫状态描述
+   * 
+   * @example
+   * 示例值示例值
+   */
   callDesc?: string;
+  /**
+   * @remarks
+   * 外呼ID
+   * 
+   * @example
+   * 28dd74a4-30ec-43c0-9bec-272924c51eeb
+   */
   callId?: string;
+  /**
+   * @remarks
+   * 呼叫状态
+   * 
+   * @example
+   * 1
+   */
   callStatus?: number;
+  /**
+   * @remarks
+   * 外呼类型
+   * 
+   * @example
+   * 2001
+   */
   callType?: number;
+  /**
+   * @remarks
+   * 导入时间
+   * 
+   * @example
+   * 2023-04-25 15:19:02
+   */
   importTime?: string;
+  /**
+   * @remarks
+   * 拦截原因
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   interceptReason?: string;
+  /**
+   * @remarks
+   * 外呼号码
+   * 
+   * @example
+   * 188******454
+   */
   number?: string;
+  /**
+   * @remarks
+   * 号码状态描述
+   * 
+   * @example
+   * 示例值
+   */
   numberDesc?: string;
+  /**
+   * @remarks
+   * 外呼号码MD5
+   * 
+   * @example
+   * cbe1b40f76f2cca4735954886b706ffa
+   */
   numberMD5?: string;
+  /**
+   * @remarks
+   * 号码状态
+   * 
+   * @example
+   * 1
+   */
   numberStatus?: number;
+  /**
+   * @remarks
+   * 用户自定义标签
+   * 
+   * @example
+   * A
+   */
   tag?: string;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * @example
+   * 28
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2636,9 +4416,25 @@ export class DetailsResponseBodyModelList extends $tea.Model {
 
 export class DetailsResponseBodyModel extends $tea.Model {
   list?: DetailsResponseBodyModelList[];
+  /**
+   * @example
+   * 100
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 94
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 79
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 71.8132
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2685,7 +4481,18 @@ export class EditTaskRequestCallTimeList extends $tea.Model {
 }
 
 export class EditTaskRequestSendSmsPlan extends $tea.Model {
+  /**
+   * @remarks
+   * 意向标签
+   */
   intentTags?: string[];
+  /**
+   * @remarks
+   * 短信模板ID
+   * 
+   * @example
+   * 1
+   */
   smsTemplateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2707,6 +4514,13 @@ export class EditTaskRequestSendSmsPlan extends $tea.Model {
 }
 
 export class EditTaskResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * @example
+   * 92
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2726,10 +4540,30 @@ export class EditTaskResponseBodyModel extends $tea.Model {
 }
 
 export class ImportNumberRequestCustomers extends $tea.Model {
+  /**
+   * @example
+   * http://test.com
+   */
   clientUrl?: string;
+  /**
+   * @example
+   * 13541251222,18665214444
+   */
   number?: string;
+  /**
+   * @example
+   * 示例值
+   */
   numberMD5?: string;
+  /**
+   * @example
+   * {"testt":"123"}
+   */
   properties?: { [key: string]: any };
+  /**
+   * @example
+   * tag1
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2757,10 +4591,30 @@ export class ImportNumberRequestCustomers extends $tea.Model {
 }
 
 export class ImportNumberResponseBodyModel extends $tea.Model {
+  /**
+   * @example
+   * 54
+   */
   batchId?: number;
+  /**
+   * @example
+   * 94
+   */
   code?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   data?: string;
+  /**
+   * @example
+   * 26
+   */
   importNum?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2788,10 +4642,45 @@ export class ImportNumberResponseBodyModel extends $tea.Model {
 }
 
 export class PageResponseBodyModelList extends $tea.Model {
+  /**
+   * @remarks
+   * 添加时间
+   * 
+   * @example
+   * 2020-03-06 10:10:10
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 过期时间
+   * 
+   * @example
+   * 1
+   */
   expirationTime?: string;
+  /**
+   * @remarks
+   * 手机号码
+   * 
+   * @example
+   * 13314206082
+   */
   number?: string;
+  /**
+   * @remarks
+   * 手机号MD5
+   * 
+   * @example
+   * e10adc3949ba59abbe56e057f20f883e
+   */
   numberMD5?: string;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * @example
+   * 示例值
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2820,9 +4709,25 @@ export class PageResponseBodyModelList extends $tea.Model {
 
 export class PageResponseBodyModel extends $tea.Model {
   list?: PageResponseBodyModelList[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 97
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 5
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2850,15 +4755,85 @@ export class PageResponseBodyModel extends $tea.Model {
 }
 
 export class SmsTemplatePageListResponseBodyModelList extends $tea.Model {
+  /**
+   * @remarks
+   * 短信内容
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   content?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2021-09-26 11:34:59
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 模板所需参数
+   * 
+   * @example
+   * 示例值示例值
+   */
   properties?: string;
+  /**
+   * @remarks
+   * 智能短链ID
+   * 
+   * @example
+   * 46
+   */
   shortUrlTaskId?: number;
+  /**
+   * @remarks
+   * 短信签名
+   * 
+   * @example
+   * a234n
+   */
   sign?: string;
+  /**
+   * @remarks
+   * 短信类型
+   * 
+   * @example
+   * 示例值示例值
+   */
   smsType?: string;
+  /**
+   * @remarks
+   * 模板状态
+   * 
+   * @example
+   * 18
+   */
   status?: number;
+  /**
+   * @remarks
+   * 模板ID
+   * 
+   * @example
+   * 67
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 模板名称
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * 模板类型
+   * 
+   * @example
+   * 56
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2897,9 +4872,25 @@ export class SmsTemplatePageListResponseBodyModelList extends $tea.Model {
 
 export class SmsTemplatePageListResponseBodyModel extends $tea.Model {
   list?: SmsTemplatePageListResponseBodyModelList[];
+  /**
+   * @example
+   * 53
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 42
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 31
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2927,8 +4918,29 @@ export class SmsTemplatePageListResponseBodyModel extends $tea.Model {
 }
 
 export class TaskCallChatsResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 说话内容
+   * 
+   * @example
+   * 示例值示例值
+   */
   content?: string;
+  /**
+   * @remarks
+   * 说话时间
+   * 
+   * @example
+   * 2022-01-13 14:56:46.604
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 说话号码
+   * 
+   * @example
+   * 138*****265
+   */
   fromNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2952,8 +4964,20 @@ export class TaskCallChatsResponseBodyModel extends $tea.Model {
 }
 
 export class TaskCallInfoResponseBodyModel extends $tea.Model {
+  /**
+   * @example
+   * 75
+   */
   finishTotal?: number;
+  /**
+   * @example
+   * 59
+   */
   total?: number;
+  /**
+   * @example
+   * 3
+   */
   unCallTotal?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2977,46 +5001,333 @@ export class TaskCallInfoResponseBodyModel extends $tea.Model {
 }
 
 export class TaskCallListResponseBodyModelList extends $tea.Model {
+  /**
+   * @remarks
+   * 加微
+   * 
+   * @example
+   * 0
+   */
   addWx?: number;
+  /**
+   * @remarks
+   * 加微进度
+   * 
+   * @example
+   * 示例值示例值
+   */
   addWxStatus?: string;
+  /**
+   * @remarks
+   * 坐席分机
+   * 
+   * @example
+   * 112
+   */
   agentExtension?: string;
+  /**
+   * @remarks
+   * 坐席ID
+   * 
+   * @example
+   * 87
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * 人工通话时长
+   * 
+   * @example
+   * 98
+   */
   agentSpeakingDuration?: number;
+  /**
+   * @remarks
+   * 人工通话时长
+   * 
+   * @example
+   * 示例值示例值
+   */
   agentSpeakingTime?: string;
+  /**
+   * @remarks
+   * 坐席标签
+   * 
+   * @example
+   * A
+   */
   agentTag?: string;
+  /**
+   * @remarks
+   * 是否接通重呼
+   * 
+   * @example
+   * 24
+   */
   answerRecall?: number;
+  /**
+   * @remarks
+   * 接通时间
+   * 
+   * @example
+   * 2022-01-26 18:58:25
+   */
   answerTime?: string;
+  /**
+   * @remarks
+   * 批次ID
+   * 
+   * @example
+   * 1
+   */
   batchId?: string;
+  /**
+   * @remarks
+   * 开始通话时间
+   * 
+   * @example
+   * 2022-01-26 18:58:25
+   */
   callBeginTime?: string;
+  /**
+   * @remarks
+   * 外呼ID
+   * 
+   * @example
+   * 9197ed9e-ceda-42a5-b683-823b23ef208e
+   */
   callId?: string;
+  /**
+   * @remarks
+   * 呼叫次数
+   * 
+   * @example
+   * 1
+   */
   callTimes?: string;
+  /**
+   * @remarks
+   * 外呼类型
+   * 
+   * @example
+   * 1001
+   */
   callType?: number;
+  /**
+   * @remarks
+   * 对话录音
+   * 
+   * @example
+   * 示例值示例值
+   */
   chatRecord?: string;
+  /**
+   * @remarks
+   * 外呼网关
+   * 
+   * @example
+   * 123
+   */
   gateway?: string;
+  /**
+   * @remarks
+   * 挂断时间
+   * 
+   * @example
+   * 2022-01-26 18:58:25
+   */
   hangupTime?: string;
+  /**
+   * @remarks
+   * 挂机方式
+   * 
+   * @example
+   * 1
+   */
   hangupType?: number;
+  /**
+   * @remarks
+   * 导入时间
+   * 
+   * @example
+   * 2022-01-26 18:58:25
+   */
   importTime?: string;
+  /**
+   * @remarks
+   * 个性标签
+   * 
+   * @example
+   * A
+   */
   individualTag?: string;
+  /**
+   * @remarks
+   * 意向说明
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   intentDescription?: string;
+  /**
+   * @remarks
+   * 意向标签
+   * 
+   * @example
+   * “C”
+   */
   intentTag?: string;
+  /**
+   * @remarks
+   * 拦截原因
+   * 
+   * @example
+   * 示例值
+   */
   interceptReason?: string;
+  /**
+   * @remarks
+   * 回复关键词
+   * 
+   * @example
+   * 示例值示例值
+   */
   keywords?: string;
+  /**
+   * @remarks
+   * 外呼号码
+   * 
+   * @example
+   * 138*****123
+   */
   number?: string;
+  /**
+   * @remarks
+   * 外呼号码MD5
+   * 
+   * @example
+   * 75916b635568954583783d
+   */
   numberMD5?: string;
+  /**
+   * @remarks
+   * 参数
+   * 
+   * @example
+   * 示例值示例值
+   */
   properties?: string;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * @example
+   * 示例值示例值
+   */
   remark?: string;
+  /**
+   * @remarks
+   * 振铃时长
+   * 
+   * @example
+   * 66
+   */
   ringTime?: number;
+  /**
+   * @remarks
+   * 挂机短信
+   * 
+   * @example
+   * 示例值
+   */
   sms?: string;
+  /**
+   * @remarks
+   * AI通话时长
+   * 
+   * @example
+   * 45
+   */
   speakingDuration?: number;
+  /**
+   * @remarks
+   * AI通话时长
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   speakingTime?: string;
+  /**
+   * @remarks
+   * 对话轮次
+   * 
+   * @example
+   * 0
+   */
   speakingTurns?: string;
+  /**
+   * @remarks
+   * 外呼状态
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   status?: string;
+  /**
+   * @remarks
+   * 外呼状态编码
+   * 
+   * @example
+   * 1
+   */
   statusCode?: number;
+  /**
+   * @remarks
+   * 外呼状态描述
+   * 
+   * @example
+   * 示例值示例值
+   */
   statusDescription?: string;
+  /**
+   * @remarks
+   * 用户自定义标签
+   * 
+   * @example
+   * 示例值
+   */
   tag?: string;
+  /**
+   * @remarks
+   * 外呼任务ID
+   * 
+   * @example
+   * 70
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * AI话术ID
+   * 
+   * @example
+   * 66
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 转人工状态
+   * 
+   * @example
+   * 示例值
+   */
   transferStatus?: string;
+  /**
+   * @remarks
+   * 转人工状态编码
+   * 
+   * @example
+   * 1
+   */
   transferStatusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3117,9 +5428,25 @@ export class TaskCallListResponseBodyModelList extends $tea.Model {
 
 export class TaskCallListResponseBodyModel extends $tea.Model {
   list?: TaskCallListResponseBodyModelList[];
+  /**
+   * @example
+   * 62
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 95
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 80
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 39
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3147,6 +5474,10 @@ export class TaskCallListResponseBodyModel extends $tea.Model {
 }
 
 export class TaskCancelCallResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 错误手机号
+   */
   unHandleNumbers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3166,7 +5497,21 @@ export class TaskCancelCallResponseBodyModel extends $tea.Model {
 }
 
 export class TaskListResponseBodyModelIntentTags extends $tea.Model {
+  /**
+   * @remarks
+   * 意向标签描述
+   * 
+   * @example
+   * 示例值示例值
+   */
   intentDescription?: string;
+  /**
+   * @remarks
+   * 意向标签ID
+   * 
+   * @example
+   * 示例值示例值
+   */
   intentTag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3188,26 +5533,191 @@ export class TaskListResponseBodyModelIntentTags extends $tea.Model {
 }
 
 export class TaskListResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 外呼时间段
+   * 
+   * @example
+   * “8:00~20:30”
+   */
   allowCallTime?: string;
+  /**
+   * @remarks
+   * 外呼时间段格式化
+   * 
+   * @example
+   * “8:00 ~ 20:00”
+   */
   allowCallTimeFormat?: string;
+  /**
+   * @remarks
+   * 外呼时间
+   * 
+   * @example
+   * “1,2,3”
+   */
   allowDayOfWeek?: string;
+  /**
+   * @remarks
+   * 外呼类型
+   * 
+   * @example
+   * 95
+   */
   callType?: number;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2023-04-05 12:11:11
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 闪信模板id
+   * 
+   * @example
+   * 99
+   */
+  flashSmsTemplateId?: number;
+  /**
+   * @remarks
+   * 闪信模板名称
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  flashSmsTemplateName?: string;
+  /**
+   * @remarks
+   * 发送闪信配置，可选0，1；0表示否，1表示是
+   * 
+   * @example
+   * 1
+   */
+  flashSmsType?: number;
+  /**
+   * @remarks
+   * 最近导入时间
+   * 
+   * @example
+   * 2023-04-05 12:11:11
+   */
   importTime?: string;
+  /**
+   * @remarks
+   * 意向标签列表
+   */
   intentTags?: TaskListResponseBodyModelIntentTags[];
+  /**
+   * @remarks
+   * 接通重呼次数
+   * 
+   * @example
+   * 31
+   */
   invalidReCall?: number;
+  /**
+   * @remarks
+   * 最后外呼时间
+   * 
+   * @example
+   * 2023-04-05 12:11:11
+   */
   lastCallTime?: string;
+  /**
+   * @remarks
+   * 最大并发数
+   * 
+   * @example
+   * 95
+   */
   maxConcurrency?: number;
+  /**
+   * @remarks
+   * 个性标签列表
+   */
   personalityTags?: string[];
+  /**
+   * @remarks
+   * 优先任务
+   * 
+   * @example
+   * 66
+   */
   priority?: number;
+  /**
+   * @remarks
+   * 任务所需参数
+   * 
+   * @example
+   * 示例值示例值
+   */
   properties?: string;
+  /**
+   * @remarks
+   * 自动重呼
+   * 
+   * @example
+   * 20
+   */
   recallType?: number;
+  /**
+   * @remarks
+   * 发送短信
+   * 
+   * @example
+   * 39
+   */
   sendSms?: number;
+  /**
+   * @remarks
+   * 短信模板
+   * 
+   * @example
+   * 示例值示例值
+   */
   smsName?: string;
+  /**
+   * @remarks
+   * 任务状态
+   * 
+   * @example
+   * 79
+   */
   status?: number;
+  /**
+   * @remarks
+   * 任务ID
+   * 
+   * @example
+   * 68
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * 任务名称
+   * 
+   * @example
+   * 示例值示例值
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * 话术模板Id
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 话术模板名称
+   * 
+   * @example
+   * 示例值示例值
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3216,6 +5726,9 @@ export class TaskListResponseBodyModel extends $tea.Model {
       allowDayOfWeek: 'AllowDayOfWeek',
       callType: 'CallType',
       createTime: 'CreateTime',
+      flashSmsTemplateId: 'FlashSmsTemplateId',
+      flashSmsTemplateName: 'FlashSmsTemplateName',
+      flashSmsType: 'FlashSmsType',
       importTime: 'ImportTime',
       intentTags: 'IntentTags',
       invalidReCall: 'InvalidReCall',
@@ -3242,6 +5755,9 @@ export class TaskListResponseBodyModel extends $tea.Model {
       allowDayOfWeek: 'string',
       callType: 'number',
       createTime: 'string',
+      flashSmsTemplateId: 'number',
+      flashSmsTemplateName: 'string',
+      flashSmsType: 'number',
       importTime: 'string',
       intentTags: { 'type': 'array', 'itemType': TaskListResponseBodyModelIntentTags },
       invalidReCall: 'number',
@@ -3267,11 +5783,47 @@ export class TaskListResponseBodyModel extends $tea.Model {
 }
 
 export class TemplateListResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 意向标签
+   */
   intentTags?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * 个性标签
+   */
   personalityTags?: string[];
+  /**
+   * @remarks
+   * 话术所需参数
+   * 
+   * @example
+   * 示例值示例值
+   */
   properties?: string;
+  /**
+   * @remarks
+   * AI话术ID
+   * 
+   * @example
+   * 59
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * 话术模板名称
+   * 
+   * @example
+   * 示例值示例值
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * 模板类型
+   * 
+   * @example
+   * 55
+   */
   templateType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3301,9 +5853,37 @@ export class TemplateListResponseBodyModel extends $tea.Model {
 }
 
 export class UpdateTaskCustomerRequestCustomers extends $tea.Model {
+  /**
+   * @remarks
+   * 是否取消外呼 0否，1是
+   * 
+   * @example
+   * 0
+   */
   cancel?: number;
+  /**
+   * @remarks
+   * 电话号码
+   * 
+   * @example
+   * 13661109390
+   */
   number?: string;
+  /**
+   * @remarks
+   * 需根据具体任务参数要求传输
+   * 
+   * @example
+   * {"test":"234"}
+   */
   properties?: { [key: string]: any };
+  /**
+   * @remarks
+   * 用户自定义标签
+   * 
+   * @example
+   * tag1
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3329,6 +5909,10 @@ export class UpdateTaskCustomerRequestCustomers extends $tea.Model {
 }
 
 export class UpdateTaskCustomerResponseBodyModel extends $tea.Model {
+  /**
+   * @remarks
+   * 错误手机列表
+   */
   unHandleNumbers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3371,11 +5955,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加黑名单接口
-   *
-   * @param tmpReq AddBlacklistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddBlacklistResponse
+   * 添加黑名单接口
+   * 
+   * @param tmpReq - AddBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddBlacklistResponse
    */
   async addBlacklistWithOptions(tmpReq: AddBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<AddBlacklistResponse> {
     Util.validateModel(tmpReq);
@@ -3428,10 +6012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加黑名单接口
-   *
-   * @param request AddBlacklistRequest
-   * @return AddBlacklistResponse
+   * 添加黑名单接口
+   * 
+   * @param request - AddBlacklistRequest
+   * @returns AddBlacklistResponse
    */
   async addBlacklist(request: AddBlacklistRequest): Promise<AddBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3439,11 +6023,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建任务接口
-   *
-   * @param tmpReq AddTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddTaskResponse
+   * 创建任务接口
+   * 
+   * @param tmpReq - AddTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTaskResponse
    */
   async addTaskWithOptions(tmpReq: AddTaskRequest, runtime: $Util.RuntimeOptions): Promise<AddTaskResponse> {
     Util.validateModel(tmpReq);
@@ -3472,6 +6056,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.callbackUrl)) {
       query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!Util.isUnset(request.flashSmsTemplateId)) {
+      query["FlashSmsTemplateId"] = request.flashSmsTemplateId;
+    }
+
+    if (!Util.isUnset(request.flashSmsType)) {
+      query["FlashSmsType"] = request.flashSmsType;
     }
 
     if (!Util.isUnset(request.maxConcurrency)) {
@@ -3564,10 +6156,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建任务接口
-   *
-   * @param request AddTaskRequest
-   * @return AddTaskResponse
+   * 创建任务接口
+   * 
+   * @param request - AddTaskRequest
+   * @returns AddTaskResponse
    */
   async addTask(request: AddTaskRequest): Promise<AddTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3575,11 +6167,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 坐席取消号码外呼
-   *
-   * @param tmpReq AgentCancelCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AgentCancelCallResponse
+   * 坐席取消号码外呼
+   * 
+   * @param tmpReq - AgentCancelCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AgentCancelCallResponse
    */
   async agentCancelCallWithOptions(tmpReq: AgentCancelCallRequest, runtime: $Util.RuntimeOptions): Promise<AgentCancelCallResponse> {
     Util.validateModel(tmpReq);
@@ -3640,10 +6232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 坐席取消号码外呼
-   *
-   * @param request AgentCancelCallRequest
-   * @return AgentCancelCallResponse
+   * 坐席取消号码外呼
+   * 
+   * @param request - AgentCancelCallRequest
+   * @returns AgentCancelCallResponse
    */
   async agentCancelCall(request: AgentCancelCallRequest): Promise<AgentCancelCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3651,11 +6243,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 坐席任务恢复号码
-   *
-   * @param tmpReq AgentRecoverCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AgentRecoverCallResponse
+   * 坐席任务恢复号码
+   * 
+   * @param tmpReq - AgentRecoverCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AgentRecoverCallResponse
    */
   async agentRecoverCallWithOptions(tmpReq: AgentRecoverCallRequest, runtime: $Util.RuntimeOptions): Promise<AgentRecoverCallResponse> {
     Util.validateModel(tmpReq);
@@ -3724,10 +6316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 坐席任务恢复号码
-   *
-   * @param request AgentRecoverCallRequest
-   * @return AgentRecoverCallResponse
+   * 坐席任务恢复号码
+   * 
+   * @param request - AgentRecoverCallRequest
+   * @returns AgentRecoverCallResponse
    */
   async agentRecoverCall(request: AgentRecoverCallRequest): Promise<AgentRecoverCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3735,11 +6327,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AI批量任务查询号码状态接口
-   *
-   * @param tmpReq DetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetailsResponse
+   * AI批量任务查询号码状态接口
+   * 
+   * @param tmpReq - DetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetailsResponse
    */
   async detailsWithOptions(tmpReq: DetailsRequest, runtime: $Util.RuntimeOptions): Promise<DetailsResponse> {
     Util.validateModel(tmpReq);
@@ -3812,10 +6404,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AI批量任务查询号码状态接口
-   *
-   * @param request DetailsRequest
-   * @return DetailsResponse
+   * AI批量任务查询号码状态接口
+   * 
+   * @param request - DetailsRequest
+   * @returns DetailsResponse
    */
   async details(request: DetailsRequest): Promise<DetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3823,11 +6415,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑任务接口
-   *
-   * @param tmpReq EditTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EditTaskResponse
+   * 编辑任务接口
+   * 
+   * @param tmpReq - EditTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditTaskResponse
    */
   async editTaskWithOptions(tmpReq: EditTaskRequest, runtime: $Util.RuntimeOptions): Promise<EditTaskResponse> {
     Util.validateModel(tmpReq);
@@ -3856,6 +6448,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.callbackUrl)) {
       query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!Util.isUnset(request.flashSmsTemplateId)) {
+      query["FlashSmsTemplateId"] = request.flashSmsTemplateId;
+    }
+
+    if (!Util.isUnset(request.flashSmsType)) {
+      query["FlashSmsType"] = request.flashSmsType;
     }
 
     if (!Util.isUnset(request.maxConcurrency)) {
@@ -3948,10 +6548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑任务接口
-   *
-   * @param request EditTaskRequest
-   * @return EditTaskResponse
+   * 编辑任务接口
+   * 
+   * @param request - EditTaskRequest
+   * @returns EditTaskResponse
    */
   async editTask(request: EditTaskRequest): Promise<EditTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3959,11 +6559,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导入号码
-   *
-   * @param tmpReq ImportNumberRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportNumberResponse
+   * 导入号码
+   * 
+   * @param tmpReq - ImportNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportNumberResponse
    */
   async importNumberWithOptions(tmpReq: ImportNumberRequest, runtime: $Util.RuntimeOptions): Promise<ImportNumberResponse> {
     Util.validateModel(tmpReq);
@@ -4020,10 +6620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导入号码
-   *
-   * @param request ImportNumberRequest
-   * @return ImportNumberResponse
+   * 导入号码
+   * 
+   * @param request - ImportNumberRequest
+   * @returns ImportNumberResponse
    */
   async importNumber(request: ImportNumberRequest): Promise<ImportNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4031,11 +6631,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业黑名单
-   *
-   * @param tmpReq PageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PageResponse
+   * 查询企业黑名单
+   * 
+   * @param tmpReq - PageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PageResponse
    */
   async pageWithOptions(tmpReq: PageRequest, runtime: $Util.RuntimeOptions): Promise<PageResponse> {
     Util.validateModel(tmpReq);
@@ -4088,10 +6688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询企业黑名单
-   *
-   * @param request PageRequest
-   * @return PageResponse
+   * 查询企业黑名单
+   * 
+   * @param request - PageRequest
+   * @returns PageResponse
    */
   async page(request: PageRequest): Promise<PageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4099,11 +6699,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 短信模板创建
-   *
-   * @param request SmsTemplateCreateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SmsTemplateCreateResponse
+   * 短信模板创建
+   * 
+   * @param request - SmsTemplateCreateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SmsTemplateCreateResponse
    */
   async smsTemplateCreateWithOptions(request: SmsTemplateCreateRequest, runtime: $Util.RuntimeOptions): Promise<SmsTemplateCreateResponse> {
     Util.validateModel(request);
@@ -4158,10 +6758,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 短信模板创建
-   *
-   * @param request SmsTemplateCreateRequest
-   * @return SmsTemplateCreateResponse
+   * 短信模板创建
+   * 
+   * @param request - SmsTemplateCreateRequest
+   * @returns SmsTemplateCreateResponse
    */
   async smsTemplateCreate(request: SmsTemplateCreateRequest): Promise<SmsTemplateCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4169,11 +6769,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 短信模板列表查询
-   *
-   * @param request SmsTemplatePageListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SmsTemplatePageListResponse
+   * 短信模板列表查询
+   * 
+   * @param request - SmsTemplatePageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SmsTemplatePageListResponse
    */
   async smsTemplatePageListWithOptions(request: SmsTemplatePageListRequest, runtime: $Util.RuntimeOptions): Promise<SmsTemplatePageListResponse> {
     Util.validateModel(request);
@@ -4236,10 +6836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 短信模板列表查询
-   *
-   * @param request SmsTemplatePageListRequest
-   * @return SmsTemplatePageListResponse
+   * 短信模板列表查询
+   * 
+   * @param request - SmsTemplatePageListRequest
+   * @returns SmsTemplatePageListResponse
    */
   async smsTemplatePageList(request: SmsTemplatePageListRequest): Promise<SmsTemplatePageListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4247,11 +6847,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询聊天记录接口
-   *
-   * @param request TaskCallChatsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TaskCallChatsResponse
+   * 查询聊天记录接口
+   * 
+   * @param request - TaskCallChatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TaskCallChatsResponse
    */
   async taskCallChatsWithOptions(request: TaskCallChatsRequest, runtime: $Util.RuntimeOptions): Promise<TaskCallChatsResponse> {
     Util.validateModel(request);
@@ -4302,10 +6902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询聊天记录接口
-   *
-   * @param request TaskCallChatsRequest
-   * @return TaskCallChatsResponse
+   * 查询聊天记录接口
+   * 
+   * @param request - TaskCallChatsRequest
+   * @returns TaskCallChatsResponse
    */
   async taskCallChats(request: TaskCallChatsRequest): Promise<TaskCallChatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4313,11 +6913,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务外呼情况接口
-   *
-   * @param request TaskCallInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TaskCallInfoResponse
+   * 获取任务外呼情况接口
+   * 
+   * @param request - TaskCallInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TaskCallInfoResponse
    */
   async taskCallInfoWithOptions(request: TaskCallInfoRequest, runtime: $Util.RuntimeOptions): Promise<TaskCallInfoResponse> {
     Util.validateModel(request);
@@ -4356,10 +6956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务外呼情况接口
-   *
-   * @param request TaskCallInfoRequest
-   * @return TaskCallInfoResponse
+   * 获取任务外呼情况接口
+   * 
+   * @param request - TaskCallInfoRequest
+   * @returns TaskCallInfoResponse
    */
   async taskCallInfo(request: TaskCallInfoRequest): Promise<TaskCallInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4367,11 +6967,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AI批量任务查询外呼记录接口
-   *
-   * @param tmpReq TaskCallListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TaskCallListResponse
+   * AI批量任务查询外呼记录接口
+   * 
+   * @param tmpReq - TaskCallListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TaskCallListResponse
    */
   async taskCallListWithOptions(tmpReq: TaskCallListRequest, runtime: $Util.RuntimeOptions): Promise<TaskCallListResponse> {
     Util.validateModel(tmpReq);
@@ -4448,10 +7048,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AI批量任务查询外呼记录接口
-   *
-   * @param request TaskCallListRequest
-   * @return TaskCallListResponse
+   * AI批量任务查询外呼记录接口
+   * 
+   * @param request - TaskCallListRequest
+   * @returns TaskCallListResponse
    */
   async taskCallList(request: TaskCallListRequest): Promise<TaskCallListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4459,11 +7059,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量任务取消号码外呼
-   *
-   * @param tmpReq TaskCancelCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TaskCancelCallResponse
+   * 批量任务取消号码外呼
+   * 
+   * @param tmpReq - TaskCancelCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TaskCancelCallResponse
    */
   async taskCancelCallWithOptions(tmpReq: TaskCancelCallRequest, runtime: $Util.RuntimeOptions): Promise<TaskCancelCallResponse> {
     Util.validateModel(tmpReq);
@@ -4520,10 +7120,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量任务取消号码外呼
-   *
-   * @param request TaskCancelCallRequest
-   * @return TaskCancelCallResponse
+   * 批量任务取消号码外呼
+   * 
+   * @param request - TaskCancelCallRequest
+   * @returns TaskCancelCallResponse
    */
   async taskCancelCall(request: TaskCancelCallRequest): Promise<TaskCancelCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4531,11 +7131,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务列表接口
-   *
-   * @param request TaskListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TaskListResponse
+   * 查询任务列表接口
+   * 
+   * @param request - TaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TaskListResponse
    */
   async taskListWithOptions(request: TaskListRequest, runtime: $Util.RuntimeOptions): Promise<TaskListResponse> {
     Util.validateModel(request);
@@ -4586,10 +7186,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务列表接口
-   *
-   * @param request TaskListRequest
-   * @return TaskListResponse
+   * 查询任务列表接口
+   * 
+   * @param request - TaskListRequest
+   * @returns TaskListResponse
    */
   async taskList(request: TaskListRequest): Promise<TaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4597,11 +7197,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量任务恢复号码
-   *
-   * @param tmpReq TaskRecoverCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TaskRecoverCallResponse
+   * 批量任务恢复号码
+   * 
+   * @param tmpReq - TaskRecoverCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TaskRecoverCallResponse
    */
   async taskRecoverCallWithOptions(tmpReq: TaskRecoverCallRequest, runtime: $Util.RuntimeOptions): Promise<TaskRecoverCallResponse> {
     Util.validateModel(tmpReq);
@@ -4666,10 +7266,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量任务恢复号码
-   *
-   * @param request TaskRecoverCallRequest
-   * @return TaskRecoverCallResponse
+   * 批量任务恢复号码
+   * 
+   * @param request - TaskRecoverCallRequest
+   * @returns TaskRecoverCallResponse
    */
   async taskRecoverCall(request: TaskRecoverCallRequest): Promise<TaskRecoverCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4677,11 +7277,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 话术模板列表查询接口
-   *
-   * @param request TemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TemplateListResponse
+   * 话术模板列表查询接口
+   * 
+   * @param request - TemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TemplateListResponse
    */
   async templateListWithOptions(request: TemplateListRequest, runtime: $Util.RuntimeOptions): Promise<TemplateListResponse> {
     Util.validateModel(request);
@@ -4720,10 +7320,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 话术模板列表查询接口
-   *
-   * @param request TemplateListRequest
-   * @return TemplateListResponse
+   * 话术模板列表查询接口
+   * 
+   * @param request - TemplateListRequest
+   * @returns TemplateListResponse
    */
   async templateList(request: TemplateListRequest): Promise<TemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4731,11 +7331,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改坐席状态
-   *
-   * @param request UpdateAgentStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAgentStatusResponse
+   * 修改坐席状态
+   * 
+   * @param request - UpdateAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentStatusResponse
    */
   async updateAgentStatusWithOptions(request: UpdateAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAgentStatusResponse> {
     Util.validateModel(request);
@@ -4782,10 +7382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改坐席状态
-   *
-   * @param request UpdateAgentStatusRequest
-   * @return UpdateAgentStatusResponse
+   * 修改坐席状态
+   * 
+   * @param request - UpdateAgentStatusRequest
+   * @returns UpdateAgentStatusResponse
    */
   async updateAgentStatus(request: UpdateAgentStatusRequest): Promise<UpdateAgentStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4793,11 +7393,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新当天导入的号码
-   *
-   * @param tmpReq UpdateTaskCustomerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTaskCustomerResponse
+   * 更新当天导入的号码
+   * 
+   * @param tmpReq - UpdateTaskCustomerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTaskCustomerResponse
    */
   async updateTaskCustomerWithOptions(tmpReq: UpdateTaskCustomerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskCustomerResponse> {
     Util.validateModel(tmpReq);
@@ -4846,10 +7446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新当天导入的号码
-   *
-   * @param request UpdateTaskCustomerRequest
-   * @return UpdateTaskCustomerResponse
+   * 更新当天导入的号码
+   * 
+   * @param request - UpdateTaskCustomerRequest
+   * @returns UpdateTaskCustomerResponse
    */
   async updateTaskCustomer(request: UpdateTaskCustomerRequest): Promise<UpdateTaskCustomerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
