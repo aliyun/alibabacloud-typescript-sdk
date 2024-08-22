@@ -2362,11 +2362,7 @@ export class GetMetricsResponseBody extends $tea.Model {
    * 200
    */
   code?: string;
-  /**
-   * @example
-   * [{"timestamp":1548777660000,"userId":"120886317861****","instanceId":"i-abc****","Minimum":9.92,"Average":9.92,"Maximum":9.92}]
-   */
-  dataPoints?: string;
+  datapoints?: string;
   /**
    * @example
    * Succeed
@@ -2395,7 +2391,7 @@ export class GetMetricsResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      dataPoints: 'DataPoints',
+      datapoints: 'Datapoints',
       message: 'Message',
       nextToken: 'NextToken',
       period: 'Period',
@@ -2407,7 +2403,7 @@ export class GetMetricsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      dataPoints: 'string',
+      datapoints: 'string',
       message: 'string',
       nextToken: 'string',
       period: 'string',
