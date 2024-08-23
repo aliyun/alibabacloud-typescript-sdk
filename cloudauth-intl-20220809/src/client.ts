@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,14 +8,46 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CardOcrRequest extends $tea.Model {
+  /**
+   * @example
+   * 00000006
+   */
   docType?: string;
+  /**
+   * @example
+   * F
+   */
   idFaceQuality?: string;
   idOcrPictureBase64?: string;
+  /**
+   * @example
+   * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
+   */
   idOcrPictureUrl?: string;
+  /**
+   * @example
+   * dso9322***dsjsd22
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 123456789
+   */
   merchantUserId?: string;
+  /**
+   * @example
+   * T
+   */
   ocr?: string;
+  /**
+   * @example
+   * ID_OCR_MIN
+   */
   productCode?: string;
+  /**
+   * @example
+   * F
+   */
   spoof?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,8 +83,23 @@ export class CardOcrRequest extends $tea.Model {
 }
 
 export class CardOcrResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
+   */
   requestId?: string;
   result?: CardOcrResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -105,10 +151,30 @@ export class CardOcrResponse extends $tea.Model {
 }
 
 export class CheckResultRequest extends $tea.Model {
+  /**
+   * @example
+   * ***
+   */
   extraImageControlList?: string;
+  /**
+   * @example
+   * N
+   */
   isReturnImage?: string;
+  /**
+   * @example
+   * djs20d***9-dsskc
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * Y
+   */
   returnFiveCategorySpoofResult?: string;
+  /**
+   * @example
+   * 4ab0b***cbde97
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,8 +202,23 @@ export class CheckResultRequest extends $tea.Model {
 }
 
 export class CheckResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
   result?: CheckResultResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -189,8 +270,20 @@ export class CheckResultResponse extends $tea.Model {
 }
 
 export class DeleteVerifyResultRequest extends $tea.Model {
+  /**
+   * @example
+   * Y / N
+   */
   deleteAfterQuery?: string;
+  /**
+   * @example
+   * Img / Text / All
+   */
   deleteType?: string;
+  /**
+   * @example
+   * 4ab0b***cbde97
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -214,8 +307,20 @@ export class DeleteVerifyResultRequest extends $tea.Model {
 }
 
 export class DeleteVerifyResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
   result?: DeleteVerifyResultResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -267,8 +372,20 @@ export class DeleteVerifyResultResponse extends $tea.Model {
 }
 
 export class DescribeAddressLabelsRequest extends $tea.Model {
+  /**
+   * @example
+   * 0xabds8292***dskkds
+   */
   address?: string;
+  /**
+   * @example
+   * ETH
+   */
   coin?: string;
+  /**
+   * @example
+   * dso9322***dsjsd22
+   */
   merchantBizId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -292,10 +409,29 @@ export class DescribeAddressLabelsRequest extends $tea.Model {
 }
 
 export class DescribeAddressLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: DescribeAddressLabelsResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -348,8 +484,20 @@ export class DescribeAddressLabelsResponse extends $tea.Model {
 }
 
 export class DescribeAddressOverviewRequest extends $tea.Model {
+  /**
+   * @example
+   * 0xabds***djskjds
+   */
   address?: string;
+  /**
+   * @example
+   * ETH
+   */
   coin?: string;
+  /**
+   * @example
+   * e0c34a***353888
+   */
   merchantBizId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -373,10 +521,29 @@ export class DescribeAddressOverviewRequest extends $tea.Model {
 }
 
 export class DescribeAddressOverviewResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: DescribeAddressOverviewResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -429,9 +596,25 @@ export class DescribeAddressOverviewResponse extends $tea.Model {
 }
 
 export class DescribeMaliciousAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * BTC
+   */
   coin?: string;
+  /**
+   * @example
+   * 2017-08-20
+   */
   end?: string;
+  /**
+   * @example
+   * djs20dsjk2-dsjd29-dsskc
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 2017-07-20
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -457,10 +640,29 @@ export class DescribeMaliciousAddressRequest extends $tea.Model {
 }
 
 export class DescribeMaliciousAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: DescribeMaliciousAddressResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -513,8 +715,20 @@ export class DescribeMaliciousAddressResponse extends $tea.Model {
 }
 
 export class DescribeRiskScoreRequest extends $tea.Model {
+  /**
+   * @example
+   * 0xabds***djskjds
+   */
   address?: string;
+  /**
+   * @example
+   * ETH
+   */
   coin?: string;
+  /**
+   * @example
+   * e0c34a***353888
+   */
   merchantBizId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -538,10 +752,29 @@ export class DescribeRiskScoreRequest extends $tea.Model {
 }
 
 export class DescribeRiskScoreResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: DescribeRiskScoreResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -594,12 +827,40 @@ export class DescribeRiskScoreResponse extends $tea.Model {
 }
 
 export class DescribeTransactionsListRequest extends $tea.Model {
+  /**
+   * @example
+   * 0xabds***djskjds
+   */
   address?: string;
+  /**
+   * @example
+   * ETH
+   */
   coin?: string;
+  /**
+   * @example
+   * 1682235649
+   */
   endTimestamp?: number;
+  /**
+   * @example
+   * e0c34a***353888
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 1682232649
+   */
   startTimestamp?: number;
+  /**
+   * @example
+   * in
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -631,10 +892,29 @@ export class DescribeTransactionsListRequest extends $tea.Model {
 }
 
 export class DescribeTransactionsListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: DescribeTransactionsListResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -687,8 +967,30 @@ export class DescribeTransactionsListResponse extends $tea.Model {
 }
 
 export class DescribeWeb3AddressLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address hash.
+   * 
+   * @example
+   * 0000980145045a5c5acad3d2df0cf3b2afxxxxxx
+   */
   address?: string;
+  /**
+   * @remarks
+   * This is the short name of blockchain。
+   * [ ETH, MATIC, BNB ]
+   * 
+   * @example
+   * ETH
+   */
   chainShortName?: string;
+  /**
+   * @remarks
+   * A unique business ID for tracing purpose. For example，the sequence ID from the merchant\\"s business-related database.
+   * 
+   * @example
+   * dso932dsjsd22
+   */
   merchantBizId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -712,10 +1014,42 @@ export class DescribeWeb3AddressLabelsRequest extends $tea.Model {
 }
 
 export class DescribeWeb3AddressLabelsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Return code. For the full list of codes, see Codes and Messages.
+   * 
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: DescribeWeb3AddressLabelsResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response detailed message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The unique ID of the request, which can be used to locate issues.
+   * 
+   * @example
+   * 7F971622-38C0-5F56-B2EC-315367979B4F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,10 +1102,51 @@ export class DescribeWeb3AddressLabelsResponse extends $tea.Model {
 }
 
 export class DescribeWeb3RiskScoreRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This is the short name of blockchain。
+   * [ ETH, MATIC, BNB ]
+   * 
+   * @example
+   * ETH
+   */
   chainShortName?: string;
+  /**
+   * @remarks
+   * minimum: 1
+   * maximum: 100
+   * the maximum depth for risk analysis. For UTXO-based blockchains, default and maximum is enforced at 100.
+   * For account-based blockchains, default and maximum is enforced at 6
+   * 
+   * @example
+   * 2
+   */
   depth?: number;
+  /**
+   * @remarks
+   * A unique business ID for tracing purpose. For example，the sequence ID from the merchant\\"s business-related database.
+   * 
+   * @example
+   * e0c34a353888
+   */
   merchantBizId?: string;
+  /**
+   * @remarks
+   * For TRANSACTION objects, you need to provide the transaction hash。
+   * For ADDRESS objects, you need to provide the address or reference address hash。
+   * 
+   * @example
+   * 0000980145045a5c5acad3d2df0cf3b2afxxxxxx
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * The object of the analysis.
+   * [ TRANSACTION, ADDRESS ]
+   * 
+   * @example
+   * TRANSACTION
+   */
   objectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -799,10 +1174,42 @@ export class DescribeWeb3RiskScoreRequest extends $tea.Model {
 }
 
 export class DescribeWeb3RiskScoreResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Return code. For the full list of codes, see Codes and Messages.
+   * 
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: DescribeWeb3RiskScoreResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response detailed message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The unique ID of the request, which can be used to locate issues.
+   * 
+   * @example
+   * 5E63B760-0ECB-5C07-8503-A65C27876968
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -855,8 +1262,30 @@ export class DescribeWeb3RiskScoreResponse extends $tea.Model {
 }
 
 export class DescribeWeb3TransactionLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This is the short name of blockchain。
+   * [ ETH, MATIC, BNB ]
+   * 
+   * @example
+   * ETH
+   */
   chainShortName?: string;
+  /**
+   * @remarks
+   * A unique business ID for tracing purpose. For example，the sequence ID from the merchant\\"s business-related database.
+   * 
+   * @example
+   * e0c34a353888
+   */
   merchantBizId?: string;
+  /**
+   * @remarks
+   * The Transaction hash.
+   * 
+   * @example
+   * c92880148d4896d8a2093a891a8f08916fe141fba474ede4101f81fb2bxxxxxx
+   */
   transaction?: string;
   static names(): { [key: string]: string } {
     return {
@@ -880,10 +1309,42 @@ export class DescribeWeb3TransactionLabelsRequest extends $tea.Model {
 }
 
 export class DescribeWeb3TransactionLabelsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Return code. For the full list of codes, see Codes and Messages.
+   * 
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @remarks
+   * data
+   */
   data?: DescribeWeb3TransactionLabelsResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response detailed message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The unique ID of the request, which can be used to locate issues.
+   * 
+   * @example
+   * 7A0D192A-CC0C-5DE5-A3B6-A14CF45508F2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -936,15 +1397,43 @@ export class DescribeWeb3TransactionLabelsResponse extends $tea.Model {
 }
 
 export class DocOcrRequest extends $tea.Model {
+  /**
+   * @example
+   * 00000006
+   */
   docType?: string;
+  /**
+   * @example
+   * F
+   */
   idFaceQuality?: string;
   idOcrPictureBase64?: string;
+  /**
+   * @example
+   * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
+   */
   idOcrPictureUrl?: string;
   idThreshold?: string;
+  /**
+   * @example
+   * dso9322***dsjsd22
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 123456789
+   */
   merchantUserId?: string;
+  /**
+   * @example
+   * T
+   */
   ocr?: string;
   productCode?: string;
+  /**
+   * @example
+   * F
+   */
   spoof?: string;
   static names(): { [key: string]: string } {
     return {
@@ -982,8 +1471,23 @@ export class DocOcrRequest extends $tea.Model {
 }
 
 export class DocOcrResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 86C40EC3-5940-5F47-995C-BFE90B70E540
+   */
   requestId?: string;
   result?: DocOcrResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1035,18 +1539,54 @@ export class DocOcrResponse extends $tea.Model {
 }
 
 export class EkycVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * T
+   */
   authorize?: string;
+  /**
+   * @example
+   * F
+   */
   crop?: string;
   docName?: string;
+  /**
+   * @example
+   * 410***************
+   */
   docNo?: string;
+  /**
+   * @example
+   * 00000001
+   */
   docType?: string;
   facePictureBase64?: string;
+  /**
+   * @example
+   * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
+   */
   facePictureUrl?: string;
   idOcrPictureBase64?: string;
+  /**
+   * @example
+   * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
+   */
   idOcrPictureUrl?: string;
   idThreshold?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 123456
+   */
   merchantUserId?: string;
+  /**
+   * @example
+   * eKYC_MIN
+   */
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1090,8 +1630,23 @@ export class EkycVerifyRequest extends $tea.Model {
 }
 
 export class EkycVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
+   */
   requestId?: string;
   result?: EkycVerifyResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1143,10 +1698,22 @@ export class EkycVerifyResponse extends $tea.Model {
 }
 
 export class FaceCompareRequest extends $tea.Model {
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   merchantBizId?: string;
   sourceFacePicture?: string;
+  /**
+   * @example
+   * https://***face1.jpeg
+   */
   sourceFacePictureUrl?: string;
   targetFacePicture?: string;
+  /**
+   * @example
+   * https://***face2.jpeg
+   */
   targetFacePictureUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1174,8 +1741,23 @@ export class FaceCompareRequest extends $tea.Model {
 }
 
 export class FaceCompareResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
+   */
   requestId?: string;
   result?: FaceCompareResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1227,13 +1809,41 @@ export class FaceCompareResponse extends $tea.Model {
 }
 
 export class FaceLivenessRequest extends $tea.Model {
+  /**
+   * @example
+   * T
+   */
   crop?: string;
   facePictureBase64?: string;
+  /**
+   * @example
+   * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
+   */
   facePictureUrl?: string;
+  /**
+   * @example
+   * T
+   */
   faceQuality?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c353888
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 123456789
+   */
   merchantUserId?: string;
+  /**
+   * @example
+   * T
+   */
   occlusion?: string;
+  /**
+   * @example
+   * FACE_LIVENESS_MIN
+   */
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1267,8 +1877,20 @@ export class FaceLivenessRequest extends $tea.Model {
 }
 
 export class FaceLivenessResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 42EA58CA-5DF4-55D5-82C4-5E7A40DA62BA
+   */
   requestId?: string;
   result?: FaceLivenessResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1320,9 +1942,21 @@ export class FaceLivenessResponse extends $tea.Model {
 }
 
 export class FraudResultCallBackRequest extends $tea.Model {
+  /**
+   * @example
+   * shs2b27333914876c01de4cb22f5841f
+   */
   certifyId?: string;
   extParams?: string;
+  /**
+   * @example
+   * PASS
+   */
   resultCode?: string;
+  /**
+   * @example
+   * production
+   */
   verifyDeployEnv?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1348,9 +1982,25 @@ export class FraudResultCallBackRequest extends $tea.Model {
 }
 
 export class FraudResultCallBackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1401,8 +2051,20 @@ export class FraudResultCallBackResponse extends $tea.Model {
 }
 
 export class Id2MetaVerifyIntlRequest extends $tea.Model {
+  /**
+   * @example
+   * 429001********8211
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
+  /**
+   * @example
+   * ID_2META
+   */
   productCode?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -1429,8 +2091,20 @@ export class Id2MetaVerifyIntlRequest extends $tea.Model {
 }
 
 export class Id2MetaVerifyIntlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * EFA11401-C961-5E89-A2D3-BF9883E5CC3D
+   */
   requestId?: string;
   result?: Id2MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1485,27 +2159,80 @@ export class InitializeRequest extends $tea.Model {
   authorize?: string;
   callbackToken?: string;
   callbackUrl?: string;
+  /**
+   * @example
+   * *
+   */
   crop?: string;
   docScanMode?: string;
+  /**
+   * @example
+   * 01000000
+   */
   docType?: string;
   docVideo?: string;
   experienceCode?: string;
   facePictureBase64?: string;
+  /**
+   * @example
+   * ***
+   */
   facePictureUrl?: string;
+  /**
+   * @example
+   * *
+   */
   idFaceQuality?: string;
+  /**
+   * @example
+   * Y
+   */
   idSpoof?: string;
   idThreshold?: string;
   languageConfig?: string;
+  /**
+   * @example
+   * e0c34a***353888
+   */
   merchantBizId?: string;
+  /**
+   * @example
+   * 1221****6543
+   */
   merchantUserId?: string;
+  /**
+   * @example
+   * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
+   */
   metaInfo?: string;
   model?: string;
+  /**
+   * @remarks
+   * OCR。
+   * 
+   * @example
+   * *
+   */
   ocr?: string;
+  /**
+   * @example
+   * eKYC
+   */
   productCode?: string;
   productFlow?: string;
+  /**
+   * @example
+   * http*****
+   */
   returnUrl?: string;
+  /**
+   * @example
+   * PAY**
+   */
   sceneCode?: string;
   securityLevel?: string;
+  showAlbumIcon?: string;
+  showOcrResult?: string;
   styleConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1533,6 +2260,8 @@ export class InitializeRequest extends $tea.Model {
       returnUrl: 'ReturnUrl',
       sceneCode: 'SceneCode',
       securityLevel: 'SecurityLevel',
+      showAlbumIcon: 'ShowAlbumIcon',
+      showOcrResult: 'ShowOcrResult',
       styleConfig: 'StyleConfig',
     };
   }
@@ -1563,6 +2292,8 @@ export class InitializeRequest extends $tea.Model {
       returnUrl: 'string',
       sceneCode: 'string',
       securityLevel: 'string',
+      showAlbumIcon: 'string',
+      showOcrResult: 'string',
       styleConfig: 'string',
     };
   }
@@ -1573,8 +2304,23 @@ export class InitializeRequest extends $tea.Model {
 }
 
 export class InitializeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
   requestId?: string;
   result?: InitializeResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1626,9 +2372,25 @@ export class InitializeResponse extends $tea.Model {
 }
 
 export class Mobile3MetaVerifyIntlRequest extends $tea.Model {
+  /**
+   * @example
+   * 429001********8211
+   */
   identifyNum?: string;
+  /**
+   * @example
+   * 186****1234
+   */
   mobile?: string;
+  /**
+   * @example
+   * normal
+   */
   paramType?: string;
+  /**
+   * @example
+   * MOBILE_3META
+   */
   productCode?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -1657,8 +2419,20 @@ export class Mobile3MetaVerifyIntlRequest extends $tea.Model {
 }
 
 export class Mobile3MetaVerifyIntlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * D241532C-4EE9-5A2A-A5A5-C1FD98CE2EDD
+   */
   requestId?: string;
   result?: Mobile3MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -1712,8 +2486,20 @@ export class Mobile3MetaVerifyIntlResponse extends $tea.Model {
 export class CardOcrResponseBodyResult extends $tea.Model {
   extCardInfo?: string;
   extIdInfo?: string;
+  /**
+   * @example
+   * Y
+   */
   passed?: string;
+  /**
+   * @example
+   * 200
+   */
   subCode?: string;
+  /**
+   * @example
+   * 08573be80f944d95ac812e019e3655a8
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1741,12 +2527,40 @@ export class CardOcrResponseBodyResult extends $tea.Model {
 }
 
 export class CheckResultResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * **
+   */
   ekycResult?: string;
+  /**
+   * @example
+   * **
+   */
   extBasicInfo?: string;
+  /**
+   * @example
+   * **
+   */
   extFaceInfo?: string;
+  /**
+   * @example
+   * **
+   */
   extIdInfo?: string;
+  /**
+   * @example
+   * **
+   */
   extRiskInfo?: string;
+  /**
+   * @example
+   * Y
+   */
   passed?: string;
+  /**
+   * @example
+   * ***
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1778,7 +2592,15 @@ export class CheckResultResponseBodyResult extends $tea.Model {
 }
 
 export class DeleteVerifyResultResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * Y/N
+   */
   deleteResult?: string;
+  /**
+   * @example
+   * 4ab0b***cbde97
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1819,13 +2641,45 @@ export class DescribeAddressLabelsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeAddressOverviewResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 54.4216
+   */
   balance?: number;
+  /**
+   * @example
+   * 1441800674
+   */
   firstSeen?: number;
+  /**
+   * @example
+   * 1682056727
+   */
   lastSeen?: number;
+  /**
+   * @example
+   * 1470
+   */
   receivedTxsCount?: number;
+  /**
+   * @example
+   * 227
+   */
   spentTxsCount?: number;
+  /**
+   * @example
+   * 916263.8
+   */
   totalReceived?: number;
+  /**
+   * @example
+   * 916205.4
+   */
   totalSpent?: number;
+  /**
+   * @example
+   * 1697
+   */
   txsCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1859,9 +2713,25 @@ export class DescribeAddressOverviewResponseBodyData extends $tea.Model {
 }
 
 export class DescribeMaliciousAddressResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2017-07-18 00:00:00
+   */
   addTime?: string;
+  /**
+   * @example
+   * f6d239ff***df816
+   */
   address?: string;
+  /**
+   * @example
+   * ETH
+   */
   coin?: string;
+  /**
+   * @example
+   * FAKE_Coindash_2
+   */
   detail?: string;
   tag?: string;
   static names(): { [key: string]: string } {
@@ -1891,8 +2761,20 @@ export class DescribeMaliciousAddressResponseBodyData extends $tea.Model {
 
 export class DescribeRiskScoreResponseBodyData extends $tea.Model {
   detailList?: string[];
+  /**
+   * @example
+   * MMFinance Exploiter
+   */
   hackingEvent?: string;
+  /**
+   * @example
+   * Severe
+   */
   riskLevel?: string;
+  /**
+   * @example
+   * 100
+   */
   score?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1918,10 +2800,26 @@ export class DescribeRiskScoreResponseBodyData extends $tea.Model {
 }
 
 export class DescribeTransactionsListResponseBodyDataIn extends $tea.Model {
+  /**
+   * @example
+   * 0xd90e2***b90ad053324f31b
+   */
   address?: string;
+  /**
+   * @example
+   * 0.0845
+   */
   amount?: number;
+  /**
+   * @example
+   * bi***ce
+   */
   label?: string;
   txHashList?: string[];
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1949,10 +2847,26 @@ export class DescribeTransactionsListResponseBodyDataIn extends $tea.Model {
 }
 
 export class DescribeTransactionsListResponseBodyDataOut extends $tea.Model {
+  /**
+   * @example
+   * 0xd90e2***b90ad053324f31b
+   */
   address?: string;
+  /**
+   * @example
+   * 743
+   */
   amount?: number;
+  /**
+   * @example
+   * Tor***uter
+   */
   label?: string;
   txHashList?: string[];
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1982,8 +2896,20 @@ export class DescribeTransactionsListResponseBodyDataOut extends $tea.Model {
 export class DescribeTransactionsListResponseBodyData extends $tea.Model {
   in?: DescribeTransactionsListResponseBodyDataIn[];
   out?: DescribeTransactionsListResponseBodyDataOut[];
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 6
+   */
   totalPages?: number;
+  /**
+   * @example
+   * 300
+   */
   transactionsOnPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2011,24 +2937,157 @@ export class DescribeTransactionsListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeWeb3AddressLabelsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * address
+   * 
+   * @example
+   * 2341980145045A5c5acad3d2Df0cF3B2Afxxxxxx
+   */
   address?: string;
+  /**
+   * @remarks
+   * amount of native currency
+   * 
+   * @example
+   * 0
+   */
   balance?: string;
+  /**
+   * @remarks
+   * native currency of the chain
+   * 
+   * @example
+   * ETH
+   */
   balanceSymbol?: string;
+  /**
+   * @remarks
+   * ChainNameEnumstring name of blockchain
+   * 
+   * @example
+   * Ethereum Mainnet
+   */
   chainName?: string;
+  /**
+   * @remarks
+   * ChainShortName
+   * 
+   * @example
+   * eth
+   */
   chainShortName?: string;
+  /**
+   * @remarks
+   * 0: EOA; 1: Contract
+   * 
+   * @example
+   * 0
+   */
   contractAddress?: string;
+  /**
+   * @remarks
+   * the address of deployer if the current address is a contract, null if the current address is an EOA
+   * 
+   * @example
+   * dAC17F958D2ee523a2206206994597C13Dxxxxxx
+   */
   createContractAddress?: string;
+  /**
+   * @remarks
+   * contract creation hash if the current address is a contract, null if the current address is an EOA
+   * 
+   * @example
+   * dAC17F958D2ee523a2206206994597C13Dxxxxxx
+   */
   createContractTransactionHash?: string;
+  /**
+   * @remarks
+   * customized assessment detail
+   * 
+   * @example
+   * ""
+   */
   customRiskAssessment?: string;
+  /**
+   * @remarks
+   * the first transaction hash sent by the address
+   * 
+   * @example
+   * 20230304
+   */
   firstTransactionTime?: string;
+  /**
+   * @remarks
+   * 0: Not validator; 1: validator
+   * 
+   * @example
+   * 0
+   */
   isProducerAddress?: string;
+  /**
+   * @remarks
+   * the latest transaction hash sent by the address
+   * 
+   * @example
+   * 20230304
+   */
   lastTransactionTime?: string;
+  /**
+   * @remarks
+   * the amount of native currency received in 180 days
+   * 
+   * @example
+   * 0
+   */
   receiveAmount?: string;
+  /**
+   * @remarks
+   * the amount of native currency sent in 180 days
+   * 
+   * @example
+   * 0
+   */
   sendAmount?: string;
+  /**
+   * @remarks
+   * tag
+   * 
+   * @example
+   * contracts:Tether: Tether_USD,token_standard:erc20
+   */
   tag?: string;
+  /**
+   * @remarks
+   * if the address is an erc20 token, returns the token name
+   * 
+   * @example
+   * Tether USD
+   */
   token?: string;
+  /**
+   * @remarks
+   * the number of erc20 tokens involved with current address in 180 days
+   * 
+   * @example
+   * 1
+   */
   tokenAmount?: number;
+  /**
+   * @remarks
+   * address of erc20 tokens involved with current address in 180 days
+   * 
+   * @example
+   * ["{"ERC721":[]"]}"]
+   */
   tokenList?: string;
+  /**
+   * @remarks
+   * the number of transactions
+   * 
+   * @example
+   * 2
+   */
   transactionCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2084,8 +3143,35 @@ export class DescribeWeb3AddressLabelsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeWeb3RiskScoreResponseBodyDataRiskResults extends $tea.Model {
+  /**
+   * @remarks
+   * description
+   * 
+   * @example
+   * incoming address risk critical xxxxxx
+   */
   description?: string;
+  /**
+   * @remarks
+   * [ CRITICAL, HIGH, MEDIUM, LOW, NO ]
+   * 100: Critical
+   * 67-99: High risk
+   * 34-66: Medium risk
+   * 1-33: Low risk
+   * 0: No risk
+   * 
+   * @example
+   * HIGH
+   */
   severity?: string;
+  /**
+   * @remarks
+   * Address
+   * Transaction
+   * 
+   * @example
+   * Address
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2109,7 +3195,18 @@ export class DescribeWeb3RiskScoreResponseBodyDataRiskResults extends $tea.Model
 }
 
 export class DescribeWeb3RiskScoreResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * risk results
+   */
   riskResults?: DescribeWeb3RiskScoreResponseBodyDataRiskResults[];
+  /**
+   * @remarks
+   * Risk score
+   * 
+   * @example
+   * 80
+   */
   score?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2131,10 +3228,45 @@ export class DescribeWeb3RiskScoreResponseBodyData extends $tea.Model {
 }
 
 export class DescribeWeb3TransactionLabelsResponseBodyDataContractDetails extends $tea.Model {
+  /**
+   * @remarks
+   * the value of internal transaction
+   * 
+   * @example
+   * 945.5
+   */
   amount?: string;
+  /**
+   * @remarks
+   * the sender of internal transaction
+   * 
+   * @example
+   * C7019579cB9bdb9204e61C7179ba2F88F9dxxxxxx
+   */
   from?: string;
+  /**
+   * @remarks
+   * the gaslimit of internal transaction
+   * 
+   * @example
+   * 20712
+   */
   gasLimit?: number;
+  /**
+   * @remarks
+   * the call layer of internal transaction
+   * 
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @remarks
+   * the receiver of internal transaction
+   * 
+   * @example
+   * C7019579cB9bdb9204e61C7179ba2F88F9dxxxxxx
+   */
   to?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2162,9 +3294,37 @@ export class DescribeWeb3TransactionLabelsResponseBodyDataContractDetails extend
 }
 
 export class DescribeWeb3TransactionLabelsResponseBodyDataInputDetails extends $tea.Model {
+  /**
+   * @remarks
+   * example: 15. the amount of transation sent by the address
+   * 
+   * @example
+   * 3234
+   */
   amount?: number;
+  /**
+   * @remarks
+   * the address hash
+   * 
+   * @example
+   * 21a31Ee1afC51d94C2eFcCAa2xxxxxx
+   */
   inputHash?: string;
+  /**
+   * @remarks
+   * example: true. is it a contract
+   * 
+   * @example
+   * true
+   */
   isContract?: string;
+  /**
+   * @remarks
+   * example: Dex . the tag of the address
+   * 
+   * @example
+   * contracts:Tether: Tether_USD,token_standard:xxxxxx
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2190,9 +3350,37 @@ export class DescribeWeb3TransactionLabelsResponseBodyDataInputDetails extends $
 }
 
 export class DescribeWeb3TransactionLabelsResponseBodyDataOutputDetails extends $tea.Model {
+  /**
+   * @remarks
+   * example: 15. the amount of transation sent by the address
+   * 
+   * @example
+   * 1500
+   */
   amount?: number;
+  /**
+   * @remarks
+   * the address hash
+   * 
+   * @example
+   * 21a31Ee1afC51d94C2eFcCAa2xxxxxx
+   */
   inputHash?: string;
+  /**
+   * @remarks
+   * example: true. is it a contract
+   * 
+   * @example
+   * true
+   */
   isContract?: string;
+  /**
+   * @remarks
+   * example: Dex. the tag of the address
+   * 
+   * @example
+   * contracts:Tether: Tether_USD,token_standard:xxxxxx
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2218,13 +3406,69 @@ export class DescribeWeb3TransactionLabelsResponseBodyDataOutputDetails extends 
 }
 
 export class DescribeWeb3TransactionLabelsResponseBodyDataTokenTransferDetails extends $tea.Model {
+  /**
+   * @remarks
+   * the token amount
+   * 
+   * @example
+   * 945.5
+   */
   amount?: string;
+  /**
+   * @remarks
+   * the sender of the token
+   * 
+   * @example
+   * 21a31Ee1afC51d94C2eFcCAa2092aD1028xxxxxx
+   */
   from?: string;
+  /**
+   * @remarks
+   * the call layer of to token transfer
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * the token symbol
+   * 
+   * @example
+   * USDT
+   */
   symbol?: string;
+  /**
+   * @remarks
+   * the receiver of the token
+   * 
+   * @example
+   * C7019579cB9bdb9204e61C7179ba2F88F9dxxxxxx
+   */
   to?: string;
+  /**
+   * @remarks
+   * the token name
+   * 
+   * @example
+   * Tether USD
+   */
   token?: string;
+  /**
+   * @remarks
+   * the token address
+   * 
+   * @example
+   * dAC17F958D2ee523a2206206994597C13Dxxxxxx
+   */
   tokenContractAddress?: string;
+  /**
+   * @remarks
+   * NFT ID, if the token is erc721
+   * 
+   * @example
+   * -1
+   */
   tokenId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2258,27 +3502,169 @@ export class DescribeWeb3TransactionLabelsResponseBodyDataTokenTransferDetails e
 }
 
 export class DescribeWeb3TransactionLabelsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * the amount of native currency
+   * 
+   * @example
+   * 27
+   */
   amount?: string;
+  /**
+   * @remarks
+   * chainName
+   * 
+   * @example
+   * ETH
+   */
   chainName?: string;
+  /**
+   * @remarks
+   * short name of blockchain
+   * 
+   * @example
+   * eth
+   */
   chainShortName?: string;
+  /**
+   * @remarks
+   * contract details
+   */
   contractDetails?: DescribeWeb3TransactionLabelsResponseBodyDataContractDetails[];
+  /**
+   * @remarks
+   * error log
+   * 
+   * @example
+   * “”
+   */
   errorLog?: string;
+  /**
+   * @remarks
+   * gasLimit
+   * 
+   * @example
+   * 1232
+   */
   gasLimit?: number;
+  /**
+   * @remarks
+   * gasPrice
+   * 
+   * @example
+   * 5034
+   */
   gasPrice?: string;
+  /**
+   * @remarks
+   * gasUsed
+   * 
+   * @example
+   * 234
+   */
   gasUsed?: number;
+  /**
+   * @remarks
+   * height
+   * 
+   * @example
+   * 17087552
+   */
   height?: number;
+  /**
+   * @remarks
+   * the position of the transaction in the block
+   * 
+   * @example
+   * 94
+   */
   index?: number;
+  /**
+   * @remarks
+   * input data
+   * 
+   * @example
+   * a9059cbb000000000000000000000000c7019579cb9bdb9204e61c7179ba2f88f9d2990b000000000xxxxxx
+   */
   inputData?: string;
+  /**
+   * @remarks
+   * input details
+   */
   inputDetails?: DescribeWeb3TransactionLabelsResponseBodyDataInputDetails[];
+  /**
+   * @remarks
+   * the method name of contract call. For external transaction method: [\\"CALL\\",\\"CALLCODE\\",\\"DELEGATECALL\\",\\"STATICCALL\\"]; for internal transaction method: the first 4 bytes of the hash of the method name
+   * 
+   * @example
+   * a9059cbb
+   */
   methodId?: string;
+  /**
+   * @remarks
+   * nonce
+   * 
+   * @example
+   * 6242724
+   */
   nonce?: string;
+  /**
+   * @remarks
+   * output details
+   */
   outputDetails?: DescribeWeb3TransactionLabelsResponseBodyDataOutputDetails[];
+  /**
+   * @remarks
+   * the transaction state. 1: success 0: fail
+   * 
+   * @example
+   * 1
+   */
   state?: number;
+  /**
+   * @remarks
+   * token transfer details
+   */
   tokenTransferDetails?: DescribeWeb3TransactionLabelsResponseBodyDataTokenTransferDetails[];
+  /**
+   * @remarks
+   * the symbol of native currency
+   * 
+   * @example
+   * ETH
+   */
   transactionSymbol?: string;
+  /**
+   * @remarks
+   * the block timestamp
+   * 
+   * @example
+   * 1681991807
+   */
   transactionTime?: string;
+  /**
+   * @remarks
+   * Integer	0: legacy; 1: eip 2930; 2: eip 1559
+   * 
+   * @example
+   * 1
+   */
   transactionType?: string;
+  /**
+   * @remarks
+   * the transaction fee in eth
+   * 
+   * @example
+   * 0.002321489548255059
+   */
   txfee?: string;
+  /**
+   * @remarks
+   * Txid
+   * 
+   * @example
+   * c92880148d4896d8a2093a891a8f08916fe141fba474ede410xxxxxx
+   */
   txid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2341,8 +3727,20 @@ export class DescribeWeb3TransactionLabelsResponseBodyData extends $tea.Model {
 
 export class DocOcrResponseBodyResult extends $tea.Model {
   extIdInfo?: string;
+  /**
+   * @example
+   * Y
+   */
   passed?: string;
+  /**
+   * @example
+   * 200
+   */
   subCode?: string;
+  /**
+   * @example
+   * 08573be80f944d95ac812e019e3655a8
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2368,10 +3766,31 @@ export class DocOcrResponseBodyResult extends $tea.Model {
 }
 
 export class EkycVerifyResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * {
+   * "faceAttack": "N",
+   * "faceComparisonScore": 52.57,
+   * "facePassed": "N",
+   * "authorityComparisonScore": 80.39
+   * }
+   */
   extFaceInfo?: string;
   extIdInfo?: string;
+  /**
+   * @example
+   * Y
+   */
   passed?: string;
+  /**
+   * @example
+   * 205
+   */
   subCode?: string;
+  /**
+   * @example
+   * 4ab0b***cbde97
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2399,8 +3818,20 @@ export class EkycVerifyResponseBodyResult extends $tea.Model {
 }
 
 export class FaceCompareResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 98
+   */
   faceComparisonScore?: number;
+  /**
+   * @example
+   * Y
+   */
   passed?: string;
+  /**
+   * @example
+   * 08573be80f944d95ac812e019e3655a8
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2424,8 +3855,20 @@ export class FaceCompareResponseBodyResult extends $tea.Model {
 }
 
 export class FaceLivenessResponseBodyResultExtFaceInfo extends $tea.Model {
+  /**
+   * @example
+   * Y
+   */
   faceAttack?: string;
+  /**
+   * @example
+   * 87.19
+   */
   faceQualityScore?: number;
+  /**
+   * @example
+   * Y
+   */
   occlusionResult?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2450,8 +3893,20 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $tea.Model {
 
 export class FaceLivenessResponseBodyResult extends $tea.Model {
   extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
+  /**
+   * @example
+   * N
+   */
   passed?: string;
+  /**
+   * @example
+   * 205
+   */
   subCode?: string;
+  /**
+   * @example
+   * 08573be80f944d95ac812e019e3655a8
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2477,6 +3932,10 @@ export class FaceLivenessResponseBodyResult extends $tea.Model {
 }
 
 export class Id2MetaVerifyIntlResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2496,8 +3955,20 @@ export class Id2MetaVerifyIntlResponseBodyResult extends $tea.Model {
 }
 
 export class InitializeResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * ***
+   */
   clientCfg?: string;
+  /**
+   * @example
+   * 08573be80f944d95ac812e019e3655a8
+   */
   transactionId?: string;
+  /**
+   * @example
+   * http****
+   */
   transactionUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2521,8 +3992,20 @@ export class InitializeResponseBodyResult extends $tea.Model {
 }
 
 export class Mobile3MetaVerifyIntlResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizCode?: string;
+  /**
+   * @example
+   * CMCC
+   */
   ispName?: string;
+  /**
+   * @example
+   * 101
+   */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2569,13 +4052,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 证件OCR识别纯服务端接口
+   * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
-   *
-   * @summary 证件OCR识别纯服务端接口
-   *
-   * @param request CardOcrRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CardOcrResponse
+   * 
+   * @param request - CardOcrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CardOcrResponse
    */
   // Deprecated
   async cardOcrWithOptions(request: CardOcrRequest, runtime: $Util.RuntimeOptions): Promise<CardOcrResponse> {
@@ -2637,12 +4120,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 证件OCR识别纯服务端接口
+   * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
-   *
-   * @summary 证件OCR识别纯服务端接口
-   *
-   * @param request CardOcrRequest
-   * @return CardOcrResponse
+   * 
+   * @param request - CardOcrRequest
+   * @returns CardOcrResponse
    */
   // Deprecated
   async cardOcr(request: CardOcrRequest): Promise<CardOcrResponse> {
@@ -2651,11 +4134,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 结果查询
-   *
-   * @param request CheckResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckResultResponse
+   * 结果查询
+   * 
+   * @param request - CheckResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckResultResponse
    */
   async checkResultWithOptions(request: CheckResultRequest, runtime: $Util.RuntimeOptions): Promise<CheckResultResponse> {
     Util.validateModel(request);
@@ -2698,10 +4181,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 结果查询
-   *
-   * @param request CheckResultRequest
-   * @return CheckResultResponse
+   * 结果查询
+   * 
+   * @param request - CheckResultRequest
+   * @returns CheckResultResponse
    */
   async checkResult(request: CheckResultRequest): Promise<CheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2709,11 +4192,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除用户认证记录结果
-   *
-   * @param request DeleteVerifyResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteVerifyResultResponse
+   * 删除用户认证记录结果
+   * 
+   * @param request - DeleteVerifyResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVerifyResultResponse
    */
   async deleteVerifyResultWithOptions(request: DeleteVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVerifyResultResponse> {
     Util.validateModel(request);
@@ -2748,10 +4231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除用户认证记录结果
-   *
-   * @param request DeleteVerifyResultRequest
-   * @return DeleteVerifyResultResponse
+   * 删除用户认证记录结果
+   * 
+   * @param request - DeleteVerifyResultRequest
+   * @returns DeleteVerifyResultResponse
    */
   async deleteVerifyResult(request: DeleteVerifyResultRequest): Promise<DeleteVerifyResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2759,11 +4242,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址标签接口
-   *
-   * @param request DescribeAddressLabelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAddressLabelsResponse
+   * 查询地址标签接口
+   * 
+   * @param request - DescribeAddressLabelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAddressLabelsResponse
    */
   async describeAddressLabelsWithOptions(request: DescribeAddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressLabelsResponse> {
     Util.validateModel(request);
@@ -2798,10 +4281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址标签接口
-   *
-   * @param request DescribeAddressLabelsRequest
-   * @return DescribeAddressLabelsResponse
+   * 查询地址标签接口
+   * 
+   * @param request - DescribeAddressLabelsRequest
+   * @returns DescribeAddressLabelsResponse
    */
   async describeAddressLabels(request: DescribeAddressLabelsRequest): Promise<DescribeAddressLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2809,11 +4292,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址详情接口
-   *
-   * @param request DescribeAddressOverviewRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAddressOverviewResponse
+   * 查询地址详情接口
+   * 
+   * @param request - DescribeAddressOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAddressOverviewResponse
    */
   async describeAddressOverviewWithOptions(request: DescribeAddressOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressOverviewResponse> {
     Util.validateModel(request);
@@ -2848,10 +4331,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址详情接口
-   *
-   * @param request DescribeAddressOverviewRequest
-   * @return DescribeAddressOverviewResponse
+   * 查询地址详情接口
+   * 
+   * @param request - DescribeAddressOverviewRequest
+   * @returns DescribeAddressOverviewResponse
    */
   async describeAddressOverview(request: DescribeAddressOverviewRequest): Promise<DescribeAddressOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2859,11 +4342,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恶意地址查询
-   *
-   * @param request DescribeMaliciousAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMaliciousAddressResponse
+   * 恶意地址查询
+   * 
+   * @param request - DescribeMaliciousAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMaliciousAddressResponse
    */
   async describeMaliciousAddressWithOptions(request: DescribeMaliciousAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaliciousAddressResponse> {
     Util.validateModel(request);
@@ -2902,10 +4385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恶意地址查询
-   *
-   * @param request DescribeMaliciousAddressRequest
-   * @return DescribeMaliciousAddressResponse
+   * 恶意地址查询
+   * 
+   * @param request - DescribeMaliciousAddressRequest
+   * @returns DescribeMaliciousAddressResponse
    */
   async describeMaliciousAddress(request: DescribeMaliciousAddressRequest): Promise<DescribeMaliciousAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2913,11 +4396,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址风险接口
-   *
-   * @param request DescribeRiskScoreRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRiskScoreResponse
+   * 查询地址风险接口
+   * 
+   * @param request - DescribeRiskScoreRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRiskScoreResponse
    */
   async describeRiskScoreWithOptions(request: DescribeRiskScoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskScoreResponse> {
     Util.validateModel(request);
@@ -2952,10 +4435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址风险接口
-   *
-   * @param request DescribeRiskScoreRequest
-   * @return DescribeRiskScoreResponse
+   * 查询地址风险接口
+   * 
+   * @param request - DescribeRiskScoreRequest
+   * @returns DescribeRiskScoreResponse
    */
   async describeRiskScore(request: DescribeRiskScoreRequest): Promise<DescribeRiskScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2963,11 +4446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询交易接口
-   *
-   * @param request DescribeTransactionsListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTransactionsListResponse
+   * 查询交易接口
+   * 
+   * @param request - DescribeTransactionsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTransactionsListResponse
    */
   async describeTransactionsListWithOptions(request: DescribeTransactionsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransactionsListResponse> {
     Util.validateModel(request);
@@ -3018,10 +4501,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询交易接口
-   *
-   * @param request DescribeTransactionsListRequest
-   * @return DescribeTransactionsListResponse
+   * 查询交易接口
+   * 
+   * @param request - DescribeTransactionsListRequest
+   * @returns DescribeTransactionsListResponse
    */
   async describeTransactionsList(request: DescribeTransactionsListRequest): Promise<DescribeTransactionsListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3029,11 +4512,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the Information of address.
-   *
-   * @param request DescribeWeb3AddressLabelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWeb3AddressLabelsResponse
+   * Query the Information of address.
+   * 
+   * @param request - DescribeWeb3AddressLabelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWeb3AddressLabelsResponse
    */
   async describeWeb3AddressLabelsWithOptions(request: DescribeWeb3AddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3AddressLabelsResponse> {
     Util.validateModel(request);
@@ -3068,10 +4551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the Information of address.
-   *
-   * @param request DescribeWeb3AddressLabelsRequest
-   * @return DescribeWeb3AddressLabelsResponse
+   * Query the Information of address.
+   * 
+   * @param request - DescribeWeb3AddressLabelsRequest
+   * @returns DescribeWeb3AddressLabelsResponse
    */
   async describeWeb3AddressLabels(request: DescribeWeb3AddressLabelsRequest): Promise<DescribeWeb3AddressLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3079,11 +4562,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query risk score, risk detail list for a given address
-   *
-   * @param request DescribeWeb3RiskScoreRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWeb3RiskScoreResponse
+   * Query risk score, risk detail list for a given address
+   * 
+   * @param request - DescribeWeb3RiskScoreRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWeb3RiskScoreResponse
    */
   async describeWeb3RiskScoreWithOptions(request: DescribeWeb3RiskScoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3RiskScoreResponse> {
     Util.validateModel(request);
@@ -3126,10 +4609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query risk score, risk detail list for a given address
-   *
-   * @param request DescribeWeb3RiskScoreRequest
-   * @return DescribeWeb3RiskScoreResponse
+   * Query risk score, risk detail list for a given address
+   * 
+   * @param request - DescribeWeb3RiskScoreRequest
+   * @returns DescribeWeb3RiskScoreResponse
    */
   async describeWeb3RiskScore(request: DescribeWeb3RiskScoreRequest): Promise<DescribeWeb3RiskScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3137,11 +4620,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the Information of transaction.
-   *
-   * @param request DescribeWeb3TransactionLabelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWeb3TransactionLabelsResponse
+   * Query the Information of transaction.
+   * 
+   * @param request - DescribeWeb3TransactionLabelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWeb3TransactionLabelsResponse
    */
   async describeWeb3TransactionLabelsWithOptions(request: DescribeWeb3TransactionLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWeb3TransactionLabelsResponse> {
     Util.validateModel(request);
@@ -3176,10 +4659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the Information of transaction.
-   *
-   * @param request DescribeWeb3TransactionLabelsRequest
-   * @return DescribeWeb3TransactionLabelsResponse
+   * Query the Information of transaction.
+   * 
+   * @param request - DescribeWeb3TransactionLabelsRequest
+   * @returns DescribeWeb3TransactionLabelsResponse
    */
   async describeWeb3TransactionLabels(request: DescribeWeb3TransactionLabelsRequest): Promise<DescribeWeb3TransactionLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3187,11 +4670,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 卡证ocr纯服务端
-   *
-   * @param request DocOcrRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DocOcrResponse
+   * 卡证ocr纯服务端
+   * 
+   * @param request - DocOcrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocOcrResponse
    */
   async docOcrWithOptions(request: DocOcrRequest, runtime: $Util.RuntimeOptions): Promise<DocOcrResponse> {
     Util.validateModel(request);
@@ -3256,10 +4739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 卡证ocr纯服务端
-   *
-   * @param request DocOcrRequest
-   * @return DocOcrResponse
+   * 卡证ocr纯服务端
+   * 
+   * @param request - DocOcrRequest
+   * @returns DocOcrResponse
    */
   async docOcr(request: DocOcrRequest): Promise<DocOcrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3267,11 +4750,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ekyc纯服务端接口
-   *
-   * @param request EkycVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EkycVerifyResponse
+   * ekyc纯服务端接口
+   * 
+   * @param request - EkycVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EkycVerifyResponse
    */
   async ekycVerifyWithOptions(request: EkycVerifyRequest, runtime: $Util.RuntimeOptions): Promise<EkycVerifyResponse> {
     Util.validateModel(request);
@@ -3348,10 +4831,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ekyc纯服务端接口
-   *
-   * @param request EkycVerifyRequest
-   * @return EkycVerifyResponse
+   * ekyc纯服务端接口
+   * 
+   * @param request - EkycVerifyRequest
+   * @returns EkycVerifyResponse
    */
   async ekycVerify(request: EkycVerifyRequest): Promise<EkycVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3359,11 +4842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸比对
-   *
-   * @param request FaceCompareRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FaceCompareResponse
+   * 人脸比对
+   * 
+   * @param request - FaceCompareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FaceCompareResponse
    */
   async faceCompareWithOptions(request: FaceCompareRequest, runtime: $Util.RuntimeOptions): Promise<FaceCompareResponse> {
     Util.validateModel(request);
@@ -3408,10 +4891,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸比对
-   *
-   * @param request FaceCompareRequest
-   * @return FaceCompareResponse
+   * 人脸比对
+   * 
+   * @param request - FaceCompareRequest
+   * @returns FaceCompareResponse
    */
   async faceCompare(request: FaceCompareRequest): Promise<FaceCompareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3419,11 +4902,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 静默活体API 纯服务端
-   *
-   * @param request FaceLivenessRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FaceLivenessResponse
+   * 静默活体API 纯服务端
+   * 
+   * @param request - FaceLivenessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FaceLivenessResponse
    */
   async faceLivenessWithOptions(request: FaceLivenessRequest, runtime: $Util.RuntimeOptions): Promise<FaceLivenessResponse> {
     Util.validateModel(request);
@@ -3480,10 +4963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 静默活体API 纯服务端
-   *
-   * @param request FaceLivenessRequest
-   * @return FaceLivenessResponse
+   * 静默活体API 纯服务端
+   * 
+   * @param request - FaceLivenessRequest
+   * @returns FaceLivenessResponse
    */
   async faceLiveness(request: FaceLivenessRequest): Promise<FaceLivenessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3491,11 +4974,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 防伪回调接口
-   *
-   * @param request FraudResultCallBackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FraudResultCallBackResponse
+   * 防伪回调接口
+   * 
+   * @param request - FraudResultCallBackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FraudResultCallBackResponse
    */
   async fraudResultCallBackWithOptions(request: FraudResultCallBackRequest, runtime: $Util.RuntimeOptions): Promise<FraudResultCallBackResponse> {
     Util.validateModel(request);
@@ -3534,10 +5017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 防伪回调接口
-   *
-   * @param request FraudResultCallBackRequest
-   * @return FraudResultCallBackResponse
+   * 防伪回调接口
+   * 
+   * @param request - FraudResultCallBackRequest
+   * @returns FraudResultCallBackResponse
    */
   async fraudResultCallBack(request: FraudResultCallBackRequest): Promise<FraudResultCallBackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3545,11 +5028,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 身份二要素国际版接口
-   *
-   * @param request Id2MetaVerifyIntlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return Id2MetaVerifyIntlResponse
+   * 身份二要素国际版接口
+   * 
+   * @param request - Id2MetaVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id2MetaVerifyIntlResponse
    */
   async id2MetaVerifyIntlWithOptions(request: Id2MetaVerifyIntlRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaVerifyIntlResponse> {
     Util.validateModel(request);
@@ -3588,10 +5071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 身份二要素国际版接口
-   *
-   * @param request Id2MetaVerifyIntlRequest
-   * @return Id2MetaVerifyIntlResponse
+   * 身份二要素国际版接口
+   * 
+   * @param request - Id2MetaVerifyIntlRequest
+   * @returns Id2MetaVerifyIntlResponse
    */
   async id2MetaVerifyIntl(request: Id2MetaVerifyIntlRequest): Promise<Id2MetaVerifyIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3599,11 +5082,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 认证初始化
-   *
-   * @param request InitializeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InitializeResponse
+   * 认证初始化
+   * 
+   * @param request - InitializeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeResponse
    */
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
     Util.validateModel(request);
@@ -3700,6 +5183,14 @@ export default class Client extends OpenApi {
       query["SecurityLevel"] = request.securityLevel;
     }
 
+    if (!Util.isUnset(request.showAlbumIcon)) {
+      query["ShowAlbumIcon"] = request.showAlbumIcon;
+    }
+
+    if (!Util.isUnset(request.showOcrResult)) {
+      query["ShowOcrResult"] = request.showOcrResult;
+    }
+
     if (!Util.isUnset(request.styleConfig)) {
       query["StyleConfig"] = request.styleConfig;
     }
@@ -3728,10 +5219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 认证初始化
-   *
-   * @param request InitializeRequest
-   * @return InitializeResponse
+   * 认证初始化
+   * 
+   * @param request - InitializeRequest
+   * @returns InitializeResponse
    */
   async initialize(request: InitializeRequest): Promise<InitializeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3739,11 +5230,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 手机号三要素国际版接口
-   *
-   * @param request Mobile3MetaVerifyIntlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return Mobile3MetaVerifyIntlResponse
+   * 手机号三要素国际版接口
+   * 
+   * @param request - Mobile3MetaVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Mobile3MetaVerifyIntlResponse
    */
   async mobile3MetaVerifyIntlWithOptions(request: Mobile3MetaVerifyIntlRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaVerifyIntlResponse> {
     Util.validateModel(request);
@@ -3786,10 +5277,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 手机号三要素国际版接口
-   *
-   * @param request Mobile3MetaVerifyIntlRequest
-   * @return Mobile3MetaVerifyIntlResponse
+   * 手机号三要素国际版接口
+   * 
+   * @param request - Mobile3MetaVerifyIntlRequest
+   * @returns Mobile3MetaVerifyIntlResponse
    */
   async mobile3MetaVerifyIntl(request: Mobile3MetaVerifyIntlRequest): Promise<Mobile3MetaVerifyIntlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
