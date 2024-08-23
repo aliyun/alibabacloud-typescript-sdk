@@ -2446,7 +2446,7 @@ export class AuthorizeSecurityGroupRequest extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
    * 
    * @example
    * ALL
@@ -2786,7 +2786,7 @@ export class AuthorizeSecurityGroupEgressRequest extends $tea.Model {
   destPrefixListId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
    * 
    * @example
    * ALL
@@ -2828,7 +2828,7 @@ export class AuthorizeSecurityGroupEgressRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The security group rules. Valid values of N: 1 to 100.
+   * Security group rule N. Valid values of N: 1 to 100.
    */
   permissions?: AuthorizeSecurityGroupEgressRequestPermissions[];
   /**
@@ -4255,7 +4255,7 @@ export class CopySnapshotResponse extends $tea.Model {
 export class CreateActivationRequest extends $tea.Model {
   /**
    * @remarks
-   * The description of the activation code. It must be 1 to 100 characters in length.
+   * The description of the activation code. The description must be 1 to 100 characters in length.
    * 
    * @example
    * This is description.
@@ -4273,11 +4273,11 @@ export class CreateActivationRequest extends $tea.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The default instance name prefix. The instance name prefix must be 2 to 50 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:).
+   * The default instance name prefix. The prefix must be 2 to 50 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:). The prefix must start with a letter and cannot start with a digit, a special character, `http://`, or `https://`.
    * 
-   * If you use the activation code that is created by calling this operation (CreateActivation) to register managed instances, the instances are assigned sequential names that are prefixed by the value of this parameter. You can also specify a new instance name to replace the assigned sequential name when you register a managed instance.
+   * If you use the activation code that is created by calling the CreateActivation operation to register managed instances, the instances are assigned sequential names that include the value of this parameter as a prefix. You can also specify a new instance name to replace the assigned sequential name when you register a managed instance.
    * 
-   * If you specify InstanceName when you register a managed instance, an instance name in the format of `<InstanceName>-<Number>` is generated. The number of digits in the \\<Number> value is determined by that in the `InstanceCount` value. Example: `001`. If you do not specify InstanceName, the hostname (Hostname) is used as the instance name.
+   * If you specify InstanceName when you register a managed instance, an instance name in the `<InstanceName>-<Number>` format is generated. The number of digits in the \\<Number> value varies based on the number of digits in the `InstanceCount` value. Example: `001`. If you do not specify InstanceName, the hostname (Hostname) is used as the instance name.
    * 
    * @example
    * test-InstanceName
@@ -4295,9 +4295,7 @@ export class CreateActivationRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which to create the activation code. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
-   * 
-   * You can all the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia). You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -4322,7 +4320,7 @@ export class CreateActivationRequest extends $tea.Model {
   tag?: CreateActivationRequestTag[];
   /**
    * @remarks
-   * The validity period of the activation code. The activation code can no longer be used to register instances after the period expires. Unit: hours. Valid values: 1 to 876576, which represents a range of time from 1 hour to 100 years.
+   * The validity period of the activation code. After the validity period ends, you can no longer use the activation code to register managed instances. Unit: hours. Valid values: 1 to 876576. 876576 hours is equal to 100 years.
    * 
    * Default value: 4.
    * 
@@ -4924,7 +4922,7 @@ export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
   storageLocationArn?: string;
   /**
    * @remarks
-   * The tags to add to the snapshot.
+   * The tags to add to the automatic snapshot policy.
    */
   tag?: CreateAutoSnapshotPolicyRequestTag[];
   /**
@@ -6145,11 +6143,17 @@ export class CreateDeploymentSetRequest extends $tea.Model {
 
 export class CreateDeploymentSetResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the deployment set.
+   * 
    * @example
    * ds-bp1frxuzdg87zh4pzq****
    */
   deploymentSetId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
@@ -10564,7 +10568,7 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
    */
   connectionTrackingConfiguration?: CreateNetworkInterfaceRequestConnectionTrackingConfiguration;
   /**
@@ -10590,7 +10594,7 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is unavailable.
    */
   enhancedNetwork?: CreateNetworkInterfaceRequestEnhancedNetwork;
   /**
@@ -11150,7 +11154,7 @@ export class CreateNetworkInterfaceResponse extends $tea.Model {
 export class CreateNetworkInterfacePermissionRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
    * 
    * This parameter is required.
    * 
@@ -11160,9 +11164,7 @@ export class CreateNetworkInterfacePermissionRequest extends $tea.Model {
   accountId?: number;
   /**
    * @remarks
-   * The permission on the ENI. Set the value to InstanceAttach.
-   * 
-   * InstanceAttach: allows authorized users to attach the ENI to an ECS instance. The ENI and the ECS instance must reside in the same zone.
+   * The ID of the ENI.
    * 
    * This parameter is required.
    * 
@@ -11174,7 +11176,9 @@ export class CreateNetworkInterfacePermissionRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The permission on the ENI. Valid values:
+   * 
+   * InstanceAttach: the permission to attach the ENI to an ECS instance. The ENI and the ECS instance must be in the same zone.
    * 
    * This parameter is required.
    * 
@@ -11184,7 +11188,7 @@ export class CreateNetworkInterfacePermissionRequest extends $tea.Model {
   permission?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
+   * The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -11228,12 +11232,12 @@ export class CreateNetworkInterfacePermissionRequest extends $tea.Model {
 export class CreateNetworkInterfacePermissionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The permission on the ENI.
+   * Details about permissions on the ENI.
    */
   networkInterfacePermission?: CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission;
   /**
    * @remarks
-   * Details about permissions on ENIs.
+   * The ID of the request.
    * 
    * @example
    * 0FCD3DEF-63D3-4605-A818-805C8BD7DB87
@@ -12437,11 +12441,17 @@ export class CreateSnapshotRequest extends $tea.Model {
 
 export class CreateSnapshotResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the snapshot.
+   * 
    * @example
    * s-bp17441ohwka0yuh****
    */
@@ -13718,6 +13728,8 @@ export class DeleteBandwidthPackageResponse extends $tea.Model {
 export class DeleteCommandRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the command. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13728,7 +13740,7 @@ export class DeleteCommandRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * $.parameters[1].schema.enumValueTitles
+   * The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -13767,6 +13779,9 @@ export class DeleteCommandRequest extends $tea.Model {
 
 export class DeleteCommandResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -28089,22 +28104,22 @@ export class DescribeInstanceTypesRequest extends $tea.Model {
    * 
    * >  Valid values of N: 1 to 10.
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type
+   * *   Compute-optimized: compute-optimized instance type
+   * *   Memory-optimized: memory-optimized instance type
+   * *   Big data: big data instance type
+   * *   Local SSDs: instance type with local SSDs
+   * *   High Clock Speed: instance type with high clock speeds
+   * *   Enhanced: enhanced instance type
+   * *   Shared: shared instance type
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type
+   * *   Visual Compute-optimized: visual compute-optimized instance type
+   * *   Heterogeneous Service: heterogeneous service instance type
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
+   * *   ECS Bare Metal: ECS Bare Metal Instance type
+   * *   Super Computing Cluster: SCC instance type
+   * *   High Performance Compute: high-performance computing instance type
    */
   instanceCategories?: string[];
   /**
@@ -28182,13 +28197,18 @@ export class DescribeInstanceTypesRequest extends $tea.Model {
    * *   local_hdd_pro: local Serial Advanced Technology Attachment (SATA) HDDs, which are attached to d1ne or d1 instances.
    * *   local_ssd_pro: local Non-Volatile Memory Express (NVMe) SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances.
    * 
+   * Valid values:
+   * 
+   * *   local_hdd_pro
+   * *   local_ssd_pro
+   * 
    * @example
    * local_ssd_pro
    */
   localStorageCategory?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Maximum value: 1600.
+   * The maximum number of entries per page. Valid values: 1 to 1600.
    * 
    * Default value: 1600.
    * 
@@ -31391,7 +31411,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
   bondInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
    */
   connectionTrackingConfiguration?: DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration;
   /**
@@ -42374,6 +42394,9 @@ export class InstallCloudAssistantRequest extends $tea.Model {
 
 export class InstallCloudAssistantResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -42522,6 +42545,13 @@ export class InvokeCommandRequest extends $tea.Model {
    * i-bp185dy2o3o6n****
    */
   instanceId?: string[];
+  /**
+   * @remarks
+   * The launcher for script execution. The value cannot exceed 1 KB in length.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
   launcher?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -42591,6 +42621,10 @@ export class InvokeCommandRequest extends $tea.Model {
    * The tags of the instance. If you do not specify InstanceId.N, the command is run on the instances that have the specified tags.
    */
   resourceTag?: InvokeCommandRequestResourceTag[];
+  /**
+   * @remarks
+   * The tags of the command.
+   */
   tag?: InvokeCommandRequestTag[];
   /**
    * @remarks
@@ -42810,6 +42844,13 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
    * i-bp185dy2o3o6n****
    */
   instanceId?: string[];
+  /**
+   * @remarks
+   * The launcher for script execution. The value cannot exceed 1 KB in length.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
   launcher?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -42879,6 +42920,10 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
    * The tags of the instance. If you do not specify InstanceId.N, the command is run on the instances that have the specified tags.
    */
   resourceTag?: InvokeCommandShrinkRequestResourceTag[];
+  /**
+   * @remarks
+   * The tags of the command.
+   */
   tag?: InvokeCommandShrinkRequestTag[];
   /**
    * @remarks
@@ -44283,6 +44328,9 @@ export class ModifyAutoSnapshotPolicyExRequest extends $tea.Model {
 
 export class ModifyAutoSnapshotPolicyExResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -44895,6 +44943,9 @@ export class ModifyCommandRequest extends $tea.Model {
 
 export class ModifyCommandResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0DE9B41E-EF0D-40A0-BB43-37749C5BDA9C
    */
@@ -48090,11 +48141,10 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
    * 
-   * true
+   * *   true
+   * *   false
    * 
-   * false
-   * 
-   * You can enable the Jumbo Frames feature only for specific instance types. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
+   * You can enable the Jumbo Frames feature only for specific instance types. For more information, see [MTU and jumbo frames](https://help.aliyun.com/document_detail/200512.html).
    * 
    * @example
    * false
@@ -48158,6 +48208,10 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
    * Test123456
    */
   password?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   */
   privateDnsNameOptions?: ModifyInstanceAttributeRequestPrivateDnsNameOptions;
   /**
    * @remarks
@@ -48183,7 +48237,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
    * *   You can move the instance to security groups of a different type. However, the list cannot contain the IDs of both basic and advanced security groups.
    * *   The security groups and the instance must belong to the same VPC.
    * *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits and quotas" topic.
-   * *   New security groups become valid for the instance after a short latency.
+   * *   New security groups become valid for the instance after a short delay.
    * 
    * @example
    * sg-bp15ed6xe1yxeycg7o****
@@ -49199,7 +49253,7 @@ export class ModifyInstanceMetadataOptionsRequest extends $tea.Model {
    * 
    * Default value: enabled.
    * 
-   * > For more information about instance metadata, see [Overview of ECS instance metadata](https://help.aliyun.com/document_detail/49122.html).
+   * >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/49122.html).
    * 
    * This parameter is required.
    * 
@@ -49209,7 +49263,7 @@ export class ModifyInstanceMetadataOptionsRequest extends $tea.Model {
   httpEndpoint?: string;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * >  This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * 1
@@ -49217,14 +49271,14 @@ export class ModifyInstanceMetadataOptionsRequest extends $tea.Model {
   httpPutResponseHopLimit?: number;
   /**
    * @remarks
-   * Specifies whether to forcefully use the security-enhanced mode (IMDSv2) to access instance metadata. Valid values:
+   * Specifies whether to forcefully use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
    * 
-   * *   optional: does not forcefully use the security-enhanced mode (IMDSv2).
-   * *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+   * *   optional: does not forcefully use the security hardening mode (IMDSv2).
+   * *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
    * 
    * Default value: optional.
    * 
-   * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
+   * >  For more information about modes of accessing instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/150575.html).
    * 
    * @example
    * optional
@@ -50711,7 +50765,7 @@ export class ModifyManagedInstanceResponse extends $tea.Model {
 export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is in invitational preview and is not publicly available.
    */
   connectionTrackingConfiguration?: ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration;
   /**
@@ -54121,6 +54175,10 @@ export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
    * Zone
    */
   scope?: string;
+  /**
+   * @example
+   * 2024-07-04T15Z
+   */
   startTime?: string;
   /**
    * @remarks
@@ -54345,9 +54403,9 @@ export class PurchaseStorageCapacityUnitRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The time at which the SCU takes effect. It can be up to six months later than the time at which the SCU is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The time at which the SCU takes effect. The time can be up to six months from the creation time of the SCU. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHHZ format. The time must be in UTC.
    * 
-   * This parameter is empty by default. If this parameter is left empty, the SCU takes effect immediately after it is created.
+   * This parameter is left empty by default, which indicates that the SCU takes effect immediately after it is created.
    * 
    * @example
    * 2020-09-09T02:00:00Z
@@ -56088,6 +56146,130 @@ export class RenewDedicatedHostsResponse extends $tea.Model {
   }
 }
 
+export class RenewElasticityAssurancesRequest extends $tea.Model {
+  privatePoolOptions?: RenewElasticityAssurancesRequestPrivatePoolOptions;
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Year
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolOptions: 'PrivatePoolOptions',
+      autoPay: 'AutoPay',
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolOptions: RenewElasticityAssurancesRequestPrivatePoolOptions,
+      autoPay: 'boolean',
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewElasticityAssurancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 182372800****
+   */
+  orderId?: string;
+  privatePoolOptionsIdSet?: RenewElasticityAssurancesResponseBodyPrivatePoolOptionsIdSet;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      privatePoolOptionsIdSet: 'PrivatePoolOptionsIdSet',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      privatePoolOptionsIdSet: RenewElasticityAssurancesResponseBodyPrivatePoolOptionsIdSet,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewElasticityAssurancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewElasticityAssurancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewElasticityAssurancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenewInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -57248,6 +57430,9 @@ export class ResizeDiskResponseBody extends $tea.Model {
    */
   orderId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F3CD6886-D8D0-4FEE-B93E-1B732396****
    */
@@ -57327,7 +57512,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
    * 
    * @example
    * ALL
@@ -57369,7 +57554,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The security group rules. Valid values of N: 1 to 100.
+   * Security group rule N. Valid values of N: 1 to 100.
    */
   permissions?: RevokeSecurityGroupRequestPermissions[];
   /**
@@ -57674,7 +57859,7 @@ export class RevokeSecurityGroupEgressRequest extends $tea.Model {
   destPrefixListId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+   * This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the protocol.
    * 
    * @example
    * TCP
@@ -58081,6 +58266,13 @@ export class RunCommandRequest extends $tea.Model {
    * false
    */
   keepCommand?: boolean;
+  /**
+   * @remarks
+   * The launcher for script execution. The value cannot exceed 1 KB in length.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
   launcher?: string;
   /**
    * @remarks
@@ -58492,6 +58684,13 @@ export class RunCommandShrinkRequest extends $tea.Model {
    * false
    */
   keepCommand?: boolean;
+  /**
+   * @remarks
+   * The launcher for script execution. The value cannot exceed 1 KB in length.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
   launcher?: string;
   /**
    * @remarks
@@ -58825,7 +59024,7 @@ export class RunInstancesRequest extends $tea.Model {
   affinity?: string;
   /**
    * @remarks
-   * The desired number of ECS instances. Valid values: 1 to 100.
+   * The desired number of ECS instances that you want to create. Valid values: 1 to 100.
    * 
    * The number of ECS instances that can be created varies based on the Amount and MinAmount values.
    * 
@@ -58845,7 +59044,7 @@ export class RunInstancesRequest extends $tea.Model {
   amount?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
    */
   arn?: RunInstancesRequestArn[];
   /**
@@ -58934,7 +59133,7 @@ export class RunInstancesRequest extends $tea.Model {
   dataDisk?: RunInstancesRequestDataDisk[];
   /**
    * @remarks
-   * The ID of the dedicated host on which to create the instance. If you set the `DedicatedHostId` parameter, the `SpotStrategy` and `SpotPriceLimit` parameters are ignored. This is because preemptible instances cannot be created on dedicated hosts.
+   * The ID of the dedicated host on which to create the instance. Preemptible instances cannot be created on dedicated hosts. If you specify `DedicatedHostId`, `SpotStrategy` and `SpotPriceLimit` are ignored.
    * 
    * You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
    * 
@@ -59076,9 +59275,13 @@ export class RunInstancesRequest extends $tea.Model {
    * @remarks
    * The name of the image family. You can set this parameter to obtain the latest available custom image from the specified image family to create instances.
    * 
+   * The name must be 2 to 128 characters in length. The name cannot start with a digit, a special character, http://, or https://. The name can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:).
+   * 
+   * Take note of the following items:
+   * 
    * *   If you specify `ImageId`, you cannot specify ImageFamily.
-   * *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that has the `ImageId` parameter specified, you cannot specify ImageFamily.
-   * *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that does not have the `ImageId` parameter specified, you can specify ImageFamily.
+   * *   If you do not specify `ImageId` but use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template that has `ImageId` specified, you cannot specify ImageFamily.
+   * *   If you do not specify `ImageId` but use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template that does not have `ImageId` specified, you can specify ImageFamily.
    * *   If you do not specify `ImageId`, `LaunchTemplateId`, or `LaunchTemplateName`, you can specify ImageFamily.
    * 
    * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](https://help.aliyun.com/document_detail/108393.html).
@@ -59259,7 +59462,7 @@ export class RunInstancesRequest extends $tea.Model {
   launchTemplateVersion?: number;
   /**
    * @remarks
-   * The minimum number of ECS instances to be created. Valid values: 1 to 100.
+   * The minimum number of ECS instances that you want to create. Valid values: 1 to 100.
    * 
    * The number of ECS instances that can be created varies based on the Amount and MinAmount values.
    * 
@@ -59350,6 +59553,10 @@ export class RunInstancesRequest extends $tea.Model {
    * Month
    */
   periodUnit?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   */
   privateDnsNameOptions?: RunInstancesRequestPrivateDnsNameOptions;
   /**
    * @remarks
@@ -59456,7 +59663,7 @@ export class RunInstancesRequest extends $tea.Model {
    * 
    * *   Terminate: The instance is released.
    * 
-   * *   Stop: The instance is stopped in economical mode. To use the economical mode, submit a ticket.
+   * *   Stop: The instance is stopped in economical mode.
    * 
    *     For information about the economical mode, see [Economical mode](https://help.aliyun.com/document_detail/63353.html).
    * 
@@ -61049,6 +61256,9 @@ export class StopInvocationRequest extends $tea.Model {
 
 export class StopInvocationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -62407,7 +62617,7 @@ export class AttachKeyPairResponseBodyResults extends $tea.Model {
 export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   /**
    * @remarks
-   * The description of security group rule N. The description must be 1 to 512 characters in length.
+   * The description of the security group rule. The description must be 1 to 512 characters in length.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62417,9 +62627,9 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The destination IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The destination IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
-   * This parameter is specified to meet quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62429,13 +62639,13 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The transport layer protocol of security group rule N. The value of this parameter is case-insensitive. Valid values:
+   * The protocol. The values of this parameter are case-insensitive. Valid values:
    * 
-   * *   TCP
-   * *   UDP
-   * *   ICMP
-   * *   ICMPv6
-   * *   GRE
+   * *   TCP.
+   * *   UDP.
+   * *   ICMP.
+   * *   ICMPv6.
+   * *   GRE.
    * *   ALL: All protocols are supported.
    * 
    * Valid values of N: 1 to 100.
@@ -62446,13 +62656,13 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The destination IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
+   * The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * This parameter is specified to meet quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter is valid only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
+   * >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:250:6000::***
@@ -62460,11 +62670,11 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
+   * The source IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter takes effect only if the sources are ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify this parameter and `SourceCidrIp` at the same time.
+   * >  This parameter is valid only for Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and `SourceCidrIp` in the same request.
    * 
    * @example
    * 2001:250:6000::***
@@ -62472,14 +62682,14 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) type of security group rule N when the security group is in the classic network. Valid values:
+   * The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Valid values:
    * 
    * *   internet: public NIC.
    * *   intranet: internal NIC.
    * 
-   * If the security group is in a VPC, this parameter is set to intranet by default and cannot be changed.
+   * If the security group resides in a VPC, this parameter is set to intranet by default and cannot be modified.
    * 
-   * If you specify only DestGroupId when you configure access between security groups, this parameter must be set to intranet.
+   * If you specify only DestGroupId when you configure access permissions between security groups, you must set this parameter to intranet.
    * 
    * Default value: internet.
    * 
@@ -62491,10 +62701,10 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   nicType?: string;
   /**
    * @remarks
-   * The action of security group rule N that determines whether to allow inbound access. Valid values:
+   * The action of the security group rule. Valid values:
    * 
-   * *   accept: allows access.
-   * *   drop: denies access and returns no responses. In this case, the request times out or the connection cannot be established.
+   * *   accept: allows inbound access.
+   * *   drop: denies inbound access and returns no responses. In this case, the request times out or the connection cannot be established.
    * 
    * Default value: accept.
    * 
@@ -62506,14 +62716,14 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
+   * The range of destination port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
    * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
    * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
-   * For more information, see [Typical applications of commonly used ports](https://help.aliyun.com/document_detail/40724.html).
+   * For more information, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62523,7 +62733,7 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. A smaller value specifies a higher priority. Valid values: 1 to 100.
+   * The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
    * 
    * Default value: 1.
    * 
@@ -62535,7 +62745,7 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   priority?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The source IPv4 CIDR block of the security group rule. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62545,18 +62755,18 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The ID of the source security group to be referenced in security group rule N.
+   * The ID of the source security group that is specified in the security group rule.
    * 
-   * *   At least one of `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId` must be specified.
-   * *   If `SourceGroupId` is specified but `SourceCidrIp` or `Ipv6SourceCidrIp` is not specified, `NicType` must be set to `intranet`.
-   * *   If both `SourceGroupId` and `SourceCidrIp` are specified, `SourceCidrIp` takes precedence.
+   * *   You must specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId`.
+   * *   If you specify `SourceGroupId` but do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set `NicType` to `intranet`.
+   * *   If you specify both `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * Take note of the following items:
+   * When you specify this parameter, take note of the following items:
    * 
-   * *   For advanced security groups, security groups cannot be used as authorization objects.
-   * *   For each basic security group, up to 20 security groups can be used as authorization objects.
+   * *   In advanced security groups, security groups cannot be used as authorization objects.
+   * *   In each basic security group, up to 20 security groups can be used as authorization objects in security group rules.
    * 
    * @example
    * sg-bp67acfmxazb4p****
@@ -62564,10 +62774,10 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   sourceGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that manages the source security group when you set a security group rule across accounts.
+   * The Alibaba Cloud account that manages the source security group specified in the security group rule.
    * 
-   * *   If you do not specify `SourceGroupOwnerAccount` and `SourceGroupOwnerId`, access permissions are configured for another security group managed by your account.
-   * *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` becomes invalid.
+   * *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access permissions are configured for another security group in your Alibaba Cloud account.
+   * *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62577,9 +62787,9 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   sourceGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that manages the source security group when you set security group rule N across accounts.
+   * The ID of the Alibaba Cloud account that manages the source security group specified in the security group rule.
    * 
-   * *   If you do not specify `SourceGroupOwnerAccount` and `SourceGroupOwnerId`, access permissions are configured for another security group managed by your account.
+   * *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access permissions are configured for another security group in your Alibaba Cloud account.
    * *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
    * 
    * Valid values of N: 1 to 100.
@@ -62590,14 +62800,14 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   sourceGroupOwnerId?: number;
   /**
    * @remarks
-   * The range of source ports that correspond to the transport layer protocol for security group rule N. Valid values:
+   * The range of source port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
    * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
    * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
-   * This parameter is specified to meet quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62607,13 +62817,13 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The ID of the source prefix list to which you want to control access. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
+   * The ID of the source prefix list of the security group rule. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * Take note of the following items:
+   * When you specify this parameter, take note of the following items:
    * 
-   * *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+   * *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
    * *   If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
    * 
    * @example
@@ -62668,7 +62878,7 @@ export class AuthorizeSecurityGroupRequestPermissions extends $tea.Model {
 export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   /**
    * @remarks
-   * The description of security group rule N. The description must be 1 to 512 characters in length.
+   * The description of the security group rule. The description must be 1 to 512 characters in length.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62678,7 +62888,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The destination IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The destination IPv4 CIDR block of the security group rule. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62688,18 +62898,18 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The ID of the destination security group to be referenced in security group rule N.
+   * The ID of the destination security group that is specified in the security group rule.
    * 
-   * *   At least one of `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId` must be configured.
-   * *   If `DestGroupId` is configured but `DestCidrIp` is not configured, the value of `NicType` must be set to intranet.
-   * *   If both `DestGroupId` and `DestCidrIp` are configured, the value of `DestCidrIp` prevails by default.
+   * *   You must specify at least one of the following parameters: `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId`.
+   * *   If you specify `DestGroupId` but do not specify `DestCidrIp`, you must set `NicType` to intranet.
+   * *   If you specify both `DestGroupId` and `DestCidrIp`, `DestCidrIp` takes precedence.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * Take note of the following items:
+   * When you specify this parameter, take note of the following items:
    * 
-   * *   For advanced security groups, security groups cannot be used as authorization objects.
-   * *   For each basic security group, a maximum of 20 security groups can be used as authorization objects.
+   * *   In advanced security groups, security groups cannot be used as authorization objects in security group rules.
+   * *   In each basic security group, up to 20 security groups can be used as authorization objects.
    * 
    * @example
    * sg-bp67acfmxazb4p****
@@ -62707,10 +62917,10 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that manages the destination security group when you configure security group rule N across accounts.
+   * The Alibaba Cloud account that manages the destination security group specified in the security group rule.
    * 
-   * *   If both `DestGroupOwnerAccount` and `DestGroupOwnerId` are not configured, the rule is created to control access to another security group within your Alibaba Cloud account.
-   * *   If `DestCidrIp` is configured, `DestGroupOwnerAccount` is ignored.
+   * *   If both `DestGroupOwnerAccount` and `DestGroupOwnerId` are empty, the rule is created to control access to another security group in your Alibaba Cloud account.
+   * *   If you specify `DestCidrIp`, `DestGroupOwnerAccount` is ignored.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62720,10 +62930,10 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that manages the destination security group when you configure security group rule N across accounts.
+   * The ID of the Alibaba Cloud account that manages the destination security group specified in the security group rule.
    * 
-   * *   If both `DestGroupOwnerId` and `DestGroupOwnerAccount` are not configured, the rule is created to control access to another security group within your Alibaba Cloud account.
-   * *   If `DestCidrIp` is configured, `DestGroupOwnerId` is ignored.
+   * *   If both `DestGroupOwnerId` and `DestGroupOwnerAccount` are empty, the rule is created to control access to another security group in your Alibaba Cloud account.
+   * *   If you specify `DestCidrIp`, `DestGroupOwnerId` is ignored.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62733,12 +62943,12 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destGroupOwnerId?: number;
   /**
    * @remarks
-   * The ID of the destination prefix list to be referenced in security group rule N. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
+   * The ID of the destination prefix list of the security group rule. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
    * 
-   * Take note of the following items:
+   * When you specify this parameter, take note of the following items:
    * 
-   * *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
-   * *   If you configured `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, DestPrefixListId is ignored.
+   * *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
+   * *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, this parameter is ignored.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62748,7 +62958,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destPrefixListId?: string;
   /**
    * @remarks
-   * The transport layer protocol of security group rule N. The value of this parameter is case-insensitive. Valid values:
+   * The protocol. The values of this parameter are case-insensitive. Valid values:
    * 
    * *   TCP.
    * *   UDP.
@@ -62765,11 +62975,11 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The destination IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
+   * The destination IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter takes effect only when the destination is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot configure both this parameter and `DestCidrIp`.
+   * >  This parameter is valid only for Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1233:1a00::***
@@ -62777,13 +62987,13 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
+   * The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * This parameter is supported by quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter takes effect only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot configure both this parameter and `SourceCidrIp`.
+   * >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1234:1a00::***
@@ -62791,14 +63001,14 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) type of security group rule N when the security group is in the classic network. Valid values:
+   * The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Valid values:
    * 
-   * *   internet: public NIC
+   * *   internet: public NIC.
    * 
-   * *   intranet: internal NIC
+   * *   intranet: internal NIC.
    * 
-   *     *   If the security group is in a VPC, this parameter is set to intranet by default and cannot be changed.
-   *     *   If you configure only DestGroupId when you configure access between security groups, this parameter must be set to intranet.
+   *     *   If the security group resides in a VPC, this parameter is set to intranet by default and cannot be modified.
+   *     *   If you specify only DestGroupId when you configure access permissions between security groups, you must set this parameter to intranet.
    * 
    * Default value: internet.
    * 
@@ -62810,10 +63020,10 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   nicType?: string;
   /**
    * @remarks
-   * The action of security group rule N that determines whether to allow outbound access. Valid values:
+   * The action of the security group rule. Valid values:
    * 
-   * *   accept: allows access.
-   * *   drop: denies access and returns no responses. In this case, the request times out or the connection cannot be established.
+   * *   accept: allows outbound traffic.
+   * *   drop: denies outbound traffic and returns no responses. In this case, the request times out or the connection cannot be established.
    * 
    * Default value: accept.
    * 
@@ -62825,12 +63035,12 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
+   * The range of destination port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
    * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
    * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62840,7 +63050,7 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. A smaller value indicates a higher priority. Valid values: 1 to 100.
+   * The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
    * 
    * Default value: 1.
    * 
@@ -62852,9 +63062,9 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   priority?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The source IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
-   * This parameter is supported by quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -62864,14 +63074,14 @@ export class AuthorizeSecurityGroupEgressRequestPermissions extends $tea.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The range of source ports that correspond to the transport layer protocol for security group rule N. Valid values:
+   * The range of source port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
    * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
    * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
-   * This parameter is supported by quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -64331,7 +64541,7 @@ export class CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration extends 
 export class CreateAutoSnapshotPolicyRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N to add to the snapshot. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * The key of tag N to add to the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -64339,7 +64549,7 @@ export class CreateAutoSnapshotPolicyRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the snapshot. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs:.
+   * The value of tag N to add to the automatic snapshot policy. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs:.
    * 
    * @example
    * TestValue
@@ -66473,17 +66683,26 @@ export class CreateNatGatewayResponseBodyForwardTableIds extends $tea.Model {
 export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 3
    */
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 910
    */
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 30
    */
   udpTimeout?: number;
   static names(): { [key: string]: string } {
@@ -66510,7 +66729,10 @@ export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extend
 export class CreateNetworkInterfaceRequestEnhancedNetwork extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * true
    */
   enableSriov?: boolean;
   static names(): { [key: string]: string } {
@@ -66899,7 +67121,7 @@ export class CreateNetworkInterfaceResponseBodyTags extends $tea.Model {
 export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission extends $tea.Model {
   /**
    * @remarks
-   * The ID of the permission on the ENI.
+   * The ID of the Alibaba Cloud partner (a certified ISV).
    * 
    * @example
    * 1234567890
@@ -66907,7 +67129,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   accountId?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud partner (a certified ISV).
+   * The ID of the ENI.
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -66915,7 +67137,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud service.
+   * The ID of the permission on the ENI.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -66923,17 +67145,12 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfacePermissionId?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The permission on the ENI.
    * 
    * @example
    * InstanceAttach
    */
   permission?: string;
-  /**
-   * @example
-   * Granted
-   */
-  permissionState?: string;
   /**
    * @remarks
    * The state of the permission on the ENI. Valid values:
@@ -66942,6 +67159,14 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
    * *   Granted: The permission is granted.
    * *   Revoking: The permission is being revoked.
    * *   Revoked: The permission is revoked.
+   * 
+   * @example
+   * Granted
+   */
+  permissionState?: string;
+  /**
+   * @remarks
+   * The name of the Alibaba Cloud service.
    * 
    * @example
    * Elastic Compute Service
@@ -80679,12 +80904,21 @@ export class DescribeInstanceTypeFamiliesResponseBodyInstanceTypeFamilies extend
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork extends $tea.Model {
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * *
+   * *
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * true
    */
   sriovSupport?: boolean;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 5
    */
   vfQueueNumberPerEni?: number;
   static names(): { [key: string]: string } {
@@ -80824,7 +81058,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   diskQuantity?: number;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * >  This parameter is not publicly available.
    */
   enhancedNetwork?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork;
   /**
@@ -81051,7 +81285,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   networkCardQuantity?: number;
   /**
    * @remarks
-   * The information of the network cards.
+   * The information about the network cards.
    */
   networkCards?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards;
   /**
@@ -81831,6 +82065,13 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
    * true
    */
   primary?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * dnsTestName
+   */
   privateDnsName?: string;
   /**
    * @remarks
@@ -81922,7 +82163,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
   primaryIpAddress?: string;
   /**
    * @remarks
-   * Details about the private IP addresses of the ENI.
+   * The private IP addresses of the ENI.
    */
   privateIpSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSets;
   /**
@@ -82048,10 +82289,45 @@ export class DescribeInstancesResponseBodyInstancesInstanceOperationLocks extend
 }
 
 export class DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions extends $tea.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableInstanceIdDnsAAAARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableInstanceIdDnsARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * true
+   */
   enableIpDnsARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * true
+   */
   enableIpDnsPtrRecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * Custom
+   */
   hostnameType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82618,6 +82894,10 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
    * The reasons why the instance was locked.
    */
   operationLocks?: DescribeInstancesResponseBodyInstancesInstanceOperationLocks;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   */
   privateDnsNameOptions?: DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions;
   /**
    * @remarks
@@ -86668,17 +86948,26 @@ export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecifica
 export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 3
    */
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 910
    */
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 30
    */
   udpTimeout?: number;
   static names(): { [key: string]: string } {
@@ -87548,6 +87837,13 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
    * true
    */
   primary?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * DnsTestName
+   */
   privateDnsName?: string;
   /**
    * @remarks
@@ -95961,8 +96257,8 @@ export class InvokeCommandRequestResourceTag extends $tea.Model {
    * 
    * *   This parameter and InstanceId.N are mutually exclusive.
    * *   Valid values of N: 1 to 10. The tag key cannot be an empty string.
-   * *   The number of instances that have the specified tags cannot exceed 50. If more than 50 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 50 instances.
-   * *   The tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * *   The number of instances that have the specified tags cannot exceed 100. If more than 100 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 100 instances.
+   * *   The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -96052,8 +96348,8 @@ export class InvokeCommandShrinkRequestResourceTag extends $tea.Model {
    * 
    * *   This parameter and InstanceId.N are mutually exclusive.
    * *   Valid values of N: 1 to 10. The tag key cannot be an empty string.
-   * *   The number of instances that have the specified tags cannot exceed 50. If more than 50 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 50 instances.
-   * *   The tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * *   The number of instances that have the specified tags cannot exceed 100. If more than 100 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 100 instances.
+   * *   The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -97177,10 +97473,45 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $tea.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableInstanceIdDnsAAAARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableInstanceIdDnsARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableIpDnsARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableIpDnsPtrRecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * Custom
+   */
   hostnameType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97498,17 +97829,26 @@ export class ModifyManagedInstanceResponseBodyInstance extends $tea.Model {
 export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 3
    */
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 910
    */
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 30
    */
   udpTimeout?: number;
   static names(): { [key: string]: string } {
@@ -97536,6 +97876,9 @@ export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $tea.
   /**
    * @remarks
    * This parameter is not publicly available.
+   * 
+   * @example
+   * true
    */
   enableSriov?: boolean;
   static names(): { [key: string]: string } {
@@ -98166,6 +98509,44 @@ export class RemoveTagsRequestTag extends $tea.Model {
   }
 }
 
+export class RenewElasticityAssurancesRequestPrivatePoolOptions extends $tea.Model {
+  id?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewElasticityAssurancesResponseBodyPrivatePoolOptionsIdSet extends $tea.Model {
+  privatePoolOptionsId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolOptionsId: 'PrivatePoolOptionsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolOptionsId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenewReservedInstancesResponseBodyReservedInstanceIdSets extends $tea.Model {
   reservedInstanceId?: string[];
   static names(): { [key: string]: string } {
@@ -98444,7 +98825,7 @@ export class ResetDisksResponseBodyOperationProgressSet extends $tea.Model {
 export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   /**
    * @remarks
-   * The description of security group rule N. The description must be 1 to 512 characters in length.
+   * The description of the security group rule. The description must be 1 to 512 characters in length.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98454,9 +98835,9 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+   * The destination IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
-   * This parameter is supported by quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98466,13 +98847,13 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The transport layer protocol of security group rule N. The values of this parameter are not case-sensitive. Valid values:
+   * The protocol. The values of this parameter are case-insensitive. Valid values:
    * 
-   * *   TCP
-   * *   UDP
-   * *   ICMP
-   * *   ICMPv6
-   * *   GRE
+   * *   TCP.
+   * *   UDP.
+   * *   ICMP.
+   * *   ICMPv6.
+   * *   GRE.
    * *   ALL: All protocols are supported.
    * 
    * Valid values of N: 1 to 100.
@@ -98483,13 +98864,13 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The destination IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
+   * The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * This parameter is supported by quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter is valid only when the destination is an ECS instance that resides in a VPC and supports IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
+   * >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1233:1a00::***
@@ -98497,11 +98878,11 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
+   * The source IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter is valid only when the source is an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC) and supports IPv6 CIDR blocks. You cannot specify both this parameter and the `SourceCidrIp` parameter.
+   * >  This parameter is valid only for Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and `SourceCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1234:1a00::***
@@ -98509,14 +98890,14 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface card (NIC) type of the security group rule if the security group is of the classic network type. Valid values:
+   * The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Valid values:
    * 
-   * *   internet: public NIC
-   * *   intranet: internal NIC
+   * *   internet: public NIC.
+   * *   intranet: internal NIC.
    * 
-   * If the security group is in a VPC, this parameter is set to intranet by default and cannot be changed.
+   * If the security group resides in a VPC, this parameter is set to intranet by default and cannot be modified.
    * 
-   * If you specify only `SourceGroupId` when you configure access between security groups, this parameter must be set to intranet.
+   * If you specify only `SourceGroupId` when you remove access control configurations between security groups, you must set this parameter to intranet.
    * 
    * Default value: internet.
    * 
@@ -98528,10 +98909,10 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   nicType?: string;
   /**
    * @remarks
-   * The action of security group rule N that determines whether to allow inbound access. Valid values:
+   * The action of the security group rule. Valid values:
    * 
-   * *   accept: allows access.
-   * *   drop: denies access and returns no responses. In this case, the request times out or the connection cannot be established.
+   * *   accept: allows inbound access.
+   * *   drop: denies inbound access and returns no responses. In this case, the request times out or the connection cannot be established.
    * 
    * Default value: accept.
    * 
@@ -98543,12 +98924,12 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol of security group rule N. Valid values:
+   * The range of destination port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Specify a port range in the format of \\<start port number>/\\<end port number>. Example: 1/200.
-   * *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port range is -1/-1, which indicates all ports.
-   * *   If the Permissions.N.IpProtocol parameter is set to GRE, the port range is -1/-1, which indicates all ports.
-   * *   If the Permissions.N.IpProtocol parameter is set to ALL, the port range is -1/-1, which indicates all ports.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
+   * *   If you set IpProtocol to GRE, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98558,7 +98939,7 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. A smaller value specifies a higher priority. Valid values: 1 to 100.
+   * The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
    * 
    * Default value: 1.
    * 
@@ -98570,7 +98951,7 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   priority?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The source IPv4 CIDR block of the security group rule. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98580,16 +98961,16 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The ID of the source security group that is referenced in security group rule N.
+   * The ID of the source security group that is specified in the security group rule.
    * 
-   * *   Specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId`.
-   * *   If you specify `SourceGroupId` but you do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set NicType to intranet.
-   * *   If you specify `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
+   * *   You must specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId`.
+   * *   If you specify `SourceGroupId` but do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set NicType to intranet.
+   * *   If you specify both `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
    * 
    * When you specify this parameter, take note of the following items:
    * 
-   * *   You cannot reference security groups as destinations or sources in the rules of advanced security groups.
-   * *   You can reference up to 20 security groups as destinations or sources in the rules of each basic security group.
+   * *   In advanced security groups, security groups cannot be used as authorization objects.
+   * *   In each basic security group, up to 20 security groups can be used as authorization objects in security group rules.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98599,9 +98980,9 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   sourceGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that manages the source security group when you delete security group rule N across accounts.
+   * The Alibaba Cloud account that manages the source security group specified in the security group rule.
    * 
-   * *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are not specified, the security group rule that controls access to other security groups managed by your account is deleted.
+   * *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access control on another security group in your Alibaba Cloud account is removed.
    * *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
    * 
    * Valid values of N: 1 to 100.
@@ -98612,9 +98993,9 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   sourceGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that manages the source security group when you delete security group rule N across accounts.
+   * The ID of the Alibaba Cloud account that manages the source security group specified in the security group rule.
    * 
-   * *   If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are not specified, the security group rule that controls access to other security groups managed by your account is deleted.
+   * *   If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access control on another security group in your Alibaba Cloud account is removed.
    * *   If you specify `SourceCidrIp`, `SourceGroupOwnerId` is ignored.
    * 
    * Valid values of N: 1 to 100.
@@ -98625,14 +99006,14 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   sourceGroupOwnerId?: number;
   /**
    * @remarks
-   * The range of source ports that correspond to the transport layer protocol of security group rule N. Valid values:
+   * The range of source port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Specify a port range in the format of \\<start port number>/\\<end port number>. Example: 1/200.
-   * *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port range is -1/-1, which indicates all ports.
-   * *   If the Permissions.N.IpProtocol parameter is set to GRE, the port range is -1/-1, which indicates all ports.
-   * *   If the Permissions.N.IpProtocol parameter is set to ALL, the port range is -1/-1, which indicates all ports.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
+   * *   If you set IpProtocol to GRE, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
-   * This parameter is supported by quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98642,12 +99023,12 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The ID of the source prefix list that is referenced in security group rule N. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
+   * The ID of the source prefix list of the security group rule. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
    * 
    * When you specify this parameter, take note of the following items:
    * 
-   * *   If the network type of a security group is classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
-   * *   If you specify the `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId` parameter, this parameter is ignored.
+   * *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
+   * *   If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98703,7 +99084,7 @@ export class RevokeSecurityGroupRequestPermissions extends $tea.Model {
 export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   /**
    * @remarks
-   * The description of security group rule N. The description must be 1 to 512 characters in length.
+   * The description of the security group rule. The description must be 1 to 512 characters in length.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98713,7 +99094,7 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The destination IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The destination IPv4 CIDR block of the security group rule. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98723,16 +99104,16 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The ID of the source security group that is referenced in security group rule N.
+   * The ID of the destination security group from which you want to remove access control configurations.
    * 
-   * *   At least one of `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId` must be specified.
-   * *   If `DestGroupId` is specified but `DestCidrIp` is not specified, the `NicType` parameter must be set to intranet.
-   * *   If both `DestGroupId` and `DestCidrIp` are specified, `DestCidrIp` takes precedence.
+   * *   You must specify at least one of the following parameters: `DestGroupId`, `DestCidrIp`, `Ipv6DestCidrIp`, and `DestPrefixListId`.
+   * *   If you specify `DestGroupId` but do not specify `DestCidrIp`, you must set `NicType` to intranet.
+   * *   If you specify both `DestGroupId` and `DestCidrIp`, `DestCidrIp` takes precedence.
    * 
-   * Take note of the following items:
+   * When you specify this parameter, take note of the following items:
    * 
-   * *   For advanced security groups, security groups cannot be used as authorization objects.
-   * *   For each basic security group, a maximum of 20 security groups can be used as authorization objects.
+   * *   In advanced security groups, security groups cannot be used as authorization objects.
+   * *   In each basic security group, up to 20 security groups can be used as authorization objects in security group rules.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98742,10 +99123,10 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that manages the destination security group when you delete security group rules N across accounts.
+   * The Alibaba Cloud account that manages the destination security group specified in the security group rule.
    * 
-   * *   If both `DestGroupOwnerAccount` and `DestGroupOwnerId` are not specified, the access control is revoked from another security group managed by your account.
-   * *   If `DestCidrIp` is specified, `DestGroupOwnerAccount` is ignored.
+   * *   If both `DestGroupOwnerAccount` and `DestGroupOwnerId` are empty, access control configurations are removed from another security group managed by your Alibaba Cloud account.
+   * *   If you specify `DestCidrIp`, `DestGroupOwnerAccount` is ignored.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98755,10 +99136,10 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that manages the destination security group when you delete security group rule N across accounts.
+   * The ID of the Alibaba Cloud account that manages the destination security group specified in the security group rule.
    * 
-   * *   If both `DestGroupOwnerId` and `DestGroupOwnerAccount` are not specified, the access control is revoked from another security group managed by your account.
-   * *   If `DestCidrIp` is specified, `DestGroupOwnerId` is invalid.
+   * *   If both `DestGroupOwnerId` and `DestGroupOwnerAccount` are empty, access control configurations are removed from another security group managed by your Alibaba Cloud account.
+   * *   If you specify `DestCidrIp`, `DestGroupOwnerId` is invalid.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98768,11 +99149,11 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destGroupOwnerId?: string;
   /**
    * @remarks
-   * The ID of the destination prefix list that is referenced in security group rule N. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
+   * The ID of the destination prefix list of the security group rule. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
    * 
-   * Take note of the following items:
+   * When you specify this parameter, take note of the following items:
    * 
-   * *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+   * *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
    * *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, this parameter is ignored.
    * 
    * Valid values of N: 1 to 100.
@@ -98783,13 +99164,13 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   destPrefixListId?: string;
   /**
    * @remarks
-   * The transport layer protocol of security group rule N. The value of this parameter is case-insensitive. Valid values:
+   * The protocol. The values of this parameter are case-insensitive. Valid values:
    * 
-   * *   TCP
-   * *   UDP
-   * *   ICMP
-   * *   ICMPv6
-   * *   GRE
+   * *   TCP.
+   * *   UDP.
+   * *   ICMP.
+   * *   ICMPv6.
+   * *   GRE.
    * *   ALL: All protocols are supported.
    * 
    * Valid values of N: 1 to 100.
@@ -98800,11 +99181,11 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The destination IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
+   * The destination IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter is valid only when the destination is Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
+   * >  This parameter is valid only for Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1233:1a00::***
@@ -98812,13 +99193,13 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   ipv6DestCidrIp?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
+   * The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * This parameter is specified to meet quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > This parameter is valid only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `SourceCidrIp` parameter.
+   * >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
    * 
    * @example
    * 2001:db8:1234:1a00::***
@@ -98826,14 +99207,14 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) type of security group rule N when the security group is in the classic network. Valid values:
+   * The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Valid values:
    * 
    * *   internet: public NIC.
    * *   intranet: internal NIC.
    * 
-   * If the security group is in a VPC, this parameter is set to intranet by default and cannot be modified.
+   * If the security group resides in a VPC, this parameter is set to intranet by default and cannot be modified.
    * 
-   * If you specify only `SourceGroupId` when you configure access between security groups, this parameter must be set to intranet.
+   * If you specify only `SourceGroupId` when you remove access control configurations between security groups, you must set this parameter to intranet.
    * 
    * Default value: internet.
    * 
@@ -98845,10 +99226,10 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   nicType?: string;
   /**
    * @remarks
-   * The action of security group rule N that determines whether to allow outbound access. Valid values:
+   * The action of the security group rule. Valid values:
    * 
-   * *   accept: allows access.
-   * *   drop: denies access and returns no responses. In this case, the request times out or the connection cannot be established.
+   * *   accept: allows outbound traffic.
+   * *   drop: denies outbound traffic and returns no responses. In this case, the request times out or the connection cannot be established.
    * 
    * Default value: accept.
    * 
@@ -98860,12 +99241,12 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
+   * The range of destination port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
    * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
    * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98875,7 +99256,7 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. A smaller value indicates a higher priority. Valid values: 1 to 100.
+   * The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
    * 
    * Default value: 1.
    * 
@@ -98887,9 +99268,9 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   priority?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+   * The source IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
    * 
-   * This parameter is specified to meet quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98899,14 +99280,14 @@ export class RevokeSecurityGroupEgressRequestPermissions extends $tea.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The range of source ports that correspond to the transport layer protocol for security group rule N. Valid values:
+   * The range of source port numbers for the protocols specified in the security group rule. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port number range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
    * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
    * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
    * 
-   * This parameter is specified to meet quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+   * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -98968,8 +99349,8 @@ export class RunCommandRequestResourceTag extends $tea.Model {
    * 
    * *   This parameter and InstanceId.N are mutually exclusive.
    * *   Valid values of N: 1 to 10. The tag key cannot be an empty string.
-   * *   The number of instances that have the specified tags cannot exceed 50. If more than 50 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 50 instances.
-   * *   The tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * *   The number of instances that have the specified tags cannot exceed 100. If more than 100 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 100 instances.
+   * *   The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -99059,8 +99440,8 @@ export class RunCommandShrinkRequestResourceTag extends $tea.Model {
    * 
    * *   This parameter and InstanceId.N are mutually exclusive.
    * *   Valid values of N: 1 to 10. The tag key cannot be an empty string.
-   * *   The number of instances that have the specified tags cannot exceed 50. If more than 50 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 50 instances.
-   * *   The tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * *   The number of instances that have the specified tags cannot exceed 100. If more than 100 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 100 instances.
+   * *   The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -99567,7 +99948,7 @@ export class RunInstancesRequestSystemDisk extends $tea.Model {
 export class RunInstancesRequestArn extends $tea.Model {
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 0
@@ -99575,7 +99956,7 @@ export class RunInstancesRequestArn extends $tea.Model {
   assumeRoleFor?: number;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * null
@@ -99583,7 +99964,7 @@ export class RunInstancesRequestArn extends $tea.Model {
   roleType?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * null
@@ -99623,8 +100004,8 @@ export class RunInstancesRequestDataDisk extends $tea.Model {
    * @remarks
    * Specifies whether to enable the performance burst feature for data disk N. Valid values:
    * 
-   * *   true: enables the performance burst feature for the data disk.
-   * *   false: disables the performance burst feature for the data disk.
+   * *   true
+   * *   false
    * 
    * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
@@ -99666,8 +100047,8 @@ export class RunInstancesRequestDataDisk extends $tea.Model {
    * @remarks
    * Specifies whether to release data disk N when the instance is released. Valid values:
    * 
-   * *   true: releases data disk N when the instance is released.
-   * *   false: does not release data disk N when the instance is released.
+   * *   true
+   * *   false
    * 
    * Default value: true.
    * 
@@ -99716,8 +100097,8 @@ export class RunInstancesRequestDataDisk extends $tea.Model {
    * @remarks
    * Specifies whether to encrypt data disk N. Valid values:
    * 
-   * *   true: encrypts data disk N.
-   * *   false: does not encrypt data disk N.
+   * *   true
+   * *   false
    * 
    * Default value: false.
    * 
@@ -100202,10 +100583,45 @@ export class RunInstancesRequestNetworkOptions extends $tea.Model {
 }
 
 export class RunInstancesRequestPrivateDnsNameOptions extends $tea.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * true
+   */
   enableInstanceIdDnsAAAARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableInstanceIdDnsARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * true
+   */
   enableIpDnsARecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
   enableIpDnsPtrRecord?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * Custom
+   */
   hostnameType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101414,7 +101830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+   * Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -101496,7 +101912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+   * Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -101994,7 +102410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC).
+   * Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC). When you call this operation, you can specify parameters, such as NetworkInterfaceId, InstanceId, and NetworkCardIndex, in the request.
    * 
    * @remarks
    * Take note of the following items:
@@ -102079,7 +102495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC).
+   * Attaches an elastic network interface (ENI) to an Elastic Compute Service (ECS) instance that resides in a virtual private cloud (VPC). When you call this operation, you can specify parameters, such as NetworkInterfaceId, InstanceId, and NetworkCardIndex, in the request.
    * 
    * @remarks
    * Take note of the following items:
@@ -103116,8 +103532,8 @@ export default class Client extends OpenApi {
    * Take note of the following items:
    * *   Only custom images that are in the `Available` state can be copied.
    * *   Custom images that you want to copy must belong to your Alibaba Cloud account or be shared to you by others, and cannot be copied across accounts.
-   * *   When an image is being copied, the image cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
-   * *   A region can have only one ongoing image copy task at a time. Other image copy tasks queue up to run in sequence after the ongoing task is completed.
+   * *   When an image is being copied, the image copy cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
+   * *   A region supports only up to five concurrent image copy tasks. Excess image copy tasks are queued for execution.
    * *   You can configure `ResourceGroupId` to specify the resource group to which to assign the new image. If you do not configure `ResourceGroupId`, the new image is assigned to the default resource group.
    * 
    * @param request - CopyImageRequest
@@ -103209,8 +103625,8 @@ export default class Client extends OpenApi {
    * Take note of the following items:
    * *   Only custom images that are in the `Available` state can be copied.
    * *   Custom images that you want to copy must belong to your Alibaba Cloud account or be shared to you by others, and cannot be copied across accounts.
-   * *   When an image is being copied, the image cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
-   * *   A region can have only one ongoing image copy task at a time. Other image copy tasks queue up to run in sequence after the ongoing task is completed.
+   * *   When an image is being copied, the image copy cannot be deleted by calling the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation. However, you can cancel the ongoing image copy task by calling the [CancelCopyImage](https://help.aliyun.com/document_detail/25539.html) operation.
+   * *   A region supports only up to five concurrent image copy tasks. Excess image copy tasks are queued for execution.
    * *   You can configure `ResourceGroupId` to specify the resource group to which to assign the new image. If you do not configure `ResourceGroupId`, the new image is assigned to the default resource group.
    * 
    * @param request - CopyImageRequest
@@ -103339,19 +103755,20 @@ export default class Client extends OpenApi {
    * Creates an activation code. The activation code is used to register servers that are not provided by Alibaba Cloud as Alibaba Cloud managed instances.
    * 
    * @remarks
-   * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance. 
-   * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions: 
-   * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-   * - CentOS 6, CentOS 7, CentOS 8, and later
-   * - Debian 8, Debian 9, Debian 10, and later
-   * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-   * - CoreOS
-   * - OpenSUSE
-   * - Red Hat 5, Red Hat 6, Red Hat 7, and later
-   * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-   * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
-   * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes. 
-   * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
+   * ## [](#)Usage notes
+   * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops on the managed instance.
+   * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs one of the following operating systems:
+   * *   Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 and later
+   * *   CentOS 6, CentOS 7, and CentOS 8 and later
+   * *   Debian 8, Debian 9, and Debian 10 and later
+   * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, and Ubuntu 18 and later
+   * *   CoreOS
+   * *   OpenSUSE
+   * *   Red Hat 5, Red Hat 6, and Red Hat 7 and later
+   * *   SUSE Linux Enterprise Server 11, SUSE Linux Enterprise Server 12, and SUSE Linux Enterprise Server 15 and later
+   * *   Windows Server 2012, Windows Server 2016, and Windows Server 2019 and later
+   * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can create additional activation codes.
+   * >  To obtain the usage of activation codes, go to the **ECS Cloud Assistant** page, click the **Manage Instances** tab, and then click **Register Instance**.
    * 
    * @param request - CreateActivationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103433,19 +103850,20 @@ export default class Client extends OpenApi {
    * Creates an activation code. The activation code is used to register servers that are not provided by Alibaba Cloud as Alibaba Cloud managed instances.
    * 
    * @remarks
-   * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance. 
-   * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions: 
-   * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-   * - CentOS 6, CentOS 7, CentOS 8, and later
-   * - Debian 8, Debian 9, Debian 10, and later
-   * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-   * - CoreOS
-   * - OpenSUSE
-   * - Red Hat 5, Red Hat 6, Red Hat 7, and later
-   * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-   * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
-   * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes. 
-   * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
+   * ## [](#)Usage notes
+   * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops on the managed instance.
+   * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs one of the following operating systems:
+   * *   Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 and later
+   * *   CentOS 6, CentOS 7, and CentOS 8 and later
+   * *   Debian 8, Debian 9, and Debian 10 and later
+   * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, and Ubuntu 18 and later
+   * *   CoreOS
+   * *   OpenSUSE
+   * *   Red Hat 5, Red Hat 6, and Red Hat 7 and later
+   * *   SUSE Linux Enterprise Server 11, SUSE Linux Enterprise Server 12, and SUSE Linux Enterprise Server 15 and later
+   * *   Windows Server 2012, Windows Server 2016, and Windows Server 2019 and later
+   * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can create additional activation codes.
+   * >  To obtain the usage of activation codes, go to the **ECS Cloud Assistant** page, click the **Manage Instances** tab, and then click **Register Instance**.
    * 
    * @param request - CreateActivationRequest
    * @returns CreateActivationResponse
@@ -104210,7 +104628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with \\`http://\\` or \\`https://\\`. It can contain letters, digits, colons (:), underscores (\\_), and hyphens (-).
    * 
    * @param request - CreateDeploymentSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104289,7 +104707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with \\`http://\\` or \\`https://\\`. It can contain letters, digits, colons (:), underscores (\\_), and hyphens (-).
    * 
    * @param request - CreateDeploymentSetRequest
    * @returns CreateDeploymentSetResponse
@@ -106372,7 +106790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an elastic network interface (ENI).
+   * Creates an elastic network interface (ENI). When you call this operation, you can specify parameters, such as VSwitchId and PrimaryIpAddress, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -106551,7 +106969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an elastic network interface (ENI).
+   * Creates an elastic network interface (ENI). When you call this operation, you can specify parameters, such as VSwitchId and PrimaryIpAddress, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -106574,7 +106992,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * Grants a permission on an elastic network interface (ENI) to an Alibaba Cloud partner (a certified ISV) or an individual user.
+   * 
+   * @remarks
+   * Before you call this operation, submit a ticket to apply for using this operation.
    * 
    * @param request - CreateNetworkInterfacePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -106637,7 +107058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * Grants a permission on an elastic network interface (ENI) to an Alibaba Cloud partner (a certified ISV) or an individual user.
+   * 
+   * @remarks
+   * Before you call this operation, submit a ticket to apply for using this operation.
    * 
    * @param request - CreateNetworkInterfacePermissionRequest
    * @returns CreateNetworkInterfacePermissionResponse
@@ -109646,7 +110070,7 @@ export default class Client extends OpenApi {
    *     *   If the ENI is in the Deleting state, the ENI deletion request is sent and the ENI is being deleted.
    *     *   If the ENI is not found, the ENI is deleted.
    *     *   If the ENI is stuck in the Deleting state, the ENI fails to be deleted. You can re-initiate the request to delete the ENI.
-   * For information about examples on how to call the DeleteNetworkInterface operation, see[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+   * For information about examples on how to call the DeleteNetworkInterface operation, see [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
    * 
    * @param request - DeleteNetworkInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -109715,7 +110139,7 @@ export default class Client extends OpenApi {
    *     *   If the ENI is in the Deleting state, the ENI deletion request is sent and the ENI is being deleted.
    *     *   If the ENI is not found, the ENI is deleted.
    *     *   If the ENI is stuck in the Deleting state, the ENI fails to be deleted. You can re-initiate the request to delete the ENI.
-   * For information about examples on how to call the DeleteNetworkInterface operation, see[Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
+   * For information about examples on how to call the DeleteNetworkInterface operation, see [Delete an ENI](https://help.aliyun.com/document_detail/471553.html).
    * 
    * @param request - DeleteNetworkInterfaceRequest
    * @returns DeleteNetworkInterfaceResponse
@@ -117064,7 +117488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an elastic network interface (ENI).
+   * Queries the details of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and Attribute, in the request.
    * 
    * @remarks
    * ## Debugging
@@ -117131,7 +117555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an elastic network interface (ENI).
+   * Queries the details of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and Attribute, in the request.
    * 
    * @remarks
    * ## Debugging
@@ -117224,12 +117648,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more elastic network interfaces (ENIs).
+   * Queries the details of one or more elastic network interfaces (ENIs). When you call this operation, you can specify parameters, such as ResourceGroupId, VSwitchId, and InstanceId, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
-   * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-   * >  If you specify `MaxResults` or `NextToken`, the system uses the preceding paged query method to return results. Otherwise, the system returns results based on the combination of `PageNumber` and `PageSize`.
+   * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. Take note of the following items:
+   * *   During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results.
+   * *   When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
    * 
    * @param request - DescribeNetworkInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -117356,12 +117781,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more elastic network interfaces (ENIs).
+   * Queries the details of one or more elastic network interfaces (ENIs). When you call this operation, you can specify parameters, such as ResourceGroupId, VSwitchId, and InstanceId, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
-   * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-   * >  If you specify `MaxResults` or `NextToken`, the system uses the preceding paged query method to return results. Otherwise, the system returns results based on the combination of `PageNumber` and `PageSize`.
+   * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. Take note of the following items:
+   * *   During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results.
+   * *   When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
    * 
    * @param request - DescribeNetworkInterfacesRequest
    * @returns DescribeNetworkInterfacesResponse
@@ -122782,7 +123208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances.
+   * Runs a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as CommandId, InstanceId, and ResourceGroupId, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -122924,7 +123350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances.
+   * Runs a Cloud Assistant command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as CommandId, InstanceId, and ResourceGroupId, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -126478,7 +126904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the metadata of an Elastic Compute Service (ECS) instance.
+   * Modifies the metadata of an Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceID and HttpEndpoint, in the request.
    * 
    * @param request - ModifyInstanceMetadataOptionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -126541,7 +126967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the metadata of an Elastic Compute Service (ECS) instance.
+   * Modifies the metadata of an Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceID and HttpEndpoint, in the request.
    * 
    * @param request - ModifyInstanceMetadataOptionsRequest
    * @returns ModifyInstanceMetadataOptionsResponse
@@ -127292,7 +127718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes, such as the name, description, and security group of an elastic network interface (ENI).
+   * Modifies the attributes, such as the name, description, and security groups, of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and SecurityGroupId, in the request.
    * 
    * @param request - ModifyNetworkInterfaceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -127387,7 +127813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes, such as the name, description, and security group of an elastic network interface (ENI).
+   * Modifies the attributes, such as the name, description, and security groups, of an elastic network interface (ENI). When you call this operation, you can specify parameters, such as NetworkInterfaceId and SecurityGroupId, in the request.
    * 
    * @param request - ModifyNetworkInterfaceAttributeRequest
    * @returns ModifyNetworkInterfaceAttributeResponse
@@ -129395,6 +129821,7 @@ export default class Client extends OpenApi {
    * Purchases one or more storage capacity units (SCUs).
    * 
    * @remarks
+   * ## [](#)Usage notes
    * Before you call this operation, make sure that you are familiar with the billing and pricing of SCUs. For more information, see [Storage capacity units](https://help.aliyun.com/document_detail/137897.html).
    * 
    * @param request - PurchaseStorageCapacityUnitRequest
@@ -129485,6 +129912,7 @@ export default class Client extends OpenApi {
    * Purchases one or more storage capacity units (SCUs).
    * 
    * @remarks
+   * ## [](#)Usage notes
    * Before you call this operation, make sure that you are familiar with the billing and pricing of SCUs. For more information, see [Storage capacity units](https://help.aliyun.com/document_detail/137897.html).
    * 
    * @param request - PurchaseStorageCapacityUnitRequest
@@ -130557,6 +130985,84 @@ export default class Client extends OpenApi {
   async renewDedicatedHosts(request: RenewDedicatedHostsRequest): Promise<RenewDedicatedHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewDedicatedHostsWithOptions(request, runtime);
+  }
+
+  /**
+   * 续费
+   * 
+   * @param request - RenewElasticityAssurancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewElasticityAssurancesResponse
+   */
+  async renewElasticityAssurancesWithOptions(request: RenewElasticityAssurancesRequest, runtime: $Util.RuntimeOptions): Promise<RenewElasticityAssurancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.privatePoolOptions)) {
+      query["PrivatePoolOptions"] = request.privatePoolOptions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewElasticityAssurances",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewElasticityAssurancesResponse>(await this.callApi(params, req, runtime), new RenewElasticityAssurancesResponse({}));
+  }
+
+  /**
+   * 续费
+   * 
+   * @param request - RenewElasticityAssurancesRequest
+   * @returns RenewElasticityAssurancesResponse
+   */
+  async renewElasticityAssurances(request: RenewElasticityAssurancesRequest): Promise<RenewElasticityAssurancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewElasticityAssurancesWithOptions(request, runtime);
   }
 
   /**
@@ -131678,7 +132184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a shell, PowerShell, or batch command on Elastic Compute Service (ECS) instances.
+   * Runs a shell, PowerShell, or batch command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as Type and CommandContent, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -131850,7 +132356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a shell, PowerShell, or batch command on Elastic Compute Service (ECS) instances.
+   * Runs a shell, PowerShell, or batch command on one or more Elastic Compute Service (ECS) instances. When you call this operation, you can specify parameters, such as Type and CommandContent, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -131880,7 +132386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates pay-as-you-go or subscription Elastic Compute Service (ECS) instances.
+   * Creates one or more pay-as-you-go or subscription Elastic Compute Service (ECS) instances. When you call this operation, you can specify multiple parameters, such as ImageId, InstanceType, SecurityGroupId, and VSwitchId, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -132333,7 +132839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates pay-as-you-go or subscription Elastic Compute Service (ECS) instances.
+   * Creates one or more pay-as-you-go or subscription Elastic Compute Service (ECS) instances. When you call this operation, you can specify multiple parameters, such as ImageId, InstanceType, SecurityGroupId, and VSwitchId, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -133114,8 +133620,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
-   * *   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+   * \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+   * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -133179,8 +133685,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
-   * *   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+   * \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+   * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
    * 
    * @remarks
    * ## [](#)Usage notes
