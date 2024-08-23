@@ -343,7 +343,7 @@ export class AISearchV2ResponseBodyHeader extends $tea.Model {
    * @example
    * 1403
    */
-  responseTime?: string;
+  responseTime?: number;
   static names(): { [key: string]: string } {
     return {
       event: 'event',
@@ -356,7 +356,7 @@ export class AISearchV2ResponseBodyHeader extends $tea.Model {
     return {
       event: 'string',
       eventId: 'string',
-      responseTime: 'string',
+      responseTime: 'number',
     };
   }
 
