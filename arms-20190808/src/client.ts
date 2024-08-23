@@ -5535,6 +5535,9 @@ export class CreateEnvironmentRequest extends $tea.Model {
    * @remarks
    * The ID of the Grafana workspace associated with the environment. If this parameter is left empty, the default shared Grafana workspace is used.
    * 
+   * @example
+   * grafana-rnglkcdrntlhk0****
+   * 
    * **if can be null:**
    * true
    */
@@ -7276,19 +7279,15 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
    * An array of alert event group objects.
    * 
    * *   If you do not specify the groupingFields field, all alerts will be sent to contacts based on `alertname`.
-   * 
    * *   If you specify the groupingFields field, alerts with the same field will be sent to contacts in one notification.
    * 
-   *     Sample statement:
+   * Sample statement:
    * 
-   * ```
-   * 
-   * { 
-   * "groupWait":5,    // The waiting time for grouping. 
-   * "groupInterval":30,     // The time interval of grouping. 
-   * "groupingFields":["alertname"]       // The field that is used to group alert events. 
-   * }
-   * ```
+   *     { 
+   *     "groupWait":5,    // The waiting time for grouping. 
+   *     "groupInterval":30,     // The time interval of grouping. 
+   *     "groupingFields":["alertname"]       // The field that is used to group alert events. 
+   *     }
    * 
    * @example
    * { 	"groupWait":5, 	"groupInterval":30, 	"groupingFields":["alertname"] }
@@ -7315,22 +7314,19 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
   integrationId?: number;
   /**
    * @remarks
-   * The matching rules. Sample statement:
+   * The matching rules. Format:
    * 
-   * ```
-   * 
-   * [
-   *  {
-   *  "matchingConditions": [
-   *  { 
-   *  "value": "test",    // The value of the matching condition. 
-   *  "key": "alertname",     // The key of the matching condition. 
-   *  "operator": "eq"   // The logical operator of the matching condition, including eq (equal to), neq (not equal to), in (contains), nin (does not contain), re (regular expression match), and nre (regular expression mismatch).   
-   *  }
-   *  ]
-   *  } 
-   *  ]
-   * ```
+   *     [
+   *      {
+   *      "matchingConditions": [
+   *      { 
+   *      "value": "test",    // The value of the matching condition. 
+   *      "key": "alertname",     // The key of the matching condition. 
+   *      "operator": "eq"   // The logical operator of the matching condition, including eq (equal to), neq (not equal to), in (contains), nin (does not contain), re (regular expression match), and nre (regular expression mismatch).   
+   *      }
+   *      ]
+   *      } 
+   *      ]
    * 
    * @example
    * [ 		 { 		 "matchingConditions": [          { 		 "value": "test", 		 "key": "alertname", 		 "operator": "eq"         }       ]     }   ]
@@ -7355,14 +7351,9 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
    *      "notifyEndTime":"23:59",       // The end time of the notification window. 
    *      "notifyChannels":["dingTalk", "email", "sms", "tts", "webhook"],       // The notification methods. Valid values: dingTalk, email, sms, tts, and webhook. 
    *      "notifyObjects":[{       // An array of notification objects. 
-   *      "notifyObjectType":"CONTACT",       // The type of the notification object. Valid values: CONTACT (contact), CONTACT_GROUP (contact group), ARMS_CONTACT (ARMS contact), ARMS_CONTACT_GROUP (ARMS contact group), DING_ROBOT_GROUP (DingTalk, Lark, WeCom, or IM chatbot), and CONTACT_SCHEDULE (user on duty defined by a schedule). 
+   *      "notifyObjectType":"CONTACT",       // The type of the notification object. Valid values: CONTACT (contact), CONTACT_GROUP (contact group), ARMS_CONTACT (ARMS contact), ARMS_CONTACT_GROUP (ARMS contact group), DING_ROBOT_GROUP (DingTalk, Lark, WeCom, or IM robot), and CONTACT_SCHEDULE (user on duty defined by a schedule). 
    *      "notifyObjectId":123,       // The ID of the notification object. 
    *      "notifyObjectName":"test"       // The name of the notification object. 
-   *      "notifyChannels": [ // The notification methods specified for a contact. Valid values: email, sms, and tts.
-   *                     "email",		
-   *                     "sms",
-   *                     "tts"
-   *                 ],
    *      }]
    * 
    * This parameter is required.
@@ -7376,17 +7367,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
    * The notification template. The default notification template is provided below the table.
    * 
    * @example
-   * {{if .commonLabels.clustername }}
-   * 
-   *  &gt;  Cluster Name: {{ .commonLabels.clustername }} 
-   * 
-   *  {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * 
-   *  &gt;  App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} 
-   * 
-   *  {{ end }}{{ for .alerts }} &gt;  {{ .annotations.message }} {{if .generatorURL }} [Details]({{.generatorURL}})  {{end}} {{if .annotations._aliyun_arms_insights_analyze_link }}[&lt;font color=\\"#ff0000\\"&gt;diagnostic analysis&lt;/font&gt;]({{ .annotations._aliyun_arms_insights_analyze_link}}){{ end }}{{if  eq "1" .labels._aliyun_arms_denoise_code }} (Important:{{.labels._aliyun_arms_important_reason }}) {{end}}
-   * 
-   * {{end}}
+   * "robotContent":"{{if .commonLabels.clustername }} > Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} > Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}{{ for .alerts }} > {{.annotations.message}} {{if .generatorURL }} [Link]\\({{.generatorURL}}) {{ end }} {{if eq "true" .labels._aliyun_arms_is_denoise_filtered }} (Suspected noise) {{end}} {{end}}"
    */
   notifyTemplate?: string;
   /**
@@ -7418,7 +7399,7 @@ export class CreateOrUpdateNotificationPolicyRequest extends $tea.Model {
   repeatInterval?: number;
   /**
    * @remarks
-   * Indicates whether the system sends a notification to the contacts when the status of an alert changes to Resolved. Default value: true. Valid values:
+   * Specifies whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. ARMS notifies contacts when the alert status changes to Resolved.
    * 
    * *   `true`: The system sends a notification.
    * *   `false`: The system does not send a notification.
@@ -14067,16 +14048,14 @@ export class DeleteSilencePolicyResponse extends $tea.Model {
 export class DeleteSourceMapRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the SourceMap file.
+   * The IDs of the SourceMap files.
    * 
    * This parameter is required.
    */
   fidList?: string[];
   /**
    * @remarks
-   * The process ID (PID) of the application.
-   * 
-   * Log on to the ARMS console. In the left-side navigation pane, choose **Browser Monitoring** > **Browser Monitoring**. On the **Browser Monitoring** page, click the name of an application. The URL in the browser address bar contains the PID of this application in the format of `pid=xxx`. As the browser is encoded, the PID needs to be modified. Assume that the PID contained is `xxx%4074xxx`. You need to **replace** \\*\\*%40 with @\\*\\* and change the PID to `xxx@74xxx`.
+   * The process identifier (PID) of the application.
    * 
    * This parameter is required.
    * 
@@ -14086,6 +14065,8 @@ export class DeleteSourceMapRequest extends $tea.Model {
   pid?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14116,16 +14097,14 @@ export class DeleteSourceMapRequest extends $tea.Model {
 export class DeleteSourceMapShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the SourceMap file.
+   * The IDs of the SourceMap files.
    * 
    * This parameter is required.
    */
   fidListShrink?: string;
   /**
    * @remarks
-   * The process ID (PID) of the application.
-   * 
-   * Log on to the ARMS console. In the left-side navigation pane, choose **Browser Monitoring** > **Browser Monitoring**. On the **Browser Monitoring** page, click the name of an application. The URL in the browser address bar contains the PID of this application in the format of `pid=xxx`. As the browser is encoded, the PID needs to be modified. Assume that the PID contained is `xxx%4074xxx`. You need to **replace** \\*\\*%40 with @\\*\\* and change the PID to `xxx@74xxx`.
+   * The process identifier (PID) of the application.
    * 
    * This parameter is required.
    * 
@@ -14135,6 +14114,8 @@ export class DeleteSourceMapShrinkRequest extends $tea.Model {
   pid?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14164,11 +14145,20 @@ export class DeleteSourceMapShrinkRequest extends $tea.Model {
 
 export class DeleteSourceMapResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the SourceMap files are deleted. Valid values:
+   * 
+   * *   success: The SourceMap files are deleted.
+   * *   false: The SourceMap files fail to be deleted.
+   * 
    * @example
    * success
    */
   data?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
    */
@@ -16425,11 +16415,130 @@ export class DescribeWebhookContactsResponse extends $tea.Model {
 export class DoInsightsActionRequest extends $tea.Model {
   /**
    * @remarks
+   * The query parameters. Different module types correspond to different query parameters.
+   * 
+   * *   QueryTopo
+   * 
+   * <!---->
+   * 
+   *     {
+   *         "regionId": string,  # The region ID.
+   *         "startTime": string, # The beginning of the time range to query, in the yyyy-MM-dd HH:mm:ss format.
+   *         "endTime": string, # The end of the time range to query, in the yyyy-MM-dd HH:mm:ss format.
+   *         "edgeFilter": { # The edge filter condition.
+   *             "includeTypes": [EdgeType], # The edge types to be included.
+   *             "excludeTypes": [EdgeType], # The edge types to be excluded.
+   *             "fromNodeFilter": { # The source node filter condition.
+   *                 "includeEntityTypes": [EntityType] # The entity types to be included.
+   *                 "excludeEntityTypes": [EntityType] # The entity types to be excluded.
+   *             },
+   *             "toNodeFilter": {  # The destination node filter condition.
+   *                 "includeEntityTypes": [EntityType] # The entity types to be included.
+   *                 "excludeEntityTypes": [EntityType] # The entity types to be excluded.
+   *             }
+   *         },
+   *         "includeIsolatedNodes": bool, # Specifies whether to include isolated nodes.
+   *         "isolatedNodeFilter": { # The isolated node filter condition.
+   *             "includeEntityTypes": [EntityType] # The entity types to be included.
+   *             "excludeEntityTypes": [EntityType] # The entity types to be excluded.
+   *          },
+   *         "queryMetrics": boolean, # Specifies whether to query related red metrics during the metric query.
+   *         "timeoutSecs": int, # The timeout duration for querying metrics.
+   *     	"redOption": { # A metric query option.
+   *     		"skipRt": boolean,  # Specifies whether to skip querying the response time.
+   *     		"skipCount": boolean, # Specifies whether to skip querying the number of requests.
+   *     		"skipError": boolean # Specifies whether to skip querying the number of errors.
+   *     	}
+   *     }
+   * 
+   * *   QueryTopoRed
+   * 
+   * <!---->
+   * 
+   *     {
+   *         "regionId": string,  # The region ID.
+   *         "startTime": string, # The beginning of the time range to query, in the yyyy-MM-dd HH:mm:ss format.
+   *         "endTime": string,   # The end of the time range to query, in the yyyy-MM-dd HH:mm:ss format.
+   *         "edgeIds": [string]  # The IDs of the edges to query.
+   *         "nodeIds": [string]  # The IDs of the nodes to query.
+   *         "redOption": { # A metric query option.
+   *             "skipRt": boolean,  # Specifies whether to skip querying the response time.
+   *             "skipCount": boolean, # Specifies whether to skip querying the number of requests.
+   *             "skipError": boolean # Specifies whether to skip querying the number of errors.
+   *         }
+   *     }
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * - QueryTopo
+   * 
+   * 
+   * 	{
+   * 		"regionId": "cn-hangzhou",
+   * 		"startTime": "2024-07-23 19:16:00",  
+   * 		"endTime": "2024-07-23 20:16:00", # Limit the topology query range to 2024-07-23 19:16:00 to 2024-07-23 20:16:00
+   * 		"edgeFilter": {
+   * 			"includeTypes": [
+   * 				"CALLS" # The resulting topology only contains edges of call relationships.
+   * 			],
+   * 			"fromNodeFilter": {
+   * 				"includeEntityTypes": [ # The source node type of the call edge must be application type
+   * 					"APPLICATION" 
+   * 				]
+   * 			},
+   * 			"toNodeFilter": {
+   * 				"includeEntityTypes": [ # The target node of the call edge must be an application type or an external service type.
+   * 					"APPLICATION",
+   * 					"EXTERNAL_SERVICE"
+   * 				]
+   * 			}
+   * 		},
+   * 		"includeIsolatedNodes": false, # The resulting topology does not contain isolated nodes
+   * 		"queryMetrics": true, # Synchronously query the RED indicator
+   * 		"timeoutSecs": 20, #It takes up to 20 seconds to query indicator data
+   * 		"redOption": { # The query indicators include time consumption, request volume, and query skip errors.
+   * 			"skipRt": false,
+   * 			"skipCount": false,
+   * 			"skipError": true
+   * 		}
+   * 	}
+   * 
+   * 
+   * 
+   * - QueryTopoRed
+   * 
+   * 
+   * 	{
+   * 		"regionId": "cn-hangzhou",
+   * 		"startTime": "2024-07-23 10:00:00",
+   * 		"endTime": "2024-07-23 14:00:00",
+   * 		"edgeIds": [
+   * 			"097843bd50b06fbe2c6c1d8b761a7e8b"
+   * 		],
+   * 		"nodeIds": [
+   * 			"23d973261c6923da1b5b7a571ec1aa8b"
+   * 		],
+   * 		"redOption": { # The query indicators include time consumption, request volume, and query skip errors.
+   * 			"skipCount": false,
+   * 			"skipError": true,
+   * 			"skipRt": false
+   * 		}
+   * 	}
    */
   data?: string;
   /**
    * @remarks
+   * The module type. Valid values:
+   * 
+   * *   QueryTopo: queries the topology.
+   * *   QueryTopoRed: queries the red topology metrics, such as the number of requests, response time, and number of errors.
+   * 
+   * Notice: The preceding features are still in canary release and are disabled by default. If you need to enable these features, submit a ticket in the Application Real-Time Monitoring Service (ARMS) console.
+   * 
+   * *
+   * *
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16456,14 +16565,135 @@ export class DoInsightsActionRequest extends $tea.Model {
 }
 
 export class DoInsightsActionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Status code. 200 means success, other status codes are exceptions.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The response parameters vary with the value of module.
+   * 
+   * *   QueryTopo
+   * 
+   *         {
+   *          "nodes": [Node] # The collection of nodes. For more information, see the "Node" section of this topic.
+   *          "edges": [Edge] # The collection of edges. For more information, see the "Edge" section of this topic.
+   *         }
+   * 
+   * *   QueryTopoRed
+   * 
+   *         {
+   *           "nodeRed": {
+   *           	"nodeId": {
+   *           		"count": double, # The total number of requests in the specified time range.
+   *           		"error": double, # The total number of errors in the specified time range.
+   *           		"rt": double, # The average response time in the specified time range. Unit: milliseconds.
+   *           	}
+   *           },
+   *           "edgeRed": {
+   *           	"edgeId": {
+   *           	    "count": double, # The total number of requests in the specified time range.
+   *           		"error": double, # The total number of errors in the specified time range.
+   *           		"rt": double, # The average response time in the specified time range. Unit: milliseconds.
+   *           	}
+   *           }
+   * 
+   * }
+   * 
+   * ```
+   * ```
+   * 
+   * @example
+   * - QueryTopo
+   * 
+   * 
+   * 	{
+   * 		"nodes": [
+   * 			{
+   * 				"nodeId": "3bfe1a747389273388182760406c079d",
+   * 				"entity": {
+   * 					"regionId": "cn-hangzhou",
+   * 					"appType": "TRACE",
+   * 					"appId": "xxxxxxxxxxxxxxxx",
+   * 					"name": "prometheus-pop-cn-hangzhou",
+   * 					"entityId": "3bfe1a747389273388182760406c079d",
+   * 					"firstSeenTms": 1721733226981,
+   * 					"lastSeenTms": 1721789171614,
+   * 					"type": "APPLICATION"
+   * 				},
+   * 				"attrs": {
+   * 					"RED": {
+   * 						"count": 643848.0,
+   * 						"error": 0.0,
+   * 						"rt": 172.31701892372112
+   * 					}
+   * 				}
+   * 			}
+   * 		],
+   * 		"edges": [
+   * 			{
+   * 				"from": "98b4184b22e588cf86e9a29aa4179606",
+   * 				"to": "98b4184b22e588cf86e9a29aa4179606",
+   * 				"type": "CALLS",
+   * 				"attrs": {
+   * 					"RED": {
+   * 						"count": 4.0,
+   * 						"error": 0.0,
+   * 						"rt": 37.0
+   * 					}
+   * 				},
+   * 				"edgeId": "5d611597e4b0013d0947615c9eca4de6",
+   * 				"firstSeenTms": 1721783795125,
+   * 				"lastSeenTms": 1721787371614
+   * 			}
+   * 		]
+   * 	}
+   * 
+   * 
+   * - QueryTopoRed
+   * 
+   * 	{
+   * 		"nodeRed": {
+   * 			"361d9f32e58cef316bf2355f3ff05575": {
+   * 				"count": 3258110.0,
+   * 				"error": 74.0,
+   * 				"rt": 167.39844355494878
+   * 			}
+   * 		},
+   * 		"edgeRed": {}
+   * 	}
+   */
   data?: string;
+  /**
+   * @remarks
+   * Information returned when the call fails.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 626037F5-FDEB-45B0-804C-B3C92797A64E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the query is successful:
+   * 
+   * - true
+   * - false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -20847,6 +21077,9 @@ export class GetRumOcuStatisticDataResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message returned if the request failed.
+   * 
+   * @example
+   * null
    */
   message?: string;
   /**
@@ -26535,6 +26768,9 @@ export class ListNotificationPoliciesRequest extends $tea.Model {
   /**
    * @remarks
    * Specifies whether to enable simple mode.
+   * 
+   * @example
+   * true
    */
   directedMode?: boolean;
   /**
@@ -26576,7 +26812,7 @@ export class ListNotificationPoliciesRequest extends $tea.Model {
   page?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The ID of the region. Default value: **cn-hangzhou**.
    * 
    * @example
    * cn-hangzhou
@@ -40397,7 +40633,10 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyGroup
   groupWait?: number;
   /**
    * @remarks
-   * The field that is used for grouping.
+   * An array of alert event group objects.
+   * 
+   * *   If you do not specify the groupingFields field, all alerts will be sent to contacts based on `alertname`.
+   * *   If you specify the groupingFields field, alerts with the same field will be sent to contacts in one notification.
    */
   groupingFields?: string[];
   static names(): { [key: string]: string } {
@@ -40505,7 +40744,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
   notifyChannels?: string[];
   /**
    * @remarks
-   * The ID of the notification contact.
+   * The ID of the notification object.
    * 
    * @example
    * 123
@@ -40523,11 +40762,11 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * @remarks
    * The type of the notification object. Valid values:
    * 
-   * *   CONTACT: individual contact
+   * *   CONTACT: contact
    * *   CONTACT_GROUP: contact group
-   * *   ARMS_CONTACT: individual ARMS contact
+   * *   ARMS_CONTACT: ARMS contact
    * *   ARMS_CONTACT_GROUP: ARMS contact group
-   * *   DING_ROBOT_GROUP: DingTalk, Lark, or WeCom IM chatbot
+   * *   DING_ROBOT_GROUP: DingTalk, Lark, WeCom, or IM robot
    * *   CONTACT_SCHEDULE: user on duty defined by a schedule
    * 
    * @example
@@ -40560,13 +40799,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
 export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotifyRule extends $tea.Model {
   /**
    * @remarks
-   * The notification methods. Valid values: 
-   * 
-   * - `dingTalk`: DingTalk
-   * - `email`: email
-   * - `sms`: text message
-   * - `tts`: phone call
-   * - `webhook`: webhook
+   * The notification method.
    */
   notifyChannels?: string[];
   /**
@@ -40579,7 +40812,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
   notifyEndTime?: string;
   /**
    * @remarks
-   * An array of notification contact objects.
+   * An array of notification objects.
    */
   notifyObjects?: CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotifyRuleNotifyObjects[];
   /**
@@ -40619,13 +40852,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert notification sent through email.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Alert Time: {{ .startTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }}  {{if .generatorURL }}  &lt;a href="{{.generatorURL}}" > Details&lt;/a&gt;
-   *  {{ end }} {{ end }}
+   * Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{if .generatorURL }} \\<a href="{{.generatorURL}}" >Link\\</a> {{end}} {{end}}
    */
   emailContent?: string;
   /**
@@ -40633,13 +40860,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert resolution notification sent through email.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Recover Time: {{ .endTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }}  {{if .generatorURL }} &lt;a href="{{.generatorURL}}" > Details&lt;/a&gt;
-   *  {{ end }} {{ end }}
+   * Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{if .generatorURL }} \\<a href="{{.generatorURL}}" >Link\\</a> {{end}} {{end}}
    */
   emailRecoverContent?: string;
   /**
@@ -40663,17 +40884,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert notification sent by the IM robot.
    * 
    * @example
-   * {{if .commonLabels.clustername }}
-   * 
-   *  &gt;  Cluster Name: {{ .commonLabels.clustername }} 
-   * 
-   *  {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * 
-   *  &gt;  App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} 
-   * 
-   *  {{ end }}{{ for .alerts }} &gt;  {{ .annotations.message }} {{if .generatorURL }} [Details]({{.generatorURL}})  {{end}} {{if .annotations._aliyun_arms_insights_analyze_link }}[&lt;font color=\\"#ff0000\\"&gt;diagnostic analysis&lt;/font&gt;]({{ .annotations._aliyun_arms_insights_analyze_link}}){{ end }}{{if  eq "1" .labels._aliyun_arms_denoise_code }} (Important:{{.labels._aliyun_arms_important_reason }}) {{end}}
-   * 
-   * {{end}}
+   * {{if .commonLabels.clustername }} > Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} > Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}{{ for .alerts }}> {{.annotations.message}} {{if .generatorURL }} [Link]\\({{.generatorURL}}) {{ end }} {{if eq "true" .labels._aliyun_arms_is_denoise_filtered }} (Suspected noise) {{end}} {{end}}
    */
   robotContent?: string;
   /**
@@ -40681,13 +40892,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert notification sent through text message.
    * 
    * @example
-   * {{ .level }}Alert Occurs
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Alert Time: {{ .startTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<SmsContent>Notification on the occurrence of a {{ .level }} alert. Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</SmsContent>
    */
   smsContent?: string;
   /**
@@ -40695,13 +40900,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert resolution notification sent through text message.
    * 
    * @example
-   * Alert Recovery Notification
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Recover Time: {{ .endTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<SmsRecoverContent>Alert resolution notification. Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</SmsRecoverContent>
    */
   smsRecoverContent?: string;
   /**
@@ -40709,12 +40908,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert notification by phone.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Alert Time: {{ .startTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<TtsContent>Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</TtsContent>
    */
   ttsContent?: string;
   /**
@@ -40722,12 +40916,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotif
    * The content of the alert resolution notification by phone.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Recover Time: {{ .endTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<TtsRecoverContent>Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</TtsRecoverContent>
    */
   ttsRecoverContent?: string;
   static names(): { [key: string]: string } {
@@ -40769,7 +40958,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
    * Specifies whether to enable simple mode.
    * 
    * @example
-   * true
+   * false
    */
   directedMode?: boolean;
   /**
@@ -40803,7 +40992,7 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
   integrationId?: number;
   /**
    * @remarks
-   * An array of alert event matching rule objects.
+   * The matching rules.
    */
   matchingRules?: CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyMatchingRules[];
   /**
@@ -40821,15 +41010,15 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
   notifyRule?: CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotifyRule;
   /**
    * @remarks
-   * An array of notification template objects.
+   * The notification template.
    */
   notifyTemplate?: CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyNotifyTemplate;
   /**
    * @remarks
-   * Indicates whether a notification is resent for a long-lasting unresolved alert. Default value: true. Valid values:  
+   * Indicates whether a notification is resent for a long-lasting unresolved alert. Default value: true. Valid values:
    * 
-   * - `true`: The system resends a notification for a long-lasting unresolved alert at a specified time interval.
-   * - `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
+   * *   `true`: The system resends a notification for a long-lasting unresolved alert at a specified time interval.
+   * *   `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
    * 
    * @example
    * true
@@ -40845,10 +41034,10 @@ export class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy exte
   repeatInterval?: number;
   /**
    * @remarks
-   * Indicates whether the system sends a notification to the contacts when the status of an alert changes to Resolved. Default value: true. Valid values:   
+   * Indicates whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. ARMS notifies contacts when the alert status changes to Resolved.
    * 
-   * - `true`: The system sends a notification.
-   * - `false`: The system does not send a notification.
+   * *   `true`: The system sends a notification.
+   * *   `false`: The system does not send a notification.
    * 
    * @example
    * true
@@ -54635,6 +54824,9 @@ export class InstallAddonResponseBodyData extends $tea.Model {
   /**
    * @remarks
    * Indicates whether the component is fully managed.
+   * 
+   * @example
+   * true
    */
   managed?: boolean;
   /**
@@ -59157,7 +59349,7 @@ export class ListIntegrationResponseBodyPageInfo extends $tea.Model {
 export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesGroupRule extends $tea.Model {
   /**
    * @remarks
-   * The time interval for grouping. Unit: seconds. Default value: 30.
+   * The time interval of grouping. Unit: seconds. Default value: 30.
    * 
    * @example
    * 30
@@ -59173,10 +59365,10 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesGro
   groupWait?: number;
   /**
    * @remarks
-   * The fields that are used to group events.
+   * An array of alert event group objects.
    * 
-   * *   If this parameter is not returned, all alert notifications are sent to the alert contacts that belong to the `alertname` group. By default, this parameter is not returned.
-   * *   If this parameter is returned, alerts with the same fields are sent to the alert contacts in one notification.
+   * *   If you do not specify the groupingFields field, all alerts will be sent to contacts based on `alertname`.
+   * *   If you specify the groupingFields field, alerts with the same field will be sent to contacts in one notification.
    */
   groupingFields?: string[];
   static names(): { [key: string]: string } {
@@ -59302,10 +59494,10 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * @remarks
    * The type of the notification object. Valid values:
    * 
-   * *   CONTACT: an individual contact
-   * *   CONTACT_GROUP: a contact group
-   * *   DING_ROBOT: an instant messaging (IM) chatbot
-   * *   CONTACT_SCHEDULE: a person on duty based on an established schedule
+   * - CONTACT: an individual contact
+   * - CONTACT_GROUP: a contact group
+   * - DING_ROBOT: an instant messaging (IM) chatbot
+   * - CONTACT_SCHEDULE: a person on duty based on an established schedule
    * 
    * @example
    * CONTACT
@@ -59337,7 +59529,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
 export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNotifyRule extends $tea.Model {
   /**
    * @remarks
-   * The notification methods.
+   * The notification method.
    */
   notifyChannels?: string[];
   /**
@@ -59390,13 +59582,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert notification sent by email.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Alert Time: {{ .startTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }}  {{if .generatorURL }}  &lt;a href="{{.generatorURL}}" > Details&lt;/a&gt;
-   *  {{ end }} {{ end }}
+   * Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{if .generatorURL }} \\<a href="{{.generatorURL}}" >Link\\</a> {{end}} {{end}}
    */
   emailContent?: string;
   /**
@@ -59404,13 +59590,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert resolution notification sent by email.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Recover Time: {{ .endTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }}  {{if .generatorURL }} &lt;a href="{{.generatorURL}}" > Details&lt;/a&gt;
-   *  {{ end }} {{ end }}
+   * Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{if .generatorURL }} \\<a href="{{.generatorURL}}" >Link\\</a> {{end}} {{end}}
    */
   emailRecoverContent?: string;
   /**
@@ -59434,17 +59614,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert notification sent by an IM chatbot.
    * 
    * @example
-   * {{if .commonLabels.clustername }}
-   * 
-   *  &gt;  Cluster Name: {{ .commonLabels.clustername }} 
-   * 
-   *  {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * 
-   *  &gt;  App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} 
-   * 
-   *  {{ end }}{{ for .alerts }} &gt;  {{ .annotations.message }} {{if .generatorURL }} [Details]({{.generatorURL}})  {{end}} {{if .annotations._aliyun_arms_insights_analyze_link }}[&lt;font color=\\"#ff0000\\"&gt;diagnostic analysis&lt;/font&gt;]({{ .annotations._aliyun_arms_insights_analyze_link}}){{ end }}{{if  eq "1" .labels._aliyun_arms_denoise_code }} (Important:{{.labels._aliyun_arms_important_reason }}) {{end}}
-   * 
-   * {{end}}
+   * {{if .commonLabels.clustername }} > Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} > Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}{{ for .alerts }}> {{.annotations.message}} {{if .generatorURL }} [Link]\\({{.generatorURL}}) {{ end }} {{if eq "true" .labels._aliyun_arms_is_denoise_filtered }} (Suspected noise) {{end}} {{end}}
    */
   robotContent?: string;
   /**
@@ -59452,13 +59622,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert notification sent by text message.
    * 
    * @example
-   * {{ .level }}Alert Occurs
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Alert Time: {{ .startTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<SmsContent>Notification on the occurrence of a {{ .level }} alert. Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</SmsContent>
    */
   smsContent?: string;
   /**
@@ -59466,13 +59630,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert resolution notification sent by text message.
    * 
    * @example
-   * Alert Recovery Notification
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Recover Time: {{ .endTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<SmsRecoverContent>Alert resolution notification. Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</SmsRecoverContent>
    */
   smsRecoverContent?: string;
   /**
@@ -59480,12 +59638,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert notification sent by phone.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Alert Time: {{ .startTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<TtsContent>Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert time: {{ .startTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</TtsContent>
    */
   ttsContent?: string;
   /**
@@ -59493,12 +59646,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesNot
    * The content of the alert resolution notification sent by phone.
    * 
    * @example
-   * Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
-   * Cluster Name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}
-   * App Name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}
-   * Notification Policy: {{ .dispatchRuleName }}
-   * Recover Time: {{ .endTime }}
-   * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
+   * \\<TtsRecoverContent>Alert name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }} Cluster name: {{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }} Application name: {{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }} Notification policy: {{ .dispatchRuleName }} Alert resolution time: {{ .endTime }} Alert content: {{ for .alerts }} {{.annotations.message}} {{ end }}\\</TtsRecoverContent>
    */
   ttsRecoverContent?: string;
   static names(): { [key: string]: string } {
@@ -59538,6 +59686,9 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
   /**
    * @remarks
    * Indicates whether simple mode is enabled.
+   * 
+   * @example
+   * true
    */
   directedMode?: boolean;
   /**
@@ -59596,8 +59747,8 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
    * @remarks
    * Indicates whether the system resends notifications for a long-lasting unresolved alert. Valid values:
    * 
-   * *   `true` (default): The system resends notifications for a long-lasting unresolved alert at a specified time interval.
-   * *   `false`: The system resends notifications for a long-lasting unresolved alert based on an escalation policy.
+   * - `true` (default): The system resends notifications for a long-lasting unresolved alert at a specified time interval.
+   * - `false`: The system resends notifications for a long-lasting unresolved alert based on an escalation policy.
    * 
    * @example
    * true
@@ -59605,7 +59756,7 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
   repeat?: boolean;
   /**
    * @remarks
-   * The time interval at which notifications are resent for a long-lasting unresolved alert. Unit: seconds.
+   * The time interval at which a notification is resent for a long-lasting unresolved alert. Unit: seconds.
    * 
    * @example
    * 600
@@ -59615,8 +59766,8 @@ export class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies ex
    * @remarks
    * Indicates whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. The system sends a notification to the alert contacts when the alert status changes to Resolved.
    * 
-   * *   `true` (default): The system sends a notification.
-   * *   `false`: The system does not send a notification.
+   * - `true` (default): The system sends a notification.
+   * - `false`: The system does not send a notification.
    * 
    * @example
    * true
@@ -72139,7 +72290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete s SourceMap file that was uploaded to Browser Monitoring.
+   * Deletes the SourceMap files uploaded in Browser Monitoring.
    * 
    * @param tmpReq - DeleteSourceMapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72184,7 +72335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete s SourceMap file that was uploaded to Browser Monitoring.
+   * Deletes the SourceMap files uploaded in Browser Monitoring.
    * 
    * @param request - DeleteSourceMapRequest
    * @returns DeleteSourceMapResponse
@@ -73067,7 +73218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行Insights相关的操作
+   * Performs the corresponding operation based on the specified module type.
    * 
    * @param request - DoInsightsActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73102,7 +73253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行Insights相关的操作
+   * Performs the corresponding operation based on the specified module type.
    * 
    * @param request - DoInsightsActionRequest
    * @returns DoInsightsActionResponse
@@ -76877,7 +77028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries notification policies based on specific conditions.
+   * Queries notification policies based on specified conditions.
    * 
    * @param request - ListNotificationPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76932,7 +77083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries notification policies based on specific conditions.
+   * Queries notification policies based on specified conditions.
    * 
    * @param request - ListNotificationPoliciesRequest
    * @returns ListNotificationPoliciesResponse
