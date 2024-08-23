@@ -54114,6 +54114,7 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
    * 13.0
    */
   targetMajorVersion?: string;
+  upgradeMode?: string;
   /**
    * @remarks
    * A reserved parameter. You do not need to specify this parameter.
@@ -54187,6 +54188,7 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
       switchTime: 'SwitchTime',
       switchTimeMode: 'SwitchTimeMode',
       targetMajorVersion: 'TargetMajorVersion',
+      upgradeMode: 'UpgradeMode',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -54212,6 +54214,7 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
       switchTime: 'string',
       switchTimeMode: 'string',
       targetMajorVersion: 'string',
+      upgradeMode: 'string',
       usedTime: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -102108,6 +102111,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.targetMajorVersion)) {
       query["TargetMajorVersion"] = request.targetMajorVersion;
+    }
+
+    if (!Util.isUnset(request.upgradeMode)) {
+      query["UpgradeMode"] = request.upgradeMode;
     }
 
     if (!Util.isUnset(request.usedTime)) {
