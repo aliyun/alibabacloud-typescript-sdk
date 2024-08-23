@@ -932,11 +932,10 @@ export class CheckHadoopNetConnectionRequest extends $tea.Model {
    * CheckHadoopNetConnection
    */
   DBInstanceId?: string;
+  dataSourceId?: string;
   /**
    * @remarks
    * The E-MapReduce (EMR) Hadoop cluster ID.
-   * 
-   * This parameter is required.
    * 
    * @example
    * c-xxx
@@ -950,6 +949,7 @@ export class CheckHadoopNetConnectionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      dataSourceId: 'DataSourceId',
       emrInstanceId: 'EmrInstanceId',
       regionId: 'RegionId',
     };
@@ -958,6 +958,7 @@ export class CheckHadoopNetConnectionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      dataSourceId: 'string',
       emrInstanceId: 'string',
       regionId: 'string',
     };
@@ -1050,17 +1051,19 @@ export class CheckJDBCSourceNetConnectionRequest extends $tea.Model {
    * gp-xxxxxxx
    */
   DBInstanceId?: string;
+  dataSourceId?: string;
   /**
    * @remarks
    * The JDBC connection string.
-   * 
-   * This parameter is required.
    * 
    * @example
    * xxx
    */
   jdbcConnectionString?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -1068,6 +1071,7 @@ export class CheckJDBCSourceNetConnectionRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      dataSourceId: 'DataSourceId',
       jdbcConnectionString: 'JdbcConnectionString',
       regionId: 'RegionId',
     };
@@ -1076,6 +1080,7 @@ export class CheckJDBCSourceNetConnectionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      dataSourceId: 'string',
       jdbcConnectionString: 'string',
       regionId: 'string',
     };
@@ -1295,6 +1300,7 @@ export class CreateAccountRequest extends $tea.Model {
    * Pw123456
    */
   accountPassword?: string;
+  accountType?: string;
   /**
    * @remarks
    * The ID of the instance.
@@ -1329,6 +1335,7 @@ export class CreateAccountRequest extends $tea.Model {
       accountDescription: 'AccountDescription',
       accountName: 'AccountName',
       accountPassword: 'AccountPassword',
+      accountType: 'AccountType',
       DBInstanceId: 'DBInstanceId',
       databaseName: 'DatabaseName',
       ownerId: 'OwnerId',
@@ -1341,6 +1348,7 @@ export class CreateAccountRequest extends $tea.Model {
       accountDescription: 'string',
       accountName: 'string',
       accountPassword: 'string',
+      accountType: 'string',
       DBInstanceId: 'string',
       databaseName: 'string',
       ownerId: 'number',
@@ -1418,6 +1426,11 @@ export class CreateCollectionRequest extends $tea.Model {
    */
   collection?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -1548,6 +1561,10 @@ export class CreateCollectionRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6700,7 +6717,7 @@ export class DeleteNamespaceRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -6751,6 +6768,10 @@ export class DeleteNamespaceRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7507,6 +7528,7 @@ export class DescribeAccountsRequest extends $tea.Model {
    * testuser
    */
   accountName?: string;
+  accountType?: string;
   /**
    * @remarks
    * The instance ID.
@@ -7522,6 +7544,7 @@ export class DescribeAccountsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      accountType: 'AccountType',
       DBInstanceId: 'DBInstanceId',
     };
   }
@@ -7529,6 +7552,7 @@ export class DescribeAccountsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      accountType: 'string',
       DBInstanceId: 'string',
     };
   }
@@ -8039,7 +8063,7 @@ export class DescribeCollectionRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -8076,6 +8100,10 @@ export class DescribeCollectionRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8688,6 +8716,8 @@ export class DescribeDBInstanceDataBloatRequest extends $tea.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  database?: string;
+  orderBy?: string;
   /**
    * @remarks
    * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
@@ -8713,6 +8743,8 @@ export class DescribeDBInstanceDataBloatRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -8721,6 +8753,8 @@ export class DescribeDBInstanceDataBloatRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      database: 'string',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -8822,6 +8856,8 @@ export class DescribeDBInstanceDataSkewRequest extends $tea.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  database?: string;
+  orderBy?: string;
   /**
    * @remarks
    * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
@@ -8847,6 +8883,8 @@ export class DescribeDBInstanceDataSkewRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -8855,6 +8893,8 @@ export class DescribeDBInstanceDataSkewRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      database: 'string',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -9466,6 +9506,8 @@ export class DescribeDBInstanceIndexUsageRequest extends $tea.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  database?: string;
+  orderBy?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: **1**.
@@ -9491,6 +9533,8 @@ export class DescribeDBInstanceIndexUsageRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -9499,6 +9543,8 @@ export class DescribeDBInstanceIndexUsageRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      database: 'string',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -9512,7 +9558,7 @@ export class DescribeDBInstanceIndexUsageRequest extends $tea.Model {
 export class DescribeDBInstanceIndexUsageResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The time when the table was last deleted, inserted, or updated.
+   * The queried index usage.
    */
   items?: DescribeDBInstanceIndexUsageResponseBodyItems[];
   /**
@@ -13315,6 +13361,7 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
    * c-1234567
    */
   emrInstanceId?: string;
+  externalDataServiceId?: string;
   /**
    * @remarks
    * The content of the Hadoop hdfs-site.xml file.
@@ -13367,6 +13414,7 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
    * xxxxxx
    */
   mapReduceConf?: string;
+  modifyTime?: string;
   /**
    * @remarks
    * The request ID.
@@ -13401,12 +13449,14 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
       dataSourceStatus: 'DataSourceStatus',
       dataSourceType: 'DataSourceType',
       emrInstanceId: 'EmrInstanceId',
+      externalDataServiceId: 'ExternalDataServiceId',
       HDFSConf: 'HDFSConf',
       hadoopCoreConf: 'HadoopCoreConf',
       hadoopCreateType: 'HadoopCreateType',
       hadoopHostsAddress: 'HadoopHostsAddress',
       hiveConf: 'HiveConf',
       mapReduceConf: 'MapReduceConf',
+      modifyTime: 'ModifyTime',
       requestId: 'RequestId',
       statusMessage: 'StatusMessage',
       yarnConf: 'YarnConf',
@@ -13423,12 +13473,14 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
       dataSourceStatus: 'string',
       dataSourceType: 'string',
       emrInstanceId: 'string',
+      externalDataServiceId: 'string',
       HDFSConf: 'string',
       hadoopCoreConf: 'string',
       hadoopCreateType: 'string',
       hadoopHostsAddress: 'string',
       hiveConf: 'string',
       mapReduceConf: 'string',
+      modifyTime: 'string',
       requestId: 'string',
       statusMessage: 'string',
       yarnConf: 'string',
@@ -13767,6 +13819,7 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
    * MySQL
    */
   dataSourceType?: string;
+  externalDataServiceId?: string;
   /**
    * @remarks
    * The JDBC connection string.
@@ -13791,6 +13844,7 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
    * xxxxxx
    */
   JDBCUserName?: string;
+  modifyTime?: string;
   /**
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -13809,9 +13863,11 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
       dataSourceName: 'DataSourceName',
       dataSourceStatus: 'DataSourceStatus',
       dataSourceType: 'DataSourceType',
+      externalDataServiceId: 'ExternalDataServiceId',
       JDBCConnectionString: 'JDBCConnectionString',
       JDBCPassword: 'JDBCPassword',
       JDBCUserName: 'JDBCUserName',
+      modifyTime: 'ModifyTime',
       requestId: 'RequestId',
       statusMessage: 'StatusMessage',
     };
@@ -13825,9 +13881,11 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
       dataSourceName: 'string',
       dataSourceStatus: 'string',
       dataSourceType: 'string',
+      externalDataServiceId: 'string',
       JDBCConnectionString: 'string',
       JDBCPassword: 'string',
       JDBCUserName: 'string',
+      modifyTime: 'string',
       requestId: 'string',
       statusMessage: 'string',
     };
@@ -14154,7 +14212,7 @@ export class DescribeNamespaceRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -14205,6 +14263,10 @@ export class DescribeNamespaceRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18162,7 +18224,7 @@ export class ExecuteStatementRequest extends $tea.Model {
   sqls?: string[];
   /**
    * @remarks
-   * The name of the set of SQL statements that you want to execute.
+   * The name of the set of SQL statements that you want to execute. This parameter takes effect when the RunType parameter is set to asynchronous.
    * 
    * @example
    * test
@@ -18280,7 +18342,7 @@ export class ExecuteStatementShrinkRequest extends $tea.Model {
   sqlsShrink?: string;
   /**
    * @remarks
-   * The name of the set of SQL statements that you want to execute.
+   * The name of the set of SQL statements that you want to execute. This parameter takes effect when the RunType parameter is set to asynchronous.
    * 
    * @example
    * test
@@ -19375,7 +19437,7 @@ export class InitVectorDatabaseRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -19416,6 +19478,10 @@ export class InitVectorDatabaseRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19523,7 +19589,7 @@ export class ListCollectionsRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -19560,6 +19626,10 @@ export class ListCollectionsRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25307,11 +25377,23 @@ export class QueryCollectionDataRequest extends $tea.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * @example
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * 
+   * > 
+   * 
+   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * 
    * @example
    * response > 200
    */
@@ -25460,6 +25542,10 @@ export class QueryCollectionDataRequest extends $tea.Model {
    * >  If you leave this parameter empty, only full-text search results are returned.
    */
   vector?: number[];
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25536,11 +25622,23 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * @example
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * 
+   * > 
+   * 
+   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * 
    * @example
    * response > 200
    */
@@ -25689,6 +25787,10 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
    * >  If you leave this parameter empty, only full-text search results are returned.
    */
   vectorShrink?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25849,6 +25951,13 @@ export class QueryContentRequest extends $tea.Model {
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * 
+   * > 
+   * 
+   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * 
    * @example
    * title = \\"test\\"
    */
@@ -25893,6 +26002,9 @@ export class QueryContentRequest extends $tea.Model {
    */
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
   /**
+   * @remarks
+   * Specifies whether to return the URL of the document. Default value: false.
+   * 
    * @example
    * false
    */
@@ -26055,6 +26167,13 @@ export class QueryContentAdvanceRequest extends $tea.Model {
    */
   fileUrlObject?: Readable;
   /**
+   * @remarks
+   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * 
+   * > 
+   * 
+   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * 
    * @example
    * title = \\"test\\"
    */
@@ -26099,6 +26218,9 @@ export class QueryContentAdvanceRequest extends $tea.Model {
    */
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
   /**
+   * @remarks
+   * Specifies whether to return the URL of the document. Default value: false.
+   * 
    * @example
    * false
    */
@@ -26261,6 +26383,13 @@ export class QueryContentShrinkRequest extends $tea.Model {
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * 
+   * > 
+   * 
+   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * 
    * @example
    * title = \\"test\\"
    */
@@ -26305,6 +26434,9 @@ export class QueryContentShrinkRequest extends $tea.Model {
    */
   hybridSearchArgsShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to return the URL of the document. Default value: false.
+   * 
    * @example
    * false
    */
@@ -30756,6 +30888,7 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
    * 1
    */
   accountStatus?: string;
+  accountType?: string;
   /**
    * @remarks
    * The ID of the instance.
@@ -30769,6 +30902,7 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
       accountDescription: 'AccountDescription',
       accountName: 'AccountName',
       accountStatus: 'AccountStatus',
+      accountType: 'AccountType',
       DBInstanceId: 'DBInstanceId',
     };
   }
@@ -30778,6 +30912,7 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
       accountDescription: 'string',
       accountName: 'string',
       accountStatus: 'string',
+      accountType: 'string',
       DBInstanceId: 'string',
     };
   }
@@ -39457,6 +39592,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
     if (!Util.isUnset(request.emrInstanceId)) {
       query["EmrInstanceId"] = request.emrInstanceId;
     }
@@ -39505,6 +39644,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
     }
 
     if (!Util.isUnset(request.jdbcConnectionString)) {
@@ -39611,6 +39754,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.accountPassword)) {
       query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!Util.isUnset(request.accountType)) {
+      query["AccountType"] = request.accountType;
     }
 
     if (!Util.isUnset(request.DBInstanceId)) {
@@ -42084,6 +42231,10 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!Util.isUnset(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -42580,6 +42731,14 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -42638,6 +42797,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -42913,6 +43080,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
