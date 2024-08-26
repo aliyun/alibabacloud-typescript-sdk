@@ -7,6 +7,52 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AIAssistantSession extends $tea.Model {
+  clientId?: string;
+  createdAt?: number;
+  customLabels?: string[];
+  domainId?: string;
+  expiredAt?: number;
+  name?: string;
+  sessionId?: string;
+  status?: string;
+  updatedAt?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'client_id',
+      createdAt: 'created_at',
+      customLabels: 'custom_labels',
+      domainId: 'domain_id',
+      expiredAt: 'expired_at',
+      name: 'name',
+      sessionId: 'session_id',
+      status: 'status',
+      updatedAt: 'updated_at',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      createdAt: 'number',
+      customLabels: { 'type': 'array', 'itemType': 'string' },
+      domainId: 'string',
+      expiredAt: 'number',
+      name: 'string',
+      sessionId: 'string',
+      status: 'string',
+      updatedAt: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AccountAccessTokenResponse extends $tea.Model {
   accessToken?: string;
   avatar?: string;
@@ -3097,11 +3143,14 @@ export class JWTPayload extends $tea.Model {
 export class KnowledgeFile extends $tea.Model {
   creatorId?: string;
   driveId?: string;
+  driveName?: string;
   fileCategory?: string;
   fileCreatedAt?: number;
   fileCreatorId?: string;
   fileId?: string;
   fileImageTime?: number;
+  fileLastModifierId?: string;
+  fileLastModifierType?: string;
   fileName?: string;
   fileNamePath?: string;
   fileSize?: number;
@@ -3114,11 +3163,14 @@ export class KnowledgeFile extends $tea.Model {
     return {
       creatorId: 'creator_id',
       driveId: 'drive_id',
+      driveName: 'drive_name',
       fileCategory: 'file_category',
       fileCreatedAt: 'file_created_at',
       fileCreatorId: 'file_creator_id',
       fileId: 'file_id',
       fileImageTime: 'file_image_time',
+      fileLastModifierId: 'file_last_modifier_id',
+      fileLastModifierType: 'file_last_modifier_type',
       fileName: 'file_name',
       fileNamePath: 'file_name_path',
       fileSize: 'file_size',
@@ -3134,11 +3186,14 @@ export class KnowledgeFile extends $tea.Model {
     return {
       creatorId: 'string',
       driveId: 'string',
+      driveName: 'string',
       fileCategory: 'string',
       fileCreatedAt: 'number',
       fileCreatorId: 'string',
       fileId: 'string',
       fileImageTime: 'number',
+      fileLastModifierId: 'string',
+      fileLastModifierType: 'string',
       fileName: 'string',
       fileNamePath: 'string',
       fileSize: 'number',
@@ -4676,12 +4731,14 @@ export class VideoPreviewPlayInfo extends $tea.Model {
    */
   category?: string;
   liveTranscodingTaskList?: VideoPreviewPlayInfoLiveTranscodingTaskList[];
+  masterUrl?: string;
   meta?: VideoPreviewPlayInfoMeta;
   offlineVideoTranscodingList?: VideoPreviewPlayInfoOfflineVideoTranscodingList[];
   static names(): { [key: string]: string } {
     return {
       category: 'category',
       liveTranscodingTaskList: 'live_transcoding_task_list',
+      masterUrl: 'master_url',
       meta: 'meta',
       offlineVideoTranscodingList: 'offline_video_transcoding_list',
     };
@@ -4691,6 +4748,7 @@ export class VideoPreviewPlayInfo extends $tea.Model {
     return {
       category: 'string',
       liveTranscodingTaskList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoLiveTranscodingTaskList },
+      masterUrl: 'string',
       meta: VideoPreviewPlayInfoMeta,
       offlineVideoTranscodingList: { 'type': 'array', 'itemType': VideoPreviewPlayInfoOfflineVideoTranscodingList },
     };
@@ -11141,6 +11199,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
    * true
    */
   getWithoutUrl?: boolean;
+  reTranscode?: boolean;
   /**
    * @remarks
    * The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
@@ -11172,6 +11231,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
       fileId: 'file_id',
       getMasterUrl: 'get_master_url',
       getWithoutUrl: 'get_without_url',
+      reTranscode: 're_transcode',
       shareId: 'share_id',
       templateId: 'template_id',
       urlExpireSec: 'url_expire_sec',
@@ -11185,6 +11245,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
       fileId: 'string',
       getMasterUrl: 'boolean',
       getWithoutUrl: 'boolean',
+      reTranscode: 'boolean',
       shareId: 'string',
       templateId: 'string',
       urlExpireSec: 'number',
@@ -11197,11 +11258,6 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * VideoPreviewWaitAndRetry
-   */
-  code?: string;
   /**
    * @remarks
    * The domain ID.
@@ -11226,12 +11282,6 @@ export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
    * fileid1
    */
   fileId?: string;
-  masterUrl?: string;
-  /**
-   * @example
-   * media is transcoding, please wait and retry.
-   */
-  message?: string;
   /**
    * @remarks
    * The share ID.
@@ -11247,12 +11297,9 @@ export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
   videoPreviewPlayInfo?: VideoPreviewPlayInfo;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       domainId: 'domain_id',
       driveId: 'drive_id',
       fileId: 'file_id',
-      masterUrl: 'master_url',
-      message: 'message',
       shareId: 'share_id',
       videoPreviewPlayInfo: 'video_preview_play_info',
     };
@@ -11260,12 +11307,9 @@ export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       domainId: 'string',
       driveId: 'string',
       fileId: 'string',
-      masterUrl: 'string',
-      message: 'string',
       shareId: 'string',
       videoPreviewPlayInfo: VideoPreviewPlayInfo,
     };
@@ -11645,24 +11689,15 @@ export class InvestigateFileRequest extends $tea.Model {
    * This parameter is required.
    */
   driveFileIds?: InvestigateFileRequestDriveFileIds[];
-  policy?: InvestigateFileRequestPolicy;
-  recursive?: boolean;
-  userData?: string;
   static names(): { [key: string]: string } {
     return {
       driveFileIds: 'drive_file_ids',
-      policy: 'policy',
-      recursive: 'recursive',
-      userData: 'user_data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       driveFileIds: { 'type': 'array', 'itemType': InvestigateFileRequestDriveFileIds },
-      policy: InvestigateFileRequestPolicy,
-      recursive: 'boolean',
-      userData: 'string',
     };
   }
 
@@ -18848,31 +18883,6 @@ export class InvestigateFileRequestDriveFileIds extends $tea.Model {
   }
 }
 
-export class InvestigateFileRequestPolicy extends $tea.Model {
-  firstProductName?: string;
-  mteeCode?: string;
-  provider?: string;
-  static names(): { [key: string]: string } {
-    return {
-      firstProductName: 'first_product_name',
-      mteeCode: 'mtee_code',
-      provider: 'provider',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      firstProductName: 'string',
-      mteeCode: 'string',
-      provider: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListAssignmentResponseBodyAssignmentList extends $tea.Model {
   /**
    * @remarks
@@ -22470,6 +22480,10 @@ export default class Client extends OpenApi {
       body["get_without_url"] = request.getWithoutUrl;
     }
 
+    if (!Util.isUnset(request.reTranscode)) {
+      body["re_transcode"] = request.reTranscode;
+    }
+
     if (!Util.isUnset(request.shareId)) {
       body["share_id"] = request.shareId;
     }
@@ -22713,18 +22727,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.driveFileIds)) {
       body["drive_file_ids"] = request.driveFileIds;
-    }
-
-    if (!Util.isUnset(request.policy)) {
-      body["policy"] = request.policy;
-    }
-
-    if (!Util.isUnset(request.recursive)) {
-      body["recursive"] = request.recursive;
-    }
-
-    if (!Util.isUnset(request.userData)) {
-      body["user_data"] = request.userData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
