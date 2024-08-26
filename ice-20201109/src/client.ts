@@ -19493,6 +19493,102 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitSportsHighlightsJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****12e8864746a0a398****
+   */
+  clientToken?: string;
+  inputConfig?: string;
+  /**
+   * @example
+   * {
+   *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+   *   "Count": 1,
+   *   "Width": 1080,
+   *   "Height": 1920
+   * }
+   */
+  outputConfig?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSportsHighlightsJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSportsHighlightsJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSportsHighlightsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitSportsHighlightsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitStandardCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @example
@@ -57926,6 +58022,62 @@ export default class Client extends OpenApi {
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSnapshotJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 发起体育集锦任务
+   * 
+   * @param request - SubmitSportsHighlightsJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSportsHighlightsJobResponse
+   */
+  async submitSportsHighlightsJobWithOptions(request: SubmitSportsHighlightsJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSportsHighlightsJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitSportsHighlightsJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitSportsHighlightsJobResponse>(await this.callApi(params, req, runtime), new SubmitSportsHighlightsJobResponse({}));
+  }
+
+  /**
+   * 发起体育集锦任务
+   * 
+   * @param request - SubmitSportsHighlightsJobRequest
+   * @returns SubmitSportsHighlightsJobResponse
+   */
+  async submitSportsHighlightsJob(request: SubmitSportsHighlightsJobRequest): Promise<SubmitSportsHighlightsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitSportsHighlightsJobWithOptions(request, runtime);
   }
 
   /**
