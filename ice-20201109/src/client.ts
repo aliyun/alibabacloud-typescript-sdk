@@ -12273,6 +12273,101 @@ export class ListPublicMediaBasicInfosResponse extends $tea.Model {
   }
 }
 
+export class ListSearchLibRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchLibResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  searchLibInfoList?: ListSearchLibResponseBodySearchLibInfoList[];
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      requestId: 'RequestId',
+      searchLibInfoList: 'SearchLibInfoList',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      requestId: 'string',
+      searchLibInfoList: { 'type': 'array', 'itemType': ListSearchLibResponseBodySearchLibInfoList },
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchLibResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSearchLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSearchLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSmartJobsRequest extends $tea.Model {
   /**
    * @example
@@ -14418,6 +14513,111 @@ export class SearchEditingProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SearchEditingProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchIndexJobRerunRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
+   */
+  mediaIds?: string;
+  /**
+   * @example
+   * test-1
+   */
+  searchLibName?: string;
+  /**
+   * @example
+   * AiLabel,Face,Mm
+   */
+  task?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaIds: 'MediaIds',
+      searchLibName: 'SearchLibName',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIds: 'string',
+      searchLibName: 'string',
+      task: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchIndexJobRerunResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: SearchIndexJobRerunResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SearchIndexJobRerunResponseBodyData,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchIndexJobRerunResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchIndexJobRerunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchIndexJobRerunResponseBody,
     };
   }
 
@@ -36406,6 +36606,36 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model 
   }
 }
 
+export class ListSearchLibResponseBodySearchLibInfoList extends $tea.Model {
+  /**
+   * @example
+   * faceSearchLib
+   */
+  searchLibName?: string;
+  /**
+   * @example
+   * normal
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchLibName: 'SearchLibName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchLibName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model {
   /**
    * @example
@@ -39927,6 +40157,25 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
   }
 }
 
+export class SearchIndexJobRerunResponseBodyData extends $tea.Model {
+  mediaIdsNoExist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      mediaIdsNoExist: 'MediaIdsNoExist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIdsNoExist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrencesTracks extends $tea.Model {
   /**
    * @remarks
@@ -40552,6 +40801,28 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $tea.Model
   }
 }
 
+export class SearchMediaResponseBodyMediaInfoListIndexStatusList extends $tea.Model {
+  indexStatus?: string;
+  indexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexStatus: 'IndexStatus',
+      indexType: 'IndexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexStatus: 'string',
+      indexType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $tea.Model {
   /**
    * @remarks
@@ -40805,6 +41076,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
    * The information about the files.
    */
   fileInfoList?: SearchMediaResponseBodyMediaInfoListFileInfoList[];
+  indexStatusList?: SearchMediaResponseBodyMediaInfoListIndexStatusList[];
   /**
    * @remarks
    * The basic information about the media asset.
@@ -40823,6 +41095,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
       aiData: 'AiData',
       aiRoughData: 'AiRoughData',
       fileInfoList: 'FileInfoList',
+      indexStatusList: 'IndexStatusList',
       mediaBasicInfo: 'MediaBasicInfo',
       mediaId: 'MediaId',
     };
@@ -40833,6 +41106,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
       aiData: SearchMediaResponseBodyMediaInfoListAiData,
       aiRoughData: SearchMediaResponseBodyMediaInfoListAiRoughData,
       fileInfoList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoListFileInfoList },
+      indexStatusList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoListIndexStatusList },
       mediaBasicInfo: SearchMediaResponseBodyMediaInfoListMediaBasicInfo,
       mediaId: 'string',
     };
@@ -54569,6 +54843,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取搜索库列表
+   * 
+   * @param request - ListSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSearchLibResponse
+   */
+  async listSearchLibWithOptions(request: ListSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<ListSearchLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSearchLibResponse>(await this.callApi(params, req, runtime), new ListSearchLibResponse({}));
+  }
+
+  /**
+   * 获取搜索库列表
+   * 
+   * @param request - ListSearchLibRequest
+   * @returns ListSearchLibResponse
+   */
+  async listSearchLib(request: ListSearchLibRequest): Promise<ListSearchLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSearchLibWithOptions(request, runtime);
+  }
+
+  /**
    * ListSmartJobs
    * 
    * @param request - ListSmartJobsRequest
@@ -55630,6 +55950,56 @@ export default class Client extends OpenApi {
   async searchEditingProject(request: SearchEditingProjectRequest): Promise<SearchEditingProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchEditingProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索索引任务重新分析
+   * 
+   * @param request - SearchIndexJobRerunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchIndexJobRerunResponse
+   */
+  async searchIndexJobRerunWithOptions(request: SearchIndexJobRerunRequest, runtime: $Util.RuntimeOptions): Promise<SearchIndexJobRerunResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
+    if (!Util.isUnset(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!Util.isUnset(request.task)) {
+      query["Task"] = request.task;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchIndexJobRerun",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchIndexJobRerunResponse>(await this.callApi(params, req, runtime), new SearchIndexJobRerunResponse({}));
+  }
+
+  /**
+   * 搜索索引任务重新分析
+   * 
+   * @param request - SearchIndexJobRerunRequest
+   * @returns SearchIndexJobRerunResponse
+   */
+  async searchIndexJobRerun(request: SearchIndexJobRerunRequest): Promise<SearchIndexJobRerunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchIndexJobRerunWithOptions(request, runtime);
   }
 
   /**
