@@ -10624,6 +10624,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
    * pe-****************
    */
   DBEndpointId?: string;
+  DBNodeId?: string;
   /**
    * @remarks
    * The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
@@ -10674,6 +10675,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
     return {
       DBClusterId: 'DBClusterId',
       DBEndpointId: 'DBEndpointId',
+      DBNodeId: 'DBNodeId',
       endTime: 'EndTime',
       interval: 'Interval',
       key: 'Key',
@@ -10686,6 +10688,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
     return {
       DBClusterId: 'string',
       DBEndpointId: 'string',
+      DBNodeId: 'string',
       endTime: 'string',
       interval: 'string',
       key: 'string',
@@ -35329,6 +35332,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBEndpointId)) {
       query["DBEndpointId"] = request.DBEndpointId;
+    }
+
+    if (!Util.isUnset(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
     }
 
     if (!Util.isUnset(request.endTime)) {
