@@ -8306,6 +8306,8 @@ export class ListDataReportForServiceGroupRequest extends $tea.Model {
    * 2021-09-30
    */
   endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @example
    * A服务组
@@ -8319,6 +8321,8 @@ export class ListDataReportForServiceGroupRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'endTime',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
       serviceGroupName: 'serviceGroupName',
       startTime: 'startTime',
     };
@@ -8327,6 +8331,8 @@ export class ListDataReportForServiceGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       serviceGroupName: 'string',
       startTime: 'string',
     };
@@ -29349,6 +29355,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       body["endTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.serviceGroupName)) {
