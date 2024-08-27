@@ -7484,6 +7484,7 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
    */
   ipv4?: string;
   locationInfo?: string;
+  manageTime?: string;
   /**
    * @example
    * US01
@@ -7504,6 +7505,7 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
    * ODN49YQCPQYC****
    */
   serialNumber?: string;
+  setPasswordFreeLoginUserTime?: string;
   /**
    * @example
    * tg-default
@@ -7523,10 +7525,12 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
       currentLoginUser: 'CurrentLoginUser',
       ipv4: 'Ipv4',
       locationInfo: 'LocationInfo',
+      manageTime: 'ManageTime',
       model: 'Model',
       online: 'Online',
       passwordFreeLoginUser: 'PasswordFreeLoginUser',
       serialNumber: 'SerialNumber',
+      setPasswordFreeLoginUserTime: 'SetPasswordFreeLoginUserTime',
       terminalGroupId: 'TerminalGroupId',
       uuid: 'Uuid',
     };
@@ -7541,10 +7545,12 @@ export class ListTerminalsResponseBodyData extends $tea.Model {
       currentLoginUser: 'string',
       ipv4: 'string',
       locationInfo: 'string',
+      manageTime: 'string',
       model: 'string',
       online: 'boolean',
       passwordFreeLoginUser: 'string',
       serialNumber: 'string',
+      setPasswordFreeLoginUserTime: 'string',
       terminalGroupId: 'string',
       uuid: 'string',
     };
