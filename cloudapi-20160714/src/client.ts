@@ -902,10 +902,10 @@ export class CreateAccessControlListRequest extends $tea.Model {
   aclName?: string;
   /**
    * @remarks
-   * The IP version of the Classic Load Balancer (CLB) instance with which the ACL is associated. Valid values:
+   * The IP protocol version of the ACL. Valid values:
    * 
-   * *   **ipv4**
-   * *   **ipv6**
+   * *   **IPv4**
+   * *   **IPv6**
    * 
    * @example
    * ipv4
@@ -936,7 +936,7 @@ export class CreateAccessControlListRequest extends $tea.Model {
 export class CreateAccessControlListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the access control policy.
+   * The ACL ID.
    * 
    * @example
    * acl-bp1uqwgwmkbutnzq2r59z
@@ -1497,7 +1497,7 @@ export class CreateApiStageVariableRequest extends $tea.Model {
   stageId?: string;
   /**
    * @remarks
-   * Environmental routing model.
+   * The routing model of the environment.
    * 
    * @example
    * {
@@ -1787,12 +1787,17 @@ export class CreateAppResponse extends $tea.Model {
 
 export class CreateAppCodeRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application AppCode.
+   * 
    * @example
    * 3aaf905a0a1f4f0eabc6d891dfa08afc
    */
   appCode?: string;
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1820,6 +1825,9 @@ export class CreateAppCodeRequest extends $tea.Model {
 
 export class CreateAppCodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 418DAAE7-A0C2-5E9C-ADFF-4CD14A474F88
    */
@@ -1869,6 +1877,8 @@ export class CreateAppCodeResponse extends $tea.Model {
 export class CreateAppKeyRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1876,11 +1886,17 @@ export class CreateAppKeyRequest extends $tea.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The application AppKey.
+   * 
    * @example
    * 204203237
    */
   appKey?: string;
   /**
+   * @remarks
+   * The application AppSecret.
+   * 
    * @example
    * 6f0a4ad7918a4b41a57fc087d5b066d0
    */
@@ -1908,6 +1924,9 @@ export class CreateAppKeyRequest extends $tea.Model {
 
 export class CreateAppKeyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5D524309-6BED-5BB4-A735-F7D9F98B7B88
    */
@@ -2452,10 +2471,10 @@ export class CreateInstanceRequest extends $tea.Model {
    * @remarks
    * The subscription duration of the instance.
    * 
-   * *   Valid values if PricingCycle is set to **Month**: **1** to **9**
-   * *   Valid values if PricingCycle is set to **Year**: **1** to **3**
+   * *   If PricingCycle is set to **Month**, set this parameter to an integer ranges from **1** to **9**.
+   * *   If PricingCycle is set to **Year**, set this parameter to an integer ranges from **1** to **3**.
    * 
-   * >  This parameter is available and required only if the ChargeType parameter is set to **PrePaid**.
+   * >  This parameter is valid and required only if the ChargeType parameter is set to **PrePaid**.
    * 
    * @example
    * 1
@@ -2526,7 +2545,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * *   **year**
    * *   **month**
    * 
-   * >  This parameter is available and required only if the ChargeType parameter is set to PrePaid.
+   * >  This parameter is required if the ChargeType parameter is set to Prepaid.
    * 
    * @example
    * Month
@@ -4217,7 +4236,7 @@ export class DeleteApiStageVariableRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the runtime environment.
+   * The ID of the environment.
    * 
    * This parameter is required.
    * 
@@ -4404,6 +4423,8 @@ export class DeleteAppResponse extends $tea.Model {
 export class DeleteAppCodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The application AppCode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4412,6 +4433,8 @@ export class DeleteAppCodeRequest extends $tea.Model {
   appCode?: string;
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4439,6 +4462,9 @@ export class DeleteAppCodeRequest extends $tea.Model {
 
 export class DeleteAppCodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E8515BA6-81CD-4191-A7CF-C4FCDD3C0D99
    */
@@ -4488,6 +4514,8 @@ export class DeleteAppCodeResponse extends $tea.Model {
 export class DeleteAppKeyRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4496,6 +4524,8 @@ export class DeleteAppKeyRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The AppKey of the application. The AppKey is used for calling an API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4523,6 +4553,9 @@ export class DeleteAppKeyRequest extends $tea.Model {
 
 export class DeleteAppKeyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 79EF055D-AC00-5161-8F35-6A36AAED7422
    */
@@ -4671,13 +4704,11 @@ export class DeleteBackendModelRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The environment to which the API is published. Valid values:
+   * The name of the runtime environment. Valid values:
    * 
    * *   **RELEASE**
    * *   **PRE**
    * *   **TEST**
-   * 
-   * If you do not specify this parameter, APIs in the draft state are returned.
    * 
    * @example
    * TEST
@@ -4984,7 +5015,7 @@ export class DeleteDomainRequest extends $tea.Model {
 export class DeleteDomainResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
@@ -5432,7 +5463,7 @@ export class DeleteModelRequest extends $tea.Model {
 export class DeleteModelResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4173F95B-360C-460C-9F6C-4A960B904411
@@ -6210,7 +6241,7 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
   aclName?: string;
   /**
    * @remarks
-   * The IP version. Valid values: **ipv4** and **ipv6**.
+   * The IP protocol version. Valid values: **ipv4** and **ipv6**.
    * 
    * @example
    * ipv4
@@ -6880,12 +6911,12 @@ export class DescribeApiDocRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The environment to which the API is published. Valid values:
+   * The environment name. Valid values:
    * 
    * *   **RELEASE**
    * *   **TEST**
    * 
-   * If this parameter is not specified, the default value is used, which is RELEASE.
+   * If this parameter is not specified, the default value RELEASE is used.
    * 
    * @example
    * RELEASE
@@ -7012,7 +7043,7 @@ export class DescribeApiDocResponseBody extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The returned API frontend definition information. It is an array consisting of RequestConfig data.
+   * The returned API frontend definition. It is an array consisting of RequestConfig data.
    */
   requestConfig?: DescribeApiDocResponseBodyRequestConfig;
   /**
@@ -8256,7 +8287,7 @@ export class DescribeApiHistoryResponseBody extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * Configuration items of API requests sent by the consumer to API Gateway.
+   * The configuration items of API requests sent by the consumer to API Gateway.
    * 
    * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
    */
@@ -10781,17 +10812,26 @@ export class DescribeApisByTrafficControlResponse extends $tea.Model {
 
 export class DescribeApisByVpcAccessRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 2
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The name of the VPC access authorization.
+   * 
    * @example
    * lynkco-iov-uat
    */
@@ -10820,23 +10860,39 @@ export class DescribeApisByVpcAccessRequest extends $tea.Model {
 }
 
 export class DescribeApisByVpcAccessResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned API information. It is an array consisting of ApiInfo data.
+   */
   apiVpcAccessInfos?: DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E707B25-5119-5ACF-9D26-7D2A2762F05C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */
@@ -11144,7 +11200,7 @@ export class DescribeAppResponseBody extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The extended information.
+   * 扩展信息
    * 
    * @example
    * 110243810311
@@ -11263,7 +11319,7 @@ export class DescribeAppAttributesRequest extends $tea.Model {
   enableTagAuth?: boolean;
   /**
    * @remarks
-   * The extended information.
+   * 扩展信息
    * 
    * @example
    * 110243810311
@@ -11345,7 +11401,7 @@ export class DescribeAppAttributesRequest extends $tea.Model {
 export class DescribeAppAttributesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned application information. It is an array that consists of AppAttribute data.
+   * The returned app information. It is an array that consists of AppAttribute data.
    */
   apps?: DescribeAppAttributesResponseBodyApps;
   /**
@@ -11433,6 +11489,8 @@ export class DescribeAppAttributesResponse extends $tea.Model {
 export class DescribeAppSecuritiesRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11460,8 +11518,15 @@ export class DescribeAppSecuritiesRequest extends $tea.Model {
 }
 
 export class DescribeAppSecuritiesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The associated security policy information.
+   */
   appSecuritys?: DescribeAppSecuritiesResponseBodyAppSecuritys;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EF924FE4-2EDD-4CD3-89EC-34E4708574E7
    */
@@ -12195,7 +12260,7 @@ export class DescribeAuthorizedAppsRequest extends $tea.Model {
 export class DescribeAuthorizedAppsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned group set.
+   * The authorized applications.
    */
   authorizedApps?: DescribeAuthorizedAppsResponseBodyAuthorizedApps;
   /**
@@ -12892,7 +12957,7 @@ export class DescribeDatasetListRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The tag of objects that match the rule. You can specify multiple tags.
+   * 指定规则所适用的对象标签，可设置多个
    */
   tag?: DescribeDatasetListRequestTag[];
   static names(): { [key: string]: string } {
@@ -13494,9 +13559,6 @@ export class DescribeDeployedApisRequest extends $tea.Model {
    */
   apiId?: string;
   /**
-   * @remarks
-   * The HTTP method of the API request.
-   * 
    * @example
    * POST
    */
@@ -13510,9 +13572,6 @@ export class DescribeDeployedApisRequest extends $tea.Model {
    */
   apiName?: string;
   /**
-   * @remarks
-   * The request path of the API.
-   * 
    * @example
    * /st4
    */
@@ -13563,7 +13622,7 @@ export class DescribeDeployedApisRequest extends $tea.Model {
   stageName?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeDeployedApisRequestTag[];
   static names(): { [key: string]: string } {
@@ -13704,7 +13763,7 @@ export class DescribeDomainRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the API group. An API group ID is generated by the system and is globally unique.
+   * The ID of the API group. This ID is generated by the system and globally unique.
    * 
    * This parameter is required.
    * 
@@ -13737,7 +13796,7 @@ export class DescribeDomainRequest extends $tea.Model {
 export class DescribeDomainResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The certificate content.
+   * The content of the certificate.
    * 
    * @example
    * xxx
@@ -13753,7 +13812,7 @@ export class DescribeDomainResponseBody extends $tea.Model {
   certificateId?: string;
   /**
    * @remarks
-   * The SSL certificate name.
+   * The name of the SSL certificate.
    * 
    * @example
    * myCertificate
@@ -13769,7 +13828,7 @@ export class DescribeDomainResponseBody extends $tea.Model {
   certificatePrivateKey?: string;
   /**
    * @remarks
-   * The time when the certificate expires. The value is a timestamp. Unit: milliseconds.
+   * 证书失效时间戳（毫秒）
    * 
    * @example
    * 1704038400000
@@ -13777,7 +13836,7 @@ export class DescribeDomainResponseBody extends $tea.Model {
   certificateValidEnd?: number;
   /**
    * @remarks
-   * The time when the certificate takes effect. The value is a timestamp. Unit: milliseconds.
+   * 证书生效时间戳（毫秒）
    * 
    * @example
    * 1672502400000
@@ -13787,8 +13846,8 @@ export class DescribeDomainResponseBody extends $tea.Model {
    * @remarks
    * The binding status of the custom domain name. Valid values:
    * 
-   * *   BINDING: The domain name is bound to the API group.
-   * *   BOUND: The domain name is not bound to the API group.
+   * *   BINDING: The domain name has been bound.
+   * *   BOUND: The domain name has not been bound.
    * 
    * @example
    * BINDING
@@ -13810,7 +13869,7 @@ export class DescribeDomainResponseBody extends $tea.Model {
    * The validity status of the domain name. Valid values:
    * 
    * *   NORMAL
-   * *   ABNORMAL: This status affects API calls and must be rectified as soon as possible.
+   * *   ABNORMAL: This status affects API calls and must be resolved as soon as possible.
    * 
    * @example
    * NORMAL
@@ -13829,7 +13888,7 @@ export class DescribeDomainResponseBody extends $tea.Model {
    * Remarks about the domain name, such as the cause of an exception.
    * 
    * @example
-   * The status of the domain name that uses WebSocket.
+   * The domain name does not have an ICP filing.
    */
   domainRemark?: string;
   /**
@@ -13850,7 +13909,7 @@ export class DescribeDomainResponseBody extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
@@ -14408,7 +14467,7 @@ export class DescribeHistoryApisRequest extends $tea.Model {
 export class DescribeHistoryApisResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned API information. It is an array consisting of ApiHisItem data.
+   * The returned API information. It is an array consisting of ApiHisItems.
    */
   apiHisItems?: DescribeHistoryApisResponseBodyApiHisItems;
   /**
@@ -14616,6 +14675,9 @@ export class DescribeImportOASTaskResponse extends $tea.Model {
 
 export class DescribeInstanceClusterInfoRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the dedicated instance cluster.
+   * 
    * @example
    * testvpc
    */
@@ -14642,53 +14704,91 @@ export class DescribeInstanceClusterInfoRequest extends $tea.Model {
 
 export class DescribeInstanceClusterInfoResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
    * @example
    * 2022-10-10T18:29:27
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The cluster description, which can be up to 200 characters in length.
+   * 
    * @example
    * v0.0.4
    */
   description?: string;
+  /**
+   * @remarks
+   * The cluster details.
+   */
   instanceClusterAttribute?: DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * apigateway-ht-04e41d95e9c1
    */
   instanceClusterId?: string;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * test
    */
   instanceClusterName?: string;
   /**
+   * @remarks
+   * The cluster status.
+   * 
    * @example
    * RUNNING
    */
   instanceClusterStatus?: string;
   /**
+   * @remarks
+   * The cluster type.
+   * 
    * @example
    * normal
    */
   instanceClusterType?: string;
   /**
+   * @remarks
+   * The cluster version.
+   * 
    * @example
    * 3.5.3.856
    */
   instanceClusterVersion?: string;
+  /**
+   * @remarks
+   * The dedicated instances contained in the cluster.
+   */
   instanceList?: DescribeInstanceClusterInfoResponseBodyInstanceList;
   /**
+   * @remarks
+   * The time when the cluster was last modified.
+   * 
    * @example
    * 2023-06-19 10:40:29 +0800
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
    */
@@ -14758,14 +14858,34 @@ export class DescribeInstanceClusterInfoResponse extends $tea.Model {
 }
 
 export class DescribeInstanceClusterListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * apigateway-cluster-hz-xxxxxxxxxxxx
+   */
   instanceClusterId?: string;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * test-cluster
+   */
   instanceClusterName?: string;
   /**
+   * @remarks
+   * The page number of the page to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
@@ -14799,21 +14919,33 @@ export class DescribeInstanceClusterListRequest extends $tea.Model {
 export class DescribeInstanceClusterListResponseBody extends $tea.Model {
   instanceClusters?: DescribeInstanceClusterListResponseBodyInstanceClusters;
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2
    */
@@ -16696,6 +16828,10 @@ export class DescribeModelsRequest extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The tag of objects that match the rule. You can specify multiple tags.
+   */
   tag?: DescribeModelsRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -16732,7 +16868,7 @@ export class DescribeModelsResponseBody extends $tea.Model {
   modelDetails?: DescribeModelsResponseBodyModelDetails;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the page to return.
    * 
    * @example
    * 1
@@ -16740,7 +16876,7 @@ export class DescribeModelsResponseBody extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -16748,7 +16884,7 @@ export class DescribeModelsResponseBody extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40306469-2FB5-417A-B723-AF1F4A4FA204
@@ -21664,6 +21800,7 @@ export class ModifyApiGroupRequest extends $tea.Model {
    * New weather informations.
    */
   description?: string;
+  filterAppCodeForBackend?: string;
   /**
    * @remarks
    * The ID of the API group. This ID is generated by the system and globally unique.
@@ -21725,6 +21862,7 @@ export class ModifyApiGroupRequest extends $tea.Model {
       customerConfigs: 'CustomerConfigs',
       defaultDomain: 'DefaultDomain',
       description: 'Description',
+      filterAppCodeForBackend: 'FilterAppCodeForBackend',
       groupId: 'GroupId',
       groupName: 'GroupName',
       passthroughHeaders: 'PassthroughHeaders',
@@ -21744,6 +21882,7 @@ export class ModifyApiGroupRequest extends $tea.Model {
       customerConfigs: 'string',
       defaultDomain: 'string',
       description: 'string',
+      filterAppCodeForBackend: 'string',
       groupId: 'string',
       groupName: 'string',
       passthroughHeaders: 'string',
@@ -22793,6 +22932,10 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
    * 18:00Z
    */
   maintainStartTime?: string;
+  /**
+   * @remarks
+   * The information about the CIDR block that API Gateway can use to access the virtual private cloud (VPC) of the backend service.
+   */
   toConnectVpcIpBlock?: ModifyInstanceAttributeRequestToConnectVpcIpBlock;
   /**
    * @example
@@ -22892,6 +23035,10 @@ export class ModifyInstanceAttributeShrinkRequest extends $tea.Model {
    * 18:00Z
    */
   maintainStartTime?: string;
+  /**
+   * @remarks
+   * The information about the CIDR block that API Gateway can use to access the virtual private cloud (VPC) of the backend service.
+   */
   toConnectVpcIpBlockShrink?: string;
   /**
    * @example
@@ -24421,7 +24568,7 @@ export class ReactivateDomainRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
+   * The ID of the API group. This ID is generated by the system and globally unique.
    * 
    * This parameter is required.
    * 
@@ -24720,7 +24867,7 @@ export class RemoveApiProductsAuthoritiesResponse extends $tea.Model {
 export class RemoveApisAuthoritiesRequest extends $tea.Model {
   /**
    * @remarks
-   * The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+   * The IDs of the APIs. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
    * 
    * This parameter is required.
    * 
@@ -24730,7 +24877,7 @@ export class RemoveApisAuthoritiesRequest extends $tea.Model {
   apiIds?: string;
   /**
    * @remarks
-   * The ID of the app. The ID is generated by the system and globally unique.
+   * The ID of the appplication. The ID is generated by the system and globally unique.
    * 
    * This parameter is required.
    * 
@@ -26364,7 +26511,7 @@ export class SetApiProductsAuthoritiesResponse extends $tea.Model {
 export class SetApisAuthoritiesRequest extends $tea.Model {
   /**
    * @remarks
-   * The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+   * The IDs of the APIs. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
    * 
    * @example
    * baacc592e63a4cb6a41920d9d3f91f38,jkscc489e63a4cb6a41920d9d3f92d78
@@ -26372,7 +26519,7 @@ export class SetApisAuthoritiesRequest extends $tea.Model {
   apiIds?: string;
   /**
    * @remarks
-   * The ID of the app. This ID is generated by the system and globally unique.
+   * The ID of the application. This ID is generated by the system and globally unique.
    * 
    * This parameter is required.
    * 
@@ -26605,7 +26752,7 @@ export class SetAppsAuthoritiesRequest extends $tea.Model {
   apiId?: string;
   /**
    * @remarks
-   * The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+   * The IDs of applications. Separate multiple application IDs with commas (,). A maximum of 100 applications IDs can be entered.
    * 
    * This parameter is required.
    * 
@@ -26960,7 +27107,7 @@ export class SetDomainCertificateRequest extends $tea.Model {
   caCertificateBody?: string;
   /**
    * @remarks
-   * The certificate content.
+   * The content of the certificate.
    * 
    * @example
    * For more information, see the following request examples
@@ -26996,7 +27143,7 @@ export class SetDomainCertificateRequest extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
+   * The ID of the API group. This ID is generated by the system and globally unique.
    * 
    * This parameter is required.
    * 
@@ -27406,7 +27553,7 @@ export class SetIpControlApisResponse extends $tea.Model {
 export class SetSignatureApisRequest extends $tea.Model {
   /**
    * @remarks
-   * The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+   * The API IDs.
    * 
    * This parameter is required.
    * 
@@ -27416,7 +27563,7 @@ export class SetSignatureApisRequest extends $tea.Model {
   apiIds?: string;
   /**
    * @remarks
-   * The ID of the API group to which the API that you want to manage belongs.
+   * The API group ID.
    * 
    * This parameter is required.
    * 
@@ -27427,7 +27574,7 @@ export class SetSignatureApisRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the signature key.
+   * The signature ID.
    * 
    * This parameter is required.
    * 
@@ -27437,11 +27584,11 @@ export class SetSignatureApisRequest extends $tea.Model {
   signatureId?: string;
   /**
    * @remarks
-   * The name of the runtime environment. Valid values:
+   * The environment. Valid values:
    * 
-   * *   **RELEASE**
-   * *   **PRE**
-   * *   **TEST**
+   * *   **RELEASE**: the production environment
+   * *   **PRE**: the staging environment
+   * *   **TEST**: the testing environment
    * 
    * This parameter is required.
    * 
@@ -27477,7 +27624,7 @@ export class SetSignatureApisRequest extends $tea.Model {
 export class SetSignatureApisResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
@@ -27915,7 +28062,7 @@ export class SetWildcardDomainPatternsResponse extends $tea.Model {
 export class SwitchApiRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the API.
+   * The API ID.
    * 
    * This parameter is required.
    * 
@@ -27925,7 +28072,7 @@ export class SwitchApiRequest extends $tea.Model {
   apiId?: string;
   /**
    * @remarks
-   * The description of the switch operation.
+   * The description. The description can be up to 200 characters in length.
    * 
    * This parameter is required.
    * 
@@ -27935,7 +28082,7 @@ export class SwitchApiRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the API group.
+   * The API group ID.
    * 
    * @example
    * 123
@@ -27943,7 +28090,7 @@ export class SwitchApiRequest extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
-   * The historical version that you want to switch to.
+   * The historical version number of the API.
    * 
    * This parameter is required.
    * 
@@ -27954,10 +28101,11 @@ export class SwitchApiRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The name of the runtime environment. Valid values:
+   * The environment. Valid values:
    * 
-   * *   **RELEASE**
-   * *   **TEST**
+   * *   **RELEASE**: the production environment
+   * *   **PRE**: the staging environment
+   * *   **TEST**: the test environment
    * 
    * This parameter is required.
    * 
@@ -27995,7 +28143,7 @@ export class SwitchApiRequest extends $tea.Model {
 export class SwitchApiResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BZ001
@@ -29226,7 +29374,7 @@ export class DescribeAbolishApiTaskResponseBodyApiAbolishResults extends $tea.Mo
 export class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry extends $tea.Model {
   /**
    * @remarks
-   * The description of an entry.
+   * The entry description.
    * 
    * @example
    * default
@@ -29234,7 +29382,7 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry ext
   aclEntryComment?: string;
   /**
    * @remarks
-   * The entries of the access control policy.
+   * The ACL entry.
    * 
    * @example
    * 192.168.1.0/24
@@ -29924,7 +30072,7 @@ export class DescribeApiResponseBodyRequestParametersRequestParameter extends $t
   location?: string;
   /**
    * @remarks
-   * The maximum parameter length when ParameterType is set to String.
+   * The maximum parameter length when **ParameterType** is set to String.
    * 
    * @example
    * 123456
@@ -29932,7 +30080,7 @@ export class DescribeApiResponseBodyRequestParametersRequestParameter extends $t
   maxLength?: number;
   /**
    * @remarks
-   * The maximum parameter value when ParameterType is set to Int, Long, Float, or Double.
+   * The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
    * 
    * @example
    * 123456
@@ -29940,7 +30088,7 @@ export class DescribeApiResponseBodyRequestParametersRequestParameter extends $t
   maxValue?: number;
   /**
    * @remarks
-   * The minimum parameter length when ParameterType is set to String.
+   * The minimum parameter length when **ParameterType** is set to String.
    * 
    * @example
    * 123456
@@ -29948,7 +30096,7 @@ export class DescribeApiResponseBodyRequestParametersRequestParameter extends $t
   minLength?: number;
   /**
    * @remarks
-   * The minimum parameter value when ParameterType is set to Int, Long, Float, or Double.
+   * The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
    * 
    * @example
    * 123456
@@ -29964,7 +30112,7 @@ export class DescribeApiResponseBodyRequestParametersRequestParameter extends $t
   parameterType?: string;
   /**
    * @remarks
-   * The regular expression that is used for parameter validation when ParameterType is set to String.
+   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
    * 
    * @example
    * xxx
@@ -30876,7 +31024,7 @@ export class DescribeApiDocResponseBodyErrorCodeSamplesErrorCodeSample extends $
   code?: string;
   /**
    * @remarks
-   * The description of the error code.
+   * The error description.
    * 
    * @example
    * Unauthorized
@@ -31050,7 +31198,7 @@ export class DescribeApiDocResponseBodyRequestParametersRequestParameter extends
   demoValue?: string;
   /**
    * @remarks
-   * The description.
+   * The parameter description.
    * 
    * @example
    * Parameters
@@ -31074,7 +31222,7 @@ export class DescribeApiDocResponseBodyRequestParametersRequestParameter extends
   docShow?: string;
   /**
    * @remarks
-   * The hash values that can be specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate multiple hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
+   * The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
    * 
    * @example
    * boy,girl
@@ -31138,7 +31286,7 @@ export class DescribeApiDocResponseBodyRequestParametersRequestParameter extends
   parameterType?: string;
   /**
    * @remarks
-   * The regular expression that is used to validate the parameter if the **ParameterType** parameter is set to String.
+   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
    * 
    * @example
    * xxx
@@ -31259,7 +31407,7 @@ export class DescribeApiGroupRequestTag extends $tea.Model {
 export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Model {
   /**
    * @remarks
-   * Bind runtime environment alias
+   * The alias of the associated environment.
    * 
    * @example
    * TEST1
@@ -31981,7 +32129,7 @@ export class DescribeApiHistoryResponseBodyBackendConfig extends $tea.Model {
 export class DescribeApiHistoryResponseBodyConstantParametersConstantParameter extends $tea.Model {
   /**
    * @remarks
-   * The constant value.
+   * The value of the constant parameter.
    * 
    * @example
    * constance
@@ -31989,7 +32137,7 @@ export class DescribeApiHistoryResponseBodyConstantParametersConstantParameter e
   constantValue?: string;
   /**
    * @remarks
-   * The description.
+   * The parameter description.
    * 
    * @example
    * for_test1
@@ -32005,7 +32153,7 @@ export class DescribeApiHistoryResponseBodyConstantParametersConstantParameter e
   location?: string;
   /**
    * @remarks
-   * The name of the backend service parameter.
+   * The mapped parameter name in the backend service.
    * 
    * @example
    * constance
@@ -32056,7 +32204,7 @@ export class DescribeApiHistoryResponseBodyConstantParameters extends $tea.Model
 export class DescribeApiHistoryResponseBodyCustomSystemParametersCustomSystemParameter extends $tea.Model {
   /**
    * @remarks
-   * Example
+   * The sample value.
    * 
    * @example
    * 192.168.1.1
@@ -32064,7 +32212,7 @@ export class DescribeApiHistoryResponseBodyCustomSystemParametersCustomSystemPar
   demoValue?: string;
   /**
    * @remarks
-   * The description of the custom system parameter.
+   * The parameter description.
    * 
    * @example
    * balabala
@@ -32080,7 +32228,7 @@ export class DescribeApiHistoryResponseBodyCustomSystemParametersCustomSystemPar
   location?: string;
   /**
    * @remarks
-   * The name of the custom system parameter.
+   * The parameter name.
    * 
    * @example
    * CaClientIp
@@ -32088,7 +32236,7 @@ export class DescribeApiHistoryResponseBodyCustomSystemParametersCustomSystemPar
   parameterName?: string;
   /**
    * @remarks
-   * The name of the corresponding backend parameter.
+   * The mapped parameter name in the backend service.
    * 
    * @example
    * clientIp
@@ -32141,7 +32289,7 @@ export class DescribeApiHistoryResponseBodyCustomSystemParameters extends $tea.M
 export class DescribeApiHistoryResponseBodyErrorCodeSamplesErrorCodeSample extends $tea.Model {
   /**
    * @remarks
-   * The error code.
+   * The returned error code.
    * 
    * @example
    * 400
@@ -32149,7 +32297,7 @@ export class DescribeApiHistoryResponseBodyErrorCodeSamplesErrorCodeSample exten
   code?: string;
   /**
    * @remarks
-   * The description.
+   * The error description.
    * 
    * @example
    * Missing the parameter UserId
@@ -32157,7 +32305,7 @@ export class DescribeApiHistoryResponseBodyErrorCodeSamplesErrorCodeSample exten
   description?: string;
   /**
    * @remarks
-   * The error message.
+   * The returned error message.
    * 
    * @example
    * MissingParameter
@@ -32358,7 +32506,7 @@ export class DescribeApiHistoryResponseBodyRequestConfig extends $tea.Model {
 export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter extends $tea.Model {
   /**
    * @remarks
-   * The name of the API parameter.
+   * The name of the parameter in the API request.
    * 
    * @example
    * age
@@ -32374,7 +32522,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   arrayItemsType?: string;
   /**
    * @remarks
-   * Default value
+   * The default value.
    * 
    * @example
    * 20
@@ -32382,7 +32530,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   defaultValue?: string;
   /**
    * @remarks
-   * Examples
+   * The sample value.
    * 
    * @example
    * 20
@@ -32390,7 +32538,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   demoValue?: string;
   /**
    * @remarks
-   * The description.
+   * The parameter description.
    * 
    * @example
    * modidyTest
@@ -32398,7 +32546,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   description?: string;
   /**
    * @remarks
-   * The order in the document.
+   * The order in which the parameter is sorted in the document.
    * 
    * @example
    * 0
@@ -32406,7 +32554,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   docOrder?: number;
   /**
    * @remarks
-   * Specifies whether the document is public. Valid values: PUBLIC and PRIVATE.
+   * Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
    * 
    * @example
    * PUBLIC
@@ -32414,7 +32562,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   docShow?: string;
   /**
    * @remarks
-   * The hash values that can be entered when ParameterType is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+   * The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
    * 
    * @example
    * boy,girl
@@ -32438,7 +32586,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   location?: string;
   /**
    * @remarks
-   * The maximum parameter length when ParameterType is set to String.
+   * The maximum parameter length when **ParameterType** is set to String.
    * 
    * @example
    * 123456
@@ -32446,7 +32594,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   maxLength?: number;
   /**
    * @remarks
-   * The maximum parameter value when ParameterType is set to Int, Long, Float, or Double.
+   * The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
    * 
    * @example
    * 123456
@@ -32454,7 +32602,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   maxValue?: number;
   /**
    * @remarks
-   * The minimum parameter length when ParameterType is set to String.
+   * The minimum parameter length when **ParameterType** is set to String.
    * 
    * @example
    * 123456
@@ -32462,7 +32610,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   minLength?: number;
   /**
    * @remarks
-   * The minimum parameter value when ParameterType is set to Int, Long, Float, or Double.
+   * The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
    * 
    * @example
    * 123456
@@ -32470,7 +32618,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   minValue?: number;
   /**
    * @remarks
-   * The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+   * The data type of the parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
    * 
    * @example
    * String
@@ -32478,7 +32626,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   parameterType?: string;
   /**
    * @remarks
-   * The regular expression used for parameter validation when ParameterType is set to String.
+   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
    * 
    * @example
    * xxx
@@ -32486,7 +32634,7 @@ export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter ext
   regularExpression?: string;
   /**
    * @remarks
-   * Indicates whether the parameter is required. Valid values: REQUIRED and OPTIONAL.
+   * Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
    * 
    * @example
    * OPTIONAL
@@ -32563,7 +32711,7 @@ export class DescribeApiHistoryResponseBodyRequestParameters extends $tea.Model 
 export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription extends $tea.Model {
   /**
    * @remarks
-   * The description.
+   * The subnode description.
    * 
    * @example
    * for_test1
@@ -32571,7 +32719,7 @@ export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription e
   description?: string;
   /**
    * @remarks
-   * Specifies whether a subnode exists.
+   * Indicates whether a subnode exists.
    * 
    * @example
    * true
@@ -32579,7 +32727,7 @@ export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription e
   hasChild?: boolean;
   /**
    * @remarks
-   * The ID of the result.
+   * The result ID.
    * 
    * @example
    * id
@@ -32595,7 +32743,7 @@ export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription e
   key?: string;
   /**
    * @remarks
-   * Specifies whether the parameter is required.
+   * Indicates whether the parameter is required.
    * 
    * @example
    * true
@@ -32603,7 +32751,7 @@ export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription e
   mandatory?: boolean;
   /**
    * @remarks
-   * The name of the result.
+   * The result name.
    * 
    * @example
    * fwqf
@@ -32619,7 +32767,7 @@ export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription e
   pid?: string;
   /**
    * @remarks
-   * The type of the result.
+   * The result type.
    * 
    * @example
    * String
@@ -32874,7 +33022,7 @@ export class DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig ex
 export class DescribeApiHistoryResponseBodyServiceConfigMockHeadersMockHeader extends $tea.Model {
   /**
    * @remarks
-   * The name of the HTTP header parameter.
+   * The HTTP headers.
    * 
    * @example
    * Content-Type
@@ -32882,7 +33030,7 @@ export class DescribeApiHistoryResponseBodyServiceConfigMockHeadersMockHeader ex
   headerName?: string;
   /**
    * @remarks
-   * The value of the HTTP header parameter.
+   * The values of the HTTP headers.
    * 
    * @example
    * 86400
@@ -33250,7 +33398,7 @@ export class DescribeApiHistoryResponseBodyServiceParametersServiceParameter ext
   location?: string;
   /**
    * @remarks
-   * The data type of the back-end service parameter.
+   * The data type of the parameter. Valid values: STRING, NUMBER, and BOOLEAN.
    * 
    * @example
    * String
@@ -33258,7 +33406,7 @@ export class DescribeApiHistoryResponseBodyServiceParametersServiceParameter ext
   parameterType?: string;
   /**
    * @remarks
-   * The name of the backend service parameter.
+   * The mapped parameter name in the backend service.
    * 
    * @example
    * clientIp
@@ -33307,7 +33455,7 @@ export class DescribeApiHistoryResponseBodyServiceParameters extends $tea.Model 
 export class DescribeApiHistoryResponseBodyServiceParametersMapServiceParameterMap extends $tea.Model {
   /**
    * @remarks
-   * The corresponding frontend parameter. It must be included in RequestParametersObject and matches ApiParameterName in RequestParameter data.
+   * The corresponding frontend parameter name. The value must be contained in RequestParametersObject and match RequestParam.ApiParameterName.
    * 
    * @example
    * sex
@@ -33315,7 +33463,7 @@ export class DescribeApiHistoryResponseBodyServiceParametersMapServiceParameterM
   requestParameterName?: string;
   /**
    * @remarks
-   * The name of the backend service parameter.
+   * The mapped parameter name in the backend service.
    * 
    * @example
    * sex
@@ -33362,7 +33510,7 @@ export class DescribeApiHistoryResponseBodyServiceParametersMap extends $tea.Mod
 export class DescribeApiHistoryResponseBodySystemParametersSystemParameter extends $tea.Model {
   /**
    * @remarks
-   * The sample value of the parameter.
+   * The sample value.
    * 
    * @example
    * 192.168.1.1
@@ -33386,7 +33534,7 @@ export class DescribeApiHistoryResponseBodySystemParametersSystemParameter exten
   location?: string;
   /**
    * @remarks
-   * The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
+   * The system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
    * 
    * @example
    * CaClientIp
@@ -33394,7 +33542,7 @@ export class DescribeApiHistoryResponseBodySystemParametersSystemParameter exten
   parameterName?: string;
   /**
    * @remarks
-   * The name of the corresponding backend parameter.
+   * The mapped parameter name in the backend service.
    * 
    * @example
    * clientIp
@@ -34537,7 +34685,7 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo 
   groupName?: string;
   /**
    * @remarks
-   * The HTTP request method of the API.
+   * The HTTP method of the API.
    * 
    * @example
    * GET
@@ -34572,7 +34720,7 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo 
   regionId?: string;
   /**
    * @remarks
-   * Environmental alias.
+   * The environment alias.
    * 
    * @example
    * Online
@@ -34580,7 +34728,7 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfosAppApiRelationInfo 
   stageAlias?: string;
   /**
    * @remarks
-   * The environment.
+   * The environment name.
    * 
    * @example
    * RELEASE
@@ -35148,61 +35296,101 @@ export class DescribeApisByTrafficControlResponseBodyApiInfos extends $tea.Model
 
 export class DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo extends $tea.Model {
   /**
+   * @remarks
+   * The API ID.
+   * 
    * @example
    * 09839002de484e76b5a213b040a6a3ca
    */
   apiId?: string;
   /**
+   * @remarks
+   * The API name.
+   * 
    * @example
    * iwc
    */
   apiName?: string;
   /**
+   * @remarks
+   * The description, which can be up to 200 characters in length.
+   * 
    * @example
    * 123
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the API group to which the API belongs.
+   * 
    * @example
    * 41c33748cbfb41f6b00870156203b72a
    */
   groupId?: string;
   /**
+   * @remarks
+   * The name of the API group to which the API belongs.
+   * 
    * @example
    * RT_PLU_IP_CTRL_group
    */
   groupName?: string;
   /**
+   * @remarks
+   * The instance ID or IP address in the VPC access authorization.
+   * 
    * @example
    * Ib-04e41XXXXXd95e9c1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The HTTP request method of the API.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The request path of the API.
+   * 
    * @example
    * /api/v1/friends/rc/status
    */
   path?: string;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 443
    */
   port?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * 57e17906a69b4424914fb1e05f67c78a
    */
   stageId?: string;
   /**
+   * @remarks
+   * The environment to which the API is published. Valid values:
+   * 
+   * *   **RELEASE**: the production environment
+   * *   **PRE**: the staging environment
+   * *   **TEST**: the test environment
+   * 
    * @example
    * RELEASE
    */
@@ -35216,6 +35404,9 @@ export class DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInf
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The name of the VPC access authorization.
+   * 
    * @example
    * aliYun_service_prod
    */
@@ -35440,9 +35631,9 @@ export class DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationI
 export class DescribeAppAttributesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The value of tag N.
+   * The key of the tag.
    * 
-   * Valid values of n: `[1, 20]`.
+   * N can be an integer from 1 to 20.``
    * 
    * This parameter is required.
    * 
@@ -35452,9 +35643,9 @@ export class DescribeAppAttributesRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The key of tag N.
+   * The key of the tag.
    * 
-   * Valid values of n: `[1, 20]`.
+   * N can be an integer from 1 to 20.``
    * 
    * @example
    * \\" \\"
@@ -35482,7 +35673,7 @@ export class DescribeAppAttributesRequestTag extends $tea.Model {
 export class DescribeAppAttributesResponseBodyAppsAppAttributeTagsTagInfo extends $tea.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * appid
@@ -35490,7 +35681,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttributeTagsTagInfo extend
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * 123
@@ -35537,7 +35728,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttributeTags extends $tea.
 export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the app.
    * 
    * @example
    * 20112314518278
@@ -35545,7 +35736,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
   appId?: number;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * CreateApptest
@@ -35553,7 +35744,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
   appName?: string;
   /**
    * @remarks
-   * The creation time (UTC) of the application.
+   * The creation time (UTC) of the app.
    * 
    * @example
    * 2016-07-31T04:10:19Z
@@ -35561,7 +35752,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
   createdTime?: string;
   /**
    * @remarks
-   * The application description.
+   * The description of the app.
    * 
    * @example
    * App test
@@ -35569,7 +35760,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
   description?: string;
   /**
    * @remarks
-   * The extended information.
+   * 扩展信息
    * 
    * @example
    * 110461946884
@@ -35577,7 +35768,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $tea.Mode
   extend?: string;
   /**
    * @remarks
-   * The modification time (UTC) of the application.
+   * The modification time (UTC) of the app.
    * 
    * @example
    * 2016-07-31T04:10:19Z
@@ -35638,26 +35829,41 @@ export class DescribeAppAttributesResponseBodyApps extends $tea.Model {
 
 export class DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity extends $tea.Model {
   /**
+   * @remarks
+   * The application AppCode.
+   * 
    * @example
    * d2350ecd62c44cbfbe35a7f182e35105
    */
   appCode?: string;
   /**
+   * @remarks
+   * The application AppKey.
+   * 
    * @example
    * 34379343
    */
   appKey?: string;
   /**
+   * @remarks
+   * The application AppSecret.
+   * 
    * @example
    * ea5291a7aff343769eb3139a2f6de8c9
    */
   appSecret?: string;
   /**
+   * @remarks
+   * The time when the AppKey was created.
+   * 
    * @example
    * 2021-09-14T18:50:59
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The time when the AppSecret was last modified. The time is displayed in UTC.
+   * 
    * @example
    * 2023-08-14T18:03:00+08:00
    */
@@ -36099,7 +36305,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedAppTag ex
 export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp extends $tea.Model {
   /**
    * @remarks
-   * The description of the application.
+   * The application description.
    * 
    * @example
    * Production application
@@ -36107,7 +36313,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
   appDescription?: string;
   /**
    * @remarks
-   * The ID, which is generated by the system and globally unique.
+   * The application ID, which is generated by the system and globally unique.
    * 
    * @example
    * 2386789
@@ -36115,7 +36321,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
   appId?: number;
   /**
    * @remarks
-   * The application name
+   * The application name.
    * 
    * @example
    * Weather
@@ -36150,7 +36356,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
   authorizedTime?: string;
   /**
    * @remarks
-   * The description of the authorization.
+   * The authorization description.
    * 
    * @example
    * Queries weather based on the region name
@@ -36361,8 +36567,20 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 }
 
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig extends $tea.Model {
+  /**
+   * @example
+   * http://192.168.1.xxx:2181
+   */
   connectString?: string;
+  /**
+   * @example
+   * provider
+   */
   namespace?: string;
+  /**
+   * @example
+   * service
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36422,12 +36640,40 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 }
 
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig extends $tea.Model {
+  /**
+   * @example
+   * 6cd0c599-dxxx-496d-b3d5-6a71c657xxxxx
+   */
   edasAppId?: string;
+  /**
+   * @example
+   * cn-hangzhou:edasNacos
+   */
   microserviceNamespace?: string;
+  /**
+   * @example
+   * cn-hangzhou:edasNacos
+   */
   microserviceNamespaceId?: string;
+  /**
+   * @example
+   * Edas-Nacos
+   */
   microserviceNamespaceName?: string;
+  /**
+   * @example
+   * mse-cn-jia3n1rxxxx
+   */
   mseInstanceId?: string;
+  /**
+   * @example
+   * EDAS
+   */
   registryType?: string;
+  /**
+   * @example
+   * service
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36614,11 +36860,17 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   /**
    * @remarks
    * The name of the header parameter.
+   * 
+   * @example
+   * test
    */
   headerName?: string;
   /**
    * @remarks
    * The value of the header parameter.
+   * 
+   * @example
+   * 123
    */
   headerValue?: string;
   static names(): { [key: string]: string } {
@@ -36649,11 +36901,17 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   /**
    * @remarks
    * The result returned for service mocking.
+   * 
+   * @example
+   * test
    */
   mockResult?: string;
   /**
    * @remarks
    * The status code that is returned for service mocking.
+   * 
+   * @example
+   * 200
    */
   mockStatusCode?: string;
   static names(): { [key: string]: string } {
@@ -36765,6 +37023,9 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   /**
    * @remarks
    * The host of the backend service.
+   * 
+   * @example
+   * openapi.alipan.com
    */
   vpcTargetHostName?: string;
   static names(): { [key: string]: string } {
@@ -36839,6 +37100,10 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
    * 10.0.0.1
    */
   serviceAddress?: string;
+  /**
+   * @example
+   * 10000
+   */
   serviceTimeout?: number;
   /**
    * @remarks
@@ -37456,7 +37721,7 @@ export class DescribeDatasetItemListResponseBodyDatasetItemInfoList extends $tea
 export class DescribeDatasetListRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签键
    * 
    * @example
    * env
@@ -37464,7 +37729,7 @@ export class DescribeDatasetListRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值
    * 
    * @example
    * value
@@ -37492,7 +37757,7 @@ export class DescribeDatasetListRequestTag extends $tea.Model {
 export class DescribeDatasetListResponseBodyDatasetInfoListTags extends $tea.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签的键
    * 
    * @example
    * ENV
@@ -37500,7 +37765,7 @@ export class DescribeDatasetListResponseBodyDatasetInfoListTags extends $tea.Mod
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值
    * 
    * @example
    * 123
@@ -37572,7 +37837,7 @@ export class DescribeDatasetListResponseBodyDatasetInfoList extends $tea.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The tags of the dataset.
+   * 标签
    */
   tags?: DescribeDatasetListResponseBodyDatasetInfoListTags[];
   static names(): { [key: string]: string } {
@@ -39021,39 +39286,33 @@ export class DescribeDeployedApisRequestTag extends $tea.Model {
 export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends $tea.Model {
   /**
    * @remarks
-   * The API ID.
+   * The ID of the API.
    * 
    * @example
    * c076144d7878437b8f82fb85890ce6a0
    */
   apiId?: string;
   /**
-   * @remarks
-   * The HTTP method of the API request.
-   * 
    * @example
    * POST
    */
   apiMethod?: string;
   /**
    * @remarks
-   * The API name.
+   * The name of the API.
    * 
    * @example
    * DescribeObjects
    */
   apiName?: string;
   /**
-   * @remarks
-   * The request path of the API.
-   * 
    * @example
    * /trademark/search
    */
   apiPath?: string;
   /**
    * @remarks
-   * The time when the API was published. The time is displayed in UTC.
+   * The publising time (UTC) of the API.
    * 
    * @example
    * 2016-07-23T08:28:48Z
@@ -39061,15 +39320,15 @@ export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends
   deployedTime?: string;
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
-   * Queries objects by page
+   * Queries objects by pages
    */
   description?: string;
   /**
    * @remarks
-   * The API group ID.
+   * The ID of the API group.
    * 
    * @example
    * 63be9002440b4778a61122f14c2b2bbb
@@ -39077,7 +39336,7 @@ export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends
   groupId?: string;
   /**
    * @remarks
-   * The name of the API group to which the API belongs.
+   * The name of the group to which the API belongs.
    * 
    * @example
    * myGroup3
@@ -39085,7 +39344,7 @@ export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends
   groupName?: string;
   /**
    * @remarks
-   * The region ID of the API.
+   * The region where the API is located.
    * 
    * @example
    * cn-qingdao
@@ -39093,7 +39352,7 @@ export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends
   regionId?: string;
   /**
    * @remarks
-   * The environment name. Valid values:
+   * The name of the runtime environment. Valid values:
    * 
    * *   **RELEASE**
    * *   **TEST**
@@ -39363,7 +39622,7 @@ export class DescribeGroupTrafficResponseBodyTrafficPerSecond extends $tea.Model
 export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.Model {
   /**
    * @remarks
-   * The ID of the API.
+   * The API ID.
    * 
    * @example
    * 5af418828f0344a3b588c0cc1331a3bc
@@ -39371,7 +39630,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   apiId?: string;
   /**
    * @remarks
-   * The name of the API.
+   * The API name.
    * 
    * @example
    * v2_role_assign
@@ -39379,7 +39638,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   apiName?: string;
   /**
    * @remarks
-   * The publising time (UTC) of the API.
+   * The time when the API was published. The time is displayed in UTC.
    * 
    * @example
    * 2016-07-20T08:28:48Z
@@ -39387,7 +39646,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   deployedTime?: string;
   /**
    * @remarks
-   * The description of the API.
+   * The API description.
    * 
    * @example
    * Creates an object
@@ -39395,7 +39654,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   description?: string;
   /**
    * @remarks
-   * The ID of the API group.
+   * The API group ID.
    * 
    * @example
    * 1084f9034c744137901057206b39d2b6
@@ -39403,7 +39662,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   groupId?: string;
   /**
    * @remarks
-   * The name of the group to which the API belongs.
+   * The name of the API group to which the API belongs.
    * 
    * @example
    * myGroup2
@@ -39419,7 +39678,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   historyVersion?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-qingdao
@@ -39427,7 +39686,7 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   regionId?: string;
   /**
    * @remarks
-   * Environmental alias
+   * The environment alias.
    * 
    * @example
    * Online
@@ -39435,10 +39694,10 @@ export class DescribeHistoryApisResponseBodyApiHisItemsApiHisItem extends $tea.M
   stageAlias?: string;
   /**
    * @remarks
-   * The name of the runtime environment. Valid values:
+   * The environment name. Valid values:
    * 
    * *   **RELEASE**
-   * *   **TEST.
+   * *   **TEST**
    * 
    * @example
    * RELEASE
@@ -39722,107 +39981,186 @@ export class DescribeImportOASTaskResponseBodyModelResults extends $tea.Model {
 
 export class DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute extends $tea.Model {
   /**
+   * @remarks
+   * The internal CIDR block of the user VPC that can be accessed by the cluster if the cluster consists of VPC integration instances.
+   * 
    * @example
    * ["192.168.1.0/24","192.168.0.0/24"]
    */
   connectCidrBlocks?: string;
   /**
+   * @remarks
+   * The ID of the user VPC that is connected to the cluster if the cluster consists of VPC integration instances.
+   * 
    * @example
    * vpc-p0w3kxxxxxxxxxxxxxxxx
    */
   connectVpcId?: string;
   /**
+   * @remarks
+   * Indicates whether outbound IPv6 traffic is supported.
+   * 
    * @example
    * true
    */
   egressIpv6Enable?: boolean;
   /**
+   * @remarks
+   * The HTTPS security policy.
+   * 
    * @example
    * HTTPS2_TLS1_0
    */
   httpsPolicies?: string;
   /**
+   * @remarks
+   * The ID of the IPv4 access control list (ACL).
+   * 
    * @example
    * acl-t4n8i4rvvp70kcyuoXXXX
    */
   IPV4AclId?: string;
   /**
+   * @remarks
+   * The name of the IPv4 ACL.
+   * 
    * @example
    * test-black
    */
   IPV4AclName?: string;
   /**
+   * @remarks
+   * Indicates whether IPv4 access control is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   IPV4AclStatus?: string;
   /**
+   * @remarks
+   * The type of the IPv4 ACL.
+   * 
+   * *   black: blacklist
+   * *   white: whitelist
+   * 
    * @example
    * black
    */
   IPV4AclType?: string;
   /**
+   * @remarks
+   * The ID of the IPv6 ACL.
+   * 
    * @example
    * acl-t4nevzhwbpe7cup18XXXX
    */
   IPV6AclId?: string;
   /**
+   * @remarks
+   * The name of the IPv6 ACL.
+   * 
    * @example
    * test
    */
   IPV6AclName?: string;
   /**
+   * @remarks
+   * Indicates whether IPv6 access control is enabled. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
    * @example
    * on
    */
   IPV6AclStatus?: string;
   /**
+   * @remarks
+   * The type of the IPv6 ACL. Valid values:
+   * 
+   * *   black: blacklist
+   * *   white: whitelist
+   * 
    * @example
    * white
    */
   IPV6AclType?: string;
   /**
+   * @remarks
+   * The outbound public IP address.
+   * 
    * @example
    * 39.106.XX.XX
    */
   internetEgressAddress?: string;
   /**
+   * @remarks
+   * The outbound private IP address.
+   * 
    * @example
    * 100.104.XX.XX/26
    */
   intranetEgressAddress?: string;
   /**
+   * @remarks
+   * The custom CIDR block. The configured CIDR block is considered as a private block.
+   * 
    * @example
    * 123.0.0.1
    */
   intranetSegments?: string;
   /**
+   * @remarks
+   * Indicates whether IPv6 traffic is supported.
+   * 
    * @example
    * true
    */
   supportIpv6?: boolean;
   /**
+   * @remarks
+   * The ID of the client VPC.
+   * 
    * @example
    * vpc-2zew2v4vcg78mXXXX
    */
   userVpcId?: string;
   /**
+   * @remarks
+   * The vSwitch of the client VPC.
+   * 
    * @example
    * vsw-2zecr5r7ao44tslsXXXX
    */
   userVswitchId?: string;
   /**
+   * @remarks
+   * The VIPs of the cluster.
+   * 
    * @example
    * VPC_INTERNET_IPV6
    */
   vipTypeList?: string;
+  /**
+   * @remarks
+   * Indicates whether a virtual private cloud (VPC) domain name is enabled.
+   */
   vpcIntranetEnable?: boolean;
   /**
+   * @remarks
+   * The ID of the account to which the VPC belongs.
+   * 
    * @example
    * 165438596694XXXX
    */
   vpcOwnerId?: number;
   /**
+   * @remarks
+   * Indicates whether self-calling is enabled.
+   * 
    * @example
    * false
    */
@@ -39888,21 +40226,33 @@ export class DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute ext
 
 export class DescribeInstanceClusterInfoResponseBodyInstanceListInstance extends $tea.Model {
   /**
+   * @remarks
+   * The error message returned if the call fails.
+   * 
    * @example
    * Instance not found.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * apigateway-ht-04e41d95e9c1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * tf-testacceu-central-1apigatewayinstance8752
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * RUNNING
    */
@@ -39951,25 +40301,65 @@ export class DescribeInstanceClusterInfoResponseBodyInstanceList extends $tea.Mo
 
 export class DescribeInstanceClusterListResponseBodyInstanceClustersInstanceCluster extends $tea.Model {
   /**
+   * @remarks
+   * The time when the cluster was created. The time is displayed in UTC.
+   * 
    * @example
    * 2023-08-14T17:46:59+08:00
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * Test TrafficControl
    */
   description?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * apigateway-cluster-hz-xxxxxxxxxxxx
+   */
   instanceClusterId?: string;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * test-cluster
+   */
   instanceClusterName?: string;
+  /**
+   * @remarks
+   * The cluster status.
+   * 
+   * @example
+   * RUNNING
+   */
   instanceClusterStatus?: string;
+  /**
+   * @remarks
+   * The cluster type.
+   * 
+   * @example
+   * normal
+   */
   instanceClusterType?: string;
   /**
+   * @remarks
+   * The time when the cluster was last modified. The time is displayed in UTC.
+   * 
    * @example
    * 2024-01-12T10:11:08+08:00
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
    * @example
    * cn-shenzhen
    */
@@ -41528,7 +41918,21 @@ export class DescribeLogConfigResponseBodyLogInfos extends $tea.Model {
 }
 
 export class DescribeModelsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41550,7 +41954,21 @@ export class DescribeModelsRequestTag extends $tea.Model {
 }
 
 export class DescribeModelsResponseBodyModelDetailsModelDetailTagsTagInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * ENV
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * ST4
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41601,7 +42019,7 @@ export class DescribeModelsResponseBodyModelDetailsModelDetail extends $tea.Mode
   createdTime?: string;
   /**
    * @remarks
-   * The definition of the model description.
+   * The description of the model definition.
    * 
    * @example
    * Model Description
@@ -41641,7 +42059,7 @@ export class DescribeModelsResponseBodyModelDetailsModelDetail extends $tea.Mode
   modelRef?: string;
   /**
    * @remarks
-   * The last modification time of the model.
+   * The time when the model was last modified.
    * 
    * @example
    * 2019-01-29T11:07:48Z
@@ -41655,6 +42073,10 @@ export class DescribeModelsResponseBodyModelDetailsModelDetail extends $tea.Mode
    * {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"format\\":\\"int64\\",\\"maximum\\":100,\\"exclusiveMaximum\\":true,\\"type\\":\\"integer\\"},\\"name\\":{\\"maxLength\\":10,\\"type\\":\\"string\\"}}}
    */
   schema?: string;
+  /**
+   * @remarks
+   * The tags of the model.
+   */
   tags?: DescribeModelsResponseBodyModelDetailsModelDetailTags;
   static names(): { [key: string]: string } {
     return {
@@ -44921,21 +45343,33 @@ export class ModifyAppRequestTag extends $tea.Model {
 
 export class ModifyInstanceAttributeRequestToConnectVpcIpBlock extends $tea.Model {
   /**
+   * @remarks
+   * The CIDR block of the VSwitch.
+   * 
    * @example
    * 172.16.0.0/16
    */
   cidrBlock?: string;
   /**
+   * @remarks
+   * Specifies whether the CIDR block is a custom CIDR block.
+   * 
    * @example
    * false
    */
   customized?: boolean;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-wz94cqvaoe1ipxxxxxx
    */
   vswitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-a
    */
@@ -46589,7 +47023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建新的AppCode
+   * Adds an AppCode to an application.
    * 
    * @param request - CreateAppCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46624,7 +47058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建新的AppCode
+   * Adds an AppCode to an application.
    * 
    * @param request - CreateAppCodeRequest
    * @returns CreateAppCodeResponse
@@ -46635,7 +47069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建新的AK、SK
+   * Adds an AppKey and AppSecret pair to an application.
    * 
    * @param request - CreateAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46674,7 +47108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建新的AK、SK
+   * Adds an AppKey and AppSecret pair to an application.
    * 
    * @param request - CreateAppKeyRequest
    * @returns CreateAppKeyResponse
@@ -47615,7 +48049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API.
+   * Deletes the definition of a specified API.
    * 
    * @remarks
    *   This operation is intended for API providers and cannot be undone after it is complete.
@@ -47659,7 +48093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API.
+   * Deletes the definition of a specified API.
    * 
    * @remarks
    *   This operation is intended for API providers and cannot be undone after it is complete.
@@ -47905,7 +48339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除新的AppCode
+   * Deletes the AppCode of an application.
    * 
    * @param request - DeleteAppCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47940,7 +48374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除新的AppCode
+   * Deletes the AppCode of an application.
    * 
    * @param request - DeleteAppCodeRequest
    * @returns DeleteAppCodeResponse
@@ -47951,7 +48385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除新的AppKey
+   * Deletes the AppKey and AppSecret of an application.
    * 
    * @param request - DeleteAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47986,7 +48420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除新的AppKey
+   * Deletes the AppKey and AppSecret of an application.
    * 
    * @param request - DeleteAppKeyRequest
    * @returns DeleteAppKeyResponse
@@ -48193,7 +48627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a custom domain name from a specified API group.
+   * Unbinds a custom domain name from an API group.
    * 
    * @remarks
    *   This operation is intended for API providers.
@@ -48237,7 +48671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a custom domain name from a specified API group.
+   * Unbinds a custom domain name from an API group.
    * 
    * @remarks
    *   This operation is intended for API providers.
@@ -48455,7 +48889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a model from Model Management for an API group.
+   * Deletes a model.
    * 
    * @param request - DeleteModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48490,7 +48924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a model from Model Management for an API group.
+   * Deletes a model.
    * 
    * @param request - DeleteModelRequest
    * @returns DeleteModelResponse
@@ -50449,6 +50883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+   * 
    * @param request - DescribeApisByVpcAccessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeApisByVpcAccessResponse
@@ -50490,6 +50926,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+   * 
    * @param request - DescribeApisByVpcAccessRequest
    * @returns DescribeApisByVpcAccessResponse
    */
@@ -50709,7 +51147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询APP的密钥信息
+   * Queries the key-related information of an application.
    * 
    * @param request - DescribeAppSecuritiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50744,7 +51182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询APP的密钥信息
+   * Queries the key-related information of an application.
    * 
    * @param request - DescribeAppSecuritiesRequest
    * @returns DescribeAppSecuritiesResponse
@@ -50811,11 +51249,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the apps. App information is returned only to the app owner.
+   * Queries the apps of a user. App information is returned only to the app owner.
    * 
    * @remarks
    *   This API is intended for API providers.
-   * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+   * *   API providers can use the app IDs or their Alibaba Cloud accounts to query app information.
    * *   Each provider can call this operation for a maximum of 200 times every day in a region.
    * 
    * @param request - DescribeAppsRequest
@@ -50863,11 +51301,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the apps. App information is returned only to the app owner.
+   * Queries the apps of a user. App information is returned only to the app owner.
    * 
    * @remarks
    *   This API is intended for API providers.
-   * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+   * *   API providers can use the app IDs or their Alibaba Cloud accounts to query app information.
    * *   Each provider can call this operation for a maximum of 200 times every day in a region.
    * 
    * @param request - DescribeAppsRequest
@@ -51505,10 +51943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the APIs that are published to and running in an environment.
+   * Queries the APIs that have been published to a specified environment.
    * 
    * @remarks
-   *   This operation is intended for API callers.
+   *   This API is intended for API providers.
    * 
    * @param request - DescribeDeployedApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51579,10 +52017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the APIs that are published to and running in an environment.
+   * Queries the APIs that have been published to a specified environment.
    * 
    * @remarks
-   *   This operation is intended for API callers.
+   *   This API is intended for API providers.
    * 
    * @param request - DescribeDeployedApisRequest
    * @returns DescribeDeployedApisResponse
@@ -51593,7 +52031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a bound custom domain name, including the system assigned second-level domain name, custom domain name, and SSL certificate.
+   * Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
    * 
    * @param request - DescribeDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51632,7 +52070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a bound custom domain name, including the system assigned second-level domain name, custom domain name, and SSL certificate.
+   * Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
    * 
    * @param request - DescribeDomainRequest
    * @returns DescribeDomainResponse
@@ -51929,7 +52367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询专享实例集群的详情
+   * Queries the information about a dedicated instance cluster.
    * 
    * @param request - DescribeInstanceClusterInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51964,7 +52402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询专享实例集群的详情
+   * Queries the information about a dedicated instance cluster.
    * 
    * @param request - DescribeInstanceClusterInfoRequest
    * @returns DescribeInstanceClusterInfoResponse
@@ -51975,7 +52413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询专享实例集群列表
+   * Queries dedicated instance clusters.
    * 
    * @param request - DescribeInstanceClusterListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52022,7 +52460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询专享实例集群列表
+   * Queries dedicated instance clusters.
    * 
    * @param request - DescribeInstanceClusterListRequest
    * @returns DescribeInstanceClusterListResponse
@@ -52841,7 +53279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the created models of an API group.
+   * Queries the created models of an API group.
    * 
    * @remarks
    *   Fuzzy queries are supported.
@@ -52895,7 +53333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the created models of an API group.
+   * Queries the created models of an API group.
    * 
    * @remarks
    *   Fuzzy queries are supported.
@@ -53269,7 +53707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API groups that are purchased from Alibaba Cloud Marketplace.
+   * Queries the API groups purchased from Alibaba Cloud Marketplace.
    * 
    * @param request - DescribePurchasedApiGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53308,7 +53746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API groups that are purchased from Alibaba Cloud Marketplace.
+   * Queries the API groups purchased from Alibaba Cloud Marketplace.
    * 
    * @param request - DescribePurchasedApiGroupsRequest
    * @returns DescribePurchasedApiGroupsResponse
@@ -55002,6 +55440,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.filterAppCodeForBackend)) {
+      query["FilterAppCodeForBackend"] = request.filterAppCodeForBackend;
+    }
+
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
@@ -56361,7 +56803,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   This operation is intended for API providers.
    * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-   * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+   * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to call APIs.
    * *   You can call this operation to reactivate the domain name to resume normal access.
    * 
    * @param request - ReactivateDomainRequest
@@ -56406,7 +56848,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   This operation is intended for API providers.
    * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-   * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+   * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to call APIs.
    * *   You can call this operation to reactivate the domain name to resume normal access.
    * 
    * @param request - ReactivateDomainRequest
@@ -57036,7 +57478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the AppCode of an app.
+   * Resets the AppCode of an application. You can call this operation only once per minute.
    * 
    * @param request - ResetAppCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57075,7 +57517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the AppCode of an app.
+   * Resets the AppCode of an application. You can call this operation only once per minute.
    * 
    * @param request - ResetAppCodeRequest
    * @returns ResetAppCodeResponse
@@ -57410,8 +57852,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   This operation is intended for API providers and callers.
-   * *   API providers can authorize any apps to call their APIs.
-   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   * *   API providers can authorize all applications to call their APIs.
+   * *   API callers can authorize their own applications to call the APIs that they have purchased.
    * 
    * @param request - SetApisAuthoritiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57470,8 +57912,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   This operation is intended for API providers and callers.
-   * *   API providers can authorize any apps to call their APIs.
-   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   * *   API providers can authorize all applications to call their APIs.
+   * *   API callers can authorize their own applications to call the APIs that they have purchased.
    * 
    * @param request - SetApisAuthoritiesRequest
    * @returns SetApisAuthoritiesResponse
@@ -57544,8 +57986,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   This operation is intended for API providers and callers.
-   * *   API providers can authorize any apps to call their APIs.
-   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   * *   API providers can authorize all applications to call their APIs.
+   * *   API callers can authorize their own applications to call the APIs that they have purchased.
    * 
    * @param request - SetAppsAuthoritiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57604,8 +58046,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   This operation is intended for API providers and callers.
-   * *   API providers can authorize any apps to call their APIs.
-   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   * *   API providers can authorize all applications to call their APIs.
+   * *   API callers can authorize their own applications to call the APIs that they have purchased.
    * 
    * @param request - SetAppsAuthoritiesRequest
    * @returns SetAppsAuthoritiesResponse
@@ -57678,7 +58120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads an SSL certificate for a custom domain name.
+   * Uploads an SSL certificate for a specified custom domain name.
    * 
    * @remarks
    *   This operation is intended for API providers.
@@ -57742,7 +58184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads an SSL certificate for a custom domain name.
+   * Uploads an SSL certificate for a specified custom domain name.
    * 
    * @remarks
    *   This operation is intended for API providers.
@@ -58186,13 +58628,6 @@ export default class Client extends OpenApi {
   /**
    * Switches the definition of an API in a specified runtime environment to a historical version.
    * 
-   * @remarks
-   *   This API is intended for API providers.
-   * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
-   * *   Only APIs that have been published more than once have historical versions.
-   * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
-   * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
-   * 
    * @param request - SwitchApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchApiResponse
@@ -58243,13 +58678,6 @@ export default class Client extends OpenApi {
 
   /**
    * Switches the definition of an API in a specified runtime environment to a historical version.
-   * 
-   * @remarks
-   *   This API is intended for API providers.
-   * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
-   * *   Only APIs that have been published more than once have historical versions.
-   * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
-   * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
    * 
    * @param request - SwitchApiRequest
    * @returns SwitchApiResponse
