@@ -1164,6 +1164,149 @@ export class GetFilterDocumentListResponse extends $tea.Model {
   }
 }
 
+export class GetHistoryListByBizTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * GysYBsxx
+   */
+  bizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LibraryChat
+   */
+  bizType?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'bizId',
+      bizType: 'bizType',
+      page: 'page',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      bizType: 'string',
+      page: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoryListByBizTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: GetHistoryListByBizTypeResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 9DF9B3F3-9FFE-52CB-A8DC-F7BD5F842F0E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: GetHistoryListByBizTypeResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoryListByBizTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHistoryListByBizTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHistoryListByBizTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLibraryRequest extends $tea.Model {
   /**
    * @remarks
@@ -2174,6 +2317,230 @@ export class RunChatResultGenerationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunChatResultGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequest extends $tea.Model {
+  docIdList?: string[];
+  /**
+   * @example
+   * false
+   */
+  enableFollowUp?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableMultiQuery?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableOpenQa?: boolean;
+  /**
+   * @example
+   * qwen-max
+   */
+  followUpLlm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3akzl28vap
+   */
+  libraryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  llmType?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  multiQueryLlm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  queryCriteria?: RunLibraryChatGenerationRequestQueryCriteria;
+  /**
+   * @example
+   * linear
+   */
+  rerankType?: string;
+  /**
+   * @remarks
+   * sessionId
+   * 
+   * @example
+   * null
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * false
+   */
+  stream?: boolean;
+  subQueryList?: string[];
+  textSearchParameter?: RunLibraryChatGenerationRequestTextSearchParameter;
+  /**
+   * @example
+   * 1
+   */
+  topK?: number;
+  vectorSearchParameter?: RunLibraryChatGenerationRequestVectorSearchParameter;
+  /**
+   * @example
+   * false
+   */
+  withDocumentReference?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      docIdList: 'docIdList',
+      enableFollowUp: 'enableFollowUp',
+      enableMultiQuery: 'enableMultiQuery',
+      enableOpenQa: 'enableOpenQa',
+      followUpLlm: 'followUpLlm',
+      libraryId: 'libraryId',
+      llmType: 'llmType',
+      multiQueryLlm: 'multiQueryLlm',
+      query: 'query',
+      queryCriteria: 'queryCriteria',
+      rerankType: 'rerankType',
+      sessionId: 'sessionId',
+      stream: 'stream',
+      subQueryList: 'subQueryList',
+      textSearchParameter: 'textSearchParameter',
+      topK: 'topK',
+      vectorSearchParameter: 'vectorSearchParameter',
+      withDocumentReference: 'withDocumentReference',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIdList: { 'type': 'array', 'itemType': 'string' },
+      enableFollowUp: 'boolean',
+      enableMultiQuery: 'boolean',
+      enableOpenQa: 'boolean',
+      followUpLlm: 'string',
+      libraryId: 'string',
+      llmType: 'string',
+      multiQueryLlm: 'string',
+      query: 'string',
+      queryCriteria: RunLibraryChatGenerationRequestQueryCriteria,
+      rerankType: 'string',
+      sessionId: 'string',
+      stream: 'boolean',
+      subQueryList: { 'type': 'array', 'itemType': 'string' },
+      textSearchParameter: RunLibraryChatGenerationRequestTextSearchParameter,
+      topK: 'number',
+      vectorSearchParameter: RunLibraryChatGenerationRequestVectorSearchParameter,
+      withDocumentReference: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: any;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 5E3FBAF1-17AF-53B7-AF0A-CDCEEB6DE658
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'any',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunLibraryChatGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunLibraryChatGenerationResponseBody,
     };
   }
 
@@ -3586,6 +3953,134 @@ export class GetFilterDocumentListResponseBodyData extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       records: { 'type': 'array', 'itemType': GetFilterDocumentListResponseBodyDataRecords },
+      totalPages: 'number',
+      totalRecords: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoryListByBizTypeResponseBodyDataRecords extends $tea.Model {
+  /**
+   * @example
+   * GysYBsxx
+   */
+  bizId?: string;
+  /**
+   * @example
+   * LibraryChat
+   */
+  bizType?: string;
+  /**
+   * @example
+   * null
+   */
+  extraMessage?: any;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 210
+   */
+  id?: number;
+  llmAnswer?: string;
+  llmPrompt?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  llmType?: string;
+  /**
+   * @example
+   * null
+   */
+  sessionId?: string;
+  userQuery?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'bizId',
+      bizType: 'bizType',
+      extraMessage: 'extraMessage',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      id: 'id',
+      llmAnswer: 'llmAnswer',
+      llmPrompt: 'llmPrompt',
+      llmType: 'llmType',
+      sessionId: 'sessionId',
+      userQuery: 'userQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      bizType: 'string',
+      extraMessage: 'any',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      llmAnswer: 'string',
+      llmPrompt: 'string',
+      llmType: 'string',
+      sessionId: 'string',
+      userQuery: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoryListByBizTypeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  records?: GetHistoryListByBizTypeResponseBodyDataRecords[];
+  /**
+   * @example
+   * 10
+   */
+  totalPages?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalRecords?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'currentPage',
+      pageSize: 'pageSize',
+      records: 'records',
+      totalPages: 'totalPages',
+      totalRecords: 'totalRecords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': GetHistoryListByBizTypeResponseBodyDataRecords },
       totalPages: 'number',
       totalRecords: 'number',
     };
@@ -5566,6 +6061,161 @@ export class RunChatResultGenerationResponseBodyUsage extends $tea.Model {
   }
 }
 
+export class RunLibraryChatGenerationRequestQueryCriteriaAnd extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
+  boost?: number;
+  /**
+   * @example
+   * city
+   */
+  key?: string;
+  /**
+   * @example
+   * eq
+   */
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      boost: 'boost',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boost: 'number',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestQueryCriteriaOr extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
+  boost?: number;
+  /**
+   * @example
+   * city
+   */
+  key?: string;
+  /**
+   * @example
+   * eq
+   */
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      boost: 'boost',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boost: 'number',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestQueryCriteria extends $tea.Model {
+  and?: RunLibraryChatGenerationRequestQueryCriteriaAnd[];
+  or?: RunLibraryChatGenerationRequestQueryCriteriaOr[];
+  static names(): { [key: string]: string } {
+    return {
+      and: 'and',
+      or: 'or',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      and: { 'type': 'array', 'itemType': RunLibraryChatGenerationRequestQueryCriteriaAnd },
+      or: { 'type': 'array', 'itemType': RunLibraryChatGenerationRequestQueryCriteriaOr },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestTextSearchParameter extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @example
+   * IkMaxWord
+   */
+  searchAnalyzerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      searchAnalyzerType: 'searchAnalyzerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      searchAnalyzerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestVectorSearchParameter extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  limit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLibraryRequestIndexSettingChunkStrategy extends $tea.Model {
   /**
    * @example
@@ -6426,6 +7076,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询文档库列表
+   * 
+   * @param request - GetHistoryListByBizTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHistoryListByBizTypeResponse
+   */
+  async getHistoryListByBizTypeWithOptions(workspaceId: string, request: GetHistoryListByBizTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHistoryListByBizTypeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizId)) {
+      query["bizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.bizType)) {
+      query["bizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHistoryListByBizType",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/history/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHistoryListByBizTypeResponse>(await this.callApi(params, req, runtime), new GetHistoryListByBizTypeResponse({}));
+  }
+
+  /**
+   * 分页查询文档库列表
+   * 
+   * @param request - GetHistoryListByBizTypeRequest
+   * @returns GetHistoryListByBizTypeResponse
+   */
+  async getHistoryListByBizType(workspaceId: string, request: GetHistoryListByBizTypeRequest): Promise<GetHistoryListByBizTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getHistoryListByBizTypeWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取文档库配置详情
    * 
    * @param request - GetLibraryRequest
@@ -6831,6 +7538,119 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runChatResultGenerationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取生成式对话结果
+   * 
+   * @param request - RunLibraryChatGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunLibraryChatGenerationResponse
+   */
+  async runLibraryChatGenerationWithOptions(workspaceId: string, request: RunLibraryChatGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunLibraryChatGenerationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docIdList)) {
+      body["docIdList"] = request.docIdList;
+    }
+
+    if (!Util.isUnset(request.enableFollowUp)) {
+      body["enableFollowUp"] = request.enableFollowUp;
+    }
+
+    if (!Util.isUnset(request.enableMultiQuery)) {
+      body["enableMultiQuery"] = request.enableMultiQuery;
+    }
+
+    if (!Util.isUnset(request.enableOpenQa)) {
+      body["enableOpenQa"] = request.enableOpenQa;
+    }
+
+    if (!Util.isUnset(request.followUpLlm)) {
+      body["followUpLlm"] = request.followUpLlm;
+    }
+
+    if (!Util.isUnset(request.libraryId)) {
+      body["libraryId"] = request.libraryId;
+    }
+
+    if (!Util.isUnset(request.llmType)) {
+      body["llmType"] = request.llmType;
+    }
+
+    if (!Util.isUnset(request.multiQueryLlm)) {
+      body["multiQueryLlm"] = request.multiQueryLlm;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.queryCriteria)) {
+      body["queryCriteria"] = request.queryCriteria;
+    }
+
+    if (!Util.isUnset(request.rerankType)) {
+      body["rerankType"] = request.rerankType;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!Util.isUnset(request.subQueryList)) {
+      body["subQueryList"] = request.subQueryList;
+    }
+
+    if (!Util.isUnset(request.textSearchParameter)) {
+      body["textSearchParameter"] = request.textSearchParameter;
+    }
+
+    if (!Util.isUnset(request.topK)) {
+      body["topK"] = request.topK;
+    }
+
+    if (!Util.isUnset(request.vectorSearchParameter)) {
+      body["vectorSearchParameter"] = request.vectorSearchParameter;
+    }
+
+    if (!Util.isUnset(request.withDocumentReference)) {
+      body["withDocumentReference"] = request.withDocumentReference;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunLibraryChatGeneration",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/run/library/chat/generation`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RunLibraryChatGenerationResponse>(await this.callApi(params, req, runtime), new RunLibraryChatGenerationResponse({}));
+  }
+
+  /**
+   * 获取生成式对话结果
+   * 
+   * @param request - RunLibraryChatGenerationRequest
+   * @returns RunLibraryChatGenerationResponse
+   */
+  async runLibraryChatGeneration(workspaceId: string, request: RunLibraryChatGenerationRequest): Promise<RunLibraryChatGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runLibraryChatGenerationWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
