@@ -1998,7 +1998,7 @@ export class AllocateEipSegmentAddressRequest extends $tea.Model {
   eipMask?: string;
   /**
    * @remarks
-   * The metering method of the contiguous EIP group. Valid values:
+   * The metering method of contiguous EIPs. Valid values:
    * 
    * *   **PayByBandwidth** (default)
    * *   **PayByTraffic**
@@ -16865,6 +16865,7 @@ export class CreateVpcRequest extends $tea.Model {
    * false
    */
   dryRun?: boolean;
+  enableDnsHostname?: boolean;
   /**
    * @remarks
    * Specifies whether to enable IPv6. Valid values:
@@ -16965,6 +16966,7 @@ export class CreateVpcRequest extends $tea.Model {
       clientToken: 'ClientToken',
       description: 'Description',
       dryRun: 'DryRun',
+      enableDnsHostname: 'EnableDnsHostname',
       enableIpv6: 'EnableIpv6',
       ipv4CidrMask: 'Ipv4CidrMask',
       ipv4IpamPoolId: 'Ipv4IpamPoolId',
@@ -16988,6 +16990,7 @@ export class CreateVpcRequest extends $tea.Model {
       clientToken: 'string',
       description: 'string',
       dryRun: 'boolean',
+      enableDnsHostname: 'boolean',
       enableIpv6: 'boolean',
       ipv4CidrMask: 'number',
       ipv4IpamPoolId: 'string',
@@ -39118,6 +39121,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
    * Available
    */
   dhcpOptionsSetStatus?: string;
+  dnsHostnameStatus?: string;
   /**
    * @remarks
    * Indicates whether the VPC enables IPv6 .
@@ -39269,6 +39273,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
       description: 'Description',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       dhcpOptionsSetStatus: 'DhcpOptionsSetStatus',
+      dnsHostnameStatus: 'DnsHostnameStatus',
       enabledIpv6: 'EnabledIpv6',
       ipv4GatewayId: 'Ipv4GatewayId',
       ipv6CidrBlock: 'Ipv6CidrBlock',
@@ -39301,6 +39306,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
       description: 'string',
       dhcpOptionsSetId: 'string',
       dhcpOptionsSetStatus: 'string',
+      dnsHostnameStatus: 'string',
       enabledIpv6: 'boolean',
       ipv4GatewayId: 'string',
       ipv6CidrBlock: 'string',
@@ -59136,6 +59142,7 @@ export class ModifyVpcAttributeRequest extends $tea.Model {
    * This is my VPC.
    */
   description?: string;
+  enableDnsHostname?: boolean;
   /**
    * @remarks
    * Specifies whether to enable IPv6 CIDR blocks. Valid values:
@@ -59208,6 +59215,7 @@ export class ModifyVpcAttributeRequest extends $tea.Model {
     return {
       cidrBlock: 'CidrBlock',
       description: 'Description',
+      enableDnsHostname: 'EnableDnsHostname',
       enableIPv6: 'EnableIPv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6Isp: 'Ipv6Isp',
@@ -59225,6 +59233,7 @@ export class ModifyVpcAttributeRequest extends $tea.Model {
     return {
       cidrBlock: 'string',
       description: 'string',
+      enableDnsHostname: 'boolean',
       enableIPv6: 'boolean',
       ipv6CidrBlock: 'string',
       ipv6Isp: 'string',
@@ -87278,6 +87287,7 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
    * Available
    */
   dhcpOptionsSetStatus?: string;
+  dnsHostnameStatus?: string;
   enabledIpv6?: boolean;
   /**
    * @remarks
@@ -87402,6 +87412,7 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
       description: 'Description',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       dhcpOptionsSetStatus: 'DhcpOptionsSetStatus',
+      dnsHostnameStatus: 'DnsHostnameStatus',
       enabledIpv6: 'EnabledIpv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6CidrBlocks: 'Ipv6CidrBlocks',
@@ -87430,6 +87441,7 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
       description: 'string',
       dhcpOptionsSetId: 'string',
       dhcpOptionsSetStatus: 'string',
+      dnsHostnameStatus: 'string',
       enabledIpv6: 'boolean',
       ipv6CidrBlock: 'string',
       ipv6CidrBlocks: DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks,
@@ -107838,6 +107850,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!Util.isUnset(request.enableDnsHostname)) {
+      query["EnableDnsHostname"] = request.enableDnsHostname;
+    }
+
     if (!Util.isUnset(request.enableIpv6)) {
       query["EnableIpv6"] = request.enableIpv6;
     }
@@ -127333,6 +127349,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableDnsHostname)) {
+      query["EnableDnsHostname"] = request.enableDnsHostname;
     }
 
     if (!Util.isUnset(request.enableIPv6)) {
