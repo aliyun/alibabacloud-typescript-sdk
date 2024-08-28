@@ -367,6 +367,11 @@ export class ListInstancesRequest extends $tea.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @example
+   * rg-123xxx
+   */
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -374,6 +379,7 @@ export class ListInstancesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -384,6 +390,7 @@ export class ListInstancesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1162,6 +1169,52 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $tea.Model {
   }
 }
 
+export class GetInstanceDetailResponseBodyDataMeasureConfig extends $tea.Model {
+  dataNodeCuNum?: number;
+  dataNodeReplica?: number;
+  indexNodeCuNum?: number;
+  indexNodeReplica?: number;
+  mixCoodinatorNodeCuNum?: number;
+  mixCoodinatorNodeReplica?: number;
+  proxyNodeCuNum?: number;
+  proxyNodeReplica?: number;
+  queryNodeCuNum?: number;
+  queryNodeReplica?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataNodeCuNum: 'DataNodeCuNum',
+      dataNodeReplica: 'DataNodeReplica',
+      indexNodeCuNum: 'IndexNodeCuNum',
+      indexNodeReplica: 'IndexNodeReplica',
+      mixCoodinatorNodeCuNum: 'MixCoodinatorNodeCuNum',
+      mixCoodinatorNodeReplica: 'MixCoodinatorNodeReplica',
+      proxyNodeCuNum: 'ProxyNodeCuNum',
+      proxyNodeReplica: 'ProxyNodeReplica',
+      queryNodeCuNum: 'QueryNodeCuNum',
+      queryNodeReplica: 'QueryNodeReplica',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataNodeCuNum: 'number',
+      dataNodeReplica: 'number',
+      indexNodeCuNum: 'number',
+      indexNodeReplica: 'number',
+      mixCoodinatorNodeCuNum: 'number',
+      mixCoodinatorNodeReplica: 'number',
+      proxyNodeCuNum: 'number',
+      proxyNodeReplica: 'number',
+      queryNodeCuNum: 'number',
+      queryNodeReplica: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceDetailResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -1204,6 +1257,7 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
    * running
    */
   instanceStatus?: string;
+  measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
   /**
    * @example
    * true
@@ -1229,6 +1283,11 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @example
+   * rg-123xxx
+   */
+  resourceGroupId?: string;
   /**
    * @example
    * 1743679
@@ -1280,11 +1339,13 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
+      measureConfig: 'MeasureConfig',
       openPublicNet: 'OpenPublicNet',
       packageType: 'PackageType',
       payType: 'PayType',
       productCode: 'ProductCode',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       runningTime: 'RunningTime',
       sgId: 'SgId',
       templateVersion: 'TemplateVersion',
@@ -1307,11 +1368,13 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
       expireTime: 'number',
       instanceId: 'string',
       instanceStatus: 'string',
+      measureConfig: GetInstanceDetailResponseBodyDataMeasureConfig,
       openPublicNet: 'boolean',
       packageType: 'string',
       payType: 'number',
       productCode: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       runningTime: 'number',
       sgId: 'string',
       templateVersion: 'string',
@@ -1494,6 +1557,11 @@ export class ListInstancesResponseBodyData extends $tea.Model {
   regionId?: string;
   /**
    * @example
+   * rg-123xxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
    * 536611
    */
   runningTime?: number;
@@ -1530,6 +1598,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       payType: 'PayType',
       productCode: 'ProductCode',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       runningTime: 'RunningTime',
       sgId: 'SgId',
       vpcId: 'VpcId',
@@ -1551,6 +1620,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       payType: 'number',
       productCode: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       runningTime: 'number',
       sgId: 'string',
       vpcId: 'string',
@@ -1751,6 +1821,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
