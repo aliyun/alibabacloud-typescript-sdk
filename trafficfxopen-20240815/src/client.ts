@@ -118,6 +118,198 @@ export class GetTokenResponse extends $tea.Model {
   }
 }
 
+export class SearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * token
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsImtpZCI6ImRpc3RyaWJ1dGlvbl9rZXlpZCJ9.eyJqdGkiOiI2cDQwZDctSDQ0dUJicEJkYTZadzdBIiwiaWF0IjoxNzI0MzE2MzM1LCJleHAiOjE3MjQzMjM1MzUsIm5iZiI6MTcyNDMxNjI3NSwiYXBwS2V5IjoiNjE3NzgxZDQxM2FmNGRlZGFiNzkifQ.XtjSM7qVbESvt7n31RtD5Pp6854IVyGMEco4aEruMDMkrXHkcdZejyecKFx3RdsCldZPgvowc5EOl44c3JJfm6DENH4M6BRBSc90eqXYcD_xVJ9FhDWzK9O6OnkvR7HX1t-qqMdikLviM1w1G0DGMLaasvZ8MPMewL8k6NnvOSGePwUhb-m5IZ14VYv7BPO2dp8Jh00qNSJQrmNiWWzJUtK_xllNr3LKQ7cIVtPgFUckvRDw9Hal5oACXSRdkZFOAGlFSjpB_BbTpe5vc-AJ8K89nRD53sIy9YyVQClV_HH7PrXxFFJgReGvNsnP1h9gf55q86IzOQBkj9vGm2zXdw
+   */
+  xAcsAirticketAccessToken?: string;
+  /**
+   * @example
+   * en_US
+   */
+  xAcsAirticketLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAirticketAccessToken: 'xAcsAirticketAccessToken',
+      xAcsAirticketLanguage: 'xAcsAirticketLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAirticketAccessToken: 'string',
+      xAcsAirticketLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchRequest extends $tea.Model {
+  scene?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *   "cabinClass": "ALL_CABIN",
+   *   "passengerTypeQuantity": {
+   *     "ADT": 1,
+   *     "INFANT": 0,
+   *     "CHD": 0
+   *   },
+   *   "searchMode": 0,
+   *   "searchOdInfoList": [
+   *     {
+   *       "arrCityCode": "BJS",
+   *       "depCityCode": "JNG",
+   *       "depDate": "2024-08-14 00:00:00"
+   *     }
+   *   ],
+   *   "searchSource": "gd",
+   *   "tripType": 1
+   * }
+   */
+  searchParam?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * “1”
+   */
+  source?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * “1”
+   */
+  terminal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * “121343”
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'scene',
+      searchParam: 'searchParam',
+      source: 'source',
+      terminal: 'terminal',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: 'string',
+      searchParam: 'string',
+      source: 'string',
+      terminal: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  data?: string;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  errorData?: SearchResponseBodyErrorData;
+  errorMsg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 71ad3e90-53f8-445b-be9d-df91039cba47
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorData: 'errorData',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'string',
+      errorData: SearchResponseBodyErrorData,
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTokenResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -159,6 +351,32 @@ export class GetTokenResponseBodyData extends $tea.Model {
 }
 
 export class GetTokenResponseBodyErrorData extends $tea.Model {
+  /**
+   * @example
+   * 1001
+   */
+  rawErrorCode?: string;
+  rawErrorMsg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rawErrorCode: 'rawErrorCode',
+      rawErrorMsg: 'rawErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rawErrorCode: 'string',
+      rawErrorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchResponseBodyErrorData extends $tea.Model {
   /**
    * @example
    * 1001
@@ -254,6 +472,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTokenWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分销报价接口
+   * 
+   * @param request - SearchRequest
+   * @param headers - SearchHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchResponse
+   */
+  async searchWithOptions(request: SearchRequest, headers: SearchHeaders, runtime: $Util.RuntimeOptions): Promise<SearchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.scene)) {
+      body["scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.searchParam)) {
+      body["searchParam"] = request.searchParam;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.terminal)) {
+      body["terminal"] = request.terminal;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAirticketAccessToken)) {
+      realHeaders["xAcsAirticketAccessToken"] = Util.toJSONString(headers.xAcsAirticketAccessToken);
+    }
+
+    if (!Util.isUnset(headers.xAcsAirticketLanguage)) {
+      realHeaders["xAcsAirticketLanguage"] = Util.toJSONString(headers.xAcsAirticketLanguage);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Search",
+      version: "2024-08-15",
+      protocol: "HTTPS",
+      pathname: `/v1/distribution/trade/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchResponse>(await this.callApi(params, req, runtime), new SearchResponse({}));
+  }
+
+  /**
+   * 分销报价接口
+   * 
+   * @param request - SearchRequest
+   * @returns SearchResponse
+   */
+  async search(request: SearchRequest): Promise<SearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SearchHeaders({ });
+    return await this.searchWithOptions(request, headers, runtime);
   }
 
 }
