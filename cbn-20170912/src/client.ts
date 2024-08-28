@@ -1767,6 +1767,7 @@ export class CreateCenChildInstanceRouteEntryToCenResponse extends $tea.Model {
 }
 
 export class CreateCenInterRegionTrafficQosPolicyRequest extends $tea.Model {
+  bandwidthGuaranteeMode?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -1841,6 +1842,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $tea.Model {
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthGuaranteeMode: 'BandwidthGuaranteeMode',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
@@ -1857,6 +1859,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthGuaranteeMode: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
       ownerAccount: 'string',
@@ -1938,6 +1941,7 @@ export class CreateCenInterRegionTrafficQosPolicyResponse extends $tea.Model {
 }
 
 export class CreateCenInterRegionTrafficQosQueueRequest extends $tea.Model {
+  bandwidth?: number;
   /**
    * @example
    * 123e4567-e89b-12d3-a456-426****
@@ -1982,6 +1986,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $tea.Model {
   trafficQosPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       dscps: 'Dscps',
@@ -1998,6 +2003,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'number',
       clientToken: 'string',
       dryRun: 'boolean',
       dscps: { 'type': 'array', 'itemType': 'number' },
@@ -14471,6 +14477,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponse extends $tea.Model {
 }
 
 export class ListCenInterRegionTrafficQosQueuesRequest extends $tea.Model {
+  effectiveBandwidthFilter?: ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter;
   /**
    * @remarks
    * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
@@ -14548,6 +14555,7 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $tea.Model {
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveBandwidthFilter: 'EffectiveBandwidthFilter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
@@ -14565,6 +14573,7 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      effectiveBandwidthFilter: ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter,
       maxResults: 'number',
       nextToken: 'string',
       ownerAccount: 'string',
@@ -22975,6 +22984,7 @@ export class UpdateCenInterRegionTrafficQosPolicyAttributeResponse extends $tea.
 }
 
 export class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends $tea.Model {
+  bandwidth?: number;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -23047,6 +23057,7 @@ export class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends $tea.Mo
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       dscps: 'Dscps',
@@ -23063,6 +23074,7 @@ export class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'number',
       clientToken: 'string',
       dryRun: 'boolean',
       dscps: { 'type': 'array', 'itemType': 'number' },
@@ -25191,6 +25203,7 @@ export class CreateCenBandwidthPackageRequestTag extends $tea.Model {
 }
 
 export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends $tea.Model {
+  bandwidth?: string;
   /**
    * @remarks
    * The Differentiated Services Code Point (DSCP) value that matches the current queue.
@@ -25238,6 +25251,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
   remainBandwidthPercent?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       dscps: 'Dscps',
       qosQueueDescription: 'QosQueueDescription',
       qosQueueName: 'QosQueueName',
@@ -25247,6 +25261,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequestTrafficQosQueues extends
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'string',
       dscps: { 'type': 'array', 'itemType': 'number' },
       qosQueueDescription: 'string',
       qosQueueName: 'string',
@@ -30066,11 +30081,13 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
 }
 
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues extends $tea.Model {
+  bandwidth?: string;
   /**
    * @remarks
    * The differentiated services code point (DSCP) value that is used to match packets.
    */
   dscps?: number[];
+  effectiveBandwidth?: string;
   /**
    * @remarks
    * The description of the queue.
@@ -30105,7 +30122,9 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
   remainBandwidthPercent?: number;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       dscps: 'Dscps',
+      effectiveBandwidth: 'EffectiveBandwidth',
       qosQueueDescription: 'QosQueueDescription',
       qosQueueId: 'QosQueueId',
       qosQueueName: 'QosQueueName',
@@ -30115,7 +30134,9 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'string',
       dscps: { 'type': 'array', 'itemType': 'number' },
+      effectiveBandwidth: 'string',
       qosQueueDescription: 'string',
       qosQueueId: 'string',
       qosQueueName: 'string',
@@ -30129,6 +30150,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
 }
 
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies extends $tea.Model {
+  bandwidthGuaranteeMode?: string;
   /**
    * @remarks
    * The description of the QoS policy.
@@ -30189,6 +30211,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthGuaranteeMode: 'BandwidthGuaranteeMode',
       trafficQosPolicyDescription: 'TrafficQosPolicyDescription',
       trafficQosPolicyId: 'TrafficQosPolicyId',
       trafficQosPolicyName: 'TrafficQosPolicyName',
@@ -30201,6 +30224,7 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthGuaranteeMode: 'string',
       trafficQosPolicyDescription: 'string',
       trafficQosPolicyId: 'string',
       trafficQosPolicyName: 'string',
@@ -30216,12 +30240,36 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
   }
 }
 
+export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter extends $tea.Model {
+  gte?: number;
+  lte?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gte: 'Gte',
+      lte: 'Lte',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gte: 'number',
+      lte: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues extends $tea.Model {
+  bandwidth?: string;
   /**
    * @remarks
    * The Differentiated Services Code Point (DSCP) value that matches the current QoS queue.
    */
   dscps?: number[];
+  effectiveBandwidth?: string;
   /**
    * @remarks
    * The percentage of the inter-region bandwidth that can be consumed by the QoS queue.
@@ -30294,7 +30342,9 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       dscps: 'Dscps',
+      effectiveBandwidth: 'EffectiveBandwidth',
       remainBandwidthPercent: 'RemainBandwidthPercent',
       status: 'Status',
       trafficQosPolicyId: 'TrafficQosPolicyId',
@@ -30308,7 +30358,9 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'string',
       dscps: { 'type': 'array', 'itemType': 'number' },
+      effectiveBandwidth: 'string',
       remainBandwidthPercent: 'number',
       status: 'string',
       trafficQosPolicyId: 'string',
@@ -35513,6 +35565,10 @@ export default class Client extends OpenApi {
   async createCenInterRegionTrafficQosPolicyWithOptions(request: CreateCenInterRegionTrafficQosPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateCenInterRegionTrafficQosPolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bandwidthGuaranteeMode)) {
+      query["BandwidthGuaranteeMode"] = request.bandwidthGuaranteeMode;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -35610,6 +35666,10 @@ export default class Client extends OpenApi {
   async createCenInterRegionTrafficQosQueueWithOptions(request: CreateCenInterRegionTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateCenInterRegionTrafficQosQueueResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -42113,6 +42173,10 @@ export default class Client extends OpenApi {
   async listCenInterRegionTrafficQosQueuesWithOptions(request: ListCenInterRegionTrafficQosQueuesRequest, runtime: $Util.RuntimeOptions): Promise<ListCenInterRegionTrafficQosQueuesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.effectiveBandwidthFilter)) {
+      query["EffectiveBandwidthFilter"] = request.effectiveBandwidthFilter;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -46485,6 +46549,10 @@ export default class Client extends OpenApi {
   async updateCenInterRegionTrafficQosQueueAttributeWithOptions(request: UpdateCenInterRegionTrafficQosQueueAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCenInterRegionTrafficQosQueueAttributeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
