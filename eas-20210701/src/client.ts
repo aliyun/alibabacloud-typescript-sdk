@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -98,30 +97,77 @@ export class Group extends $tea.Model {
 }
 
 export class Instance extends $tea.Model {
+  /**
+   * @example
+   * 0.444
+   */
   currentAmount?: number;
+  /**
+   * @example
+   * 192.168.1.100
+   */
   externalIP?: string;
+  /**
+   * @example
+   * 8080
+   */
   externalInstancePort?: number;
   hostIP?: string;
   hostName?: string;
   innerIP?: string;
   instanceName?: string;
   instancePort?: number;
+  /**
+   * @example
+   * false
+   */
   isSpot?: boolean;
+  /**
+   * @example
+   * false
+   */
   isolated?: boolean;
   lastState?: { [key: string]: any }[];
   namespace?: string;
+  /**
+   * @example
+   * 2.2
+   */
   originalAmount?: number;
   readyProcesses?: number;
   reason?: string;
+  /**
+   * @example
+   * PublicResource
+   */
   resourceType?: string;
   restartCount?: number;
+  /**
+   * @example
+   * Standard
+   */
   role?: string;
+  /**
+   * @deprecated
+   */
   startAt?: string;
   startTime?: string;
   status?: string;
+  /**
+   * @example
+   * 192.168.0.39
+   */
   tenantHostIP?: string;
+  /**
+   * @example
+   * 192.168.0.39
+   */
   tenantInstanceIP?: string;
   totalProcesses?: number;
+  /**
+   * @example
+   * cn-shanghai-a
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -532,15 +578,54 @@ export class Service extends $tea.Model {
 }
 
 export class CloneServiceRequest extends $tea.Model {
+  labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+   * 
+   * @example
+   * {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
+      labels: 'Labels',
       body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneServiceShrinkRequest extends $tea.Model {
+  labelsShrink?: string;
+  /**
+   * @remarks
+   * The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+   * 
+   * @example
+   * {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
+   */
+  body?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelsShrink: 'Labels',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelsShrink: 'string',
       body: 'string',
     };
   }
@@ -551,11 +636,53 @@ export class CloneServiceRequest extends $tea.Model {
 }
 
 export class CloneServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The public endpoint of the service.
+   * 
+   * @example
+   * http://10123*****.cn-shanghai.aliyuncs.com/api/predict/echo
+   */
   internetEndpoint?: string;
+  /**
+   * @remarks
+   * The private endpoint of the service.
+   * 
+   * @example
+   * http://10123*****.vpc.cn-shanghai.aliyuncs.com/api/predict/echo
+   */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * eas-m-r9knx7n9guf2p*****
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service status.
+   * 
+   * @example
+   * Creating
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -610,7 +737,21 @@ export class CloneServiceResponse extends $tea.Model {
 }
 
 export class CommitServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -656,14 +797,210 @@ export class CommitServiceResponse extends $tea.Model {
   }
 }
 
+export class CreateAclPolicyRequest extends $tea.Model {
+  aclPolicyList?: CreateAclPolicyRequestAclPolicyList[];
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyList: 'AclPolicyList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyList: { 'type': 'array', 'itemType': CreateAclPolicyRequestAclPolicyList },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAclPolicyShrinkRequest extends $tea.Model {
+  aclPolicyListShrink?: string;
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyListShrink: 'AclPolicyList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyListShrink: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAclPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * Successfully add acl policy for gateway
+   */
+  message?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAclPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAclPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAclPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The quota ID.
+   * 
+   * @example
+   * abcdef
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The application service type.
+   * 
+   * Valid values:
+   * 
+   * *   LLM
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LLM
+   */
   appType?: string;
+  /**
+   * @remarks
+   * The application version.
+   * 
+   * @example
+   * v1
+   */
   appVersion?: string;
+  /**
+   * @remarks
+   * The additional configurations that are required for service deployment.
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The number of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   replicas?: number;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service specifications. Valid values:
+   * 
+   * *   llama_7b_fp16
+   * *   llama_7b_int8
+   * *   llama_13b_fp16
+   * *   llama_7b_int8
+   * *   chatglm_6b_fp16
+   * *   chatglm_6b_int8
+   * *   chatglm2_6b_fp16
+   * *   baichuan_7b_int8
+   * *   baichuan_13b_fp16
+   * *   baichuan_7b_fp16
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * llama_7b_fp16
+   */
   serviceSpec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -697,12 +1034,61 @@ export class CreateAppServiceRequest extends $tea.Model {
 }
 
 export class CreateAppServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The public endpoint of the service.
+   * 
+   * @example
+   * http://pai-eas.cn-shanghai.****
+   */
   internetEndpoint?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the service.
+   * 
+   * @example
+   * http://pai-eas-vpc.cn-shanghai.****
+   */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * The region ID of the service.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * eas-m-aaxxxddf
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service state.
+   * 
+   * @example
+   * Creating
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -759,6 +1145,28 @@ export class CreateAppServiceResponse extends $tea.Model {
 }
 
 export class CreateBenchmarkTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body. The body includes the parameters that are set to create a stress testing task.
+   * 
+   * @example
+   * {
+   *     "base": {
+   *         "duration": 600
+   *     },
+   *     "service": {
+   *         "serviceName": "test_service",
+   *         "requestToken": "test_token"
+   *     },
+   *     "data": {
+   *         "path": "https://larec-benchmark-cd.oss-cn-chengdu.aliyuncs.com/youbei/sv_dbmtl/data/youbei.warmup.tf.bin",
+   *         "dataType": "binary"
+   *     },
+   *     "optional": {
+   *        "maxRt": 100
+   *     }
+   * }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
@@ -778,9 +1186,37 @@ export class CreateBenchmarkTaskRequest extends $tea.Model {
 }
 
 export class CreateBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark  task [foo] is Creating
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the region where the stress testing task is performed.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82********
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the stress testing task.
+   * 
+   * @example
+   * benchmark-larec-test-1076
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -831,11 +1267,67 @@ export class CreateBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class CreateGatewayRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * eas-r-4gt8twzwllfo******
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable Internet access. Default value: false.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * false
+   */
   enableInternet?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable internal network access. Default value: true.
+   * 
+   * @example
+   * true
+   */
   enableIntranet?: boolean;
+  /**
+   * @remarks
+   * The instance type used for the private gateway.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ecs.c6.4xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The private gateway alias.
+   * 
+   * @example
+   * mygateway1
+   */
   name?: string;
+  replicas?: number;
   static names(): { [key: string]: string } {
     return {
       resourceName: 'ResourceName',
@@ -843,6 +1335,7 @@ export class CreateGatewayRequest extends $tea.Model {
       enableIntranet: 'EnableIntranet',
       instanceType: 'InstanceType',
       name: 'Name',
+      replicas: 'Replicas',
     };
   }
 
@@ -853,6 +1346,7 @@ export class CreateGatewayRequest extends $tea.Model {
       enableIntranet: 'boolean',
       instanceType: 'string',
       name: 'string',
+      replicas: 'number',
     };
   }
 
@@ -862,9 +1356,37 @@ export class CreateGatewayRequest extends $tea.Model {
 }
 
 export class CreateGatewayResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the private gateway.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The private gateway ID.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Successfully create gateway.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -915,7 +1437,21 @@ export class CreateGatewayResponse extends $tea.Model {
 }
 
 export class CreateGatewayIntranetLinkedVpcRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-8vbqn2at0kljjxxxx****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -937,8 +1473,29 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $tea.Model {
 }
 
 export class CreateGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The private gateway ID.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Successfully add intranet linked vpc for gateway
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -987,13 +1544,83 @@ export class CreateGatewayIntranetLinkedVpcResponse extends $tea.Model {
 }
 
 export class CreateResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
+   * @example
+   * false
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PrePaid: the subscription billing method.
+   * *   PostPaid: the pay-as-you-go billing method.
+   * 
+   * >  This parameter is required when the ResourceType parameter is set to Dedicated.
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The number of ECS instances.
+   * 
+   * >  This parameter is required when the ResourceType parameter is set to Dedicated.
+   * 
+   * @example
+   * 5
+   */
   ecsInstanceCount?: number;
+  /**
+   * @remarks
+   * The type of the Elastic Compute Service (ECS) instance.
+   * 
+   * >  This parameter is required when the ResourceType parameter is set to Dedicated.
+   * 
+   * @example
+   * ecs.c6.8xlarge
+   */
   ecsInstanceType?: string;
+  /**
+   * @remarks
+   * The type of the resource group. Valid values:
+   * 
+   * *   Dedicated: the dedicated resource group.
+   * *   SelfManaged: the self-managed resource group.
+   * 
+   * >  If you use a self-managed resource group, you must configure a whitelist.
+   * 
+   * @example
+   * Dedicated
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The configurations of the self-managed resource group.
+   */
   selfManagedResourceOptions?: CreateResourceRequestSelfManagedResourceOptions;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+   * 
+   * @example
+   * 200
+   */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * The ID of the zone in which the instance resides.
+   * 
+   * @example
+   * cn-shanghai-f
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1027,11 +1654,50 @@ export class CreateResourceRequest extends $tea.Model {
 }
 
 export class CreateResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster to which the resource group belongs.
+   * 
+   * @example
+   * cn-shanghai
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The user ID (UID) of the resource group owner.
+   * 
+   * @example
+   * 14401087478****
+   */
   ownerUid?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * eas-r-h7lcw24dyqztwxxxxxx
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * MyResource
+   */
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1086,12 +1752,73 @@ export class CreateResourceResponse extends $tea.Model {
 }
 
 export class CreateResourceInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
+   * @example
+   * false
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   PrePaid: subscription.
+   * *   PostPaid: pay-as-you-go.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The number of instances that you want to create. Valid values: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   ecsInstanceCount?: number;
+  /**
+   * @remarks
+   * The type of the Elastic Compute Service (ECS) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
   ecsInstanceType?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+   * 
+   * @example
+   * 200
+   */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * The user-defined information. This parameter is not in use.
+   * 
+   * @example
+   * x112223333
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The zone to which the instance belongs.
+   * 
+   * @example
+   * cn-shanghai-f
+   */
   zone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1123,8 +1850,26 @@ export class CreateResourceInstancesRequest extends $tea.Model {
 }
 
 export class CreateResourceInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Create 5 new ecs instance(s) in resource [eas-r-asdasdasd] successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1173,7 +1918,25 @@ export class CreateResourceInstancesResponse extends $tea.Model {
 }
 
 export class CreateResourceLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Logstore of Log Service. For more information about how to query a Logstore, see [ListLogStores](https://help.aliyun.com/document_detail/426970.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * access_log
+   */
   logStore?: string;
+  /**
+   * @remarks
+   * The Log Service project that is associated with the resource group. For more information about how to query the project, see [ListProject](https://help.aliyun.com/document_detail/74955.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eas-r-asdasdasd-sls
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1195,7 +1958,21 @@ export class CreateResourceLogRequest extends $tea.Model {
 }
 
 export class CreateResourceLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Resource [eas-r-asdasdasd] is deleted.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1242,9 +2019,122 @@ export class CreateResourceLogResponse extends $tea.Model {
 }
 
 export class CreateServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enter development mode.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * true
+   */
   develop?: string;
+  /**
+   * @remarks
+   * The custom label.
+   */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
+   * 
+   * @example
+   * Service deployment by using an image:
+   * {
+   *   "name": "foo",
+   *   "metadata": {
+   *     "instance": 2,
+   *     "memory": 7000,
+   *     "cpu": 4
+   *     },
+   *   "containers": [
+   *     {
+   *       "image": "****",
+   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+   *       "port": 8000
+   *     }
+   *   ],
+   *   "storage": [
+   *     {
+   *       "oss": {
+   *         "path": "oss://examplebuket/data111/",
+   *         "readOnly": false
+   *       },
+   *       "properties": {
+   *         "resource_type": "model"
+   *       },
+   *       "mount_path": "/data"
+   *     }
+   *   ]
+   * }
+   * AI-Web application deployment by using an image:
+   * {
+   *   "name": "foo",
+   *   "metadata": {
+   *     "instance": 1,
+   *     "memory": 7000,
+   *     "cpu": 4,
+   *     "enable_webservice": true
+   *   },
+   *   "containers": [
+   *     {
+   *       "image": "****",
+   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+   *       "port": 8000
+   *     }
+   *   ],
+   *   "storage": [
+   *     {
+   *       "oss": {
+   *         "path": "oss://examplebucket/data111/",
+   *         "readOnly": false
+   *       },
+   *       "properties": {
+   *       "resource_type": "model"
+   *       },
+   *       "mount_path": "/data"
+   *     }
+   *   ]
+   * }
+   * Service deployment by using models and processors:
+   * {
+   *   "metadata": {
+   *     "instance": 1,
+   *     "memory": 7000,
+   *     "cpu": 4
+   *   },
+   *   "name": "foo",
+   *   "model_config": {},
+   *   "processor_type": "python",
+   *   "processor_path": "oss://****",
+   *   "processor_entry": "a.py",
+   *   "model_path": "oss://****"
+   * }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1270,9 +2160,122 @@ export class CreateServiceRequest extends $tea.Model {
 }
 
 export class CreateServiceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enter development mode.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * true
+   */
   develop?: string;
+  /**
+   * @remarks
+   * The custom label.
+   */
   labelsShrink?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
+   * 
+   * @example
+   * Service deployment by using an image:
+   * {
+   *   "name": "foo",
+   *   "metadata": {
+   *     "instance": 2,
+   *     "memory": 7000,
+   *     "cpu": 4
+   *     },
+   *   "containers": [
+   *     {
+   *       "image": "****",
+   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+   *       "port": 8000
+   *     }
+   *   ],
+   *   "storage": [
+   *     {
+   *       "oss": {
+   *         "path": "oss://examplebuket/data111/",
+   *         "readOnly": false
+   *       },
+   *       "properties": {
+   *         "resource_type": "model"
+   *       },
+   *       "mount_path": "/data"
+   *     }
+   *   ]
+   * }
+   * AI-Web application deployment by using an image:
+   * {
+   *   "name": "foo",
+   *   "metadata": {
+   *     "instance": 1,
+   *     "memory": 7000,
+   *     "cpu": 4,
+   *     "enable_webservice": true
+   *   },
+   *   "containers": [
+   *     {
+   *       "image": "****",
+   *       "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
+   *       "port": 8000
+   *     }
+   *   ],
+   *   "storage": [
+   *     {
+   *       "oss": {
+   *         "path": "oss://examplebucket/data111/",
+   *         "readOnly": false
+   *       },
+   *       "properties": {
+   *       "resource_type": "model"
+   *       },
+   *       "mount_path": "/data"
+   *     }
+   *   ]
+   * }
+   * Service deployment by using models and processors:
+   * {
+   *   "metadata": {
+   *     "instance": 1,
+   *     "memory": 7000,
+   *     "cpu": 4
+   *   },
+   *   "name": "foo",
+   *   "model_config": {},
+   *   "processor_type": "python",
+   *   "processor_path": "oss://****",
+   *   "processor_entry": "a.py",
+   *   "model_path": "oss://****"
+   * }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1298,12 +2301,61 @@ export class CreateServiceShrinkRequest extends $tea.Model {
 }
 
 export class CreateServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The public endpoint of the created service.
+   * 
+   * @example
+   * http://pai-eas.vpc.cn-shanghai.****
+   */
   internetEndpoint?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the created service.
+   * 
+   * @example
+   * http://pai-eas.cn-shanghai.****
+   */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * The region ID of the created service.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the created service.
+   * 
+   * @example
+   * eas-m-aaxxxddf
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The name of the created service.
+   * 
+   * @example
+   * yourname
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service state.
+   * 
+   * @example
+   * Creating
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1360,9 +2412,37 @@ export class CreateServiceResponse extends $tea.Model {
 }
 
 export class CreateServiceAutoScalerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Autoscaler operation.
+   */
   behavior?: CreateServiceAutoScalerRequestBehavior;
+  /**
+   * @remarks
+   * The maximum number of instances in the service. The value of max must be greater than the value of min.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8
+   */
   max?: number;
+  /**
+   * @remarks
+   * The minimum number of instances in the service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   min?: number;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * This parameter is required.
+   */
   scaleStrategies?: CreateServiceAutoScalerRequestScaleStrategies[];
   static names(): { [key: string]: string } {
     return {
@@ -1388,7 +2468,21 @@ export class CreateServiceAutoScalerRequest extends $tea.Model {
 }
 
 export class CreateServiceAutoScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Succeed to auto scale service [foo]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1435,7 +2529,17 @@ export class CreateServiceAutoScalerResponse extends $tea.Model {
 }
 
 export class CreateServiceCronScalerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
+   */
   excludeDates?: string[];
+  /**
+   * @remarks
+   * The description of the CronHPA job.
+   * 
+   * This parameter is required.
+   */
   scaleJobs?: CreateServiceCronScalerRequestScaleJobs[];
   static names(): { [key: string]: string } {
     return {
@@ -1457,7 +2561,21 @@ export class CreateServiceCronScalerRequest extends $tea.Model {
 }
 
 export class CreateServiceCronScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Create cron scaler for service [foo] successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1504,7 +2622,18 @@ export class CreateServiceCronScalerResponse extends $tea.Model {
 }
 
 export class CreateServiceMirrorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The percentage of the traffic that is mirrored to the destination service. Valid values: 0 to 100.
+   * 
+   * @example
+   * 30
+   */
   ratio?: number;
+  /**
+   * @remarks
+   * The instances.
+   */
   target?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1526,7 +2655,21 @@ export class CreateServiceMirrorRequest extends $tea.Model {
 }
 
 export class CreateServiceMirrorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Traffic mirroring is ON for service [foo] in region [cn-shanghia], ratio [70%]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1572,8 +2715,136 @@ export class CreateServiceMirrorResponse extends $tea.Model {
   }
 }
 
-export class DeleteBenchmarkTaskResponseBody extends $tea.Model {
+export class DeleteAclPolicyRequest extends $tea.Model {
+  aclPolicyList?: DeleteAclPolicyRequestAclPolicyList[];
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyList: 'AclPolicyList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyList: { 'type': 'array', 'itemType': DeleteAclPolicyRequestAclPolicyList },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAclPolicyShrinkRequest extends $tea.Model {
+  aclPolicyListShrink?: string;
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyListShrink: 'AclPolicyList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyListShrink: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAclPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * Successfully delete acl policy for gateway
+   */
   message?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAclPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAclPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAclPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark task [benchmark-test-service-234c] is Deleting
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1620,8 +2891,29 @@ export class DeleteBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class DeleteGatewayResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The private gateway ID.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Gateway is deleted.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1670,7 +2962,21 @@ export class DeleteGatewayResponse extends $tea.Model {
 }
 
 export class DeleteGatewayIntranetLinkedVpcRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-8vbqn2at0kljjxxxx****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1692,8 +2998,29 @@ export class DeleteGatewayIntranetLinkedVpcRequest extends $tea.Model {
 }
 
 export class DeleteGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The private gateway ID.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Successfully delete intranet linked vpc for gateway
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1742,7 +3069,21 @@ export class DeleteGatewayIntranetLinkedVpcResponse extends $tea.Model {
 }
 
 export class DeleteResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Resource [eas-r-asdasdasd] is deleted.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82-9624-EC2B1779848E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1789,7 +3130,21 @@ export class DeleteResourceResponse extends $tea.Model {
 }
 
 export class DeleteResourceDLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Network interfaces are deleting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1836,7 +3191,24 @@ export class DeleteResourceDLinkResponse extends $tea.Model {
 }
 
 export class DeleteResourceInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete all the instances that fail to be created. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   allFailed?: boolean;
+  /**
+   * @remarks
+   * The instances. Separate multiple instances with commas (,), such as `instanceId1,instanceId2`. For more information about how to query the instances, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+   * 
+   * @example
+   * eas-i-xxxxxxx,eas-i-xxxxxxx
+   */
   instanceList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1858,7 +3230,21 @@ export class DeleteResourceInstancesRequest extends $tea.Model {
 }
 
 export class DeleteResourceInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Instances eas-i-011227132046,eas-i-011227132046 are deleting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1905,7 +3291,21 @@ export class DeleteResourceInstancesResponse extends $tea.Model {
 }
 
 export class DeleteResourceLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Log service for resource [eas-r-asdasdasd] is deleting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1952,7 +3352,21 @@ export class DeleteResourceLogResponse extends $tea.Model {
 }
 
 export class DeleteServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Service [foo] in region [cn-shanghai] is terminating
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1999,7 +3413,21 @@ export class DeleteServiceResponse extends $tea.Model {
 }
 
 export class DeleteServiceAutoScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Autoscaler for service [foo] deleted successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2046,7 +3474,21 @@ export class DeleteServiceAutoScalerResponse extends $tea.Model {
 }
 
 export class DeleteServiceCronScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Cronscaler for service [foo] deleted successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2093,8 +3535,31 @@ export class DeleteServiceCronScalerResponse extends $tea.Model {
 }
 
 export class DeleteServiceInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the container whose process needs to be restarted. This parameter takes effect only if the SoftRestart parameter is set to true.
+   * 
+   * @example
+   * worker0
+   */
   container?: string;
+  /**
+   * @remarks
+   * The instances that you want to restart. Separate multiple instance names with commas (,). For more information about how to query the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * foo-rdsbxxxx,foo-rdsaxxxx
+   */
   instanceList?: string;
+  /**
+   * @remarks
+   * Specifies whether to restart only the container process without recreating the instance. Default value: false. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   softRestart?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2118,7 +3583,21 @@ export class DeleteServiceInstancesRequest extends $tea.Model {
 }
 
 export class DeleteServiceInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Instance(s) [foo-rdsb,foo-rdsa]  for service [foo] in region [cn-shanghai] was deleted successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2165,6 +3644,12 @@ export class DeleteServiceInstancesResponse extends $tea.Model {
 }
 
 export class DeleteServiceLabelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The service tags that you want to delete.
+   * 
+   * This parameter is required.
+   */
   keys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2184,6 +3669,12 @@ export class DeleteServiceLabelRequest extends $tea.Model {
 }
 
 export class DeleteServiceLabelShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The service tags that you want to delete.
+   * 
+   * This parameter is required.
+   */
   keysShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2203,7 +3694,21 @@ export class DeleteServiceLabelShrinkRequest extends $tea.Model {
 }
 
 export class DeleteServiceLabelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Succeed to delete service [service_from_zxxx] labels.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2250,7 +3755,21 @@ export class DeleteServiceLabelResponse extends $tea.Model {
 }
 
 export class DeleteServiceMirrorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Traffic mirroring is OFF for service [foo] in region [cn-shanghia], ratio [70%]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2297,18 +3816,183 @@ export class DeleteServiceMirrorResponse extends $tea.Model {
 }
 
 export class DescribeBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of instances that you can test.
+   * 
+   * @example
+   * 4
+   */
   availableAgent?: number;
+  /**
+   * @remarks
+   * The ID of the operation caller.
+   * 
+   * @example
+   * 1640133467****
+   */
   callerUid?: string;
+  /**
+   * @remarks
+   * The number of instances that you want to test.
+   * 
+   * @example
+   * 4
+   */
   desiredAgent?: number;
+  /**
+   * @remarks
+   * The endpoint of the service gateway.
+   * 
+   * @example
+   * 192342311234.pai-eas.cn-chengdu.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmar task is Running
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the operation.
+   * 
+   * @example
+   * 1029728669****
+   */
   parentUid?: string;
+  /**
+   * @remarks
+   * The event or reason that causes the current state of the stress testing task.
+   * 
+   * @example
+   * RUNNING
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the service that you want to test.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The state of the stress testing task.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Starting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DeleteFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopping
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Error
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Updating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CreateFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the stress testing task.
+   * 
+   * @example
+   * eas-b-gv4y86u****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the stress testing task.
+   * 
+   * @example
+   * benchmark-larec-test-ae70
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The token for authentication when a stress testing task is created.
+   * 
+   * @example
+   * 6062787a-9301****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2377,6 +4061,13 @@ export class DescribeBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class DescribeBenchmarkTaskReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The report type of the stress testing task. Valid values: RAW and Report.
+   * 
+   * @example
+   * report
+   */
   reportType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2396,8 +4087,74 @@ export class DescribeBenchmarkTaskReportRequest extends $tea.Model {
 }
 
 export class DescribeBenchmarkTaskReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of ReportType is set to RAW, the details about the stress testing report are returned.
+   * 
+   * @example
+   * {
+   *     "TimestampList": ["int64"],
+   *     "QPSList": ["float32"],
+   *     "RTList": [
+   *       {
+   *         "AVG": "float32",
+   *         "TP100": "float32",
+   *         "TP99": "float32",
+   *         "TP90": "float32",
+   *         "TP50": "float32",
+   *         "TP10": "float32"
+   *       }
+   *     ],
+   *     "TrafficList": [
+   *       {
+   *         "Send": "float64",
+   *         "Receive": "float64"
+   *       }
+   *     ],
+   *     "StatusCode": {
+   *       "200": "uint64",
+   *       "450": "uint64",
+   *       "500": "uint64"
+   *     },
+   *     "Count": "uint64",
+   *     "Total": "float64",
+   *     "MinRT": "float32",
+   *     "AvgRT": "float32",
+   *     "MaxRT": "float32",
+   *     "QPS": "float32",
+   *     "TotalSend": "float64",
+   *     "TotalReceive": "float64",
+   *     "RTDistribution": [
+   *       {
+   *         "Latency": "float32",
+   *         "Percentage": "int"
+   *       }
+   *     ],
+   *     "RTHistogram": [
+   *       {
+   *         "Count": "int",
+   *         "Mark": "float32",
+   *         "Frequency": "float32"
+   *       }
+   *     ]
+   *   }
+   */
   data?: any;
+  /**
+   * @remarks
+   * If the value of ReportType is set to Report, the URL of the stress testing report is returned.
+   * 
+   * @example
+   * http://eas-benchmark.oss-cn-chengdu.aliyuncs.com/summary/benchmark-larec-test-015d-10007.html
+   */
   reportUrl?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2446,39 +4203,110 @@ export class DescribeBenchmarkTaskReportResponse extends $tea.Model {
 }
 
 export class DescribeGatewayResponseBody extends $tea.Model {
-  callerUid?: string;
+  /**
+   * @remarks
+   * The time when the private gateway was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-05-19T14:19:42Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The ID of the self-managed cluster.
+   * 
+   * @example
+   * c935eadf284c14c2da57a2a13ad6******
+   */
   externalClusterId?: string;
+  /**
+   * @remarks
+   * The ID of the private gateway.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The private gateway alias.
+   * 
+   * @example
+   * mygateway1
+   */
   gatewayName?: string;
+  /**
+   * @remarks
+   * The instance type used for the private gateway.
+   * 
+   * @example
+   * ecs.c6.4xlarge
+   */
   instanceType?: string;
-  internetAclPolicyList?: DescribeGatewayResponseBodyInternetAclPolicyList[];
+  /**
+   * @remarks
+   * The public endpoint.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******-1801786532******.cn-hangzhou.pai-eas.aliyuncs.com
+   */
   internetDomain?: string;
+  /**
+   * @remarks
+   * Indicates whether Internet access is enabled.
+   * 
+   * @example
+   * true
+   */
   internetEnabled?: boolean;
+  internetStatus?: string;
+  /**
+   * @remarks
+   * The internal endpoint.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-hangzhou.pai-eas.aliyuncs.com
+   */
   intranetDomain?: string;
-  intranetEnabled?: boolean;
-  intranetLinkedVpcList?: DescribeGatewayResponseBodyIntranetLinkedVpcList[];
-  parentUid?: string;
-  region?: string;
+  isDefault?: boolean;
+  replicas?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The state of the private gateway.
+   * 
+   * @example
+   * PrivateGatewayRunning
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the private gateway was updated. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-02-24T11:52:17Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      callerUid: 'CallerUid',
       createTime: 'CreateTime',
       externalClusterId: 'ExternalClusterId',
       gatewayId: 'GatewayId',
       gatewayName: 'GatewayName',
       instanceType: 'InstanceType',
-      internetAclPolicyList: 'InternetAclPolicyList',
       internetDomain: 'InternetDomain',
       internetEnabled: 'InternetEnabled',
+      internetStatus: 'InternetStatus',
       intranetDomain: 'IntranetDomain',
-      intranetEnabled: 'IntranetEnabled',
-      intranetLinkedVpcList: 'IntranetLinkedVpcList',
-      parentUid: 'ParentUid',
-      region: 'Region',
+      isDefault: 'IsDefault',
+      replicas: 'Replicas',
       requestId: 'RequestId',
       status: 'Status',
       updateTime: 'UpdateTime',
@@ -2487,20 +4315,17 @@ export class DescribeGatewayResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      callerUid: 'string',
       createTime: 'string',
       externalClusterId: 'string',
       gatewayId: 'string',
       gatewayName: 'string',
       instanceType: 'string',
-      internetAclPolicyList: { 'type': 'array', 'itemType': DescribeGatewayResponseBodyInternetAclPolicyList },
       internetDomain: 'string',
       internetEnabled: 'boolean',
+      internetStatus: 'string',
       intranetDomain: 'string',
-      intranetEnabled: 'boolean',
-      intranetLinkedVpcList: { 'type': 'array', 'itemType': DescribeGatewayResponseBodyIntranetLinkedVpcList },
-      parentUid: 'string',
-      region: 'string',
+      isDefault: 'boolean',
+      replicas: 'number',
       requestId: 'string',
       status: 'string',
       updateTime: 'string',
@@ -2563,21 +4388,136 @@ export class DescribeGroupResponse extends $tea.Model {
 }
 
 export class DescribeResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cluster to which the resource group belongs.
+   * 
+   * @example
+   * cn-beijing
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The total number of CPU cores.
+   * 
+   * @example
+   * 16
+   */
   cpuCount?: number;
+  /**
+   * @remarks
+   * The time when the resource group was created.
+   * 
+   * @example
+   * 2020-05-19T14:19:42Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The additional information, such as the connection status of a virtual private cloud (VPC) and the log status of Log Service.
+   * 
+   * @example
+   * {"vswitch_id":"vsw-bp17uo6xebcusy****","gpu_share":true,"aux_vswitch_id_list":["vsw-bp13b3pvjap3vxn****","vsw-bp1nls8o5hk8mt8*****"],"security_group_id":"sg-bp1j1z7297hcink*****","vpc_id":"vpc-bp1kjr3rfyhx01*****","destination_cidr":"172.16.0.12/28","role_arn":"acs:ram::1157703270*****:role/AliyunServiceRoleForPaiEas","sls_project":"","sls_logstore":"","sls_status":"ResourceReady","sls_message":"","update_time":""}
+   */
   extraData?: string;
+  /**
+   * @remarks
+   * The total number of GPUs.
+   * 
+   * @example
+   * 1
+   */
   gpuCount?: number;
+  /**
+   * @remarks
+   * The total number of instances in the resource group.
+   * 
+   * @example
+   * 4
+   */
   instanceCount?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Resource is ready
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the resource group owner.
+   * 
+   * @example
+   * 14401087478****
+   */
   ownerUid?: string;
+  /**
+   * @remarks
+   * The total number of pay-as-you-go instances in the resource group.
+   * 
+   * @example
+   * 3
+   */
   postPaidInstanceCount?: number;
+  /**
+   * @remarks
+   * The total number of subscription instances in the resource group.
+   * 
+   * @example
+   * 1
+   */
   prePaidInstanceCount?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 902976F2-6FAF-5404-8A4D-6CC223***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Algorithm Service (EAS) resource.
+   * 
+   * @example
+   * eas-r-glkfpsxuw57x1h*****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the EAS resource.
+   * 
+   * @example
+   * my-resouce****
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource group. Valid values:
+   * 
+   * *   Dedicated: the dedicated resource group.
+   * *   SelfManaged: the self-managed resource group.
+   * 
+   * @example
+   * Dedicated
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The state of the resource group.
+   * 
+   * @example
+   * ResourceReady
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the resource group was last updated.
+   * 
+   * @example
+   * 2021-02-24T11:52:17Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2652,11 +4592,50 @@ export class DescribeResourceResponse extends $tea.Model {
 }
 
 export class DescribeResourceDLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the secondary vSwitches that are directly connected.
+   */
   auxVSwitchList?: string[];
+  /**
+   * @remarks
+   * The CIDR blocks of the clients that you want to connect to. After this parameter is specified, the CIDR blocks are added to the back-to-origin route of the server. Either this parameter or the VSwitchIdList parameter can be used to determine CIDR blocks.
+   * 
+   * @example
+   * 72.16.0.0/16
+   */
   destinationCIDRs?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the security group that is directly connected.
+   * 
+   * @example
+   * sg-bp1j1z7297hcink9d****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the primary vSwitch that is directly connected.
+   * 
+   * @example
+   * vsw-8vbqn2at0kljjxxxx****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC that is directly connected.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2711,10 +4690,45 @@ export class DescribeResourceDLinkResponse extends $tea.Model {
 }
 
 export class DescribeResourceLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The Logstore of Log Service.
+   * 
+   * @example
+   * access_log
+   */
   logStore?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Network interfaces are updating
+   */
   message?: string;
+  /**
+   * @remarks
+   * The Log Service project that is associated with the resource group.
+   * 
+   * @example
+   * eas-r-asdasdasd-sls
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The state of the resource group.
+   * 
+   * @example
+   * ResourceReady
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2792,12 +4806,61 @@ export class DescribeServiceResponse extends $tea.Model {
 }
 
 export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The additional information about the Autoscaler policy, such as the interval of triggering Autoscaler.
+   * 
+   * @example
+   * {
+   *   "behavior": {
+   *     "scaleDown": {
+   *       "stabilizationWindowSeconds": 150
+   *     }
+   *   }
+   * }
+   */
   behavior?: { [key: string]: any };
+  /**
+   * @remarks
+   * The metrics.
+   */
   currentMetrics?: DescribeServiceAutoScalerResponseBodyCurrentMetrics[];
+  /**
+   * @remarks
+   * The maximum number of instances in the service.
+   * 
+   * @example
+   * 8
+   */
   maxReplica?: number;
+  /**
+   * @remarks
+   * The minimum number of instances in the service.
+   * 
+   * @example
+   * 3
+   */
   minReplica?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The auto scaling policies.
+   */
   scaleStrategies?: DescribeServiceAutoScalerResponseBodyScaleStrategies[];
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2854,9 +4917,31 @@ export class DescribeServiceAutoScalerResponse extends $tea.Model {
 }
 
 export class DescribeServiceCronScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
+   */
   excludeDates?: string[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The CronHPA jobs.
+   */
   scaleJobs?: DescribeServiceCronScalerResponseBodyScaleJobs[];
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2907,7 +4992,18 @@ export class DescribeServiceCronScalerResponse extends $tea.Model {
 }
 
 export class DescribeServiceDiagnosisResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The diagnostics list.
+   */
   diagnosisList?: DescribeServiceDiagnosisResponseBodyDiagnosisList[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2954,11 +5050,56 @@ export class DescribeServiceDiagnosisResponse extends $tea.Model {
 }
 
 export class DescribeServiceEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. By default, the current point in time is the end of the time range to query.
+   * 
+   * @example
+   * 2006-01-02 15:04:05
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The event type. Valid values:
+   * 
+   * *   Normal
+   * *   Warning
+   * 
+   * @example
+   * Normal
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The instance name. For more information about how to obtain the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+   * 
+   * @example
+   * echo-test-784xxxx85d-hhnd8
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The time must be in UTC. The default value is seven days ago.
+   * 
+   * @example
+   * 2006-01-02 15:04:05
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2988,10 +5129,42 @@ export class DescribeServiceEventRequest extends $tea.Model {
 }
 
 export class DescribeServiceEventResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The events.
+   */
   events?: DescribeServiceEventResponseBodyEvents[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3D491C94-6239-5318-B4B4-799D859***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 29
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 12
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3044,7 +5217,18 @@ export class DescribeServiceEventResponse extends $tea.Model {
 }
 
 export class DescribeServiceInstanceDiagnosisResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The diagnostics information.
+   */
   diagnosis?: DescribeServiceInstanceDiagnosisResponseBodyDiagnosis;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3091,14 +5275,95 @@ export class DescribeServiceInstanceDiagnosisResponse extends $tea.Model {
 }
 
 export class DescribeServiceLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the container that runs the service.
+   * 
+   * @example
+   * worker0
+   */
   containerName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The time must be in UTC.
+   * 
+   * @example
+   * 2006-01-02 15:04:05
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the instance that runs the service. For more information about how to query the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+   * 
+   * @example
+   * echo-da290ac8-7fckm
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The IP address of the instance whose logs you want to query. For more information about how to query the IP address of an instance, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
+   * 
+   * @example
+   * 10.0.0.1
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The keyword that you use to query the logs of the service.
+   * 
+   * @example
+   * key
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 500.
+   * 
+   * @example
+   * 500
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to query the logs that are generated before the instance last restarts. This parameter is available only if the instance restarts.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * true
+   */
   previous?: boolean;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The time must be in Coordinated Universal Time (UTC).
+   * 
+   * @example
+   * 2006-01-02 15:04:05
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3134,10 +5399,42 @@ export class DescribeServiceLogRequest extends $tea.Model {
 }
 
 export class DescribeServiceLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned logs.
+   */
   logs?: string[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82********
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 500
+   */
   totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3190,9 +5487,37 @@ export class DescribeServiceLogResponse extends $tea.Model {
 }
 
 export class DescribeServiceMirrorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The percentage of traffic that you want to mirror. Valid values: 0 to 100.
+   * 
+   * @example
+   * 50
+   */
   ratio?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The destination services to which you want to mirror traffic.
+   * 
+   * @example
+   * foo2,foo3
+   */
   target?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3243,7 +5568,23 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
 }
 
 export class DescribeSpotDiscountHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the Elastic Algorithm Service (EAS) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ecs.c6.4xlarge
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * Specifies whether the preemptible instance has a protection period. During the 1-hour protection period of the preemptible instance, the preemptible instance will not be released.
+   * 
+   * @example
+   * false
+   */
   isProtect?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3265,7 +5606,18 @@ export class DescribeSpotDiscountHistoryRequest extends $tea.Model {
 }
 
 export class DescribeSpotDiscountHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The discount for the preemptible instance.
+   */
   spotDiscounts?: DescribeSpotDiscountHistoryResponseBodySpotDiscounts[];
   static names(): { [key: string]: string } {
     return {
@@ -3312,6 +5664,16 @@ export class DescribeSpotDiscountHistoryResponse extends $tea.Model {
 }
 
 export class DevelopServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to exit development mode. Valid values:
+   * 
+   * *   true: exits development mode.
+   * *   false (default): enters development mode.
+   * 
+   * @example
+   * true
+   */
   exit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3331,7 +5693,21 @@ export class DevelopServiceRequest extends $tea.Model {
 }
 
 export class DevelopServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3377,10 +5753,122 @@ export class DevelopServiceResponse extends $tea.Model {
   }
 }
 
+export class ListAclPolicyRequest extends $tea.Model {
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  internetAclPolicyList?: ListAclPolicyResponseBodyInternetAclPolicyList[];
+  intranetVpcAclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyList[];
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      internetAclPolicyList: 'InternetAclPolicyList',
+      intranetVpcAclPolicyList: 'IntranetVpcAclPolicyList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      internetAclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyInternetAclPolicyList },
+      intranetVpcAclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyIntranetVpcAclPolicyList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAclPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAclPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBenchmarkTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword used to query required stress testing tasks. If this parameter is specified, the system returns stress testing tasks based on the names of the stress testing tasks in the matched Elastic Algorithm Service (EAS).
+   * 
+   * @example
+   * test_bench
+   */
   filter?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The name of the EAS service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+   * 
+   * @example
+   * test_bench_srv
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3406,10 +5894,42 @@ export class ListBenchmarkTaskRequest extends $tea.Model {
 }
 
 export class ListBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The stress testing tasks.
+   */
   tasks?: ListBenchmarkTaskResponseBodyTasks[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3461,9 +5981,143 @@ export class ListBenchmarkTaskResponse extends $tea.Model {
   }
 }
 
-export class ListGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+export class ListGatewayRequest extends $tea.Model {
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @example
+   * mygateway1
+   */
+  gatewayName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'GatewayId',
+      gatewayName: 'GatewayName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      gatewayName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayResponseBody extends $tea.Model {
+  gateways?: ListGatewayResponseBodyGateways[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gateways: 'Gateways',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gateways: { 'type': 'array', 'itemType': ListGatewayResponseBodyGateways },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The private gateway ID.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @remarks
+   * The internal endpoints.
+   */
   intranetLinkedVpcList?: ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3512,9 +6166,37 @@ export class ListGatewayIntranetLinkedVpcResponse extends $tea.Model {
 }
 
 export class ListGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the filter that is used to filter out unwanted service groups. Fuzzy match is supported.
+   * 
+   * @example
+   * foo
+   */
   filter?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3540,10 +6222,42 @@ export class ListGroupsRequest extends $tea.Model {
 }
 
 export class ListGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The service groups.
+   */
   groups?: Group[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3596,7 +6310,21 @@ export class ListGroupsResponse extends $tea.Model {
 }
 
 export class ListResourceInstanceWorkerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3618,10 +6346,42 @@ export class ListResourceInstanceWorkerRequest extends $tea.Model {
 }
 
 export class ListResourceInstanceWorkerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The workers.
+   */
   pods?: ResourceInstanceWorker[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3674,15 +6434,262 @@ export class ListResourceInstanceWorkerResponse extends $tea.Model {
 }
 
 export class ListResourceInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   PrePaid: subscription.
+   * *   PostPaid: pay-as-you-go.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The keyword used to query instances. Instances can be queried by instance ID or instance IP address.
+   * 
+   * @example
+   * 10.224.xx.xx
+   */
   filter?: string;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 10.224.xx.xx
+   */
   instanceIP?: string;
+  /**
+   * @remarks
+   * The instance ID. For more information about how to query the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+   * 
+   * @example
+   * i-bp1jd6x3uotsv****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * e-xxxx***
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance state.
+   * 
+   * Valid values:
+   * 
+   * *   Ready-SchedulingDisabled
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instance is available but unschedulable
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Ready
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance
+   * 
+   *     <!-- -->
+   * 
+   *     is running
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   NotReady
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance is unready.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopped
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance has stopped.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   NotReady-SchedulingDisabled
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instance is unavailable and unschedulable
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Attaching
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance
+   * 
+   *     <!-- -->
+   * 
+   *     is starting
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance is being deleted.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CreateFailed: The instance failed to be created.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Ready
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The sorting order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: The instances are sorted in ascending order.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   desc
+   * 
+   *     <!-- -->
+   * 
+   *     : The instances are sorted in descending order.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The field that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   CreateTime
+   * 
+   *     <!-- -->
+   * 
+   *     : The instances are sorted based on the time when the instances were created.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   MemoryUsed
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instances are sorted based on the memory usage of the instances
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   GpuUsed
+   * 
+   *     <!-- -->
+   * 
+   *     : The instances are sorted based on the
+   * 
+   *     <!-- -->
+   * 
+   *     GPU usage of the instances.
+   * 
+   *     <!-- -->
+   * 
+   * *   ExpireTime: The instances are sorted based on the time when the instances expired.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CpuUsed
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instances are sorted based on the CPU utilization of the instances.
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3720,10 +6727,42 @@ export class ListResourceInstancesRequest extends $tea.Model {
 }
 
 export class ListResourceInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instances.
+   */
   instances?: ResourceInstance[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3776,7 +6815,21 @@ export class ListResourceInstancesResponse extends $tea.Model {
 }
 
 export class ListResourceServicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3798,10 +6851,42 @@ export class ListResourceServicesRequest extends $tea.Model {
 }
 
 export class ListResourceServicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The services.
+   */
   services?: Service[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3854,10 +6939,48 @@ export class ListResourceServicesResponse extends $tea.Model {
 }
 
 export class ListResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the ID of the resource group.
+   * 
+   * @example
+   * eas-r-h7lcw24dyqztwxxxxxx
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the name of the resource group.
+   * 
+   * @example
+   * MyResource
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource group. Valid values:
+   * 
+   * *   Dedicated: the dedicated resource group.
+   * *   SelfManaged: the self-managed resource group.
+   * 
+   * @example
+   * Dedicated
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3885,10 +7008,42 @@ export class ListResourcesRequest extends $tea.Model {
 }
 
 export class ListResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource groups.
+   */
   resources?: Resource[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3941,8 +7096,26 @@ export class ListResourcesResponse extends $tea.Model {
 }
 
 export class ListServiceContainersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The containers of the service.
+   */
   containers?: ContainerInfo[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * foo
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3991,18 +7164,223 @@ export class ListServiceContainersResponse extends $tea.Model {
 }
 
 export class ListServiceInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword used to query instances. Instances can be queried based on instance name, instance IP address, IP address of the server where the instance resides, and instance type.
+   * 
+   * @example
+   * 10.118.xx.xx
+   */
   filter?: string;
+  /**
+   * @remarks
+   * The IP address of the server where the instance resides.
+   * 
+   * @example
+   * 10.224.xx.xx
+   */
   hostIP?: string;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 10.224.xx.xx
+   */
   instanceIP?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * foo-bdc5xxxx-8l7rk
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance state.
+   * 
+   * @example
+   * Running
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The instance type.
+   * 
+   * @example
+   * ecs.c7.large
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * Specifies whether the instance is a preemptible instance.
+   * 
+   * @example
+   * false
+   */
   isSpot?: boolean;
+  /**
+   * @remarks
+   * The sorting order.
+   * 
+   * Valid values:
+   * 
+   * *   asc
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     The instances are sorted in ascending order.
+   * 
+   * *   desc
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     The instances are sorted in descending order.
+   * 
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the resource group to which the instance belongs.
+   * 
+   * Valid values:
+   * 
+   * *   PublicResource
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DedicatedResource
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * PublicResource
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The service role.
+   * 
+   * Valid values:
+   * 
+   * *   DataSet
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     dataset service
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   SDProxy
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     Stable-Diffusion proxy service
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Standard
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     standard service
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Queue
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     queue service
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * @example
+   * Queue
+   */
   role?: string;
+  /**
+   * @remarks
+   * The field that you use to sort the query results.
+   * 
+   * *   Set the value to StartTime.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     The value specifies that the query results are sorted based on the time when the instances were created
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * @example
+   * StartTime
+   */
   sort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4046,10 +7424,42 @@ export class ListServiceInstancesRequest extends $tea.Model {
 }
 
 export class ListServiceInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instances.
+   */
   instances?: Instance[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4102,7 +7512,21 @@ export class ListServiceInstancesResponse extends $tea.Model {
 }
 
 export class ListServiceVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4124,10 +7548,42 @@ export class ListServiceVersionsRequest extends $tea.Model {
 }
 
 export class ListServiceVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E089D584-B6F4-50C4-9902-DA2295B7****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 166
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The historical versions of the service.
+   */
   versions?: ListServiceVersionsResponseBodyVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -4180,24 +7636,316 @@ export class ListServiceVersionsResponse extends $tea.Model {
 }
 
 export class ListServicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
+   * 
+   * @example
+   * foo
+   */
   filter?: string;
+  gateway?: string;
+  /**
+   * @remarks
+   * The name of the service group. For more information about how to query the name of a service group, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+   * 
+   * @example
+   * foo
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The tag that is used to filter services.
+   */
   label?: { [key: string]: string };
+  /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   desc (default): The query results are sorted in descending order.
+   * *   asc: The query results are sorted in ascending order.
+   * 
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the primary service that corresponds to the Band member service.
+   * 
+   * @example
+   * eas-m-ijafy3c8cxxxx
+   */
   parentServiceUid?: string;
+  /**
+   * @remarks
+   * The quota ID.
+   * 
+   * @example
+   * quota12345
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * The name or ID of the resource group to which the service belongs.
+   * 
+   * @example
+   * eas-r-hd0qwy8cxxxx
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * echo_test
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service state.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopped
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Failed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Complete
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Cloning
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopping
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Updating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Waiting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   HotUpdate
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Committing
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Starting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DeleteFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Developing
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Scaling
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleted
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Pending
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
   serviceStatus?: string;
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   Async
+   * *   Standard
+   * *   Offline Task
+   * *   Proxima
+   * 
+   * Valid values:
+   * 
+   * *   Async
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Standard
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   OfflineTask
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Proxima
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Standard
+   */
   serviceType?: string;
+  /**
+   * @remarks
+   * The user ID (UID) of the service.
+   * 
+   * @example
+   * eas-m-c9iw3yitxxxx
+   */
   serviceUid?: string;
+  /**
+   * @remarks
+   * The sort field. By default, the query results are sorted by the timestamp type in descending order.
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      gateway: 'Gateway',
       groupName: 'GroupName',
       label: 'Label',
       order: 'Order',
@@ -4218,6 +7966,7 @@ export class ListServicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
+      gateway: 'string',
       groupName: 'string',
       label: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       order: 'string',
@@ -4241,24 +7990,316 @@ export class ListServicesRequest extends $tea.Model {
 }
 
 export class ListServicesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
+   * 
+   * @example
+   * foo
+   */
   filter?: string;
+  gateway?: string;
+  /**
+   * @remarks
+   * The name of the service group. For more information about how to query the name of a service group, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+   * 
+   * @example
+   * foo
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The tag that is used to filter services.
+   */
   labelShrink?: string;
+  /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   desc (default): The query results are sorted in descending order.
+   * *   asc: The query results are sorted in ascending order.
+   * 
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the primary service that corresponds to the Band member service.
+   * 
+   * @example
+   * eas-m-ijafy3c8cxxxx
+   */
   parentServiceUid?: string;
+  /**
+   * @remarks
+   * The quota ID.
+   * 
+   * @example
+   * quota12345
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * The name or ID of the resource group to which the service belongs.
+   * 
+   * @example
+   * eas-r-hd0qwy8cxxxx
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * echo_test
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service state.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopped
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Failed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Complete
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Cloning
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopping
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Updating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Waiting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   HotUpdate
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Committing
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Starting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DeleteFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Developing
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Scaling
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleted
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Pending
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
   serviceStatus?: string;
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   Async
+   * *   Standard
+   * *   Offline Task
+   * *   Proxima
+   * 
+   * Valid values:
+   * 
+   * *   Async
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Standard
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   OfflineTask
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Proxima
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Standard
+   */
   serviceType?: string;
+  /**
+   * @remarks
+   * The user ID (UID) of the service.
+   * 
+   * @example
+   * eas-m-c9iw3yitxxxx
+   */
   serviceUid?: string;
+  /**
+   * @remarks
+   * The sort field. By default, the query results are sorted by the timestamp type in descending order.
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      gateway: 'Gateway',
       groupName: 'GroupName',
       labelShrink: 'Label',
       order: 'Order',
@@ -4279,6 +8320,7 @@ export class ListServicesShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
+      gateway: 'string',
       groupName: 'string',
       labelShrink: 'string',
       order: 'string',
@@ -4302,10 +8344,42 @@ export class ListServicesShrinkRequest extends $tea.Model {
 }
 
 export class ListServicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The services.
+   */
   services?: Service[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4358,7 +8432,24 @@ export class ListServicesResponse extends $tea.Model {
 }
 
 export class ReleaseServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The traffic state. Valid values:
+   * 
+   * *   standalone: independent traffic.
+   * *   grouping: grouped traffic.
+   * 
+   * @example
+   * grouping
+   */
   trafficState?: string;
+  /**
+   * @remarks
+   * The weight of the canary release. Valid values: 0 to 100.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4380,7 +8471,21 @@ export class ReleaseServiceRequest extends $tea.Model {
 }
 
 export class ReleaseServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Releasing service [foo] in region [cn-shanghai] with weight [40], service status: [Running]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4427,7 +8532,21 @@ export class ReleaseServiceResponse extends $tea.Model {
 }
 
 export class RestartServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Service is restarting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4474,7 +8593,21 @@ export class RestartServiceResponse extends $tea.Model {
 }
 
 export class StartBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark task [benchmark-larec-test-1076] is Starting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4521,7 +8654,21 @@ export class StartBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class StartServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Service [foo] in region [cn-shanghai] is starting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4568,7 +8715,21 @@ export class StartServiceResponse extends $tea.Model {
 }
 
 export class StopBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark task [benchmark-larec-test-1076] is Stopping
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4615,7 +8776,21 @@ export class StopBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class StopServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Succeed to auto scale service [foo]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4662,12 +8837,79 @@ export class StopServiceResponse extends $tea.Model {
 }
 
 export class UpdateAppServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The quota ID.
+   * 
+   * @example
+   * abcdef
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The application type.
+   * 
+   * Valid values:
+   * 
+   * *   LLM: the large language model (LLM) application
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * LLM
+   */
   appType?: string;
+  /**
+   * @remarks
+   * The application version.
+   * 
+   * @example
+   * v1
+   */
   appVersion?: string;
+  /**
+   * @remarks
+   * The additional configurations that are required for service deployment.
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The number of instances. This value must be greater than 0.
+   * 
+   * @example
+   * 1
+   */
   replicas?: number;
+  /**
+   * @remarks
+   * The service specifications. Valid values:
+   * 
+   * *   llama_7b_fp16
+   * *   llama_7b_int8
+   * *   llama_13b_fp16
+   * *   llama_7b_int8
+   * *   chatglm_6b_fp16
+   * *   chatglm_6b_int8
+   * *   chatglm2_6b_fp16
+   * *   baichuan_7b_int8
+   * *   baichuan_13b_fp16
+   * *   baichuan_7b_fp16
+   * 
+   * @example
+   * llama_7b_fp16
+   */
   serviceSpec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4699,7 +8941,21 @@ export class UpdateAppServiceRequest extends $tea.Model {
 }
 
 export class UpdateAppServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Succee
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4746,6 +9002,17 @@ export class UpdateAppServiceResponse extends $tea.Model {
 }
 
 export class UpdateBenchmarkTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body. The body includes the parameters that are set to create a stress testing task. For more information, see **Table 1. Fields in the base parameter**.
+   * 
+   * @example
+   * {
+   *     "base":  {
+   *          "qps": 200
+   *     }
+   * }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4765,7 +9032,21 @@ export class UpdateBenchmarkTaskRequest extends $tea.Model {
 }
 
 export class UpdateBenchmarkTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark task [benchmark-larec-test-1076] is Updating
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4812,16 +9093,66 @@ export class UpdateBenchmarkTaskResponse extends $tea.Model {
 }
 
 export class UpdateGatewayRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable Internet access. Default value: false.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * false
+   */
   enableInternet?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable internal network access. Default value: true.
+   * 
+   * @example
+   * true
+   */
   enableIntranet?: boolean;
+  /**
+   * @remarks
+   * The instance type used for the private gateway.
+   * 
+   * @example
+   * ecs.c6.4xlarge
+   */
   instanceType?: string;
+  isDefault?: boolean;
+  /**
+   * @remarks
+   * The private gateway alias.
+   * 
+   * @example
+   * mygateway1
+   */
   name?: string;
+  replicas?: number;
   static names(): { [key: string]: string } {
     return {
       enableInternet: 'EnableInternet',
       enableIntranet: 'EnableIntranet',
       instanceType: 'InstanceType',
+      isDefault: 'IsDefault',
       name: 'Name',
+      replicas: 'Replicas',
     };
   }
 
@@ -4830,7 +9161,9 @@ export class UpdateGatewayRequest extends $tea.Model {
       enableInternet: 'boolean',
       enableIntranet: 'boolean',
       instanceType: 'string',
+      isDefault: 'boolean',
       name: 'string',
+      replicas: 'number',
     };
   }
 
@@ -4840,8 +9173,29 @@ export class UpdateGatewayRequest extends $tea.Model {
 }
 
 export class UpdateGatewayResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the gateway.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Gateway is updated
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4890,7 +9244,18 @@ export class UpdateGatewayResponse extends $tea.Model {
 }
 
 export class UpdateResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new name of the resource group after the update. The name can be up to 27 characters in length.
+   * 
+   * @example
+   * iot
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The configuration items of the self-managed resource group.
+   */
   selfManagedResourceOptions?: UpdateResourceRequestSelfManagedResourceOptions;
   static names(): { [key: string]: string } {
     return {
@@ -4912,8 +9277,29 @@ export class UpdateResourceRequest extends $tea.Model {
 }
 
 export class UpdateResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * eas-r-asdasdasd
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * iot
+   */
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4962,9 +9348,38 @@ export class UpdateResourceResponse extends $tea.Model {
 }
 
 export class UpdateResourceDLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR blocks of the clients that you want to connect to. After this parameter is specified, the CIDR blocks are added to the back-to-origin route of the server. Either this parameter or the VSwitchIdList parameter can be used to determine CIDR blocks.
+   * 
+   * @example
+   * 72.16.0.0/16
+   */
   destinationCIDRs?: string;
+  /**
+   * @remarks
+   * The ID of the security group to which the Elastic Compute Service (ECS) instance belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-bp149cedsfx2rfspd2d
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the peer primary vSwitch. After this parameter is specified, an elastic network interface (ENI) is created in the VSwitch.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The vSwitches of the clients that you want to connect to. After this parameter is specified, the CIDR blocks of these vSwitches are added to the back-to-origin route of the server.
+   */
   vSwitchIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4990,7 +9405,21 @@ export class UpdateResourceDLinkRequest extends $tea.Model {
 }
 
 export class UpdateResourceDLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Network interfaces are updating
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5037,6 +9466,19 @@ export class UpdateResourceDLinkResponse extends $tea.Model {
 }
 
 export class UpdateResourceInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that updates the scheduling state of the instance in a dedicated resource group. Valid values:
+   * 
+   * *   Uncordon: allows scheduling the service to this instance.
+   * *   Cordon: prohibits scheduling the service to this instance.
+   * *   Drain: evicts the service that has been scheduled to this instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Cordon
+   */
   action?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5056,8 +9498,29 @@ export class UpdateResourceInstanceRequest extends $tea.Model {
 }
 
 export class UpdateResourceInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * eas-i-asdasdasd
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * eas-r-asdasdasd
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5106,7 +9569,24 @@ export class UpdateResourceInstanceResponse extends $tea.Model {
 }
 
 export class UpdateServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the service update. Valid values: merge and replace. By default, merge is used if you do not specify this parameter.
+   * 
+   * *   merge: If the JSON string configured for the existing service is `{"a":"b"}` and the JSON string specified in the body parameter is `{"c":"d"}`, the JSON string is `{"a":"b","c":"d"}` after the service update.
+   * *   replace: If the JSON string configured for the existing service is `{"a":"b"}` and the JSON string specified in the body parameter is `{"c":"d"}`, the JSON string is `{"c":"d"}` after the service update.
+   * 
+   * @example
+   * merge
+   */
   updateType?: string;
+  /**
+   * @remarks
+   * The request body. The body includes the request parameters that you want to update. For more information about the request parameters, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+   * 
+   * @example
+   * {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5128,7 +9608,21 @@ export class UpdateServiceRequest extends $tea.Model {
 }
 
 export class UpdateServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Succeed to update service [foo] in region [cn-shanghai]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5175,9 +9669,37 @@ export class UpdateServiceResponse extends $tea.Model {
 }
 
 export class UpdateServiceAutoScalerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Autoscaler operation.
+   */
   behavior?: UpdateServiceAutoScalerRequestBehavior;
+  /**
+   * @remarks
+   * The maximum number of instances. The value must be greater than that of the min parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8
+   */
   max?: number;
+  /**
+   * @remarks
+   * The minimum number of instances. The value must be greater than 0.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   min?: number;
+  /**
+   * @remarks
+   * The auto scaling policies.
+   * 
+   * This parameter is required.
+   */
   scaleStrategies?: UpdateServiceAutoScalerRequestScaleStrategies[];
   static names(): { [key: string]: string } {
     return {
@@ -5203,7 +9725,21 @@ export class UpdateServiceAutoScalerRequest extends $tea.Model {
 }
 
 export class UpdateServiceAutoScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Update auto scale for service [foo] successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5250,7 +9786,17 @@ export class UpdateServiceAutoScalerResponse extends $tea.Model {
 }
 
 export class UpdateServiceCronScalerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
+   */
   excludeDates?: string[];
+  /**
+   * @remarks
+   * The description of the CronHPA job.
+   * 
+   * This parameter is required.
+   */
   scaleJobs?: UpdateServiceCronScalerRequestScaleJobs[];
   static names(): { [key: string]: string } {
     return {
@@ -5272,7 +9818,21 @@ export class UpdateServiceCronScalerRequest extends $tea.Model {
 }
 
 export class UpdateServiceCronScalerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Update cron scaler for service [foo] successfully
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5319,6 +9879,16 @@ export class UpdateServiceCronScalerResponse extends $tea.Model {
 }
 
 export class UpdateServiceInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to isolate the service instance. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   isolate?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5338,7 +9908,21 @@ export class UpdateServiceInstanceRequest extends $tea.Model {
 }
 
 export class UpdateServiceInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5385,6 +9969,12 @@ export class UpdateServiceInstanceResponse extends $tea.Model {
 }
 
 export class UpdateServiceLabelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom service tags.
+   * 
+   * This parameter is required.
+   */
   labels?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -5404,7 +9994,21 @@ export class UpdateServiceLabelRequest extends $tea.Model {
 }
 
 export class UpdateServiceLabelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Succeed to update service [service_from_XXXX] labels.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5451,7 +10055,18 @@ export class UpdateServiceLabelResponse extends $tea.Model {
 }
 
 export class UpdateServiceMirrorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The percentage of traffic that you want to mirror. Valid values: 0 to 100.
+   * 
+   * @example
+   * 30
+   */
   ratio?: number;
+  /**
+   * @remarks
+   * The service instances.
+   */
   target?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5473,7 +10088,21 @@ export class UpdateServiceMirrorRequest extends $tea.Model {
 }
 
 export class UpdateServiceMirrorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Traffic mirroring is updating for service [foo] in region [cn-shanghia], ratio [70%]
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82***
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5520,6 +10149,19 @@ export class UpdateServiceMirrorResponse extends $tea.Model {
 }
 
 export class UpdateServiceSafetyLockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The lock scope. Valid values:
+   * 
+   * *   all: locks all operations.
+   * *   dangerous: locks dangerous operations such as delete and stop operations.
+   * *   none: locks no operations.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dangerous
+   */
   lock?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5539,7 +10181,21 @@ export class UpdateServiceSafetyLockRequest extends $tea.Model {
 }
 
 export class UpdateServiceSafetyLockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * service safety lock updated to dangerous
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E089D584-B6F4-50C4-9902-DA2295B7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5586,6 +10242,15 @@ export class UpdateServiceSafetyLockResponse extends $tea.Model {
 }
 
 export class UpdateServiceVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The destination version of the service. The value must be of the INT type. The value must be greater than 0 and smaller than the current version of the service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5605,7 +10270,21 @@ export class UpdateServiceVersionRequest extends $tea.Model {
 }
 
 export class UpdateServiceVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Service [foo] in region [cn-shanghai] is starting
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5673,10 +10352,79 @@ export class ServiceLabels extends $tea.Model {
   }
 }
 
+export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  comment?: string;
+  /**
+   * @example
+   * 10.23.XX.XX/32
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
+  /**
+   * @remarks
+   * The result.
+   * 
+   * Valid values:
+   * 
+   * *   PreferNoSchedule
+   * *   NoSchedule
+   * *   NoExecute
+   * 
+   * @example
+   * NoSchedule
+   */
   effect?: string;
+  /**
+   * @remarks
+   * The key name.
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The relationship between key names and key values.
+   * 
+   * Valid values:
+   * 
+   * *   Equal
+   * *   Exists
+   * 
+   * @example
+   * Equal
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The key value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5702,9 +10450,31 @@ export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
 }
 
 export class CreateResourceRequestSelfManagedResourceOptions extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the self-managed cluster.
+   * 
+   * @example
+   * cf0386f250f2545689ca7fdd1cd******
+   */
   externalClusterId?: string;
+  /**
+   * @remarks
+   * The tag key-value pairs for nodes.
+   */
   nodeMatchLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * Tolerations for nodes.
+   */
   nodeTolerations?: CreateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
+  /**
+   * @remarks
+   * The name of the RAM user to which the permissions on Elastic Algorithm Service of Platform for AI (PAI-EAS) are granted.
+   * 
+   * @example
+   * clusterrole
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5730,7 +10500,21 @@ export class CreateResourceRequestSelfManagedResourceOptions extends $tea.Model 
 }
 
 export class CreateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
+  /**
+   * @remarks
+   * The time window that is required before the number of instances is reduced to 0. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window. Default value: 600.
+   * 
+   * @example
+   * 600
+   */
   scaleDownGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The number of instances that you want to create at a time if the number of instances is 0. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   scaleUpActivationReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5752,6 +10536,13 @@ export class CreateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
 }
 
 export class CreateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-in operation is performed. The scale-in operation can be performed only if the specified metric drops below the specified threshold in the specified time window. Default value: 300.
+   * 
+   * @example
+   * 300
+   */
   stabilizationWindowSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5771,6 +10562,13 @@ export class CreateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model 
 }
 
 export class CreateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-out operation is performed. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   stabilizationWindowSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5790,8 +10588,20 @@ export class CreateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
 }
 
 export class CreateServiceAutoScalerRequestBehavior extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that reduces the number of instances to 0.
+   */
   onZero?: CreateServiceAutoScalerRequestBehaviorOnZero;
+  /**
+   * @remarks
+   * The scale-in operation.
+   */
   scaleDown?: CreateServiceAutoScalerRequestBehaviorScaleDown;
+  /**
+   * @remarks
+   * The scale-out operation.
+   */
   scaleUp?: CreateServiceAutoScalerRequestBehaviorScaleUp;
   static names(): { [key: string]: string } {
     return {
@@ -5815,8 +10625,41 @@ export class CreateServiceAutoScalerRequestBehavior extends $tea.Model {
 }
 
 export class CreateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the metric for triggering auto scaling. Valid values:
+   * 
+   * *   qps: the queries per second (qps) for an individual instance.
+   * *   cpu: the cpu utilization.
+   * * gpu[util]: gpu utilization.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * qps
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * @example
+   * demo_svc
+   */
   service?: string;
+  /**
+   * @remarks
+   * The threshold of the metric that triggers auto scaling.
+   * 
+   * *   If you set metricName to qps, scale-out is triggered when the average qps for a single instance is greater than this threshold.
+   * *   If you set metricName to cpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
+   * *   If you set metricName to gpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5840,8 +10683,33 @@ export class CreateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
 }
 
 export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the CronHPA job.
+   * 
+   * @example
+   * scale-job-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0 18 * * * *
+   */
   schedule?: string;
+  /**
+   * @remarks
+   * The number of instances that you want to configure for the CronHPA job.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   targetSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5864,15 +10732,21 @@ export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
   }
 }
 
-export class DescribeGatewayResponseBodyInternetAclPolicyList extends $tea.Model {
+export class DeleteAclPolicyRequestAclPolicyList extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
   comment?: string;
+  /**
+   * @example
+   * 10.23.XX.XX/32
+   */
   entry?: string;
-  status?: string;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
       entry: 'Entry',
-      status: 'Status',
     };
   }
 
@@ -5880,38 +10754,6 @@ export class DescribeGatewayResponseBodyInternetAclPolicyList extends $tea.Model
     return {
       comment: 'string',
       entry: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGatewayResponseBodyIntranetLinkedVpcList extends $tea.Model {
-  ip?: string;
-  securityGroupId?: string;
-  status?: string;
-  vSwitchId?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      securityGroupId: 'SecurityGroupId',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      securityGroupId: 'string',
-      status: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
     };
   }
 
@@ -5921,8 +10763,32 @@ export class DescribeGatewayResponseBodyIntranetLinkedVpcList extends $tea.Model
 }
 
 export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $tea.Model {
+  /**
+   * @remarks
+   * The metric name. Valid values:
+   * 
+   * *   QPS
+   * *   CPU
+   * 
+   * @example
+   * qps
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified.
+   * 
+   * @example
+   * demo_svc
+   */
   service?: string;
+  /**
+   * @remarks
+   * The metric value.
+   * 
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5946,8 +10812,35 @@ export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $tea.Mo
 }
 
 export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $tea.Model {
+  /**
+   * @remarks
+   * The metric name. Valid values:
+   * 
+   * *   QPS: the queries per second (QPS) for an individual instance.
+   * *   CPU: the CPU utilization.
+   * 
+   * @example
+   * QPS
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * @example
+   * demo_svc
+   */
   service?: string;
+  /**
+   * @remarks
+   * The threshold of the metric that triggers auto scaling.
+   * 
+   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+   * 
+   * @example
+   * 10
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5971,12 +10864,61 @@ export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $tea.M
 }
 
 export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the most recent CronHPA job was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-06-24T02:11:30Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the most recent CronHPA job ran. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-02-24T06:31:00Z
+   */
   lastProbeTime?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * "cron hpa job scale-jobs-0 executed successfully. current replicas:3, desired replicas:2."
+   */
   message?: string;
+  /**
+   * @remarks
+   * The name of the CronHPA job.
+   * 
+   * @example
+   * scale-job-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The cron expression that is used to configure the execution time of the CronHPA job.
+   * 
+   * @example
+   * 0 18 * * * *
+   */
   schedule?: string;
+  /**
+   * @remarks
+   * The status of the most recent CronHPA job.
+   * 
+   * @example
+   * Succeed
+   */
   state?: string;
+  /**
+   * @remarks
+   * The number of instances that you expect to configure for the CronHPA job.
+   * 
+   * @example
+   * 1
+   */
   targetSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6008,8 +10950,23 @@ export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
 }
 
 export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $tea.Model {
+  /**
+   * @remarks
+   * The suggestions about how to handle the errors.
+   */
   advices?: string[];
+  /**
+   * @remarks
+   * The causes of the errors.
+   */
   causes?: string[];
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Container worker0 failed to pull image.
+   */
   error?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6033,9 +10990,40 @@ export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $tea.Mode
 }
 
 export class DescribeServiceEventResponseBodyEvents extends $tea.Model {
+  /**
+   * @remarks
+   * The returned message. The message is formatted and returned in the JSON format.
+   * 
+   * @example
+   * {\\"versionId\\":1,\\"message\\":\\"Stage scale complete\\",\\"availableInstance\\":1,\\"unavailableInstance\\":0}
+   */
   message?: string;
+  /**
+   * @remarks
+   * The cause of the event. The information about the change in the service status is returned.
+   * 
+   * @example
+   * Updating
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The time when the event occurred. The time must be in UTC.
+   * 
+   * @example
+   * 2022-04-09 06:30:00
+   */
   time?: string;
+  /**
+   * @remarks
+   * The event type. Valid values:
+   * 
+   * *   Normal
+   * *   Warning
+   * 
+   * @example
+   * Normal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6061,8 +11049,23 @@ export class DescribeServiceEventResponseBodyEvents extends $tea.Model {
 }
 
 export class DescribeServiceInstanceDiagnosisResponseBodyDiagnosis extends $tea.Model {
+  /**
+   * @remarks
+   * The solutions to the errors.
+   */
   advices?: string[];
+  /**
+   * @remarks
+   * The causes of the errors.
+   */
   causes?: string[];
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Container worker0 failed to pull image.
+   */
   error?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6086,9 +11089,37 @@ export class DescribeServiceInstanceDiagnosisResponseBodyDiagnosis extends $tea.
 }
 
 export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the ECS instance.
+   * 
+   * @example
+   * ecs.c7.large
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The discount for the preemptible instance. For example, 0.1 represents a 90% discount.
+   * 
+   * @example
+   * 0.1
+   */
   spotDiscount?: string;
+  /**
+   * @remarks
+   * The time when the discount is available. The time must be in UTC.
+   * 
+   * @example
+   * 2024-04-10T10:00:00Z
+   */
   timestamp?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6113,15 +11144,238 @@ export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.M
   }
 }
 
+export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  comment?: string;
+  /**
+   * @example
+   * 10.23.XX.XX/32
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList extends $tea.Model {
+  /**
+   * @example
+   * Test Entry
+   */
+  comment?: string;
+  /**
+   * @example
+   * 192.168.XX.XX/24
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyIntranetVpcAclPolicyList extends $tea.Model {
+  intranetAclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList[];
+  /**
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetAclPolicyList: 'IntranetAclPolicyList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetAclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The number of instances that are available for stress testing.
+   * 
+   * @example
+   * 2
+   */
   availableAgent?: number;
+  /**
+   * @remarks
+   * The time when the stress testing task was created.
+   * 
+   * @example
+   * 2020-12-04T02:43:15Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark task [benchmark-larec-test-1076] is Running
+   */
   message?: string;
+  /**
+   * @remarks
+   * The region ID of the stress testing task.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * The name of the service on which you want to perform a stress testing.
+   * 
+   * @example
+   * test_quota
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The state of the stress testing task.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Starting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DeleteFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopping
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Error
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Updating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CreateFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the stress testing task.
+   * 
+   * @example
+   * eas-b-gv4y86uvgt****i
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the stress testing task.
+   * 
+   * @example
+   * benchmark-larec-test-1076
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The time when the stress testing task was updated.
+   * 
+   * @example
+   * 2020-06-24T03:11:30Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6156,11 +11410,165 @@ export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
   }
 }
 
-export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $tea.Model {
-  ip?: string;
-  securityGroupId?: string;
+export class ListGatewayResponseBodyGateways extends $tea.Model {
+  /**
+   * @example
+   * 2020-05-19T14:19:42Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * mygateway1
+   */
+  gatewayName?: string;
+  /**
+   * @example
+   * 2c4g
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
+   */
+  internetDomain?: string;
+  /**
+   * @example
+   * true
+   */
+  internetEnabled?: boolean;
+  /**
+   * @example
+   * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
+   */
+  intranetDomain?: string;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * 2
+   */
+  replicas?: number;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 2021-02-24T11:52:17Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      gatewayId: 'GatewayId',
+      gatewayName: 'GatewayName',
+      instanceType: 'InstanceType',
+      internetDomain: 'InternetDomain',
+      internetEnabled: 'InternetEnabled',
+      intranetDomain: 'IntranetDomain',
+      isDefault: 'IsDefault',
+      replicas: 'Replicas',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      gatewayId: 'string',
+      gatewayName: 'string',
+      instanceType: 'string',
+      internetDomain: 'string',
+      internetEnabled: 'boolean',
+      intranetDomain: 'string',
+      isDefault: 'boolean',
+      replicas: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 192.168.10.11
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-2ze4pgstgszvgq******
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The state of the private gateway.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The private gateway is being created.
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The private gateway is running.
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-8vb2qjoiio6m9pg******
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6188,11 +11596,68 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
 }
 
 export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the service version was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-08-29T22:02:14Z
+   */
   buildTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the image is available. Valid values:
+   * 
+   * *   true: The image is available.
+   * *   false: The image is unavailable.
+   * *   unknown: The availability of the image is unknown.
+   * 
+   * @example
+   * true
+   */
   imageAvailable?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * 4
+   */
   imageId?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Service is Running
+   */
   message?: string;
+  /**
+   * @remarks
+   * The service deployment configurations. This parameter is returned only if the service is deployed by using a custom image.
+   * 
+   * @example
+   * {
+   *     "metadata": {
+   *         "cpu": 1,
+   *         "instance": 1,
+   *         "memory": 1024
+   *     },
+   *     "name": "echo"
+   * }
+   */
   serviceConfig?: string;
+  /**
+   * @remarks
+   * Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
+   * 
+   * *   true: EAS is activated.
+   * *   false: EAS is not activated.
+   * *   unknown: The activation of EAS is unknown.
+   * 
+   * @example
+   * true
+   */
   serviceRunnable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6222,9 +11687,44 @@ export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
 }
 
 export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
+  /**
+   * @remarks
+   * The effect.
+   * Valid values:
+   * - PreferNoSchedule
+   * - NoSchedule
+   * - NoExecute
+   * 
+   * @example
+   * NoSchedule
+   */
   effect?: string;
+  /**
+   * @remarks
+   * The key name.
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * Relationship between key names and key values.
+   * Valid values:
+   * - Equal
+   * - Exists
+   * 
+   * @example
+   * Equal
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The key value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6250,7 +11750,15 @@ export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
 }
 
 export class UpdateResourceRequestSelfManagedResourceOptions extends $tea.Model {
+  /**
+   * @remarks
+   * Tag tag key-value pairs for nodes.
+   */
   nodeMatchLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * Tolerations for nodes.
+   */
   nodeTolerations?: UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
   static names(): { [key: string]: string } {
     return {
@@ -6272,7 +11780,21 @@ export class UpdateResourceRequestSelfManagedResourceOptions extends $tea.Model 
 }
 
 export class UpdateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
+  /**
+   * @remarks
+   * The time window that is required before the number of instances is reduced to 0. Default value: 600. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window.
+   * 
+   * @example
+   * 600
+   */
   scaleDownGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The number of instances that you want to create at a time if the number of instances is scaled out from 0. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   scaleUpActivationReplicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6294,6 +11816,13 @@ export class UpdateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
 }
 
 export class UpdateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-in operation is performed. Default value: 300. The scale-in operation can be performed only if the specified metric drops below the threshold in the specified time window.
+   * 
+   * @example
+   * 300
+   */
   stabilizationWindowSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6313,6 +11842,13 @@ export class UpdateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model 
 }
 
 export class UpdateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-out operation is performed. Default value: 0. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window.
+   * 
+   * @example
+   * 0
+   */
   stabilizationWindowSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6332,8 +11868,20 @@ export class UpdateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
 }
 
 export class UpdateServiceAutoScalerRequestBehavior extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that reduces the number of instances to 0.
+   */
   onZero?: UpdateServiceAutoScalerRequestBehaviorOnZero;
+  /**
+   * @remarks
+   * The scale-in operation.
+   */
   scaleDown?: UpdateServiceAutoScalerRequestBehaviorScaleDown;
+  /**
+   * @remarks
+   * The scale-out operation.
+   */
   scaleUp?: UpdateServiceAutoScalerRequestBehaviorScaleUp;
   static names(): { [key: string]: string } {
     return {
@@ -6357,8 +11905,39 @@ export class UpdateServiceAutoScalerRequestBehavior extends $tea.Model {
 }
 
 export class UpdateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the metric for triggering auto scaling. Valid values:
+   * 
+   * *   qps: the queries per second (QPS) for an individual instance.
+   * *   cpu: the CPU utilization.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * qps
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * @example
+   * demo_svc
+   */
   service?: string;
+  /**
+   * @remarks
+   * The threshold of the metric that triggers auto scaling.
+   * 
+   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6382,8 +11961,33 @@ export class UpdateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
 }
 
 export class UpdateServiceCronScalerRequestScaleJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the CronHPA job.
+   * 
+   * @example
+   * scale-job-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0 18 * * * *
+   */
   schedule?: string;
+  /**
+   * @remarks
+   * The number of instances that you want to configure for the CronHPA job.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   targetSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6447,17 +12051,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clones a service.
-   *
-   * @param request CloneServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneServiceResponse
+   * Clones a service.
+   * 
+   * @param tmpReq - CloneServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneServiceResponse
    */
-  async cloneServiceWithOptions(ClusterId: string, ServiceName: string, request: CloneServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneServiceResponse> {
-    Util.validateModel(request);
+  async cloneServiceWithOptions(ClusterId: string, ServiceName: string, tmpReq: CloneServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneServiceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CloneServiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelsShrink)) {
+      query["Labels"] = request.labelsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: request.body,
     });
     let params = new $OpenApi.Params({
@@ -6475,10 +12091,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clones a service.
-   *
-   * @param request CloneServiceRequest
-   * @return CloneServiceResponse
+   * Clones a service.
+   * 
+   * @param request - CloneServiceRequest
+   * @returns CloneServiceResponse
    */
   async cloneService(ClusterId: string, ServiceName: string, request: CloneServiceRequest): Promise<CloneServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6487,11 +12103,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CommitServiceResponse
+   * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommitServiceResponse
    */
   async commitServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommitServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6512,9 +12128,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
-   *
-   * @return CommitServiceResponse
+   * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   * @returns CommitServiceResponse
    */
   async commitService(ClusterId: string, ServiceName: string): Promise<CommitServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6523,12 +12138,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an application service.
-   *
-   * @param request CreateAppServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAppServiceResponse
+   * 创建网关访问权限ACL Policy
+   * 
+   * @param tmpReq - CreateAclPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAclPolicyResponse
+   */
+  async createAclPolicyWithOptions(ClusterId: string, GatewayId: string, tmpReq: CreateAclPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAclPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAclPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.aclPolicyList)) {
+      request.aclPolicyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aclPolicyList, "AclPolicyList", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aclPolicyListShrink)) {
+      query["AclPolicyList"] = request.aclPolicyListShrink;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAclPolicy",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/acl_policy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAclPolicyResponse>(await this.callApi(params, req, runtime), new CreateAclPolicyResponse({}));
+  }
+
+  /**
+   * 创建网关访问权限ACL Policy
+   * 
+   * @param request - CreateAclPolicyRequest
+   * @returns CreateAclPolicyResponse
+   */
+  async createAclPolicy(ClusterId: string, GatewayId: string, request: CreateAclPolicyRequest): Promise<CreateAclPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
+   * Creates an application service.
+   * 
+   * @param request - CreateAppServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppServiceResponse
    */
   async createAppServiceWithOptions(request: CreateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppServiceResponse> {
     Util.validateModel(request);
@@ -6586,10 +12256,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an application service.
-   *
-   * @param request CreateAppServiceRequest
-   * @return CreateAppServiceResponse
+   * Creates an application service.
+   * 
+   * @param request - CreateAppServiceRequest
+   * @returns CreateAppServiceResponse
    */
   async createAppService(request: CreateAppServiceRequest): Promise<CreateAppServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6598,12 +12268,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a stress testing task.
-   *
-   * @param request CreateBenchmarkTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateBenchmarkTaskResponse
+   * Creates a stress testing task.
+   * 
+   * @param request - CreateBenchmarkTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBenchmarkTaskResponse
    */
   async createBenchmarkTaskWithOptions(request: CreateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBenchmarkTaskResponse> {
     Util.validateModel(request);
@@ -6626,10 +12296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a stress testing task.
-   *
-   * @param request CreateBenchmarkTaskRequest
-   * @return CreateBenchmarkTaskResponse
+   * Creates a stress testing task.
+   * 
+   * @param request - CreateBenchmarkTaskRequest
+   * @returns CreateBenchmarkTaskResponse
    */
   async createBenchmarkTask(request: CreateBenchmarkTaskRequest): Promise<CreateBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6638,12 +12308,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
-   *
-   * @param request CreateGatewayRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGatewayResponse
+   * Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+   * 
+   * @param request - CreateGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayResponse
    */
   async createGatewayWithOptions(request: CreateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayResponse> {
     Util.validateModel(request);
@@ -6669,6 +12339,10 @@ export default class Client extends OpenApi {
       body["Name"] = request.name;
     }
 
+    if (!Util.isUnset(request.replicas)) {
+      body["Replicas"] = request.replicas;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6689,10 +12363,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
-   *
-   * @param request CreateGatewayRequest
-   * @return CreateGatewayResponse
+   * Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+   * 
+   * @param request - CreateGatewayRequest
+   * @returns CreateGatewayResponse
    */
   async createGateway(request: CreateGatewayRequest): Promise<CreateGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6701,12 +12375,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an internal endpoint of a private gateway.
-   *
-   * @param request CreateGatewayIntranetLinkedVpcRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGatewayIntranetLinkedVpcResponse
+   * Creates an internal endpoint of a private gateway.
+   * 
+   * @param request - CreateGatewayIntranetLinkedVpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayIntranetLinkedVpcResponse
    */
   async createGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcResponse> {
     Util.validateModel(request);
@@ -6738,10 +12412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an internal endpoint of a private gateway.
-   *
-   * @param request CreateGatewayIntranetLinkedVpcRequest
-   * @return CreateGatewayIntranetLinkedVpcResponse
+   * Creates an internal endpoint of a private gateway.
+   * 
+   * @param request - CreateGatewayIntranetLinkedVpcRequest
+   * @returns CreateGatewayIntranetLinkedVpcResponse
    */
   async createGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest): Promise<CreateGatewayIntranetLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6750,14 +12424,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a resource group.
-   *
-   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-   *
-   * @param request CreateResourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateResourceResponse
+   * Creates a resource group.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   * 
+   * @param request - CreateResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceResponse
    */
   async createResourceWithOptions(request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
     Util.validateModel(request);
@@ -6813,12 +12488,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a resource group.
-   *
-   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-   *
-   * @param request CreateResourceRequest
-   * @return CreateResourceResponse
+   * Creates a resource group.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   * 
+   * @param request - CreateResourceRequest
+   * @returns CreateResourceResponse
    */
   async createResource(request: CreateResourceRequest): Promise<CreateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6827,12 +12503,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates instances in a dedicated resource group.
-   *
-   * @param request CreateResourceInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateResourceInstancesResponse
+   * Creates instances in a dedicated resource group.
+   * 
+   * @param request - CreateResourceInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceInstancesResponse
    */
   async createResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceInstancesResponse> {
     Util.validateModel(request);
@@ -6884,10 +12560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates instances in a dedicated resource group.
-   *
-   * @param request CreateResourceInstancesRequest
-   * @return CreateResourceInstancesResponse
+   * Creates instances in a dedicated resource group.
+   * 
+   * @param request - CreateResourceInstancesRequest
+   * @returns CreateResourceInstancesResponse
    */
   async createResourceInstances(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest): Promise<CreateResourceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6896,12 +12572,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the LogShipper feature of Log Service for a resource group.
-   *
-   * @param request CreateResourceLogRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateResourceLogResponse
+   * Enables the LogShipper feature of Log Service for a resource group.
+   * 
+   * @param request - CreateResourceLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceLogResponse
    */
   async createResourceLogWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceLogResponse> {
     Util.validateModel(request);
@@ -6933,10 +12609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the LogShipper feature of Log Service for a resource group.
-   *
-   * @param request CreateResourceLogRequest
-   * @return CreateResourceLogResponse
+   * Enables the LogShipper feature of Log Service for a resource group.
+   * 
+   * @param request - CreateResourceLogRequest
+   * @returns CreateResourceLogResponse
    */
   async createResourceLog(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest): Promise<CreateResourceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6945,14 +12621,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a model service in Elastic Algorithm Service (EAS).
-   *
-   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-   *
-   * @param tmpReq CreateServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServiceResponse
+   * Creates a model service in Elastic Algorithm Service (EAS).
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   * 
+   * @param tmpReq - CreateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceResponse
    */
   async createServiceWithOptions(tmpReq: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(tmpReq);
@@ -6995,12 +12672,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a model service in Elastic Algorithm Service (EAS).
-   *
-   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-   *
-   * @param request CreateServiceRequest
-   * @return CreateServiceResponse
+   * Creates a model service in Elastic Algorithm Service (EAS).
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   * 
+   * @param request - CreateServiceRequest
+   * @returns CreateServiceResponse
    */
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7009,12 +12687,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
-   *
-   * @param request CreateServiceAutoScalerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServiceAutoScalerResponse
+   * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+   * 
+   * @param request - CreateServiceAutoScalerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceAutoScalerResponse
    */
   async createServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceAutoScalerResponse> {
     Util.validateModel(request);
@@ -7054,10 +12732,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
-   *
-   * @param request CreateServiceAutoScalerRequest
-   * @return CreateServiceAutoScalerResponse
+   * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+   * 
+   * @param request - CreateServiceAutoScalerRequest
+   * @returns CreateServiceAutoScalerResponse
    */
   async createServiceAutoScaler(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest): Promise<CreateServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7066,12 +12744,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
-   *
-   * @param request CreateServiceCronScalerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServiceCronScalerResponse
+   * Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+   * 
+   * @param request - CreateServiceCronScalerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceCronScalerResponse
    */
   async createServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceCronScalerResponse> {
     Util.validateModel(request);
@@ -7103,10 +12781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
-   *
-   * @param request CreateServiceCronScalerRequest
-   * @return CreateServiceCronScalerResponse
+   * Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+   * 
+   * @param request - CreateServiceCronScalerRequest
+   * @returns CreateServiceCronScalerResponse
    */
   async createServiceCronScaler(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest): Promise<CreateServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7115,12 +12793,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
-   *
-   * @param request CreateServiceMirrorRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServiceMirrorResponse
+   * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+   * 
+   * @param request - CreateServiceMirrorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceMirrorResponse
    */
   async createServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceMirrorResponse> {
     Util.validateModel(request);
@@ -7152,10 +12830,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
-   *
-   * @param request CreateServiceMirrorRequest
-   * @return CreateServiceMirrorResponse
+   * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+   * 
+   * @param request - CreateServiceMirrorRequest
+   * @returns CreateServiceMirrorResponse
    */
   async createServiceMirror(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest): Promise<CreateServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7164,11 +12842,66 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a stress testing task.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteBenchmarkTaskResponse
+   * 移除网关acl policy entry
+   * 
+   * @param tmpReq - DeleteAclPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAclPolicyResponse
+   */
+  async deleteAclPolicyWithOptions(ClusterId: string, GatewayId: string, tmpReq: DeleteAclPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAclPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAclPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.aclPolicyList)) {
+      request.aclPolicyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aclPolicyList, "AclPolicyList", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aclPolicyListShrink)) {
+      query["AclPolicyList"] = request.aclPolicyListShrink;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAclPolicy",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/acl_policy`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAclPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAclPolicyResponse({}));
+  }
+
+  /**
+   * 移除网关acl policy entry
+   * 
+   * @param request - DeleteAclPolicyRequest
+   * @returns DeleteAclPolicyResponse
+   */
+  async deleteAclPolicy(ClusterId: string, GatewayId: string, request: DeleteAclPolicyRequest): Promise<DeleteAclPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a stress testing task.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBenchmarkTaskResponse
    */
   async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7189,9 +12922,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a stress testing task.
-   *
-   * @return DeleteBenchmarkTaskResponse
+   * Deletes a stress testing task.
+   * @returns DeleteBenchmarkTaskResponse
    */
   async deleteBenchmarkTask(ClusterId: string, TaskName: string): Promise<DeleteBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7200,11 +12932,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a private gateway.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGatewayResponse
+   * Deletes a private gateway.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayResponse
    */
   async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7225,9 +12957,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a private gateway.
-   *
-   * @return DeleteGatewayResponse
+   * Deletes a private gateway.
+   * @returns DeleteGatewayResponse
    */
   async deleteGateway(ClusterId: string, GatewayId: string): Promise<DeleteGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7236,12 +12967,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除网关内网访问端点
-   *
-   * @param request DeleteGatewayIntranetLinkedVpcRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGatewayIntranetLinkedVpcResponse
+   * 删除网关内网访问端点
+   * 
+   * @param request - DeleteGatewayIntranetLinkedVpcRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayIntranetLinkedVpcResponse
    */
   async deleteGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
     Util.validateModel(request);
@@ -7273,10 +13004,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除网关内网访问端点
-   *
-   * @param request DeleteGatewayIntranetLinkedVpcRequest
-   * @return DeleteGatewayIntranetLinkedVpcResponse
+   * 删除网关内网访问端点
+   * 
+   * @param request - DeleteGatewayIntranetLinkedVpcRequest
+   * @returns DeleteGatewayIntranetLinkedVpcResponse
    */
   async deleteGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7285,11 +13016,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a resource group that contains no resources or instances.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteResourceResponse
+   * Deletes a resource group that contains no resources or instances.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceResponse
    */
   async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7310,9 +13041,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a resource group that contains no resources or instances.
-   *
-   * @return DeleteResourceResponse
+   * Deletes a resource group that contains no resources or instances.
+   * @returns DeleteResourceResponse
    */
   async deleteResource(ClusterId: string, ResourceId: string): Promise<DeleteResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7321,11 +13051,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteResourceDLinkResponse
+   * Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceDLinkResponse
    */
   async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceDLinkResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7346,9 +13076,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
-   *
-   * @return DeleteResourceDLinkResponse
+   * Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+   * @returns DeleteResourceDLinkResponse
    */
   async deleteResourceDLink(ClusterId: string, ResourceId: string): Promise<DeleteResourceDLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7357,12 +13086,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
-   *
-   * @param request DeleteResourceInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteResourceInstancesResponse
+   * Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+   * 
+   * @param request - DeleteResourceInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceInstancesResponse
    */
   async deleteResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceInstancesResponse> {
     Util.validateModel(request);
@@ -7394,10 +13123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
-   *
-   * @param request DeleteResourceInstancesRequest
-   * @return DeleteResourceInstancesResponse
+   * Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+   * 
+   * @param request - DeleteResourceInstancesRequest
+   * @returns DeleteResourceInstancesResponse
    */
   async deleteResourceInstances(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest): Promise<DeleteResourceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7406,11 +13135,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteResourceLogResponse
+   * Disables the LogShipper feature of Log Service for a dedicated resource group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceLogResponse
    */
   async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceLogResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7431,9 +13160,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
-   *
-   * @return DeleteResourceLogResponse
+   * Disables the LogShipper feature of Log Service for a dedicated resource group.
+   * @returns DeleteResourceLogResponse
    */
   async deleteResourceLog(ClusterId: string, ResourceId: string): Promise<DeleteResourceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7442,11 +13170,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServiceResponse
+   * Deletes a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceResponse
    */
   async deleteServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7467,9 +13195,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a service.
-   *
-   * @return DeleteServiceResponse
+   * Deletes a service.
+   * @returns DeleteServiceResponse
    */
   async deleteService(ClusterId: string, ServiceName: string): Promise<DeleteServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7478,11 +13205,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServiceAutoScalerResponse
+   * Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceAutoScalerResponse
    */
   async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceAutoScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7503,9 +13230,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
-   *
-   * @return DeleteServiceAutoScalerResponse
+   * Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+   * @returns DeleteServiceAutoScalerResponse
    */
   async deleteServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<DeleteServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7514,11 +13240,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the Cronscaler feature for a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServiceCronScalerResponse
+   * Disables the Cronscaler feature for a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceCronScalerResponse
    */
   async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceCronScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7539,9 +13265,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the Cronscaler feature for a service.
-   *
-   * @return DeleteServiceCronScalerResponse
+   * Disables the Cronscaler feature for a service.
+   * @returns DeleteServiceCronScalerResponse
    */
   async deleteServiceCronScaler(ClusterId: string, ServiceName: string): Promise<DeleteServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7550,12 +13275,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts the instances of a service.
-   *
-   * @param request DeleteServiceInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServiceInstancesResponse
+   * Restarts the instances of a service.
+   * 
+   * @param request - DeleteServiceInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceInstancesResponse
    */
   async deleteServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
     Util.validateModel(request);
@@ -7591,10 +13316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts the instances of a service.
-   *
-   * @param request DeleteServiceInstancesRequest
-   * @return DeleteServiceInstancesResponse
+   * Restarts the instances of a service.
+   * 
+   * @param request - DeleteServiceInstancesRequest
+   * @returns DeleteServiceInstancesResponse
    */
   async deleteServiceInstances(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7603,12 +13328,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes existing service tags.
-   *
-   * @param tmpReq DeleteServiceLabelRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServiceLabelResponse
+   * Deletes existing service tags.
+   * 
+   * @param tmpReq - DeleteServiceLabelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceLabelResponse
    */
   async deleteServiceLabelWithOptions(ClusterId: string, ServiceName: string, tmpReq: DeleteServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceLabelResponse> {
     Util.validateModel(tmpReq);
@@ -7642,10 +13367,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes existing service tags.
-   *
-   * @param request DeleteServiceLabelRequest
-   * @return DeleteServiceLabelResponse
+   * Deletes existing service tags.
+   * 
+   * @param request - DeleteServiceLabelRequest
+   * @returns DeleteServiceLabelResponse
    */
   async deleteServiceLabel(ClusterId: string, ServiceName: string, request: DeleteServiceLabelRequest): Promise<DeleteServiceLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7654,11 +13379,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the traffic mirroring feature for a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServiceMirrorResponse
+   * Disables the traffic mirroring feature for a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceMirrorResponse
    */
   async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceMirrorResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7679,9 +13404,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the traffic mirroring feature for a service.
-   *
-   * @return DeleteServiceMirrorResponse
+   * Disables the traffic mirroring feature for a service.
+   * @returns DeleteServiceMirrorResponse
    */
   async deleteServiceMirror(ClusterId: string, ServiceName: string): Promise<DeleteServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7690,11 +13414,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries details about the configurations of a stress testing task.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBenchmarkTaskResponse
+   * Queries details about the configurations of a stress testing task.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBenchmarkTaskResponse
    */
   async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7715,9 +13439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries details about the configurations of a stress testing task.
-   *
-   * @return DescribeBenchmarkTaskResponse
+   * Queries details about the configurations of a stress testing task.
+   * @returns DescribeBenchmarkTaskResponse
    */
   async describeBenchmarkTask(ClusterId: string, TaskName: string): Promise<DescribeBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7726,12 +13449,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the report of a stress testing task.
-   *
-   * @param request DescribeBenchmarkTaskReportRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBenchmarkTaskReportResponse
+   * Queries the report of a stress testing task.
+   * 
+   * @param request - DescribeBenchmarkTaskReportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBenchmarkTaskReportResponse
    */
   async describeBenchmarkTaskReportWithOptions(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskReportResponse> {
     Util.validateModel(request);
@@ -7759,10 +13482,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the report of a stress testing task.
-   *
-   * @param request DescribeBenchmarkTaskReportRequest
-   * @return DescribeBenchmarkTaskReportResponse
+   * Queries the report of a stress testing task.
+   * 
+   * @param request - DescribeBenchmarkTaskReportRequest
+   * @returns DescribeBenchmarkTaskReportResponse
    */
   async describeBenchmarkTaskReport(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest): Promise<DescribeBenchmarkTaskReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7771,11 +13494,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a private gateway.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGatewayResponse
+   * Queries the details of a private gateway.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGatewayResponse
    */
   async describeGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGatewayResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7796,9 +13519,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a private gateway.
-   *
-   * @return DescribeGatewayResponse
+   * Queries the details of a private gateway.
+   * @returns DescribeGatewayResponse
    */
   async describeGateway(ClusterId: string, GatewayId: string): Promise<DescribeGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7807,11 +13529,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a service group.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGroupResponse
+   * Queries the information about a service group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGroupResponse
    */
   async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7832,9 +13554,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a service group.
-   *
-   * @return DescribeGroupResponse
+   * Queries the information about a service group.
+   * @returns DescribeGroupResponse
    */
   async describeGroup(ClusterId: string, GroupName: string): Promise<DescribeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7843,11 +13564,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a resource group.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeResourceResponse
+   * Queries the information about a resource group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceResponse
    */
   async describeResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7868,9 +13589,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a resource group.
-   *
-   * @return DescribeResourceResponse
+   * Queries the information about a resource group.
+   * @returns DescribeResourceResponse
    */
   async describeResource(ClusterId: string, ResourceId: string): Promise<DescribeResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7879,11 +13599,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeResourceDLinkResponse
+   * Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceDLinkResponse
    */
   async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceDLinkResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7904,9 +13624,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
-   *
-   * @return DescribeResourceDLinkResponse
+   * Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+   * @returns DescribeResourceDLinkResponse
    */
   async describeResourceDLink(ClusterId: string, ResourceId: string): Promise<DescribeResourceDLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7915,11 +13634,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeResourceLogResponse
+   * Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceLogResponse
    */
   async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceLogResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7940,9 +13659,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
-   *
-   * @return DescribeResourceLogResponse
+   * Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+   * @returns DescribeResourceLogResponse
    */
   async describeResourceLog(ClusterId: string, ResourceId: string): Promise<DescribeResourceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7951,11 +13669,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceResponse
+   * Queries the details about a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceResponse
    */
   async describeServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7976,9 +13694,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a service.
-   *
-   * @return DescribeServiceResponse
+   * Queries the details about a service.
+   * @returns DescribeServiceResponse
    */
   async describeService(ClusterId: string, ServiceName: string): Promise<DescribeServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7987,11 +13704,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the Autoscaler configurations of a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceAutoScalerResponse
+   * Queries information about the Autoscaler configurations of a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceAutoScalerResponse
    */
   async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceAutoScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8012,9 +13729,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the Autoscaler configurations of a service.
-   *
-   * @return DescribeServiceAutoScalerResponse
+   * Queries information about the Autoscaler configurations of a service.
+   * @returns DescribeServiceAutoScalerResponse
    */
   async describeServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<DescribeServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8023,11 +13739,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceCronScalerResponse
+   * Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceCronScalerResponse
    */
   async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceCronScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8048,9 +13764,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
-   *
-   * @return DescribeServiceCronScalerResponse
+   * Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+   * @returns DescribeServiceCronScalerResponse
    */
   async describeServiceCronScaler(ClusterId: string, ServiceName: string): Promise<DescribeServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8059,11 +13774,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the diagnostics details of a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceDiagnosisResponse
+   * Queries the diagnostics details of a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceDiagnosisResponse
    */
   async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceDiagnosisResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8084,9 +13799,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the diagnostics details of a service.
-   *
-   * @return DescribeServiceDiagnosisResponse
+   * Queries the diagnostics details of a service.
+   * @returns DescribeServiceDiagnosisResponse
    */
   async describeServiceDiagnosis(ClusterId: string, ServiceName: string): Promise<DescribeServiceDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8095,12 +13809,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about recent service deployment events.
-   *
-   * @param request DescribeServiceEventRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceEventResponse
+   * Queries information about recent service deployment events.
+   * 
+   * @param request - DescribeServiceEventRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceEventResponse
    */
   async describeServiceEventWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEventResponse> {
     Util.validateModel(request);
@@ -8148,10 +13862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about recent service deployment events.
-   *
-   * @param request DescribeServiceEventRequest
-   * @return DescribeServiceEventResponse
+   * Queries information about recent service deployment events.
+   * 
+   * @param request - DescribeServiceEventRequest
+   * @returns DescribeServiceEventResponse
    */
   async describeServiceEvent(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest): Promise<DescribeServiceEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8160,11 +13874,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceInstanceDiagnosisResponse
+   * Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceInstanceDiagnosisResponse
    */
   async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceInstanceDiagnosisResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8185,9 +13899,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
-   *
-   * @return DescribeServiceInstanceDiagnosisResponse
+   * Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+   * @returns DescribeServiceInstanceDiagnosisResponse
    */
   async describeServiceInstanceDiagnosis(ClusterId: string, ServiceName: string, InstanceName: string): Promise<DescribeServiceInstanceDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8196,12 +13909,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the logs of a service.
-   *
-   * @param request DescribeServiceLogRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceLogResponse
+   * Queries the information about the logs of a service.
+   * 
+   * @param request - DescribeServiceLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceLogResponse
    */
   async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLogResponse> {
     Util.validateModel(request);
@@ -8261,10 +13974,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the logs of a service.
-   *
-   * @param request DescribeServiceLogRequest
-   * @return DescribeServiceLogResponse
+   * Queries the information about the logs of a service.
+   * 
+   * @param request - DescribeServiceLogRequest
+   * @returns DescribeServiceLogResponse
    */
   async describeServiceLog(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest): Promise<DescribeServiceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8273,11 +13986,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries details about the traffic mirroring settings of a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServiceMirrorResponse
+   * Queries details about the traffic mirroring settings of a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceMirrorResponse
    */
   async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceMirrorResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8298,9 +14011,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries details about the traffic mirroring settings of a service.
-   *
-   * @return DescribeServiceMirrorResponse
+   * Queries details about the traffic mirroring settings of a service.
+   * @returns DescribeServiceMirrorResponse
    */
   async describeServiceMirror(ClusterId: string, ServiceName: string): Promise<DescribeServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8309,12 +14021,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
-   *
-   * @param request DescribeSpotDiscountHistoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSpotDiscountHistoryResponse
+   * Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
+   * 
+   * @param request - DescribeSpotDiscountHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSpotDiscountHistoryResponse
    */
   async describeSpotDiscountHistoryWithOptions(request: DescribeSpotDiscountHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSpotDiscountHistoryResponse> {
     Util.validateModel(request);
@@ -8346,10 +14058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
-   *
-   * @param request DescribeSpotDiscountHistoryRequest
-   * @return DescribeSpotDiscountHistoryResponse
+   * Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
+   * 
+   * @param request - DescribeSpotDiscountHistoryRequest
+   * @returns DescribeSpotDiscountHistoryResponse
    */
   async describeSpotDiscountHistory(request: DescribeSpotDiscountHistoryRequest): Promise<DescribeSpotDiscountHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8358,12 +14070,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches a container service to development mode or exits development mode.
-   *
-   * @param request DevelopServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DevelopServiceResponse
+   * Switches a container service to development mode or exits development mode.
+   * 
+   * @param request - DevelopServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DevelopServiceResponse
    */
   async developServiceWithOptions(ClusterId: string, ServiceName: string, request: DevelopServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DevelopServiceResponse> {
     Util.validateModel(request);
@@ -8391,10 +14103,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches a container service to development mode or exits development mode.
-   *
-   * @param request DevelopServiceRequest
-   * @return DevelopServiceResponse
+   * Switches a container service to development mode or exits development mode.
+   * 
+   * @param request - DevelopServiceRequest
+   * @returns DevelopServiceResponse
    */
   async developService(ClusterId: string, ServiceName: string, request: DevelopServiceRequest): Promise<DevelopServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8403,12 +14115,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of stress testing tasks that are created by the current user.
-   *
-   * @param request ListBenchmarkTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBenchmarkTaskResponse
+   * 查询网关所有ACL Policy
+   * 
+   * @param request - ListAclPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAclPolicyResponse
+   */
+  async listAclPolicyWithOptions(ClusterId: string, GatewayId: string, request: ListAclPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAclPolicyResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAclPolicy",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/acl_policy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAclPolicyResponse>(await this.callApi(params, req, runtime), new ListAclPolicyResponse({}));
+  }
+
+  /**
+   * 查询网关所有ACL Policy
+   * 
+   * @param request - ListAclPolicyRequest
+   * @returns ListAclPolicyResponse
+   */
+  async listAclPolicy(ClusterId: string, GatewayId: string, request: ListAclPolicyRequest): Promise<ListAclPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of stress testing tasks that are created by the current user.
+   * 
+   * @param request - ListBenchmarkTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBenchmarkTaskResponse
    */
   async listBenchmarkTaskWithOptions(request: ListBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
     Util.validateModel(request);
@@ -8448,10 +14205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of stress testing tasks that are created by the current user.
-   *
-   * @param request ListBenchmarkTaskRequest
-   * @return ListBenchmarkTaskResponse
+   * Queries a list of stress testing tasks that are created by the current user.
+   * 
+   * @param request - ListBenchmarkTaskRequest
+   * @returns ListBenchmarkTaskResponse
    */
   async listBenchmarkTask(request: ListBenchmarkTaskRequest): Promise<ListBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8460,11 +14217,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of the internal endpoints of a private gateway.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGatewayIntranetLinkedVpcResponse
+   * 列举gateway
+   * 
+   * @param request - ListGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayResponse
+   */
+  async listGatewayWithOptions(request: ListGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayName)) {
+      query["GatewayName"] = request.gatewayName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGateway",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayResponse>(await this.callApi(params, req, runtime), new ListGatewayResponse({}));
+  }
+
+  /**
+   * 列举gateway
+   * 
+   * @param request - ListGatewayRequest
+   * @returns ListGatewayResponse
+   */
+  async listGateway(request: ListGatewayRequest): Promise<ListGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of the internal endpoints of a private gateway.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayIntranetLinkedVpcResponse
    */
   async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8485,9 +14299,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of the internal endpoints of a private gateway.
-   *
-   * @return ListGatewayIntranetLinkedVpcResponse
+   * Queries a list of the internal endpoints of a private gateway.
+   * @returns ListGatewayIntranetLinkedVpcResponse
    */
   async listGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string): Promise<ListGatewayIntranetLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8496,12 +14309,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries created service groups.
-   *
-   * @param request ListGroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGroupsResponse
+   * Queries created service groups.
+   * 
+   * @param request - ListGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupsResponse
    */
   async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
@@ -8541,10 +14354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries created service groups.
-   *
-   * @param request ListGroupsRequest
-   * @return ListGroupsResponse
+   * Queries created service groups.
+   * 
+   * @param request - ListGroupsRequest
+   * @returns ListGroupsResponse
    */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8553,12 +14366,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of workers in a resource group.
-   *
-   * @param request ListResourceInstanceWorkerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceInstanceWorkerResponse
+   * Queries a list of workers in a resource group.
+   * 
+   * @param request - ListResourceInstanceWorkerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceInstanceWorkerResponse
    */
   async listResourceInstanceWorkerWithOptions(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstanceWorkerResponse> {
     Util.validateModel(request);
@@ -8590,10 +14403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of workers in a resource group.
-   *
-   * @param request ListResourceInstanceWorkerRequest
-   * @return ListResourceInstanceWorkerResponse
+   * Queries a list of workers in a resource group.
+   * 
+   * @param request - ListResourceInstanceWorkerRequest
+   * @returns ListResourceInstanceWorkerResponse
    */
   async listResourceInstanceWorker(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest): Promise<ListResourceInstanceWorkerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8602,12 +14415,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of instances in a dedicated resource group.
-   *
-   * @param request ListResourceInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceInstancesResponse
+   * Queries a list of instances in a dedicated resource group.
+   * 
+   * @param request - ListResourceInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceInstancesResponse
    */
   async listResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstancesResponse> {
     Util.validateModel(request);
@@ -8671,10 +14484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of instances in a dedicated resource group.
-   *
-   * @param request ListResourceInstancesRequest
-   * @return ListResourceInstancesResponse
+   * Queries a list of instances in a dedicated resource group.
+   * 
+   * @param request - ListResourceInstancesRequest
+   * @returns ListResourceInstancesResponse
    */
   async listResourceInstances(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest): Promise<ListResourceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8683,13 +14496,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of services that are deployed in the dedicated resource group.
-   *
-   * @param request ListResourceServicesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceServicesResponse
+   * Queries a list of services that are deployed in the dedicated resource group.
+   * 
+   * @deprecated OpenAPI ListResourceServices is deprecated
+   * 
+   * @param request - ListResourceServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceServicesResponse
    */
+  // Deprecated
   async listResourceServicesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceServicesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8720,11 +14536,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of services that are deployed in the dedicated resource group.
-   *
-   * @param request ListResourceServicesRequest
-   * @return ListResourceServicesResponse
+   * Queries a list of services that are deployed in the dedicated resource group.
+   * 
+   * @deprecated OpenAPI ListResourceServices is deprecated
+   * 
+   * @param request - ListResourceServicesRequest
+   * @returns ListResourceServicesResponse
    */
+  // Deprecated
   async listResourceServices(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest): Promise<ListResourceServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8732,12 +14551,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of dedicated resource groups for the current user.
-   *
-   * @param request ListResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourcesResponse
+   * Queries a list of dedicated resource groups for the current user.
+   * 
+   * @param request - ListResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourcesResponse
    */
   async listResourcesWithOptions(request: ListResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourcesResponse> {
     Util.validateModel(request);
@@ -8781,10 +14600,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of dedicated resource groups for the current user.
-   *
-   * @param request ListResourcesRequest
-   * @return ListResourcesResponse
+   * Queries a list of dedicated resource groups for the current user.
+   * 
+   * @param request - ListResourcesRequest
+   * @returns ListResourcesResponse
    */
   async listResources(request: ListResourcesRequest): Promise<ListResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8793,11 +14612,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the containers of a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListServiceContainersResponse
+   * Queries the containers of a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceContainersResponse
    */
   async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceContainersResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8818,9 +14637,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the containers of a service.
-   *
-   * @return ListServiceContainersResponse
+   * Queries the containers of a service.
+   * @returns ListServiceContainersResponse
    */
   async listServiceContainers(ClusterId: string, ServiceName: string, InstanceName: string): Promise<ListServiceContainersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8829,12 +14647,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries instances of a service.
-   *
-   * @param request ListServiceInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListServiceInstancesResponse
+   * Queries instances of a service.
+   * 
+   * @param request - ListServiceInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstancesResponse
    */
   async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
@@ -8910,10 +14728,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries instances of a service.
-   *
-   * @param request ListServiceInstancesRequest
-   * @return ListServiceInstancesResponse
+   * Queries instances of a service.
+   * 
+   * @param request - ListServiceInstancesRequest
+   * @returns ListServiceInstancesResponse
    */
   async listServiceInstances(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8922,12 +14740,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the historical versions of a service.
-   *
-   * @param request ListServiceVersionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListServiceVersionsResponse
+   * Queries the information about the historical versions of a service.
+   * 
+   * @param request - ListServiceVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceVersionsResponse
    */
   async listServiceVersionsWithOptions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
     Util.validateModel(request);
@@ -8959,10 +14777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the historical versions of a service.
-   *
-   * @param request ListServiceVersionsRequest
-   * @return ListServiceVersionsResponse
+   * Queries the information about the historical versions of a service.
+   * 
+   * @param request - ListServiceVersionsRequest
+   * @returns ListServiceVersionsResponse
    */
   async listServiceVersions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8971,12 +14789,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of services that are created by the current user.
-   *
-   * @param tmpReq ListServicesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListServicesResponse
+   * Queries a list of services that are created by the current user.
+   * 
+   * @param tmpReq - ListServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServicesResponse
    */
   async listServicesWithOptions(tmpReq: ListServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(tmpReq);
@@ -8989,6 +14807,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.gateway)) {
+      query["Gateway"] = request.gateway;
     }
 
     if (!Util.isUnset(request.groupName)) {
@@ -9066,10 +14888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of services that are created by the current user.
-   *
-   * @param request ListServicesRequest
-   * @return ListServicesResponse
+   * Queries a list of services that are created by the current user.
+   * 
+   * @param request - ListServicesRequest
+   * @returns ListServicesResponse
    */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9078,12 +14900,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs canary release or blue-green release of a service.
-   *
-   * @param request ReleaseServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseServiceResponse
+   * Performs canary release or blue-green release of a service.
+   * 
+   * @param request - ReleaseServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseServiceResponse
    */
   async releaseServiceWithOptions(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseServiceResponse> {
     Util.validateModel(request);
@@ -9115,10 +14937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs canary release or blue-green release of a service.
-   *
-   * @param request ReleaseServiceRequest
-   * @return ReleaseServiceResponse
+   * Performs canary release or blue-green release of a service.
+   * 
+   * @param request - ReleaseServiceRequest
+   * @returns ReleaseServiceResponse
    */
   async releaseService(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest): Promise<ReleaseServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9127,11 +14949,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestartServiceResponse
+   * Restarts a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartServiceResponse
    */
   async restartServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9152,9 +14974,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts a service.
-   *
-   * @return RestartServiceResponse
+   * Restarts a service.
+   * @returns RestartServiceResponse
    */
   async restartService(ClusterId: string, ServiceName: string): Promise<RestartServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9163,11 +14984,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts a stress testing task.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartBenchmarkTaskResponse
+   * Starts a stress testing task.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartBenchmarkTaskResponse
    */
   async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9188,9 +15009,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts a stress testing task.
-   *
-   * @return StartBenchmarkTaskResponse
+   * Starts a stress testing task.
+   * @returns StartBenchmarkTaskResponse
    */
   async startBenchmarkTask(ClusterId: string, TaskName: string): Promise<StartBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9199,11 +15019,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts a service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartServiceResponse
+   * Starts a service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartServiceResponse
    */
   async startServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9224,9 +15044,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts a service.
-   *
-   * @return StartServiceResponse
+   * Starts a service.
+   * @returns StartServiceResponse
    */
   async startService(ClusterId: string, ServiceName: string): Promise<StartServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9235,11 +15054,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops a stress testing task.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopBenchmarkTaskResponse
+   * Stops a stress testing task.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopBenchmarkTaskResponse
    */
   async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9260,9 +15079,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops a stress testing task.
-   *
-   * @return StopBenchmarkTaskResponse
+   * Stops a stress testing task.
+   * @returns StopBenchmarkTaskResponse
    */
   async stopBenchmarkTask(ClusterId: string, TaskName: string): Promise<StopBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9271,11 +15089,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops a running service.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopServiceResponse
+   * Stops a running service.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopServiceResponse
    */
   async stopServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -9296,9 +15114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops a running service.
-   *
-   * @return StopServiceResponse
+   * Stops a running service.
+   * @returns StopServiceResponse
    */
   async stopService(ClusterId: string, ServiceName: string): Promise<StopServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9307,12 +15124,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an application service.
-   *
-   * @param request UpdateAppServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAppServiceResponse
+   * Updates an application service.
+   * 
+   * @param request - UpdateAppServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppServiceResponse
    */
   async updateAppServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppServiceResponse> {
     Util.validateModel(request);
@@ -9366,10 +15183,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an application service.
-   *
-   * @param request UpdateAppServiceRequest
-   * @return UpdateAppServiceResponse
+   * Updates an application service.
+   * 
+   * @param request - UpdateAppServiceRequest
+   * @returns UpdateAppServiceResponse
    */
   async updateAppService(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest): Promise<UpdateAppServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9378,12 +15195,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a stress testing task.
-   *
-   * @param request UpdateBenchmarkTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateBenchmarkTaskResponse
+   * Updates a stress testing task.
+   * 
+   * @param request - UpdateBenchmarkTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBenchmarkTaskResponse
    */
   async updateBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBenchmarkTaskResponse> {
     Util.validateModel(request);
@@ -9406,10 +15223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a stress testing task.
-   *
-   * @param request UpdateBenchmarkTaskRequest
-   * @return UpdateBenchmarkTaskResponse
+   * Updates a stress testing task.
+   * 
+   * @param request - UpdateBenchmarkTaskRequest
+   * @returns UpdateBenchmarkTaskResponse
    */
   async updateBenchmarkTask(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest): Promise<UpdateBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9418,12 +15235,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update a private gateway.
-   *
-   * @param request UpdateGatewayRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGatewayResponse
+   * Update a private gateway.
+   * 
+   * @param request - UpdateGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayResponse
    */
   async updateGatewayWithOptions(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayResponse> {
     Util.validateModel(request);
@@ -9440,8 +15257,16 @@ export default class Client extends OpenApi {
       body["InstanceType"] = request.instanceType;
     }
 
+    if (!Util.isUnset(request.isDefault)) {
+      body["IsDefault"] = request.isDefault;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.replicas)) {
+      body["Replicas"] = request.replicas;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9463,10 +15288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update a private gateway.
-   *
-   * @param request UpdateGatewayRequest
-   * @return UpdateGatewayResponse
+   * Update a private gateway.
+   * 
+   * @param request - UpdateGatewayRequest
+   * @returns UpdateGatewayResponse
    */
   async updateGateway(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest): Promise<UpdateGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9475,12 +15300,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
-   *
-   * @param request UpdateResourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateResourceResponse
+   * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+   * 
+   * @param request - UpdateResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceResponse
    */
   async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
     Util.validateModel(request);
@@ -9512,10 +15337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
-   *
-   * @param request UpdateResourceRequest
-   * @return UpdateResourceResponse
+   * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+   * 
+   * @param request - UpdateResourceRequest
+   * @returns UpdateResourceResponse
    */
   async updateResource(ClusterId: string, ResourceId: string, request: UpdateResourceRequest): Promise<UpdateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9524,12 +15349,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
-   *
-   * @param request UpdateResourceDLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateResourceDLinkResponse
+   * Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+   * 
+   * @param request - UpdateResourceDLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceDLinkResponse
    */
   async updateResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceDLinkResponse> {
     Util.validateModel(request);
@@ -9569,10 +15394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
-   *
-   * @param request UpdateResourceDLinkRequest
-   * @return UpdateResourceDLinkResponse
+   * Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+   * 
+   * @param request - UpdateResourceDLinkRequest
+   * @returns UpdateResourceDLinkResponse
    */
   async updateResourceDLink(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest): Promise<UpdateResourceDLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9581,12 +15406,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the service scheduling status of an instance in a dedicated resource group.
-   *
-   * @param request UpdateResourceInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateResourceInstanceResponse
+   * Updates the service scheduling status of an instance in a dedicated resource group.
+   * 
+   * @param request - UpdateResourceInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceInstanceResponse
    */
   async updateResourceInstanceWithOptions(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceInstanceResponse> {
     Util.validateModel(request);
@@ -9614,10 +15439,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the service scheduling status of an instance in a dedicated resource group.
-   *
-   * @param request UpdateResourceInstanceRequest
-   * @return UpdateResourceInstanceResponse
+   * Updates the service scheduling status of an instance in a dedicated resource group.
+   * 
+   * @param request - UpdateResourceInstanceRequest
+   * @returns UpdateResourceInstanceResponse
    */
   async updateResourceInstance(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest): Promise<UpdateResourceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9626,12 +15451,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
-   *
-   * @param request UpdateServiceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceResponse
+   * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+   * 
+   * @param request - UpdateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceResponse
    */
   async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
@@ -9660,10 +15485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
-   *
-   * @param request UpdateServiceRequest
-   * @return UpdateServiceResponse
+   * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+   * 
+   * @param request - UpdateServiceRequest
+   * @returns UpdateServiceResponse
    */
   async updateService(ClusterId: string, ServiceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9672,12 +15497,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the Autoscaler configurations of a service.
-   *
-   * @param request UpdateServiceAutoScalerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceAutoScalerResponse
+   * Updates the Autoscaler configurations of a service.
+   * 
+   * @param request - UpdateServiceAutoScalerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceAutoScalerResponse
    */
   async updateServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAutoScalerResponse> {
     Util.validateModel(request);
@@ -9717,10 +15542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the Autoscaler configurations of a service.
-   *
-   * @param request UpdateServiceAutoScalerRequest
-   * @return UpdateServiceAutoScalerResponse
+   * Updates the Autoscaler configurations of a service.
+   * 
+   * @param request - UpdateServiceAutoScalerRequest
+   * @returns UpdateServiceAutoScalerResponse
    */
   async updateServiceAutoScaler(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest): Promise<UpdateServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9729,12 +15554,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
-   *
-   * @param request UpdateServiceCronScalerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceCronScalerResponse
+   * Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+   * 
+   * @param request - UpdateServiceCronScalerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceCronScalerResponse
    */
   async updateServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceCronScalerResponse> {
     Util.validateModel(request);
@@ -9766,10 +15591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
-   *
-   * @param request UpdateServiceCronScalerRequest
-   * @return UpdateServiceCronScalerResponse
+   * Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+   * 
+   * @param request - UpdateServiceCronScalerRequest
+   * @returns UpdateServiceCronScalerResponse
    */
   async updateServiceCronScaler(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest): Promise<UpdateServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9778,12 +15603,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
-   *
-   * @param request UpdateServiceInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceInstanceResponse
+   * Updates attributes of service instances. Only isolation can be performed for service instances.
+   * 
+   * @param request - UpdateServiceInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceInstanceResponse
    */
   async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceResponse> {
     Util.validateModel(request);
@@ -9811,10 +15636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
-   *
-   * @param request UpdateServiceInstanceRequest
-   * @return UpdateServiceInstanceResponse
+   * Updates attributes of service instances. Only isolation can be performed for service instances.
+   * 
+   * @param request - UpdateServiceInstanceRequest
+   * @returns UpdateServiceInstanceResponse
    */
   async updateServiceInstance(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest): Promise<UpdateServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9823,12 +15648,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds service tags or updates existing service tags.
-   *
-   * @param request UpdateServiceLabelRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceLabelResponse
+   * Adds service tags or updates existing service tags.
+   * 
+   * @param request - UpdateServiceLabelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceLabelResponse
    */
   async updateServiceLabelWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceLabelResponse> {
     Util.validateModel(request);
@@ -9856,10 +15681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds service tags or updates existing service tags.
-   *
-   * @param request UpdateServiceLabelRequest
-   * @return UpdateServiceLabelResponse
+   * Adds service tags or updates existing service tags.
+   * 
+   * @param request - UpdateServiceLabelRequest
+   * @returns UpdateServiceLabelResponse
    */
   async updateServiceLabel(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest): Promise<UpdateServiceLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9868,12 +15693,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the traffic mirroring configurations of a service.
-   *
-   * @param request UpdateServiceMirrorRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceMirrorResponse
+   * Updates the traffic mirroring configurations of a service.
+   * 
+   * @param request - UpdateServiceMirrorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceMirrorResponse
    */
   async updateServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceMirrorResponse> {
     Util.validateModel(request);
@@ -9905,10 +15730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the traffic mirroring configurations of a service.
-   *
-   * @param request UpdateServiceMirrorRequest
-   * @return UpdateServiceMirrorResponse
+   * Updates the traffic mirroring configurations of a service.
+   * 
+   * @param request - UpdateServiceMirrorRequest
+   * @returns UpdateServiceMirrorResponse
    */
   async updateServiceMirror(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest): Promise<UpdateServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9917,12 +15742,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the safety lock of a service to minimize misoperations on the service.
-   *
-   * @param request UpdateServiceSafetyLockRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceSafetyLockResponse
+   * Updates the safety lock of a service to minimize misoperations on the service.
+   * 
+   * @param request - UpdateServiceSafetyLockRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceSafetyLockResponse
    */
   async updateServiceSafetyLockWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceSafetyLockResponse> {
     Util.validateModel(request);
@@ -9950,10 +15775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the safety lock of a service to minimize misoperations on the service.
-   *
-   * @param request UpdateServiceSafetyLockRequest
-   * @return UpdateServiceSafetyLockResponse
+   * Updates the safety lock of a service to minimize misoperations on the service.
+   * 
+   * @param request - UpdateServiceSafetyLockRequest
+   * @returns UpdateServiceSafetyLockResponse
    */
   async updateServiceSafetyLock(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest): Promise<UpdateServiceSafetyLockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9962,12 +15787,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the version of a service or rolls back the service to a specific version.
-   *
-   * @param request UpdateServiceVersionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateServiceVersionResponse
+   * Updates the version of a service or rolls back the service to a specific version.
+   * 
+   * @param request - UpdateServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceVersionResponse
    */
   async updateServiceVersionWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceVersionResponse> {
     Util.validateModel(request);
@@ -9995,10 +15820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the version of a service or rolls back the service to a specific version.
-   *
-   * @param request UpdateServiceVersionRequest
-   * @return UpdateServiceVersionResponse
+   * Updates the version of a service or rolls back the service to a specific version.
+   * 
+   * @param request - UpdateServiceVersionRequest
+   * @returns UpdateServiceVersionResponse
    */
   async updateServiceVersion(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest): Promise<UpdateServiceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
