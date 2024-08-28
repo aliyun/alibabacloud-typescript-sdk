@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,10 +8,39 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddIpamPoolCidrRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,6 +68,10 @@ export class AddIpamPoolCidrRequest extends $tea.Model {
 }
 
 export class AddIpamPoolCidrResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 558BC336-8B88-53B0-B4AD-980EE900AB01
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,13 +116,41 @@ export class AddIpamPoolCidrResponse extends $tea.Model {
 }
 
 export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aek3ctkufaw****
+   */
   newResourceGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-uq5dcfc2eqhpf4****
+   */
   resourceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,6 +184,10 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BB2C39DE-CEB8-595A-981A-F2EFCBE7324E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,14 +232,45 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 }
 
 export class CreateIpamRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @example
+   * This is my first Ipam
+   */
   ipamDescription?: string;
+  /**
+   * @example
+   * abc
+   */
   ipamName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   operatingRegionList?: string[];
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -217,25 +312,50 @@ export class CreateIpamRequest extends $tea.Model {
 }
 
 export class CreateIpamResponseBody extends $tea.Model {
+  defaultResourceDiscoveryAssociationId?: string;
+  defaultResourceDiscoveryId?: string;
+  /**
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * ipam-scope-8wiontzmiy6cg0****
+   */
   privateDefaultScopeId?: string;
+  /**
+   * @example
+   * ipam-scope-r5c5c7bmym1brc****
+   */
   publicDefaultScopeId?: string;
+  /**
+   * @example
+   * 0ED8D006-F706-4D23-88ED-E11ED39DCAC0
+   */
   requestId?: string;
+  resourceDiscoveryAssociationCount?: number;
   static names(): { [key: string]: string } {
     return {
+      defaultResourceDiscoveryAssociationId: 'DefaultResourceDiscoveryAssociationId',
+      defaultResourceDiscoveryId: 'DefaultResourceDiscoveryId',
       ipamId: 'IpamId',
       privateDefaultScopeId: 'PrivateDefaultScopeId',
       publicDefaultScopeId: 'PublicDefaultScopeId',
       requestId: 'RequestId',
+      resourceDiscoveryAssociationCount: 'ResourceDiscoveryAssociationCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      defaultResourceDiscoveryAssociationId: 'string',
+      defaultResourceDiscoveryId: 'string',
       ipamId: 'string',
       privateDefaultScopeId: 'string',
       publicDefaultScopeId: 'string',
       requestId: 'string',
+      resourceDiscoveryAssociationCount: 'number',
     };
   }
 
@@ -270,21 +390,75 @@ export class CreateIpamResponse extends $tea.Model {
 }
 
 export class CreateIpamPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * 28
+   */
   allocationDefaultCidrMask?: number;
+  /**
+   * @example
+   * 32
+   */
   allocationMaxCidrMask?: number;
+  /**
+   * @example
+   * 8
+   */
   allocationMinCidrMask?: number;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @example
+   * test description
+   */
   ipamPoolDescription?: string;
+  /**
+   * @example
+   * abc
+   */
   ipamPoolName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   poolRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   sourceIpamPoolId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -334,7 +508,15 @@ export class CreateIpamPoolRequest extends $tea.Model {
 }
 
 export class CreateIpamPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * BB2C39DE-CEB8-595A-981A-F2EFCBE7324E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -381,11 +563,41 @@ export class CreateIpamPoolResponse extends $tea.Model {
 }
 
 export class CreateIpamPoolAllocationRequest extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @example
+   * 24
+   */
   cidrMask?: number;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -415,9 +627,25 @@ export class CreateIpamPoolAllocationRequest extends $tea.Model {
 }
 
 export class CreateIpamPoolAllocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @example
+   * ipam-pool-alloc-112za33e4****
+   */
   ipamPoolAllocationId?: string;
+  /**
+   * @example
+   * CE9CDAE5-341E-5D0B-AC8A-2BAC707D3EB2
+   */
   requestId?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
   sourceCidr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -468,14 +696,48 @@ export class CreateIpamPoolAllocationResponse extends $tea.Model {
 }
 
 export class CreateIpamScopeRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * test description
+   */
   ipamScopeDescription?: string;
+  /**
+   * @example
+   * test
+   */
   ipamScopeName?: string;
+  /**
+   * @example
+   * private
+   */
   ipamScopeType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -517,7 +779,15 @@ export class CreateIpamScopeRequest extends $tea.Model {
 }
 
 export class CreateIpamScopeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * E897D16A-50EB-543F-B002-C5A26AB818FF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -564,11 +834,33 @@ export class CreateIpamScopeResponse extends $tea.Model {
 }
 
 export class DeleteIpamRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -604,6 +896,10 @@ export class DeleteIpamRequest extends $tea.Model {
 }
 
 export class DeleteIpamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30A20EE2-6223-5D0F-BF49-D7C78F206063
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -648,11 +944,33 @@ export class DeleteIpamResponse extends $tea.Model {
 }
 
 export class DeleteIpamPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -688,6 +1006,10 @@ export class DeleteIpamPoolRequest extends $tea.Model {
 }
 
 export class DeleteIpamPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 57B7DCCA-F192-5528-8AF3-2FE1413228C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -732,11 +1054,41 @@ export class DeleteIpamPoolResponse extends $tea.Model {
 }
 
 export class DeleteIpamPoolAllocationRequest extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/32
+   */
   cidr?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-alloc-c4vhvr3b22mmc6****
+   */
   ipamPoolAllocationId?: string;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -766,6 +1118,10 @@ export class DeleteIpamPoolAllocationRequest extends $tea.Model {
 }
 
 export class DeleteIpamPoolAllocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B90776C8-F703-51D5-893A-AD1CA699D535
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -810,10 +1166,39 @@ export class DeleteIpamPoolAllocationResponse extends $tea.Model {
 }
 
 export class DeleteIpamPoolCidrRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -841,6 +1226,10 @@ export class DeleteIpamPoolCidrRequest extends $tea.Model {
 }
 
 export class DeleteIpamPoolCidrResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F28A239E-F88D-500E-ADE7-FA5E8CA3A170
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -885,11 +1274,33 @@ export class DeleteIpamPoolCidrResponse extends $tea.Model {
 }
 
 export class DeleteIpamScopeRequest extends $tea.Model {
+  /**
+   * @example
+   * 88144bdb-b190-4813-a3f5-66cc86694162
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -925,6 +1336,10 @@ export class DeleteIpamScopeRequest extends $tea.Model {
 }
 
 export class DeleteIpamScopeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9F8315CB-560E-5F1E-B069-6E44B440CAF8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -969,9 +1384,20 @@ export class DeleteIpamScopeResponse extends $tea.Model {
 }
 
 export class GetVpcIpamServiceStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1003,7 +1429,15 @@ export class GetVpcIpamServiceStatusRequest extends $tea.Model {
 }
 
 export class GetVpcIpamServiceStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @example
+   * 2FEE9FFF-57EE-5832-BE88-9308352F3B68
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1050,11 +1484,34 @@ export class GetVpcIpamServiceStatusResponse extends $tea.Model {
 }
 
 export class ListIpamPoolAllocationsRequest extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
   ipamPoolAllocationIds?: string[];
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1085,9 +1542,25 @@ export class ListIpamPoolAllocationsRequest extends $tea.Model {
 
 export class ListIpamPoolAllocationsResponseBody extends $tea.Model {
   ipamPoolAllocations?: ListIpamPoolAllocationsResponseBodyIpamPoolAllocations[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 3748DEFF-68BE-5EED-9937-7C1D0C21BAB4
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1140,10 +1613,36 @@ export class ListIpamPoolAllocationsResponse extends $tea.Model {
 }
 
 export class ListIpamPoolCidrsRequest extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1172,9 +1671,25 @@ export class ListIpamPoolCidrsRequest extends $tea.Model {
 
 export class ListIpamPoolCidrsResponseBody extends $tea.Model {
   ipamPoolCidrs?: ListIpamPoolCidrsResponseBodyIpamPoolCidrs[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 9E7CCB95-62E0-534D-9B9A-71F27E8B71B1
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1228,17 +1743,52 @@ export class ListIpamPoolCidrsResponse extends $tea.Model {
 
 export class ListIpamPoolsRequest extends $tea.Model {
   ipamPoolIds?: string[];
+  /**
+   * @example
+   * test
+   */
   ipamPoolName?: string;
+  /**
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   poolRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-aek2sermdd6****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * ipam-pool-lfnwi4jok1ss0g****
+   */
   sourceIpamPoolId?: string;
   tags?: ListIpamPoolsRequestTags[];
   static names(): { [key: string]: string } {
@@ -1286,9 +1836,25 @@ export class ListIpamPoolsRequest extends $tea.Model {
 
 export class ListIpamPoolsResponseBody extends $tea.Model {
   ipamPools?: ListIpamPoolsResponseBodyIpamPools[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * B54867DE-83DC-56B4-A57E-69A03119D0B1
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1341,13 +1907,44 @@ export class ListIpamPoolsResponse extends $tea.Model {
 }
 
 export class ListIpamResourceCidrsRequest extends $tea.Model {
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * vpc-bp16qjewdsunr41m1****
+   */
   resourceId?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * VPC
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1382,9 +1979,25 @@ export class ListIpamResourceCidrsRequest extends $tea.Model {
 
 export class ListIpamResourceCidrsResponseBody extends $tea.Model {
   ipamResourceCidrs?: ListIpamResourceCidrsResponseBodyIpamResourceCidrs[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 49A9DE56-B68C-5FFC-BC06-509D086F287C
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1437,15 +2050,46 @@ export class ListIpamResourceCidrsResponse extends $tea.Model {
 }
 
 export class ListIpamScopesRequest extends $tea.Model {
+  /**
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
   ipamScopeIds?: string[];
+  /**
+   * @example
+   * test
+   */
   ipamScopeName?: string;
+  /**
+   * @example
+   * private
+   */
   ipamScopeType?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-aek2sermdd6****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1493,9 +2137,25 @@ export class ListIpamScopesRequest extends $tea.Model {
 
 export class ListIpamScopesResponseBody extends $tea.Model {
   ipamScopes?: ListIpamScopesResponseBodyIpamScopes[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 8859C501-97E7-53D4-B94B-2A9E16003B22
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1549,12 +2209,35 @@ export class ListIpamScopesResponse extends $tea.Model {
 
 export class ListIpamsRequest extends $tea.Model {
   ipamIds?: string[];
+  /**
+   * @example
+   * test
+   */
   ipamName?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-aek2sermdd6****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1598,9 +2281,25 @@ export class ListIpamsRequest extends $tea.Model {
 
 export class ListIpamsResponseBody extends $tea.Model {
   ipams?: ListIpamsResponseBodyIpams[];
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 23CA0A0B-B0F5-5495-B355-7D9A9203A46B
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1653,14 +2352,36 @@ export class ListIpamsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPAM
+   */
   resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -1699,7 +2420,15 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 672053AB-90C9-5693-AB96-458F137A5ED6
+   */
   requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
@@ -1749,9 +2478,20 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class OpenVpcIpamServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1783,8 +2523,20 @@ export class OpenVpcIpamServiceRequest extends $tea.Model {
 }
 
 export class OpenVpcIpamServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 3F814C37-B032-5477-AF5A-2925D0593CD4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1835,11 +2587,33 @@ export class OpenVpcIpamServiceResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPAM
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -1873,6 +2647,10 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BF872550-9700-52FD-839C-4D3F05543FA8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1917,13 +2695,35 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   all?: boolean;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPAM
+   */
   resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
@@ -1960,6 +2760,10 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 44C884BD-2D56-5637-A523-1FA920A01E7D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2005,13 +2809,43 @@ export class UntagResourcesResponse extends $tea.Model {
 
 export class UpdateIpamRequest extends $tea.Model {
   addOperatingRegion?: string[];
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @example
+   * test description
+   */
   ipamDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * test
+   */
   ipamName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   removeOperatingRegion?: string[];
   resourceOwnerAccount?: string;
@@ -2056,6 +2890,10 @@ export class UpdateIpamRequest extends $tea.Model {
 }
 
 export class UpdateIpamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F4650E33-895C-53F0-9CD5-D1338F322DE8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2100,17 +2938,63 @@ export class UpdateIpamResponse extends $tea.Model {
 }
 
 export class UpdateIpamPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * 28
+   */
   allocationDefaultCidrMask?: number;
+  /**
+   * @example
+   * 32
+   */
   allocationMaxCidrMask?: number;
+  /**
+   * @example
+   * 8
+   */
   allocationMinCidrMask?: number;
+  /**
+   * @example
+   * true
+   */
   clearAllocationDefaultCidrMask?: boolean;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @example
+   * test description
+   */
   ipamPoolDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * test
+   */
   ipamPoolName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2158,6 +3042,10 @@ export class UpdateIpamPoolRequest extends $tea.Model {
 }
 
 export class UpdateIpamPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9DED57B9-7654-5B6D-93F7-BCA5839FEE38
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2202,13 +3090,43 @@ export class UpdateIpamPoolResponse extends $tea.Model {
 }
 
 export class UpdateIpamScopeRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @example
+   * test description
+   */
   ipamScopeDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * test
+   */
   ipamScopeName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2248,6 +3166,10 @@ export class UpdateIpamScopeRequest extends $tea.Model {
 }
 
 export class UpdateIpamScopeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BA8054F5-852A-570A-ACFF-BCA63E0B02D5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2292,16 +3214,60 @@ export class UpdateIpamScopeResponse extends $tea.Model {
 }
 
 export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @example
+   * 2023-05-19T08:59:18Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * ipam-pool-alloc-112za33e4****
+   */
   ipamPoolAllocationId?: string;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * vpc-bp16qjewdsunr41m1****
+   */
   resourceId?: string;
+  /**
+   * @example
+   * 132193271328****
+   */
   resourceOwnerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   resourceRegionId?: string;
+  /**
+   * @example
+   * Custom
+   */
   resourceType?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
   sourceCidr?: string;
+  /**
+   * @example
+   * Created
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2341,8 +3307,20 @@ export class ListIpamPoolAllocationsResponseBodyIpamPoolAllocations extends $tea
 }
 
 export class ListIpamPoolCidrsResponseBodyIpamPoolCidrs extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   cidr?: string;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * Created
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2366,7 +3344,15 @@ export class ListIpamPoolCidrsResponseBodyIpamPoolCidrs extends $tea.Model {
 }
 
 export class ListIpamPoolsRequestTags extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2388,7 +3374,15 @@ export class ListIpamPoolsRequestTags extends $tea.Model {
 }
 
 export class ListIpamPoolsResponseBodyIpamPoolsTags extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2410,24 +3404,100 @@ export class ListIpamPoolsResponseBodyIpamPoolsTags extends $tea.Model {
 }
 
 export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
+  /**
+   * @example
+   * 28
+   */
   allocationDefaultCidrMask?: number;
+  /**
+   * @example
+   * 32
+   */
   allocationMaxCidrMask?: number;
+  /**
+   * @example
+   * 8
+   */
   allocationMinCidrMask?: number;
+  /**
+   * @example
+   * 2023-04-19T16:49:01Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * true
+   */
   hasSubPool?: boolean;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @example
+   * ipam-b5mtlx3q7xcnyr****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * test description
+   */
   ipamPoolDescription?: string;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * test
+   */
   ipamPoolName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   ipamRegionId?: string;
+  /**
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * private
+   */
   ipamScopeType?: string;
+  /**
+   * @example
+   * 1210123456******
+   */
   ownerId?: number;
+  /**
+   * @example
+   * 2
+   */
   poolDepth?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   poolRegionId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * ipam-pool-lfnwi4jok1ss0g****
+   */
   sourceIpamPoolId?: string;
+  /**
+   * @example
+   * Created
+   */
   status?: string;
   tags?: ListIpamPoolsResponseBodyIpamPoolsTags[];
   static names(): { [key: string]: string } {
@@ -2486,21 +3556,85 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
 }
 
 export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $tea.Model {
+  /**
+   * @example
+   * 132193271328****
+   */
   aliUid?: number;
+  /**
+   * @example
+   * 192.168.1.0/32
+   */
   cidr?: string;
+  /**
+   * @example
+   * Compliant
+   */
   complianceStatus?: string;
+  /**
+   * @example
+   * 0
+   */
   ipUsage?: string;
+  /**
+   * @example
+   * ipam-pool-alloc-112za33e4****
+   */
   ipamAllocationId?: string;
+  /**
+   * @example
+   * ipam-uq5dcfc2eqhpf4****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t***
+   */
   ipamPoolId?: string;
+  /**
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * Managed
+   */
   managementStatus?: string;
+  /**
+   * @example
+   * Nonoverlapping
+   */
   overlapStatus?: string;
+  /**
+   * @example
+   * vpc-bp16qjewdsunr41m1****
+   */
   resourceId?: string;
+  /**
+   * @example
+   * 132193271328****
+   */
   resourceOwnerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   resourceRegionId?: string;
+  /**
+   * @example
+   * VPC
+   */
   resourceType?: string;
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
   sourceCidr?: string;
+  /**
+   * @example
+   * Created
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2550,7 +3684,15 @@ export class ListIpamResourceCidrsResponseBodyIpamResourceCidrs extends $tea.Mod
 }
 
 export class ListIpamScopesRequestTags extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2572,7 +3714,15 @@ export class ListIpamScopesRequestTags extends $tea.Model {
 }
 
 export class ListIpamScopesResponseBodyIpamScopesTags extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceDept
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2594,16 +3744,60 @@ export class ListIpamScopesResponseBodyIpamScopesTags extends $tea.Model {
 }
 
 export class ListIpamScopesResponseBodyIpamScopes extends $tea.Model {
+  /**
+   * @example
+   * 2022-04-18T03:12:37Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * test description
+   */
   ipamScopeDescription?: string;
+  /**
+   * @example
+   * ipam-scope-glfmcyldpm8lsy****
+   */
   ipamScopeId?: string;
+  /**
+   * @example
+   * test
+   */
   ipamScopeName?: string;
+  /**
+   * @example
+   * private
+   */
   ipamScopeType?: string;
+  /**
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @example
+   * 1210123456******
+   */
   ownerId?: number;
+  /**
+   * @example
+   * 2
+   */
   poolCount?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * Created
+   */
   status?: string;
   tags?: ListIpamScopesResponseBodyIpamScopesTags[];
   static names(): { [key: string]: string } {
@@ -2646,7 +3840,15 @@ export class ListIpamScopesResponseBodyIpamScopes extends $tea.Model {
 }
 
 export class ListIpamsRequestTags extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2668,7 +3870,15 @@ export class ListIpamsRequestTags extends $tea.Model {
 }
 
 export class ListIpamsResponseBodyIpamsTags extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2690,22 +3900,71 @@ export class ListIpamsResponseBodyIpamsTags extends $tea.Model {
 }
 
 export class ListIpamsResponseBodyIpams extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-01T02:05:23Z
+   */
   createTime?: string;
+  defaultResourceDiscoveryAssociationId?: string;
+  defaultResourceDiscoveryId?: string;
+  /**
+   * @example
+   * test description
+   */
   ipamDescription?: string;
+  /**
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
   ipamId?: string;
+  /**
+   * @example
+   * test
+   */
   ipamName?: string;
+  /**
+   * @example
+   * Created
+   */
   ipamStatus?: string;
   operatingRegionList?: string[];
+  /**
+   * @example
+   * 1210123456******
+   */
   ownerId?: number;
+  /**
+   * @example
+   * ipam-scope-okoerbco6unqfr****
+   */
   privateDefaultScopeId?: string;
+  /**
+   * @example
+   * ipam-scope-ovb76p1g1m19dr****
+   */
   publicDefaultScopeId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  resourceDiscoveryAssociationCount?: number;
+  /**
+   * @example
+   * rg-aek2dbprgpt****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2
+   */
   scopeCount?: number;
   tags?: ListIpamsResponseBodyIpamsTags[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      defaultResourceDiscoveryAssociationId: 'DefaultResourceDiscoveryAssociationId',
+      defaultResourceDiscoveryId: 'DefaultResourceDiscoveryId',
       ipamDescription: 'IpamDescription',
       ipamId: 'IpamId',
       ipamName: 'IpamName',
@@ -2715,6 +3974,7 @@ export class ListIpamsResponseBodyIpams extends $tea.Model {
       privateDefaultScopeId: 'PrivateDefaultScopeId',
       publicDefaultScopeId: 'PublicDefaultScopeId',
       regionId: 'RegionId',
+      resourceDiscoveryAssociationCount: 'ResourceDiscoveryAssociationCount',
       resourceGroupId: 'ResourceGroupId',
       scopeCount: 'ScopeCount',
       tags: 'Tags',
@@ -2724,6 +3984,8 @@ export class ListIpamsResponseBodyIpams extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      defaultResourceDiscoveryAssociationId: 'string',
+      defaultResourceDiscoveryId: 'string',
       ipamDescription: 'string',
       ipamId: 'string',
       ipamName: 'string',
@@ -2733,6 +3995,7 @@ export class ListIpamsResponseBodyIpams extends $tea.Model {
       privateDefaultScopeId: 'string',
       publicDefaultScopeId: 'string',
       regionId: 'string',
+      resourceDiscoveryAssociationCount: 'number',
       resourceGroupId: 'string',
       scopeCount: 'number',
       tags: { 'type': 'array', 'itemType': ListIpamsResponseBodyIpamsTags },
@@ -2745,7 +4008,15 @@ export class ListIpamsResponseBodyIpams extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2767,9 +4038,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @example
+   * ipam-uq5dcfc2eqhpf4****
+   */
   resourceId?: string;
+  /**
+   * @example
+   * IPAM
+   */
   resourceType?: string;
+  /**
+   * @example
+   * FinanceDept
+   */
   tagKey?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2795,7 +4082,15 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2840,9 +4135,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddIpamPoolCidrRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddIpamPoolCidrResponse
+   * @param request - AddIpamPoolCidrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddIpamPoolCidrResponse
    */
   async addIpamPoolCidrWithOptions(request: AddIpamPoolCidrRequest, runtime: $Util.RuntimeOptions): Promise<AddIpamPoolCidrResponse> {
     Util.validateModel(request);
@@ -2885,8 +4180,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddIpamPoolCidrRequest
-   * @return AddIpamPoolCidrResponse
+   * @param request - AddIpamPoolCidrRequest
+   * @returns AddIpamPoolCidrResponse
    */
   async addIpamPoolCidr(request: AddIpamPoolCidrRequest): Promise<AddIpamPoolCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2894,9 +4189,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeResourceGroupResponse
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
@@ -2951,8 +4246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeResourceGroupRequest
-   * @return ChangeResourceGroupResponse
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2960,11 +4255,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建IPAM实例。
-   *
-   * @param request CreateIpamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIpamResponse
+   * 创建IPAM实例。
+   * 
+   * @param request - CreateIpamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIpamResponse
    */
   async createIpamWithOptions(request: CreateIpamRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpamResponse> {
     Util.validateModel(request);
@@ -3031,10 +4326,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建IPAM实例。
-   *
-   * @param request CreateIpamRequest
-   * @return CreateIpamResponse
+   * 创建IPAM实例。
+   * 
+   * @param request - CreateIpamRequest
+   * @returns CreateIpamResponse
    */
   async createIpam(request: CreateIpamRequest): Promise<CreateIpamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3042,9 +4337,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIpamPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIpamPoolResponse
+   * @param request - CreateIpamPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIpamPoolResponse
    */
   async createIpamPoolWithOptions(request: CreateIpamPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpamPoolResponse> {
     Util.validateModel(request);
@@ -3131,8 +4426,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIpamPoolRequest
-   * @return CreateIpamPoolResponse
+   * @param request - CreateIpamPoolRequest
+   * @returns CreateIpamPoolResponse
    */
   async createIpamPool(request: CreateIpamPoolRequest): Promise<CreateIpamPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3140,9 +4435,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIpamPoolAllocationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIpamPoolAllocationResponse
+   * @param request - CreateIpamPoolAllocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIpamPoolAllocationResponse
    */
   async createIpamPoolAllocationWithOptions(request: CreateIpamPoolAllocationRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpamPoolAllocationResponse> {
     Util.validateModel(request);
@@ -3189,8 +4484,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIpamPoolAllocationRequest
-   * @return CreateIpamPoolAllocationResponse
+   * @param request - CreateIpamPoolAllocationRequest
+   * @returns CreateIpamPoolAllocationResponse
    */
   async createIpamPoolAllocation(request: CreateIpamPoolAllocationRequest): Promise<CreateIpamPoolAllocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3198,9 +4493,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIpamScopeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIpamScopeResponse
+   * @param request - CreateIpamScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIpamScopeResponse
    */
   async createIpamScopeWithOptions(request: CreateIpamScopeRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpamScopeResponse> {
     Util.validateModel(request);
@@ -3267,8 +4562,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIpamScopeRequest
-   * @return CreateIpamScopeResponse
+   * @param request - CreateIpamScopeRequest
+   * @returns CreateIpamScopeResponse
    */
   async createIpamScope(request: CreateIpamScopeRequest): Promise<CreateIpamScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3276,9 +4571,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIpamResponse
+   * @param request - DeleteIpamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIpamResponse
    */
   async deleteIpamWithOptions(request: DeleteIpamRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpamResponse> {
     Util.validateModel(request);
@@ -3333,8 +4628,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamRequest
-   * @return DeleteIpamResponse
+   * @param request - DeleteIpamRequest
+   * @returns DeleteIpamResponse
    */
   async deleteIpam(request: DeleteIpamRequest): Promise<DeleteIpamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3342,9 +4637,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIpamPoolResponse
+   * @param request - DeleteIpamPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIpamPoolResponse
    */
   async deleteIpamPoolWithOptions(request: DeleteIpamPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpamPoolResponse> {
     Util.validateModel(request);
@@ -3399,8 +4694,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamPoolRequest
-   * @return DeleteIpamPoolResponse
+   * @param request - DeleteIpamPoolRequest
+   * @returns DeleteIpamPoolResponse
    */
   async deleteIpamPool(request: DeleteIpamPoolRequest): Promise<DeleteIpamPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3408,9 +4703,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamPoolAllocationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIpamPoolAllocationResponse
+   * @param request - DeleteIpamPoolAllocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIpamPoolAllocationResponse
    */
   async deleteIpamPoolAllocationWithOptions(request: DeleteIpamPoolAllocationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpamPoolAllocationResponse> {
     Util.validateModel(request);
@@ -3457,8 +4752,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamPoolAllocationRequest
-   * @return DeleteIpamPoolAllocationResponse
+   * @param request - DeleteIpamPoolAllocationRequest
+   * @returns DeleteIpamPoolAllocationResponse
    */
   async deleteIpamPoolAllocation(request: DeleteIpamPoolAllocationRequest): Promise<DeleteIpamPoolAllocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3466,9 +4761,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamPoolCidrRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIpamPoolCidrResponse
+   * @param request - DeleteIpamPoolCidrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIpamPoolCidrResponse
    */
   async deleteIpamPoolCidrWithOptions(request: DeleteIpamPoolCidrRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpamPoolCidrResponse> {
     Util.validateModel(request);
@@ -3511,8 +4806,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamPoolCidrRequest
-   * @return DeleteIpamPoolCidrResponse
+   * @param request - DeleteIpamPoolCidrRequest
+   * @returns DeleteIpamPoolCidrResponse
    */
   async deleteIpamPoolCidr(request: DeleteIpamPoolCidrRequest): Promise<DeleteIpamPoolCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3520,9 +4815,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamScopeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIpamScopeResponse
+   * @param request - DeleteIpamScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIpamScopeResponse
    */
   async deleteIpamScopeWithOptions(request: DeleteIpamScopeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpamScopeResponse> {
     Util.validateModel(request);
@@ -3577,8 +4872,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteIpamScopeRequest
-   * @return DeleteIpamScopeResponse
+   * @param request - DeleteIpamScopeRequest
+   * @returns DeleteIpamScopeResponse
    */
   async deleteIpamScope(request: DeleteIpamScopeRequest): Promise<DeleteIpamScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3586,11 +4881,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询IPAM功能的开通状态。
-   *
-   * @param request GetVpcIpamServiceStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVpcIpamServiceStatusResponse
+   * 查询IPAM功能的开通状态。
+   * 
+   * @param request - GetVpcIpamServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVpcIpamServiceStatusResponse
    */
   async getVpcIpamServiceStatusWithOptions(request: GetVpcIpamServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcIpamServiceStatusResponse> {
     Util.validateModel(request);
@@ -3637,10 +4932,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询IPAM功能的开通状态。
-   *
-   * @param request GetVpcIpamServiceStatusRequest
-   * @return GetVpcIpamServiceStatusResponse
+   * 查询IPAM功能的开通状态。
+   * 
+   * @param request - GetVpcIpamServiceStatusRequest
+   * @returns GetVpcIpamServiceStatusResponse
    */
   async getVpcIpamServiceStatus(request: GetVpcIpamServiceStatusRequest): Promise<GetVpcIpamServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3648,9 +4943,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamPoolAllocationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIpamPoolAllocationsResponse
+   * @param request - ListIpamPoolAllocationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamPoolAllocationsResponse
    */
   async listIpamPoolAllocationsWithOptions(request: ListIpamPoolAllocationsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpamPoolAllocationsResponse> {
     Util.validateModel(request);
@@ -3697,8 +4992,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamPoolAllocationsRequest
-   * @return ListIpamPoolAllocationsResponse
+   * @param request - ListIpamPoolAllocationsRequest
+   * @returns ListIpamPoolAllocationsResponse
    */
   async listIpamPoolAllocations(request: ListIpamPoolAllocationsRequest): Promise<ListIpamPoolAllocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3706,9 +5001,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamPoolCidrsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIpamPoolCidrsResponse
+   * @param request - ListIpamPoolCidrsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamPoolCidrsResponse
    */
   async listIpamPoolCidrsWithOptions(request: ListIpamPoolCidrsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpamPoolCidrsResponse> {
     Util.validateModel(request);
@@ -3751,8 +5046,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamPoolCidrsRequest
-   * @return ListIpamPoolCidrsResponse
+   * @param request - ListIpamPoolCidrsRequest
+   * @returns ListIpamPoolCidrsResponse
    */
   async listIpamPoolCidrs(request: ListIpamPoolCidrsRequest): Promise<ListIpamPoolCidrsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3760,9 +5055,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamPoolsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIpamPoolsResponse
+   * @param request - ListIpamPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamPoolsResponse
    */
   async listIpamPoolsWithOptions(request: ListIpamPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpamPoolsResponse> {
     Util.validateModel(request);
@@ -3841,8 +5136,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamPoolsRequest
-   * @return ListIpamPoolsResponse
+   * @param request - ListIpamPoolsRequest
+   * @returns ListIpamPoolsResponse
    */
   async listIpamPools(request: ListIpamPoolsRequest): Promise<ListIpamPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3850,9 +5145,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamResourceCidrsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIpamResourceCidrsResponse
+   * @param request - ListIpamResourceCidrsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamResourceCidrsResponse
    */
   async listIpamResourceCidrsWithOptions(request: ListIpamResourceCidrsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpamResourceCidrsResponse> {
     Util.validateModel(request);
@@ -3907,8 +5202,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamResourceCidrsRequest
-   * @return ListIpamResourceCidrsResponse
+   * @param request - ListIpamResourceCidrsRequest
+   * @returns ListIpamResourceCidrsResponse
    */
   async listIpamResourceCidrs(request: ListIpamResourceCidrsRequest): Promise<ListIpamResourceCidrsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3916,9 +5211,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamScopesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIpamScopesResponse
+   * @param request - ListIpamScopesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamScopesResponse
    */
   async listIpamScopesWithOptions(request: ListIpamScopesRequest, runtime: $Util.RuntimeOptions): Promise<ListIpamScopesResponse> {
     Util.validateModel(request);
@@ -3993,8 +5288,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIpamScopesRequest
-   * @return ListIpamScopesResponse
+   * @param request - ListIpamScopesRequest
+   * @returns ListIpamScopesResponse
    */
   async listIpamScopes(request: ListIpamScopesRequest): Promise<ListIpamScopesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4002,11 +5297,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询ipam
-   *
-   * @param request ListIpamsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIpamsResponse
+   * 查询ipam
+   * 
+   * @param request - ListIpamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamsResponse
    */
   async listIpamsWithOptions(request: ListIpamsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpamsResponse> {
     Util.validateModel(request);
@@ -4073,10 +5368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询ipam
-   *
-   * @param request ListIpamsRequest
-   * @return ListIpamsResponse
+   * 查询ipam
+   * 
+   * @param request - ListIpamsRequest
+   * @returns ListIpamsResponse
    */
   async listIpams(request: ListIpamsRequest): Promise<ListIpamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4084,11 +5379,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询资源标签列表
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * 查询资源标签列表
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -4151,10 +5446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询资源标签列表
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * 查询资源标签列表
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4162,11 +5457,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开通IPAM功能。
-   *
-   * @param request OpenVpcIpamServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenVpcIpamServiceResponse
+   * 开通IPAM功能。
+   * 
+   * @param request - OpenVpcIpamServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenVpcIpamServiceResponse
    */
   async openVpcIpamServiceWithOptions(request: OpenVpcIpamServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenVpcIpamServiceResponse> {
     Util.validateModel(request);
@@ -4213,10 +5508,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开通IPAM功能。
-   *
-   * @param request OpenVpcIpamServiceRequest
-   * @return OpenVpcIpamServiceResponse
+   * 开通IPAM功能。
+   * 
+   * @param request - OpenVpcIpamServiceRequest
+   * @returns OpenVpcIpamServiceResponse
    */
   async openVpcIpamService(request: OpenVpcIpamServiceRequest): Promise<OpenVpcIpamServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4224,11 +5519,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为资源实例绑定资源标签
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * 为资源实例绑定资源标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -4283,10 +5578,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为资源实例绑定资源标签
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * 为资源实例绑定资源标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4294,11 +5589,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为资源解绑资源标签
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * 为资源解绑资源标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -4357,10 +5652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为资源解绑资源标签
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * 为资源解绑资源标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4368,11 +5663,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新ipam
-   *
-   * @param request UpdateIpamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIpamResponse
+   * 更新ipam
+   * 
+   * @param request - UpdateIpamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIpamResponse
    */
   async updateIpamWithOptions(request: UpdateIpamRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpamResponse> {
     Util.validateModel(request);
@@ -4443,10 +5738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新ipam
-   *
-   * @param request UpdateIpamRequest
-   * @return UpdateIpamResponse
+   * 更新ipam
+   * 
+   * @param request - UpdateIpamRequest
+   * @returns UpdateIpamResponse
    */
   async updateIpam(request: UpdateIpamRequest): Promise<UpdateIpamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4454,9 +5749,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateIpamPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIpamPoolResponse
+   * @param request - UpdateIpamPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIpamPoolResponse
    */
   async updateIpamPoolWithOptions(request: UpdateIpamPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpamPoolResponse> {
     Util.validateModel(request);
@@ -4535,8 +5830,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateIpamPoolRequest
-   * @return UpdateIpamPoolResponse
+   * @param request - UpdateIpamPoolRequest
+   * @returns UpdateIpamPoolResponse
    */
   async updateIpamPool(request: UpdateIpamPoolRequest): Promise<UpdateIpamPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4544,9 +5839,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateIpamScopeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIpamScopeResponse
+   * @param request - UpdateIpamScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIpamScopeResponse
    */
   async updateIpamScopeWithOptions(request: UpdateIpamScopeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpamScopeResponse> {
     Util.validateModel(request);
@@ -4609,8 +5904,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateIpamScopeRequest
-   * @return UpdateIpamScopeResponse
+   * @param request - UpdateIpamScopeRequest
+   * @returns UpdateIpamScopeResponse
    */
   async updateIpamScope(request: UpdateIpamScopeRequest): Promise<UpdateIpamScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
