@@ -1109,6 +1109,7 @@ export class CreateWebCustomDomainInput extends $tea.Model {
    * HTTP
    */
   protocol?: string;
+  routeConfig?: RouteConfig;
   webCertConfig?: WebCertConfig;
   webTLSConfig?: WebTLSConfig;
   webWAFConfig?: WebWAFConfig;
@@ -1117,6 +1118,7 @@ export class CreateWebCustomDomainInput extends $tea.Model {
       defaultForwardingAppName: 'DefaultForwardingAppName',
       domainName: 'DomainName',
       protocol: 'Protocol',
+      routeConfig: 'RouteConfig',
       webCertConfig: 'WebCertConfig',
       webTLSConfig: 'WebTLSConfig',
       webWAFConfig: 'WebWAFConfig',
@@ -1128,6 +1130,7 @@ export class CreateWebCustomDomainInput extends $tea.Model {
       defaultForwardingAppName: 'string',
       domainName: 'string',
       protocol: 'string',
+      routeConfig: RouteConfig,
       webCertConfig: WebCertConfig,
       webTLSConfig: WebTLSConfig,
       webWAFConfig: WebWAFConfig,
@@ -4075,6 +4078,7 @@ export class UpdateWebCustomDomainInput extends $tea.Model {
    * HTTP
    */
   protocol?: string;
+  routeConfig?: RouteConfig;
   webCertConfig?: WebCertConfig;
   webTLSConfig?: WebTLSConfig;
   webWAFConfig?: WebWAFConfig;
@@ -4082,6 +4086,7 @@ export class UpdateWebCustomDomainInput extends $tea.Model {
     return {
       defaultForwardingAppName: 'DefaultForwardingAppName',
       protocol: 'Protocol',
+      routeConfig: 'RouteConfig',
       webCertConfig: 'WebCertConfig',
       webTLSConfig: 'WebTLSConfig',
       webWAFConfig: 'WebWAFConfig',
@@ -4092,6 +4097,7 @@ export class UpdateWebCustomDomainInput extends $tea.Model {
     return {
       defaultForwardingAppName: 'string',
       protocol: 'string',
+      routeConfig: RouteConfig,
       webCertConfig: WebCertConfig,
       webTLSConfig: WebTLSConfig,
       webWAFConfig: WebWAFConfig,
@@ -4604,11 +4610,6 @@ export class WebCertConfig extends $tea.Model {
 export class WebCustomDomain extends $tea.Model {
   /**
    * @example
-   * 123xxxxxx
-   */
-  accountId?: string;
-  /**
-   * @example
    * 2023-03-30T08:02:19Z
    */
   createdTime?: string;
@@ -4633,36 +4634,44 @@ export class WebCustomDomain extends $tea.Model {
    * HTTP
    */
   protocol?: string;
+  routeConfig?: RouteConfig;
   webCertConfig?: WebCertConfig;
   webTLSConfig?: WebTLSConfig;
   webWAFConfig?: WebWAFConfig;
+  /**
+   * @example
+   * 123xxxxxx
+   */
+  accountId?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
       createdTime: 'CreatedTime',
       defaultForwardingAppName: 'DefaultForwardingAppName',
       domainName: 'DomainName',
       lastModifiedTime: 'LastModifiedTime',
       namespaceId: 'NamespaceId',
       protocol: 'Protocol',
+      routeConfig: 'RouteConfig',
       webCertConfig: 'WebCertConfig',
       webTLSConfig: 'WebTLSConfig',
       webWAFConfig: 'WebWAFConfig',
+      accountId: 'accountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
       createdTime: 'string',
       defaultForwardingAppName: 'string',
       domainName: 'string',
       lastModifiedTime: 'string',
       namespaceId: 'string',
       protocol: 'string',
+      routeConfig: RouteConfig,
       webCertConfig: WebCertConfig,
       webTLSConfig: WebTLSConfig,
       webWAFConfig: WebWAFConfig,
+      accountId: 'string',
     };
   }
 
@@ -6111,6 +6120,7 @@ export class CreateApplicationRequest extends $tea.Model {
    */
   edasContainerVersion?: string;
   enableEbpf?: string;
+  enableNewArms?: boolean;
   /**
    * @remarks
    * [{"name":"envtmp","value":"0"}]
@@ -6445,6 +6455,7 @@ export class CreateApplicationRequest extends $tea.Model {
       deploy: 'Deploy',
       edasContainerVersion: 'EdasContainerVersion',
       enableEbpf: 'EnableEbpf',
+      enableNewArms: 'EnableNewArms',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -6511,6 +6522,7 @@ export class CreateApplicationRequest extends $tea.Model {
       deploy: 'boolean',
       edasContainerVersion: 'string',
       enableEbpf: 'string',
+      enableNewArms: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -6846,6 +6858,12 @@ export class CreateApplicationScalingRuleResponse extends $tea.Model {
 export class CreateConfigMapRequest extends $tea.Model {
   /**
    * @remarks
+   * The key-value pairs of the ConfigMap in the JSON format. Format:
+   * 
+   * {"Data":"{"k1":"v1", "k2":"v2"}"}
+   * 
+   * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6853,13 +6871,16 @@ export class CreateConfigMapRequest extends $tea.Model {
    */
   data?: string;
   /**
+   * @remarks
+   * The description. The description must be 1 to 255 characters in length, and cannot contain spaces.
+   * 
    * @example
    * test-desc
    */
   description?: string;
   /**
    * @remarks
-   * cn-hangzhou
+   * The name of the ConfigMap. The name can contain digits, letters, and underscores (_). The name must start with a letter.
    * 
    * This parameter is required.
    * 
@@ -6869,7 +6890,7 @@ export class CreateConfigMapRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the namespace to which the ConfigMap instance belongs.
    * 
    * This parameter is required.
    * 
@@ -6903,10 +6924,12 @@ export class CreateConfigMapRequest extends $tea.Model {
 export class CreateConfigMapResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether the ConfigMap instance was created. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The instance was created.
-   * *   **false**: The call failed to be created.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -6914,22 +6937,23 @@ export class CreateConfigMapResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the ConfigMap instance that was created.
+   * The returned result.
    */
   data?: CreateConfigMapResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * Empty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The returned message.
    * 
    * @example
    * success
@@ -6937,20 +6961,26 @@ export class CreateConfigMapResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the ConfigMap was created. Valid values:
+   * 
+   * *   **true**: The ConfigMap was created.
+   * *   **false**: The ConfigMap failed to be created.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned result.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -10260,6 +10290,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * false
    */
   enableGreyTagRoute?: boolean;
+  enableNewArms?: boolean;
   /**
    * @remarks
    * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
@@ -10705,6 +10736,7 @@ export class DeployApplicationRequest extends $tea.Model {
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
       enableGreyTagRoute: 'EnableGreyTagRoute',
+      enableNewArms: 'EnableNewArms',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -10770,6 +10802,7 @@ export class DeployApplicationRequest extends $tea.Model {
       edasContainerVersion: 'string',
       enableAhas: 'string',
       enableGreyTagRoute: 'boolean',
+      enableNewArms: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -15352,7 +15385,7 @@ export class DescribeWebCustomDomainRequest extends $tea.Model {
 export class DescribeWebCustomDomainResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: WebCustomDomainBody;
+  body?: WebCustomDomain;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15365,7 +15398,7 @@ export class DescribeWebCustomDomainResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: WebCustomDomainBody,
+      body: WebCustomDomain,
     };
   }
 
@@ -19666,9 +19699,6 @@ export class ListWebCustomDomainsRequest extends $tea.Model {
    */
   limit?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * cn-hangzhou
    */
@@ -26293,10 +26323,7 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
 export class CreateConfigMapResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The ID of the ConfigMap that was created.
    * 
    * @example
    * 1
@@ -27331,6 +27358,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    */
   enableGreyTagRoute?: boolean;
   enableIdle?: boolean;
+  enableNewArms?: boolean;
   /**
    * @remarks
    * The environment variables. Variable description:
@@ -27843,6 +27871,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       enableAhas: 'EnableAhas',
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableIdle: 'EnableIdle',
+      enableNewArms: 'EnableNewArms',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -27916,6 +27945,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       enableAhas: 'string',
       enableGreyTagRoute: 'boolean',
       enableIdle: 'boolean',
+      enableNewArms: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -38842,6 +38872,10 @@ export default class Client extends OpenApi {
       query["EnableEbpf"] = request.enableEbpf;
     }
 
+    if (!Util.isUnset(request.enableNewArms)) {
+      query["EnableNewArms"] = request.enableNewArms;
+    }
+
     if (!Util.isUnset(request.envs)) {
       query["Envs"] = request.envs;
     }
@@ -39156,7 +39190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * name
+   * Create a ConfigMap in a namespace.
    * 
    * @param request - CreateConfigMapRequest
    * @param headers - map
@@ -39203,7 +39237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * name
+   * Create a ConfigMap in a namespace.
    * 
    * @param request - CreateConfigMapRequest
    * @returns CreateConfigMapResponse
@@ -40452,6 +40486,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableGreyTagRoute)) {
       query["EnableGreyTagRoute"] = request.enableGreyTagRoute;
+    }
+
+    if (!Util.isUnset(request.enableNewArms)) {
+      query["EnableNewArms"] = request.enableNewArms;
     }
 
     if (!Util.isUnset(request.envs)) {
