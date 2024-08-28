@@ -1265,7 +1265,7 @@ export class CheckServiceLinkedRoleResponse extends $tea.Model {
 export class CreateAccountRequest extends $tea.Model {
   /**
    * @remarks
-   * The description of the privileged account.
+   * The description of the initial account.
    * 
    * @example
    * testacc02
@@ -1273,7 +1273,7 @@ export class CreateAccountRequest extends $tea.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the privileged account.
+   * The name of the initial account.
    * 
    * *   The name can contain lowercase letters, digits, and underscores (_).
    * *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
@@ -1288,8 +1288,7 @@ export class CreateAccountRequest extends $tea.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the privileged account.
-   * 
+   * The password of the initial account.
    * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
    * *   The password must be 8 to 32 characters in length.
@@ -1300,6 +1299,13 @@ export class CreateAccountRequest extends $tea.Model {
    * Pw123456
    */
   accountPassword?: string;
+  /**
+   * @remarks
+   * The type of the initial account. Default value: Super, which specifies a privileged account. To create a standard account, set the value to Normal.
+   * 
+   * @example
+   * Super
+   */
   accountType?: string;
   /**
    * @remarks
@@ -11388,7 +11394,7 @@ export class DescribeDataShareInstancesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1
+   * The page number. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -20756,7 +20762,7 @@ export class ListNamespacesRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -20795,6 +20801,10 @@ export class ListNamespacesRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21879,10 +21889,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The storage mode of the instance. Valid values:
-   * 
-   * *   `instance`: reserved storage mode
-   * *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
+   * The resource type. Set the value to instance.
    * 
    * This parameter is required.
    * 
@@ -22142,7 +22149,7 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   enableRecoveryPoint?: boolean;
   /**
    * @remarks
-   * The cycle based on which you want to perform a backup. Separate multiple values with commas (,). Valid values:
+   * The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid values:
    * 
    * *   Monday
    * *   Tuesday
@@ -25527,6 +25534,7 @@ export class QueryCollectionDataRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  relationalTableFilter?: QueryCollectionDataRequestRelationalTableFilter;
   /**
    * @remarks
    * This parameter is required.
@@ -25564,6 +25572,7 @@ export class QueryCollectionDataRequest extends $tea.Model {
       orderBy: 'OrderBy',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      relationalTableFilter: 'RelationalTableFilter',
       topK: 'TopK',
       vector: 'Vector',
       workspaceId: 'WorkspaceId',
@@ -25587,6 +25596,7 @@ export class QueryCollectionDataRequest extends $tea.Model {
       orderBy: 'string',
       ownerId: 'number',
       regionId: 'string',
+      relationalTableFilter: QueryCollectionDataRequestRelationalTableFilter,
       topK: 'number',
       vector: { 'type': 'array', 'itemType': 'number' },
       workspaceId: 'string',
@@ -25772,6 +25782,7 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  relationalTableFilterShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -25809,6 +25820,7 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
       orderBy: 'OrderBy',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      relationalTableFilterShrink: 'RelationalTableFilter',
       topK: 'TopK',
       vectorShrink: 'Vector',
       workspaceId: 'WorkspaceId',
@@ -25832,6 +25844,7 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
       orderBy: 'string',
       ownerId: 'number',
       regionId: 'string',
+      relationalTableFilterShrink: 'string',
       topK: 'number',
       vectorShrink: 'string',
       workspaceId: 'string',
@@ -38765,6 +38778,34 @@ export class ModifyDBResourceGroupRequestResourceGroupItems extends $tea.Model {
   }
 }
 
+export class QueryCollectionDataRequestRelationalTableFilter extends $tea.Model {
+  collectionMetadataField?: string;
+  condition?: string;
+  tableField?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionMetadataField: 'CollectionMetadataField',
+      condition: 'Condition',
+      tableField: 'TableField',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionMetadataField: 'string',
+      condition: 'string',
+      tableField: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCollectionDataResponseBodyMatchesMatchValues extends $tea.Model {
   value?: number[];
   static names(): { [key: string]: string } {
@@ -39729,11 +39770,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a privileged account for an AnalyticDB for PostgreSQL instance.
+   * Creates an initial account for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
-   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
+   *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
+   * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
    * ## Limits
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
@@ -39794,11 +39835,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a privileged account for an AnalyticDB for PostgreSQL instance.
+   * Creates an initial account for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
-   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
+   *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
+   * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
    * ## Limits
    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
@@ -49213,6 +49254,10 @@ export default class Client extends OpenApi {
       request.hybridSearchArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hybridSearchArgs, "HybridSearchArgs", "json");
     }
 
+    if (!Util.isUnset(tmpReq.relationalTableFilter)) {
+      request.relationalTableFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relationalTableFilter, "RelationalTableFilter", "json");
+    }
+
     if (!Util.isUnset(tmpReq.vector)) {
       request.vectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vector, "Vector", "json");
     }
@@ -49276,6 +49321,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.relationalTableFilterShrink)) {
+      query["RelationalTableFilter"] = request.relationalTableFilterShrink;
     }
 
     if (!Util.isUnset(request.topK)) {
