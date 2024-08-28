@@ -7644,6 +7644,13 @@ export class ListServicesRequest extends $tea.Model {
    * foo
    */
   filter?: string;
+  /**
+   * @remarks
+   * The ID of the private gateway.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gateway?: string;
   /**
    * @remarks
@@ -7998,6 +8005,13 @@ export class ListServicesShrinkRequest extends $tea.Model {
    * foo
    */
   filter?: string;
+  /**
+   * @remarks
+   * The ID of the private gateway.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
   gateway?: string;
   /**
    * @remarks
@@ -8423,6 +8437,112 @@ export class ListServicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTenantAddonsResponseBody extends $tea.Model {
+  addons?: ListTenantAddonsResponseBodyAddons[];
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addons: 'Addons',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addons: { 'type': 'array', 'itemType': ListTenantAddonsResponseBodyAddons },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTenantAddonsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTenantAddonsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTenantAddonsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReinstallTenantAddonResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Addon prometheus_discovery is successfully reinstalled
+   */
+  message?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReinstallTenantAddonResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReinstallTenantAddonResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReinstallTenantAddonResponseBody,
     };
   }
 
@@ -11686,6 +11806,32 @@ export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
   }
 }
 
+export class ListTenantAddonsResponseBodyAddons extends $tea.Model {
+  attributes?: { [key: string]: string };
+  /**
+   * @example
+   * prometheus_discovery
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
   /**
    * @remarks
@@ -14897,6 +15043,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServicesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取租户配置列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTenantAddonsResponse
+   */
+  async listTenantAddonsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTenantAddonsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTenantAddons",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tenantaddons`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTenantAddonsResponse>(await this.callApi(params, req, runtime), new ListTenantAddonsResponse({}));
+  }
+
+  /**
+   * 获取租户配置列表
+   * @returns ListTenantAddonsResponse
+   */
+  async listTenantAddons(): Promise<ListTenantAddonsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTenantAddonsWithOptions(headers, runtime);
+  }
+
+  /**
+   * 重置租户配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReinstallTenantAddonResponse
+   */
+  async reinstallTenantAddonWithOptions(ClusterId: string, TenantAddonName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReinstallTenantAddonResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ReinstallTenantAddon",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tenantaddons/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TenantAddonName)}/reinstall`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReinstallTenantAddonResponse>(await this.callApi(params, req, runtime), new ReinstallTenantAddonResponse({}));
+  }
+
+  /**
+   * 重置租户配置
+   * @returns ReinstallTenantAddonResponse
+   */
+  async reinstallTenantAddon(ClusterId: string, TenantAddonName: string): Promise<ReinstallTenantAddonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, headers, runtime);
   }
 
   /**
