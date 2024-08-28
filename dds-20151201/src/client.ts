@@ -19915,6 +19915,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigs
    * dds-bp18b0934e7053e4-cs****.mongodb.rds.aliyuncs.com
    */
   connectString?: string;
+  lockMode?: string;
   /**
    * @remarks
    * The maximum number of connections to the Configserver node.
@@ -19982,6 +19983,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigs
   static names(): { [key: string]: string } {
     return {
       connectString: 'ConnectString',
+      lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
       nodeClass: 'NodeClass',
@@ -19996,6 +19998,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigs
   static types(): { [key: string]: any } {
     return {
       connectString: 'string',
+      lockMode: 'string',
       maxConnections: 'number',
       maxIOPS: 'number',
       nodeClass: 'string',
@@ -20040,6 +20043,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
    * s-bp1d8c262a15****.mongodb.rds.aliyuncs.com
    */
   connectSting?: string;
+  lockMode?: string;
   /**
    * @remarks
    * The maximum number of connections to the mongos node.
@@ -20127,6 +20131,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
   static names(): { [key: string]: string } {
     return {
       connectSting: 'ConnectSting',
+      lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
       nodeClass: 'NodeClass',
@@ -20143,6 +20148,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
   static types(): { [key: string]: any } {
     return {
       connectSting: 'string',
+      lockMode: 'string',
       maxConnections: 'number',
       maxIOPS: 'number',
       nodeClass: 'string',
@@ -20306,6 +20312,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
    * d-bp1af0680a9c6d3****.mongodb.rds.aliyuncs.com:****
    */
   connectString?: string;
+  lockMode?: string;
   /**
    * @remarks
    * The maximum number of connections to the shard node.
@@ -20389,6 +20396,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
   static names(): { [key: string]: string } {
     return {
       connectString: 'ConnectString',
+      lockMode: 'LockMode',
       maxConnections: 'MaxConnections',
       maxDiskMbps: 'MaxDiskMbps',
       maxIOPS: 'MaxIOPS',
@@ -20405,6 +20413,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
   static types(): { [key: string]: any } {
     return {
       connectString: 'string',
+      lockMode: 'string',
       maxConnections: 'number',
       maxDiskMbps: 'string',
       maxIOPS: 'number',
@@ -26987,7 +26996,7 @@ export default class Client extends OpenApi {
       'cn-heyuan': "mongodb.aliyuncs.com",
       'cn-guangzhou': "mongodb.aliyuncs.com",
       'cn-chengdu': "mongodb.cn-chengdu.aliyuncs.com",
-      'cn-hongkong': "mongodb.aliyuncs.com",
+      'cn-hongkong': "mongodb.cn-hongkong.aliyuncs.com",
       'ap-northeast-1': "mongodb.ap-northeast-1.aliyuncs.com",
       'ap-southeast-1': "mongodb.ap-southeast-1.aliyuncs.com",
       'ap-southeast-2': "mongodb.ap-southeast-2.aliyuncs.com",
