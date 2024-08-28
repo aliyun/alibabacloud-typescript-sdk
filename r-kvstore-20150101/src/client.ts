@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,18 +8,86 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddShardingNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Valid values:
+   * 
+   * *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+   * *   **false**: disables automatic payment. In this case, you must manually renew the instance in the console before the instance expires. For more information, see [Renewal](https://help.aliyun.com/document_detail/26352.html).
+   * 
+   * > The default value is **true**.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The business information. This is an additional parameter.
+   * 
+   * @example
+   * 000000000
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The ID of the coupon.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable forced transmission during a configuration change. Valid values:
+   * 
+   * *   **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
+   * *   **true**: The system skips the version check and directly performs the configuration change.
+   * 
+   * @example
+   * false
+   */
   forceTrans?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The number of data shards that you want to add. Default value: **1**.
+   * 
+   * >  The instance can contain 2 to 256 data shards. You can add up to 64 data shards at a time. Make sure that the number of shards does not exceed this limit.
+   * 
+   * @example
+   * 2
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+   * 
+   * @example
+   * SDK
+   */
   sourceBiz?: string;
+  /**
+   * @remarks
+   * The vSwitch ID. You can specify a different vSwitch within the same virtual private cloud (VPC). In this case, the new data shards are created in the specified vSwitch. If you do not specify this parameter, the new data shards are created in the original vSwitch.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,8 +131,26 @@ export class AddShardingNodeRequest extends $tea.Model {
 }
 
 export class AddShardingNodeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the data shards.
+   */
   nodeIds?: string[];
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 20741011111111
+   */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B79C1A90-495B-4E99-A2AA-A4DB13B8****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,10 +199,33 @@ export class AddShardingNodeResponse extends $tea.Model {
 }
 
 export class AllocateDirectConnectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The prefix of the private endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix must be 8 to 40 characters in length.
+   * 
+   * @example
+   * redisdirect123
+   */
   connectionString?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The port number of the instance. Valid values: **1024** to **65535**. Default value: **6379**.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -154,6 +262,13 @@ export class AllocateDirectConnectionRequest extends $tea.Model {
 }
 
 export class AllocateDirectConnectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -198,10 +313,39 @@ export class AllocateDirectConnectionResponse extends $tea.Model {
 }
 
 export class AllocateInstancePublicConnectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The prefix of the public endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix can be 8 to 40 characters in length.
+   * 
+   * >  The endpoint is in the `<prefix>.redis.rds.aliyuncs.com` format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   connectionStringPrefix?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The service port number of the instance. Valid values: **1024** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -238,6 +382,13 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
 }
 
 export class AllocateInstancePublicConnectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 20C8341E-B5AD-4B24-BD82-D73241522ABF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,11 +433,33 @@ export class AllocateInstancePublicConnectionResponse extends $tea.Model {
 }
 
 export class CheckCloudResourceAuthorizedRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that you want to attach to your ApsaraDB for Redis instance. The ARN must be in the format of `acs:ram::$accountID:role/$roleName`. After the role is attached, your ApsaraDB for Redis instance can use KMS.
+   * 
+   * > 
+   * 
+   * *   `$accountID`: the ID of the Alibaba Cloud account. To view the account ID, log on to the Alibaba Cloud console, move the pointer over your profile picture in the upper-right corner of the page, and then click **Security Settings**.
+   * 
+   * *   `$roleName`: the name of the RAM role. Replace $roleName with **AliyunRdsInstanceEncryptionDefaultRole**.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+   */
   roleArn?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -319,7 +492,25 @@ export class CheckCloudResourceAuthorizedRequest extends $tea.Model {
 }
 
 export class CheckCloudResourceAuthorizedResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the instance is authorized to use KMS. Valid values:
+   * 
+   * *   **0**: The instance is authorized to use KMS.
+   * *   **1**: The instance is not authorized to use KMS.
+   * *   **2**: KMS is not activated. For more information, see [Activate KMS](https://help.aliyun.com/document_detail/153781.html).
+   * 
+   * @example
+   * 1
+   */
   authorizationState?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A501A191-BD70-5E50-98A9-C2A486A82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -366,11 +557,70 @@ export class CheckCloudResourceAuthorizedResponse extends $tea.Model {
 }
 
 export class CreateAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the account.
+   * 
+   * *   The description must start with a letter, and cannot start with `http://` or `https://`.
+   * *   The description can contain letters, digits, underscores (_), and hyphens (-).
+   * *   The description must be 2 to 256 characters in length.
+   * 
+   * @example
+   * testaccount
+   */
   accountDescription?: string;
+  /**
+   * @remarks
+   * The name of the account. The name must meet the following requirements:
+   * 
+   * *   The name can contain lowercase letters, digits, and hyphens (-), and must start with a lowercase letter.
+   * *   The name can be up to 100 characters in length.
+   * *   The name cannot be one of the reserved words in the [Reserved words for Redis account names](https://help.aliyun.com/document_detail/92665.html#title-84o-mok-b6h) section.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The password of the account. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * uWonno21****
+   */
   accountPassword?: string;
+  /**
+   * @remarks
+   * The permissions of the account. Valid values:
+   * 
+   * *   **RoleReadOnly**: The account has read-only permissions.
+   * *   **RoleReadWrite**: The account has read and write permissions.
+   * 
+   * @example
+   * RoleReadOnly
+   */
   accountPrivilege?: string;
+  /**
+   * @remarks
+   * The type of the account. Set the value to **Normal**, which indicates that the account is a standard account.
+   * 
+   * @example
+   * Normal
+   */
   accountType?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -418,8 +668,29 @@ export class CreateAccountRequest extends $tea.Model {
 }
 
 export class CreateAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the account.
+   * 
+   * @example
+   * demoaccount
+   */
   acountName?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ABAF95F6-35C1-4177-AF3A-70969EBD****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -468,6 +739,15 @@ export class CreateAccountResponse extends $tea.Model {
 }
 
 export class CreateBackupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -502,7 +782,23 @@ export class CreateBackupRequest extends $tea.Model {
 }
 
 export class CreateBackupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the backup task.\\
+   * For cluster instances created before December 5, 2023, the return value is a comma-separated list composed of the job ID of each node within an instance. For example, if you have a cluster instance with two shards, the return value of BackupJobID is "10000,10001".\\
+   * For cluster instance created after December 5, 2023, all jobs for nodes in an instance are represented by a single job ID.
+   * 
+   * @example
+   * 1162****
+   */
   backupJobID?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2FF6158E-3394-4A90-B634-79C49184****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -549,6 +845,15 @@ export class CreateBackupResponse extends $tea.Model {
 }
 
 export class CreateCacheAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -583,6 +888,13 @@ export class CreateCacheAnalysisTaskRequest extends $tea.Model {
 }
 
 export class CreateCacheAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BBC1E3D6-7C88-4DF5-9A3D-0DB1E6D9****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -627,13 +939,41 @@ export class CreateCacheAnalysisTaskResponse extends $tea.Model {
 }
 
 export class CreateGlobalDistributeCacheRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time when you want to restart the instance. Default value: Immediately. Valid values:
+   * 
+   * *   **Immediately**: immediately restarts the instance.
+   * *   **MaintainTime**: restarts the instance during the maintenance window.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * >  You do not need to specify system parameters.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The ID of the existing instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   seedSubInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -667,6 +1007,13 @@ export class CreateGlobalDistributeCacheRequest extends $tea.Model {
 }
 
 export class CreateGlobalDistributeCacheResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E681E498-5A0D-44F2-B1A7-912DC3******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -711,11 +1058,51 @@ export class CreateGlobalDistributeCacheResponse extends $tea.Model {
 }
 
 export class CreateGlobalSecurityIPGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses in the IP whitelist template.
+   * 
+   * >  Separate multiple IP addresses with commas (,). The maximum number of IP addresses is 1,000.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 111.175.56.206,47.253.88.168,111.181.0.162
+   */
   GIpList?: string;
+  /**
+   * @remarks
+   * The name of the IP whitelist template. The name must meet the following requirements:
+   * 
+   * *   The name can contain lowercase letters, digits, and underscores (_).
+   * *   The name must start with a letter and end with a letter or digit.
+   * *   The name must be 2 to 120 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_123
+   */
   globalIgName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -754,7 +1141,18 @@ export class CreateGlobalSecurityIPGroupRequest extends $tea.Model {
 }
 
 export class CreateGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the global IP whitelist template.
+   */
   globalSecurityIPGroup?: CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -801,51 +1199,408 @@ export class CreateGlobalSecurityIPGroupResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable append-only file (AOF) persistence for the instance. Valid values:
+   * 
+   * *   **yes** (default): enables AOF persistence.
+   * *   **no**: disables AOF persistence.
+   * 
+   * **
+   * 
+   * **Description** This parameter is applicable to classic instances, and is unavailable for cloud-native instances.
+   * 
+   * @example
+   * yes
+   */
   appendonly?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+   * 
+   * *   **true**: enables auto-renewal.
+   * *   **false**: disables auto-renewal.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The subscription duration that is supported by auto-renewal. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * 
+   * > This parameter is required only if the **AutoRenew** parameter is set to **true**.
+   * 
+   * @example
+   * 3
+   */
   autoRenewPeriod?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Default value: false. Valid values:
+   * 
+   * *   **true**: uses a coupon.
+   * *   **false**: does not use a coupon.
+   * 
+   * @example
+   * false
+   */
   autoUseCoupon?: string;
+  /**
+   * @remarks
+   * If your instance is a cloud-native cluster instance, we recommend that you use [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679158.html) to query the backup set ID of the cluster instance, such as cb-xx. Then, set the ClusterBackupId request parameter to the backup set ID to clone the cluster instance. This eliminates the need to specify the backup set ID of each shard.
+   * 
+   * You can set the BackupId parameter to the backup set ID of the source instance. The system uses the data stored in the backup set to create an instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/61081.html) operation to query backup set IDs. If the source instance is a cluster instance, set the BackupId parameter to the backup set IDs of all shards of the source instance, separated by commas (,). Example: "10\\*\\*,11\\*\\*,15\\*\\*".
+   * 
+   * @example
+   * 111111111
+   */
   backupId?: string;
+  /**
+   * @remarks
+   * The ID of the promotional event or business information.
+   * 
+   * @example
+   * 000000000
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB.
+   * 
+   * > You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call this operation.
+   * 
+   * @example
+   * 16384
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Default value: PrePaid. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * This parameter is supported for specific new cluster instances. You can query the backup set ID by using the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679158.html) operation.
+   * 
+   * *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
+   * *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets for all shards of the source instance, separated by commas (,). Example: "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
+   * 
+   * @example
+   * cb-hyxdof5x9kqbtust
+   */
   clusterBackupId?: string;
+  /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **AllocateInstancePublicConnection**.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   connectionStringPrefix?: string;
+  /**
+   * @remarks
+   * The coupon code. Default value: `default`.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated cluster. This parameter is required if you create an instance in a dedicated cluster.
+   * 
+   * @example
+   * dhg-uv4fnk6r7zff****
+   */
   dedicatedHostGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Default value: false. Valid values:
+   * 
+   * *   **true**: performs a dry run and does not create the instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The engine version. Valid values for **classic instances**:
+   * 
+   * *   **2.8** (not recommended due to [scheduled EOFS](https://help.aliyun.com/document_detail/2674657.html))
+   * *   **4.0** (not recommended)
+   * *   **5.0**
+   * 
+   * Valid values for **cloud-native instances**:
+   * 
+   * *   **5.0**
+   * *   **6.0** (recommended)
+   * *   **7.0**
+   * 
+   * >  The default value is **5.0**.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the new instance as the first child instance of the distributed instance. Default value: false. Valid values:
+   * 
+   * *   **true**: uses the new instance as the first child instance.
+   * *   **false**: does not use the new instance as the first child instance.
+   * *   If you want to create an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that runs Redis 5.0, you must set this parameter to **true**.
+   * 
+   * *   This parameter is available only on the China site (aliyun.com).
+   * 
+   * @example
+   * false
+   */
   globalInstance?: boolean;
+  /**
+   * @remarks
+   * The ID of the distributed instance. This parameter is available only on the China site (aliyun.com).
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * The global IP whitelist template for the instance. Multiple IP whitelist templates should be separated by English commas (,) and cannot be duplicated.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupIds?: string;
+  /**
+   * @remarks
+   * The instance type. For example, redis.master.small.default indicates a Community Edition standard master-replica instance that has 1 GB of memory. For more information, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+   * 
+   * **
+   * 
+   * **Description** You must specify at least one of the **Capacity** and **InstanceClass** parameters when you call the CreateInstance operation.
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The name of the instance. The name must be 2 to 80 characters in length and must start with a letter. It cannot contain spaces or specific special characters. These special characters include `@ / : = " < > { [ ] }`
+   * 
+   * @example
+   * apitest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The category of the instance. Default value: Redis. Valid values:
+   * 
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Default value: VPC. Valid values:
+   * 
+   * *   **VPC**
+   * 
+   * @example
+   * VPC
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **MASTER_SLAVE**: high availability (master-replica)
+   * *   **STAND_ALONE**: standalone
+   * *   **double**: master-replica
+   * *   **single**: standalone
+   * 
+   * >  To create a cloud-native instance, set this parameter to **MASTER_SLAVE** or **STAND_ALONE**. To create a classic instance, set this parameter to **double** or **single**.
+   * 
+   * @example
+   * STAND_ALONE
+   */
   nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The parameter template ID, which must be globally unique.
+   * 
+   * @example
+   * rpg-test**
+   */
   paramGroupId?: string;
+  /**
+   * @remarks
+   * The password that is used to connect to the instance. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * 
+   * @example
+   * Pass!123456
+   */
   password?: string;
+  /**
+   * @remarks
+   * The subscription duration. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**,**36**, and **60**. Unit: months.
+   * 
+   * > This parameter is available and required only if the **ChargeType** parameter is set to **PrePaid**.
+   * 
+   * @example
+   * 12
+   */
   period?: string;
+  /**
+   * @remarks
+   * The port number that is used to connect to the instance. Valid values: **1024** to **65535**. Default value: **6379**.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * > The private IP address must be available within the CIDR block of the vSwitch to which to connect the instance.
+   * 
+   * @example
+   * 172.16.0.***
+   */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The number of read replicas in the primary zone. This parameter applies only to read/write splitting instances that use cloud disks. You can use this parameter to customize the number of read replicas. Valid values: 1 to 9.
+   * 
+   * >  The sum of the values of this parameter and SlaveReadOnlyCount cannot be greater than 9.
+   * 
+   * @example
+   * 5
+   */
   readOnlyCount?: number;
   recoverConfigMode?: string;
+  /**
+   * @remarks
+   * The ID of the region where you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-resourcegroupid1
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * If data flashback is enabled for the source instance, you can use this parameter to specify a point in time within the backup retention period of the source instance. The system uses the backup data of the source instance at the point in time to create an instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-06-19T16:00:00Z
+   */
   restoreTime?: string;
+  /**
+   * @remarks
+   * The secondary zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/472448.html) operation to query the most recent zone list.
+   * 
+   * > If you specify this parameter, the master node and replica node of the instance can be deployed in different zones and disaster recovery is implemented across zones. The instance can withstand failures in data centers.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   secondaryZoneId?: string;
+  /**
+   * @remarks
+   * 系统自动生成的安全 Token，无需传入
+   */
   securityToken?: string;
+  /**
+   * @remarks
+   * The number of data shards. This parameter is available only if you create a cluster instance that uses cloud disks.
+   * 
+   * @example
+   * 4
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * The number of read replicas in the secondary zone. This parameter is used to create a read/write splitting instance that is deployed across multiple zones. The sum of the values of this parameter and ReadOnlyCount cannot be greater than 9.
+   * 
+   * > When you create a multi-zone read/write splitting instance, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
+   * 
+   * @example
+   * 2
+   */
   slaveReadOnlyCount?: number;
+  /**
+   * @remarks
+   * If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
+   * 
+   * >  After you specify the SrcDBInstanceId parameter, use the **BackupId**, **ClusterBackupId** (recommended for cloud-native cluster instances), or **RestoreTime** parameter to specify the backup set or the specific point in time that you want to use to create an instance. The SrcDBInstanceId parameter must be used in combination with one of the preceding three parameters.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   srcDBInstanceId?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   */
   tag?: CreateInstanceRequestTag[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   token?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which you want the instance to connect.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The primary zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -955,27 +1710,192 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bandwidth of the instance. Unit: MB/s.
+   * 
+   * @example
+   * 32
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB.
+   * 
+   * @example
+   * 16384
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The configurations of the instance.
+   * 
+   * @example
+   * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   connectionDomain?: string;
+  /**
+   * @remarks
+   * The maximum number of connections supported by the instance.
+   * 
+   * @example
+   * 10000
+   */
   connections?: number;
+  /**
+   * @remarks
+   * The time when the subscription expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-01-18T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The GUID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * apitest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The state of the instance. The return value is Creating.
+   * 
+   * @example
+   * Creating
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **CLASSIC**: classic network
+   * *   **VPC**: VPC
+   * 
+   * @example
+   * VPC
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **STAND_ALONE**: standalone
+   * *   **MASTER_SLAVE**: master-replica
+   * 
+   * @example
+   * MASTER_SLAVE
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2084452111111
+   */
   orderId?: number;
+  /**
+   * @remarks
+   * The port number that is used to connect to the instance.
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * 172.16.0.10
+   */
   privateIpAddr?: string;
+  /**
+   * @remarks
+   * The expected maximum queries per second (QPS).
+   * 
+   * @example
+   * 100000
+   */
   QPS?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hongkong
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5DEA3CC9-F81D-4387-8E97-CEA40F09****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The username that is used to connect to the instance. By default, ApsaraDB for Redis provides a username that is named after the instance ID.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the instance is connected.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1062,19 +1982,107 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Valid values:
+   * 
+   * *   **true** (default).
+   * *   **false**. If automatic payment is disabled, you must perform the following steps to complete the payment in the ApsaraDB for Redis console: In the top navigation bar, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+   * 
+   * >  This parameter is valid only if the value of the **ChargeType** field in the **Instances** parameter is set to **PrePaid**.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * >  This parameter is available only if **ChargeType** in the **Instances** parameter is set to **PrePaid**.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The additional business information about the instance.
+   * 
+   * @example
+   * 000000000
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance. Valid values: **4.0** and **5.0**.
+   * 
+   * >  The default value is **5.0**.
+   * 
+   * Valid values:
+   * 
+   * *   2.8
+   * *   4.0
+   * *   5.0
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The JSON-formatted configurations of the instance. For more information, see the "Description of the Instances parameter" section of this topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{	"RegionId": "cn-hangzhou",	"izNo": "cn-hangzhou-b",	"quantity": 2,	"instanceType": "Redis",	"instanceClass": "redis.master.small.default",	"EngineVersion": "5.0",	"ChargeType": "PostPaid"}]
+   */
   instances?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to restore the source instance from the recycle bin. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  This parameter is valid only if the **SrcDBInstanceId** field in the **Instances** parameter is specified.
+   * 
+   * @example
+   * false
+   */
   rebuildInstance?: boolean;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the instance.
+   * 
+   * @example
+   * rg-resourcegroupid1
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1120,8 +2128,26 @@ export class CreateInstancesRequest extends $tea.Model {
 }
 
 export class CreateInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of instances that were created.
+   */
   instanceIds?: CreateInstancesResponseBodyInstanceIds;
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 20905403119****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 561AFBF1-BE20-44DB-9BD1-6988B53E****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1170,14 +2196,60 @@ export class CreateInstancesResponse extends $tea.Model {
 }
 
 export class CreateParameterGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * enterprise
+   */
   category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * redis
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6.0
+   */
   engineVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * test
+   */
   parameterGroupDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tw_test1
+   */
   parameterGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"hz":"15","#no_loose_disabled-commands":"flushall"}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1222,7 +2294,15 @@ export class CreateParameterGroupRequest extends $tea.Model {
 }
 
 export class CreateParameterGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * g-51ii2ienn0dg0xi8****
+   */
   paramGroupId?: string;
+  /**
+   * @example
+   * 62DA5BE5-F9C9-527C-ACCB-4D783C297A3A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1269,48 +2349,396 @@ export class CreateParameterGroupResponse extends $tea.Model {
 }
 
 export class CreateTairInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Set the value to **true**.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * 
+   * *   **true**: enables auto-renewal.
+   * *   **false** (default): disables auto-renewal.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * 
+   * >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+   * 
+   * @example
+   * 3
+   */
   autoRenewPeriod?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * *   **true**: uses a coupon.
+   * *   **false** (default): does not use a coupon.
+   * 
+   * @example
+   * true
+   */
   autoUseCoupon?: string;
+  /**
+   * @remarks
+   * If your instance is a cloud-native cluster instance, we recommend that you use [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679158.html) to query the backup set ID of the cluster instance, such as cb-xx. Then, set the ClusterBackupId request parameter to the backup set ID to clone the cluster instance. This eliminates the need to specify the backup set ID of each shard.
+   * 
+   * You can set the BackupId parameter to the backup set ID of the source instance. The system uses the data stored in the backup set to create an instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/61081.html) operation to query backup set IDs. If the source instance is a cluster instance, set the BackupId parameter to the backup set IDs of all shards of the source instance, separated by commas (,). Example: "10\\*\\*,11\\*\\*,15\\*\\*".
+   * 
+   * @example
+   * 11111111
+   */
   backupId?: string;
+  /**
+   * @remarks
+   * The ID of the promotion event or the business information.
+   * 
+   * @example
+   * 000000000
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   **PrePaid** (default): subscription
+   * *   **PostPaid:** pay-as-you-go
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is supported for specific new cluster instances. You can query the backup set ID by calling the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679158.html) operation.
+   * 
+   * *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
+   * *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets in all shards of the source instance, separated by commas (,). Example: "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
+   * 
+   * @example
+   * cb-hyxdof5x9kqb****
+   */
   clusterBackupId?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * *   **true**: performs a dry run and does not create the instance. The system prechecks the request parameters, request format, service limits, and available resources. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The database engine version. Default value: **1.0**. The parameter value varies based on the Tair instance series.
+   * 
+   * *   For Tair DRAM-based instances (tair_rdb) that are compatible with Redis 5.0 or 6.0, set this parameter to **5.0** or **6.0**.
+   * *   For Tair persistent memory-optimized instances (tair_scm) that are compatible with Redis 6.0, set this parameter to **1.0**.
+   * *   For Tair ESSD/SSD-based instances (tair_essd) that are compatible with Redis 6.0, set this parameter to **1.0** to create an ESSD-based instance, and set this parameter to **2.0** to create an SSD-based instance.
+   * 
+   * @example
+   * 1.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the created instance as a child instance of a distributed instance.
+   * 
+   * *   If you want the created instance to be used as the first child instance, enter **true**.
+   * *   If you want the created instance to be used as the second or third child instance, enter the ID of the distributed instance, such as gr-bp14rkqrhac\\*\\*\\*\\*.
+   * *   If you do not want the created instance to be used as a distributed instance, leave the parameter empty.
+   * 
+   * >  If you want the created instance to be used as a distributed instance, the created instance must be a Tair DRAM-based instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * The global IP whitelist template of the instance. Separate multiple IP whitelist templates with commas (,) and make sure that each IP whitelist template is unique.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupIds?: string;
+  /**
+   * @remarks
+   * The instance type. For more information, see the following topics:
+   * 
+   * *   [DRAM-based instances](https://help.aliyun.com/document_detail/443844.html)
+   * *   [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/443845.html)
+   * *   [ESSD-based instances](https://help.aliyun.com/document_detail/443846.html)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tair.scm.standard.4m.32d
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The name of the instance. The name must meet the following requirements:
+   * 
+   * *   The name is 2 to 80 characters in length.
+   * *   The name starts with a letter and does not contain spaces or special characters. Special characters include `@ / : = " < > { [ ] }`
+   * 
+   * @example
+   * apitest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance series. Valid values:
+   * 
+   * *   **tair_rdb**: Tair DRAM-based instance
+   * *   **tair_scm**: Tair persistent memory-optimized instance
+   * *   **tair_essd**: ESSD/SSD-based instance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tair_scm
+   */
   instanceType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the parameter template. The instance is created based on the parameters in the parameter template. The ID must be unique.
+   * 
+   * @example
+   * g-50npzjcqb1ua6q6j****
+   */
   paramGroupId?: string;
+  /**
+   * @remarks
+   * The password that is used to connect to the instance. The password must meet the following requirements:
+   * 
+   * *   The password is 8 to 32 characters in length.
+   * *   The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * 
+   * @example
+   * Pass!123456
+   */
   password?: string;
+  /**
+   * @remarks
+   * The subscription duration. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**,**36**, and **60**. Unit: months.
+   * 
+   * > This parameter is required only if you set the **ChargeType** parameter to **PrePaid**.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The service port number of the instance. Valid values: 1024 to 65535. Default value: 6379.
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * > The IP address must be within the CIDR block of the vSwitch to which you want the instance to connect. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation of the VPC API to query the CIDR block information.
+   * 
+   * @example
+   * 172.16.88.***
+   */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The number of read replicas in the primary zone. This parameter applies only to read/write splitting instances that use cloud disks. You can use this parameter to customize the number of read replicas. Valid values: 1 to 9.
+   * 
+   * >  The sum of the values of this parameter and SlaveReadOnlyCount cannot be greater than 9.
+   * 
+   * @example
+   * 5
+   */
   readOnlyCount?: number;
   recoverConfigMode?: string;
+  /**
+   * @remarks
+   * The ID of the region where you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which you want to assign the instance.
+   * 
+   * > 
+   * 
+   * *   You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * If data flashback is enabled for the source instance, you can use this parameter to specify a point in time within the backup retention period of the source instance. The system uses the backup data of the source instance at the point in time to create an instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2021-07-06T07:25:57Z
+   */
   restoreTime?: string;
+  /**
+   * @remarks
+   * The ID of the secondary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the ID of the secondary zone.
+   * 
+   * > You cannot specify multiple zone IDs or set this parameter to a value that is the same as that of the ZoneId parameter.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   secondaryZoneId?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The number of data nodes in the instance. Valid values:
+   * 
+   * *   **1** (default): You can create a [standard instance](https://help.aliyun.com/document_detail/52228.html) that contains only a single data node.
+   * *   **2** to **32**: You can create a [cluster instance](https://help.aliyun.com/document_detail/52228.html) that contains the specified number of data nodes.
+   * 
+   * >  When the **InstanceType** parameter is set to **tair_rdb** or **tair_scm**, this parameter can be set to a value in the range of **2** to **32**. Only DRAM-based and persistent memory-optimized instances support the cluster architecture.
+   * 
+   * @example
+   * 1
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * The shard type of the instance. Valid values:
+   * 
+   * *   **MASTER_SLAVE** (default): runs in a master-replica architecture that provides high availability.
+   * *   **STAND_ALONE**: runs in a standalone architecture. If the only node fails, the system creates a new instance and switches the workloads to the new instance. This may cause data loss. You can set the ShardType parameter to this value only if the instance uses the **single-zone** deployment mode. If you set the ShardType parameter to this value, you cannot create cluster or read/write splitting instances.
+   * 
+   * @example
+   * MASTER_SLAVE
+   */
   shardType?: string;
+  /**
+   * @remarks
+   * The number of read replicas in the secondary zone when you create a multi-zone read/write splitting instance. The sum of the values of this parameter and ReadOnlyCount cannot be greater than 9.
+   * 
+   * > When you create a multi-zone read/write splitting instance, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
+   * 
+   * @example
+   * 1
+   */
   slaveReadOnlyCount?: number;
+  /**
+   * @remarks
+   * If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
+   * 
+   * >  After you specify the SrcDBInstanceId parameter, use the **BackupId**, **ClusterBackupId** (recommended for cloud-native cluster instances), or **RestoreTime** parameter to specify the backup set or the specific point in time that you want to use to create an instance. The SrcDBInstanceId parameter must be used in combination with one of the preceding three parameters.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   srcDBInstanceId?: string;
+  /**
+   * @remarks
+   * The storage space of cloud disks. Valid values vary based on the instance specifications. For more information, see [ESSD-based instances](https://help.aliyun.com/document_detail/443846.html).
+   * 
+   * > This parameter is available and required only if the **InstanceType** parameter is set to **tair_essd**.
+   * 
+   * @example
+   * 60
+   */
   storage?: number;
+  /**
+   * @remarks
+   * The storage type. Example values: **essd_pl1**, **essd_pl2**, and **essd_pl3**.
+   * 
+   * >  This parameter is required only when you set the **InstanceType** parameter to **tair_essd** to create an ESSD-based instance.
+   * 
+   * Valid values:
+   * 
+   * *   essd_pl0
+   * *   essd_pl1
+   * *   essd_pl2
+   * *   essd_pl3
+   * 
+   * @example
+   * essd_pl1
+   */
   storageType?: string;
+  /**
+   * @remarks
+   * The tags to add to the instance.
+   */
   tag?: CreateTairInstanceRequestTag[];
+  /**
+   * @remarks
+   * The ID of the vSwitch that belongs to the VPC. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the ID of the vSwitch.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC). You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the ID of the VPC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The primary zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the IDs of available zones.
+   * 
+   * >  You can also set the SecondaryZoneId parameter to specify the secondary zone. The primary and secondary nodes will then be deployed in the specified primary and secondary zones to implement the master-replica zone-disaster recovery architecture. For example, you can set the ZoneId parameter to cn-hangzhou-h and the SecondaryZoneId parameter to cn-hangzhou-g.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1414,20 +2842,132 @@ export class CreateTairInstanceRequest extends $tea.Model {
 }
 
 export class CreateTairInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bandwidth of the instance. Unit: MB/s.
+   * 
+   * @example
+   * 96
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The detailed configurations of the instance. The value is a JSON string. For more information about the parameter description, see [Modify the parameters of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43885.html).
+   * 
+   * @example
+   * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the instance.
+   * 
+   * @example
+   * r-bp13ac3d047b****.tairpena.rds.aliyuncs.com
+   */
   connectionDomain?: string;
+  /**
+   * @remarks
+   * The maximum number of connections supported by the instance.
+   * 
+   * @example
+   * 10000
+   */
   connections?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp13ac3d047b****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * **
+   * 
+   * This parameter is returned only if the **InstanceName** parameter is specified in the request.
+   * 
+   * @example
+   * redistest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The state of the instance. The return value is **Creating**.
+   * 
+   * @example
+   * Creating
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 2084452111111
+   */
   orderId?: number;
+  /**
+   * @remarks
+   * The port number that is used to connect to the instance.
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * The maximum number of read and write operations that can be processed by the instance per second. The value is a theoretical value.
+   * 
+   * @example
+   * 100000
+   */
   QPS?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 12123216-4B00-4378-BE4B-08005BFC****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 10****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1500,7 +3040,25 @@ export class CreateTairInstanceResponse extends $tea.Model {
 }
 
 export class DeleteAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/95802.html) operation to query the username of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1540,6 +3098,13 @@ export class DeleteAccountRequest extends $tea.Model {
 }
 
 export class DeleteAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8129F11A-D70B-43A6-9455-CE9EAA71****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1584,11 +3149,47 @@ export class DeleteAccountResponse extends $tea.Model {
 }
 
 export class DeleteGlobalSecurityIPGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the global IP whitelist template. The name must meet the following requirements:
+   * 
+   * *   The name can contain lowercase letters, digits, and underscores (_).
+   * *   The name must start with a letter and end with a letter or a digit.
+   * *   The name must be 2 to 120 characters in length.
+   * 
+   * @example
+   * test_123
+   */
   globalIgName?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * g-kd2iop4aur9qwxnvh***
+   */
   globalSecurityGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4e******
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1627,6 +3228,13 @@ export class DeleteGlobalSecurityIPGroupRequest extends $tea.Model {
 }
 
 export class DeleteGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1671,7 +3279,23 @@ export class DeleteGlobalSecurityIPGroupResponse extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the distributed instance to which the instance belongs. This parameter is applicable to only China site (aliyun.com).
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the instance that you want to release.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1708,6 +3332,13 @@ export class DeleteInstanceRequest extends $tea.Model {
 }
 
 export class DeleteInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D190D2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1754,6 +3385,15 @@ export class DeleteInstanceResponse extends $tea.Model {
 export class DeleteParameterGroupRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the parameter template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rpg-sys-00*****
+   */
   parameterGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1786,7 +3426,21 @@ export class DeleteParameterGroupRequest extends $tea.Model {
 }
 
 export class DeleteParameterGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter template ID, which is globally unique.
+   * 
+   * @example
+   * sys-001*****
+   */
   paramGroupId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2BE6E619-A657-42E3-AD2D-18F8428A****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1833,14 +3487,53 @@ export class DeleteParameterGroupResponse extends $tea.Model {
 }
 
 export class DeleteShardingNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable forced transmission during a configuration change. Valid values:
+   * 
+   * *   **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
+   * *   **true**: The system skips the version check and directly performs the configuration change.
+   * 
+   * @example
+   * false
+   */
   forceTrans?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the data shard that you want to remove. You can specify multiple IDs at a time. Separate multiple IDs with commas (,).
+   * 
+   * > If you specify both the NodeId and ShardCount parameters, the system prioritizes the NodeId parameter.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0,r-bp1zxszhcgatnx****-db-1
+   * 
+   * @deprecated
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The number of data shards that you want to remove. Shard removal starts from the end of the shard list.
+   * 
+   * > For example, the instance has the following data shards: db-0, db-1, db-2, db-3, and db-4. In this case, if you set this parameter to 2, db-3 and db-4 are removed.
+   * 
+   * @example
+   * 1
+   */
   shardCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1876,7 +3569,21 @@ export class DeleteShardingNodeRequest extends $tea.Model {
 }
 
 export class DeleteShardingNodeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the order. On the Orders page in the Billing Management console, you can obtain the details of the order based on the order ID.
+   * 
+   * @example
+   * 22179******0904
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1923,7 +3630,23 @@ export class DeleteShardingNodeResponse extends $tea.Model {
 }
 
 export class DescribeAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the account that you want to query.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1960,7 +3683,18 @@ export class DescribeAccountsRequest extends $tea.Model {
 }
 
 export class DescribeAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about returned accounts of the instance.
+   */
   accounts?: DescribeAccountsResponseBodyAccounts;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6C9E114C-217C-4118-83C0-B4070222****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2007,15 +3741,63 @@ export class DescribeAccountsResponse extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to return the historical tasks. Default value: 0. Valid values:
+   * 
+   * *   **0**: returns the current task.
+   * *   **1**: returns the historical tasks.
+   * 
+   * @example
+   * 1
+   */
   isHistory?: number;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Specify a value greater than **10**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the O&M task. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+   * 
+   * > A value of **all** indicates all region IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
   region?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The type of the O\\&M task. Valid values:
+   * 
+   * *   **rds_apsaradb_ha**: master-replica switchover
+   * *   **rds_apsaradb_transfer**: instance migration
+   * *   **rds_apsaradb_upgrade**: minor version update
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2053,10 +3835,42 @@ export class DescribeActiveOperationTaskRequest extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of O\\&M tasks.
+   */
   items?: DescribeActiveOperationTaskResponseBodyItems[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2E1FF0CC-F42A-4B6F-A1F4-A17B1451****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2109,21 +3923,65 @@ export class DescribeActiveOperationTaskResponse extends $tea.Model {
 }
 
 export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   allowCancel?: number;
+  /**
+   * @example
+   * -1
+   */
   allowChange?: number;
+  /**
+   * @example
+   * all
+   */
   changeLevel?: string;
+  /**
+   * @example
+   * redis
+   */
   dbType?: string;
+  /**
+   * @example
+   * r-wz96fzmpvpr2qnqnlb
+   */
   insName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 25
+   */
   pageSize?: number;
+  /**
+   * @example
+   * Redis
+   */
   productId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @example
+   * 3
+   */
   status?: number;
+  /**
+   * @example
+   * all
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2174,9 +4032,25 @@ export class DescribeActiveOperationTasksRequest extends $tea.Model {
 
 export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
   items?: DescribeActiveOperationTasksResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 25
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2D9F3768-EDA9-4811-943E-42C8006E****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2229,9 +4103,27 @@ export class DescribeActiveOperationTasksResponse extends $tea.Model {
 }
 
 export class DescribeAuditLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation to query the region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hanghzou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2266,8 +4158,34 @@ export class DescribeAuditLogConfigRequest extends $tea.Model {
 }
 
 export class DescribeAuditLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the audit log feature is enabled. Valid values:
+   * 
+   * *   **true**: enabled
+   * *   **false**: disabled
+   * 
+   * > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance.
+   * 
+   * @example
+   * true
+   */
   dbAudit?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2BE6E619-A657-42E3-AD2D-18F8428A****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The retention period of audit logs. Unit: days.
+   * 
+   * @example
+   * 5
+   */
   retention?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2316,20 +4234,106 @@ export class DescribeAuditLogConfigResponse extends $tea.Model {
 }
 
 export class DescribeAuditRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account. If you do not specify this parameter, this call applies to all accounts of the instance.
+   * 
+   * @example
+   * demo
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The name of the database in the instance. If you do not specify this parameter, all databases are queried. Valid values: 0 to 255. 0 specifies the database 0.
+   * 
+   * @example
+   * 0
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * > We recommend that you specify a time range of 10 minutes or less because audit logs contain a great number of entries. Do not specify a time range that is longer than one day.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-03-25T12:10:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The IP address of the client. If you do not specify this parameter, this call applies to all clients.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   hostAddress?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the node in the instance. You can set this parameter to query the data of a specified node.
+   * 
+   * > 
+   * 
+   * *   This parameter is available only for read/write splitting or cluster instances of ApsaraDB for Redis.
+   * 
+   * *   You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/94665.html) operation to query node IDs.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The keyword based on which the audit logs are queried. You can specify a command as a keyword to query logs. By default, all commands are queried.
+   * 
+   * > You can specify only a single keyword in each call.
+   * 
+   * @example
+   * maxclients
+   */
   queryKeywords?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-03-24T12:10:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2377,13 +4381,66 @@ export class DescribeAuditRecordsRequest extends $tea.Model {
 }
 
 export class DescribeAuditRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the query.
+   * 
+   * @example
+   * 2019-03-25T12:10:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The collection of returned audit log entries.
+   */
   items?: DescribeAuditRecordsResponseBodyItems;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9F5EB478-824E-4AC4-8D2B-58F31A02****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start time of the query.
+   * 
+   * @example
+   * 2019-03-24T12:10:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 22222
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2442,21 +4499,129 @@ export class DescribeAuditRecordsResponse extends $tea.Model {
 }
 
 export class DescribeAvailableResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The display language of the response. Default value: zh-CN. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US**: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The category of the instance. Valid values:
+   * 
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * > The default value is **PrePaid**.
+   * 
+   * @example
+   * PrePaid
+   */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > This parameter is available and required only if the **OrderType** parameter is set to **UPGRADE** or **DOWNGRADE**.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The edition of the instance. Valid values:
+   * 
+   * *   **professional**: Standard Edition. This edition supports the standalone, master-replica, read /write splitting, and cluster architectures and provides high scalability.
+   * 
+   * @example
+   * professional
+   */
   instanceScene?: string;
+  /**
+   * @remarks
+   * The ID of the data node for which you want to query available resources that can be created. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/94665.html) operation to query the ID of the data node. Remove the number sign (`#`) and the content that follows the number sign. For example, retain only r-bp10noxlhcoim2\\*\\*\\*\\*-db-0.
+   * 
+   * > Before you specify this parameter, you must set the **InstanceId** parameter to the ID of an instance that uses the cluster or read/write splitting architecture.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The type of the order. Default value: BUY. Valid values:
+   * 
+   * *   **BUY**: orders that are newly created
+   * *   **UPGRADE**: orders that are used to upgrade instances
+   * *   **DOWNGRADE**: orders that are used to downgrade instances
+   * 
+   * @example
+   * BUY
+   */
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The series of the instance. Valid values:
+   * 
+   * *   **Local**: classic ApsaraDB for Redis Community Edition instance or classic ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance
+   * *   **Tair_rdb**: cloud-native ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance
+   * *   **Tair_scm**: ApsaraDB for Redis Enhanced Edition (Tair) persistent memory-optimized instance
+   * *   **Tair_essd**: ESSD-based instance
+   * *   **OnECS**: cloud-native ApsaraDB for Redis Community Edition instance
+   * 
+   * @example
+   * Local
+   */
   productType?: string;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the IDs of resource groups.
+   * 
+   * > You can also query the IDs of resource groups in the Resource Management console. For more information, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * @example
+   * rg-acfmyiu4e******
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2506,7 +4671,18 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the zones.
+   */
   availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 493B7308-D9C2-55F6-B042-0313BD63****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2553,6 +4729,15 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
 }
 
 export class DescribeBackupPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2587,13 +4772,80 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
 }
 
 export class DescribeBackupPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The following parameters are no longer used. Ignore the parameters.
+   */
   accessDeniedDetail?: DescribeBackupPolicyResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The retention period of the backup data. Unit: days.
+   * 
+   * @example
+   * 7
+   */
   backupRetentionPeriod?: string;
+  /**
+   * @remarks
+   * Indicates whether the backup-as-a-service feature is enabled for the instance. Valid values:
+   * 
+   * *   **1**: The backup-as-a-service feature is enabled for the instance.
+   * *   **0**: The backup-as-a-service feature is disabled for the instance.
+   * 
+   * @example
+   * 0
+   */
   dbsInstance?: string;
+  /**
+   * @remarks
+   * Indicates whether incremental data backup is enabled. Valid values:
+   * 
+   * *   **1**: Incremental data backup is enabled.
+   * *   **0**: Incremental data backup is disabled.
+   * 
+   * @example
+   * 1
+   */
   enableBackupLog?: number;
+  /**
+   * @remarks
+   * The backup cycle. Valid values:
+   * 
+   * *   **Monday**
+   * *   **Tuesday**
+   * *   **Wednesday**
+   * *   **Thursday**
+   * *   **Friday**
+   * *   **Saturday**
+   * *   **Sunday**
+   * 
+   * @example
+   * Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
+   */
   preferredBackupPeriod?: string;
+  /**
+   * @remarks
+   * The time range during which the backup was created. The time follows the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 05:00Z-06:00Z
+   */
   preferredBackupTime?: string;
+  /**
+   * @remarks
+   * The next backup time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-03-14T05:28Z
+   */
   preferredNextBackupTime?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 90B82DB7-FB28-4CC2-ADBF-1F8659F3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2652,8 +4904,36 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
 }
 
 export class DescribeBackupTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The progress of the backup task in percentage.
+   * 
+   * @example
+   * 1162****
+   */
   backupJobId?: string;
+  /**
+   * @remarks
+   * The details of the backup tasks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The backup mode. Valid values:
+   * 
+   * *   **Automated**: automatic backup. You can call the [DescribeBackupPolicy](https://help.aliyun.com/document_detail/61078.html) operation to query the automatic backup policy.
+   * *   **Manual**: manual backup.
+   * 
+   * > By default, the information about backup tasks in both modes is returned.
+   * 
+   * @example
+   * Manual
+   */
   jobMode?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2692,9 +4972,38 @@ export class DescribeBackupTasksRequest extends $tea.Model {
 }
 
 export class DescribeBackupTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The following parameters are no longer used. Ignore the parameters.
+   */
   accessDeniedDetail?: DescribeBackupTasksResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The details of the backup tasks.
+   */
   backupJobs?: DescribeBackupTasksResponseBodyBackupJobs[];
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The status of the backup task. Valid values:
+   * 
+   * *   **NoStart**: The backup task is not started.
+   * *   **Preparing**: The backup task is being prepared.
+   * *   **Waiting**: The backup task is pending.
+   * *   **Uploading:** The system is uploading the backup file.
+   * *   **Checking:** The system is checking the uploaded backup file.
+   * *   **Finished**: The backup task is complete.
+   * 
+   * @example
+   * BB73740C-23E2-4392-9DA4-2660C74C****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2745,18 +5054,82 @@ export class DescribeBackupTasksResponse extends $tea.Model {
 }
 
 export class DescribeBackupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the backup file.
+   * 
+   * @example
+   * 11611111
+   */
   backupId?: number;
+  /**
+   * @example
+   * 10001
+   */
   backupJobId?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-03-14T18:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance whose backup files you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable append-only files (AOFs) persistence. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * >  The default value is **0**.
+   * 
+   * @example
+   * 1
+   */
   needAof?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 30, 50, 100, 200, and 300.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-03-11T10:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2800,14 +5173,75 @@ export class DescribeBackupsRequest extends $tea.Model {
 }
 
 export class DescribeBackupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The following parameters are no longer used. Ignore the parameters.
+   */
   accessDeniedDetail?: DescribeBackupsResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * Details of the backup files.
+   */
   backups?: DescribeBackupsResponseBodyBackups;
+  /**
+   * @remarks
+   * This parameter does not take effect. Ignore this parameter.
+   * 
+   * @example
+   * 100000
+   */
   freeSize?: number;
+  /**
+   * @remarks
+   * The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
+   * 
+   * >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid full backups of the instance.
+   * 
+   * @example
+   * 1000
+   */
   fullStorageSize?: number;
+  /**
+   * @remarks
+   * The size of the log backup file of the instance. Unit: bytes. This value is valid only when flashback is enabled.
+   * 
+   * >  The value of this parameter is independent of the number and size of the returned backup sets. Instead, it reflects the total size of all valid log backups of the instance.
+   * 
+   * @example
+   * 5000
+   */
   logStorageSize?: number;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 963C20F0-7CE1-4591-AAF3-6F3CD1CE****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of backup files that were returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2868,13 +5302,67 @@ export class DescribeBackupsResponse extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of analytics. Set the value to **BigKey**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BigKey
+   */
   analysisType?: string;
+  /**
+   * @remarks
+   * The date to query. You can query the report for one day each time. Specify the date in the *yyyy-MM-dd*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-08-05Z
+   */
   date?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * -bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the child node in the cluster instance.
+   * 
+   * > If this parameter is not specified, the analytics results of all child nodes in the instance are returned.
+   * 
+   * @example
+   * -bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * > If the parameter value exceeds the maximum number of the returned pages, an empty large key list is returned.
+   * 
+   * @example
+   * 1
+   */
   pageNumbers?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+   * 
+   * > The default value is **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2917,12 +5405,57 @@ export class DescribeCacheAnalysisReportRequest extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisReportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the large keys.
+   */
   bigKeys?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * Details of the hotkeys.
+   * 
+   * > This parameter is not returned because ApsaraDB for Redis does not support hotkey analytics.
+   */
   hotKeys?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on the current page.
+   * 
+   * @example
+   * 30
+   */
   pageRecordCount?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A057C066-C3F5-4CC9-9FE4-A8D8B0DC****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 160
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2979,12 +5512,55 @@ export class DescribeCacheAnalysisReportResponse extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisReportListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time range to query. Default value: 7. Unit: days.
+   * 
+   * > If daily automatic analysis has not started and manual analysis is not performed, no records are returned.
+   * 
+   * @example
+   * 7
+   */
   days?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the child node in the cluster instance.
+   * 
+   * > If this parameter is not specified, the analysis results of all child nodes in the instance are returned.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumbers?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+   * 
+   * > The default value is **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -3025,8 +5601,26 @@ export class DescribeCacheAnalysisReportListRequest extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisReportListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the offline key analytics tasks.
+   */
   dailyTasks?: DescribeCacheAnalysisReportListResponseBodyDailyTasks;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * 1041xxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 743D0A03-52DE-4E6F-8D09-EC1414CF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3075,17 +5669,74 @@ export class DescribeCacheAnalysisReportListResponse extends $tea.Model {
 }
 
 export class DescribeClusterBackupListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The backup set ID.
+   * 
+   * @example
+   * cb-hyxdof5x9kqbtust
+   */
   clusterBackupId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-05-13T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-t4nj72oug5r5646qog
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-zhangjiakou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-12-03T07:01Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3127,13 +5778,72 @@ export class DescribeClusterBackupListRequest extends $tea.Model {
 }
 
 export class DescribeClusterBackupListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The backup sets of the instance. An instance backup contains the backup sets of all nodes in the instance.
+   */
   clusterBackups?: DescribeClusterBackupListResponseBodyClusterBackups[];
+  /**
+   * @remarks
+   * This parameter does not take effect. Ignore this parameter.
+   * 
+   * @example
+   * 100000
+   */
   freeSize?: number;
+  /**
+   * @remarks
+   * The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
+   * 
+   * >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid full backups of the instance.
+   * 
+   * @example
+   * 1000
+   */
   fullStorageSize?: number;
+  /**
+   * @remarks
+   * The size of the log backup file of the instance. Unit: bytes. This parameter is valid only when flashback is enabled.
+   * 
+   * >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid log backups of the instance.
+   * 
+   * @example
+   * 5000
+   */
   logStorageSize?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page. Valid values: 1 to 100.
+   * Default value: 30.
+   * >If you specify this parameter, PageSize and PageNumber are unavailable.
+   * 
+   * @example
+   * 4
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C009DA42-3B19-5B81-963D-1509DE2408DD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3192,10 +5902,33 @@ export class DescribeClusterBackupListResponse extends $tea.Model {
 }
 
 export class DescribeClusterMemberInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -3232,7 +5965,18 @@ export class DescribeClusterMemberInfoRequest extends $tea.Model {
 }
 
 export class DescribeClusterMemberInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of nodes in the cluster instance.
+   */
   clusterChildren?: DescribeClusterMemberInfoResponseBodyClusterChildren[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2D9F3768-EDA9-4811-943E-42C8006E****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3279,6 +6023,15 @@ export class DescribeClusterMemberInfoResponse extends $tea.Model {
 }
 
 export class DescribeDBInstanceNetInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3313,8 +6066,29 @@ export class DescribeDBInstanceNetInfoRequest extends $tea.Model {
 }
 
 export class DescribeDBInstanceNetInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   **CLASSIC**: The instance runs in a classic network.
+   * *   **VPC**: The instance runs in a virtual private cloud (VPC).
+   * 
+   * @example
+   * CLASSIC
+   */
   instanceNetworkType?: string;
+  /**
+   * @remarks
+   * The network information about the instance.
+   */
   netInfoItems?: DescribeDBInstanceNetInfoResponseBodyNetInfoItems;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FC77D4E1-2A7C-4F0B-A4CC-CE0B9C314B9B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3363,6 +6137,15 @@ export class DescribeDBInstanceNetInfoResponse extends $tea.Model {
 }
 
 export class DescribeDBNodeDirectVipInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3394,8 +6177,26 @@ export class DescribeDBNodeDirectVipInfoRequest extends $tea.Model {
 }
 
 export class DescribeDBNodeDirectVipInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The virtual IP addresses (VIPs) of shards in an ApsaraDB for Redis cluster instance.
+   */
   directVipInfo?: DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ABAF95F6-35C1-4177-AF3A-70969EBD****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3444,21 +6245,119 @@ export class DescribeDBNodeDirectVipInfoResponse extends $tea.Model {
 }
 
 export class DescribeDedicatedClusterInstanceListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated cluster. You can view the dedicated cluster ID on the Dedicated Clusters page in the ApsaraDB for MyBase console.
+   * 
+   * > Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * dhg-5f2v98840ioq****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the host in the dedicated cluster. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/200944.html) operation to query the host ID.
+   * 
+   * > Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * ch-t4n664a9mal4c****
+   */
   dedicatedHostName?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. Set the value to **Redis**.
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance. Set the value to **5.0**.
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > The instance must be created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](https://help.aliyun.com/document_detail/141455.html)
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **0**: Internet
+   * *   **1**: classic network
+   * *   **2**: Virtual Private Cloud (VPC)
+   * 
+   * @example
+   * 2
+   */
   instanceNetType?: string;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **0**: The instance is being created.
+   * *   **1**: The instance is running.
+   * *   **3**: The instance is being deleted.
+   * *   **5**: The configurations of the instance are being changed.
+   * *   **6**: The instance is being migrated.
+   * *   **7**: The instance is being restored from a backup.
+   * *   **8**: A master-replica switchover is in progress.
+   * *   **9**: Expired data of the instance is being deleted.
+   * 
+   * @example
+   * 1
+   */
   instanceStatus?: number;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3508,10 +6407,42 @@ export class DescribeDedicatedClusterInstanceListRequest extends $tea.Model {
 }
 
 export class DescribeDedicatedClusterInstanceListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the instances.
+   */
   instances?: DescribeDedicatedClusterInstanceListResponseBodyInstances[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 712CCF2A-16BD-411B-93F7-E978BEF2****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3564,7 +6495,23 @@ export class DescribeDedicatedClusterInstanceListResponse extends $tea.Model {
 }
 
 export class DescribeEncryptionKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the custom key. You can call the [DescribeEncryptionKeyList](https://help.aliyun.com/document_detail/302339.html) operation to query the ID of the key.
+   * 
+   * @example
+   * ad463061-992d-4195-8a94-ed63********
+   */
   encryptionKey?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3601,16 +6548,100 @@ export class DescribeEncryptionKeyRequest extends $tea.Model {
 }
 
 export class DescribeEncryptionKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the custom key.
+   * 
+   * @example
+   * 17649847********
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The time when the custom key is expected to be deleted. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * > If the return value is an empty string, the custom key cannot be automatically deleted.
+   * 
+   * @example
+   * 2021-09-24T18:22:03Z
+   */
   deleteDate?: string;
+  /**
+   * @remarks
+   * The description of the custom key. By default, an empty string is returned.
+   * 
+   * @example
+   * testkey
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the custom key.
+   * 
+   * @example
+   * ad463061-992d-4195-8a94-ed63********
+   */
   encryptionKey?: string;
+  /**
+   * @remarks
+   * The state of the custom key. Valid values:
+   * 
+   * *   **Enabled**: The custom key is available.
+   * *   **Disabled**: The custom key is unavailable.
+   * 
+   * @example
+   * Enabled
+   */
   encryptionKeyStatus?: string;
+  /**
+   * @remarks
+   * The encryption algorithm.
+   * 
+   * @example
+   * AES-CTR-256
+   */
   encryptionName?: string;
+  /**
+   * @remarks
+   * The purpose of the custom key. A value of `ENCRYPT/DECRYPT` indicates encryption and decryption.
+   * 
+   * @example
+   * ENCRYPT/DECRYPT
+   */
   keyUsage?: string;
+  /**
+   * @remarks
+   * The time when the custom key expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * > If the return value is an empty string, the custom key does not expire.
+   * 
+   * @example
+   * 2021-09-24T18:22:03Z
+   */
   materialExpireTime?: string;
+  /**
+   * @remarks
+   * The source of the custom key. A value of **Aliyun_KMS** indicates [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) of Alibaba Cloud.
+   * 
+   * @example
+   * Aliyun_KMS
+   */
   origin?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9A931CE5-C926-5E09-B0EC-6299C4A6****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role to which you want to grant permissions.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3675,6 +6706,15 @@ export class DescribeEncryptionKeyResponse extends $tea.Model {
 }
 
 export class DescribeEncryptionKeyListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3709,7 +6749,18 @@ export class DescribeEncryptionKeyListRequest extends $tea.Model {
 }
 
 export class DescribeEncryptionKeyListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The custom keys that are available in the region.
+   */
   keyIds?: DescribeEncryptionKeyListResponseBodyKeyIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 10E2160B-959C-5C3E-BFE6-86EC5925****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3756,6 +6807,15 @@ export class DescribeEncryptionKeyListResponse extends $tea.Model {
 }
 
 export class DescribeEngineVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3790,22 +6850,145 @@ export class DescribeEngineVersionRequest extends $tea.Model {
 }
 
 export class DescribeEngineVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 该实例当前可升级至最新的小版本信息。
+   */
   DBLatestMinorVersion?: DescribeEngineVersionResponseBodyDBLatestMinorVersion;
+  /**
+   * @remarks
+   * The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
+   * 
+   * @example
+   * {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"功能更新：增强稳定性。\\"}],\\"versionChangesLevel\\":2}
+   */
   DBVersionRelease?: string;
+  /**
+   * @remarks
+   * Indicates whether the major version can be upgraded for the instance. Valid values:
+   * 
+   * *   **true**: The major version can be upgraded.
+   * *   **false**: The major version is the latest version and cannot be upgraded.
+   * 
+   * >  To upgrade the major version, call the [ModifyInstanceMajorVersion](https://help.aliyun.com/document_detail/95259.html) operation.
+   * 
+   * @example
+   * true
+   */
   enableUpgradeMajorVersion?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the minor version can be updated for the instance. Valid values:
+   * 
+   * *   **true**: The minor version can be updated.
+   * *   **false**: The minor version is the latest version and cannot be updated.
+   * 
+   * >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) operation.
+   * 
+   * @example
+   * true
+   */
   enableUpgradeMinorVersion?: boolean;
+  /**
+   * @remarks
+   * The database engine of the instance. Valid values: **redis** and **memcache**.
+   * 
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * 是否打开了小版本升级。
+   * 
+   * @example
+   * 0
+   */
   isAutoUpgradeOpen?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance minor version is the latest version. Valid values:
+   * 
+   * *   **true**: The instance minor version is the latest version.
+   * *   **false**: The instance minor version is not the latest version.
+   * 
+   * @example
+   * false
+   */
   isLatestVersion?: boolean;
+  /**
+   * @remarks
+   * 是否支持新版 ssl。
+   * 
+   * @example
+   * 1
+   */
   isNewSSLMode?: string;
   isOpenNGLB?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance supports the new SSL encryption feature.
+   * 
+   * @example
+   * 1
+   */
   isRedisCompatibleVersion?: string;
+  /**
+   * @remarks
+   * 是否打开了小版本升级。
+   * 
+   * @example
+   * 1
+   */
   isSSLEnable?: string;
+  /**
+   * @remarks
+   * The major version of the instance.
+   * 
+   * @example
+   * 5.0
+   */
   majorVersion?: string;
+  /**
+   * @remarks
+   * The minor version of the instance.
+   * 
+   * @example
+   * redis-5.0_0.5.0
+   */
   minorVersion?: string;
+  /**
+   * @remarks
+   * 该Proxy节点当前可升级至最新的小版本信息。
+   */
   proxyLatestMinorVersion?: DescribeEngineVersionResponseBodyProxyLatestMinorVersion;
+  /**
+   * @remarks
+   * The minor version of proxy nodes.
+   * 
+   * >  This parameter is returned only for cluster and read/write splitting instances.
+   * 
+   * @example
+   * 6.6.0
+   */
   proxyMinorVersion?: string;
+  /**
+   * @remarks
+   * The release notes for the minor version of proxy nodes. The release notes include the release date, minor version number, release type such as new feature, and description.
+   * 
+   * >  This parameter is returned only for cluster and read/write splitting instances.
+   * 
+   * @example
+   * {\\"releaseInfo\\":[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"新特性：增加对部分内部命令的支持。\\"}],\\"versionChangesLevel\\":2}
+   */
   proxyVersionRelease?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A52974D1-9D57-4805-86CC-92E6EDE8****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3882,14 +7065,42 @@ export class DescribeEngineVersionResponse extends $tea.Model {
 }
 
 export class DescribeGlobalDistributeCacheRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the distributed instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return each page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The ID of the child instance that is attached to the distributed instance.
+   * 
+   * @example
+   * gr-bp1zcjlobkyrq****
+   */
   subInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3925,10 +7136,42 @@ export class DescribeGlobalDistributeCacheRequest extends $tea.Model {
 }
 
 export class DescribeGlobalDistributeCacheResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the distributed instance.
+   */
   globalDistributeCaches?: DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F3F44BE3-5419-4B61-9BAC-E66E295A****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3981,10 +7224,33 @@ export class DescribeGlobalDistributeCacheResponse extends $tea.Model {
 }
 
 export class DescribeGlobalSecurityIPGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4021,7 +7287,18 @@ export class DescribeGlobalSecurityIPGroupRequest extends $tea.Model {
 }
 
 export class DescribeGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the IP whitelist template.
+   */
   globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2FF6158E-3394-4A90-B634-79C49184****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4068,10 +7345,35 @@ export class DescribeGlobalSecurityIPGroupResponse extends $tea.Model {
 }
 
 export class DescribeGlobalSecurityIPGroupRelationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-t4n885e834f6****
+   */
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4108,8 +7410,26 @@ export class DescribeGlobalSecurityIPGroupRelationRequest extends $tea.Model {
 }
 
 export class DescribeGlobalSecurityIPGroupRelationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-t4n885e834f6****
+   */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The information about the associated global IP whitelist template.
+   */
   globalSecurityIPGroupRel?: DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B7BFB11-C077-4FE3-B051-F69CEB******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4158,17 +7478,96 @@ export class DescribeGlobalSecurityIPGroupRelationResponse extends $tea.Model {
 }
 
 export class DescribeHistoryMonitorValuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * *   You can query the monitoring data of the last month. The maximum time range that you can specify for a query is seven days.
+   * *   If the number of data nodes in the instance is greater than 32, the time range to query for the Data Node Aggregation and Proxy Node Aggregation metrics cannot exceed 1 hour.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-11-06T00:30:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The interval at which to collect monitoring data. Unit: minutes. Set the value to `01m`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 01m
+   */
   intervalForHistory?: string;
+  /**
+   * @remarks
+   * The monitoring metrics. Separate the metrics with commas (,). Take CpuUsage as an example:
+   * 
+   * *   To query the overall CPU utilization of all data nodes, specify **CpuUsage$db**.
+   * *   To query the CPU utilization of a single data node, specify **CpuUsage** and NodeId.
+   * 
+   * For more information about the monitoring metrics, see **Additional description of MonitorKeys**.
+   * 
+   * > 
+   * 
+   * *   This parameter is empty by default, which indicates that the UsedMemory and quotaMemory metrics are returned.
+   * 
+   * *   To ensure query efficiency, we recommend that you specify no more than five metrics for a single node at a time, and specify only a single metric when you query aggregate metrics.
+   * 
+   * [Additional description of MonitorKeys](https://help.aliyun.com/zh/redis/developer-reference/api-r-kvstore-2015-01-01-describehistorymonitorvalues-redis)
+   * 
+   * @example
+   * memoryUsage
+   */
   monitorKeys?: string;
+  /**
+   * @remarks
+   * The ID of the node in the instance. You can set this parameter to query the data of a specified node.
+   * 
+   * *   This parameter is available only for read/write splitting or cluster instances of ApsaraDB for Redis.
+   * 
+   * *   You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/94665.html) operation to query node IDs.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0#1679****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * If you want to query the metrics of the read replicas in a cloud-native read/write splitting instance, you must set this parameter to **READONLY** and specify **NodeId**.
+   * 
+   * > In other cases, you do not need to specify this parameter or you can set this parameter to **MASTER**.
+   * 
+   * @example
+   * READONLY
+   */
   nodeRole?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-11-06T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4210,7 +7609,25 @@ export class DescribeHistoryMonitorValuesRequest extends $tea.Model {
 }
 
 export class DescribeHistoryMonitorValuesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The monitoring information returned in the JSON format. For more information, see [View performance monitoring data](https://help.aliyun.com/document_detail/122091.html).
+   * 
+   * *   Only metrics whose values are not 0 are returned. This improves data transmission efficiency. Metrics that are not displayed are represented by the **0** default value.
+   * 
+   * *   The query result is aligned with the data aggregation frequency. If the specified time range to query is less than or equal to 10 minutes and the data is aggregated once every 5 seconds, query results are returned at an interval of 5 seconds. If the specified StartTime value does not coincide with a point in time for data aggregation, the system returns the latest point in time for data aggregation as the first point in time. For example, if you set the StartTime parameter to 2022-01-20T12:01:48Z, the first point in time returned is 2022-01-20T12:01:45Z.
+   * 
+   * @example
+   * "{\\"2022-11-06T00:00:00Z\\":{\\"memoryUsage\\":\\"6.67\\"},\\"2022-11-06T00:00:05Z\\":{\\"memoryUsage\\":\\"6.67\\"},\\"2022-11-06T00:00:10Z\\":{\\"memoryUsage\\":\\"6.67\\"},\\"2022-11-06T00:00:15Z\\":{\\"memoryUsage\\":\\"6.67\\"},\\"2022-11-06T00:00:20Z\\":{\\"memoryUsage\\":\\"6.67\\"},\\"2022-11-06T00:00:25Z\\":{\\"memoryUsage\\":\\"6.67\\"}}"
+   */
   monitorHistory?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F0997EE8-F4C2-4503-9168-85177ED7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4257,20 +7674,128 @@ export class DescribeHistoryMonitorValuesResponse extends $tea.Model {
 }
 
 export class DescribeHistoryTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The minimum execution duration of a task. This parameter is used to filter tasks whose execution duration is longer than the minimum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+   * 
+   * @example
+   * 0
+   */
   fromExecTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-01-02T11:31:03Z
+   */
   fromStartTime?: string;
+  /**
+   * @remarks
+   * The instance ID. This parameter is empty by default, which indicates that you can specify an unlimited number of instance IDs. Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs.
+   * 
+   * @example
+   * r-uf62br2491p5l****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Set the value to Instance.
+   * 
+   * @example
+   * Instance
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   resourceOwnerAccount?: number;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   **Scheduled**
+   * *   **Running**
+   * *   **Succeed**
+   * *   **Failed**
+   * *   **Cancelling**
+   * *   **Canceled**
+   * *   **Waiting**
+   * 
+   * >  This parameter is empty by default, which indicates that tasks in all states are queried. Separate multiple states with commas (,).
+   * 
+   * @example
+   * Scheduled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The task ID. This parameter is empty by default, which indicates that you can specify an unlimited number of task IDs. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs.
+   * 
+   * @example
+   * t-83br18hloy3faf****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The task type. This parameter is empty by default, which indicates that you can specify an unlimited number of task types.
+   * 
+   * *   **ModifyInsSpec**
+   * *   **DeleteInsNode**
+   * *   **AddInsNode**
+   * *   **HaSwitch**
+   * *   **RestartIns**
+   * *   **CreateIns**
+   * *   **ModifyInsConfig**
+   * 
+   * >  Separate multiple task types with commas (,).
+   * 
+   * @example
+   * ModifyInsSpec
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * The maximum execution duration of a task. This parameter is used to filter tasks whose execution duration is shorter than or equal to the maximum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+   * 
+   * @example
+   * 0
+   */
   toExecTime?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-03-02T11:31:03Z
+   */
   toStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4318,10 +7843,42 @@ export class DescribeHistoryTasksRequest extends $tea.Model {
 }
 
 export class DescribeHistoryTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried task objects.
+   */
   items?: DescribeHistoryTasksResponseBodyItems[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of tasks that meet these constraints without taking pagination into account.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4374,6 +7931,15 @@ export class DescribeHistoryTasksResponse extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4408,7 +7974,18 @@ export class DescribeInstanceAttributeRequest extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about the instances.
+   */
   instances?: DescribeInstanceAttributeResponseBodyInstances;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CA40C261-EB72-4EDA-AC57-958722162595
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4455,12 +8032,53 @@ export class DescribeInstanceAttributeResponse extends $tea.Model {
 }
 
 export class DescribeInstanceAutoRenewalAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > By default, the system checks whether auto-renewal is enabled for all instances.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer greater than **0**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+   * 
+   * > The default value is **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4498,10 +8116,42 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $tea.Model {
 }
 
 export class DescribeInstanceAutoRenewalAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the auto-renewal information for the instance.
+   */
   items?: DescribeInstanceAutoRenewalAttributeResponseBodyItems;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on the current page.
+   * 
+   * @example
+   * 30
+   */
   pageRecordCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2B17D708-1D6D-49F3-B6D7-478371DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4554,6 +8204,15 @@ export class DescribeInstanceAutoRenewalAttributeResponse extends $tea.Model {
 }
 
 export class DescribeInstanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4588,7 +8247,21 @@ export class DescribeInstanceConfigRequest extends $tea.Model {
 }
 
 export class DescribeInstanceConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter settings of the instance. For more information, see [Parameter overview and configuration guide](https://help.aliyun.com/document_detail/43885.html).
+   * 
+   * @example
+   * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4E2C08F6-2D11-4ECD-9A4C-27EF2D3D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4635,6 +8308,15 @@ export class DescribeInstanceConfigResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSSLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4669,11 +8351,56 @@ export class DescribeInstanceSSLRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSSLResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The common name of the CA certificate. The default value is the internal endpoint of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   certCommonName?: string;
+  /**
+   * @remarks
+   * The download URL of the CA certificate.
+   * 
+   * @example
+   * https://apsaradb-public.oss-ap-sout****-1.aliy****.com/ApsaraDB-CA-Chain.zip
+   */
   certDownloadURL?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 02260F96-913E-4655-9BA5-A3651CAF****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the TLS (SSL) encryption feature. Valid values:
+   * 
+   * *   **Enable**: SSL encryption is enabled.
+   * *   **Disable**: SSL encryption is disabled.
+   * 
+   * @example
+   * Enable
+   */
   SSLEnabled?: string;
+  /**
+   * @remarks
+   * The time when the CA certificate expires.
+   * 
+   * @example
+   * 2020-08-05T09:05:53Z
+   */
   SSLExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4728,6 +8455,15 @@ export class DescribeInstanceSSLResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTDEStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4762,7 +8498,24 @@ export class DescribeInstanceTDEStatusRequest extends $tea.Model {
 }
 
 export class DescribeInstanceTDEStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether TDE is enabled. Valid values:
+   * 
+   * *   **Enabled**: TDE is enabled.
+   * *   **Disable**: TDE is disabled.
+   * 
+   * @example
+   * Enabled
+   */
   TDEStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4809,31 +8562,231 @@ export class DescribeInstanceTDEStatusResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **cluster**: cluster architecture
+   * *   **standard**: standard architecture
+   * *   **rwsplit**: read/write splitting architecture
+   * 
+   * @example
+   * standard
+   */
   architectureType?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The edition of the instance. Valid values:
+   * 
+   * *   **Community**: ApsaraDB for Redis Community Edition
+   * *   **Enterprise**: ApsaraDB for Redis Enhanced Edition (Tair)
+   * 
+   * @example
+   * Enterprise
+   */
   editionType?: string;
+  /**
+   * @remarks
+   * The engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+   * 
+   * Valid values:
+   * 
+   * *   1.0
+   * *   2.8
+   * *   4.0
+   * *   5.0
+   * *   6.0
+   * *   7.0
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether the instance has expired. Valid values:
+   * 
+   * *   **true**: The instance has expired.
+   * *   **false**: The instance has not expired.
+   * 
+   * @example
+   * false
+   */
   expired?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the child instances of distributed instances. Valid values:
+   * 
+   * *   **true**: Only child instances are returned.
+   * *   **false**: Child instances are not returned.
+   * 
+   * @example
+   * true
+   */
   globalInstance?: boolean;
+  /**
+   * @remarks
+   * The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The IDs of the instances that you want to query.
+   * 
+   * >  If you want to specify multiple instance IDs, separate the instance IDs with commas (,). You can specify a maximum of 30 instance IDs in a single request.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceIds?: string;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is being changed.
+   * *   **Unavailable**: The instance is suspended.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL certificate of the instance is being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * 
+   * > For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. Valid values:
+   * 
+   * *   **Tair**
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   **CLASSIC**
+   * *   **VPC**
+   * 
+   * @example
+   * CLASSIC
+   */
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: **50**. Default value: **30**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * 172.16.49.***
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * > When you call this operation and specify the **Tag** parameter, you must also specify this parameter.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * > You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The keyword used for fuzzy search. The keyword can be based on an instance name or an instance ID.
+   * 
+   * @example
+   * apitest
+   */
   searchKey?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   */
   tag?: DescribeInstancesRequestTag[];
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
+   * @example
+   * cn-hongkong-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4903,10 +8856,42 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about the instances.
+   */
   instances?: DescribeInstancesResponseBodyInstances;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1E83311F-0EE4-4922-A3BF-730B312B****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of instances.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4959,26 +8944,177 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeInstancesOverviewRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **cluster**: cluster architecture
+   * *   **standard**: standard architecture
+   * *   **rwsplit**: read/write splitting architecture
+   * 
+   * @example
+   * standard
+   */
   architectureType?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The edition of the instance. Valid values:
+   * 
+   * *   **Community**: Community Edition
+   * *   **Enterprise**: Enhanced Edition (Tair)
+   * 
+   * @example
+   * Enterprise
+   */
   editionType?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The IDs of instances.
+   * 
+   * > By default, all instances that belong to this account are queried. If you specify multiple instance IDs, separate the instance IDs with commas (,).
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceIds?: string;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is being changed.
+   * *   **Unavailable**: The instance is unavailable.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL certificate of the instance is being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * 
+   * > For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The category of the instance. Valid values:
+   * 
+   * *   **Tair**
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **CLASSIC**: classic network
+   * *   **VPC**: Virtual Private Cloud (VPC)
+   * 
+   * @example
+   * CLASSIC
+   */
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * 172.16.49.***
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the instances you want to query reside. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instances you want to query belong.
+   * 
+   * > You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The keyword used for fuzzy search. The keyword can be based on an instance ID or an instance description.
+   * 
+   * @example
+   * apitest
+   */
   searchKey?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5038,8 +9174,26 @@ export class DescribeInstancesOverviewRequest extends $tea.Model {
 }
 
 export class DescribeInstancesOverviewResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array of instances.
+   */
   instances?: DescribeInstancesOverviewResponseBodyInstances[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1E83311F-0EE4-4922-A3BF-730B312B****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of instances.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5088,9 +9242,25 @@ export class DescribeInstancesOverviewResponse extends $tea.Model {
 }
 
 export class DescribeIntranetAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5125,12 +9295,77 @@ export class DescribeIntranetAttributeRequest extends $tea.Model {
 }
 
 export class DescribeIntranetAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled for the extra internal bandwidth that you purchased. Valid values:
+   * 
+   * *   **true**: Auto-renewal is enabled.
+   * *   **false**: Auto-renewal is disabled.
+   * 
+   * > If no extra internal bandwidth is purchased, this parameter is not returned.
+   * 
+   * @example
+   * true
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The expiration time of the purchased bandwidth. The time follows the ISO 8601 standard in the *yyyy-MM-dd* T *HH:mm:ss* Z format.
+   * 
+   * > If no extra internal bandwidth is purchased, this parameter is not returned.
+   * 
+   * @example
+   * 2021-03-06T16:00:00Z
+   */
   bandwidthExpireTime?: string;
+  /**
+   * @remarks
+   * The billing methods of unexpired bandwith plans. Valid values:
+   * - **0**: Pay-as-you-go
+   * - **1**: Subscription
+   * 
+   * @example
+   * 0
+   */
   bandwidthPrePaid?: string;
+  /**
+   * @remarks
+   * The time when the extra internal bandwidth that you purchased for temporary use expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * > If no extra internal bandwidth for temporary use is purchased or the extra internal bandwidth that you purchased for temporary use has expired, **0** is returned for this parameter.
+   * 
+   * @example
+   * 0
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * Specifies whether the instance has unexpired bandwidth plans. Valid values:
+   * 
+   * *   **true**: The instance has unexpired bandwidth plans.
+   * *   **false**: The instance does not have unexpired bandwidth plans.
+   * 
+   * > If no extra internal bandwidth is purchased, this parameter is not returned.
+   * 
+   * @example
+   * true
+   */
   hasPrePaidBandWidthOrderRunning?: boolean;
+  /**
+   * @remarks
+   * The current internal bandwidth of the instance. Unit: Mbit/s.
+   * 
+   * @example
+   * 102
+   */
   intranetBandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25D42CC3-FBA1-4AEC-BCE2-B8DD3137****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5187,6 +9422,15 @@ export class DescribeIntranetAttributeResponse extends $tea.Model {
 }
 
 export class DescribeLogicInstanceTopologyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance whose topology information you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -5221,9 +9465,31 @@ export class DescribeLogicInstanceTopologyRequest extends $tea.Model {
 }
 
 export class DescribeLogicInstanceTopologyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The information about proxy nodes.
+   */
   redisProxyList?: DescribeLogicInstanceTopologyResponseBodyRedisProxyList;
+  /**
+   * @remarks
+   * Details of data shards, including node information such as NodeInfo.
+   */
   redisShardList?: DescribeLogicInstanceTopologyResponseBodyRedisShardList;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 794120D1-E0CF-4713-BAE4-EBAEA04506AF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5305,7 +9571,21 @@ export class DescribeMonitorItemsRequest extends $tea.Model {
 }
 
 export class DescribeMonitorItemsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned metrics.
+   * 
+   * > *   **memoryUsage**, **GetQps**, and **PutQps** are supported only by ApsaraDB for Redis instances that use Redis 4.0 or later. **GetQps** and **PutQps** require the latest minor version. You can upgrade the major version or minor version of the instance as needed. For more information, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html) and [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+   * > *   When you use instances of Redis 2.8, if the **hit_rate** metric is not displayed, you must upgrade the minor version of the instance. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+   */
   monitorItems?: DescribeMonitorItemsResponseBodyMonitorItems;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8BEB2618-9517-43F3-A233-E0B34512****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5354,6 +9634,15 @@ export class DescribeMonitorItemsResponse extends $tea.Model {
 export class DescribeParameterGroupRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the parameter template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rpg-sys-00*****
+   */
   parameterGroupId?: string;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -5389,7 +9678,18 @@ export class DescribeParameterGroupRequest extends $tea.Model {
 }
 
 export class DescribeParameterGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the parameter template.
+   */
   parameterGroup?: DescribeParameterGroupResponseBodyParameterGroup;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A501A191-BD70-5E50-98A9-C2A486A82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5436,8 +9736,43 @@ export class DescribeParameterGroupResponse extends $tea.Model {
 }
 
 export class DescribeParameterGroupSupportParamRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The service category. Valid values:
+   * 
+   * *   **standard**: ApsaraDB for Redis Community Edition
+   * *   **enterprise**: ApsaraDB for Redis Enhanced Edition (Tair)
+   * 
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @remarks
+   * The engine type. Valid values:
+   * 
+   * *   **redis**: ApsaraDB for Redis Community Edition instance or Tair DRAM-based instance
+   * *   **tair_pena**: Tair persistent memory-optimized instance
+   * *   **tair_pdb**: Tair ESSD/SSD-based instance
+   * 
+   * @example
+   * redis
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * The compatible engine version. Valid values:
+   * 
+   * *   For ApsaraDB for Redis Community Edition instances, set the parameter to **5.0**, **6.0**, or **7.0**.
+   * *   For Tair DRAM-based instances that are compatible with Redis 5.0 or Redis 6.0, set the parameter to **5.0** or **6.0**.
+   * *   For Tair persistent memory-optimized instances that are compatible with Redis 6.0, set the parameter to **1.0**.
+   * *   For Tair ESSD-based instances that are compatible with Redis 6.0, set the parameter to **1.0**. For Tair SSD-based instances that are compatible with Redis 6.0, set the parameter to **2.0**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   engineVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -5476,7 +9811,18 @@ export class DescribeParameterGroupSupportParamRequest extends $tea.Model {
 }
 
 export class DescribeParameterGroupSupportParamResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BB73740C-23E2-4392-9DA4-2660C74C****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The parameters.
+   */
   resourceList?: DescribeParameterGroupSupportParamResponseBodyResourceList[];
   static names(): { [key: string]: string } {
     return {
@@ -5523,9 +9869,49 @@ export class DescribeParameterGroupSupportParamResponse extends $tea.Model {
 }
 
 export class DescribeParameterGroupTemplateListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The service category. Valid values:
+   * 
+   * standard: Community Edition enterprise: Enhanced Edition (Tair)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @remarks
+   * The role of the instance. Valid values: logic: logical instance. db: database instance. proxy: proxy node. cs: ConfigServer node. normal: master-replica database instance.
+   * 
+   * @example
+   * db
+   */
   characterType?: string;
+  /**
+   * @remarks
+   * The engine type. Valid values:
+   * 
+   * redis: Redis or Tair DRAM-based instance tair_pena: Tair persistent memory-optimized instance tair_pdb: Tair ESSD-based instance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * redis
+   */
   engineType?: string;
+  /**
+   * @remarks
+   * The compatible engine version. Valid values:
+   * 
+   * ApsaraDB for Redis Community Edition: 5.0, 6.0, and 7.0. Tair DRAM-based instances: 5.0 and 6.0. Tair persistent memory-optimized instances: 6.0. Tair ESSD-based instances: 4.0.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -5566,8 +9952,28 @@ export class DescribeParameterGroupTemplateListRequest extends $tea.Model {
 }
 
 export class DescribeParameterGroupTemplateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compatible engine version. Valid values:
+   * 
+   * ApsaraDB for Redis Community Edition: 5.0, 6.0, and 7.0. Tair DRAM-based instances: 5.0 and 6.0. Tair persistent memory-optimized instances: 6.0. Tair ESSD-based instances: 4.0.
+   * 
+   * @example
+   * 5
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The information about parameters.
+   */
   parameters?: DescribeParameterGroupTemplateListResponseBodyParameters[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5616,9 +10022,20 @@ export class DescribeParameterGroupTemplateListResponse extends $tea.Model {
 }
 
 export class DescribeParameterGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The database type. Valid values: **redis** (default) and **tair**.
+   * 
+   * @example
+   * redis
+   */
   dbType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5653,7 +10070,18 @@ export class DescribeParameterGroupsRequest extends $tea.Model {
 }
 
 export class DescribeParameterGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of parameter templates.
+   */
   parameterGroups?: DescribeParameterGroupsResponseBodyParameterGroups[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 686BB8A6-BBA5-47E5-8A75-D2ADE433****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5700,15 +10128,58 @@ export class DescribeParameterGroupsResponse extends $tea.Model {
 }
 
 export class DescribeParameterModificationHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-09-05T09:49:27Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * > You can set this parameter to query the parameter settings of the specified node in a cluster instance.
+   * 
+   * @example
+   * r-bp1xxxxxxxxxxxxx-db-0
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * script_check_enable
+   */
   parameterName?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-09-05T08:49:27Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5746,7 +10217,18 @@ export class DescribeParameterModificationHistoryRequest extends $tea.Model {
 }
 
 export class DescribeParameterModificationHistoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the parameter modification records.
+   */
   historicalParameters?: DescribeParameterModificationHistoryResponseBodyHistoricalParameters;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 963C20F0-7CE1-4591-AAF3-6F3CD1CE****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5793,12 +10275,58 @@ export class DescribeParameterModificationHistoryResponse extends $tea.Model {
 }
 
 export class DescribeParameterTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. For more information, see [Overview](https://help.aliyun.com/document_detail/86132.html). Valid values:
+   * 
+   * *   **logic**: The instance is a cluster master-replica instance or a read/write splitting instance.
+   * *   **normal**: The instance is a standard master-replica instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * logic
+   */
   characterType?: string;
+  /**
+   * @remarks
+   * The database engine that is run on the instance. Set the value to **Redis**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The major version that is run on the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the IDs of instances.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the IDs of resource groups.
+   * 
+   * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5839,10 +10367,42 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
 }
 
 export class DescribeParameterTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The database engine that is run on the instance. The value **Redis** is returned for this parameter.
+   * 
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The major version that is run on the instance.
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The number of parameters that are supported by the instance.
+   * 
+   * @example
+   * 24
+   */
   parameterCount?: string;
+  /**
+   * @remarks
+   * An array that consists of the details about the parameters returned.
+   */
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9DA28D8E-514D-4F12-ADED-70A9C818****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5895,10 +10455,35 @@ export class DescribeParameterTemplatesResponse extends $tea.Model {
 }
 
 export class DescribeParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * > You can set this parameter to query the parameter settings of the specified node in a cluster instance.
+   * 
+   * @example
+   * r-bp1xxxxxxxxxxxxx-db-0
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5935,10 +10520,39 @@ export class DescribeParametersRequest extends $tea.Model {
 }
 
 export class DescribeParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration parameters.
+   */
   configParameters?: DescribeParametersResponseBodyConfigParameters;
+  /**
+   * @remarks
+   * The database engine that the instance runs.
+   * 
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9C1338BE-8DE8-4890-A900-E1BC06BF****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The running parameters.
+   */
   runningParameters?: DescribeParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {
     return {
@@ -5991,25 +10605,165 @@ export class DescribeParametersResponse extends $tea.Model {
 }
 
 export class DescribePriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The extended information such as the promotional event ID and business information.
+   * 
+   * @example
+   * 000000000000
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB. This parameter is used only to query ApsaraDB for Redis Community Edition instances that are deployed in classic mode. We recommend that you use the **InstanceClass** parameter to specify an exact instance type.
+   * 
+   * >  If you specify the **InstanceClass** parameter, you do not need to specify the Capacity parameter.
+   * 
+   * @example
+   * 1024
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PostPaid** (default): pay-as-you-go
+   * *   **PrePaid**: subscription
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The coupon code. Default value: youhuiquan_promotion_option_id_for_blank. This value indicates that no coupon code is available.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcefully change the configurations of the instance. Valid values:
+   * 
+   * *   **false**: forcefully changes the configurations.
+   * *   **true** (default): does not forcefully change the configurations.
+   * 
+   * @example
+   * true
+   */
   forceUpgrade?: boolean;
+  /**
+   * @remarks
+   * The instance type.
+   * 
+   * **To view the instance type, perform the following steps:**
+   * 
+   * 1.  In the [Overview](https://help.aliyun.com/document_detail/26350.html) topic, click the link in the **Reference** column corresponding to the instance type that you want to view.
+   * 2.  In the instance type table of the page that appears, find the instance type in the **InstanceClass** column.
+   * 
+   * When you query cloud-native cluster instances, you must set this parameter to one of the following values and use the Instances parameter to specify the instance type that you want to query.
+   * 
+   * *   ApsaraDB for Redis cluster instances: redis.cluster.sharding.common.ce
+   * *   Tair DRAM-based cluster instances: tair.rdb.cluster.sharding.common
+   * *   Tair persistent memory-based cluster instances: tair.scm.cluster.sharding.common.ce
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  This parameter is required when the **OrderType** parameter is set to **UPGRADE** or **RENEW**.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * A JSON string that contains information about one or more cloud-native cluster instances. For more information, see the "Additional description of the Instances parameter" section of this topic.
+   * 
+   * @example
+   * Instances=[{"RegionId": "cn-hangzhou","ZoneId": "cn-hangzhou-b","InstanceClass": "redis.master.small.default","Period": "1","Quantity": "1","Capacity": "4096"}]
+   */
   instances?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **STAND_ALONE**: standalone
+   * *   **MASTER_SLAVE** (default): high availability (master-replica)
+   * 
+   * @example
+   * MASTER_SLAVE
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * Specifies whether to return parameters related to the order. Valid values:
+   * 
+   * *   **false** (default)
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
   orderParamOut?: string;
+  /**
+   * @remarks
+   * The order type. Valid values:
+   * 
+   * *   **BUY**: The order is used to purchase instances.
+   * *   **UPGRADE**: The order is used to change the configurations of instances.
+   * *   **RENEW**: The order is used to renew instances.
+   * *   **CONVERT**: The order is used to change the billing methods of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BUY
+   */
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The subscription duration. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**.
+   * 
+   * @example
+   * 3
+   */
   period?: number;
+  /**
+   * @remarks
+   * The number of instances that you want to purchase. Valid values: **1** to **30**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   quantity?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  shardCount?: number;
+  /**
+   * @remarks
+   * The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6032,6 +10786,7 @@ export class DescribePriceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      shardCount: 'ShardCount',
       zoneId: 'ZoneId',
     };
   }
@@ -6057,6 +10812,7 @@ export class DescribePriceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      shardCount: 'number',
       zoneId: 'string',
     };
   }
@@ -6067,10 +10823,36 @@ export class DescribePriceRequest extends $tea.Model {
 }
 
 export class DescribePriceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the order.
+   */
   order?: DescribePriceResponseBodyOrder;
+  /**
+   * @remarks
+   * The parameters of the order. This parameter is returned when OrderParamOut is set to `true`.
+   * 
+   * @example
+   * String
+   */
   orderParams?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3A40BE4E-1890-4972-889C-FEFA37663635
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details about promotion rules.
+   */
   rules?: DescribePriceResponseBodyRules;
+  /**
+   * @remarks
+   * Details about rules that match the coupon.
+   */
   subOrders?: DescribePriceResponseBodySubOrders;
   static names(): { [key: string]: string } {
     return {
@@ -6123,6 +10905,18 @@ export class DescribePriceResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The display language of the **LocalName** parameter value. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US**: English
+   * 
+   * > The default value is **zh-CN**.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -6157,7 +10951,18 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The **region IDs**.
+   */
   regionIds?: DescribeRegionsResponseBodyRegionIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6204,11 +11009,47 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeRoleZoneInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-t4nlenc2p04uvb****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **10**, **20**, and **50**. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of node to query. Default value: 1. Valid values:
+   * 
+   * *   **0**: proxy node
+   * 
+   * > This parameter is supported only for cluster and read/write splitting instances.
+   * 
+   * *   **1**: data node
+   * 
+   * @example
+   * 0
+   */
   queryType?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -6247,10 +11088,42 @@ export class DescribeRoleZoneInfoRequest extends $tea.Model {
 }
 
 export class DescribeRoleZoneInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about each node in an ApsaraDB for Redis instance.
+   */
   node?: DescribeRoleZoneInfoResponseBodyNode;
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 224B97FB-A275-4EAC-86E9-8922FEA2****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6303,22 +11176,127 @@ export class DescribeRoleZoneInfoResponse extends $tea.Model {
 }
 
 export class DescribeRunningLogRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The shard type of the cluster instance. Valid values:
+   * 
+   * *   **proxy**: proxy node
+   * *   **db**: data node
+   * *   **cs**: config server node
+   * 
+   * >  If you set this parameter, you must also set the **NodeId** parameter.
+   * 
+   * @example
+   * proxy
+   */
   characterType?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * 0
+   */
   DBName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you specify 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-12-03T08:01Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the node in the instance. You can set this parameter to query the operational logs of a specified node.
+   * 
+   * > *   This parameter is available only for read/write splitting and cluster instances of ApsaraDB for Redis.
+   * > *   If you set this parameter, you must also set the **CharacterType** parameter.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The method that is used to sort the returned log entries. Valid values:
+   * 
+   * *   **asc**: ascending order
+   * *   **desc**: descending order
+   * 
+   * @example
+   * asc
+   */
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The keyword that is used to query operational logs.
+   * 
+   * @example
+   * aof
+   */
   queryKeyword?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The role of the data shard. Default value: master. Valid values:
+   * 
+   * *   **master**: master node
+   * *   **slave**: replica node
+   * 
+   * @example
+   * master
+   */
   roleType?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-12-03T07:01Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6370,14 +11348,74 @@ export class DescribeRunningLogRecordsRequest extends $tea.Model {
 }
 
 export class DescribeRunningLogRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the database engine.
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Details about the log entries.
+   */
   items?: DescribeRunningLogRecordsResponseBodyItems;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of log entries returned on the current page.
+   * 
+   * @example
+   * 5
+   */
   pageRecordCount?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 093B8579-9264-43A0-ABA9-AA86****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * @example
+   * 2018-12-03T07:01Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6438,6 +11476,15 @@ export class DescribeRunningLogRecordsResponse extends $tea.Model {
 }
 
 export class DescribeSecurityGroupConfigurationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -6472,7 +11519,18 @@ export class DescribeSecurityGroupConfigurationRequest extends $tea.Model {
 }
 
 export class DescribeSecurityGroupConfigurationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of security groups.
+   */
   items?: DescribeSecurityGroupConfigurationResponseBodyItems;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 981C0D6A-D9DD-466C-92DA-F29DF755****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6519,6 +11577,15 @@ export class DescribeSecurityGroupConfigurationResponse extends $tea.Model {
 }
 
 export class DescribeSecurityIpsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -6553,7 +11620,18 @@ export class DescribeSecurityIpsRequest extends $tea.Model {
 }
 
 export class DescribeSecurityIpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EFC9161F-15E3-4A6E-8A99-C09916D1****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The whitelists of the instance.
+   */
   securityIpGroups?: DescribeSecurityIpsResponseBodySecurityIpGroups;
   static names(): { [key: string]: string } {
     return {
@@ -6600,21 +11678,115 @@ export class DescribeSecurityIpsResponse extends $tea.Model {
 }
 
 export class DescribeSlowLogRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * 0
+   */
   DBName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you specify 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-03-22T14:11Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the node in the instance. You can specify this parameter to query the slow logs of a specified node.
+   * 
+   * > This parameter is available only if the instance uses the read/write splitting or cluster architecture.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The dimension by which to sort the results. Default value: execution_time. Valid values:
+   * 
+   * *   **execution_time**: sorts the results by query start time.
+   * *   **latency**: sorts the results by query latency.
+   * 
+   * @example
+   * execution_time
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The sorting order of the results to return. Default value: DESC. Valid values:
+   * 
+   * *   **ASC**: ascending order
+   * *   **DESC**: descending order
+   * 
+   * @example
+   * ASC
+   */
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The keyword based on which slow logs are queried. You can set this parameter to a value of the string type.
+   * 
+   * @example
+   * keyword1
+   */
   queryKeyword?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The type of the slow logs. Default value: db. Valid values:
+   * 
+   * *   **proxy**: slow logs of proxy nodes
+   * *   **db**: slow logs of data nodes
+   * 
+   * @example
+   * proxy
+   */
   slowLogRecordType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-03-10T14:11Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6664,14 +11836,74 @@ export class DescribeSlowLogRecordsRequest extends $tea.Model {
 }
 
 export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The database engine that the instance runs.
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp10n********
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The slow query log entries.
+   */
   items?: DescribeSlowLogRecordsResponseBodyItems;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of log entries returned on the current page.
+   * 
+   * @example
+   * 1
+   */
   pageRecordCount?: number;
+  /**
+   * @remarks
+   * The maximum number of log entries returned per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 686BB8A6-BBA5-47E5-8A75-D2ADE433****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start time of the query.
+   * 
+   * @example
+   * 2019-03-10T13:11Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The total number of returned log entries.
+   * 
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6732,16 +11964,73 @@ export class DescribeSlowLogRecordsResponse extends $tea.Model {
 }
 
 export class DescribeTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-11-26T01:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-11-20T01:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the task. Separate multiple values with commas (,). Valid values:
+   * 
+   * *   **0**: The task is pending.
+   * *   **1**: The task is running.
+   * *   **2**: The task is complete.
+   * *   **4**: The task is closed.
+   * *   **7**: The task is paused.
+   * *   **8**: The task is interrupted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6781,10 +12070,42 @@ export class DescribeTasksRequest extends $tea.Model {
 }
 
 export class DescribeTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the task.
+   */
   items?: DescribeTasksResponseBodyItems[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 608FAEC9-485E-4C65-82DE-2E5B955E****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 2
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6837,9 +12158,25 @@ export class DescribeTasksResponse extends $tea.Model {
 }
 
 export class DescribeZonesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The display language of the response. Default value: zh-CN. Valid values:
+   * * **zh-C**N: Chinese
+   * * **en-US**: English
+   * 
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-huhehaote
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -6874,7 +12211,18 @@ export class DescribeZonesRequest extends $tea.Model {
 }
 
 export class DescribeZonesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1D42F072-72FE-4DC4-BB8E-64B1D298****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried zones.
+   */
   zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {
@@ -6921,20 +12269,114 @@ export class DescribeZonesResponse extends $tea.Model {
 }
 
 export class EnableAdditionalBandwidthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * 
+   * *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+   * *   **false**: disables automatic payment. If automatic payment is disabled, you must perform the following steps to complete the payment in the ApsaraDB for Redis console: In the top navigation bar, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * *   **true**: enables auto-renewal.
+   * *   **false**: disables auto-renewal. This is the default value.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The auto-renewal cycle based on which ApsaraDB for Redis automatically renews the purchased bandwidth. Unit: months. Valid values: **1**, **2**, **3**, **4**, **5**, **6**, **7**, **8**, **9**, **12**, **24**, **36**, and **60**.
+   * 
+   * > * This parameter takes effect and must be specified only when you set the **AutoRenew** parameter to **true**.
+   * > * You cannot query the auto-renewal cycle by calling an API operation. To obtain the auto-renewal cycle, you can perform the following procedure: In the top navigation bar of the ApsaraDB for Redis console, choose **Expenses** > **Renewal Management**. On the page that appears, enter the ID of the instance and the `-bw` suffix in the **Instance ID** field. Example: r-bp1zxszhcgatnx****-bw.
+   * 
+   * @example
+   * 1
+   */
   autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The amount of extra bandwidth that you want to purchase. Unit: Mbit/s. The value must be an integer greater than or equal to **0**. The maximum value can be up to six times the default bandwidth of the instance or a single shard, but cannot exceed 192 Mbit/s. For example, if the default bandwidth of an instance is 10 Mbit/s, the value range of this parameter is **0** to **60**.
+   * 
+   * > 
+   * 
+   * *   You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to obtain the default maximum bandwidth returned by the **DefaultBandWidth** response parameter. For more information about instance types, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+   * 
+   * *   If you specify multiple data shard IDs in the **NodeId** parameter, you must specify the amount of bandwidth that you want to purchase for each specified data shard in the Bandwidth parameter. The bandwidth values that you specify in the Bandwidth parameter must be in the same sequence as the data shard IDs that you specify in the NodeId parameter. In addition, you must separate the bandwidth values with commas (,).
+   * 
+   * @example
+   * 20
+   */
   bandwidth?: string;
+  /**
+   * @remarks
+   * The billing method of the bandwidth instance. Default value: PostPaid. Valid values:
+   * 
+   * - PrePaid: subscription
+   * - PostPaid: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the IDs of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the data shard for which you want to purchase a specific amount of bandwidth. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/94665.html) operation to query the IDs of the data shards in an instance. If you specify multiple data shard IDs, separate the data shard IDs with commas (,). You can also set this parameter to **All**, which specifies all the data shards of the instance.
+   * 
+   * > This parameter is available and required only if the instance is a [cluster master-replica](https://help.aliyun.com/document_detail/52228.html) or [read/write splitting](https://help.aliyun.com/document_detail/62870.html) instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The validity period of the bandwidth that you purchase. Unit: day. Valid values: **1**, **2**, **3**, **7**, **14**, **30**, **60**, **90**, **180**, **365**, **730**, **1095**, and **1825**.
+   * 
+   * > If you want to continue using the purchased bandwidth after the specified period of time elapses, you must call the [RenewAdditionalBandwidth](https://help.aliyun.com/document_detail/211199.html) operation to submit a renewal order.
+   * 
+   * @example
+   * 30
+   */
   orderTimeLength?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+   * 
+   * @example
+   * SDK
+   */
   sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6982,7 +12424,21 @@ export class EnableAdditionalBandwidthRequest extends $tea.Model {
 }
 
 export class EnableAdditionalBandwidthResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 2084452111111
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7029,7 +12485,28 @@ export class EnableAdditionalBandwidthResponse extends $tea.Model {
 }
 
 export class FlushExpireKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the minor version is upgraded. Valid values:
+   * 
+   * *   **Immediately**: immediately deletes expired keys.
+   * *   **MaintainTime**:deletes expired key in the maintenance window.
+   * 
+   * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7066,8 +12543,29 @@ export class FlushExpireKeysRequest extends $tea.Model {
 }
 
 export class FlushExpireKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 82E30AB7-E3A4-46AC-88A0-3E4DCDC5****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 21986****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7116,6 +12614,15 @@ export class FlushExpireKeysResponse extends $tea.Model {
 }
 
 export class FlushInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7150,6 +12657,13 @@ export class FlushInstanceRequest extends $tea.Model {
 }
 
 export class FlushInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B3E7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7194,7 +12708,25 @@ export class FlushInstanceResponse extends $tea.Model {
 }
 
 export class FlushInstanceForDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The index number of the database. Valid values: 0 to 255.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   dbIndex?: number;
+  /**
+   * @remarks
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7228,6 +12760,13 @@ export class FlushInstanceForDBRequest extends $tea.Model {
 }
 
 export class FlushInstanceForDBResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7272,8 +12811,38 @@ export class FlushInstanceForDBResponse extends $tea.Model {
 }
 
 export class GrantAccountPrivilegeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the account. You can call the [DescribeAccounts](~~DescribeAccounts~~) operation to obtain the name of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The permissions of the account. Default value: RoleReadWrite. Valid values:
+   * 
+   * *   RoleReadOnly: The account has the read-only permissions.
+   * *   RoleReadWrite: The account has the read and write permissions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RoleReadWrite
+   */
   accountPrivilege?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the account belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7315,6 +12884,13 @@ export class GrantAccountPrivilegeRequest extends $tea.Model {
 }
 
 export class GrantAccountPrivilegeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3845BDF5-15A6-4444-B770-78501819****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7361,6 +12937,13 @@ export class GrantAccountPrivilegeResponse extends $tea.Model {
 export class InitializeKvstorePermissionRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7393,6 +12976,13 @@ export class InitializeKvstorePermissionRequest extends $tea.Model {
 }
 
 export class InitializeKvstorePermissionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7437,14 +13027,54 @@ export class InitializeKvstorePermissionResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The token used to start the next query to retrieve more results.
+   * 
+   * > This parameter is not required in the first query. If not all results are returned in one query, you can specify the **NextToken** value returned for the query to perform the next query.
+   * 
+   * @example
+   * 212db86sca4384811e0b5e8707ec2****
+   */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the instances.
+   * 
+   * > *   You must specify this parameter or the **Tag** parameter.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource type. Set the value to **INSTANCE**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the instance. You must specify this parameter or the **ResourceId** parameter.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -7480,8 +13110,26 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The token required to obtain more results. If a query does not return all results, in the next query, you can provide the token returned by the previous query to obtain more results.
+   * 
+   * @example
+   * 212db86sca4384811e0b5e8707ec2****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 47A514A1-4B77-4E30-B4C5-2A880650****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details of the instances and tags.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -7530,7 +13178,25 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class LockDBInstanceWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The reason why write operations on the instance are locked.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lock reason
+   */
   lockReason?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7567,9 +13233,37 @@ export class LockDBInstanceWriteRequest extends $tea.Model {
 }
 
 export class LockDBInstanceWriteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-2ev03avw0r0552***
+   */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The reason why write operations on the instance are locked.
+   * 
+   * @example
+   * lock reason
+   */
   lockReason?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2BE6E619-A657-42E3-AD2D-18F8428A****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 21986****
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7620,15 +13314,66 @@ export class LockDBInstanceWriteResponse extends $tea.Model {
 }
 
 export class MigrateToOtherZoneRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraDB for Redis instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * Specifies the time when the database is switched after data is migrated. Valid values:
+   * 
+   * *   **Immediately**: immediately switched after the data is migrated.
+   * *   **MaintainTime**: switched within the maintenance window.
+   * *   **0**: immediately switched after the data is migrated.
+   * *   **1**: switched within the maintenance window.
+   * 
+   * >  Default value: **Immediately**.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the destination secondary zone. You can call the [DescribeZones](~~DescribeZones~~) operation to query zone IDs.
+   * 
+   * >  You can specify this parameter to deploy the master node and replica node in different zones to implement zone-disaster recovery. This helps withstand data center-level breakdowns.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   secondaryZoneId?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * > *   The vSwitch must be deployed in the zone that is specified by the ZoneId parameter.
+   * > *   If the network type of the instance is VPC, this parameter is required.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the destination primary zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query zone IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-g
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7666,6 +13411,13 @@ export class MigrateToOtherZoneRequest extends $tea.Model {
 }
 
 export class MigrateToOtherZoneResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29B0BF34-D069-4495-92C7-FA6D9452****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7710,8 +13462,39 @@ export class MigrateToOtherZoneResponse extends $tea.Model {
 }
 
 export class ModifyAccountDescriptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the account.
+   * 
+   * *   The description must start with a letter and cannot start with `http://` or `https://`.
+   * *   The description can contain letters, digits, underscores (_), and hyphens (-).
+   * *   The description must be 2 to 256 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testescription
+   */
   accountDescription?: string;
+  /**
+   * @remarks
+   * The username of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/95802.html) operation to query the username of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7753,6 +13536,13 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
 }
 
 export class ModifyAccountDescriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7797,9 +13587,47 @@ export class ModifyAccountDescriptionResponse extends $tea.Model {
 }
 
 export class ModifyAccountPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account for which you want to change the password. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/95802.html) operation to query the username of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new password to be set for the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * newPassWd888****
+   */
   newAccountPassword?: string;
+  /**
+   * @remarks
+   * The current password of the account.
+   * 
+   * > If you forget your password, you can call the [ResetAccountPassword](https://help.aliyun.com/document_detail/95941.html) operation to reset your password.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oldPassWd999****
+   */
   oldAccountPassword?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7843,6 +13671,13 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
 }
 
 export class ModifyAccountPasswordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7887,12 +13722,34 @@ export class ModifyAccountPasswordResponse extends $tea.Model {
 }
 
 export class ModifyActiveOperationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the O\\&M task. Separate multiple IDs with commas (,).
+   * 
+   * > You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/197387.html) operation to query the ID of an O\\&M task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11111,22222
+   */
   ids?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The scheduled switchover time to be specified. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * > The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/197387.html) operation to obtain the latest operation time, which is the value of the **Deadline** parameter in the response.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-10-17T18:50:00Z
+   */
   switchTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7924,7 +13781,21 @@ export class ModifyActiveOperationTaskRequest extends $tea.Model {
 }
 
 export class ModifyActiveOperationTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the O\\&M task. IDs are separated by commas (,).
+   * 
+   * @example
+   * 11111,22222
+   */
   ids?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7971,13 +13842,31 @@ export class ModifyActiveOperationTaskResponse extends $tea.Model {
 }
 
 export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1111721,1111718
+   */
   ids?: string;
+  /**
+   * @example
+   * 0
+   */
   immediateStart?: number;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-10-17T18:50:00Z
+   */
   switchTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8011,7 +13900,15 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
 }
 
 export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 11111,22222
+   */
   ids?: string;
+  /**
+   * @example
+   * E278D833-BB4B-50BF-8646-7BC1BAB2373B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8058,12 +13955,43 @@ export class ModifyActiveOperationTasksResponse extends $tea.Model {
 }
 
 export class ModifyAuditLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the audit log feature. Default value: true. Valid values:
+   * 
+   * *   **true**: enables the audit log feature.
+   * *   **false**: disables the audit log feature.
+   * 
+   * > If the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html) or [read/write splitting architecture](https://help.aliyun.com/document_detail/62870.html), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+   * 
+   * @example
+   * true
+   */
   dbAudit?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The retention period of audit logs. Valid values: **1** to **365**. Unit: days.
+   * 
+   * > *   This parameter is required only if the **DbAudit** parameter is set to **true**.
+   * > *   The value of this parameter takes effect for all ApsaraDB for Redis instances in the current region.
+   * 
+   * @example
+   * 10
+   */
   retention?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -8098,6 +14026,13 @@ export class ModifyAuditLogConfigRequest extends $tea.Model {
 }
 
 export class ModifyAuditLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8142,12 +14077,70 @@ export class ModifyAuditLogConfigResponse extends $tea.Model {
 }
 
 export class ModifyBackupPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of days for which you want to retain data backup files. Valid values: 7 to 730. Default value: 7.
+   * 
+   * @example
+   * 7
+   */
   backupRetentionPeriod?: number;
+  /**
+   * @remarks
+   * Enables or disables the data flashback feature for the instance. Valid values:
+   * 
+   * *   **1**: enables the data flashback feature. You must also enable AOF persistence by setting `appendonly` to `yes` in the parameter settings of the instance. Then, you can use the data flashback feature.
+   * *   **0** (default): disables the data flashback feature.
+   * 
+   * >  This parameter is available only for ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based and persistent memory-optimized instances. For more information, see [Data flashback](https://help.aliyun.com/document_detail/443784.html).
+   * 
+   * @example
+   * 1
+   */
   enableBackupLog?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The days of the week to back up data. Valid values:
+   * 
+   * *   **Monday**
+   * *   **Tuesday**
+   * *   **Wednesday**
+   * *   **Thursday**
+   * *   **Friday**
+   * *   **Saturday**
+   * *   **Sunday**
+   * 
+   * > Separate multiple options with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Tuesday
+   */
   preferredBackupPeriod?: string;
+  /**
+   * @remarks
+   * The time range to back up data. Specify the time in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+   * 
+   * > The beginning and end of the time range must be on the hour. The duration must be an hour.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 07:00Z-08:00Z
+   */
   preferredBackupTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -8188,6 +14181,13 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
 }
 
 export class ModifyBackupPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8232,12 +14232,33 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceAutoUpgradeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable automatic minor version update. Valid values:
+   * 
+   * *   **1**: enables automatic minor version update.
+   * *   **0**: disables automatic minor version update.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8269,6 +14290,13 @@ export class ModifyDBInstanceAutoUpgradeRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceAutoUpgradeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * ID of the request.
+   * 
+   * @example
+   * 2FF6158E-3394-4A90-B634-79C49184****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8313,12 +14341,58 @@ export class ModifyDBInstanceAutoUpgradeResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The current endpoint of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   currentConnectionString?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The network type of the endpoint. Valid values:
+   * 
+   * *   **Private**: internal network
+   * *   **Public**: Internet
+   * 
+   * @example
+   * Public
+   */
   IPType?: string;
+  /**
+   * @remarks
+   * The prefix of the new endpoint. Specify the endpoint in the `<prefix>.redis.rds.aliyuncs.com` format. The prefix must be 8 to 40 characters in length and can contain lowercase letters and digits. It must start with a lowercase letter.
+   * 
+   * >  You must specify one of the **NewConnectionString** and **Port** parameters.
+   * 
+   * @example
+   * standardredis
+   */
   newConnectionString?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The port number that is used to connect to the instance. Valid values: **1024** to **65535**.
+   * 
+   * > You must specify one of the **NewConnectionString** and **Port** parameters.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -8359,6 +14433,13 @@ export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceConnectionStringResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1790D68A-465C-44E3-BC24-9732652961F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8403,12 +14484,59 @@ export class ModifyDBInstanceConnectionStringResponse extends $tea.Model {
 }
 
 export class ModifyGlobalSecurityIPGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses in the IP whitelist template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.168.0.1,10.10.10.10,172.16.0.1
+   */
   GIpList?: string;
+  /**
+   * @remarks
+   * The name of the IP whitelist template. The name must meet the following requirements:
+   * 
+   * *   The name can contain lowercase letters, digits, and underscores (_).
+   * *   The name must start with a letter and end with a letter or a digit.
+   * *   The name must be 2 to 120 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_123
+   */
   globalIgName?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -8449,6 +14577,13 @@ export class ModifyGlobalSecurityIPGroupRequest extends $tea.Model {
 }
 
 export class ModifyGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 686BB8A6-BBA5-47E5-8A75-D2ADE433****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8493,11 +14628,49 @@ export class ModifyGlobalSecurityIPGroupResponse extends $tea.Model {
 }
 
 export class ModifyGlobalSecurityIPGroupNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the global IP whitelist template. The name must meet the following requirements:
+   * 
+   * *   The name can contain lowercase letters, digits, and underscores (_).
+   * *   The name must start with a letter and end with a letter or a digit.
+   * *   The name must be 2 to 120 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_123
+   */
   globalIgName?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * g-kd2iop4aur9qwxnvh***
+   */
   globalSecurityGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -8536,6 +14709,13 @@ export class ModifyGlobalSecurityIPGroupNameRequest extends $tea.Model {
 }
 
 export class ModifyGlobalSecurityIPGroupNameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2B17D708-1D6D-49F3-B6D7-478371DD****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8580,11 +14760,45 @@ export class ModifyGlobalSecurityIPGroupNameResponse extends $tea.Model {
 }
 
 export class ModifyGlobalSecurityIPGroupRelationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-t4n885e834f6****
+   */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -8623,6 +14837,13 @@ export class ModifyGlobalSecurityIPGroupRelationRequest extends $tea.Model {
 }
 
 export class ModifyGlobalSecurityIPGroupRelationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1E83311F-0EE4-4922-A3BF-730B312B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8667,9 +14888,46 @@ export class ModifyGlobalSecurityIPGroupRelationResponse extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The new name of the instance. The name must be 2 to 80 characters in length. The name must start with a letter and cannot contain spaces and the following special characters: `@ / : = " < > { [ ] }`
+   * 
+   * @example
+   * newinstancename
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * [The release protection state of the instance.](https://help.aliyun.com/document_detail/165005.html) Valid values:
+   * 
+   * *   **true**: enabled
+   * *   **false**: disabled
+   * 
+   * > This parameter is available only for pay-as-you-go instances.
+   * 
+   * @example
+   * true
+   */
   instanceReleaseProtection?: boolean;
+  /**
+   * @remarks
+   * The new password for the default account. The default account is named after the instance ID. Example: r-bp10noxlhcoim2\\*\\*\\*\\*.
+   * 
+   * > The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * 
+   * @example
+   * uW8+nsrp
+   */
   newPassword?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -8710,6 +14968,13 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B3E76
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8754,8 +15019,40 @@ export class ModifyInstanceAttributeResponse extends $tea.Model {
 }
 
 export class ModifyInstanceAutoRenewalAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * *   **true**: enables auto-renewal.
+   * *   **false**: disables auto-renewal.
+   * 
+   * > The default value is **false**.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The ID of the instance. Separate multiple instance IDs with commas (,).
+   * 
+   * > You can specify up to 30 instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The auto-renewal period. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the instance is automatically renewed based on the number of months specified by this parameter.
+   * 
+   * > This parameter is available and required only if the **AutoRenew** parameter is set to **true**.
+   * 
+   * @example
+   * 3
+   */
   duration?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -8794,6 +15091,13 @@ export class ModifyInstanceAutoRenewalAttributeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceAutoRenewalAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 52D901ED-E0A5-42FB-B9DB-39C295C3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8838,7 +15142,29 @@ export class ModifyInstanceAutoRenewalAttributeResponse extends $tea.Model {
 }
 
 export class ModifyInstanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance parameter settings that you want to modify. Specify this parameter in the JSON format. The new value of a parameter overwrites the original value.
+   * 
+   * **
+   * 
+   * **Description** For more information, see [Supported parameters](https://help.aliyun.com/document_detail/259681.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -8875,6 +15201,13 @@ export class ModifyInstanceConfigRequest extends $tea.Model {
 }
 
 export class ModifyInstanceConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8919,8 +15252,37 @@ export class ModifyInstanceConfigResponse extends $tea.Model {
 }
 
 export class ModifyInstanceMaintainTimeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC. For example, if you want the maintenance window to end at 2:00 (UTC+8), set this parameter to `18:00Z`.
+   * 
+   * >  The interval between the start time and the end time cannot be less than 1 hour.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 04:00Z
+   */
   maintainEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC. For example, if you want the maintenance to start at 1:00 (UTC+8), set this parameter to `17:00Z`. After you call the API operation, you can view the actual time in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 03:00Z
+   */
   maintainStartTime?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -8959,6 +15321,13 @@ export class ModifyInstanceMaintainTimeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceMaintainTimeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B3E76
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9003,8 +15372,38 @@ export class ModifyInstanceMaintainTimeResponse extends $tea.Model {
 }
 
 export class ModifyInstanceMajorVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the major version is upgraded. Valid values:
+   * 
+   * *   **Immediately**: immediately upgrades the major version. This is the default value.
+   * *   **MaintainTime**: upgrades the major version in the maintenance window.
+   * 
+   * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The major version to which you want to upgrade the instance. Valid values: **4.0** and **5.0**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5.0
+   */
   majorVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9043,6 +15442,13 @@ export class ModifyInstanceMajorVersionRequest extends $tea.Model {
 }
 
 export class ModifyInstanceMajorVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AA587FB2-2593-4DFE-BE13-2494C2DF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9087,8 +15493,36 @@ export class ModifyInstanceMajorVersionResponse extends $tea.Model {
 }
 
 export class ModifyInstanceMinorVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the minor version is updated. Valid values:
+   * 
+   * *   **Immediately**: The minor version is immediately updated.
+   * *   **MaintainTime**: The minor version is updated within the maintenance window.
+   * 
+   * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The minor version to which you want to update. Default value: **latest_version**.
+   * 
+   * @example
+   * latest_version
+   */
   minorversion?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9127,6 +15561,13 @@ export class ModifyInstanceMinorVersionRequest extends $tea.Model {
 }
 
 export class ModifyInstanceMinorVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 28761557-0B33-41DF-AEEB-322DFF96****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9171,8 +15612,35 @@ export class ModifyInstanceMinorVersionResponse extends $tea.Model {
 }
 
 export class ModifyInstanceNetExpireTimeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The extension period to retain the classic network endpoint of the instance. Unit: days. Valid values: **14**, **30**, **60**, and **120**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 14
+   */
   classicExpiredDays?: number;
+  /**
+   * @remarks
+   * The endpoint of the classic network.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   connectionString?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9211,8 +15679,26 @@ export class ModifyInstanceNetExpireTimeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceNetExpireTimeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Details of the extension period for which the classic network endpoint of the instance is retained.
+   */
   netInfoItems?: ModifyInstanceNetExpireTimeResponseBodyNetInfoItems;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9C4AF387-1EA3-4C84-8013-3F6B973EDDF5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9261,11 +15747,31 @@ export class ModifyInstanceNetExpireTimeResponse extends $tea.Model {
 }
 
 export class ModifyInstanceParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * g-idhwofwofewhf****
+   */
   parameterGroupId?: string;
+  /**
+   * @example
+   * {"hz": "50"}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -9276,6 +15782,7 @@ export class ModifyInstanceParameterRequest extends $tea.Model {
       ownerId: 'OwnerId',
       parameterGroupId: 'ParameterGroupId',
       parameters: 'Parameters',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -9289,6 +15796,7 @@ export class ModifyInstanceParameterRequest extends $tea.Model {
       ownerId: 'number',
       parameterGroupId: 'string',
       parameters: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -9301,8 +15809,23 @@ export class ModifyInstanceParameterRequest extends $tea.Model {
 }
 
 export class ModifyInstanceParameterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 561AFBF1-BE20-44DB-9BD1-6988B53E****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 578678678
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9351,11 +15874,33 @@ export class ModifyInstanceParameterResponse extends $tea.Model {
 }
 
 export class ModifyInstanceSSLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Modifies SSL encryption configurations. Valid values:
+   * 
+   * *   **Disable**: The SSL encryption is disabled.
+   * *   **Enable**: The SSL encryption is enabled.
+   * *   **Update**: The SSL certificate is updated.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Enable
+   */
   SSLEnabled?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -9388,8 +15933,29 @@ export class ModifyInstanceSSLRequest extends $tea.Model {
 }
 
 export class ModifyInstanceSSLResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AD7E16AA-6B23-43BF-979C-07D957FB****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 32184****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9438,27 +16004,181 @@ export class ModifyInstanceSSLResponse extends $tea.Model {
 }
 
 export class ModifyInstanceSpecRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Default value: true. Valid values:
+   * 
+   * *   **true**: enables auto-renewal.
+   * *   **false**: disables auto-renewal. If you set this parameter to **false**, the instance must be manually renewed before it expires. For more information, see [Renew an instance](https://help.aliyun.com/document_detail/26352.html).
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The ID of the promotional event or business information.
+   * 
+   * @example
+   * 000000001
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The time when to change the configurations. Default value: Immediately. Valid values:
+   * 
+   * *   **Immediately**: The configurations are immediately changed.
+   * *   **MaintainTime**: The configurations are changed within the maintenance window. You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to change the maintenance window.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable forced transmission during a configuration change. Valid values:
+   * 
+   * *   **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
+   * *   **true**: The system skips the version check and directly performs the configuration change.
+   * 
+   * @example
+   * false
+   */
   forceTrans?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to forcefully change the configurations of the instance. Default value: true. Valid values:
+   * 
+   * *   **false**: The system does not forcefully change the configurations.
+   * *   **true**: The system forcefully changes the configurations.
+   * 
+   * @example
+   * true
+   */
   forceUpgrade?: boolean;
+  /**
+   * @remarks
+   * The new instance type. You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/120580.html) operation to query the instance types available for configuration change within the zone to which the instance belongs.
+   * 
+   * >  For more information about the instance types, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The major version to which you want to upgrade the instance. When you change the configurations of an instance, you can upgrade the major version of the instance by setting this parameter. Valid values: **2.8**, **4.0**, and **5.0**. We recommend that you upgrade the major version to 5.0.
+   * 
+   * @example
+   * 5.0
+   */
   majorVersion?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **MASTER_SLAVE**: high availability (master-replica)
+   * *   **STAND_ALONE**: standalone
+   * *   **double**: master-replica
+   * *   **single**: standalone
+   * 
+   * >  For cloud-native instances, set this parameter to **MASTER_SLAVE** or **STAND_ALONE**. For classic instances, set this parameter to **double** or **single**.
+   * 
+   * @example
+   * MASTER_SLAVE
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The change type. This parameter is required when you change the configurations of a subscription instance. Default value: UPGRADE. Valid values:
+   * 
+   * *   **UPGRADE**: upgrades the configurations of a subscription instance.
+   * *   **DOWNGRADE**: downgrades the configurations of a subscription instance.
+   * 
+   * > 
+   * 
+   * *   To downgrade a subscription instance, you must set this parameter to **DOWNGRADE**.
+   * 
+   * *   If the price of an instance increases after its configurations are changed, the instance is upgraded. If the price decreases, the instance is downgraded. For example, the price of an 8 GB read/write splitting instance with five read replicas is higher than that of a 16 GB cluster instance. If you want to change a 16 GB cluster instance to an 8 GB read/write splitting instance with five read replicas, you must upgrade the instance.
+   * 
+   * @example
+   * DOWNGRADE
+   */
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of read replicas in the primary zone. Valid values: 0 to 5. This parameter applies only to the following scenarios:
+   * 
+   * *   If the instance is a standard instance that uses cloud disks, you can set this parameter to a value greater than 0 to enable the read/write splitting architecture.
+   * *   If the instance is a read/write splitting instance that uses cloud disks, you can use this parameter to customize the number of read replicas. You can also set this parameter to 0 to disable the read/write splitting architecture and switch the instance to the standard architecture.
+   * 
+   * @example
+   * 5
+   */
   readOnlyCount?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The number of shards. This parameter is available only for cluster instances that use cloud disks.
+   * 
+   * @example
+   * 8
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * The number of read replicas in the secondary zone. This parameter is used to create a read/write splitting instance that is deployed in multiple zones. Valid values: 1 to 9. The sum of the SlaveReadOnlyCount and ReadOnlyCount values cannot be greater than 9.
+   * 
+   * @example
+   * 2
+   */
   slaveReadOnlyCount?: number;
+  /**
+   * @remarks
+   * The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+   * 
+   * @example
+   * SDK
+   */
   sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9520,7 +16240,21 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyInstanceSpecResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 20722623431****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0DA1D7EF-C80D-432C-8758-7D225182626B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9567,15 +16301,70 @@ export class ModifyInstanceSpecResponse extends $tea.Model {
 }
 
 export class ModifyInstanceTDERequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the custom key. You can call the [DescribeEncryptionKeyList](https://help.aliyun.com/document_detail/302339.html) operation to query the key ID.
+   * 
+   * > 
+   * 
+   * *   If you do not specify this parameter, [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) automatically generates a key.
+   * 
+   * *   To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of the KMS API.
+   * 
+   * @example
+   * ad463061-992d-4195-8a94-ed63********
+   */
   encryptionKey?: string;
+  /**
+   * @remarks
+   * The encryption algorithm. Default value: AES-CTR-256.
+   * 
+   * > This parameter is available only if the **TDEStatus** parameter is set to **Enabled**.
+   * 
+   * @example
+   * AES-CTR-256
+   */
   encryptionName?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that you want to attach to your ApsaraDB for Redis instance. The ARN must be in the format of `acs:ram::$accountID:role/$roleName`. After the role is attached, your ApsaraDB for Redis instance can use KMS.
+   * 
+   * > 
+   * 
+   * *   `$accountID`: the ID of the Alibaba Cloud account. To view the account ID, log on to the Alibaba Cloud console, move the pointer over your profile picture in the upper-right corner of the page, and then click **Security Settings**.
+   * 
+   * *   `$roleName`: the name of the RAM role. Replace $roleName with **AliyunRdsInstanceEncryptionDefaultRole**.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+   */
   roleArn?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable TDE. Set the value to **Enabled**.
+   * 
+   * > TDE cannot be disabled after it is enabled. Before you enable it, evaluate whether this feature affects your business. For more information, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   TDEStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9613,6 +16402,13 @@ export class ModifyInstanceTDERequest extends $tea.Model {
 }
 
 export class ModifyInstanceTDEResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9657,12 +16453,37 @@ export class ModifyInstanceTDEResponse extends $tea.Model {
 }
 
 export class ModifyInstanceVpcAuthModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to disable password-free access. Valid values:
+   * 
+   * *   **Open**: disables password-free access.
+   * *   **Close**: enables password-free access.
+   * 
+   * **
+   * 
+   * **Description** Default value: **Open**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Close
+   */
   vpcAuthMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9694,6 +16515,13 @@ export class ModifyInstanceVpcAuthModeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceVpcAuthModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ABAF95F6-35C1-4177-AF3A-70969EBD****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9738,8 +16566,38 @@ export class ModifyInstanceVpcAuthModeResponse extends $tea.Model {
 }
 
 export class ModifyIntranetAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The amount of bandwidth that you want to add. Unit: Mbit/s. The value must be an integer greater than or equal to 0. In most cases, the maximum bandwidth that can be added can be two times the default maximum bandwidth of the current instance type. For more information about the bandwidth specifications supported by different instance types, see [Overview](https://help.aliyun.com/document_detail/26350.html). The bandwidth is also subject to the following limits:
+   * 
+   * *   The bandwidth of an individual instance cannot exceed 75% of the bandwidth of the host. For more information about the host specifications and bandwidth, see [Instance types of hosts](https://help.aliyun.com/document_detail/206343.html).
+   * *   The total bandwidth of all of the instances on the host cannot exceed 150% of the bandwidth of the host. You can configure resource overcommitment to handle traffic spikes. For more information, see [Configure resource overcommitment to reduce costs](https://help.aliyun.com/document_detail/183798.html).
+   * 
+   * > If you do not specify this parameter for a standard instance, the bandwidth of the instance is set to two times that of the current bandwidth.
+   * 
+   * @example
+   * 10
+   */
   bandWidth?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the data node. You can call the [DescribeClusterMemberInfo](https://help.aliyun.com/document_detail/193462.html) operation to query the node ID. Separate multiple IDs with commas (,).
+   * 
+   * > This parameter is available and required only when the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9778,6 +16636,13 @@ export class ModifyIntranetAttributeRequest extends $tea.Model {
 }
 
 export class ModifyIntranetAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 97AC8948-D7E4-457E-BE03-850CF04E****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9822,12 +16687,63 @@ export class ModifyIntranetAttributeResponse extends $tea.Model {
 }
 
 export class ModifyParameterGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The service category. Valid values:
+   * 
+   * *   **standard**: Community Edition
+   * *   **enterprise**: Enhanced Edition (Tair)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * enterprise
+   */
   category?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The description of the parameter template. The description must be 0 to 200 characters in length.
+   * 
+   * @example
+   * test
+   */
   parameterGroupDesc?: string;
+  /**
+   * @remarks
+   * The parameter template ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sys-001****
+   */
   parameterGroupId?: string;
+  /**
+   * @remarks
+   * The new name of the parameter template. The name must meet the following requirements:
+   * 
+   * *   The name can contain letters, digits, and underscores (_). It must start with a letter and cannot contain Chinese characters.
+   * *   The name can be 8 to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testGroupName
+   */
   parameterGroupName?: string;
+  /**
+   * @remarks
+   * A JSON-formatted object that specifies the parameter-value pairs. Format: {"Parameter 1":"Value 1","Parameter 2":"Value 2"...}. The specified value overwrites the original content.
+   * 
+   * >  The parameters that can be added for different editions are displayed in the console.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"hz":"12"}
+   */
   parameters?: string;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -9871,7 +16787,21 @@ export class ModifyParameterGroupRequest extends $tea.Model {
 }
 
 export class ModifyParameterGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter template ID.
+   * 
+   * @example
+   * testGroupName
+   */
   paramGroupId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9918,11 +16848,51 @@ export class ModifyParameterGroupResponse extends $tea.Model {
 }
 
 export class ModifyResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the generated token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which you want to move the instance.
+   * 
+   * > 
+   * 
+   * *   You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the resource group of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -9958,6 +16928,13 @@ export class ModifyResourceGroupRequest extends $tea.Model {
 }
 
 export class ModifyResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10002,11 +16979,29 @@ export class ModifyResourceGroupResponse extends $tea.Model {
 }
 
 export class ModifySecurityGroupConfigurationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the security group that you want to manage. You can specify up to 10 security groups. Separate multiple security group IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sg-bpcfmyiu4ekp****
+   */
   securityGroupId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -10039,6 +17034,13 @@ export class ModifySecurityGroupConfigurationRequest extends $tea.Model {
 }
 
 export class ModifySecurityGroupConfigurationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 147CAC09-E8C6-43F8-9599-982A43D6****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10083,14 +17085,58 @@ export class ModifySecurityGroupConfigurationResponse extends $tea.Model {
 }
 
 export class ModifySecurityIpsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The method that is used to modify the whitelist. Valid values:
+   * 
+   * *   **Cover**: overwrites the original whitelist.
+   * *   **Append**: appends data to the whitelist.
+   * *   **Delete**: deletes the whitelist.
+   * 
+   * @example
+   * Append
+   */
   modifyMode?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * By default, this parameter is left empty. The attribute of the whitelist. The console does not display the whitelist whose value of this parameter is **hidden**.
+   * 
+   * @example
+   * hidden
+   */
   securityIpGroupAttribute?: string;
+  /**
+   * @remarks
+   * The name of the IP address whitelist.
+   * >Warning: You cannot modify the whitelist that is generated by the system. If you do not specify this parameter, the default whitelist is modified by default.
+   * 
+   * @example
+   * default
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The IP addresses in the whitelist. Up to 1,000 IP addresses can be specified in a whitelist. Separate multiple IP addresses with a comma (,). Specify an IP address in the 0.0.0.0/0, 10.23.12.24, or 10.23.12.24/24 format. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix of an IP address. The prefix length ranges from 1 to 32.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100.64.***.0/24,10.101.11.***
+   */
   securityIps?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -10129,6 +17175,13 @@ export class ModifySecurityIpsRequest extends $tea.Model {
 }
 
 export class ModifySecurityIpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AAAF99B1-69ED-4E80-8CD5-272C09E4****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10173,6 +17226,15 @@ export class ModifySecurityIpsResponse extends $tea.Model {
 }
 
 export class ReleaseDirectConnectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10207,6 +17269,13 @@ export class ReleaseDirectConnectionRequest extends $tea.Model {
 }
 
 export class ReleaseDirectConnectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10251,7 +17320,25 @@ export class ReleaseDirectConnectionResponse extends $tea.Model {
 }
 
 export class ReleaseInstancePublicConnectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The public endpoint to be released.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   currentConnectionString?: string;
+  /**
+   * @remarks
+   * The ID of the instance for which you want to release a public endpoint.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10288,6 +17375,13 @@ export class ReleaseInstancePublicConnectionRequest extends $tea.Model {
 }
 
 export class ReleaseInstancePublicConnectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 88F850B5-CC68-48B4-83CA-5497C3C191DE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10332,6 +17426,15 @@ export class ReleaseInstancePublicConnectionResponse extends $tea.Model {
 }
 
 export class RemoveSubInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10366,6 +17469,13 @@ export class RemoveSubInstanceRequest extends $tea.Model {
 }
 
 export class RemoveSubInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10410,15 +17520,57 @@ export class RemoveSubInstanceResponse extends $tea.Model {
 }
 
 export class RenewAdditionalBandwidthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * 
+   * *   **true**: enables automatic payment.
+   * *   **false**: disables automatic payment. If automatic payment is disabled, you must perform the following steps to complete the payment in the ApsaraDB for Redis console: In the top navigation bar, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The ID of the coupon.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The validity period of the bandwidth that you purchase. Unit: days. Valid values: **1**, **2**, **3**, **7**, **14**, **30**, **60**, **90**, **180**, **365**, **730**, **1095**, and **1825**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   orderTimeLength?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+   * 
+   * @example
+   * SDK
+   */
   sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10456,7 +17608,21 @@ export class RenewAdditionalBandwidthRequest extends $tea.Model {
 }
 
 export class RenewAdditionalBandwidthResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 2084452111111
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10503,17 +17669,103 @@ export class RenewAdditionalBandwidthResponse extends $tea.Model {
 }
 
 export class RenewInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * 
+   * *   **true**: enables automatic payment.
+   * *   **false**: disables automatic payment.
+   * 
+   * If you select false, you must choose **Expenses** > **Renewal Management** in the top navigation bar. In the left-side navigation pane, click **Orders**. Find the specified order and pay for it.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * 
+   * *   **true**: enables auto-renewal. The instance is renewed based on the specified renewal duration. For example, if you set the renewal duration to three months, you are charged for three months of service each time the instance is automatically renewed.
+   * *   **false** (default): disables auto-renewal.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The ID of the promotional event or business information.
+   * 
+   * @example
+   * 000000000
+   */
   businessInfo?: string;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB. When you renew the instance, you can specify this parameter to change specifications of the instance.
+   * 
+   * > To change the specifications when you renew the instance, you must specify at least one of the `Capacity` and `InstanceClass` parameters.
+   * 
+   * @example
+   * 1024
+   */
   capacity?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token is case-sensitive. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * TF-ModifyInstanceSpec-1686645570-7dac7257-4a14-4811-939c-51a282f
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The source of the request. The default value is **OpenAPI** and cannot be changed.
+   * 
+   * @example
+   * OpenAPI
+   */
   fromApp?: string;
+  /**
+   * @remarks
+   * The instance type code. For more information, see [Instance specifications overview](https://help.aliyun.com/document_detail/26350.html). When you renew the instance, you can specify this parameter to change specifications of the instance.
+   * 
+   * > To change the specifications when you renew the instance, you must specify at least one of the `Capacity` and `InstanceClass` parameters.
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The renewal period. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**. Unit: months.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6
+   */
   period?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -10564,8 +17816,29 @@ export class RenewInstanceRequest extends $tea.Model {
 }
 
 export class RenewInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the order.
+   * 
+   * @example
+   * 2019-02-19T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 111111111111111
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2222245-222A-4155-9349-E22222****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10614,8 +17887,35 @@ export class RenewInstanceResponse extends $tea.Model {
 }
 
 export class ResetAccountPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the account. You can call the [DescribeAccounts](~~DescribeAccounts~~) operation to obtain the name of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The new password for the account. The password must be 8 to 32 characters in length. It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `!@ # $ % ^ & * ( ) _ + - =`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * uWonno_221****
+   */
   accountPassword?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the account belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10657,6 +17957,13 @@ export class ResetAccountPasswordRequest extends $tea.Model {
 }
 
 export class ResetAccountPasswordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8BE02313-5395-4EBE-BAE7-E90A053F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10701,13 +18008,44 @@ export class ResetAccountPasswordResponse extends $tea.Model {
 }
 
 export class RestartInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The time when you want to restart the instance. Default value: Immediately. Valid values:
+   * 
+   * *   **Immediately**: immediately restarts the instance.
+   * *   **MaintainTime**: restarts the instance during the maintenance window.
+   * 
+   * @example
+   * Immediately
+   */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to update to the latest minor version when the instance is restarted. Valid values:
+   * 
+   * *   **true**: updates the minor version.
+   * *   **false**: does not update the minor version.
+   * 
+   * > The default value is **true**.
+   * 
+   * @example
+   * true
+   */
   upgradeMinorVersion?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10741,8 +18079,29 @@ export class RestartInstanceRequest extends $tea.Model {
 }
 
 export class RestartInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EFC9161F-15E3-4A6E-8A99-C33331****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 11111****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10791,16 +18150,77 @@ export class RestartInstanceResponse extends $tea.Model {
 }
 
 export class RestoreInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the backup file. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/61081.html) operation to query the IDs of backup files.
+   * 
+   * @example
+   * 78241****
+   */
   backupId?: string;
+  /**
+   * @remarks
+   * The key that you want to restore. You can specify multiple keys. Separate multiple keys with commas (,). Regular expressions are supported.
+   * 
+   * > 
+   * 
+   * *   In a regular expression, an asterisk (`*`) matches zero or more occurrences of a subexpression that occurs before. For example, if you set this parameter to `h.*llo`, strings such as `hllo` and `heeeello` are matched.
+   * 
+   * *   This parameter is available only if you set the **RestoreType** parameter to **1**.
+   * 
+   * @example
+   * key:00000007198*
+   */
   filterKey?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The point in time to which you want to restore data. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * > 
+   * 
+   * *   If the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature is enabled for the instance, you can specify this parameter and the **FilterKey** parameter to restore the data of the specified key to the specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+   * 
+   * *   This parameter is available only if you set the **RestoreType** parameter to **1**.
+   * 
+   * @example
+   * 2021-07-06T07:25:57Z
+   */
   restoreTime?: string;
+  /**
+   * @remarks
+   * The restoration mode. Default value: 0. Valid values:
+   * 
+   * *   **0**: restores data from the specified backup set.
+   * *   **1**: restores data to a specified point in time. You can specify this value only if the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature is enabled for the instance. If you specify this value, you must also specify the **RestoreTime** parameter.
+   * 
+   * @example
+   * 1
+   */
   restoreType?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The expiration offset time point of a key. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The key expires after the remaining validity period of the key elapses based on the expiration offset time point.
+   * 
+   * > This time point must be between the specified flashback time point and the submission time of the data restoration task.
+   * 
+   * @example
+   * 2021-07-06T08:25:57Z
+   */
   timeShift?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10840,6 +18260,13 @@ export class RestoreInstanceRequest extends $tea.Model {
 }
 
 export class RestoreInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8D0C0AFC-E9CD-47A4-8395-5C31BF9B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10884,14 +18311,56 @@ export class RestoreInstanceResponse extends $tea.Model {
 }
 
 export class SwitchInstanceHARequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the data shard. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to obtain the value of the CustinsId parameter. Separate multiple data shard IDs with commas (,). `all` indicates that all data shards are specified.
+   * 
+   * > This parameter is available and required only for read/write splitting and cluster instances.
+   * 
+   * @example
+   * 56****19,56****20
+   */
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The time when to perform the switchover. Default value: 0. Valid values:
+   * 
+   * *   **0**: immediately performs the switchover.
+   * *   **1**: performs the switchover during the maintenance window.
+   * 
+   * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+   * 
+   * @example
+   * 0
+   */
   switchMode?: number;
+  /**
+   * @remarks
+   * The switching mode. Valid values:
+   * 
+   * *   **AvailablePriority**: prioritizes the availability and performs a switchover immediately without considering the latency of data synchronization between the master and replica nodes. This may cause data loss.
+   * *   **ReliabilityPriority**: prioritizes the reliability and performs a switchover after no latency of data synchronization between the master and replica nodes exists. This ensures data integrity. This mode may cause a switchover failure in scenarios that involve a large volume of data writes and persistent latency of data synchronization.
+   * 
+   * > You must evaluate the requirements for data and services based on your business scenarios and then select a switching mode.
+   * 
+   * @example
+   * AvailablePriority
+   */
   switchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10927,6 +18396,13 @@ export class SwitchInstanceHARequest extends $tea.Model {
 }
 
 export class SwitchInstanceHAResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10971,6 +18447,15 @@ export class SwitchInstanceHAResponse extends $tea.Model {
 }
 
 export class SwitchInstanceProxyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11005,6 +18490,13 @@ export class SwitchInstanceProxyRequest extends $tea.Model {
 }
 
 export class SwitchInstanceProxyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11049,16 +18541,79 @@ export class SwitchInstanceProxyResponse extends $tea.Model {
 }
 
 export class SwitchNetworkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The retention period of the classic network endpoint. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
+   * 
+   * > 
+   * 
+   * *   This parameter is available and required only when the **RetainClassic** parameter is set to **True**.
+   * 
+   * *   After you complete the switchover operation, you can also call the [ModifyInstanceNetExpireTime](https://help.aliyun.com/document_detail/61010.html) operation to modify the retention period of the classic network endpoint.
+   * 
+   * @example
+   * 30
+   */
   classicExpiredDays?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to retain the original classic network endpoint after you switch the instance from classic network to VPC. Default value: False. Valid values:
+   * 
+   * *   **True**: retains the classic network endpoint.
+   * *   **False**: does not retain the classic network endpoint.
+   * 
+   * > This parameter is available only when the network type of the instance is classic network.
+   * 
+   * @example
+   * True
+   */
   retainClassic?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The network type to which you want to switch. If you want to switch to VPC network, Set the value to **VPC**.
+   * 
+   * @example
+   * VPC
+   */
   targetNetworkType?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the VPC ID.
+   * 
+   * > The vSwitch and the ApsaraDB for Redis instance must be deployed in the same zone.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the VPC ID.
+   * 
+   * > 
+   * 
+   * *   The VPC and the ApsaraDB for Redis instance must be deployed in the same region.
+   * 
+   * *   After you set this parameter, you must also set the **VSwitchId** parameter.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11098,7 +18653,21 @@ export class SwitchNetworkRequest extends $tea.Model {
 }
 
 export class SwitchNetworkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F0997EE8-F4C2-4503-9168-85177ED78C70
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 578678678
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11145,14 +18714,49 @@ export class SwitchNetworkResponse extends $tea.Model {
 }
 
 export class SyncDtsStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * Disables configuration changes for the instance. Valid values:
+   * 
+   * *   **0**: does not disable configuration changes.
+   * *   **1**: disables configuration changes. In this case, if you attempt to modify the configurations of the instance, the system informs you that the operation cannot be performed.
+   * 
+   * @example
+   * 0
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the DTS instance. You can view the ID in the [DTS console](https://dts.console.aliyun.com/).
+   * 
+   * > An ApsaraDB for Redis instance may be involved in multiple data migration or synchronization tasks. If you want to cancel the restriction on the instance, you can specify this parameter to prevent repeated operation calls.
+   * 
+   * @example
+   * dtss0611o8vv90****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11188,6 +18792,13 @@ export class SyncDtsStatusRequest extends $tea.Model {
 }
 
 export class SyncDtsStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11234,11 +18845,44 @@ export class SyncDtsStatusResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource type. Set the value to **INSTANCE**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   * 
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -11272,6 +18916,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4BD4E308-A3D8-4CD1-98B3-0ADAEE38****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11316,13 +18967,72 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TransformInstanceChargeTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * 
+   * *   **true**: Automatic payment is enabled.
+   * *   **false**: Automatic payment is disabled. If automatic payment is disabled, you must perform the following steps to complete the payment: In the top navigation bar of the ApsaraDB for Redis console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane of the Billing Management console, click **Orders**. On the **Orders** page, find the order and complete the payment.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * 
+   * *   **true**: enables auto-renewal.
+   * *   **false** (default): disables auto-renewal.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The subscription duration that is supported by auto-renewal. Unit: month. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * 
+   * >  This parameter is required if the **AutoRenew** parameter is set to **true**.
+   * 
+   * @example
+   * 1
+   */
   autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The new billing method. Valid values:
+   * 
+   * *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The subscription duration. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, **36**.
+   * 
+   * >  This parameter is valid and required only if you set the **ChargeType** parameter to **PrePaid**.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -11365,8 +19075,31 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
 }
 
 export class TransformInstanceChargeTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * >  A value is returned for this parameter only if the instance was changed from pay-as-you-go to subscription.
+   * 
+   * @example
+   * 2021-05-13T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 20881824000****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 82C791FB-8979-489E-853D-706D7743****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11415,10 +19148,38 @@ export class TransformInstanceChargeTypeResponse extends $tea.Model {
 }
 
 export class TransformToPrePaidRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Default value: false. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no. In this case, you can renew your instance in the ApsaraDB for Redis console. For more information, see [Manually renew an instance](https://help.aliyun.com/document_detail/26352.html).
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The subscription duration of the instance. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   period?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -11455,8 +19216,29 @@ export class TransformToPrePaidRequest extends $tea.Model {
 }
 
 export class TransformToPrePaidResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the instance expires after the billing method of the instance is changed from pay-as-you-go to subscription.
+   * 
+   * @example
+   * 2019-01-18T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 111111111111111
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 426F1356-B6EF-4DAD-A1C3-DE53B9DAF586
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11505,6 +19287,15 @@ export class TransformToPrePaidResponse extends $tea.Model {
 }
 
 export class UnlockDBInstanceWriteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11539,8 +19330,29 @@ export class UnlockDBInstanceWriteRequest extends $tea.Model {
 }
 
 export class UnlockDBInstanceWriteResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * r-2ev03avw0r0552***
+   */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 10****
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11589,14 +19401,60 @@ export class UnlockDBInstanceWriteResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the instance. Valid values:
+   * 
+   * *   **true**: removes all tags from the instance.
+   * *   **false** (default): does not remove all tags from the instance.
+   * 
+   * > If you specify both this parameter and the **TagKey.N** parameter, this parameter does not take effect.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource type. Set the value to **INSTANCE**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of tag keys.
+   * 
+   * @example
+   * demokey
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11632,6 +19490,13 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 601B6F25-21E7-4484-99D5-3EF2625C****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11676,9 +19541,37 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses in the IP whitelist template.
+   * 
+   * @example
+   * 192.168.0.1
+   */
   GIpList?: string;
+  /**
+   * @remarks
+   * The name of the IP whitelist template.
+   * 
+   * @example
+   * white_list_test_sg
+   */
   globalIgName?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * @example
+   * g-sdgwqyp4f5j1x3qk7yvm
+   */
   globalSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11704,7 +19597,29 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
 }
 
 export class CreateInstanceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The keys of the tags that are added to the instance.
+   * 
+   * > 
+   * 
+   * *   **N** specifies the serial number of the tag. Up to 20 tags can be added to a single instance. For example, Tag.1.Key specifies the key of the first tag and Tag.2.Key specifies the key of the second tag.
+   * 
+   * *   If the key of the tag does not exist, the tag is automatically created.
+   * 
+   * @example
+   * testkey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of the tags that are added to the instance.
+   * 
+   * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag and **Tag.2.Value** specifies the value of the second tag.
+   * 
+   * @example
+   * testvalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11745,7 +19660,25 @@ export class CreateInstancesResponseBodyInstanceIds extends $tea.Model {
 }
 
 export class CreateTairInstanceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag. A tag is a key-value pair.
+   * 
+   * > A maximum of five key-value pairs can be specified at a time.
+   * 
+   * @example
+   * key1_test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+   * 
+   * @example
+   * value1_test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11767,6 +19700,16 @@ export class CreateTairInstanceRequestTag extends $tea.Model {
 }
 
 export class DescribeAccountsResponseBodyAccountsAccountDatabasePrivilegesDatabasePrivilege extends $tea.Model {
+  /**
+   * @remarks
+   * The permission of the account. Default value: RoleReadWrite. Valid values:
+   * 
+   * *   **RoleReadOnly**: The account has the read-only permissions.
+   * *   **RoleReadWrite**: The account has the read and write permissions.
+   * 
+   * @example
+   * RoleReadWrite
+   */
   accountPrivilege?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11805,11 +19748,56 @@ export class DescribeAccountsResponseBodyAccountsAccountDatabasePrivileges exten
 }
 
 export class DescribeAccountsResponseBodyAccountsAccount extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the account.
+   * 
+   * @example
+   * testdec
+   */
   accountDescription?: string;
+  /**
+   * @remarks
+   * The name of the account.
+   * 
+   * @example
+   * demoaccount
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The state of the account. Valid values:
+   * 
+   * *   **Unavailable**: The account is unavailable.
+   * *   **Available**: The account is available.
+   * 
+   * @example
+   * Available
+   */
   accountStatus?: string;
+  /**
+   * @remarks
+   * The type of the account. Valid values:
+   * 
+   * *   **Normal**: standard account
+   * *   **Super**: super account
+   * 
+   * @example
+   * Normal
+   */
   accountType?: string;
+  /**
+   * @remarks
+   * Details about account permissions.
+   */
   databasePrivileges?: DescribeAccountsResponseBodyAccountsAccountDatabasePrivileges;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp10noxlhcoim2****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11858,17 +19846,113 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the O\\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2018-07-15 23:59:59
+   */
   createdTime?: string;
+  /**
+   * @remarks
+   * The database type of the instance. The return value is **Redis**.
+   * 
+   * @example
+   * redis
+   */
   dbType?: string;
+  /**
+   * @remarks
+   * The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+   * 
+   * @example
+   * 2018-07-19 23:59:59
+   */
   deadline?: string;
+  /**
+   * @remarks
+   * The ID of the O&M task.
+   * 
+   * @example
+   * 114111
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1lgal1sdvxrz****
+   */
   insName?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2018-07-19 14:00:00
+   */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+   * 
+   * @example
+   * 14:00:00
+   */
   prepareInterval?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hanghzou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M task was preformed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2018-07-19 10:00:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The state of the O&M task. Valid values:
+   * 
+   * *   **2**: The task is waiting for users to specify a switchover time.
+   * *   **3**: The task is waiting to be performed.
+   * *   **4**: The task is being performed. If the task is in this state, the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation cannot be called to modify the scheduled switchover time.
+   * *   **5**: The task is performed.
+   * *   **6**: The task fails.
+   * *   **7**: The task is canceled.
+   * 
+   * @example
+   * 5
+   */
   status?: number;
+  /**
+   * @remarks
+   * The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2018-07-19 14:00:00
+   */
   switchTime?: string;
+  /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * *   **rds_apsaradb_ha**: master-replica switchover
+   * *   **rds_apsaradb_transfer**: instance migration
+   * *   **rds_apsaradb_upgrade**: minor version update
+   * *   **all**: all types
+   * 
+   * @example
+   * rds_apsaradb_upgrade
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11910,32 +19994,130 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   allowCancel?: string;
+  /**
+   * @example
+   * 1
+   */
   allowChange?: string;
+  /**
+   * @example
+   * S1
+   */
   changeLevel?: string;
+  /**
+   * @example
+   * System maintenance
+   */
   changeLevelEn?: string;
   changeLevelZh?: string;
+  /**
+   * @example
+   * 2018-05-30T14:30:00Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * cn-beijing-h
+   */
   currentAVZ?: string;
+  /**
+   * @example
+   * redis
+   */
   dbType?: string;
+  /**
+   * @example
+   * 5.0
+   */
   dbVersion?: string;
+  /**
+   * @example
+   * 2018-05-30T23:59:59Z
+   */
   deadline?: string;
+  /**
+   * @example
+   * 11111
+   */
   id?: number;
+  /**
+   * @example
+   * TransientDisconnection
+   */
   impact?: string;
+  /**
+   * @example
+   * Transient instance disconnection
+   */
   impactEn?: string;
   impactZh?: string;
+  /**
+   * @example
+   * test
+   */
   insComment?: string;
+  /**
+   * @example
+   * r-bp1lgal1sdvxrz****
+   */
   insName?: string;
+  /**
+   * @example
+   * 2018-05-30T14:30:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 04:00:00
+   */
   prepareInterval?: string;
+  /**
+   * @example
+   * cn-hanghzou
+   */
   region?: string;
+  /**
+   * @example
+   * userCancel
+   */
   resultInfo?: string;
+  /**
+   * @example
+   * 2018-05-30T00:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 5
+   */
   status?: number;
   subInsNames?: string[];
+  /**
+   * @example
+   * 2018-05-30T14:30:00Z
+   */
   switchTime?: string;
+  /**
+   * @example
+   * {
+   *       "Action": "UpgradeDBInstance"
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * rds_apsaradb_transfer
+   */
   taskType?: string;
+  /**
+   * @example
+   * Minor version update
+   */
   taskTypeEn?: string;
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
@@ -12010,14 +20192,79 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeAuditRecordsResponseBodyItemsSQL extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * @example
+   * demo
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * demo
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The time when the command was run.
+   * 
+   * @example
+   * 2019-03-25T03:22:08Z
+   */
   executeTime?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   hostAddress?: string;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 192.16.100.***
+   */
   IPAddress?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * > A specific node ID is returned only if the instance uses the cluster or read/write splitting architecture.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The command that was run.
+   * 
+   * @example
+   * CONFIG GET maxmemory
+   */
   SQLText?: string;
+  /**
+   * @remarks
+   * The type of the command.
+   * 
+   * @example
+   * non_read_write
+   */
   SQLType?: string;
+  /**
+   * @remarks
+   * The amount of time consumed to run the command.
+   * 
+   * @example
+   * 0
+   */
   totalExecutionTimes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12072,8 +20319,29 @@ export class DescribeAuditRecordsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource extends $tea.Model {
+  /**
+   * @remarks
+   * The memory size of the instance. Unit: MB.
+   * 
+   * @example
+   * 16384
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The code of the instance type. If you want to view the code of an instance type, you can search for the code of the instance type in Help Center.
+   * 
+   * @example
+   * redis.amber.logic.sharding.2g.8db.0rodb.24proxy.multithread
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The description of the instance type.
+   * 
+   * @example
+   * 16 GB cluster instance with 8 nodes (1,920,000 queries per second and 240,000 connections)
+   */
   instanceClassRemark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12116,7 +20384,21 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeType extends $tea.Model {
+  /**
+   * @remarks
+   * The available instance types.
+   */
   availableResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResources;
+  /**
+   * @remarks
+   * The node type of the instance. Valid values:
+   * 
+   * *   **single**: standalone
+   * *   **double**: master-replica
+   * 
+   * @example
+   * double
+   */
   supportedNodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12157,7 +20439,18 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumber extends $tea.Model {
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * 8
+   */
   shardNumber?: string;
+  /**
+   * @remarks
+   * The available node types.
+   */
   supportedNodeTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypes;
   static names(): { [key: string]: string } {
     return {
@@ -12198,7 +20491,22 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureType extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **standard**: standard architecture
+   * *   **cluster**: cluster architecture
+   * *   **rwsplit**: read/write splitting architecture
+   * 
+   * @example
+   * cluster
+   */
   architecture?: string;
+  /**
+   * @remarks
+   * The numbers of shards that are allowed.
+   */
   supportedShardNumbers?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbers;
   static names(): { [key: string]: string } {
     return {
@@ -12239,7 +20547,18 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersion extends $tea.Model {
+  /**
+   * @remarks
+   * The available instance architectures.
+   */
   supportedArchitectureTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypes;
+  /**
+   * @remarks
+   * The engine version of the instance.
+   * 
+   * @example
+   * 5.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12280,7 +20599,21 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesType extends $tea.Model {
+  /**
+   * @remarks
+   * The instance series. Valid values:
+   * 
+   * *   **enhanced_performance_type**: ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance
+   * *   **hybrid_storage**: ApsaraDB for Redis Community Edition hybrid-storage instance
+   * 
+   * @example
+   * enhanced_performance_type
+   */
   seriesType?: string;
+  /**
+   * @remarks
+   * The available engine versions.
+   */
   supportedEngineVersions?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersions;
   static names(): { [key: string]: string } {
     return {
@@ -12321,7 +20654,21 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionType extends $tea.Model {
+  /**
+   * @remarks
+   * The edition of the instance. Valid values:
+   * 
+   * *   **Community**: Community Edition
+   * *   **Enterprise**: Enhanced Edition (Tair)
+   * 
+   * @example
+   * Enterprise
+   */
   editionType?: string;
+  /**
+   * @remarks
+   * The available instance series.
+   */
   supportedSeriesTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypes;
   static names(): { [key: string]: string } {
     return {
@@ -12362,7 +20709,18 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $tea.Model {
+  /**
+   * @remarks
+   * The database engine of the instance.
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The available instance editions.
+   */
   supportedEditionTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypes;
   static names(): { [key: string]: string } {
     return {
@@ -12403,9 +20761,34 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The available database engines.
+   */
   supportedEngines?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
+  /**
+   * @remarks
+   * The ID of the zone in which the instance is located.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
+  /**
+   * @remarks
+   * The name of the zone.
+   * 
+   * @example
+   * Hangzhou Zone H
+   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12450,12 +20833,61 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $tea.Mo
 }
 
 export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalType?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   encodedDiagnosticMessage?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   noPermissionType?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12487,12 +20919,61 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $tea.Mod
 }
 
 export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalType?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   encodedDiagnosticMessage?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   noPermissionType?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12524,12 +21005,74 @@ export class DescribeBackupTasksResponseBodyAccessDeniedDetail extends $tea.Mode
 }
 
 export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the backup task.
+   * 
+   * @example
+   * 8491111
+   */
   backupJobID?: number;
+  /**
+   * @remarks
+   * The state of the backup task. Valid values:
+   * 
+   * *   **NoStart**: The backup task is not started.
+   * *   **Preparing**: The backup task is being prepared.
+   * *   **Waiting**: The backup task is pending.
+   * *   **Uploading**: The system is uploading the backup file.
+   * *   **Checking**: The system is checking the uploaded backup file.
+   * *   **Finished**: The backup task is completed.
+   * 
+   * @example
+   * Automated
+   */
   backupProgressStatus?: string;
+  /**
+   * @remarks
+   * The backup mode. Valid values:
+   * 
+   * *   **Automated**: automatic backup
+   * *   **Manual**: manual backup
+   * 
+   * @example
+   * Manual
+   */
   jobMode?: string;
+  /**
+   * @remarks
+   * The ID of the data node.
+   * 
+   * @example
+   * ****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The progress of the backup task in percentage.
+   * 
+   * @example
+   * 0
+   */
   process?: string;
+  /**
+   * @remarks
+   * The start time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-01-05T19:24:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The type of the backup task. Valid values:
+   * 
+   * *   **TempBackupTask**: The backup task was manually performed.
+   * *   **NormalBackupTask**: The backup task was automatically performed.
+   * 
+   * @example
+   * NormalBackupTask
+   */
   taskAction?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12561,12 +21104,61 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
 }
 
 export class DescribeBackupsResponseBodyAccessDeniedDetail extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authAction?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalDisplayName?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalOwnerId?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   authPrincipalType?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   encodedDiagnosticMessage?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   noPermissionType?: string;
+  /**
+   * @remarks
+   * This parameter is no longer used. Ignore this parameter.
+   * 
+   * @example
+   * _
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12598,19 +21190,133 @@ export class DescribeBackupsResponseBodyAccessDeniedDetail extends $tea.Model {
 }
 
 export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
+  /**
+   * @remarks
+   * The names of the databases that are backed up. The default value is **all**, which indicates that all databases are backed up.
+   * 
+   * @example
+   * all
+   */
   backupDBNames?: string;
+  /**
+   * @remarks
+   * The public download URL of the backup file.
+   * 
+   * @example
+   * https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
+   */
   backupDownloadURL?: string;
+  /**
+   * @remarks
+   * The end time of the backup.
+   * 
+   * @example
+   * 2019-03-14T05:31:13Z
+   */
   backupEndTime?: string;
+  /**
+   * @remarks
+   * The ID of the backup file.
+   * 
+   * @example
+   * 165*****50
+   */
   backupId?: number;
+  /**
+   * @remarks
+   * The internal download URL of the backup file.
+   * 
+   * >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the ApsaraDB for Redis instance. The ECS instance must belong to the same classic network or reside in the same virtual private cloud (VPC) as the ApsaraDB for Redis instance.
+   * 
+   * @example
+   * https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
+   */
   backupIntranetDownloadURL?: string;
+  /**
+   * @remarks
+   * The ID of the backup task.
+   * 
+   * @example
+   * 24340
+   */
   backupJobID?: number;
+  /**
+   * @remarks
+   * The backup method. Valid values:
+   * 
+   * *   **Logical**
+   * *   **Physical**
+   * 
+   * @example
+   * Physical
+   */
   backupMethod?: string;
+  /**
+   * @remarks
+   * The backup mode. Valid values:
+   * 
+   * *   **Automated**
+   * *   **Manual**
+   * 
+   * @example
+   * Automated
+   */
   backupMode?: string;
+  /**
+   * @remarks
+   * The size of the backup file.
+   * 
+   * @example
+   * 1024
+   */
   backupSize?: number;
+  /**
+   * @remarks
+   * The start time of the backup.
+   * 
+   * @example
+   * 2019-03-14T05:28:50Z
+   */
   backupStartTime?: string;
+  /**
+   * @remarks
+   * The status of the backup. Valid values:
+   * 
+   * *   **Success**
+   * *   **Failed**
+   * 
+   * @example
+   * Success
+   */
   backupStatus?: string;
+  /**
+   * @remarks
+   * The backup type. Valid values:
+   * 
+   * *   **FullBackup**
+   * *   **IncrementalBackup**
+   * 
+   * @example
+   * FullBackup
+   */
   backupType?: string;
+  /**
+   * @remarks
+   * The engine version (major version) of the instance.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * >  If the instance uses the standard architecture, this parameter returns the instance ID.
+   * 
+   * @example
+   * r-bp10noxlhcoim2****-db-1
+   */
   nodeInstanceId?: string;
   recoverConfigMode?: string;
   static names(): { [key: string]: string } {
@@ -12678,9 +21384,40 @@ export class DescribeBackupsResponseBodyBackups extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTaskTasksTask extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the child node in the cluster instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The start time of the offline key analytics task.
+   * 
+   * @example
+   * 2019-08-01T19:08:49Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The state of the offline key analytics task. Valid values:
+   * 
+   * *   **success**
+   * *   **running**
+   * 
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 156465****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12725,7 +21462,18 @@ export class DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTaskTasks
 }
 
 export class DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTask extends $tea.Model {
+  /**
+   * @remarks
+   * The date when the offline key analytics task was performed.
+   * 
+   * @example
+   * 2019-08-01Z
+   */
   date?: string;
+  /**
+   * @remarks
+   * Details of the offline key analytics tasks.
+   */
   tasks?: DescribeCacheAnalysisReportListResponseBodyDailyTasksDailyTaskTasks;
   static names(): { [key: string]: string } {
     return {
@@ -12766,6 +21514,13 @@ export class DescribeCacheAnalysisReportListResponseBodyDailyTasks extends $tea.
 }
 
 export class DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The engine version.
+   * 
+   * @example
+   * 5.0
+   */
   custinsDbVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12785,17 +21540,106 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo
 }
 
 export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends $tea.Model {
+  /**
+   * @remarks
+   * The public download URL of the backup file.
+   * 
+   * @example
+   * http://rdsbakbucket-huhehaote-v2.oss-cn-huhehaote.aliyuncs.com/custins424747958/hins100322105_data_20240110012135.rdb
+   */
   backupDownloadURL?: string;
+  /**
+   * @remarks
+   * The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-01-09T17:21:57
+   */
   backupEndTime?: string;
+  /**
+   * @remarks
+   * The ID of the backup file.
+   * 
+   * @example
+   * 514645788
+   */
   backupId?: string;
+  /**
+   * @remarks
+   * The internal download URL of the backup file.
+   * 
+   * >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the ApsaraDB for Redis instance. The ECS instance must belong to the same classic network or reside in the same virtual private cloud (VPC) as the ApsaraDB for Redis instance.
+   * 
+   * @example
+   * http://rdsbakbucket-huhehaote-v2.oss-cn-huhehaote-internal.aliyuncs.com/custins424747958/hins100322105_data_20240110012135.rdb
+   */
   backupIntranetDownloadURL?: string;
+  /**
+   * @remarks
+   * The backup name.
+   * 
+   * @example
+   * hins100322105_data_20240110012135.rdb
+   */
   backupName?: string;
+  /**
+   * @remarks
+   * The size of the backup file. Unit: bytes.
+   * 
+   * @example
+   * 1024
+   */
   backupSize?: string;
+  /**
+   * @remarks
+   * The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-01-09T17:21:30Z
+   */
   backupStartTime?: string;
+  /**
+   * @remarks
+   * The status of the backup. Valid values:
+   * 
+   * *   **OK**
+   * *   **ERROR**
+   * 
+   * @example
+   * OK
+   */
   backupStatus?: string;
+  /**
+   * @remarks
+   * The database engine. The return value is **redis**.
+   * 
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The additional information.
+   */
   extraInfo?: DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * hins100322105_data_20240108012127.rdb
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * Indicates whether the backup set is available. Valid values:
+   * 
+   * *   **0**: unavailable
+   * *   **1**: available
+   * 
+   * @example
+   * 1
+   */
   isAvail?: string;
   recoverConfigMode?: string;
   static names(): { [key: string]: string } {
@@ -12840,15 +21684,86 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
 }
 
 export class DescribeClusterBackupListResponseBodyClusterBackups extends $tea.Model {
+  /**
+   * @remarks
+   * The backup sets of all nodes in the instance.
+   */
   backups?: DescribeClusterBackupListResponseBodyClusterBackupsBackups[];
+  /**
+   * @remarks
+   * The end time of the backup.
+   * 
+   * @example
+   * 2024-01-10T17:21:55Z
+   */
   clusterBackupEndTime?: string;
+  /**
+   * @remarks
+   * The ID of the backup set.
+   * 
+   * @example
+   * cb-zmdqj2m3xyxjtdt0
+   */
   clusterBackupId?: string;
+  /**
+   * @remarks
+   * The backup mode.
+   * 
+   * @example
+   * Automated
+   */
   clusterBackupMode?: string;
+  /**
+   * @remarks
+   * The size of the backup set.
+   * 
+   * @example
+   * 2048
+   */
   clusterBackupSize?: string;
+  /**
+   * @remarks
+   * The start time of the backup.
+   * 
+   * @example
+   * 2024-01-10T17:21:25Z
+   */
   clusterBackupStartTime?: string;
+  /**
+   * @remarks
+   * The status of the backup set.
+   * 
+   * *   OK
+   * *   RUNNING
+   * *   Failed
+   * 
+   * @example
+   * OK
+   */
   clusterBackupStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether the backup set is valid. A value of 0 indicates that node-level backups failed or have not been completed.
+   * 
+   * @example
+   * 1
+   */
   isAvail?: number;
+  /**
+   * @remarks
+   * The backup progress. The system displays only the progress of running backup tasks.
+   * 
+   * @example
+   * 100%
+   */
   progress?: string;
+  /**
+   * @remarks
+   * The memory size of a single node during a full backup. Unit: MB.
+   * 
+   * @example
+   * 1024
+   */
   shardClassMemory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12886,20 +21801,136 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $tea.Mo
 }
 
 export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bandwidth of the node. Unit: MB/s.
+   * 
+   * > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+   * 
+   * @example
+   * 96
+   */
   bandWidth?: number;
+  /**
+   * @remarks
+   * The retention period of binlogs.
+   * 
+   * @example
+   * 7
+   */
   binlogRetentionDays?: number;
+  /**
+   * @remarks
+   * The type of workload. The return value is **ALIYUN**.
+   * 
+   * @example
+   * ALIYUN
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * The maximum memory capacity per data node. Unit: MB.
+   * 
+   * > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+   * 
+   * @example
+   * 1024
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The specifications of the data node. For more information, see [Community Edition instances that use cloud disks](https://help.aliyun.com/document_detail/164477.html).
+   * 
+   * @example
+   * redis.shard.small.ce
+   */
   classCode?: string;
+  /**
+   * @remarks
+   * The maximum number of connections supported by the data node.
+   * 
+   * @example
+   * 20000
+   */
   connections?: number;
+  /**
+   * @remarks
+   * The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
+   * 
+   * > This parameter is returned only if the instance is created in a dedicated cluster.
+   * 
+   * @example
+   * 100
+   */
   currentBandWidth?: number;
+  /**
+   * @remarks
+   * The storage capacity of the [enhanced SSD (ESSD)](https://help.aliyun.com/document_detail/122389.html) that is used by the data node. Unit: MB.
+   * 
+   * > The ESSD is used only to store system operating data, such as Persistent Memory (PMEM). It is not used as a medium to write and read data.
+   * 
+   * @example
+   * 4096
+   */
   diskSizeMB?: number;
+  /**
+   * @remarks
+   * The ID of the replica set in the node.
+   * 
+   * @example
+   * 501791111
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the data node.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of replica nodes.
+   * 
+   * @example
+   * 0
+   */
   replicaSize?: number;
+  /**
+   * @remarks
+   * The name of the resource group to which the node belongs.
+   * 
+   * @example
+   * GLOBAL_ZHANGJIAKOU_A
+   */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **redis**: data node
+   * *   **redis_cs**: config server
+   * 
+   * @example
+   * redis
+   */
   service?: string;
+  /**
+   * @remarks
+   * The major version of the node.
+   * 
+   * @example
+   * 5.0
+   */
   serviceVersion?: string;
+  /**
+   * @remarks
+   * The ID of the user.
+   * 
+   * @example
+   * 2****_176498472570****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12947,17 +21978,116 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $tea.M
 }
 
 export class DescribeDBInstanceNetInfoResponseBodyNetInfoItemsInstanceNetInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   connectionString?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **0**: Internet
+   * *   **1**: classic network
+   * *   **2**: Virtual Private Cloud (VPC)
+   * 
+   * @example
+   * 1
+   */
   DBInstanceNetType?: string;
+  /**
+   * @remarks
+   * Indicates whether the address is a private endpoint. Valid values:
+   * 
+   * *   **0**: The address is not a private endpoint.
+   * *   **1**: The address is a private endpoint.
+   * 
+   * @example
+   * 0
+   */
   directConnection?: number;
+  /**
+   * @remarks
+   * The expiration time of the classic network endpoint. Unit: seconds.
+   * 
+   * @example
+   * 5183779
+   */
   expiredTime?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 172.16.49.***
+   */
   IPAddress?: string;
+  /**
+   * @remarks
+   * The network type of the IP address. Valid values:
+   * 
+   * *   **Public**: Internet
+   * *   **Inner**: classic network
+   * *   **Private**: VPC
+   * 
+   * @example
+   * Inner
+   */
   IPType?: string;
+  /**
+   * @remarks
+   * Indicates whether the address is the endpoint for the secondary zone. Valid values: 1 and 0. A value of 1 indicates that the address is the endpoint for the secondary zone.
+   * 
+   * >  This parameter is returned only after you enable the multi-zone read/write splitting architecture for the instance.
+   * 
+   * @example
+   * 1
+   */
   isSlaveProxy?: number;
+  /**
+   * @remarks
+   * The service port of the instance.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
+  /**
+   * @remarks
+   * The remaining validity period of the classic network endpoint. Unit: seconds.
+   * 
+   * >  **A value of 0 indicates that the endpoint never expires.
+   * 
+   * @example
+   * 0
+   */
   upgradeable?: string;
+  /**
+   * @remarks
+   * The ID of the VPC to which the instance belongs.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   VPCId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-bp1ky7j6qc7umk****
+   */
   VPCInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13018,9 +22148,39 @@ export class DescribeDBInstanceNetInfoResponseBodyNetInfoItems extends $tea.Mode
 }
 
 export class DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfoVipInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The network type of the security group. Valid values:
+   * 
+   * *   **vpc**: Virtual Private Cloud (VPC)
+   * 
+   * @example
+   * vpc
+   */
   netType?: string;
+  /**
+   * @remarks
+   * The shard ID.
+   * 
+   * @example
+   * r-8vb3679b04551444-db-2
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The port number. Valid values: **1024** to **65535**. Default value: **6379**.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
+  /**
+   * @remarks
+   * The VIP of the shard.
+   * 
+   * @example
+   * 100.115.61.8
+   */
   vip?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13065,13 +22225,76 @@ export class DescribeDBNodeDirectVipInfoResponseBodyDirectVipInfo extends $tea.M
 }
 
 export class DescribeDedicatedClusterInstanceListResponseBodyInstancesInstanceNodeList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the host in the dedicated cluster.
+   * 
+   * @example
+   * ch-bp13vf0y9gx3c****
+   */
   dedicatedHostName?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1e7vl6ygf1yq****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * 17921111
+   */
   nodeId?: number;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * 10.0.33.***
+   */
   nodeIp?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **db**: data node.
+   * *   **proxy**: proxy node.
+   * *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
+   * 
+   * @example
+   * normal
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The port number that is used to connect to the node.
+   * 
+   * @example
+   * 3001
+   */
   port?: number;
+  /**
+   * @remarks
+   * The role of the node. Valid values:
+   * 
+   * *   **master**: master node
+   * *   **slave**: replica node
+   * 
+   * @example
+   * master
+   */
   role?: string;
+  /**
+   * @remarks
+   * The zone ID of the node.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13105,29 +22328,221 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstancesInstanceNo
 }
 
 export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The default bandwidth of the instance. Unit: Mbit/s.
+   * 
+   * @example
+   * 24
+   */
   bandWidth?: number;
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **logic**: cluster
+   * *   **normal**: standard
+   * 
+   * @example
+   * logic
+   */
   characterType?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated cluster to which the instance belongs.
+   * 
+   * @example
+   * dhg-rx71fc5ndh9o****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The name of the dedicated cluster to which the instance belongs.
+   * 
+   * @example
+   * testname
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The private endpoint of the instance.
+   * 
+   * @example
+   * r-t4ncdi1dgi0ja8****.redis.hangzhou.rds.aliyuncs.com
+   */
   connectionDomain?: string;
+  /**
+   * @remarks
+   * The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-05-06T07:09:40Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The current bandwidth of the instance, which is the sum of the default bandwidth and any extra bandwidth that is purchased. Unit: Mbit/s.
+   * 
+   * @example
+   * 50
+   */
   currentBandWidth?: number;
+  /**
+   * @remarks
+   * An internal parameter used for the maintenance and management of instances.
+   * 
+   * @example
+   * 4652****
+   */
   customId?: string;
+  /**
+   * @remarks
+   * The database engine. The return value is **redis**.
+   * 
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance. The return value is **5.0**.
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The instance type.
+   * 
+   * @example
+   * redis.cluster.sharding.common.ce
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1e7vl6ygf1yq****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * testdb
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The nodes.
+   */
   instanceNodeList?: DescribeDedicatedClusterInstanceListResponseBodyInstancesInstanceNodeList[];
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is being changed.
+   * *   **Unavailable**: The instance is unavailable.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL configurations of the instance are being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 17:00Z
+   */
   maintainEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 16:00Z
+   */
   maintainStartTime?: string;
+  /**
+   * @remarks
+   * The number of proxy nodes.
+   * 
+   * > 
+   * 
+   * *   If the return value is **0**, the proxy mode is disabled for the instance. If the return value is an integer greater than **0**, such as **1**, the proxy mode is enabled for the instance.
+   * 
+   * *   This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
+   * 
+   * @example
+   * 1
+   */
   proxyCount?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * >  This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
+   * 
+   * @example
+   * 3
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * The storage type of the instance. The return value is LOCAL_SSD, which indicates [enhanced SSDs (ESSDs)](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * LOCAL_SSD
+   */
   storageType?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-t4n2clc70t3hqwsrr****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-t4nvrca24dczppq44****
+   */
   vswitchId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13212,10 +22627,45 @@ export class DescribeEncryptionKeyListResponseBodyKeyIds extends $tea.Model {
 }
 
 export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * 实例的创建时间。
+   * 
+   * @example
+   * 2022-11-21T13:28Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 重要等级。
+   * 
+   * @example
+   * 0
+   */
   level?: string;
+  /**
+   * @remarks
+   * 版本发布说明。
+   * 
+   * @example
+   * 发布说明
+   */
   releaseNote?: string;
+  /**
+   * @remarks
+   * 可升级的版本英文描述。
+   * 
+   * @example
+   * 版本升级英文描述
+   */
   releaseNoteEn?: string;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * @example
+   * EMR-5.7.0
+   */
   releaseVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13262,7 +22712,21 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease
 }
 
 export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease extends $tea.Model {
+  /**
+   * @remarks
+   * 小版本信息。
+   */
   releaseInfo?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo;
+  /**
+   * @remarks
+   * 版本升级的重要性（推荐升级程度），取值：
+   * * 0：一般重要
+   * * 1：比较重要
+   * * 2：非常重要
+   * 
+   * @example
+   * 0
+   */
   versionChangesLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13284,8 +22748,29 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease
 }
 
 export class DescribeEngineVersionResponseBodyDBLatestMinorVersion extends $tea.Model {
+  /**
+   * @remarks
+   * 版本变更的重要性，取值：
+   * * **0**：一般重要
+   * * **1**：比较重要
+   * * **2**：非常重要
+   * 
+   * @example
+   * 0
+   */
   level?: string;
+  /**
+   * @remarks
+   * 版本号。
+   * 
+   * @example
+   * 7.0.1.4
+   */
   minorVersion?: string;
+  /**
+   * @remarks
+   * 从实例当前小版本到最新小版本的版本演进路线，与版本文档一致，可以直接至版本说明文档查看更详细的信息。
+   */
   versionRelease?: DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease;
   static names(): { [key: string]: string } {
     return {
@@ -13309,10 +22794,48 @@ export class DescribeEngineVersionResponseBodyDBLatestMinorVersion extends $tea.
 }
 
 export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * 版本的发布时间。
+   * 
+   * @example
+   * 2022-08-23T14:26:20Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 版本变更的重要性，取值：
+   * * **0**：一般重要
+   * * **1**：比较重要
+   * * **2**：非常重要
+   * 
+   * @example
+   * 0
+   */
   level?: string;
+  /**
+   * @remarks
+   * 版本的变更说明。
+   * 
+   * @example
+   * 版本变更说明
+   */
   releaseNote?: string;
+  /**
+   * @remarks
+   * 可升级的版本英文描述。
+   * 
+   * @example
+   * 版本升级英文描述
+   */
   releaseNoteEn?: string;
+  /**
+   * @remarks
+   * EMR发行版。
+   * 
+   * @example
+   * EMR-5.9.1
+   */
   releaseVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13359,7 +22882,21 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRele
 }
 
 export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease extends $tea.Model {
+  /**
+   * @remarks
+   * 小版本信息。
+   */
   releaseInfo?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo;
+  /**
+   * @remarks
+   * 版本升级的重要性（推荐升级程度），取值：
+   * * 0：一般重要
+   * * 1：比较重要
+   * * 2：非常重要
+   * 
+   * @example
+   * 0
+   */
   versionChangesLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13381,8 +22918,29 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRele
 }
 
 export class DescribeEngineVersionResponseBodyProxyLatestMinorVersion extends $tea.Model {
+  /**
+   * @remarks
+   * 版本变更的重要性，取值：
+   * * **0**：一般重要
+   * * **1**：比较重要
+   * * **2**：非常重要
+   * 
+   * @example
+   * 0
+   */
   level?: string;
+  /**
+   * @remarks
+   * 版本号。
+   * 
+   * @example
+   * 7.0.6
+   */
   minorVersion?: string;
+  /**
+   * @remarks
+   * 从实例当前小版本到最新小版本的版本演进路线，与版本文档一致，可以直接至版本说明文档查看更详细的信息。
+   */
   versionRelease?: DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease;
   static names(): { [key: string]: string } {
     return {
@@ -13406,10 +22964,67 @@ export class DescribeEngineVersionResponseBodyProxyLatestMinorVersion extends $t
 }
 
 export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the distributed instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * The instance type of the child instance. For more information, see the following topics:
+   * 
+   * *   [Standard DRAM-based instances](https://help.aliyun.com/document_detail/145228.html)
+   * *   [Cluster DRAM-based instances](https://help.aliyun.com/document_detail/150458.html)
+   * *   [Read/write splitting DRAM-based instances](https://help.aliyun.com/document_detail/150459.html)
+   * 
+   * @example
+   * redis.amber.logic.sharding.2g.2db.0rodb.6proxy.multithread
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the child instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceID?: string;
+  /**
+   * @remarks
+   * The state of the child instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is changing.
+   * *   **Unavailable**: The instance is suspended.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL certificate of the instance is being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains available during the upgrade.
+   * 
+   * >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13437,8 +23052,30 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubI
 }
 
 export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the distributed instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * The state of the distributed instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Creating**: The instance is being created.
+   * 
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @remarks
+   * Details of the child instances.
+   */
   subInstances?: DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubInstances[];
   static names(): { [key: string]: string } {
     return {
@@ -13462,10 +23099,44 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches ext
 }
 
 export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the instances that are associated with the IP whitelist template.
+   */
   DBInstances?: string[];
+  /**
+   * @remarks
+   * The IP address in the IP whitelist template.
+   * 
+   * >  Multiple IP addresses are separated by commas (,).
+   * 
+   * @example
+   * 125.38.177.62,221.197.232.185
+   */
   GIpList?: string;
+  /**
+   * @remarks
+   * The name of the IP whitelist template.
+   * 
+   * @example
+   * test_123
+   */
   globalIgName?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13493,9 +23164,39 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
 }
 
 export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address in the IP whitelist template.
+   * 
+   * >  Multiple IP addresses are separated by commas (,).
+   * 
+   * @example
+   * 192.168.0.1,10.10.10.10
+   */
   GIpList?: string;
+  /**
+   * @remarks
+   * The name of the IP whitelist template.
+   * 
+   * @example
+   * test_123
+   */
   globalIgName?: string;
+  /**
+   * @remarks
+   * The ID of the IP whitelist template.
+   * 
+   * @example
+   * g-zsldxfiwjmti0kcm****
+   */
   globalSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13521,25 +23222,208 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
 }
 
 export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
+   * 
+   *     {"steps": [
+   *         {
+   *           "step_name": "exec_task", // The name of the step, which matches CurrentStepName.
+   *           "action_info": {    // The actions supported for this step.
+   *             "Waiting": [      // The status, which matches Status.
+   *               "modifySwitchTime" // The action. Multiple actions are supported.
+   *             ]
+   *           }
+   *         },
+   *         {
+   *           "step_name": "init_task", // The name of the step.
+   *           "action_info": {    // The actions supported for this step.
+   *             "Running": [      // The status.
+   *               "cancel",       // The action.
+   *               "pause"
+   *             ]
+   *           }
+   *         }
+   *       ]
+   *     }
+   * 
+   * The system may support the following actions:
+   * 
+   * *   **retry**
+   * *   **cancel**
+   * *   **modifySwitchTime**: changes the switching or restoration time.
+   * 
+   * @example
+   * {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
+   */
   actionInfo?: string;
+  /**
+   * @remarks
+   * The ID of the user who made the request. If CallerSource is set to User, CallerUid indicates the unique ID (UID) of the user.
+   * 
+   * @example
+   * 141345906006****
+   */
   callerSource?: string;
+  /**
+   * @remarks
+   * The request source. Valid values:
+   * 
+   * *   **System**
+   * *   **User**
+   * 
+   * @example
+   * User
+   */
   callerUid?: string;
+  /**
+   * @remarks
+   * The name of the current step. If this parameter is left empty, the task is not started.
+   * 
+   * @example
+   * exec_task
+   */
   currentStepName?: string;
+  /**
+   * @remarks
+   * The database type. The return value is redis.
+   * 
+   * @example
+   * redis
+   */
   dbType?: string;
+  /**
+   * @remarks
+   * The end time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-02-03T12:06:17Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * dba-tair-test-qcloud
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance type. The return value is Instance.
+   * 
+   * @example
+   * Instance
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The product. The return value is kvstore.
+   * 
+   * @example
+   * kvstore
+   */
   product?: string;
+  /**
+   * @remarks
+   * The task progress. Valid values: 0 to 100.
+   * 
+   * @example
+   * 79.0
+   */
   progress?: number;
+  /**
+   * @remarks
+   * The reason why the current task was initiated.
+   */
   reasonCode?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The estimated amount of time remaining to complete the task. Unit: seconds. A value of 0 indicates that the task is completed.
+   * 
+   * @example
+   * 1000
+   */
   remainTime?: number;
+  /**
+   * @remarks
+   * The start time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-02-03T11:31:03Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * *   **Scheduled**
+   * *   **Running**
+   * *   **Succeed**
+   * *   **Failed**
+   * *   **Cancelling**
+   * *   **Canceled**
+   * *   **Waiting**
+   * 
+   * @example
+   * Running
+   */
   status?: number;
+  /**
+   * @remarks
+   * The task details. The details vary based on the task type.
+   * 
+   * @example
+   * {\\"callerUid\\":\\"test\\"}
+   */
   taskDetail?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * t-83br18hloy3faf****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The task type.
+   * 
+   * *   **ModifyInsSpec**
+   * *   **DeleteInsNode**
+   * *   **AddInsNode**
+   * *   **HaSwitch**
+   * *   **RestartIns**
+   * *   **CreateIns**
+   * *   **ModifyInsConfig**
+   * 
+   * @example
+   * ModifyInsSpec
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * The ID of the user to which the resources belong.
+   * 
+   * @example
+   * 141345906006****
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13597,7 +23481,21 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTagsTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tagkey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tagvalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13638,58 +23536,502 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTa
 }
 
 export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **cluster**: cluster architecture
+   * *   **standard**: standard architecture
+   * *   **rwsplit**: read/write splitting architecture
+   * 
+   * @example
+   * standard
+   */
   architectureType?: string;
+  /**
+   * @remarks
+   * The retention period of audit logs. Unit: day. A value of 0 indicates that the audit log feature is disabled. For information about how to enable the feature, see [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
+   * 
+   * @example
+   * 15
+   */
   auditLogRetention?: string;
+  /**
+   * @remarks
+   * The availability metric of the current month.
+   * 
+   * @example
+   * 100%
+   */
   availabilityValue?: string;
+  /**
+   * @remarks
+   * The earliest point in time to which data can be restored. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * > 
+   * 
+   * *   This parameter is returned only when the data flashback feature is enabled for the instance. For more information, see [Restore data to a point in time by using the data flashback feature](https://help.aliyun.com/document_detail/148479.html).
+   * 
+   * *   When you call the [RestoreInstance](https://help.aliyun.com/document_detail/61083.html) operation to implement data flashback, you can obtain the earliest point in time for data flashback from the return value of this parameter and set the **RestoreTime** parameter to this point in time.
+   * 
+   * @example
+   * 2021-07-06T05:49:55Z
+   */
   backupLogStartTime?: string;
+  /**
+   * @remarks
+   * The bandwidth of the instance. Unit: Mbit/s.
+   * 
+   * @example
+   * 10
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB.
+   * 
+   * @example
+   * 1024
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * This parameter is returned only when the instance is in a cloud box.
+   * 
+   * @example
+   * cloudbox
+   */
   cloudType?: string;
+  /**
+   * @remarks
+   * The parameter configurations of the instance in the JSON format. For more information, see [Parameter descriptions](https://help.aliyun.com/document_detail/43885.html). You can use the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/473830.html) operation to query audit log configurations.
+   * 
+   * @example
+   * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the instance.
+   * 
+   * @example
+   * r-bp1d72gwl41z7f****.redis.rds.aliyuncs.com
+   */
   connectionDomain?: string;
+  /**
+   * @remarks
+   * The maximum number of connections supported by the instance.
+   * 
+   * @example
+   * 10000
+   */
   connections?: number;
+  /**
+   * @remarks
+   * The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-03-06T10:42:03Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the subscription expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-04-06T10:42:03Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. The return value is **Redis**.
+   * 
+   * @example
+   * Redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The ID of the distributed instance to which the instance belongs.
+   * 
+   * >  This parameter is returned only when the ApsaraDB for Redis instance is a child instance of a distributed instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether your Alibaba Cloud account has pending orders for renewal and configuration change. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   hasRenewChangeOrder?: string;
+  /**
+   * @remarks
+   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+   * 
+   * @example
+   * redis.master.small.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1d72gwl41z7f****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * apitest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * Indicates whether the release protection feature is enabled for the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   instanceReleaseProtection?: boolean;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is being changed.
+   * *   **Unavailable**: The instance is unavailable.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL configurations of the instance are being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * 
+   * >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. Valid values:
+   * 
+   * *   **Tair**
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * Indicates whether the order for instance configuration change has reached the final state. Valid values:
+   * 
+   * *   **true**: The configuration change has been completed or has not been performed.
+   * *   **false**: The configurations of the instance are being changed.
+   * 
+   * @example
+   * true
+   */
   isOrderCompleted?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the instance is managed by ApsaraDB RDS. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isRds?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the transparent data encryption (TDE) feature is supported for the instance. Valid values:
+   * 
+   * *   **true**: This feature is supported. This feature is available only for [DRAM-based](https://help.aliyun.com/document_detail/443827.html) instances that use local disks.
+   * *   **false**: This feature is not supported.
+   * 
+   * @example
+   * true
+   */
   isSupportTDE?: boolean;
+  /**
+   * @remarks
+   * The end time of the maintenance window. The time is in the *HH:mmZ* format. The time is displayed in UTC.
+   * 
+   * @example
+   * 22:00Z
+   */
   maintainEndTime?: string;
+  /**
+   * @remarks
+   * The start time of the maintenance window. The time is in the *HH:mmZ* format. The time is displayed in UTC.
+   * 
+   * @example
+   * 18:00Z
+   */
   maintainStartTime?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **CLASSIC**
+   * *   **VPC**
+   * 
+   * @example
+   * CLASSIC
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **double**: The instance contains a master node and a replica node.
+   * *   **single**: The instance is a standalone instance.
+   * 
+   * @example
+   * double
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The plan type. Valid values:
+   * 
+   * *   **standard**: standard plan.
+   * *   **customized**: custom plan. This plan type is phased out.
+   * 
+   * @example
+   * standard
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The service port of the instance.
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * >  This parameter is not returned when the instance is deployed in the classic network.
+   * 
+   * @example
+   * 172.16.49.***
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * The expected maximum queries per second (QPS).
+   * 
+   * @example
+   * 100000
+   */
   QPS?: number;
+  /**
+   * @remarks
+   * The number of read replicas. This parameter is available only for read/write splitting instances that use cloud disks.
+   * 
+   * @example
+   * 5
+   */
   readOnlyCount?: number;
+  /**
+   * @remarks
+   * If the instance is a cluster instance that uses cloud disks, this parameter indicates the actual instance type of individual shards in the instance. The InstanceClass parameter indicates the virtual instance type.
+   * 
+   * >  To query fees for instances of the instance type, you can specify the instance type that is returned by this parameter in the [DescribePrice](https://help.aliyun.com/document_detail/95612.html) operation.
+   * 
+   * @example
+   * tair.rdb.with.proxy.1g
+   */
   realInstanceClass?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replica node.
+   * 
+   * @example
+   * bls-awxxxxxxxxxxxxx
+   */
   replicaId?: string;
+  /**
+   * @remarks
+   * The architecture of the replica node. Valid values:
+   * 
+   * *   **master-slave**: the standard master-replica architecture.
+   * *   **cluster**: the cluster architecture, which includes the read/write splitting instances and cluster instances.
+   * 
+   * @example
+   * master-slave
+   */
   replicationMode?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the secondary zone.
+   * 
+   * >  This parameter is returned only if the instance has a secondary zone ID.
+   * 
+   * @example
+   * cn-hongkong-h
+   */
   secondaryZoneId?: string;
+  /**
+   * @remarks
+   * The IP addresses in the whitelist.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   securityIPList?: string;
+  /**
+   * @remarks
+   * The number of shards. This parameter is available only for ApsaraDB for Redis instances that are purchased on the China site (aliyun.com).
+   * 
+   * @example
+   * 2
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * The number of read replicas in the secondary zone. This parameter is returned only after read/write splitting is enabled for the instance across multiple zones.
+   * 
+   * @example
+   * 2
+   */
   slaveReadOnlyCount?: number;
+  /**
+   * @remarks
+   * The storage capacity of the cloud disk.
+   * 
+   * @example
+   * 50
+   */
   storage?: string;
+  /**
+   * @remarks
+   * The storage type.
+   * 
+   * @example
+   * essd_pl1
+   */
   storageType?: string;
+  /**
+   * @remarks
+   * Details about the tags.
+   */
   tags?: DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * Indicates whether password authentication is enabled. Valid values:
+   * 
+   * *   **Open**: Password authentication is enabled.
+   * *   **Close**: Password authentication is disabled and [password-free access](https://help.aliyun.com/document_detail/85168.html) is enabled.
+   * 
+   * @example
+   * Open
+   */
   vpcAuthMode?: string;
+  /**
+   * @remarks
+   * The ID of the instance in the VPC.
+   * 
+   * @example
+   * r-bp1d72gwl41z7f****
+   */
   vpcCloudInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hongkong-b
+   */
   zoneId?: string;
+  /**
+   * @remarks
+   * The deployment type of the instance. Valid values:
+   * 
+   * *   **singlezone**: The instance is deployed in a single zone.
+   * *   **doublezone**: The instance is deployed in two zones of the same region.
+   * 
+   * @example
+   * singlezone
+   */
   zoneType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13832,9 +24174,40 @@ export class DescribeInstanceAttributeResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeInstanceAutoRenewalAttributeResponseBodyItemsItem extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled. Valid values:
+   * 
+   * *   **true**: Auto-renewal is enabled.
+   * *   **false**: Auto-renewal is disabled.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The auto-renewal period. Unit: months.
+   * 
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13879,7 +24252,23 @@ export class DescribeInstanceAutoRenewalAttributeResponseBodyItems extends $tea.
 }
 
 export class DescribeInstancesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. A tag is a key-value pair.
+   * 
+   * >  A maximum of five key-value pairs can be specified at a time.
+   * 
+   * @example
+   * Storage type
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Local disk
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13901,7 +24290,21 @@ export class DescribeInstancesRequestTag extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstancesKVStoreInstanceTagsTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13942,45 +24345,374 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstanceTags extends $
 }
 
 export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. Default value: NULL. Valid values:
+   * 
+   * *   **cluster**: cluster architecture
+   * *   **standard**: standard architecture
+   * *   **rwsplit**: read/write splitting architecture
+   * *   **NULL**: all of the preceding architectures
+   * 
+   * @example
+   * cluster
+   */
   architectureType?: string;
+  /**
+   * @remarks
+   * The bandwidth of the instance. Unit: Mbit/s.
+   * 
+   * @example
+   * 96
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB.
+   * 
+   * @example
+   * 4096
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * This parameter is returned only when the instance is in a cloud box.
+   * 
+   * @example
+   * cloudbox
+   */
   cloudType?: string;
   computingType?: string;
+  /**
+   * @remarks
+   * The parameter configurations of the instance. For more information, see [Modify parameters of an instance](https://help.aliyun.com/document_detail/43885.html).
+   * 
+   * @example
+   * {\\"maxmemory-policy\\":\\"volatile-lfu\\",\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64,\\"#no_loose_disabled-commands\\":\\"flushall,flushdb\\",\\"lazyfree-lazy-eviction\\":\\"yes\\"}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   connectionDomain?: string;
+  /**
+   * @remarks
+   * The connection mode of the instance. Valid values:
+   * 
+   * *   **Standard**: standard mode
+   * *   **Safe**: database proxy mode
+   * 
+   * @example
+   * Standard
+   */
   connectionMode?: string;
+  /**
+   * @remarks
+   * The maximum number of connections supported by the instance.
+   * 
+   * @example
+   * 20000
+   */
   connections?: number;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2018-11-07T08:49:00Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the instance was deleted.
+   * 
+   * @example
+   * 2019-04-28T10:03:01Z
+   */
   destroyTime?: string;
+  /**
+   * @remarks
+   * The edition of the instance. Valid values:
+   * 
+   * *   **Community**: ApsaraDB for Redis Community Edition
+   * *   **Enterprise**: ApsaraDB for Redis Enhanced Edition (Tair)
+   * 
+   * @example
+   * Enterprise
+   */
   editionType?: string;
+  /**
+   * @remarks
+   * The time when the subscription instance expires.
+   * 
+   * @example
+   * 2019-06-13T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The ID of the distributed instance.
+   * 
+   * >  This parameter is returned only if the instance is a child instance of a distributed instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether your Alibaba Cloud account has pending orders for renewal and configuration change. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   hasRenewChangeOrder?: boolean;
+  /**
+   * @remarks
+   * The instance class.
+   * 
+   * @example
+   * redis.logic.sharding.2g.2db.0rodb.4proxy.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * apitest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is being changed.
+   * *   **Unavailable**: The instance is unavailable.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL configurations of the instance are being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. Valid values:
+   * 
+   * *   **Tair**
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance is managed by ApsaraDB RDS. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isRds?: boolean;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **CLASSIC**
+   * *   **VPC**
+   * 
+   * @example
+   * CLASSIC
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **double**: The instance contains a master node and a replica node.
+   * *   **single**: The instance contains only a master node. This node type is phased out.
+   * 
+   * @example
+   * double
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The plan type. Valid values:
+   * 
+   * *   **standard**: standard plan
+   * *   **customized**: custom plan
+   * 
+   * @example
+   * standard
+   */
   packageType?: string;
+  /**
+   * @remarks
+   * The service port of the instance.
+   * 
+   * @example
+   * 6379
+   */
   port?: number;
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * >  This parameter is not returned when the instance is deployed in the classic network.
+   * 
+   * @example
+   * 172.16.49.***
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * The number of queries per second (QPS).
+   * 
+   * @example
+   * 100000
+   */
   QPS?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The logical ID of the distributed instance.
+   * 
+   * @example
+   * grr-bp11381ebc16****
+   */
   replacateId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the secondary zone.
+   * 
+   * >  If multiple zones are returned for **ZoneId**, such as cn-hangzhou-MAZ10(h,i), this parameter is ignored.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   secondaryZoneId?: string;
+  /**
+   * @remarks
+   * The shard class. For more information about shard classes, see [Overview](https://help.aliyun.com/document_detail/26350.html).
+   * 
+   * >  The overall performance of a cluster instance is calculated by multiplying the class of a single shard (ShardClass) by the number of shards (ShardCount).
+   * 
+   * @example
+   * redis.shard.small.ce
+   */
   shardClass?: string;
+  /**
+   * @remarks
+   * The number of data shards in the cluster instance.
+   * 
+   * >  This parameter is returned only for cloud-native cluster instances or read/write splitting instances.
+   * 
+   * @example
+   * 3
+   */
   shardCount?: number;
+  /**
+   * @remarks
+   * Details about the tags.
+   */
   tags?: DescribeInstancesResponseBodyInstancesKVStoreInstanceTags;
+  /**
+   * @remarks
+   * The username used to connect to the instance. By default, a username named after the instance ID is included.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14097,26 +24829,208 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeInstancesOverviewResponseBodyInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **cluster**: cluster architecture
+   * *   **standard**: standard architecture
+   * *   **rwsplit**: read/write splitting architecture
+   * 
+   * @example
+   * cluster
+   */
   architectureType?: string;
+  /**
+   * @remarks
+   * The storage capacity of the instance. Unit: MB.
+   * 
+   * @example
+   * 4096
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   connectionDomain?: string;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2018-11-07T08:49:00Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the subscription instance expires.
+   * 
+   * @example
+   * 2022-06-13T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+   * 
+   * @example
+   * 4.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The ID of the distributed instance.
+   * 
+   * > This parameter is returned only when the instance is a child instance of a distributed instance.
+   * 
+   * @example
+   * gr-bp14rkqrhac****
+   */
   globalInstanceId?: string;
+  /**
+   * @remarks
+   * The instance type of the instance.
+   * 
+   * @example
+   * redis.logic.sharding.2g.2db.0rodb.4proxy.default
+   */
   instanceClass?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * apitest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   **Normal**: The instance is normal.
+   * *   **Creating**: The instance is being created.
+   * *   **Changing**: The configurations of the instance are being changed.
+   * *   **Inactive**: The instance is disabled.
+   * *   **Flushing**: The instance is being released.
+   * *   **Released**: The instance is released.
+   * *   **Transforming**: The billing method of the instance is being changed.
+   * *   **Unavailable**: The instance is unavailable.
+   * *   **Error**: The instance failed to be created.
+   * *   **Migrating**: The instance is being migrated.
+   * *   **BackupRecovering**: The instance is being restored from a backup.
+   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+   * *   **NetworkModifying**: The network type of the instance is being changed.
+   * *   **SSLModifying**: The SSL certificate of the instance is being changed.
+   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * 
+   * @example
+   * Normal
+   */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The category of the instance. Valid values:
+   * 
+   * *   **Tair**
+   * *   **Redis**
+   * *   **Memcache**
+   * 
+   * @example
+   * Redis
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **CLASSIC**: classic network
+   * *   **VPC**: VPC
+   * 
+   * @example
+   * CLASSIC
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * > This parameter is not returned when the instance is deployed in the classic network.
+   * 
+   * @example
+   * 172.16.49.***
+   */
   privateIp?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Instance\\"s secondary zone id.
+   * > This parameter is only returned when the instance has a secondary zone ID.
+   * 
+   * @example
+   * cn-hangzhou-g
+   */
   secondaryZoneId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the instance is connected.
+   * 
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14176,10 +25090,48 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeLogicInstanceTopologyResponseBodyRedisProxyListNodeInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bandwidth of the node. Unit: Mbit/s.
+   * 
+   * @example
+   * 96
+   */
   bandwidth?: string;
+  /**
+   * @remarks
+   * The storage capacity of the node. Unit: MB.
+   * 
+   * @example
+   * 5120
+   */
   capacity?: string;
+  /**
+   * @remarks
+   * The maximum number of connections.
+   * 
+   * @example
+   * 320000
+   */
   connection?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * r-bp10noxlhcoim2****-proxy-3#542****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **db**: a data node.
+   * *   **normal**: a management node, which can be a proxy node or a Configserver node. For specific instances, the return value of this parameter is proxy or cs, instead of normal.
+   * 
+   * @example
+   * proxy
+   */
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14226,11 +25178,59 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisProxyList extends $te
 }
 
 export class DescribeLogicInstanceTopologyResponseBodyRedisShardListNodeInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bandwidth of the node. Unit: Mbit/s.
+   * 
+   * @example
+   * 96
+   */
   bandwidth?: string;
+  /**
+   * @remarks
+   * The storage capacity of the node. Unit: MB.
+   * 
+   * @example
+   * 2048
+   */
   capacity?: string;
+  /**
+   * @remarks
+   * The maximum number of connections.
+   * 
+   * @example
+   * 10000
+   */
   connection?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * r-bp10noxlhcoim2****-db-0#688****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **proxy**: proxy node
+   * *   **db**: data node
+   * 
+   * @example
+   * db
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The type of the child instance. Valid values:
+   * 
+   * *   **master**: master node
+   * *   **readonly**: read-only instance
+   * 
+   * @example
+   * master
+   */
   subInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14279,7 +25279,21 @@ export class DescribeLogicInstanceTopologyResponseBodyRedisShardList extends $te
 }
 
 export class DescribeMonitorItemsResponseBodyMonitorItemsKVStoreMonitorItem extends $tea.Model {
+  /**
+   * @remarks
+   * The metric.
+   * 
+   * @example
+   * select
+   */
   monitorKey?: string;
+  /**
+   * @remarks
+   * The unit of the metric.
+   * 
+   * @example
+   * Counts/s
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14320,7 +25334,21 @@ export class DescribeMonitorItemsResponseBodyMonitorItems extends $tea.Model {
 }
 
 export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * timeout
+   */
   paramName?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * 1000
+   */
   paramValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14342,14 +25370,74 @@ export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails 
 }
 
 export class DescribeParameterGroupResponseBodyParameterGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The service category. Valid values:
+   * 
+   * *   **0**: Community Edition
+   * *   **1**: Enhanced Edition (Tair)
+   * 
+   * @example
+   * 1
+   */
   category?: number;
+  /**
+   * @remarks
+   * The time when the parameter template was created.
+   * 
+   * @example
+   * 2023-04-18 16:32:45
+   */
   created?: string;
+  /**
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The compatible engine version.
+   * 
+   * @example
+   * 5.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The time when the parameter template was last modified.
+   * 
+   * @example
+   * 2023-04-18 16:32:45
+   */
   modified?: string;
+  /**
+   * @remarks
+   * The parameter template ID, which is globally unique.
+   * 
+   * @example
+   * sys-001*****
+   */
   paramGroupId?: string;
+  /**
+   * @remarks
+   * The parameter details of the parameter template.
+   */
   paramGroupsDetails?: DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails[];
+  /**
+   * @remarks
+   * The description of the parameter template.
+   * 
+   * @example
+   * test
+   */
   parameterGroupDesc?: string;
+  /**
+   * @remarks
+   * The name of the parameter template.
+   * 
+   * @example
+   * testGroupName
+   */
   parameterGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14385,9 +25473,37 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $tea.Model
 }
 
 export class DescribeParameterGroupSupportParamResponseBodyResourceList extends $tea.Model {
+  /**
+   * @remarks
+   * The service category.
+   * 
+   * @example
+   * standard
+   */
   category?: string;
+  /**
+   * @remarks
+   * The engine type.
+   * 
+   * @example
+   * redis
+   */
   dbType?: string;
+  /**
+   * @remarks
+   * The engine version.
+   * 
+   * @example
+   * 5
+   */
   dbVersion?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * rt_threshold_ms
+   */
   paramName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14413,14 +25529,77 @@ export class DescribeParameterGroupSupportParamResponseBodyResourceList extends 
 }
 
 export class DescribeParameterGroupTemplateListResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The regular expression used to validate input.
+   * 
+   * @example
+   * "\\\\d+\\\\s+\\\\d+\\\\s+\\\\d+"
+   */
   checkingCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the modification takes effect. Valid values: 0 and 1. A value of 0 indicates that the modification does not take effect. A value of 1 indicates that the modification takes effect.
+   * 
+   * @example
+   * 1
+   */
   effective?: number;
+  /**
+   * @remarks
+   * A divisor of the parameter. For a parameter of the integer or byte type, the valid values must be a multiple of Factor unless you set Factor to 0.
+   * 
+   * @example
+   * 1
+   */
   factor?: number;
+  /**
+   * @remarks
+   * The description of the parameter.
+   */
   parameterDescription?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * appendonly
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The default value of the parameter.
+   * 
+   * @example
+   * 10
+   */
   parameterValue?: string;
+  /**
+   * @remarks
+   * Indicates whether the parameter can be modified. Valid values:
+   * 
+   * *   **0: The parameter cannot be modified.**
+   * *   **1**: The parameter can be modified.
+   * 
+   * @example
+   * 0
+   */
   revisable?: number;
+  /**
+   * @remarks
+   * Indicates whether the minor version can be changed. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   supportModifyForMinorVersion?: boolean;
+  /**
+   * @remarks
+   * The unit of the parameter value. Valid values: INT (ordinary integer), STRING (fixed string), and B (byte).
+   * 
+   * @example
+   * STRING
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14456,13 +25635,76 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $t
 }
 
 export class DescribeParameterGroupsResponseBodyParameterGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The service category. Valid values:
+   * 
+   * *   **0**: Community Edition
+   * *   **1**: Enhanced Edition (Tair)
+   * 
+   * @example
+   * 0
+   */
   category?: number;
+  /**
+   * @remarks
+   * The time when the parameter template was created.
+   * 
+   * @example
+   * 2023-04-18 16:32:45
+   */
   created?: string;
+  /**
+   * @remarks
+   * The engine type. Valid values:
+   * 
+   * *   **redis**: Redis or Tair DRAM-based instance
+   * *   **tair_pena**: Tair persistent memory-optimized instance
+   * *   **tair_pdb**: Tair ESSD-based instance
+   * 
+   * @example
+   * redis
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The compatible engine version.
+   * 
+   * @example
+   * 5
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The time when the parameter template was last modified.
+   * 
+   * @example
+   * 2023-04-18 16:32:45
+   */
   modified?: string;
+  /**
+   * @remarks
+   * The parameter template ID.
+   * 
+   * @example
+   * test01
+   */
   paramGroupId?: string;
+  /**
+   * @remarks
+   * The description of the parameter template.
+   * 
+   * @example
+   * test
+   */
   parameterGroupDesc?: string;
+  /**
+   * @remarks
+   * The name of the parameter template.
+   * 
+   * @example
+   * testGroupName
+   */
   parameterGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14496,9 +25738,37 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $tea.Mod
 }
 
 export class DescribeParameterModificationHistoryResponseBodyHistoricalParametersHistoricalParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the parameter was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-09-05T09:56:10Z
+   */
   modifyTime?: string;
+  /**
+   * @remarks
+   * The parameter value after modification.
+   * 
+   * @example
+   * 0
+   */
   newParameterValue?: string;
+  /**
+   * @remarks
+   * The parameter value before modification.
+   * 
+   * @example
+   * -2
+   */
   oldParameterValue?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * script_check_enable
+   */
   parameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14543,11 +25813,59 @@ export class DescribeParameterModificationHistoryResponseBodyHistoricalParameter
 }
 
 export class DescribeParameterTemplatesResponseBodyParametersTemplateRecord extends $tea.Model {
+  /**
+   * @remarks
+   * The valid values of the parameter.
+   * 
+   * @example
+   * [yes|no]
+   */
   checkingCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the parameter can be reconfigured. Valid values:
+   * 
+   * *   **true**: The parameter can be reconfigured.
+   * *   **false**: The parameter cannot be reconfigured.
+   * 
+   * @example
+   * true
+   */
   forceModify?: boolean;
+  /**
+   * @remarks
+   * Indicates whether a restart of the instance is required after the parameter is reconfigured. Valid values:
+   * 
+   * *   **true**: After the parameter is reconfigured, you must restart the instance to make the new value of the parameter take effect.
+   * *   **false**: After the parameter is reconfigured, the new value of the parameter immediately takes effect. You do not need to restart the instance.
+   * 
+   * @example
+   * true
+   */
   forceRestart?: boolean;
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * test description
+   */
   parameterDescription?: string;
+  /**
+   * @remarks
+   * The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](https://help.aliyun.com/document_detail/259681.html).
+   * 
+   * @example
+   * appendonly
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The default value of the parameter.
+   * 
+   * @example
+   * yes
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14596,11 +25914,59 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $tea.Model
 }
 
 export class DescribeParametersResponseBodyConfigParametersParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The check code that indicates the valid values of the parameter.
+   * 
+   * @example
+   * [0|1]
+   */
   checkingCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
+   * 
+   * *   **True**: The instance must be restarted for the modifications to take effect.
+   * *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
+   * 
+   * @example
+   * true
+   */
   forceRestart?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the parameter can be reset. Valid values:
+   * 
+   * *   **False**: The parameter cannot be reset.
+   * *   **True**: The parameter can be reset.
+   * 
+   * @example
+   * true
+   */
   modifiableStatus?: boolean;
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * Check all keys passed in the KEYS array map to the same slot.
+   */
   parameterDescription?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * script_check_enable
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14649,11 +26015,59 @@ export class DescribeParametersResponseBodyConfigParameters extends $tea.Model {
 }
 
 export class DescribeParametersResponseBodyRunningParametersParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The check code that indicates the valid values of the parameter.
+   * 
+   * @example
+   * [0|1]
+   */
   checkingCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
+   * 
+   * *   **True**: The instance must be restarted for the modifications to take effect.
+   * *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
+   * 
+   * @example
+   * true
+   */
   forceRestart?: string;
+  /**
+   * @remarks
+   * Indicates whether the parameter can be reset. Valid values:
+   * 
+   * *   **False**: The parameter cannot be reset.
+   * *   **True**: The parameter can be reset.
+   * 
+   * @example
+   * true
+   */
   modifiableStatus?: string;
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * You can disable some dangerous commands, for example \\"keys,flushdb,flushall\\", the commands must be in [flushall,flushdb,keys,hgetall,eval,evalsha,script].
+   */
   parameterDescription?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * #no_loose_disabled-commands
+   */
   parameterName?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * keys,flushall,flushdb
+   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14702,9 +26116,37 @@ export class DescribeParametersResponseBodyRunningParameters extends $tea.Model 
 }
 
 export class DescribePriceResponseBodyOrderCouponsCoupon extends $tea.Model {
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   couponNo?: string;
+  /**
+   * @remarks
+   * The description of the coupon.
+   * 
+   * @example
+   * coupondemo
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the coupon was selected.
+   * 
+   * @example
+   * true
+   */
   isSelected?: string;
+  /**
+   * @remarks
+   * The coupon name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14871,18 +26313,65 @@ export class DescribePriceResponseBodyOrderRuleIds extends $tea.Model {
 
 export class DescribePriceResponseBodyOrder extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * Details about coupons.
+   */
   coupons?: DescribePriceResponseBodyOrderCoupons;
+  /**
+   * @remarks
+   * The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
+   * 
+   * @example
+   * CNY
+   */
   currency?: string;
   depreciateInfo?: DescribePriceResponseBodyOrderDepreciateInfo;
+  /**
+   * @remarks
+   * The discount amount of the order.
+   * 
+   * @example
+   * 0.21
+   */
   discountAmount?: string;
+  /**
+   * @remarks
+   * The service fees of the order.
+   * 
+   * @example
+   * 0.1
+   */
   handlingFeeAmount?: string;
   isContractActivity?: boolean;
   message?: string;
+  /**
+   * @remarks
+   * The original price of the order.
+   * 
+   * @example
+   * 0.21
+   */
   originalAmount?: string;
+  /**
+   * @remarks
+   * Details about promotion rule IDs.
+   */
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
+  /**
+   * @remarks
+   * Indicates whether the discount information is displayed.
+   */
   showDiscountInfo?: boolean;
   standDiscountPrice?: number;
   standPrice?: number;
+  /**
+   * @remarks
+   * The transaction price of the order.
+   * 
+   * @example
+   * 10
+   */
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14928,8 +26417,29 @@ export class DescribePriceResponseBodyOrder extends $tea.Model {
 }
 
 export class DescribePriceResponseBodyRulesRule extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the promotion rule.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 1111111111
+   */
   ruleDescId?: number;
+  /**
+   * @remarks
+   * The title of the rule.
+   * 
+   * @example
+   * test
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15383,16 +26893,48 @@ export class DescribePriceResponseBodySubOrdersSubOrderRuleIds extends $tea.Mode
 export class DescribePriceResponseBodySubOrdersSubOrder extends $tea.Model {
   contractActivity?: boolean;
   depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo;
+  /**
+   * @remarks
+   * The discount amount of the order.
+   * 
+   * @example
+   * 0.21
+   */
   discountAmount?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-bp1xxxxxxxxxxxxx
+   */
   instanceId?: string;
   isContractActivity?: boolean;
   moduleInstance?: DescribePriceResponseBodySubOrdersSubOrderModuleInstance;
   optionalPromotions?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions;
+  /**
+   * @remarks
+   * The original price of the order.
+   * 
+   * @example
+   * 0.21
+   */
   originalAmount?: string;
   promDetailList?: DescribePriceResponseBodySubOrdersSubOrderPromDetailList;
+  /**
+   * @remarks
+   * The rule IDs.
+   */
   ruleIds?: DescribePriceResponseBodySubOrdersSubOrderRuleIds;
   standDiscountPrice?: number;
   standPrice?: number;
+  /**
+   * @remarks
+   * The final price of the order.
+   * 
+   * @example
+   * 10
+   */
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15474,10 +27016,42 @@ export class DescribeRegionsResponseBodyRegionIdsKVStoreRegionZoneIdList extends
 }
 
 export class DescribeRegionsResponseBodyRegionIdsKVStoreRegion extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The endpoint of the region.
+   * 
+   * @example
+   * r-kvstore.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The zone IDs.
+   */
   zoneIdList?: DescribeRegionsResponseBodyRegionIdsKVStoreRegionZoneIdList;
+  /**
+   * @remarks
+   * The IDs of the zones in the region.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15524,17 +27098,121 @@ export class DescribeRegionsResponseBodyRegionIds extends $tea.Model {
 }
 
 export class DescribeRoleZoneInfoResponseBodyNodeNodeInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
+   * 
+   * > *   You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to specify the increased bandwidth.
+   * > *   You can also use this parameter to calculate the increased bandwidth. For example, if the default bandwidth of the node is 96 MB/s and the returned value of this parameter is 100, the increased bandwidth is 4 MB/s.
+   * 
+   * @example
+   * 100
+   */
   currentBandWidth?: number;
+  /**
+   * @remarks
+   * The minor version of the node.
+   * 
+   * @example
+   * redis-5.0_0.3.10
+   */
   currentMinorVersion?: string;
+  /**
+   * @remarks
+   * The ID of the data shard.
+   * 
+   * @example
+   * 30381****
+   */
   custinsId?: string;
+  /**
+   * @remarks
+   * The default bandwidth of the node. Unit: MB/s.
+   * 
+   * @example
+   * 96
+   */
   defaultBandWidth?: number;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * r-t4nlenc2p04uvb****
+   */
   insName?: string;
+  /**
+   * @remarks
+   * Indicates whether the node is a read replica. If the node is a read replica, **3** is returned.
+   * 
+   * >  If the node is not a read replica, no value is returned.
+   * 
+   * @example
+   * 3
+   */
   insType?: number;
+  /**
+   * @remarks
+   * Indicates whether the minor version is the latest version. Valid values:
+   * 
+   * *   **0**: The minor version is not the latest version.
+   * *   **1**: The minor version is the latest version.
+   * 
+   * >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) operation.
+   * 
+   * @example
+   * 1
+   */
   isLatestVersion?: number;
+  /**
+   * @remarks
+   * Indicates whether the bandwidth of the node is increased. Valid values:
+   * 
+   * *   **true**: The bandwidth of the node is not increased.
+   * *   **false**: The bandwidth of the node is increased.
+   * 
+   * @example
+   * true
+   */
   isOpenBandWidthService?: boolean;
+  /**
+   * @remarks
+   * This parameter is used only for internal maintenance of ApsaraDB for Redis instances.
+   * 
+   * @example
+   * 10065****
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   **db**: data node.
+   * *   **proxy**: proxy node.
+   * *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
+   * 
+   * @example
+   * normal
+   */
   nodeType?: string;
+  /**
+   * @remarks
+   * The role of the node. Valid values:
+   * 
+   * *   **master**: master node
+   * *   **slave**: replica node
+   * 
+   * @example
+   * master
+   */
   role?: string;
+  /**
+   * @remarks
+   * The ID of the zone.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15595,9 +27273,39 @@ export class DescribeRoleZoneInfoResponseBodyNode extends $tea.Model {
 }
 
 export class DescribeRunningLogRecordsResponseBodyItemsLogRecords extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the log.
+   * 
+   * @example
+   * CONFIG REWRITE executed with success.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The time when the log was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2018-12-03T07:07:30Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * >  If a standard instance is queried, `(null)` is returned.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15642,8 +27350,32 @@ export class DescribeRunningLogRecordsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeSecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation extends $tea.Model {
+  /**
+   * @remarks
+   * The network type of the security group. Valid values:
+   * 
+   * *   **classic**: the classic network.
+   * *   **vpc**: the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc
+   */
   netType?: string;
+  /**
+   * @remarks
+   * The ID of the region where the instance is deployed.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-bp14p9y07ns3gwq****
+   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15686,8 +27418,28 @@ export class DescribeSecurityGroupConfigurationResponseBodyItems extends $tea.Mo
 }
 
 export class DescribeSecurityIpsResponseBodySecurityIpGroupsSecurityIpGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The attribute of the whitelist. This parameter is empty by default.
+   * 
+   * >  If the instance is authorized to use a service such as Database Autonomy Service (DAS), Data Management (DMS), or Data Transmission Service (DTS), this service automatically generates a **hidden** whitelist for the instance. This type of whitelists cannot be modified or deleted.
+   * 
+   * @example
+   * hidden
+   */
   securityIpGroupAttribute?: string;
+  /**
+   * @remarks
+   * The name of the whitelist.
+   * 
+   * @example
+   * default
+   */
   securityIpGroupName?: string;
+  /**
+   * @remarks
+   * The IP addresses in the whitelist. A maximum of 1,000 IP addresses can be specified in a whitelist.
+   */
   securityIpList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15730,14 +27482,77 @@ export class DescribeSecurityIpsResponseBodySecurityIpGroups extends $tea.Model 
 }
 
 export class DescribeSlowLogRecordsResponseBodyItemsLogRecords extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the account.
+   * 
+   * @example
+   * 0
+   */
   account?: string;
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * @example
+   * demo
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The slow query statement.
+   * 
+   * @example
+   * KEYS *
+   */
   command?: string;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * -1
+   */
   DBName?: string;
+  /**
+   * @remarks
+   * The database name. This parameter serves the same purpose as the **DBName** parameter. We recommend that you use the **DBName** parameter.
+   * 
+   * @example
+   * -1
+   */
   dataBaseName?: string;
+  /**
+   * @remarks
+   * The amount of time consumed to execute the slow query statement. Unit: microseconds.
+   * 
+   * @example
+   * 248
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The start time when the slow query statement was executed. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format.
+   * 
+   * @example
+   * 2019-03-20T09:18:41Z
+   */
   executeTime?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 172.16.88.***
+   */
   IPAddress?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****-db-0
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15792,15 +27607,98 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The beginning time of the task. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-11-13T06:16:54Z
+   */
   beginTime?: string;
+  /**
+   * @remarks
+   * The name of the subtask.
+   * 
+   * @example
+   * init_redis
+   */
   currentStepName?: string;
+  /**
+   * @remarks
+   * The end time of the task. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-11-13T06:17:18Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The progress of the task. Unit: %.
+   * 
+   * @example
+   * 100
+   */
   progress?: number;
+  /**
+   * @remarks
+   * The estimated remaining duration of the task. Unit: seconds.
+   * 
+   * >  If the task is not running, this parameter is not returned or the returned value is **0**.
+   * 
+   * @example
+   * 60
+   */
   remain?: number;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **0**: The task is pending.
+   * *   **1**: The task is running.
+   * *   **2**: The task is complete.
+   * *   **4**: The task is closed.
+   * *   **7**: The task is paused.
+   * *   **8**: The task is interrupted.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @remarks
+   * The progress of the subtask.
+   * 
+   * >  If the subtask does not exist, this parameter is not returned.
+   * 
+   * @example
+   * 3/3
+   */
   stepProgressInfo?: string;
+  /**
+   * @remarks
+   * The information about the subtask in the JSON format. This includes the expected remaining duration (**remain**), the name of the subtask (**name**), and the task progress (**progress**).
+   * 
+   * >  If the subtask does not exist, this parameter is not returned.
+   * 
+   * @example
+   * [{\\"remain\\":0,\\"name\\":\\"init_instance\\",\\"progress\\":100},{\\"remain\\":107,\\"name\\":\\"init_redis\\",\\"progress\\":12.3},{\\"remain\\":1881,\\"name\\":\\"init_config\\",\\"progress\\":0}]
+   */
   stepsInfo?: string;
+  /**
+   * @remarks
+   * The identifier of the task.
+   * 
+   * @example
+   * ModifyDBInstanceParameter
+   */
   taskAction?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * @example
+   * 32302****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15838,11 +27736,59 @@ export class DescribeTasksResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZonesKVStoreZone extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether ApsaraDB for Redis instances can be created in the current zone. Valid values:
+   * 
+   * *   **true**: ApsaraDB for Redis instances cannot be created in the current zone.
+   * *   **false**: ApsaraDB for Redis instances can be created in the current zone.
+   * 
+   * @example
+   * true
+   */
   disabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the zone is managed by ApsaraDB RDS. The return value of this parameter is **true** in ApsaraDB for Redis.
+   * 
+   * @example
+   * true
+   */
   isRds?: boolean;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-huhehaote
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Indicates whether the network type of the instance can be changed from the classic network to Virtual Private Cloud (VPC). Valid values:
+   * 
+   * *   **true**: The network type of the instance can be changed from the classic network to VPC.
+   * *   **false**: The network type of the instance cannot be changed from the classic network to VPC.
+   * 
+   * @example
+   * true
+   */
   switchNetwork?: boolean;
+  /**
+   * @remarks
+   * The ID of the zone within the specified region.
+   * 
+   * @example
+   * cn-huhehaote-b
+   */
   zoneId?: string;
+  /**
+   * @remarks
+   * The name of the zone within the specified region.
+   * 
+   * @example
+   * Hohhot Zone B
+   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15891,7 +27837,21 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The keys of the tags associated with the instances you want to query.
+   * 
+   * @example
+   * demokey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of the tags associated with the instances you want to query.
+   * 
+   * @example
+   * demovalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15913,9 +27873,37 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @remarks
+   * The resource ID, which is also the ID of the instance.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type. The return value is **ALIYUN::KVSTORE::INSTANCE**. This value indicates an ApsaraDB for Redis instance.
+   * 
+   * @example
+   * ALIYUN::KVSTORE::INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The keys of the tags.
+   * 
+   * @example
+   * demokey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The values of the tags.
+   * 
+   * @example
+   * demovalue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15960,10 +27948,45 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ModifyInstanceNetExpireTimeResponseBodyNetInfoItemsNetInfoItem extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint of the classic network.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+   */
   connectionString?: string;
+  /**
+   * @remarks
+   * The network type of the instance. The returned value is **Classic**.
+   * 
+   * @example
+   * Classic
+   */
   DBInstanceNetType?: string;
+  /**
+   * @remarks
+   * The expiration time of the classic network endpoint.
+   * 
+   * @example
+   * 2019-08-01T09:29:18Z
+   */
   expiredTime?: string;
+  /**
+   * @remarks
+   * The IP address of the instance in the classic network.
+   * 
+   * @example
+   * 100.118.142.***
+   */
   IPAddress?: string;
+  /**
+   * @remarks
+   * The port number that is used to connect to the instance.
+   * 
+   * @example
+   * 6379
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16010,7 +28033,30 @@ export class ModifyInstanceNetExpireTimeResponseBodyNetInfoItems extends $tea.Mo
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag associated with the instance.
+   * 
+   * > * **N** specifies the serial number of the tag. For example, **Tag.1.Key** specifies the key of the first tag and **Tag.2.Key** specifies the key of the second tag.
+   * > * If the key of the tag does not exist, the key is automatically created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demokey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag associated with the instance.
+   * 
+   * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag and **Tag.2.Value** specifies the value of the second tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demovalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16046,7 +28092,6 @@ export default class Client extends OpenApi {
       'cn-shenzhen': "r-kvstore.aliyuncs.com",
       'cn-heyuan': "r-kvstore.aliyuncs.com",
       'cn-guangzhou': "r-kvstore.aliyuncs.com",
-      'cn-hongkong': "r-kvstore.aliyuncs.com",
       'cn-hangzhou-finance': "r-kvstore.aliyuncs.com",
       'cn-shanghai-finance-1': "r-kvstore.aliyuncs.com",
       'cn-shenzhen-finance-1': "r-kvstore.aliyuncs.com",
@@ -16101,13 +28146,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more data shards to an ApsaraDB for Redis cluster instance.
-   *
-   * @description This operation is available only for cluster instances that use cloud disks.
-   *
-   * @param request AddShardingNodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddShardingNodeResponse
+   * Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * This operation is available only for cluster instances that use cloud disks.
+   * 
+   * @param request - AddShardingNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddShardingNodeResponse
    */
   async addShardingNodeWithOptions(request: AddShardingNodeRequest, runtime: $Util.RuntimeOptions): Promise<AddShardingNodeResponse> {
     Util.validateModel(request);
@@ -16182,12 +28228,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds one or more data shards to an ApsaraDB for Redis cluster instance.
-   *
-   * @description This operation is available only for cluster instances that use cloud disks.
-   *
-   * @param request AddShardingNodeRequest
-   * @return AddShardingNodeResponse
+   * Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * This operation is available only for cluster instances that use cloud disks.
+   * 
+   * @param request - AddShardingNodeRequest
+   * @returns AddShardingNodeResponse
    */
   async addShardingNode(request: AddShardingNodeRequest): Promise<AddShardingNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16195,19 +28242,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
-   *
-   * @description In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   * Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
    * To call this operation, the instance must meet the following requirements:
    * *   The instance is an ApsaraDB for Redis cluster instance.
    * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
    * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html) operation to change the network type to VPC.
    * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation to disable it.
    * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](https://help.aliyun.com/document_detail/183151.html).
-   *
-   * @param request AllocateDirectConnectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AllocateDirectConnectionResponse
+   * 
+   * @param request - AllocateDirectConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateDirectConnectionResponse
    */
   async allocateDirectConnectionWithOptions(request: AllocateDirectConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateDirectConnectionResponse> {
     Util.validateModel(request);
@@ -16262,18 +28310,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
-   *
-   * @description In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   * Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
    * To call this operation, the instance must meet the following requirements:
    * *   The instance is an ApsaraDB for Redis cluster instance.
    * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
    * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html) operation to change the network type to VPC.
    * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation to disable it.
    * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](https://help.aliyun.com/document_detail/183151.html).
-   *
-   * @param request AllocateDirectConnectionRequest
-   * @return AllocateDirectConnectionResponse
+   * 
+   * @param request - AllocateDirectConnectionRequest
+   * @returns AllocateDirectConnectionResponse
    */
   async allocateDirectConnection(request: AllocateDirectConnectionRequest): Promise<AllocateDirectConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16281,13 +28330,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
-   *
-   * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
-   *
-   * @param request AllocateInstancePublicConnectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AllocateInstancePublicConnectionResponse
+   * Applies for a public endpoint for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+   * 
+   * @param request - AllocateInstancePublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -16342,12 +28392,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
-   *
-   * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
-   *
-   * @param request AllocateInstancePublicConnectionRequest
-   * @return AllocateInstancePublicConnectionResponse
+   * Applies for a public endpoint for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+   * 
+   * @param request - AllocateInstancePublicConnectionRequest
+   * @returns AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16355,14 +28406,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
-   *
-   * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
+   * 
+   * @remarks
+   *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
    * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable TDE.
-   *
-   * @param request CheckCloudResourceAuthorizedRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckCloudResourceAuthorizedResponse
+   * 
+   * @param request - CheckCloudResourceAuthorizedRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
@@ -16413,13 +28465,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
-   *
-   * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
+   * 
+   * @remarks
+   *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
    * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable TDE.
-   *
-   * @param request CheckCloudResourceAuthorizedRequest
-   * @return CheckCloudResourceAuthorizedResponse
+   * 
+   * @param request - CheckCloudResourceAuthorizedRequest
+   * @returns CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16427,17 +28480,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an account that has specific permissions for an ApsaraDB for Redis instance.
-   *
-   * @description > 
+   * Creates an account that has specific permissions for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > 
    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
    * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
    * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
    * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
-   *
-   * @param request CreateAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAccountResponse
+   * 
+   * @param request - CreateAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccountResponse
    */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
@@ -16508,16 +28562,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an account that has specific permissions for an ApsaraDB for Redis instance.
-   *
-   * @description > 
+   * Creates an account that has specific permissions for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > 
    * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
    * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
    * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
    * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
-   *
-   * @param request CreateAccountRequest
-   * @return CreateAccountResponse
+   * 
+   * @param request - CreateAccountRequest
+   * @returns CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16525,13 +28580,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Backs up an ApsaraDB for Redis instance.
-   *
-   * @description You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
-   *
-   * @param request CreateBackupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateBackupResponse
+   * Backs up an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+   * 
+   * @param request - CreateBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupResponse
    */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
@@ -16578,12 +28634,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Backs up an ApsaraDB for Redis instance.
-   *
-   * @description You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
-   *
-   * @param request CreateBackupRequest
-   * @return CreateBackupResponse
+   * Backs up an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+   * 
+   * @param request - CreateBackupRequest
+   * @returns CreateBackupResponse
    */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16591,13 +28648,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Manually creates a cache analytics task.
-   *
-   * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
-   *
-   * @param request CreateCacheAnalysisTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCacheAnalysisTaskResponse
+   * Manually creates a cache analytics task.
+   * 
+   * @remarks
+   * This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+   * 
+   * @param request - CreateCacheAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCacheAnalysisTaskResponse
    */
   async createCacheAnalysisTaskWithOptions(request: CreateCacheAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCacheAnalysisTaskResponse> {
     Util.validateModel(request);
@@ -16644,12 +28702,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Manually creates a cache analytics task.
-   *
-   * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
-   *
-   * @param request CreateCacheAnalysisTaskRequest
-   * @return CreateCacheAnalysisTaskResponse
+   * Manually creates a cache analytics task.
+   * 
+   * @remarks
+   * This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+   * 
+   * @param request - CreateCacheAnalysisTaskRequest
+   * @returns CreateCacheAnalysisTaskResponse
    */
   async createCacheAnalysisTask(request: CreateCacheAnalysisTaskRequest): Promise<CreateCacheAnalysisTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16657,16 +28716,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
-   *
-   * @description You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+   * Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
    * *   A [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) of Enhanced Edition is used.
    * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
    * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
-   *
-   * @param request CreateGlobalDistributeCacheRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGlobalDistributeCacheResponse
+   * 
+   * @param request - CreateGlobalDistributeCacheRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGlobalDistributeCacheResponse
    */
   async createGlobalDistributeCacheWithOptions(request: CreateGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalDistributeCacheResponse> {
     Util.validateModel(request);
@@ -16721,15 +28781,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
-   *
-   * @description You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+   * Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
    * *   A [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) of Enhanced Edition is used.
    * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
    * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
-   *
-   * @param request CreateGlobalDistributeCacheRequest
-   * @return CreateGlobalDistributeCacheResponse
+   * 
+   * @param request - CreateGlobalDistributeCacheRequest
+   * @returns CreateGlobalDistributeCacheResponse
    */
   async createGlobalDistributeCache(request: CreateGlobalDistributeCacheRequest): Promise<CreateGlobalDistributeCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16737,11 +28798,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a global IP whitelist template.
-   *
-   * @param request CreateGlobalSecurityIPGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGlobalSecurityIPGroupResponse
+   * Creates a global IP whitelist template.
+   * 
+   * @param request - CreateGlobalSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGlobalSecurityIPGroupResponse
    */
   async createGlobalSecurityIPGroupWithOptions(request: CreateGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
@@ -16800,10 +28861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a global IP whitelist template.
-   *
-   * @param request CreateGlobalSecurityIPGroupRequest
-   * @return CreateGlobalSecurityIPGroupResponse
+   * Creates a global IP whitelist template.
+   * 
+   * @param request - CreateGlobalSecurityIPGroupRequest
+   * @returns CreateGlobalSecurityIPGroupResponse
    */
   async createGlobalSecurityIPGroup(request: CreateGlobalSecurityIPGroupRequest): Promise<CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16811,15 +28872,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * Creates an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/208271.html) operation.
    * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
-   *
-   * @param request CreateInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * 
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -17026,14 +29088,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * Creates an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/208271.html) operation.
    * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
-   *
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17041,14 +29104,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * >  You can call this operation to create an ApsaraDB for Redis classic instance or a Tair DRAM-based classic instance. We recommend that you use an API operation for creating a single instance:
    * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an ApsaraDB for Redis instance or a Tair DRAM-based classic instance.
    * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
-   *
-   * @param request CreateInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstancesResponse
+   * 
+   * @param request - CreateInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstancesResponse
    */
   async createInstancesWithOptions(request: CreateInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstancesResponse> {
     Util.validateModel(request);
@@ -17127,13 +29191,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * >  You can call this operation to create an ApsaraDB for Redis classic instance or a Tair DRAM-based classic instance. We recommend that you use an API operation for creating a single instance:
    * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an ApsaraDB for Redis instance or a Tair DRAM-based classic instance.
    * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
-   *
-   * @param request CreateInstancesRequest
-   * @return CreateInstancesResponse
+   * 
+   * @param request - CreateInstancesRequest
+   * @returns CreateInstancesResponse
    */
   async createInstances(request: CreateInstancesRequest): Promise<CreateInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17141,11 +29206,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实例参数模板。
-   *
-   * @param request CreateParameterGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateParameterGroupResponse
+   * 创建实例参数模板。
+   * 
+   * @param request - CreateParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateParameterGroupResponse
    */
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
     Util.validateModel(request);
@@ -17216,10 +29281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实例参数模板。
-   *
-   * @param request CreateParameterGroupRequest
-   * @return CreateParameterGroupResponse
+   * 创建实例参数模板。
+   * 
+   * @param request - CreateParameterGroupRequest
+   * @returns CreateParameterGroupResponse
    */
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17227,16 +29292,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Tair instance.
-   *
-   * @description For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
+   * Creates a Tair instance.
+   * 
+   * @remarks
+   * For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](https://help.aliyun.com/document_detail/443863.html).
    * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation.
-   *
-   * @param request CreateTairInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTairInstanceResponse
+   * 
+   * @param request - CreateTairInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTairInstanceResponse
    */
   async createTairInstanceWithOptions(request: CreateTairInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTairInstanceResponse> {
     Util.validateModel(request);
@@ -17431,15 +29497,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Tair instance.
-   *
-   * @description For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
+   * Creates a Tair instance.
+   * 
+   * @remarks
+   * For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
    * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](https://help.aliyun.com/document_detail/443863.html).
    * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation.
-   *
-   * @param request CreateTairInstanceRequest
-   * @return CreateTairInstanceResponse
+   * 
+   * @param request - CreateTairInstanceRequest
+   * @returns CreateTairInstanceResponse
    */
   async createTairInstance(request: CreateTairInstanceRequest): Promise<CreateTairInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17447,14 +29514,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an account from an ApsaraDB for Redis instance.
-   *
-   * @description *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+   * Deletes an account from an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
    * *   The ApsaraDB for Redis instance must be in the Running state.
-   *
-   * @param request DeleteAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAccountResponse
+   * 
+   * @param request - DeleteAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccountResponse
    */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
@@ -17509,13 +29577,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an account from an ApsaraDB for Redis instance.
-   *
-   * @description *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+   * Deletes an account from an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
    * *   The ApsaraDB for Redis instance must be in the Running state.
-   *
-   * @param request DeleteAccountRequest
-   * @return DeleteAccountResponse
+   * 
+   * @param request - DeleteAccountRequest
+   * @returns DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17523,13 +29592,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a global IP whitelist template.
-   *
-   * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-   *
-   * @param request DeleteGlobalSecurityIPGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGlobalSecurityIPGroupResponse
+   * Deletes a global IP whitelist template.
+   * 
+   * @remarks
+   * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+   * 
+   * @param request - DeleteGlobalSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGlobalSecurityIPGroupResponse
    */
   async deleteGlobalSecurityIPGroupWithOptions(request: DeleteGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
@@ -17588,12 +29658,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a global IP whitelist template.
-   *
-   * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-   *
-   * @param request DeleteGlobalSecurityIPGroupRequest
-   * @return DeleteGlobalSecurityIPGroupResponse
+   * Deletes a global IP whitelist template.
+   * 
+   * @remarks
+   * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+   * 
+   * @param request - DeleteGlobalSecurityIPGroupRequest
+   * @returns DeleteGlobalSecurityIPGroupResponse
    */
   async deleteGlobalSecurityIPGroup(request: DeleteGlobalSecurityIPGroupRequest): Promise<DeleteGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17601,17 +29672,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Release the Redis instance.
-   *
-   * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+   * Release the Redis instance.
+   * 
+   * @remarks
+   * For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
    * Before you call this operation, make sure that the following requirements are met:
    * *   The instance is in the running state.
    * *   The instance is charged on a pay-as-you-go basis.
    * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
-   *
-   * @param request DeleteInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResponse
+   * 
+   * @param request - DeleteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -17662,16 +29734,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Release the Redis instance.
-   *
-   * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+   * Release the Redis instance.
+   * 
+   * @remarks
+   * For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
    * Before you call this operation, make sure that the following requirements are met:
    * *   The instance is in the running state.
    * *   The instance is charged on a pay-as-you-go basis.
    * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
-   *
-   * @param request DeleteInstanceRequest
-   * @return DeleteInstanceResponse
+   * 
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17679,11 +29752,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a parameter template.
-   *
-   * @param request DeleteParameterGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteParameterGroupResponse
+   * Deletes a parameter template.
+   * 
+   * @param request - DeleteParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteParameterGroupResponse
    */
   async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
     Util.validateModel(request);
@@ -17730,10 +29803,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a parameter template.
-   *
-   * @param request DeleteParameterGroupRequest
-   * @return DeleteParameterGroupResponse
+   * Deletes a parameter template.
+   * 
+   * @param request - DeleteParameterGroupRequest
+   * @returns DeleteParameterGroupResponse
    */
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17741,16 +29814,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes one or more data shards from an ApsaraDB for Redis cluster instance.
-   *
-   * @description You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+   * Removes one or more data shards from an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
    * *   The instance has more than one data shard.
-   *
-   * @param request DeleteShardingNodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteShardingNodeResponse
+   * 
+   * @param request - DeleteShardingNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteShardingNodeResponse
    */
   async deleteShardingNodeWithOptions(request: DeleteShardingNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShardingNodeResponse> {
     Util.validateModel(request);
@@ -17809,15 +29883,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes one or more data shards from an ApsaraDB for Redis cluster instance.
-   *
-   * @description You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+   * Removes one or more data shards from an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
    * *   The instance has more than one data shard.
-   *
-   * @param request DeleteShardingNodeRequest
-   * @return DeleteShardingNodeResponse
+   * 
+   * @param request - DeleteShardingNodeRequest
+   * @returns DeleteShardingNodeResponse
    */
   async deleteShardingNode(request: DeleteShardingNodeRequest): Promise<DeleteShardingNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17825,13 +29900,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all accounts or a specified account of an ApsaraDB for Redis instance.
-   *
-   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-   *
-   * @param request DescribeAccountsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAccountsResponse
+   * Queries all accounts or a specified account of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   * 
+   * @param request - DescribeAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAccountsResponse
    */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
@@ -17882,12 +29958,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all accounts or a specified account of an ApsaraDB for Redis instance.
-   *
-   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-   *
-   * @param request DescribeAccountsRequest
-   * @return DescribeAccountsResponse
+   * Queries all accounts or a specified account of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   * 
+   * @param request - DescribeAccountsRequest
+   * @returns DescribeAccountsResponse
    */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17895,13 +29972,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
-   *
-   * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
-   *
-   * @param request DescribeActiveOperationTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeActiveOperationTaskResponse
+   * Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
+   * 
+   * @param request - DescribeActiveOperationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTaskResponse
    */
   async describeActiveOperationTaskWithOptions(request: DescribeActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskResponse> {
     Util.validateModel(request);
@@ -17964,12 +30042,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
-   *
-   * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
-   *
-   * @param request DescribeActiveOperationTaskRequest
-   * @return DescribeActiveOperationTaskResponse
+   * Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
+   * 
+   * @param request - DescribeActiveOperationTaskRequest
+   * @returns DescribeActiveOperationTaskResponse
    */
   async describeActiveOperationTask(request: DescribeActiveOperationTaskRequest): Promise<DescribeActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17977,9 +30056,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeActiveOperationTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeActiveOperationTasksResponse
+   * @param request - DescribeActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -18066,8 +30145,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeActiveOperationTasksRequest
-   * @return DescribeActiveOperationTasksResponse
+   * @param request - DescribeActiveOperationTasksRequest
+   * @returns DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18075,17 +30154,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
-   *
-   * @description > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
+   * Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+   * 
+   * @remarks
+   * > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest minor version.
    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
-   *
-   * @param request DescribeAuditLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAuditLogConfigResponse
+   * 
+   * @param request - DescribeAuditLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAuditLogConfigResponse
    */
   async describeAuditLogConfigWithOptions(request: DescribeAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogConfigResponse> {
     Util.validateModel(request);
@@ -18136,16 +30216,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
-   *
-   * @description > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
+   * Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+   * 
+   * @remarks
+   * > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest minor version.
    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
-   *
-   * @param request DescribeAuditLogConfigRequest
-   * @return DescribeAuditLogConfigResponse
+   * 
+   * @param request - DescribeAuditLogConfigRequest
+   * @returns DescribeAuditLogConfigResponse
    */
   async describeAuditLogConfig(request: DescribeAuditLogConfigRequest): Promise<DescribeAuditLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18153,17 +30234,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the audit logs of an ApsaraDB for Redis instance.
-   *
-   * @description This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
+   * Queries the audit logs of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
    * *   The engine version of the instance is Redis 4.0 or later.
    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
-   *
-   * @param request DescribeAuditRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAuditRecordsResponse
+   * 
+   * @param request - DescribeAuditRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAuditRecordsResponse
    */
   async describeAuditRecordsWithOptions(request: DescribeAuditRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditRecordsResponse> {
     Util.validateModel(request);
@@ -18246,16 +30328,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the audit logs of an ApsaraDB for Redis instance.
-   *
-   * @description This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
+   * Queries the audit logs of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
    * *   The engine version of the instance is Redis 4.0 or later.
    * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
-   *
-   * @param request DescribeAuditRecordsRequest
-   * @return DescribeAuditRecordsResponse
+   * 
+   * @param request - DescribeAuditRecordsRequest
+   * @returns DescribeAuditRecordsResponse
    */
   async describeAuditRecords(request: DescribeAuditRecordsRequest): Promise<DescribeAuditRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18263,11 +30346,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
-   *
-   * @param request DescribeAvailableResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAvailableResourceResponse
+   * Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
+   * 
+   * @param request - DescribeAvailableResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableResourceResponse
    */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
@@ -18354,10 +30437,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
-   *
-   * @param request DescribeAvailableResourceRequest
-   * @return DescribeAvailableResourceResponse
+   * Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
+   * 
+   * @param request - DescribeAvailableResourceRequest
+   * @returns DescribeAvailableResourceResponse
    */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18365,11 +30448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
-   *
-   * @param request DescribeBackupPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupPolicyResponse
+   * Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
+   * 
+   * @param request - DescribeBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupPolicyResponse
    */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
@@ -18416,10 +30499,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
-   *
-   * @param request DescribeBackupPolicyRequest
-   * @return DescribeBackupPolicyResponse
+   * Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
+   * 
+   * @param request - DescribeBackupPolicyRequest
+   * @returns DescribeBackupPolicyResponse
    */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18427,11 +30510,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the states of backup tasks for an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeBackupTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupTasksResponse
+   * Queries the states of backup tasks for an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeBackupTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupTasksResponse
    */
   async describeBackupTasksWithOptions(request: DescribeBackupTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTasksResponse> {
     Util.validateModel(request);
@@ -18486,10 +30569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the states of backup tasks for an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeBackupTasksRequest
-   * @return DescribeBackupTasksResponse
+   * Queries the states of backup tasks for an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeBackupTasksRequest
+   * @returns DescribeBackupTasksResponse
    */
   async describeBackupTasks(request: DescribeBackupTasksRequest): Promise<DescribeBackupTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18497,11 +30580,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the backup files of the ApsaraDB for Redis instance.
-   *
-   * @param request DescribeBackupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupsResponse
+   * Queries the backup files of the ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupsResponse
    */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
@@ -18576,10 +30659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the backup files of the ApsaraDB for Redis instance.
-   *
-   * @param request DescribeBackupsRequest
-   * @return DescribeBackupsResponse
+   * Queries the backup files of the ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeBackupsRequest
+   * @returns DescribeBackupsResponse
    */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18587,16 +30670,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
-   *
-   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The engine version of the instance is Redis 4.0 or later.
    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
-   *
-   * @param request DescribeCacheAnalysisReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCacheAnalysisReportResponse
+   * 
+   * @param request - DescribeCacheAnalysisReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCacheAnalysisReportResponse
    */
   async describeCacheAnalysisReportWithOptions(request: DescribeCacheAnalysisReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCacheAnalysisReportResponse> {
     Util.validateModel(request);
@@ -18663,15 +30747,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
-   *
-   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The engine version of the instance is Redis 4.0 or later.
    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
-   *
-   * @param request DescribeCacheAnalysisReportRequest
-   * @return DescribeCacheAnalysisReportResponse
+   * 
+   * @param request - DescribeCacheAnalysisReportRequest
+   * @returns DescribeCacheAnalysisReportResponse
    */
   async describeCacheAnalysisReport(request: DescribeCacheAnalysisReportRequest): Promise<DescribeCacheAnalysisReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18679,16 +30764,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cache analytics reports of an ApsaraDB for Redis instance.
-   *
-   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Queries the cache analytics reports of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The engine version of the instance is Redis 4.0 or later.
    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
-   *
-   * @param request DescribeCacheAnalysisReportListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCacheAnalysisReportListResponse
+   * 
+   * @param request - DescribeCacheAnalysisReportListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCacheAnalysisReportListResponse
    */
   async describeCacheAnalysisReportListWithOptions(request: DescribeCacheAnalysisReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCacheAnalysisReportListResponse> {
     Util.validateModel(request);
@@ -18751,15 +30837,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cache analytics reports of an ApsaraDB for Redis instance.
-   *
-   * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+   * Queries the cache analytics reports of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
    * Before you call this operation, make sure that the instance meets the following requirements:
    * *   The engine version of the instance is Redis 4.0 or later.
    * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
-   *
-   * @param request DescribeCacheAnalysisReportListRequest
-   * @return DescribeCacheAnalysisReportListResponse
+   * 
+   * @param request - DescribeCacheAnalysisReportListRequest
+   * @returns DescribeCacheAnalysisReportListResponse
    */
   async describeCacheAnalysisReportList(request: DescribeCacheAnalysisReportListRequest): Promise<DescribeCacheAnalysisReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18767,11 +30854,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
-   *
-   * @param request DescribeClusterBackupListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeClusterBackupListResponse
+   * Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
+   * 
+   * @param request - DescribeClusterBackupListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterBackupListResponse
    */
   async describeClusterBackupListWithOptions(request: DescribeClusterBackupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterBackupListResponse> {
     Util.validateModel(request);
@@ -18794,10 +30881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
-   *
-   * @param request DescribeClusterBackupListRequest
-   * @return DescribeClusterBackupListResponse
+   * Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
+   * 
+   * @param request - DescribeClusterBackupListRequest
+   * @returns DescribeClusterBackupListResponse
    */
   async describeClusterBackupList(request: DescribeClusterBackupListRequest): Promise<DescribeClusterBackupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18805,13 +30892,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
-   *
-   * @description > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
-   *
-   * @param request DescribeClusterMemberInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeClusterMemberInfoResponse
+   * Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
+   * 
+   * @remarks
+   * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+   * 
+   * @param request - DescribeClusterMemberInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterMemberInfoResponse
    */
   async describeClusterMemberInfoWithOptions(request: DescribeClusterMemberInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterMemberInfoResponse> {
     Util.validateModel(request);
@@ -18866,12 +30954,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
-   *
-   * @description > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
-   *
-   * @param request DescribeClusterMemberInfoRequest
-   * @return DescribeClusterMemberInfoResponse
+   * Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
+   * 
+   * @remarks
+   * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+   * 
+   * @param request - DescribeClusterMemberInfoRequest
+   * @returns DescribeClusterMemberInfoResponse
    */
   async describeClusterMemberInfo(request: DescribeClusterMemberInfoRequest): Promise<DescribeClusterMemberInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18879,11 +30968,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the network information of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeDBInstanceNetInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDBInstanceNetInfoResponse
+   * Queries the network information of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeDBInstanceNetInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceNetInfoResponse
    */
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
@@ -18930,10 +31019,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the network information of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeDBInstanceNetInfoRequest
-   * @return DescribeDBInstanceNetInfoResponse
+   * Queries the network information of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeDBInstanceNetInfoRequest
+   * @returns DescribeDBInstanceNetInfoResponse
    */
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18941,13 +31030,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
-   *
-   * @description > Only instances that use cloud disks support this operation.
-   *
-   * @param request DescribeDBNodeDirectVipInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDBNodeDirectVipInfoResponse
+   * Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+   * 
+   * @remarks
+   * > Only instances that use cloud disks support this operation.
+   * 
+   * @param request - DescribeDBNodeDirectVipInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBNodeDirectVipInfoResponse
    */
   async describeDBNodeDirectVipInfoWithOptions(request: DescribeDBNodeDirectVipInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodeDirectVipInfoResponse> {
     Util.validateModel(request);
@@ -18990,12 +31080,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
-   *
-   * @description > Only instances that use cloud disks support this operation.
-   *
-   * @param request DescribeDBNodeDirectVipInfoRequest
-   * @return DescribeDBNodeDirectVipInfoResponse
+   * Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+   * 
+   * @remarks
+   * > Only instances that use cloud disks support this operation.
+   * 
+   * @param request - DescribeDBNodeDirectVipInfoRequest
+   * @returns DescribeDBNodeDirectVipInfoResponse
    */
   async describeDBNodeDirectVipInfo(request: DescribeDBNodeDirectVipInfoRequest): Promise<DescribeDBNodeDirectVipInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19003,13 +31094,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
-   *
-   * @description > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
-   *
-   * @param request DescribeDedicatedClusterInstanceListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDedicatedClusterInstanceListResponse
+   * Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
+   * 
+   * @remarks
+   * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
+   * 
+   * @param request - DescribeDedicatedClusterInstanceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDedicatedClusterInstanceListResponse
    */
   async describeDedicatedClusterInstanceListWithOptions(request: DescribeDedicatedClusterInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedClusterInstanceListResponse> {
     Util.validateModel(request);
@@ -19096,12 +31188,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
-   *
-   * @description > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
-   *
-   * @param request DescribeDedicatedClusterInstanceListRequest
-   * @return DescribeDedicatedClusterInstanceListResponse
+   * Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
+   * 
+   * @remarks
+   * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
+   * 
+   * @param request - DescribeDedicatedClusterInstanceListRequest
+   * @returns DescribeDedicatedClusterInstanceListResponse
    */
   async describeDedicatedClusterInstanceList(request: DescribeDedicatedClusterInstanceListRequest): Promise<DescribeDedicatedClusterInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19109,14 +31202,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
+   * Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
    * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-   *
-   * @param request DescribeEncryptionKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEncryptionKeyResponse
+   * 
+   * @param request - DescribeEncryptionKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEncryptionKeyResponse
    */
   async describeEncryptionKeyWithOptions(request: DescribeEncryptionKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEncryptionKeyResponse> {
     Util.validateModel(request);
@@ -19167,13 +31261,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
+   * Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
    * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-   *
-   * @param request DescribeEncryptionKeyRequest
-   * @return DescribeEncryptionKeyResponse
+   * 
+   * @param request - DescribeEncryptionKeyRequest
+   * @returns DescribeEncryptionKeyResponse
    */
   async describeEncryptionKey(request: DescribeEncryptionKeyRequest): Promise<DescribeEncryptionKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19181,14 +31276,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom keys used by an ApsaraDB for Redis instance.
-   *
-   * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+   * Queries the custom keys used by an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
    * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-   *
-   * @param request DescribeEncryptionKeyListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEncryptionKeyListResponse
+   * 
+   * @param request - DescribeEncryptionKeyListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEncryptionKeyListResponse
    */
   async describeEncryptionKeyListWithOptions(request: DescribeEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEncryptionKeyListResponse> {
     Util.validateModel(request);
@@ -19235,13 +31331,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom keys used by an ApsaraDB for Redis instance.
-   *
-   * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+   * Queries the custom keys used by an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
    * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-   *
-   * @param request DescribeEncryptionKeyListRequest
-   * @return DescribeEncryptionKeyListResponse
+   * 
+   * @param request - DescribeEncryptionKeyListRequest
+   * @returns DescribeEncryptionKeyListResponse
    */
   async describeEncryptionKeyList(request: DescribeEncryptionKeyListRequest): Promise<DescribeEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19249,14 +31346,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
-   *
-   * @description ## Debugging
+   * Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
+   * 
+   * @remarks
+   * ## Debugging
    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
-   *
-   * @param request DescribeEngineVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEngineVersionResponse
+   * 
+   * @param request - DescribeEngineVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEngineVersionResponse
    */
   async describeEngineVersionWithOptions(request: DescribeEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEngineVersionResponse> {
     Util.validateModel(request);
@@ -19303,13 +31401,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
-   *
-   * @description ## Debugging
+   * Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
+   * 
+   * @remarks
+   * ## Debugging
    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
-   *
-   * @param request DescribeEngineVersionRequest
-   * @return DescribeEngineVersionResponse
+   * 
+   * @param request - DescribeEngineVersionRequest
+   * @returns DescribeEngineVersionResponse
    */
   async describeEngineVersion(request: DescribeEngineVersionRequest): Promise<DescribeEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19317,14 +31416,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a distributed ApsaraDB for Redis instance.
-   *
-   * @description ## Debugging
+   * Queries the details of a distributed ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * ## Debugging
    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
-   *
-   * @param request DescribeGlobalDistributeCacheRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGlobalDistributeCacheResponse
+   * 
+   * @param request - DescribeGlobalDistributeCacheRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalDistributeCacheResponse
    */
   async describeGlobalDistributeCacheWithOptions(request: DescribeGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalDistributeCacheResponse> {
     Util.validateModel(request);
@@ -19383,13 +31483,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a distributed ApsaraDB for Redis instance.
-   *
-   * @description ## Debugging
+   * Queries the details of a distributed ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * ## Debugging
    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
-   *
-   * @param request DescribeGlobalDistributeCacheRequest
-   * @return DescribeGlobalDistributeCacheResponse
+   * 
+   * @param request - DescribeGlobalDistributeCacheRequest
+   * @returns DescribeGlobalDistributeCacheResponse
    */
   async describeGlobalDistributeCache(request: DescribeGlobalDistributeCacheRequest): Promise<DescribeGlobalDistributeCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19397,11 +31498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries global IP whitelist templates.
-   *
-   * @param request DescribeGlobalSecurityIPGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGlobalSecurityIPGroupResponse
+   * Queries global IP whitelist templates.
+   * 
+   * @param request - DescribeGlobalSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalSecurityIPGroupResponse
    */
   async describeGlobalSecurityIPGroupWithOptions(request: DescribeGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
@@ -19424,10 +31525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries global IP whitelist templates.
-   *
-   * @param request DescribeGlobalSecurityIPGroupRequest
-   * @return DescribeGlobalSecurityIPGroupResponse
+   * Queries global IP whitelist templates.
+   * 
+   * @param request - DescribeGlobalSecurityIPGroupRequest
+   * @returns DescribeGlobalSecurityIPGroupResponse
    */
   async describeGlobalSecurityIPGroup(request: DescribeGlobalSecurityIPGroupRequest): Promise<DescribeGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19435,11 +31536,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the global IP whitelist templates associated with an instance.
-   *
-   * @param request DescribeGlobalSecurityIPGroupRelationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGlobalSecurityIPGroupRelationResponse
+   * Queries information about the global IP whitelist templates associated with an instance.
+   * 
+   * @param request - DescribeGlobalSecurityIPGroupRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalSecurityIPGroupRelationResponse
    */
   async describeGlobalSecurityIPGroupRelationWithOptions(request: DescribeGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
     Util.validateModel(request);
@@ -19462,10 +31563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about the global IP whitelist templates associated with an instance.
-   *
-   * @param request DescribeGlobalSecurityIPGroupRelationRequest
-   * @return DescribeGlobalSecurityIPGroupRelationResponse
+   * Queries information about the global IP whitelist templates associated with an instance.
+   * 
+   * @param request - DescribeGlobalSecurityIPGroupRelationRequest
+   * @returns DescribeGlobalSecurityIPGroupRelationResponse
    */
   async describeGlobalSecurityIPGroupRelation(request: DescribeGlobalSecurityIPGroupRelationRequest): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19473,13 +31574,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the performance monitoring data of an ApsaraDB for Redis instance.
-   *
-   * @description You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
-   *
-   * @param request DescribeHistoryMonitorValuesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeHistoryMonitorValuesResponse
+   * Queries the performance monitoring data of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+   * 
+   * @param request - DescribeHistoryMonitorValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryMonitorValuesResponse
    */
   async describeHistoryMonitorValuesWithOptions(request: DescribeHistoryMonitorValuesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryMonitorValuesResponse> {
     Util.validateModel(request);
@@ -19550,12 +31652,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the performance monitoring data of an ApsaraDB for Redis instance.
-   *
-   * @description You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
-   *
-   * @param request DescribeHistoryMonitorValuesRequest
-   * @return DescribeHistoryMonitorValuesResponse
+   * Queries the performance monitoring data of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+   * 
+   * @param request - DescribeHistoryMonitorValuesRequest
+   * @returns DescribeHistoryMonitorValuesResponse
    */
   async describeHistoryMonitorValues(request: DescribeHistoryMonitorValuesRequest): Promise<DescribeHistoryMonitorValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19563,11 +31666,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of tasks in the task center.
-   *
-   * @param request DescribeHistoryTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeHistoryTasksResponse
+   * Queries a list of tasks in the task center.
+   * 
+   * @param request - DescribeHistoryTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryTasksResponse
    */
   async describeHistoryTasksWithOptions(request: DescribeHistoryTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryTasksResponse> {
     Util.validateModel(request);
@@ -19650,10 +31753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of tasks in the task center.
-   *
-   * @param request DescribeHistoryTasksRequest
-   * @return DescribeHistoryTasksResponse
+   * Queries a list of tasks in the task center.
+   * 
+   * @param request - DescribeHistoryTasksRequest
+   * @returns DescribeHistoryTasksResponse
    */
   async describeHistoryTasks(request: DescribeHistoryTasksRequest): Promise<DescribeHistoryTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19661,11 +31764,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeInstanceAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceAttributeResponse
+   * Queries the details of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceAttributeResponse
    */
   async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -19712,10 +31815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeInstanceAttributeRequest
-   * @return DescribeInstanceAttributeResponse
+   * Queries the details of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeInstanceAttributeRequest
+   * @returns DescribeInstanceAttributeResponse
    */
   async describeInstanceAttribute(request: DescribeInstanceAttributeRequest): Promise<DescribeInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19723,11 +31826,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeInstanceAutoRenewalAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceAutoRenewalAttributeResponse
+   * Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeInstanceAutoRenewalAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceAutoRenewalAttributeResponse
    */
   async describeInstanceAutoRenewalAttributeWithOptions(request: DescribeInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
@@ -19786,10 +31889,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeInstanceAutoRenewalAttributeRequest
-   * @return DescribeInstanceAutoRenewalAttributeResponse
+   * Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeInstanceAutoRenewalAttributeRequest
+   * @returns DescribeInstanceAutoRenewalAttributeResponse
    */
   async describeInstanceAutoRenewalAttribute(request: DescribeInstanceAutoRenewalAttributeRequest): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19797,14 +31900,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the parameter settings of an ApsaraDB for Redis instance.
-   *
-   * @description This operation is available only for instances that use cloud disks.
+   * Queries the parameter settings of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation is available only for instances that use cloud disks.
    * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
-   *
-   * @param request DescribeInstanceConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceConfigResponse
+   * 
+   * @param request - DescribeInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceConfigResponse
    */
   async describeInstanceConfigWithOptions(request: DescribeInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceConfigResponse> {
     Util.validateModel(request);
@@ -19851,13 +31955,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the parameter settings of an ApsaraDB for Redis instance.
-   *
-   * @description This operation is available only for instances that use cloud disks.
+   * Queries the parameter settings of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation is available only for instances that use cloud disks.
    * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
-   *
-   * @param request DescribeInstanceConfigRequest
-   * @return DescribeInstanceConfigResponse
+   * 
+   * @param request - DescribeInstanceConfigRequest
+   * @returns DescribeInstanceConfigResponse
    */
   async describeInstanceConfig(request: DescribeInstanceConfigRequest): Promise<DescribeInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19865,17 +31970,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
-   *
-   * @description SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+   * Queries whether TLS (SSL) encryption is enabled for an instance.
+   * 
+   * @remarks
+   * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
    * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
    * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation.
    * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
    * > After SSL encryption is enabled, the instance may respond slower.
-   *
-   * @param request DescribeInstanceSSLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceSSLResponse
+   * 
+   * @param request - DescribeInstanceSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSSLResponse
    */
   async describeInstanceSSLWithOptions(request: DescribeInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSSLResponse> {
     Util.validateModel(request);
@@ -19922,16 +32028,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
-   *
-   * @description SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+   * Queries whether TLS (SSL) encryption is enabled for an instance.
+   * 
+   * @remarks
+   * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
    * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
    * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation.
    * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
    * > After SSL encryption is enabled, the instance may respond slower.
-   *
-   * @param request DescribeInstanceSSLRequest
-   * @return DescribeInstanceSSLResponse
+   * 
+   * @param request - DescribeInstanceSSLRequest
+   * @returns DescribeInstanceSSLResponse
    */
   async describeInstanceSSL(request: DescribeInstanceSSLRequest): Promise<DescribeInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19939,14 +32046,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
-   *
-   * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
    * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) to enable or disable TDE.
-   *
-   * @param request DescribeInstanceTDEStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceTDEStatusResponse
+   * 
+   * @param request - DescribeInstanceTDEStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceTDEStatusResponse
    */
   async describeInstanceTDEStatusWithOptions(request: DescribeInstanceTDEStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTDEStatusResponse> {
     Util.validateModel(request);
@@ -19993,13 +32101,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
-   *
-   * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
    * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) to enable or disable TDE.
-   *
-   * @param request DescribeInstanceTDEStatusRequest
-   * @return DescribeInstanceTDEStatusResponse
+   * 
+   * @param request - DescribeInstanceTDEStatusRequest
+   * @returns DescribeInstanceTDEStatusResponse
    */
   async describeInstanceTDEStatus(request: DescribeInstanceTDEStatusRequest): Promise<DescribeInstanceTDEStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20007,11 +32116,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about one or more ApsaraDB for Redis instances.
-   *
-   * @param request DescribeInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstancesResponse
+   * Queries the information about one or more ApsaraDB for Redis instances.
+   * 
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -20138,10 +32247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about one or more ApsaraDB for Redis instances.
-   *
-   * @param request DescribeInstancesRequest
-   * @return DescribeInstancesResponse
+   * Queries the information about one or more ApsaraDB for Redis instances.
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20149,14 +32258,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the overview information of one or more ApsaraDB for Redis instances.
-   *
-   * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+   * Queries the overview information of one or more ApsaraDB for Redis instances.
+   * 
+   * @remarks
+   * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
    * > This operation returns non-paged results.
-   *
-   * @param request DescribeInstancesOverviewRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstancesOverviewResponse
+   * 
+   * @param request - DescribeInstancesOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesOverviewResponse
    */
   async describeInstancesOverviewWithOptions(request: DescribeInstancesOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesOverviewResponse> {
     Util.validateModel(request);
@@ -20263,13 +32373,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the overview information of one or more ApsaraDB for Redis instances.
-   *
-   * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+   * Queries the overview information of one or more ApsaraDB for Redis instances.
+   * 
+   * @remarks
+   * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
    * > This operation returns non-paged results.
-   *
-   * @param request DescribeInstancesOverviewRequest
-   * @return DescribeInstancesOverviewResponse
+   * 
+   * @param request - DescribeInstancesOverviewRequest
+   * @returns DescribeInstancesOverviewResponse
    */
   async describeInstancesOverview(request: DescribeInstancesOverviewRequest): Promise<DescribeInstancesOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20277,13 +32388,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
-   *
-   * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
-   *
-   * @param request DescribeIntranetAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIntranetAttributeResponse
+   * Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
+   * 
+   * @remarks
+   * You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
+   * 
+   * @param request - DescribeIntranetAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIntranetAttributeResponse
    */
   async describeIntranetAttributeWithOptions(request: DescribeIntranetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIntranetAttributeResponse> {
     Util.validateModel(request);
@@ -20334,12 +32446,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
-   *
-   * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
-   *
-   * @param request DescribeIntranetAttributeRequest
-   * @return DescribeIntranetAttributeResponse
+   * Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
+   * 
+   * @remarks
+   * You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
+   * 
+   * @param request - DescribeIntranetAttributeRequest
+   * @returns DescribeIntranetAttributeResponse
    */
   async describeIntranetAttribute(request: DescribeIntranetAttributeRequest): Promise<DescribeIntranetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20347,13 +32460,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the logical topology of an ApsaraDB for Redis instance.
-   *
-   * @description This parameter is supported only for cluster and read/write splitting instances.
-   *
-   * @param request DescribeLogicInstanceTopologyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeLogicInstanceTopologyResponse
+   * Queries the logical topology of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This parameter is supported only for cluster and read/write splitting instances.
+   * 
+   * @param request - DescribeLogicInstanceTopologyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLogicInstanceTopologyResponse
    */
   async describeLogicInstanceTopologyWithOptions(request: DescribeLogicInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogicInstanceTopologyResponse> {
     Util.validateModel(request);
@@ -20400,12 +32514,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the logical topology of an ApsaraDB for Redis instance.
-   *
-   * @description This parameter is supported only for cluster and read/write splitting instances.
-   *
-   * @param request DescribeLogicInstanceTopologyRequest
-   * @return DescribeLogicInstanceTopologyResponse
+   * Queries the logical topology of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This parameter is supported only for cluster and read/write splitting instances.
+   * 
+   * @param request - DescribeLogicInstanceTopologyRequest
+   * @returns DescribeLogicInstanceTopologyResponse
    */
   async describeLogicInstanceTopology(request: DescribeLogicInstanceTopologyRequest): Promise<DescribeLogicInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20413,14 +32528,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the metrics of an ApsaraDB for Redis instance.
-   *
-   * @description >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
+   * Queries the metrics of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
-   *
-   * @param request DescribeMonitorItemsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMonitorItemsResponse
+   * 
+   * @param request - DescribeMonitorItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMonitorItemsResponse
    */
   async describeMonitorItemsWithOptions(request: DescribeMonitorItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMonitorItemsResponse> {
     Util.validateModel(request);
@@ -20463,13 +32579,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the metrics of an ApsaraDB for Redis instance.
-   *
-   * @description >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
+   * Queries the metrics of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
    * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
-   *
-   * @param request DescribeMonitorItemsRequest
-   * @return DescribeMonitorItemsResponse
+   * 
+   * @param request - DescribeMonitorItemsRequest
+   * @returns DescribeMonitorItemsResponse
    */
   async describeMonitorItems(request: DescribeMonitorItemsRequest): Promise<DescribeMonitorItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20477,11 +32594,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the basic information about a parameter template.
-   *
-   * @param request DescribeParameterGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParameterGroupResponse
+   * Queries the basic information about a parameter template.
+   * 
+   * @param request - DescribeParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterGroupResponse
    */
   async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
     Util.validateModel(request);
@@ -20532,10 +32649,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the basic information about a parameter template.
-   *
-   * @param request DescribeParameterGroupRequest
-   * @return DescribeParameterGroupResponse
+   * Queries the basic information about a parameter template.
+   * 
+   * @param request - DescribeParameterGroupRequest
+   * @returns DescribeParameterGroupResponse
    */
   async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20543,11 +32660,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
-   *
-   * @param request DescribeParameterGroupSupportParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParameterGroupSupportParamResponse
+   * Queries the parameters that can be configured in parameter templates across different database versions.
+   * 
+   * @param request - DescribeParameterGroupSupportParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterGroupSupportParamResponse
    */
   async describeParameterGroupSupportParamWithOptions(request: DescribeParameterGroupSupportParamRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupSupportParamResponse> {
     Util.validateModel(request);
@@ -20602,10 +32719,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
-   *
-   * @param request DescribeParameterGroupSupportParamRequest
-   * @return DescribeParameterGroupSupportParamResponse
+   * Queries the parameters that can be configured in parameter templates across different database versions.
+   * 
+   * @param request - DescribeParameterGroupSupportParamRequest
+   * @returns DescribeParameterGroupSupportParamResponse
    */
   async describeParameterGroupSupportParam(request: DescribeParameterGroupSupportParamRequest): Promise<DescribeParameterGroupSupportParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20613,11 +32730,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询参数模板支持设置的参数列表
-   *
-   * @param request DescribeParameterGroupTemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParameterGroupTemplateListResponse
+   * 查询参数模板支持设置的参数列表
+   * 
+   * @param request - DescribeParameterGroupTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterGroupTemplateListResponse
    */
   async describeParameterGroupTemplateListWithOptions(request: DescribeParameterGroupTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupTemplateListResponse> {
     Util.validateModel(request);
@@ -20640,10 +32757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询参数模板支持设置的参数列表
-   *
-   * @param request DescribeParameterGroupTemplateListRequest
-   * @return DescribeParameterGroupTemplateListResponse
+   * 查询参数模板支持设置的参数列表
+   * 
+   * @param request - DescribeParameterGroupTemplateListRequest
+   * @returns DescribeParameterGroupTemplateListResponse
    */
   async describeParameterGroupTemplateList(request: DescribeParameterGroupTemplateListRequest): Promise<DescribeParameterGroupTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20651,11 +32768,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of available parameter templates.
-   *
-   * @param request DescribeParameterGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParameterGroupsResponse
+   * Queries a list of available parameter templates.
+   * 
+   * @param request - DescribeParameterGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterGroupsResponse
    */
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
@@ -20706,10 +32823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of available parameter templates.
-   *
-   * @param request DescribeParameterGroupsRequest
-   * @return DescribeParameterGroupsResponse
+   * Queries a list of available parameter templates.
+   * 
+   * @param request - DescribeParameterGroupsRequest
+   * @returns DescribeParameterGroupsResponse
    */
   async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20717,11 +32834,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
-   *
-   * @param request DescribeParameterModificationHistoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParameterModificationHistoryResponse
+   * Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeParameterModificationHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterModificationHistoryResponse
    */
   async describeParameterModificationHistoryWithOptions(request: DescribeParameterModificationHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterModificationHistoryResponse> {
     Util.validateModel(request);
@@ -20784,10 +32901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
-   *
-   * @param request DescribeParameterModificationHistoryRequest
-   * @return DescribeParameterModificationHistoryResponse
+   * Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeParameterModificationHistoryRequest
+   * @returns DescribeParameterModificationHistoryResponse
    */
   async describeParameterModificationHistory(request: DescribeParameterModificationHistoryRequest): Promise<DescribeParameterModificationHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20795,13 +32912,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
-   *
-   * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
-   *
-   * @param request DescribeParameterTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParameterTemplatesResponse
+   * Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
+   * 
+   * @remarks
+   * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
+   * 
+   * @param request - DescribeParameterTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParameterTemplatesResponse
    */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
@@ -20864,12 +32982,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
-   *
-   * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
-   *
-   * @param request DescribeParameterTemplatesRequest
-   * @return DescribeParameterTemplatesResponse
+   * Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
+   * 
+   * @remarks
+   * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
+   * 
+   * @param request - DescribeParameterTemplatesRequest
+   * @returns DescribeParameterTemplatesResponse
    */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20877,14 +32996,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
-   *
-   * @description This operation is available only for instances that use local disks.
+   * Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation is available only for instances that use local disks.
    * > You can call the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the parameter settings of instances that use cloud disks.
-   *
-   * @param request DescribeParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeParametersResponse
+   * 
+   * @param request - DescribeParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeParametersResponse
    */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
@@ -20939,13 +33059,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
-   *
-   * @description This operation is available only for instances that use local disks.
+   * Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation is available only for instances that use local disks.
    * > You can call the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the parameter settings of instances that use cloud disks.
-   *
-   * @param request DescribeParametersRequest
-   * @return DescribeParametersResponse
+   * 
+   * @param request - DescribeParametersRequest
+   * @returns DescribeParametersResponse
    */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20953,11 +33074,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
-   *
-   * @param request DescribePriceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePriceResponse
+   * Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePriceResponse
    */
   async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(request);
@@ -21038,6 +33159,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.shardCount)) {
+      query["ShardCount"] = request.shardCount;
+    }
+
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
@@ -21060,10 +33185,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
-   *
-   * @param request DescribePriceRequest
-   * @return DescribePriceResponse
+   * Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribePriceRequest
+   * @returns DescribePriceResponse
    */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21071,11 +33196,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
-   *
-   * @param request DescribeRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * Queries the regions in which ApsaraDB for Redis instances can be created.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -21122,10 +33247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
-   *
-   * @param request DescribeRegionsRequest
-   * @return DescribeRegionsResponse
+   * Queries the regions in which ApsaraDB for Redis instances can be created.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21133,11 +33258,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeRoleZoneInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRoleZoneInfoResponse
+   * Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeRoleZoneInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRoleZoneInfoResponse
    */
   async describeRoleZoneInfoWithOptions(request: DescribeRoleZoneInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoleZoneInfoResponse> {
     Util.validateModel(request);
@@ -21196,10 +33321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeRoleZoneInfoRequest
-   * @return DescribeRoleZoneInfoResponse
+   * Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeRoleZoneInfoRequest
+   * @returns DescribeRoleZoneInfoResponse
    */
   async describeRoleZoneInfo(request: DescribeRoleZoneInfoRequest): Promise<DescribeRoleZoneInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21207,14 +33332,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the active logs of an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+   * Queries the active logs of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
    * This operation can be called up to 100 times per minute.
-   *
-   * @param request DescribeRunningLogRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRunningLogRecordsResponse
+   * 
+   * @param request - DescribeRunningLogRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRunningLogRecordsResponse
    */
   async describeRunningLogRecordsWithOptions(request: DescribeRunningLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRunningLogRecordsResponse> {
     Util.validateModel(request);
@@ -21305,13 +33431,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the active logs of an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+   * Queries the active logs of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
    * This operation can be called up to 100 times per minute.
-   *
-   * @param request DescribeRunningLogRecordsRequest
-   * @return DescribeRunningLogRecordsResponse
+   * 
+   * @param request - DescribeRunningLogRecordsRequest
+   * @returns DescribeRunningLogRecordsResponse
    */
   async describeRunningLogRecords(request: DescribeRunningLogRecordsRequest): Promise<DescribeRunningLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21319,11 +33446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeSecurityGroupConfigurationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSecurityGroupConfigurationResponse
+   * Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeSecurityGroupConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityGroupConfigurationResponse
    */
   async describeSecurityGroupConfigurationWithOptions(request: DescribeSecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupConfigurationResponse> {
     Util.validateModel(request);
@@ -21370,10 +33497,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeSecurityGroupConfigurationRequest
-   * @return DescribeSecurityGroupConfigurationResponse
+   * Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeSecurityGroupConfigurationRequest
+   * @returns DescribeSecurityGroupConfigurationResponse
    */
   async describeSecurityGroupConfiguration(request: DescribeSecurityGroupConfigurationRequest): Promise<DescribeSecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21381,11 +33508,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the IP address whitelists of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeSecurityIpsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSecurityIpsResponse
+   * Queries the IP address whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityIpsResponse
    */
   async describeSecurityIpsWithOptions(request: DescribeSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpsResponse> {
     Util.validateModel(request);
@@ -21432,10 +33559,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the IP address whitelists of an ApsaraDB for Redis instance.
-   *
-   * @param request DescribeSecurityIpsRequest
-   * @return DescribeSecurityIpsResponse
+   * Queries the IP address whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @param request - DescribeSecurityIpsRequest
+   * @returns DescribeSecurityIpsResponse
    */
   async describeSecurityIps(request: DescribeSecurityIpsRequest): Promise<DescribeSecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21443,13 +33570,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
-   *
-   * @description You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
-   *
-   * @param request DescribeSlowLogRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlowLogRecordsResponse
+   * Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
+   * 
+   * @remarks
+   * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+   * 
+   * @param request - DescribeSlowLogRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
@@ -21536,12 +33664,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
-   *
-   * @description You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
-   *
-   * @param request DescribeSlowLogRecordsRequest
-   * @return DescribeSlowLogRecordsResponse
+   * Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
+   * 
+   * @remarks
+   * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+   * 
+   * @param request - DescribeSlowLogRecordsRequest
+   * @returns DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21549,13 +33678,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
-   *
-   * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-   *
-   * @param request DescribeTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTasksResponse
+   * Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
+   * 
+   * @remarks
+   * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
+   * 
+   * @param request - DescribeTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTasksResponse
    */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
@@ -21622,12 +33752,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
-   *
-   * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-   *
-   * @param request DescribeTasksRequest
-   * @return DescribeTasksResponse
+   * Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
+   * 
+   * @remarks
+   * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
+   * 
+   * @param request - DescribeTasksRequest
+   * @returns DescribeTasksResponse
    */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21635,11 +33766,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the zones available for ApsaraDB for Redis.
-   *
-   * @param request DescribeZonesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeZonesResponse
+   * Queries the zones available for ApsaraDB for Redis.
+   * 
+   * @param request - DescribeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesResponse
    */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
@@ -21690,10 +33821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the zones available for ApsaraDB for Redis.
-   *
-   * @param request DescribeZonesRequest
-   * @return DescribeZonesResponse
+   * Queries the zones available for ApsaraDB for Redis.
+   * 
+   * @param request - DescribeZonesRequest
+   * @returns DescribeZonesResponse
    */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21701,14 +33832,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adjusts the bandwidth of an ApsaraDB for Redis instance.
-   *
-   * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+   * Adjusts the bandwidth of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
    * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the current bandwidth of each data node in an instance.
-   *
-   * @param request EnableAdditionalBandwidthRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableAdditionalBandwidthResponse
+   * 
+   * @param request - EnableAdditionalBandwidthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableAdditionalBandwidthResponse
    */
   async enableAdditionalBandwidthWithOptions(request: EnableAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<EnableAdditionalBandwidthResponse> {
     Util.validateModel(request);
@@ -21791,13 +33923,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adjusts the bandwidth of an ApsaraDB for Redis instance.
-   *
-   * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+   * Adjusts the bandwidth of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
    * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the current bandwidth of each data node in an instance.
-   *
-   * @param request EnableAdditionalBandwidthRequest
-   * @return EnableAdditionalBandwidthResponse
+   * 
+   * @param request - EnableAdditionalBandwidthRequest
+   * @returns EnableAdditionalBandwidthResponse
    */
   async enableAdditionalBandwidth(request: EnableAdditionalBandwidthRequest): Promise<EnableAdditionalBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21805,14 +33938,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the expired keys from an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+   * Deletes the expired keys from an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
    * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
-   *
-   * @param request FlushExpireKeysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FlushExpireKeysResponse
+   * 
+   * @param request - FlushExpireKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlushExpireKeysResponse
    */
   async flushExpireKeysWithOptions(request: FlushExpireKeysRequest, runtime: $Util.RuntimeOptions): Promise<FlushExpireKeysResponse> {
     Util.validateModel(request);
@@ -21863,13 +33997,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the expired keys from an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+   * Deletes the expired keys from an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
    * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
-   *
-   * @param request FlushExpireKeysRequest
-   * @return FlushExpireKeysResponse
+   * 
+   * @param request - FlushExpireKeysRequest
+   * @returns FlushExpireKeysResponse
    */
   async flushExpireKeys(request: FlushExpireKeysRequest): Promise<FlushExpireKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21877,11 +34012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
-   *
-   * @param request FlushInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FlushInstanceResponse
+   * Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
+   * 
+   * @param request - FlushInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlushInstanceResponse
    */
   async flushInstanceWithOptions(request: FlushInstanceRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceResponse> {
     Util.validateModel(request);
@@ -21928,10 +34063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
-   *
-   * @param request FlushInstanceRequest
-   * @return FlushInstanceResponse
+   * Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
+   * 
+   * @param request - FlushInstanceRequest
+   * @returns FlushInstanceResponse
    */
   async flushInstance(request: FlushInstanceRequest): Promise<FlushInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21939,14 +34074,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cleans the data of specified databases in an instance.
-   *
-   * @description Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+   * Cleans the data of specified databases in an instance.
+   * 
+   * @remarks
+   * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
    * >  This operation is available only for cloud-native instances that use cloud disks.
-   *
-   * @param request FlushInstanceForDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FlushInstanceForDBResponse
+   * 
+   * @param request - FlushInstanceForDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlushInstanceForDBResponse
    */
   async flushInstanceForDBWithOptions(request: FlushInstanceForDBRequest, runtime: $Util.RuntimeOptions): Promise<FlushInstanceForDBResponse> {
     Util.validateModel(request);
@@ -21993,13 +34129,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cleans the data of specified databases in an instance.
-   *
-   * @description Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+   * Cleans the data of specified databases in an instance.
+   * 
+   * @remarks
+   * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
    * >  This operation is available only for cloud-native instances that use cloud disks.
-   *
-   * @param request FlushInstanceForDBRequest
-   * @return FlushInstanceForDBResponse
+   * 
+   * @param request - FlushInstanceForDBRequest
+   * @returns FlushInstanceForDBResponse
    */
   async flushInstanceForDB(request: FlushInstanceForDBRequest): Promise<FlushInstanceForDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22007,15 +34144,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the permissions of an account for an ApsaraDB for Redis instance.
-   *
-   * @description > 
+   * Modifies the permissions of an account for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > 
    * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
    * *   The ApsaraDB for Redis instance must be in the running state.
-   *
-   * @param request GrantAccountPrivilegeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GrantAccountPrivilegeResponse
+   * 
+   * @param request - GrantAccountPrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
@@ -22074,14 +34212,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the permissions of an account for an ApsaraDB for Redis instance.
-   *
-   * @description > 
+   * Modifies the permissions of an account for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > 
    * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
    * *   The ApsaraDB for Redis instance must be in the running state.
-   *
-   * @param request GrantAccountPrivilegeRequest
-   * @return GrantAccountPrivilegeResponse
+   * 
+   * @param request - GrantAccountPrivilegeRequest
+   * @returns GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22089,13 +34228,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns a service-linked role to ApsaraDB for Redis.
-   *
-   * @description The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
-   *
-   * @param request InitializeKvstorePermissionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InitializeKvstorePermissionResponse
+   * Assigns a service-linked role to ApsaraDB for Redis.
+   * 
+   * @remarks
+   * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+   * 
+   * @param request - InitializeKvstorePermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeKvstorePermissionResponse
    */
   async initializeKvstorePermissionWithOptions(request: InitializeKvstorePermissionRequest, runtime: $Util.RuntimeOptions): Promise<InitializeKvstorePermissionResponse> {
     Util.validateModel(request);
@@ -22142,12 +34282,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns a service-linked role to ApsaraDB for Redis.
-   *
-   * @description The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
-   *
-   * @param request InitializeKvstorePermissionRequest
-   * @return InitializeKvstorePermissionResponse
+   * Assigns a service-linked role to ApsaraDB for Redis.
+   * 
+   * @remarks
+   * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+   * 
+   * @param request - InitializeKvstorePermissionRequest
+   * @returns InitializeKvstorePermissionResponse
    */
   async initializeKvstorePermission(request: InitializeKvstorePermissionRequest): Promise<InitializeKvstorePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22155,13 +34296,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the relationships between ApsaraDB for Redis instances and tags.
-   *
-   * @description You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the relationships between ApsaraDB for Redis instances and tags.
+   * 
+   * @remarks
+   * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -22220,12 +34362,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the relationships between ApsaraDB for Redis instances and tags.
-   *
-   * @description You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the relationships between ApsaraDB for Redis instances and tags.
+   * 
+   * @remarks
+   * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22233,11 +34376,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
-   *
-   * @param request LockDBInstanceWriteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LockDBInstanceWriteResponse
+   * Places a write lock on an instance. After the instance is locked, it supports only read operations.
+   * 
+   * @param request - LockDBInstanceWriteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LockDBInstanceWriteResponse
    */
   async lockDBInstanceWriteWithOptions(request: LockDBInstanceWriteRequest, runtime: $Util.RuntimeOptions): Promise<LockDBInstanceWriteResponse> {
     Util.validateModel(request);
@@ -22288,10 +34431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
-   *
-   * @param request LockDBInstanceWriteRequest
-   * @return LockDBInstanceWriteResponse
+   * Places a write lock on an instance. After the instance is locked, it supports only read operations.
+   * 
+   * @param request - LockDBInstanceWriteRequest
+   * @returns LockDBInstanceWriteResponse
    */
   async lockDBInstanceWrite(request: LockDBInstanceWriteRequest): Promise<LockDBInstanceWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22299,16 +34442,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
-   *
-   * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+   * Migrates an ApsaraDB for Redis instance to another zone in the same region.
+   * 
+   * @remarks
+   * Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
    * > 
    * *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
    * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
-   *
-   * @param request MigrateToOtherZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MigrateToOtherZoneResponse
+   * 
+   * @param request - MigrateToOtherZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MigrateToOtherZoneResponse
    */
   async migrateToOtherZoneWithOptions(request: MigrateToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
@@ -22371,15 +34515,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
-   *
-   * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+   * Migrates an ApsaraDB for Redis instance to another zone in the same region.
+   * 
+   * @remarks
+   * Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
    * > 
    * *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
    * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
-   *
-   * @param request MigrateToOtherZoneRequest
-   * @return MigrateToOtherZoneResponse
+   * 
+   * @param request - MigrateToOtherZoneRequest
+   * @returns MigrateToOtherZoneResponse
    */
   async migrateToOtherZone(request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22387,13 +34532,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of an account for an ApsaraDB for Redis instance.
-   *
-   * @description > This operation is supported only for instances that run Redis 4.0 or later.
-   *
-   * @param request ModifyAccountDescriptionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAccountDescriptionResponse
+   * Modifies the description of an account for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > This operation is supported only for instances that run Redis 4.0 or later.
+   * 
+   * @param request - ModifyAccountDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountDescriptionResponse
    */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
@@ -22452,12 +34598,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of an account for an ApsaraDB for Redis instance.
-   *
-   * @description > This operation is supported only for instances that run Redis 4.0 or later.
-   *
-   * @param request ModifyAccountDescriptionRequest
-   * @return ModifyAccountDescriptionResponse
+   * Modifies the description of an account for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > This operation is supported only for instances that run Redis 4.0 or later.
+   * 
+   * @param request - ModifyAccountDescriptionRequest
+   * @returns ModifyAccountDescriptionResponse
    */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22465,11 +34612,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the password of a specific account for an ApsaraDB for Redis instance.
-   *
-   * @param request ModifyAccountPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAccountPasswordResponse
+   * Changes the password of a specific account for an ApsaraDB for Redis instance.
+   * 
+   * @param request - ModifyAccountPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountPasswordResponse
    */
   async modifyAccountPasswordWithOptions(request: ModifyAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPasswordResponse> {
     Util.validateModel(request);
@@ -22532,10 +34679,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the password of a specific account for an ApsaraDB for Redis instance.
-   *
-   * @param request ModifyAccountPasswordRequest
-   * @return ModifyAccountPasswordResponse
+   * Changes the password of a specific account for an ApsaraDB for Redis instance.
+   * 
+   * @param request - ModifyAccountPasswordRequest
+   * @returns ModifyAccountPasswordResponse
    */
   async modifyAccountPassword(request: ModifyAccountPasswordRequest): Promise<ModifyAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22543,13 +34690,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the scheduled switchover time of an O&M task.
-   *
-   * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
-   *
-   * @param request ModifyActiveOperationTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyActiveOperationTaskResponse
+   * Changes the scheduled switchover time of an O&M task.
+   * 
+   * @remarks
+   * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+   * 
+   * @param request - ModifyActiveOperationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationTaskResponse
    */
   async modifyActiveOperationTaskWithOptions(request: ModifyActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTaskResponse> {
     Util.validateModel(request);
@@ -22600,12 +34748,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the scheduled switchover time of an O&M task.
-   *
-   * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
-   *
-   * @param request ModifyActiveOperationTaskRequest
-   * @return ModifyActiveOperationTaskResponse
+   * Changes the scheduled switchover time of an O&M task.
+   * 
+   * @remarks
+   * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+   * 
+   * @param request - ModifyActiveOperationTaskRequest
+   * @returns ModifyActiveOperationTaskResponse
    */
   async modifyActiveOperationTask(request: ModifyActiveOperationTaskRequest): Promise<ModifyActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22613,9 +34762,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyActiveOperationTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyActiveOperationTasksResponse
+   * @param request - ModifyActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -22670,8 +34819,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyActiveOperationTasksRequest
-   * @return ModifyActiveOperationTasksResponse
+   * @param request - ModifyActiveOperationTasksRequest
+   * @returns ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22679,16 +34828,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the audit log settings of an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+   * Modifies the audit log settings of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest major version and minor version.
-   *
-   * @param request ModifyAuditLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAuditLogConfigResponse
+   * 
+   * @param request - ModifyAuditLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAuditLogConfigResponse
    */
   async modifyAuditLogConfigWithOptions(request: ModifyAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAuditLogConfigResponse> {
     Util.validateModel(request);
@@ -22743,15 +34893,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the audit log settings of an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+   * Modifies the audit log settings of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
    * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
    * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
    * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest major version and minor version.
-   *
-   * @param request ModifyAuditLogConfigRequest
-   * @return ModifyAuditLogConfigResponse
+   * 
+   * @param request - ModifyAuditLogConfigRequest
+   * @returns ModifyAuditLogConfigResponse
    */
   async modifyAuditLogConfig(request: ModifyAuditLogConfigRequest): Promise<ModifyAuditLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22759,11 +34910,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the automatic backup policy of an ApsaraDB for Redis instance.
-   *
-   * @param request ModifyBackupPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyBackupPolicyResponse
+   * Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+   * 
+   * @param request - ModifyBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBackupPolicyResponse
    */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
@@ -22826,10 +34977,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the automatic backup policy of an ApsaraDB for Redis instance.
-   *
-   * @param request ModifyBackupPolicyRequest
-   * @return ModifyBackupPolicyResponse
+   * Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+   * 
+   * @param request - ModifyBackupPolicyRequest
+   * @returns ModifyBackupPolicyResponse
    */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22837,11 +34988,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the setting related to the automatic update of minor versions for an instance.
-   *
-   * @param request ModifyDBInstanceAutoUpgradeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDBInstanceAutoUpgradeResponse
+   * Modifies the setting related to the automatic update of minor versions for an instance.
+   * 
+   * @param request - ModifyDBInstanceAutoUpgradeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceAutoUpgradeResponse
    */
   async modifyDBInstanceAutoUpgradeWithOptions(request: ModifyDBInstanceAutoUpgradeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceAutoUpgradeResponse> {
     Util.validateModel(request);
@@ -22892,10 +35043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the setting related to the automatic update of minor versions for an instance.
-   *
-   * @param request ModifyDBInstanceAutoUpgradeRequest
-   * @return ModifyDBInstanceAutoUpgradeResponse
+   * Modifies the setting related to the automatic update of minor versions for an instance.
+   * 
+   * @param request - ModifyDBInstanceAutoUpgradeRequest
+   * @returns ModifyDBInstanceAutoUpgradeResponse
    */
   async modifyDBInstanceAutoUpgrade(request: ModifyDBInstanceAutoUpgradeRequest): Promise<ModifyDBInstanceAutoUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22903,13 +35054,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the endpoint or port number of an ApsaraDB for Redis instance.
-   *
-   * @description You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
-   *
-   * @param request ModifyDBInstanceConnectionStringRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDBInstanceConnectionStringResponse
+   * Changes the endpoint or port number of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+   * 
+   * @param request - ModifyDBInstanceConnectionStringRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
@@ -22972,12 +35124,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the endpoint or port number of an ApsaraDB for Redis instance.
-   *
-   * @description You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
-   *
-   * @param request ModifyDBInstanceConnectionStringRequest
-   * @return ModifyDBInstanceConnectionStringResponse
+   * Changes the endpoint or port number of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+   * 
+   * @param request - ModifyDBInstanceConnectionStringRequest
+   * @returns ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22985,11 +35138,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a global IP whitelist template.
-   *
-   * @param request ModifyGlobalSecurityIPGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyGlobalSecurityIPGroupResponse
+   * Modifies a global IP whitelist template.
+   * 
+   * @param request - ModifyGlobalSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyGlobalSecurityIPGroupResponse
    */
   async modifyGlobalSecurityIPGroupWithOptions(request: ModifyGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
@@ -23052,10 +35205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a global IP whitelist template.
-   *
-   * @param request ModifyGlobalSecurityIPGroupRequest
-   * @return ModifyGlobalSecurityIPGroupResponse
+   * Modifies a global IP whitelist template.
+   * 
+   * @param request - ModifyGlobalSecurityIPGroupRequest
+   * @returns ModifyGlobalSecurityIPGroupResponse
    */
   async modifyGlobalSecurityIPGroup(request: ModifyGlobalSecurityIPGroupRequest): Promise<ModifyGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23063,11 +35216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the name of a global IP whitelist template.
-   *
-   * @param request ModifyGlobalSecurityIPGroupNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyGlobalSecurityIPGroupNameResponse
+   * Modifies the name of a global IP whitelist template.
+   * 
+   * @param request - ModifyGlobalSecurityIPGroupNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyGlobalSecurityIPGroupNameResponse
    */
   async modifyGlobalSecurityIPGroupNameWithOptions(request: ModifyGlobalSecurityIPGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
     Util.validateModel(request);
@@ -23126,10 +35279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the name of a global IP whitelist template.
-   *
-   * @param request ModifyGlobalSecurityIPGroupNameRequest
-   * @return ModifyGlobalSecurityIPGroupNameResponse
+   * Modifies the name of a global IP whitelist template.
+   * 
+   * @param request - ModifyGlobalSecurityIPGroupNameRequest
+   * @returns ModifyGlobalSecurityIPGroupNameResponse
    */
   async modifyGlobalSecurityIPGroupName(request: ModifyGlobalSecurityIPGroupNameRequest): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23137,11 +35290,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a specified instance to a specified IP whitelist template.
-   *
-   * @param request ModifyGlobalSecurityIPGroupRelationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyGlobalSecurityIPGroupRelationResponse
+   * Adds a specified instance to a specified IP whitelist template.
+   * 
+   * @param request - ModifyGlobalSecurityIPGroupRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyGlobalSecurityIPGroupRelationResponse
    */
   async modifyGlobalSecurityIPGroupRelationWithOptions(request: ModifyGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
     Util.validateModel(request);
@@ -23200,10 +35353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a specified instance to a specified IP whitelist template.
-   *
-   * @param request ModifyGlobalSecurityIPGroupRelationRequest
-   * @return ModifyGlobalSecurityIPGroupRelationResponse
+   * Adds a specified instance to a specified IP whitelist template.
+   * 
+   * @param request - ModifyGlobalSecurityIPGroupRelationRequest
+   * @returns ModifyGlobalSecurityIPGroupRelationResponse
    */
   async modifyGlobalSecurityIPGroupRelation(request: ModifyGlobalSecurityIPGroupRelationRequest): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23211,13 +35364,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the information of an ApsaraDB for Redis instance, such as the name and password.
-   *
-   * @description You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
-   *
-   * @param request ModifyInstanceAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceAttributeResponse
+   * Changes the information of an ApsaraDB for Redis instance, such as the name and password.
+   * 
+   * @remarks
+   * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+   * 
+   * @param request - ModifyInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceAttributeResponse
    */
   async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -23276,12 +35430,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the information of an ApsaraDB for Redis instance, such as the name and password.
-   *
-   * @description You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
-   *
-   * @param request ModifyInstanceAttributeRequest
-   * @return ModifyInstanceAttributeResponse
+   * Changes the information of an ApsaraDB for Redis instance, such as the name and password.
+   * 
+   * @remarks
+   * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+   * 
+   * @param request - ModifyInstanceAttributeRequest
+   * @returns ModifyInstanceAttributeResponse
    */
   async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23289,13 +35444,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables auto-renewal for an ApsaraDB for Redis instance.
-   *
-   * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
-   *
-   * @param request ModifyInstanceAutoRenewalAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceAutoRenewalAttributeResponse
+   * Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > Auto-renewal is triggered seven days before the expiration date of the instance.
+   * 
+   * @param request - ModifyInstanceAutoRenewalAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceAutoRenewalAttributeResponse
    */
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
@@ -23350,12 +35506,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables auto-renewal for an ApsaraDB for Redis instance.
-   *
-   * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
-   *
-   * @param request ModifyInstanceAutoRenewalAttributeRequest
-   * @return ModifyInstanceAutoRenewalAttributeResponse
+   * Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > Auto-renewal is triggered seven days before the expiration date of the instance.
+   * 
+   * @param request - ModifyInstanceAutoRenewalAttributeRequest
+   * @returns ModifyInstanceAutoRenewalAttributeResponse
    */
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23363,11 +35520,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
-   *
-   * @param request ModifyInstanceConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceConfigResponse
+   * Modifies the parameter settings of an ApsaraDB for Redis instance.
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceConfigResponse
    */
   async modifyInstanceConfigWithOptions(request: ModifyInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceConfigResponse> {
     Util.validateModel(request);
@@ -23418,10 +35575,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
-   *
-   * @param request ModifyInstanceConfigRequest
-   * @return ModifyInstanceConfigResponse
+   * Modifies the parameter settings of an ApsaraDB for Redis instance.
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @returns ModifyInstanceConfigResponse
    */
   async modifyInstanceConfig(request: ModifyInstanceConfigRequest): Promise<ModifyInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23429,13 +35586,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
-   *
-   * @description You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
-   *
-   * @param request ModifyInstanceMaintainTimeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceMaintainTimeResponse
+   * Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
+   * 
+   * @remarks
+   * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+   * 
+   * @param request - ModifyInstanceMaintainTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTimeWithOptions(request: ModifyInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
     Util.validateModel(request);
@@ -23490,12 +35648,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
-   *
-   * @description You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
-   *
-   * @param request ModifyInstanceMaintainTimeRequest
-   * @return ModifyInstanceMaintainTimeResponse
+   * Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
+   * 
+   * @remarks
+   * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+   * 
+   * @param request - ModifyInstanceMaintainTimeRequest
+   * @returns ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTime(request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23503,13 +35662,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Upgrades the major version of an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
-   *
-   * @param request ModifyInstanceMajorVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceMajorVersionResponse
+   * Upgrades the major version of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+   * 
+   * @param request - ModifyInstanceMajorVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceMajorVersionResponse
    */
   async modifyInstanceMajorVersionWithOptions(request: ModifyInstanceMajorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMajorVersionResponse> {
     Util.validateModel(request);
@@ -23564,12 +35724,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Upgrades the major version of an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
-   *
-   * @param request ModifyInstanceMajorVersionRequest
-   * @return ModifyInstanceMajorVersionResponse
+   * Upgrades the major version of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+   * 
+   * @param request - ModifyInstanceMajorVersionRequest
+   * @returns ModifyInstanceMajorVersionResponse
    */
   async modifyInstanceMajorVersion(request: ModifyInstanceMajorVersionRequest): Promise<ModifyInstanceMajorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23577,16 +35738,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the minor version of an ApsaraDB for Redis instance.
-   *
-   * @description The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+   * Updates the minor version of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
    * > 
    * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to query the minor version of the current instance.
    * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
-   *
-   * @param request ModifyInstanceMinorVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceMinorVersionResponse
+   * 
+   * @param request - ModifyInstanceMinorVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceMinorVersionResponse
    */
   async modifyInstanceMinorVersionWithOptions(request: ModifyInstanceMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMinorVersionResponse> {
     Util.validateModel(request);
@@ -23641,15 +35803,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the minor version of an ApsaraDB for Redis instance.
-   *
-   * @description The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+   * Updates the minor version of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
    * > 
    * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to query the minor version of the current instance.
    * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
-   *
-   * @param request ModifyInstanceMinorVersionRequest
-   * @return ModifyInstanceMinorVersionResponse
+   * 
+   * @param request - ModifyInstanceMinorVersionRequest
+   * @returns ModifyInstanceMinorVersionResponse
    */
   async modifyInstanceMinorVersion(request: ModifyInstanceMinorVersionRequest): Promise<ModifyInstanceMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23657,14 +35820,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
-   *
-   * @description You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+   * Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+   * 
+   * @remarks
+   * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
    * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html).
-   *
-   * @param request ModifyInstanceNetExpireTimeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceNetExpireTimeResponse
+   * 
+   * @param request - ModifyInstanceNetExpireTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceNetExpireTimeResponse
    */
   async modifyInstanceNetExpireTimeWithOptions(request: ModifyInstanceNetExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNetExpireTimeResponse> {
     Util.validateModel(request);
@@ -23719,13 +35883,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
-   *
-   * @description You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+   * Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+   * 
+   * @remarks
+   * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
    * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html).
-   *
-   * @param request ModifyInstanceNetExpireTimeRequest
-   * @return ModifyInstanceNetExpireTimeResponse
+   * 
+   * @param request - ModifyInstanceNetExpireTimeRequest
+   * @returns ModifyInstanceNetExpireTimeResponse
    */
   async modifyInstanceNetExpireTime(request: ModifyInstanceNetExpireTimeRequest): Promise<ModifyInstanceNetExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23733,11 +35898,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改实例参数
-   *
-   * @param request ModifyInstanceParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceParameterResponse
+   * 修改实例参数
+   * 
+   * @param request - ModifyInstanceParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceParameterResponse
    */
   async modifyInstanceParameterWithOptions(request: ModifyInstanceParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceParameterResponse> {
     Util.validateModel(request);
@@ -23760,6 +35925,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parameters)) {
       query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -23792,10 +35961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改实例参数
-   *
-   * @param request ModifyInstanceParameterRequest
-   * @return ModifyInstanceParameterResponse
+   * 修改实例参数
+   * 
+   * @param request - ModifyInstanceParameterRequest
+   * @returns ModifyInstanceParameterResponse
    */
   async modifyInstanceParameter(request: ModifyInstanceParameterRequest): Promise<ModifyInstanceParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23803,14 +35972,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the SSL settings of an ApsaraDB for Redis instance.
-   *
-   * @description You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+   * Modifies the SSL settings of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
    * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
-   *
-   * @param request ModifyInstanceSSLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceSSLResponse
+   * 
+   * @param request - ModifyInstanceSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceSSLResponse
    */
   async modifyInstanceSSLWithOptions(request: ModifyInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSSLResponse> {
     Util.validateModel(request);
@@ -23861,13 +36031,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the SSL settings of an ApsaraDB for Redis instance.
-   *
-   * @description You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+   * Modifies the SSL settings of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
    * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
-   *
-   * @param request ModifyInstanceSSLRequest
-   * @return ModifyInstanceSSLResponse
+   * 
+   * @param request - ModifyInstanceSSLRequest
+   * @returns ModifyInstanceSSLResponse
    */
   async modifyInstanceSSL(request: ModifyInstanceSSLRequest): Promise<ModifyInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23875,13 +36046,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the specifications of an ApsaraDB for Redis instance.
-   *
-   * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
-   *
-   * @param request ModifyInstanceSpecRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceSpecResponse
+   * Changes the specifications of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+   * 
+   * @param request - ModifyInstanceSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceSpecResponse
    */
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
@@ -23992,12 +36164,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the specifications of an ApsaraDB for Redis instance.
-   *
-   * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
-   *
-   * @param request ModifyInstanceSpecRequest
-   * @return ModifyInstanceSpecResponse
+   * Changes the specifications of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+   * 
+   * @param request - ModifyInstanceSpecRequest
+   * @returns ModifyInstanceSpecResponse
    */
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24005,13 +36178,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
-   *
-   * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-   *
-   * @param request ModifyInstanceTDERequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceTDEResponse
+   * Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
+   * 
+   * @remarks
+   * > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * 
+   * @param request - ModifyInstanceTDERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceTDEResponse
    */
   async modifyInstanceTDEWithOptions(request: ModifyInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTDEResponse> {
     Util.validateModel(request);
@@ -24074,12 +36248,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
-   *
-   * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
-   *
-   * @param request ModifyInstanceTDERequest
-   * @return ModifyInstanceTDEResponse
+   * Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
+   * 
+   * @remarks
+   * > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+   * 
+   * @param request - ModifyInstanceTDERequest
+   * @returns ModifyInstanceTDEResponse
    */
   async modifyInstanceTDE(request: ModifyInstanceTDERequest): Promise<ModifyInstanceTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24087,14 +36262,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
-   *
-   * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+   * Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+   * 
+   * @remarks
+   * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
    * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
-   *
-   * @param request ModifyInstanceVpcAuthModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceVpcAuthModeResponse
+   * 
+   * @param request - ModifyInstanceVpcAuthModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceVpcAuthModeResponse
    */
   async modifyInstanceVpcAuthModeWithOptions(request: ModifyInstanceVpcAuthModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceVpcAuthModeResponse> {
     Util.validateModel(request);
@@ -24145,13 +36321,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
-   *
-   * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+   * Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+   * 
+   * @remarks
+   * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
    * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
-   *
-   * @param request ModifyInstanceVpcAuthModeRequest
-   * @return ModifyInstanceVpcAuthModeResponse
+   * 
+   * @param request - ModifyInstanceVpcAuthModeRequest
+   * @returns ModifyInstanceVpcAuthModeResponse
    */
   async modifyInstanceVpcAuthMode(request: ModifyInstanceVpcAuthModeRequest): Promise<ModifyInstanceVpcAuthModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24159,14 +36336,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
-   *
-   * @description > 
+   * Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
+   * 
+   * @remarks
+   * > 
    * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation.
-   *
-   * @param request ModifyIntranetAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyIntranetAttributeResponse
+   * 
+   * @param request - ModifyIntranetAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyIntranetAttributeResponse
    */
   async modifyIntranetAttributeWithOptions(request: ModifyIntranetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIntranetAttributeResponse> {
     Util.validateModel(request);
@@ -24221,13 +36399,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
-   *
-   * @description > 
+   * Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
+   * 
+   * @remarks
+   * > 
    * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation.
-   *
-   * @param request ModifyIntranetAttributeRequest
-   * @return ModifyIntranetAttributeResponse
+   * 
+   * @param request - ModifyIntranetAttributeRequest
+   * @returns ModifyIntranetAttributeResponse
    */
   async modifyIntranetAttribute(request: ModifyIntranetAttributeRequest): Promise<ModifyIntranetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24235,11 +36414,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the settings of a parameter template.
-   *
-   * @param request ModifyParameterGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyParameterGroupResponse
+   * Modifies the settings of a parameter template.
+   * 
+   * @param request - ModifyParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyParameterGroupResponse
    */
   async modifyParameterGroupWithOptions(request: ModifyParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterGroupResponse> {
     Util.validateModel(request);
@@ -24306,10 +36485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the settings of a parameter template.
-   *
-   * @param request ModifyParameterGroupRequest
-   * @return ModifyParameterGroupResponse
+   * Modifies the settings of a parameter template.
+   * 
+   * @param request - ModifyParameterGroupRequest
+   * @returns ModifyParameterGroupResponse
    */
   async modifyParameterGroup(request: ModifyParameterGroupRequest): Promise<ModifyParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24317,14 +36496,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the resource group to which an ApsaraDB for Redis instance belongs.
-   *
-   * @description Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   * Changes the resource group to which an ApsaraDB for Redis instance belongs.
+   * 
+   * @remarks
+   * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
    * > For more information about resource group API operations, see [Resource Management API overview](https://help.aliyun.com/document_detail/160024.html).
-   *
-   * @param request ModifyResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyResourceGroupResponse
+   * 
+   * @param request - ModifyResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyResourceGroupResponse
    */
   async modifyResourceGroupWithOptions(request: ModifyResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceGroupResponse> {
     Util.validateModel(request);
@@ -24379,13 +36559,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the resource group to which an ApsaraDB for Redis instance belongs.
-   *
-   * @description Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   * Changes the resource group to which an ApsaraDB for Redis instance belongs.
+   * 
+   * @remarks
+   * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
    * > For more information about resource group API operations, see [Resource Management API overview](https://help.aliyun.com/document_detail/160024.html).
-   *
-   * @param request ModifyResourceGroupRequest
-   * @return ModifyResourceGroupResponse
+   * 
+   * @param request - ModifyResourceGroupRequest
+   * @returns ModifyResourceGroupResponse
    */
   async modifyResourceGroup(request: ModifyResourceGroupRequest): Promise<ModifyResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24393,13 +36574,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
-   *
-   * @description > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
-   *
-   * @param request ModifySecurityGroupConfigurationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySecurityGroupConfigurationResponse
+   * Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+   * 
+   * @param request - ModifySecurityGroupConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityGroupConfigurationResponse
    */
   async modifySecurityGroupConfigurationWithOptions(request: ModifySecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupConfigurationResponse> {
     Util.validateModel(request);
@@ -24450,12 +36632,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
-   *
-   * @description > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
-   *
-   * @param request ModifySecurityGroupConfigurationRequest
-   * @return ModifySecurityGroupConfigurationResponse
+   * Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+   * 
+   * @param request - ModifySecurityGroupConfigurationRequest
+   * @returns ModifySecurityGroupConfigurationResponse
    */
   async modifySecurityGroupConfiguration(request: ModifySecurityGroupConfigurationRequest): Promise<ModifySecurityGroupConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24463,13 +36646,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the IP address whitelists of an ApsaraDB for Redis instance.
-   *
-   * @description You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
-   *
-   * @param request ModifySecurityIpsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySecurityIpsResponse
+   * Modifies the IP address whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+   * 
+   * @param request - ModifySecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityIpsResponse
    */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
@@ -24532,12 +36716,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the IP address whitelists of an ApsaraDB for Redis instance.
-   *
-   * @description You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
-   *
-   * @param request ModifySecurityIpsRequest
-   * @return ModifySecurityIpsResponse
+   * Modifies the IP address whitelists of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+   * 
+   * @param request - ModifySecurityIpsRequest
+   * @returns ModifySecurityIpsResponse
    */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24545,13 +36730,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
-   *
-   * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
-   *
-   * @param request ReleaseDirectConnectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseDirectConnectionResponse
+   * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   * 
+   * @param request - ReleaseDirectConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseDirectConnectionResponse
    */
   async releaseDirectConnectionWithOptions(request: ReleaseDirectConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDirectConnectionResponse> {
     Util.validateModel(request);
@@ -24598,12 +36784,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
-   *
-   * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
-   *
-   * @param request ReleaseDirectConnectionRequest
-   * @return ReleaseDirectConnectionResponse
+   * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+   * 
+   * @remarks
+   * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+   * 
+   * @param request - ReleaseDirectConnectionRequest
+   * @returns ReleaseDirectConnectionResponse
    */
   async releaseDirectConnection(request: ReleaseDirectConnectionRequest): Promise<ReleaseDirectConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24611,13 +36798,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Releases the public endpoint of an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
-   *
-   * @param request ReleaseInstancePublicConnectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseInstancePublicConnectionResponse
+   * Releases the public endpoint of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+   * 
+   * @param request - ReleaseInstancePublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -24668,12 +36856,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Releases the public endpoint of an ApsaraDB for Redis instance.
-   *
-   * @description For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
-   *
-   * @param request ReleaseInstancePublicConnectionRequest
-   * @return ReleaseInstancePublicConnectionResponse
+   * Releases the public endpoint of an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+   * 
+   * @param request - ReleaseInstancePublicConnectionRequest
+   * @returns ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24681,13 +36870,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a child instance from a distributed instance.
-   *
-   * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
-   *
-   * @param request RemoveSubInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveSubInstanceResponse
+   * Removes a child instance from a distributed instance.
+   * 
+   * @remarks
+   * The operation that you want to perform. Set the value to **RemoveSubInstance**.
+   * 
+   * @param request - RemoveSubInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveSubInstanceResponse
    */
   async removeSubInstanceWithOptions(request: RemoveSubInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSubInstanceResponse> {
     Util.validateModel(request);
@@ -24734,12 +36924,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a child instance from a distributed instance.
-   *
-   * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
-   *
-   * @param request RemoveSubInstanceRequest
-   * @return RemoveSubInstanceResponse
+   * Removes a child instance from a distributed instance.
+   * 
+   * @remarks
+   * The operation that you want to perform. Set the value to **RemoveSubInstance**.
+   * 
+   * @param request - RemoveSubInstanceRequest
+   * @returns RemoveSubInstanceResponse
    */
   async removeSubInstance(request: RemoveSubInstanceRequest): Promise<RemoveSubInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24747,15 +36938,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Renews the purchased bandwidth for an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * Renews the purchased bandwidth for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
    * > Before you call this operation, you can call the [DescribeIntranetAttribute](https://help.aliyun.com/document_detail/128715.html) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
-   *
-   * @param request RenewAdditionalBandwidthRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewAdditionalBandwidthResponse
+   * 
+   * @param request - RenewAdditionalBandwidthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewAdditionalBandwidthResponse
    */
   async renewAdditionalBandwidthWithOptions(request: RenewAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<RenewAdditionalBandwidthResponse> {
     Util.validateModel(request);
@@ -24818,14 +37010,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Renews the purchased bandwidth for an ApsaraDB for Redis instance.
-   *
-   * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+   * Renews the purchased bandwidth for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
    * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
    * > Before you call this operation, you can call the [DescribeIntranetAttribute](https://help.aliyun.com/document_detail/128715.html) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
-   *
-   * @param request RenewAdditionalBandwidthRequest
-   * @return RenewAdditionalBandwidthResponse
+   * 
+   * @param request - RenewAdditionalBandwidthRequest
+   * @returns RenewAdditionalBandwidthResponse
    */
   async renewAdditionalBandwidth(request: RenewAdditionalBandwidthRequest): Promise<RenewAdditionalBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24833,13 +37026,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Renews an ApsaraDB for Redis instance.
-   *
-   * @description This operation is applicable only to subscription instances.
-   *
-   * @param request RenewInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewInstanceResponse
+   * Renews an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation is applicable only to subscription instances.
+   * 
+   * @param request - RenewInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewInstanceResponse
    */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
@@ -24922,12 +37116,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Renews an ApsaraDB for Redis instance.
-   *
-   * @description This operation is applicable only to subscription instances.
-   *
-   * @param request RenewInstanceRequest
-   * @return RenewInstanceResponse
+   * Renews an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * This operation is applicable only to subscription instances.
+   * 
+   * @param request - RenewInstanceRequest
+   * @returns RenewInstanceResponse
    */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24935,13 +37130,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Resets the password of an account for an ApsaraDB for Redis instance.
-   *
-   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-   *
-   * @param request ResetAccountPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResetAccountPasswordResponse
+   * Resets the password of an account for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   * 
+   * @param request - ResetAccountPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetAccountPasswordResponse
    */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
@@ -25000,12 +37196,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Resets the password of an account for an ApsaraDB for Redis instance.
-   *
-   * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-   *
-   * @param request ResetAccountPasswordRequest
-   * @return ResetAccountPasswordResponse
+   * Resets the password of an account for an ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+   * 
+   * @param request - ResetAccountPasswordRequest
+   * @returns ResetAccountPasswordResponse
    */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25013,11 +37210,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts a running ApsaraDB for Redis instance.
-   *
-   * @param request RestartInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestartInstanceResponse
+   * Restarts a running ApsaraDB for Redis instance.
+   * 
+   * @param request - RestartInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartInstanceResponse
    */
   async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
@@ -25072,10 +37269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restarts a running ApsaraDB for Redis instance.
-   *
-   * @param request RestartInstanceRequest
-   * @return RestartInstanceResponse
+   * Restarts a running ApsaraDB for Redis instance.
+   * 
+   * @param request - RestartInstanceRequest
+   * @returns RestartInstanceResponse
    */
   async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25083,14 +37280,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores the data in a backup file to a specified ApsaraDB for Redis instance.
-   *
-   * @description *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+   * Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
    * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance. Then, you can restore data to the new instance.
-   *
-   * @param request RestoreInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestoreInstanceResponse
+   * 
+   * @param request - RestoreInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreInstanceResponse
    */
   async restoreInstanceWithOptions(request: RestoreInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestoreInstanceResponse> {
     Util.validateModel(request);
@@ -25157,13 +37355,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores the data in a backup file to a specified ApsaraDB for Redis instance.
-   *
-   * @description *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+   * Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+   * 
+   * @remarks
+   *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
    * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance. Then, you can restore data to the new instance.
-   *
-   * @param request RestoreInstanceRequest
-   * @return RestoreInstanceResponse
+   * 
+   * @param request - RestoreInstanceRequest
+   * @returns RestoreInstanceResponse
    */
   async restoreInstance(request: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25171,17 +37370,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
-   *
-   * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+   * Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+   * 
+   * @remarks
+   * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
    * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
    * A call to this operation has the following impacts on your instance:
    * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
    * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
-   *
-   * @param request SwitchInstanceHARequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchInstanceHAResponse
+   * 
+   * @param request - SwitchInstanceHARequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchInstanceHAResponse
    */
   async switchInstanceHAWithOptions(request: SwitchInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceHAResponse> {
     Util.validateModel(request);
@@ -25240,16 +37440,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
-   *
-   * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+   * Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+   * 
+   * @remarks
+   * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
    * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
    * A call to this operation has the following impacts on your instance:
    * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
    * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
-   *
-   * @param request SwitchInstanceHARequest
-   * @return SwitchInstanceHAResponse
+   * 
+   * @param request - SwitchInstanceHARequest
+   * @returns SwitchInstanceHAResponse
    */
   async switchInstanceHA(request: SwitchInstanceHARequest): Promise<SwitchInstanceHAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25257,16 +37458,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
-   *
-   * @description For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+   * Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
+   * 
+   * @remarks
+   * For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
    * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
    * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
    * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/229522.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
-   *
-   * @param request SwitchInstanceProxyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchInstanceProxyResponse
+   * 
+   * @param request - SwitchInstanceProxyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchInstanceProxyResponse
    */
   async switchInstanceProxyWithOptions(request: SwitchInstanceProxyRequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceProxyResponse> {
     Util.validateModel(request);
@@ -25313,15 +37515,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
-   *
-   * @description For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+   * Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
+   * 
+   * @remarks
+   * For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
    * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
    * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
    * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/229522.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
-   *
-   * @param request SwitchInstanceProxyRequest
-   * @return SwitchInstanceProxyResponse
+   * 
+   * @param request - SwitchInstanceProxyRequest
+   * @returns SwitchInstanceProxyResponse
    */
   async switchInstanceProxy(request: SwitchInstanceProxyRequest): Promise<SwitchInstanceProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25329,11 +37532,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
-   *
-   * @param request SwitchNetworkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchNetworkResponse
+   * Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+   * 
+   * @param request - SwitchNetworkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchNetworkResponse
    */
   async switchNetworkWithOptions(request: SwitchNetworkRequest, runtime: $Util.RuntimeOptions): Promise<SwitchNetworkResponse> {
     Util.validateModel(request);
@@ -25400,10 +37603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
-   *
-   * @param request SwitchNetworkRequest
-   * @return SwitchNetworkResponse
+   * Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+   * 
+   * @param request - SwitchNetworkRequest
+   * @returns SwitchNetworkResponse
    */
   async switchNetwork(request: SwitchNetworkRequest): Promise<SwitchNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25411,11 +37614,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
-   *
-   * @param request SyncDtsStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SyncDtsStatusResponse
+   * Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+   * 
+   * @param request - SyncDtsStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncDtsStatusResponse
    */
   async syncDtsStatusWithOptions(request: SyncDtsStatusRequest, runtime: $Util.RuntimeOptions): Promise<SyncDtsStatusResponse> {
     Util.validateModel(request);
@@ -25474,10 +37677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
-   *
-   * @param request SyncDtsStatusRequest
-   * @return SyncDtsStatusResponse
+   * Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+   * 
+   * @param request - SyncDtsStatusRequest
+   * @returns SyncDtsStatusResponse
    */
   async syncDtsStatus(request: SyncDtsStatusRequest): Promise<SyncDtsStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25485,19 +37688,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds specified tags to one or more ApsaraDB for Redis instances.
-   *
-   * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+   * Adds specified tags to one or more ApsaraDB for Redis instances.
+   * 
+   * @remarks
+   * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
    * *   You can add up to 20 tags to each instance.
    * *   You can add tags to up to 50 instances in each request.
    * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -25552,18 +37756,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds specified tags to one or more ApsaraDB for Redis instances.
-   *
-   * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+   * Adds specified tags to one or more ApsaraDB for Redis instances.
+   * 
+   * @remarks
+   * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
    * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
    * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
    * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
    * *   You can add up to 20 tags to each instance.
    * *   You can add tags to up to 50 instances in each request.
    * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25571,15 +37776,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
-   *
-   * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+   * Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
    * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
    * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
-   *
-   * @param request TransformInstanceChargeTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TransformInstanceChargeTypeResponse
+   * 
+   * @param request - TransformInstanceChargeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransformInstanceChargeTypeResponse
    */
   async transformInstanceChargeTypeWithOptions(request: TransformInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformInstanceChargeTypeResponse> {
     Util.validateModel(request);
@@ -25646,14 +37852,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
-   *
-   * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+   * Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
    * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
    * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
-   *
-   * @param request TransformInstanceChargeTypeRequest
-   * @return TransformInstanceChargeTypeResponse
+   * 
+   * @param request - TransformInstanceChargeTypeRequest
+   * @returns TransformInstanceChargeTypeResponse
    */
   async transformInstanceChargeType(request: TransformInstanceChargeTypeRequest): Promise<TransformInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25661,14 +37868,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
-   *
-   * @description For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+   * Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
+   * 
+   * @remarks
+   * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
    * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
-   *
-   * @param request TransformToPrePaidRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TransformToPrePaidResponse
+   * 
+   * @param request - TransformToPrePaidRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransformToPrePaidResponse
    */
   async transformToPrePaidWithOptions(request: TransformToPrePaidRequest, runtime: $Util.RuntimeOptions): Promise<TransformToPrePaidResponse> {
     Util.validateModel(request);
@@ -25723,13 +37931,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
-   *
-   * @description For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+   * Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
+   * 
+   * @remarks
+   * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
    * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
-   *
-   * @param request TransformToPrePaidRequest
-   * @return TransformToPrePaidResponse
+   * 
+   * @param request - TransformToPrePaidRequest
+   * @returns TransformToPrePaidResponse
    */
   async transformToPrePaid(request: TransformToPrePaidRequest): Promise<TransformToPrePaidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25737,11 +37946,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
-   *
-   * @param request UnlockDBInstanceWriteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnlockDBInstanceWriteResponse
+   * Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+   * 
+   * @param request - UnlockDBInstanceWriteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnlockDBInstanceWriteResponse
    */
   async unlockDBInstanceWriteWithOptions(request: UnlockDBInstanceWriteRequest, runtime: $Util.RuntimeOptions): Promise<UnlockDBInstanceWriteResponse> {
     Util.validateModel(request);
@@ -25788,10 +37997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
-   *
-   * @param request UnlockDBInstanceWriteRequest
-   * @return UnlockDBInstanceWriteResponse
+   * Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+   * 
+   * @param request - UnlockDBInstanceWriteRequest
+   * @returns UnlockDBInstanceWriteResponse
    */
   async unlockDBInstanceWrite(request: UnlockDBInstanceWriteRequest): Promise<UnlockDBInstanceWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25799,15 +38008,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from one or more ApsaraDB for Redis instances.
-   *
-   * @description *   You can remove up to 20 tags at a time.
+   * Removes tags from one or more ApsaraDB for Redis instances.
+   * 
+   * @remarks
+   *   You can remove up to 20 tags at a time.
    * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
    * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -25866,14 +38076,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from one or more ApsaraDB for Redis instances.
-   *
-   * @description *   You can remove up to 20 tags at a time.
+   * Removes tags from one or more ApsaraDB for Redis instances.
+   * 
+   * @remarks
+   *   You can remove up to 20 tags at a time.
    * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
    * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
