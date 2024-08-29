@@ -211,8 +211,24 @@ export class AddAutoCcWhitelistResponse extends $tea.Model {
 export class AssociateWebCertRequest extends $tea.Model {
   cert?: string;
   certId?: number;
+  /**
+   * @remarks
+   * The globally unique ID of the certificate. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of the CertIdentifier parameter is 123-cn-hangzhou.
+   * 
+   * >  You can specify only one of this parameter and the CertId parameter.
+   * 
+   * @example
+   * 9430680-cn-hangzhou
+   */
   certIdentifier?: string;
   certName?: string;
+  /**
+   * @remarks
+   * The region of the certificate. Valid values: **cn-hangzhou** and **ap-southeast-1**. Default value: **cn-hangzhou**.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   certRegion?: string;
   /**
    * @remarks
@@ -262,7 +278,7 @@ export class AssociateWebCertRequest extends $tea.Model {
 export class AssociateWebCertResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40F11005-A75C-4644-95F2-52A4E7D43E91
@@ -2161,7 +2177,7 @@ export class CreateNetworkRulesRequest extends $tea.Model {
 export class CreateNetworkRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ADCA45A5-D15C-4B7D-9F81-138B0B36D0BD
@@ -2253,6 +2269,7 @@ export class CreatePortRequest extends $tea.Model {
    * ddoscoo-cn-st21zbyq****
    */
   instanceId?: string;
+  proxyEnable?: number;
   /**
    * @remarks
    * An array that consists of the IP addresses of origin servers.
@@ -2266,6 +2283,7 @@ export class CreatePortRequest extends $tea.Model {
       frontendPort: 'FrontendPort',
       frontendProtocol: 'FrontendProtocol',
       instanceId: 'InstanceId',
+      proxyEnable: 'ProxyEnable',
       realServers: 'RealServers',
     };
   }
@@ -2276,6 +2294,7 @@ export class CreatePortRequest extends $tea.Model {
       frontendPort: 'string',
       frontendProtocol: 'string',
       instanceId: 'string',
+      proxyEnable: 'number',
       realServers: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4068,7 +4087,7 @@ export class DeleteWebCCRuleRequest extends $tea.Model {
 export class DeleteWebCCRuleResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -5127,7 +5146,7 @@ export class DescribeAutoCcWhitelistResponse extends $tea.Model {
 export class DescribeBackSourceCidrRequest extends $tea.Model {
   /**
    * @remarks
-   * The IP version of the back-to-origin CIDR block.
+   * The IP version of the back-to-origin CIDR blocks.
    * 
    * *   **Ipv4**
    * *   **Ipv6**
@@ -9302,12 +9321,12 @@ export class DescribeInstanceDetailsRequest extends $tea.Model {
 export class DescribeInstanceDetailsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The IP address and ISP line information about the instance.
+   * The IP address and ISP line information about the Anti-DDoS Proxy instance.
    */
   instanceDetails?: DescribeInstanceDetailsResponseBodyInstanceDetails[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3C814429-21A5-4673-827E-FDD19DC75681
@@ -14897,7 +14916,7 @@ export class DescribeWebCCRulesRequest extends $tea.Model {
 export class DescribeWebCCRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EAED912D-909E-45F0-AF74-AC0CCDCAE314
@@ -14905,7 +14924,7 @@ export class DescribeWebCCRulesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned custom frequency control rules.
+   * The total number of custom frequency control rules.
    * 
    * @example
    * 1
@@ -14913,7 +14932,7 @@ export class DescribeWebCCRulesResponseBody extends $tea.Model {
   totalCount?: number;
   /**
    * @remarks
-   * An array that consists of the details of the custom frequency control rule.
+   * The custom frequency control rule.
    */
   webCCRules?: DescribeWebCCRulesResponseBodyWebCCRules[];
   static names(): { [key: string]: string } {
@@ -16200,7 +16219,7 @@ export class DisableWebCCRequest extends $tea.Model {
 export class DisableWebCCResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -16291,7 +16310,7 @@ export class DisableWebCCRuleRequest extends $tea.Model {
 export class DisableWebCCRuleResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -16897,7 +16916,7 @@ export class EnableWebCCRuleRequest extends $tea.Model {
 export class EnableWebCCRuleResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -18636,6 +18655,7 @@ export class ModifyPortRequest extends $tea.Model {
    * ddoscoo-cn-st21zbyq****
    */
   instanceId?: string;
+  proxyEnable?: number;
   /**
    * @remarks
    * An array that consists of the IP addresses of origin servers.
@@ -18649,6 +18669,7 @@ export class ModifyPortRequest extends $tea.Model {
       frontendPort: 'FrontendPort',
       frontendProtocol: 'FrontendProtocol',
       instanceId: 'InstanceId',
+      proxyEnable: 'ProxyEnable',
       realServers: 'RealServers',
     };
   }
@@ -18659,6 +18680,7 @@ export class ModifyPortRequest extends $tea.Model {
       frontendPort: 'string',
       frontendProtocol: 'string',
       instanceId: 'string',
+      proxyEnable: 'number',
       realServers: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -19434,7 +19456,7 @@ export class ModifyWebAIProtectModeRequest extends $tea.Model {
 export class ModifyWebAIProtectModeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -20795,7 +20817,7 @@ export class ModifyWebPreciseAccessSwitchRequest extends $tea.Model {
 export class ModifyWebPreciseAccessSwitchResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
@@ -23827,6 +23849,13 @@ export class DescribeHealthCheckStatusResponseBodyHealthCheckStatus extends $tea
 }
 
 export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a custom certificate is configured.
+   * 
+   * @example
+   * true
+   */
   certConfigured?: boolean;
   /**
    * @remarks
@@ -23836,6 +23865,13 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends 
    * 203.117.XX.XX
    */
   eip?: string;
+  /**
+   * @remarks
+   * The type of the instance.
+   * 
+   * @example
+   * default
+   */
   functionVersion?: string;
   /**
    * @remarks
@@ -23859,6 +23895,13 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends 
    * Ipv4
    */
   ipVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether the TLS 1.3 version is supported.
+   * 
+   * @example
+   * false
+   */
   ssl13Enabled?: boolean;
   /**
    * @remarks
@@ -23874,6 +23917,13 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends 
    * normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The Transport Layer Security (TLS) version that is configured.
+   * 
+   * @example
+   * tls1.2
+   */
   tlsVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23909,7 +23959,7 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends 
 export class DescribeInstanceDetailsResponseBodyInstanceDetails extends $tea.Model {
   /**
    * @remarks
-   * The information about the IP address of the instance.
+   * The IP address information about the Anti-DDoS Proxy instance.
    */
   eipInfos?: DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos[];
   /**
@@ -25421,6 +25471,7 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
    * true
    */
   isAutoCreate?: boolean;
+  payloadRuleEnable?: number;
   /**
    * @remarks
    * The forwarding protocol. Valid values:
@@ -25432,6 +25483,8 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
    * tcp
    */
   protocol?: string;
+  proxyEnable?: number;
+  proxyStatus?: string;
   /**
    * @remarks
    * The IP addresses of origin servers.
@@ -25451,7 +25504,10 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
       frontendPort: 'FrontendPort',
       instanceId: 'InstanceId',
       isAutoCreate: 'IsAutoCreate',
+      payloadRuleEnable: 'PayloadRuleEnable',
       protocol: 'Protocol',
+      proxyEnable: 'ProxyEnable',
+      proxyStatus: 'ProxyStatus',
       realServers: 'RealServers',
       remark: 'Remark',
     };
@@ -25463,7 +25519,10 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
       frontendPort: 'number',
       instanceId: 'string',
       isAutoCreate: 'boolean',
+      payloadRuleEnable: 'number',
       protocol: 'string',
+      proxyEnable: 'number',
+      proxyStatus: 'string',
       realServers: { 'type': 'array', 'itemType': 'string' },
       remark: 'string',
     };
@@ -27079,10 +27138,10 @@ export class DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigs extends $te
 export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
   /**
    * @remarks
-   * The blocking type. Valid values:
+   * The action triggered if the rule is matched. Valid values:
    * 
-   * *   **close**: blocks requests.
-   * *   **captcha**: enables Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification.
+   * *   **close**: The requests that match the rule are blocked.
+   * *   **captcha**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
    * 
    * @example
    * close
@@ -27090,7 +27149,7 @@ export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
   act?: string;
   /**
    * @remarks
-   * The number of requests that are allowed from an individual IP address. Valid values: **2** to **2000**.
+   * The number of requests that are allowed from a single IP address. Valid values: **2** to **2000**.
    * 
    * @example
    * 3
@@ -27098,7 +27157,7 @@ export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
   count?: number;
   /**
    * @remarks
-   * The check intervals. Valid values: **5** to **10800**. Unit: seconds.
+   * The check interval. Valid values: **5** to **10800**. Unit: seconds.
    * 
    * @example
    * 5
@@ -27108,8 +27167,8 @@ export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
    * @remarks
    * The match mode. Valid values:
    * 
-   * *   **prefix**: prefix match
-   * *   **match**: exact match
+   * *   **prefix**: prefix match.
+   * *   **match**: exact match.
    * 
    * @example
    * prefix
@@ -27125,7 +27184,7 @@ export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The blocking duration. Valid values: **1** to **1440**. Unit: minutes.
+   * The validity period. Valid values: **1** to **1440**. Unit: minutes.
    * 
    * @example
    * 60
@@ -29577,6 +29636,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.proxyEnable)) {
+      query["ProxyEnable"] = request.proxyEnable;
+    }
+
     if (!Util.isUnset(request.realServers)) {
       query["RealServers"] = request.realServers;
     }
@@ -30391,7 +30454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes custom frequency control rules of a website.
+   * Deletes a custom frequency control rule of a website.
    * 
    * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
    * 
@@ -30433,7 +30496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes custom frequency control rules of a website.
+   * Deletes a custom frequency control rule of a website.
    * 
    * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
    * 
@@ -30913,7 +30976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+   * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
    * 
    * @param request - DescribeBackSourceCidrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30952,7 +31015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+   * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
    * 
    * @param request - DescribeBackSourceCidrRequest
    * @returns DescribeBackSourceCidrResponse
@@ -35829,7 +35892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the Frequency Control policy for a website.
+   * Disables frequency control for a website.
    * 
    * @param request - DisableWebCCRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35864,7 +35927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the Frequency Control policy for a website.
+   * Disables frequency control for a website.
    * 
    * @param request - DisableWebCCRequest
    * @returns DisableWebCCResponse
@@ -35875,7 +35938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Turns off the Custom Rule switch of the Frequency Control policy for a website.
+   * Disables custom frequency control rules for a website.
    * 
    * @param request - DisableWebCCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35910,7 +35973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Turns off the Custom Rule switch of the Frequency Control policy for a website.
+   * Disables custom frequency control rules for a website.
    * 
    * @param request - DisableWebCCRuleRequest
    * @returns DisableWebCCRuleResponse
@@ -36181,7 +36244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Turns on the Custom Rule switch of the Frequency Control policy for a website.
+   * Enables custom frequency control rules for a website.
    * 
    * @param request - EnableWebCCRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36216,7 +36279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Turns on the Custom Rule switch of the Frequency Control policy for a website.
+   * Enables custom frequency control rules for a website.
    * 
    * @param request - EnableWebCCRuleRequest
    * @returns EnableWebCCRuleResponse
@@ -37057,6 +37120,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.proxyEnable)) {
+      query["ProxyEnable"] = request.proxyEnable;
+    }
+
     if (!Util.isUnset(request.realServers)) {
       query["RealServers"] = request.realServers;
     }
@@ -37355,7 +37422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the mode of the Intelligent Protection policy for a website.
+   * Changes the mode of the intelligent protection feature for a website.
    * 
    * @param request - ModifyWebAIProtectModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37394,7 +37461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the mode of the Intelligent Protection policy for a website.
+   * Changes the mode of the intelligent protection feature for a website.
    * 
    * @param request - ModifyWebAIProtectModeRequest
    * @returns ModifyWebAIProtectModeResponse
@@ -38001,7 +38068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the Accurate Access Control policy for a website.
+   * Enables or disables accurate access control for a website.
    * 
    * @param request - ModifyWebPreciseAccessSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38040,7 +38107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the Accurate Access Control policy for a website.
+   * Enables or disables accurate access control for a website.
    * 
    * @param request - ModifyWebPreciseAccessSwitchRequest
    * @returns ModifyWebPreciseAccessSwitchResponse
