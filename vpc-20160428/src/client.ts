@@ -56518,6 +56518,7 @@ export class ModifyRouteEntryRequest extends $tea.Model {
    * EntryDescription
    */
   description?: string;
+  destinationCidrBlock?: string;
   /**
    * @remarks
    * The ID of the new next hop instance.
@@ -56554,8 +56555,6 @@ export class ModifyRouteEntryRequest extends $tea.Model {
    * @remarks
    * The ID of the custom route entry.
    * 
-   * This parameter is required.
-   * 
    * @example
    * rte-acfvgfsghfdd****
    */
@@ -56570,9 +56569,11 @@ export class ModifyRouteEntryRequest extends $tea.Model {
    * EntryName
    */
   routeEntryName?: string;
+  routeTableId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
       newNextHopId: 'NewNextHopId',
       newNextHopType: 'NewNextHopType',
       ownerAccount: 'OwnerAccount',
@@ -56582,12 +56583,14 @@ export class ModifyRouteEntryRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       routeEntryId: 'RouteEntryId',
       routeEntryName: 'RouteEntryName',
+      routeTableId: 'RouteTableId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      destinationCidrBlock: 'string',
       newNextHopId: 'string',
       newNextHopType: 'string',
       ownerAccount: 'string',
@@ -56597,6 +56600,7 @@ export class ModifyRouteEntryRequest extends $tea.Model {
       resourceOwnerId: 'number',
       routeEntryId: 'string',
       routeEntryName: 'string',
+      routeTableId: 'string',
     };
   }
 
@@ -126130,6 +126134,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
     if (!Util.isUnset(request.newNextHopId)) {
       query["NewNextHopId"] = request.newNextHopId;
     }
@@ -126164,6 +126172,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.routeEntryName)) {
       query["RouteEntryName"] = request.routeEntryName;
+    }
+
+    if (!Util.isUnset(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
