@@ -9,6 +9,9 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AppFailBackRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 61ZW1DY5Y3FSAOO2
    */
@@ -32,21 +35,33 @@ export class AppFailBackRequest extends $tea.Model {
 
 export class AppFailBackResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The disaster recovery switchback task ID.
+   * 
    * @example
    * 3309
    */
   data?: number;
   /**
+   * @remarks
+   * The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * OKITHEVRQCN6ULQG
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7036DDBE-0ABA-52D7-A39D-75E511970F07
    */
@@ -101,11 +116,17 @@ export class AppFailBackResponse extends $tea.Model {
 
 export class AppFailOverRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * BE68D71ZY5YYIU9R
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The destination zone to which you want to switch the disaster recovery application.
+   * 
    * @example
    * cn-hangzhou-g
    */
@@ -131,17 +152,30 @@ export class AppFailOverRequest extends $tea.Model {
 
 export class AppFailOverResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The disaster recovery switchover task ID.
+   * 
    * @example
    * 7441
    */
   data?: number;
+  /**
+   * @remarks
+   * The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9656C816-1E9A-58D2-86D5-710678D61AF1
    */
@@ -395,7 +429,7 @@ export class CreateApplicationRequest extends $tea.Model {
    * @example
    * {"variable1":"1"}
    */
-  variables?: { [key: string]: string };
+  variables?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       areaId: 'AreaId',
@@ -418,7 +452,7 @@ export class CreateApplicationRequest extends $tea.Model {
       name: 'string',
       resourceGroupId: 'string',
       templateId: 'string',
-      variables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      variables: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1442,6 +1476,97 @@ export class GetApplicationResponse extends $tea.Model {
   }
 }
 
+export class GetApplicationVariables4FailRequest extends $tea.Model {
+  /**
+   * @example
+   * Q2P4O9YSOKCT35L9
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationVariables4FailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetApplicationVariables4FailResponseBodyData[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BFB7F5C8-FE7A-06CA-9F87-ABBF6B848F0C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetApplicationVariables4FailResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationVariables4FailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApplicationVariables4FailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApplicationVariables4FailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetExecuteOperationResultRequest extends $tea.Model {
   /**
    * @remarks
@@ -1560,6 +1685,9 @@ export class GetExecuteOperationResultResponse extends $tea.Model {
 
 export class GetFoTaskStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * The disaster recovery switchover task ID.
+   * 
    * @example
    * 2615
    */
@@ -1583,21 +1711,33 @@ export class GetFoTaskStatusRequest extends $tea.Model {
 
 export class GetFoTaskStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The status of the switchover task.
+   * 
    * @example
    * Running
    */
   data?: string;
   /**
+   * @remarks
+   * The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * OKITHEVRQCN6ULQG
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 923692F0-A15B-58B4-BAF4-2AFA4AF46240
    */
@@ -1652,11 +1792,17 @@ export class GetFoTaskStatusResponse extends $tea.Model {
 
 export class GetPotentialFailZonesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether the value of this parameter is the ID of a disaster recovery set.
+   * 
    * @example
    * true
    */
   isPlanId?: boolean;
   /**
+   * @remarks
+   * If you set IsPlanId to false, specify the ID of a disaster recovery application. If you set IsPlanId to true, specify the ID of a disaster recovery set.
+   * 
    * @example
    * FS3ATPTOSC4SE1GG
    */
@@ -1682,17 +1828,30 @@ export class GetPotentialFailZonesRequest extends $tea.Model {
 
 export class GetPotentialFailZonesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The zones where the current disaster recovery service can be switched.
+   */
   data?: string[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The specified ResourceIds are not found in our records.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BFB7F5C8-FE7A-06CA-9F87-ABBF6B848F0C
    */
@@ -1977,6 +2136,9 @@ export class GetTokenResponse extends $tea.Model {
 
 export class InitAppFailOverRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 002XWH7MXB8MJRU0
    */
@@ -2000,21 +2162,33 @@ export class InitAppFailOverRequest extends $tea.Model {
 
 export class InitAppFailOverResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The switchover task ID.
+   * 
    * @example
    * 7250
    */
   data?: number;
   /**
+   * @remarks
+   * The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * Unsupported Operation PrepareEvent->FailOverPrepareSuccess FoApp_DDLJK2WM8ETU9JAC
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A07FFDF2-78FA-1B48-9E38-88E833A93187
    */
@@ -2270,19 +2444,29 @@ export class ListApplicationResponse extends $tea.Model {
 
 export class ListFoCreatedAppsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The information about disaster recovery plans.
+   */
   data?: ListFoCreatedAppsResponseBodyData[];
   /**
+   * @remarks
+   * The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * Cannot find region according to your domain.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 40F63F07-3AB6-53B3-8825-0580C130E3EA
@@ -2688,6 +2872,101 @@ export class ListTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReConfigApplicationRequest extends $tea.Model {
+  /**
+   * @example
+   * Q2P4O9YSOKCT35L9
+   */
+  appId?: string;
+  /**
+   * @example
+   * {"${instance_type}":"ecs.c6.3xlarge"}
+   */
+  variables?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      variables: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReConfigApplicationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9656C816-1E9A-58D2-86D5-710678D61AF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReConfigApplicationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReConfigApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReConfigApplicationResponseBody,
     };
   }
 
@@ -3822,6 +4101,64 @@ export class GetApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetApplicationVariables4FailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * instance_name
+   */
+  attribute?: string;
+  /**
+   * @example
+   * cadt-app-01
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * ${name}
+   */
+  placeHolder?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  /**
+   * @example
+   * cadt-app-01
+   */
+  value?: string;
+  /**
+   * @example
+   * ${name}
+   */
+  variable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      defaultValue: 'DefaultValue',
+      placeHolder: 'PlaceHolder',
+      region: 'Region',
+      value: 'Value',
+      variable: 'Variable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      defaultValue: 'string',
+      placeHolder: 'string',
+      region: 'string',
+      value: 'string',
+      variable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetExecuteOperationResultResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -4170,18 +4507,35 @@ export class ListApplicationResponseBodyData extends $tea.Model {
 }
 
 export class ListFoCreatedAppsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * 应用ID
+   * 
+   * @example
+   * JIX9NEZUALGS46UI
+   */
   applicationId?: string;
   /**
+   * @remarks
+   * The URL of an error report.
+   * 
    * @example
    * https://api.aliyun.com/troubleshoot?q=ServiceUnavailable&product=BPStudio&requestId=4CDA03A3-C652-1408-8ABD-7E652A7CBFB6
    */
   reportUrl?: string;
   /**
+   * @remarks
+   * The status of the disaster recovery plan.
+   * 
    * @example
    * Deployed_Success
    * Destroyed_Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The title.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4679,7 +5033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 容灾应用切回
+   * Switches a disaster recovery application back to the primary zone.
+   * 
+   * @remarks
+   * You can call this operation to switch a disaster recovery application back to the primary zone.
    * 
    * @param request - AppFailBackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4710,7 +5067,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 容灾应用切回
+   * Switches a disaster recovery application back to the primary zone.
+   * 
+   * @remarks
+   * You can call this operation to switch a disaster recovery application back to the primary zone.
    * 
    * @param request - AppFailBackRequest
    * @returns AppFailBackResponse
@@ -4721,7 +5081,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 容灾应用切换
+   * Switches a disaster recovery application to another supported zone.
+   * 
+   * @remarks
+   * You can call this operation to switch a disaster recovery application to another supported zone.
    * 
    * @param request - AppFailOverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4756,7 +5119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 容灾应用切换
+   * Switches a disaster recovery application to another supported zone.
+   * 
+   * @remarks
+   * You can call this operation to switch a disaster recovery application to another supported zone.
    * 
    * @param request - AppFailOverRequest
    * @returns AppFailOverResponse
@@ -5187,6 +5553,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取需要重新配置的变量列表
+   * 
+   * @param request - GetApplicationVariables4FailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationVariables4FailResponse
+   */
+  async getApplicationVariables4FailWithOptions(request: GetApplicationVariables4FailRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationVariables4FailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApplicationVariables4Fail",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationVariables4FailResponse>(await this.callApi(params, req, runtime), new GetApplicationVariables4FailResponse({}));
+  }
+
+  /**
+   * 获取需要重新配置的变量列表
+   * 
+   * @param request - GetApplicationVariables4FailRequest
+   * @returns GetApplicationVariables4FailResponse
+   */
+  async getApplicationVariables4Fail(request: GetApplicationVariables4FailRequest): Promise<GetApplicationVariables4FailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getApplicationVariables4FailWithOptions(request, runtime);
+  }
+
+  /**
    * Asynchronously queries the result of an operation that is performed on a service instance.
    * 
    * @param request - GetExecuteOperationResultRequest
@@ -5233,7 +5641,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取容灾切换任务状态
+   * Queries the status of a disaster recovery switchover task by task ID.
+   * 
+   * @remarks
+   * You can call this operation to query the status of a disaster recovery switchover task by task ID.
    * 
    * @param request - GetFoTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5264,7 +5675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取容灾切换任务状态
+   * Queries the status of a disaster recovery switchover task by task ID.
+   * 
+   * @remarks
+   * You can call this operation to query the status of a disaster recovery switchover task by task ID.
    * 
    * @param request - GetFoTaskStatusRequest
    * @returns GetFoTaskStatusResponse
@@ -5275,7 +5689,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取容灾服务可切换的可用区列表
+   * Queries the zones where the specified disaster recovery service can be switched.
+   * 
+   * @remarks
+   * You can call this operation to query the zones where the specified disaster recovery service can be switched.
    * 
    * @param request - GetPotentialFailZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5310,7 +5727,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取容灾服务可切换的可用区列表
+   * Queries the zones where the specified disaster recovery service can be switched.
+   * 
+   * @remarks
+   * You can call this operation to query the zones where the specified disaster recovery service can be switched.
    * 
    * @param request - GetPotentialFailZonesRequest
    * @returns GetPotentialFailZonesResponse
@@ -5425,7 +5845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 准备应用切换
+   * Prepares for application switchover and initiates a switchover task.
+   * 
+   * @remarks
+   * You can call this operation to prepare for application switchover and initiate a switchover task.
    * 
    * @param request - InitAppFailOverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5456,7 +5879,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 准备应用切换
+   * Prepares for application switchover and initiates a switchover task.
+   * 
+   * @remarks
+   * You can call this operation to prepare for application switchover and initiate a switchover task.
    * 
    * @param request - InitAppFailOverRequest
    * @returns InitAppFailOverResponse
@@ -5537,7 +5963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已经创建的APP
+   * Queries disaster recovery plans.
+   * 
+   * @remarks
+   * You can call this operation to query all disaster recovery plans.
    * 
    * @param request - ListFoCreatedAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5560,7 +5989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已经创建的APP
+   * Queries disaster recovery plans.
+   * 
+   * @remarks
+   * You can call this operation to query all disaster recovery plans.
    * @returns ListFoCreatedAppsResponse
    */
   async listFoCreatedApps(): Promise<ListFoCreatedAppsResponse> {
@@ -5699,6 +6131,52 @@ export default class Client extends OpenApi {
   async listTemplate(request: ListTemplateRequest): Promise<ListTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 重新配置应用
+   * 
+   * @param request - ReConfigApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReConfigApplicationResponse
+   */
+  async reConfigApplicationWithOptions(request: ReConfigApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ReConfigApplicationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.variables)) {
+      body["Variables"] = request.variables;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReConfigApplication",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReConfigApplicationResponse>(await this.callApi(params, req, runtime), new ReConfigApplicationResponse({}));
+  }
+
+  /**
+   * 重新配置应用
+   * 
+   * @param request - ReConfigApplicationRequest
+   * @returns ReConfigApplicationResponse
+   */
+  async reConfigApplication(request: ReConfigApplicationRequest): Promise<ReConfigApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reConfigApplicationWithOptions(request, runtime);
   }
 
   /**
