@@ -3855,11 +3855,13 @@ export class FaceCompareResponseBodyResult extends $tea.Model {
 }
 
 export class FaceLivenessResponseBodyResultExtFaceInfo extends $tea.Model {
+  faceAge?: number;
   /**
    * @example
    * Y
    */
   faceAttack?: string;
+  faceGender?: string;
   /**
    * @example
    * 87.19
@@ -3872,7 +3874,9 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $tea.Model {
   occlusionResult?: string;
   static names(): { [key: string]: string } {
     return {
+      faceAge: 'FaceAge',
       faceAttack: 'FaceAttack',
+      faceGender: 'FaceGender',
       faceQualityScore: 'FaceQualityScore',
       occlusionResult: 'OcclusionResult',
     };
@@ -3880,7 +3884,9 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      faceAge: 'number',
       faceAttack: 'string',
+      faceGender: 'string',
       faceQualityScore: 'number',
       occlusionResult: 'string',
     };
