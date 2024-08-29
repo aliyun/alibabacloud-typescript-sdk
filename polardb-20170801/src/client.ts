@@ -3048,6 +3048,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $tea.Model {
    * pc-bp1q76364ird*****
    */
   DBClusterId?: string;
+  enableGlobalDomainName?: boolean;
   /**
    * @remarks
    * The description of the GDN. The description must meet the following requirements:
@@ -3077,6 +3078,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      enableGlobalDomainName: 'EnableGlobalDomainName',
       GDNDescription: 'GDNDescription',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -3090,6 +3092,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      enableGlobalDomainName: 'boolean',
       GDNDescription: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11438,6 +11441,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
    * active
    */
   GDNStatus?: string;
+  globalDomainName?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -11465,6 +11469,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
       GDNDescription: 'GDNDescription',
       GDNId: 'GDNId',
       GDNStatus: 'GDNStatus',
+      globalDomainName: 'GlobalDomainName',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -11481,6 +11486,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $tea.Model {
       GDNDescription: 'string',
       GDNId: 'string',
       GDNStatus: 'string',
+      globalDomainName: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
     };
@@ -19599,6 +19605,7 @@ export class ModifyDBNodeClassRequest extends $tea.Model {
    * 2021-01-14T09:30:00Z
    */
   plannedEndTime?: string;
+  plannedFlashingOffTime?: string;
   /**
    * @remarks
    * The earliest start time to upgrade the specifications within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
@@ -19634,6 +19641,7 @@ export class ModifyDBNodeClassRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       plannedEndTime: 'PlannedEndTime',
+      plannedFlashingOffTime: 'PlannedFlashingOffTime',
       plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -19651,6 +19659,7 @@ export class ModifyDBNodeClassRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       plannedEndTime: 'string',
+      plannedFlashingOffTime: 'string',
       plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -19928,6 +19937,7 @@ export class ModifyDBNodesClassRequest extends $tea.Model {
    * 2021-01-14T09:30:00Z
    */
   plannedEndTime?: string;
+  plannedFlashingOffTime?: string;
   /**
    * @remarks
    * The earliest start time to upgrade the specifications within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
@@ -19962,6 +19972,7 @@ export class ModifyDBNodesClassRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       plannedEndTime: 'PlannedEndTime',
+      plannedFlashingOffTime: 'PlannedFlashingOffTime',
       plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -19978,6 +19989,7 @@ export class ModifyDBNodesClassRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       plannedEndTime: 'string',
+      plannedFlashingOffTime: 'string',
       plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -20215,6 +20227,7 @@ export class ModifyDBNodesParametersResponse extends $tea.Model {
 }
 
 export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
+  enableGlobalDomainName?: boolean;
   /**
    * @remarks
    * The description of the GDN. The description must meet the following requirements:
@@ -20223,8 +20236,6 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
    * *   It must start with a letter.
    * *   It can contain letters, digits, underscores (_), and hyphens (-).
    * *   It must be 2 to 126 characters in length.
-   * 
-   * This parameter is required.
    * 
    * @example
    * GDN-fortest
@@ -20255,6 +20266,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      enableGlobalDomainName: 'EnableGlobalDomainName',
       GDNDescription: 'GDNDescription',
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
@@ -20268,6 +20280,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableGlobalDomainName: 'boolean',
       GDNDescription: 'string',
       GDNId: 'string',
       ownerAccount: 'string',
@@ -28172,6 +28185,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClustersDBNodes extends 
 }
 
 export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Model {
+  category?: string;
   /**
    * @remarks
    * The description of the cluster.
@@ -28308,6 +28322,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Mo
   storageUsed?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
       DBClusterStatus: 'DBClusterStatus',
@@ -28328,6 +28343,7 @@ export class DescribeGlobalDatabaseNetworkResponseBodyDBClusters extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
       DBClusterStatus: 'string',
@@ -29475,6 +29491,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $tea.Model 
    * 2021-01-28T12:30Z
    */
   plannedEndTime?: string;
+  plannedFlashingOffTime?: string;
   /**
    * @remarks
    * The earliest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
@@ -29534,6 +29551,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $tea.Model 
       dbClusterStatus: 'DbClusterStatus',
       orderId: 'OrderId',
       plannedEndTime: 'PlannedEndTime',
+      plannedFlashingOffTime: 'PlannedFlashingOffTime',
       plannedStartTime: 'PlannedStartTime',
       plannedTime: 'PlannedTime',
       region: 'Region',
@@ -29551,6 +29569,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $tea.Model 
       dbClusterStatus: 'string',
       orderId: 'string',
       plannedEndTime: 'string',
+      plannedFlashingOffTime: 'string',
       plannedStartTime: 'string',
       plannedTime: 'string',
       region: 'string',
@@ -32142,6 +32161,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.enableGlobalDomainName)) {
+      query["EnableGlobalDomainName"] = request.enableGlobalDomainName;
     }
 
     if (!Util.isUnset(request.GDNDescription)) {
@@ -39563,6 +39586,10 @@ export default class Client extends OpenApi {
       query["PlannedEndTime"] = request.plannedEndTime;
     }
 
+    if (!Util.isUnset(request.plannedFlashingOffTime)) {
+      query["PlannedFlashingOffTime"] = request.plannedFlashingOffTime;
+    }
+
     if (!Util.isUnset(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
     }
@@ -39711,6 +39738,10 @@ export default class Client extends OpenApi {
       query["PlannedEndTime"] = request.plannedEndTime;
     }
 
+    if (!Util.isUnset(request.plannedFlashingOffTime)) {
+      query["PlannedFlashingOffTime"] = request.plannedFlashingOffTime;
+    }
+
     if (!Util.isUnset(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
     }
@@ -39847,6 +39878,10 @@ export default class Client extends OpenApi {
   async modifyGlobalDatabaseNetworkWithOptions(request: ModifyGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.enableGlobalDomainName)) {
+      query["EnableGlobalDomainName"] = request.enableGlobalDomainName;
+    }
+
     if (!Util.isUnset(request.GDNDescription)) {
       query["GDNDescription"] = request.GDNDescription;
     }
