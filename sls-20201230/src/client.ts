@@ -3342,6 +3342,7 @@ export class Logstore extends $tea.Model {
    * standard
    */
   mode?: string;
+  processorId?: string;
   productType?: string;
   /**
    * @remarks
@@ -3373,6 +3374,7 @@ export class Logstore extends $tea.Model {
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
+      processorId: 'processorId',
       productType: 'productType',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
@@ -3393,6 +3395,7 @@ export class Logstore extends $tea.Model {
       logstoreName: 'string',
       maxSplitShard: 'number',
       mode: 'string',
+      processorId: 'string',
       productType: 'string',
       shardCount: 'number',
       telemetryType: 'string',
@@ -4093,22 +4096,43 @@ export class ConsumerGroupUpdateCheckPointResponse extends $tea.Model {
 export class CreateAlertRequest extends $tea.Model {
   /**
    * @remarks
+   * The detailed configurations of the alert rule.
+   * 
    * This parameter is required.
    */
   configuration?: AlertConfiguration;
+  /**
+   * @remarks
+   * The description of the alert rule.
+   * 
+   * @example
+   * An alert rule
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the alert rule.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-alert
    */
   displayName?: string;
   /**
    * @remarks
+   * The name of the alert rule. Make sure that the name is unique in a project.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * alert-123456
    */
   name?: string;
   /**
    * @remarks
+   * The scheduling configurations of the alert rule.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;
@@ -4732,7 +4756,7 @@ export class CreateIndexResponse extends $tea.Model {
 export class CreateLogStoreRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to record public IP addresses. Default value: false. Valid values:
+   * Specifies whether to record public IP addresses. Default value: false.
    * 
    * *   true
    * *   false
@@ -4743,7 +4767,7 @@ export class CreateLogStoreRequest extends $tea.Model {
   appendMeta?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic sharding. Valid values:
+   * Specifies whether to enable automatic sharding.
    * 
    * *   true
    * *   false
@@ -4754,7 +4778,7 @@ export class CreateLogStoreRequest extends $tea.Model {
   autoSplit?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the web tracking feature. Default value: false. Valid values:
+   * Specifies whether to enable the web tracking feature. Default value: false.
    * 
    * *   true
    * *   false
@@ -4765,19 +4789,26 @@ export class CreateLogStoreRequest extends $tea.Model {
   enableTracking?: boolean;
   /**
    * @remarks
-   * The data structure of the encryption configuration.
+   * The data structure of the encryption configuration. The following parameters are included: `enable`, `encrypt_type`, and `user_cmk_info`. For more information, see [EncryptConf](https://help.aliyun.com/document_detail/409461.html).
    */
   encryptConf?: EncryptConf;
   /**
    * @remarks
-   * The retention period of data in the hot storage tier of the Logstore. Unit: days. You can specify a value that ranges from 30 to the value of ttl.
+   * The retention period of data in the hot storage tier of the Logstore. Valid values: 7 to 3000. Unit: days.
    * 
-   * Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
+   * After the retention period that is specified for the hot storage tier elapses, the data is moved to the Infrequent Access (IA) storage tier. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
    * 
    * @example
    * 60
    */
   hotTtl?: number;
+  /**
+   * @remarks
+   * The retention period of data in the IA storage tier of the Logstore. You must set this parameter to at least 30 days. After the data retention period that you specify for the IA storage tier elapses, the data is moved to the Archive storage tier.
+   * 
+   * @example
+   * 30
+   */
   infrequentAccessTTL?: number;
   /**
    * @remarks
@@ -4796,9 +4827,9 @@ export class CreateLogStoreRequest extends $tea.Model {
   logstoreName?: string;
   /**
    * @remarks
-   * The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 64.
+   * The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 256.
    * 
-   * > If you set autoSplit to true, you must configure this parameter.
+   * >  If you set autoSplit to true, you must specify maxSplitShard.
    * 
    * @example
    * 64
@@ -4806,20 +4837,21 @@ export class CreateLogStoreRequest extends $tea.Model {
   maxSplitShard?: number;
   /**
    * @remarks
-   * The type of the Logstore. Log Service provides the following types of Logstores: Standard Logstores and Query Logstores. Valid values:
+   * The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores. Valid values:
    * 
    * *   **standard**: Standard Logstore. This type of Logstore supports the log analysis feature and is suitable for scenarios such as real-time monitoring and interactive analysis. You can also use this type of Logstore to build a comprehensive observability system.
-   * *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the log retention period is long, or log analysis is not required. Log retention periods of weeks or months are considered long.
+   * *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the log retention period is long, or log analysis is not required. If logs are stored for weeks or months, the log retention period is considered long.
    * 
    * @example
    * standard
    */
   mode?: string;
+  processorId?: string;
   /**
    * @remarks
    * The number of shards.
    * 
-   * > You cannot call the CreateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
+   * >  You cannot call the CreateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
    * 
    * This parameter is required.
    * 
@@ -4831,8 +4863,8 @@ export class CreateLogStoreRequest extends $tea.Model {
    * @remarks
    * The type of the observable data. Valid values:
    * 
-   * *   None: logs
-   * *   Metrics: metrics
+   * *   **None** (default): log data
+   * *   **Metrics**: metric data
    * 
    * @example
    * None
@@ -4840,7 +4872,7 @@ export class CreateLogStoreRequest extends $tea.Model {
   telemetryType?: string;
   /**
    * @remarks
-   * The retention period of data. Unit: days. Valid values: 1 to 3000. If you set this parameter to 3650, data is permanently stored.
+   * The retention period of data. Unit: days. Valid values: 1 to 3000. If you set this parameter to 3650, logs are permanently stored.
    * 
    * This parameter is required.
    * 
@@ -4859,6 +4891,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
+      processorId: 'processorId',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
@@ -4876,6 +4909,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       logstoreName: 'string',
       maxSplitShard: 'number',
       mode: 'string',
+      processorId: 'string',
       shardCount: 'number',
       telemetryType: 'string',
       ttl: 'number',
@@ -5166,15 +5200,107 @@ export class CreateMachineGroupResponse extends $tea.Model {
   }
 }
 
-export class CreateOSSExportRequest extends $tea.Model {
+export class CreateMetricStoreRequest extends $tea.Model {
+  autoSplit?: boolean;
+  /**
+   * @example
+   * 64
+   */
+  maxSplitShard?: number;
+  metricType?: string;
+  mode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * my_metric_store
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  shardCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoSplit: 'autoSplit',
+      maxSplitShard: 'maxSplitShard',
+      metricType: 'metricType',
+      mode: 'mode',
+      name: 'name',
+      shardCount: 'shardCount',
+      ttl: 'ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSplit: 'boolean',
+      maxSplitShard: 'number',
+      metricType: 'string',
+      mode: 'string',
+      name: 'string',
+      shardCount: 'number',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMetricStoreResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOSSExportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration details of the job.
+   * 
+   * This parameter is required.
    */
   configuration?: OSSExportConfiguration;
+  /**
+   * @remarks
+   * The description of the job.
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5183,6 +5309,8 @@ export class CreateOSSExportRequest extends $tea.Model {
   displayName?: string;
   /**
    * @remarks
+   * The unique identifier of the OSS data shipping job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5237,12 +5365,20 @@ export class CreateOSSExportResponse extends $tea.Model {
 export class CreateOSSHDFSExportRequest extends $tea.Model {
   /**
    * @remarks
+   * The configuration details of the job.
+   * 
    * This parameter is required.
    */
   configuration?: OSSExportConfiguration;
+  /**
+   * @remarks
+   * The description of the job.
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5251,6 +5387,8 @@ export class CreateOSSHDFSExportRequest extends $tea.Model {
   displayName?: string;
   /**
    * @remarks
+   * The unique identifier of the OSS data shipping job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5383,7 +5521,7 @@ export class CreateOssExternalStoreRequest extends $tea.Model {
   externalStoreName?: string;
   /**
    * @remarks
-   * The parameters that are configured for the external store.
+   * The parameters of the external store.
    * 
    * This parameter is required.
    */
@@ -5773,6 +5911,8 @@ export class CreateScheduledSQLResponse extends $tea.Model {
 export class CreateSqlInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The number of compute units (CUs). When you use the Dedicated SQL feature, CUs are used in parallel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5781,6 +5921,8 @@ export class CreateSqlInstanceRequest extends $tea.Model {
   cu?: number;
   /**
    * @remarks
+   * Specifies whether to enable the Dedicated SQL feature for the project. If you set this parameter to true, the Dedicated SQL feature is enabled for the specified project and takes effect for all query statements that you execute in the project, including the query statements for alerts and dashboards.
+   * 
    * This parameter is required.
    */
   useAsDefault?: boolean;
@@ -5828,6 +5970,12 @@ export class CreateSqlInstanceResponse extends $tea.Model {
 export class CreateStoreViewRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the dataset.
+   * 
+   * *   The name can contain lowercase letters, digits, and underscores (_).
+   * *   The name must start with a lowercase letter.
+   * *   The name must be 3 to 62 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5836,6 +5984,8 @@ export class CreateStoreViewRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The type of the dataset. Valid values: metricstore and logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5844,6 +5994,8 @@ export class CreateStoreViewRequest extends $tea.Model {
   storeType?: string;
   /**
    * @remarks
+   * The Logstores or Metricstores.
+   * 
    * This parameter is required.
    */
   stores?: StoreViewStore[];
@@ -6343,6 +6495,28 @@ export class DeleteLogtailPipelineConfigResponse extends $tea.Model {
 }
 
 export class DeleteMachineGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetricStoreResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -7003,7 +7177,7 @@ export class GetConfigResponse extends $tea.Model {
 export class GetContextLogsRequest extends $tea.Model {
   /**
    * @remarks
-   * The number of logs that you want to obtain and are generated before the generation time of the start log. Valid values: (0,100].
+   * The number of logs that you want to obtain and are generated before the generation time of the start log. Valid values: `(0,100]`.
    * 
    * This parameter is required.
    * 
@@ -7013,7 +7187,7 @@ export class GetContextLogsRequest extends $tea.Model {
   backLines?: number;
   /**
    * @remarks
-   * The number of logs that you want to obtain and are generated after the generation time of the start log. Valid values: (0,100].
+   * The number of logs that you want to obtain and are generated after the generation time of the start log. Valid values: `(0,100]`.
    * 
    * This parameter is required.
    * 
@@ -7746,6 +7920,9 @@ export class GetLogStoreResponse extends $tea.Model {
 
 export class GetLogStoreMeteringModeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The billing mode. Default value: ChargeByFunction. Valid values: ChargeByFunction and ChargeByDataIngest.
+   * 
    * @example
    * ChargeByFunction
    */
@@ -8011,7 +8188,7 @@ export class GetLogsV2Headers extends $tea.Model {
 export class GetLogsV2Request extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to page forward or backward for the scan-based query or the phrase search.
+   * Specifies whether to page forward or backward for the scan-based query or phrase search.
    * 
    * @example
    * false
@@ -8021,7 +8198,7 @@ export class GetLogsV2Request extends $tea.Model {
    * @remarks
    * The beginning of the time range to query. The value is the log time that is specified when log data is written.
    * 
-   * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned. The value is a timestamp that follows the UNIX time format. It is the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * This parameter is required.
    * 
@@ -8029,10 +8206,17 @@ export class GetLogsV2Request extends $tea.Model {
    * 1627268185
    */
   from?: number;
+  /**
+   * @remarks
+   * Specifies whether to highlight the returned result.
+   * 
+   * @example
+   * false
+   */
   highlight?: boolean;
   /**
    * @remarks
-   * The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Minimum value: 0. Maximum value: 100. Default value: 100.
+   * The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Valid values: 0 to 100. Default value: 100.
    * 
    * @example
    * 100
@@ -8056,11 +8240,11 @@ export class GetLogsV2Request extends $tea.Model {
   powerSql?: boolean;
   /**
    * @remarks
-   * The search statement or the query statement. For more information, see the "Log search overview" and "Log analysis overview" topics.
+   * The search statement or query statement. For more information, see the "Log search overview" and "Log analysis overview" topics.
    * 
-   * If you add set session parallel_sql=true; to the analytic statement in the query parameter, Dedicated SQL is used. For example, you can set the query parameter to \\* | set session parallel_sql=true; select count(\\*) as pv.
+   * If you add set session parallel_sql=true; to the analytic statement in the query parameter, Dedicated SQL is used. Example: \\* | set session parallel_sql=true; select count(\\*) as pv.
    * 
-   * Note: If you specify an analytic statement in the query parameter, the line and offset parameters do not take effect in this operation. In this case, we recommend that you set the line and offset parameters to 0 and use the LIMIT clause to limit the number of logs to return on each page. For more information, see the "Perform paged queries" topic.
+   * Note: If you specify an analytic statement in the query parameter, the line and offset parameters do not take effect in this operation. In this case, we recommend that you set the line and offset parameters to 0 and use the LIMIT clause to specify the number of logs to return on each page. For more information, see the "Perform paged queries" topic.
    * 
    * @example
    * status: 401 | SELECT remote_addr,COUNT(*) as pv GROUP by remote_addr ORDER by pv desc limit 5
@@ -8068,7 +8252,7 @@ export class GetLogsV2Request extends $tea.Model {
   query?: string;
   /**
    * @remarks
-   * Specifies whether to return logs in reverse chronological order of log timestamps. The log timestamps are accurate to the minute. Valid values:
+   * Specifies whether to return logs in reverse chronological order of log timestamps. The log timestamps are accurate to minutes. Valid values:
    * 
    * true: Logs are returned in reverse chronological order of log timestamps. false (default): Logs are returned in chronological order of log timestamps. Note: The reverse parameter takes effect only when the query parameter is set to a search statement. The reverse parameter specifies the method used to sort returned logs. If the query parameter is set to a query statement, the reverse parameter does not take effect. The method used to sort returned logs is specified by the ORDER BY clause in the analytic statement. If you use the keyword asc in the ORDER BY clause, the logs are sorted in chronological order. If you use the keyword desc in the ORDER BY clause, the logs are sorted in reverse chronological order. By default, asc is used in the ORDER BY clause.
    * 
@@ -8088,7 +8272,7 @@ export class GetLogsV2Request extends $tea.Model {
    * @remarks
    * The end of the time range to query. The value is the log time that is specified when log data is written.
    * 
-   * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned. The value is a timestamp that follows the UNIX time format. It is the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * This parameter is required.
    * 
@@ -8149,7 +8333,7 @@ export class GetLogsV2ResponseBody extends $tea.Model {
   data?: { [key: string]: string }[];
   /**
    * @remarks
-   * The metadata that is returned.
+   * The metadata of the returned data.
    */
   meta?: GetLogsV2ResponseBodyMeta;
   static names(): { [key: string]: string } {
@@ -8322,8 +8506,111 @@ export class GetMachineGroupResponse extends $tea.Model {
   }
 }
 
+export class GetMetricStoreResponseBody extends $tea.Model {
+  autoSplit?: boolean;
+  /**
+   * @example
+   * 1698933894
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1712023974
+   */
+  lastModifyTime?: number;
+  /**
+   * @example
+   * 64
+   */
+  maxSplitShard?: number;
+  /**
+   * @example
+   * prometheus
+   */
+  metricType?: string;
+  /**
+   * @example
+   * standard
+   */
+  mode?: string;
+  /**
+   * @example
+   * my_metric_store
+   */
+  name?: string;
+  /**
+   * @example
+   * 2
+   */
+  shardCount?: number;
+  /**
+   * @example
+   * 7
+   */
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoSplit: 'autoSplit',
+      createTime: 'createTime',
+      lastModifyTime: 'lastModifyTime',
+      maxSplitShard: 'maxSplitShard',
+      metricType: 'metricType',
+      mode: 'mode',
+      name: 'name',
+      shardCount: 'shardCount',
+      ttl: 'ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSplit: 'boolean',
+      createTime: 'number',
+      lastModifyTime: 'number',
+      maxSplitShard: 'number',
+      metricType: 'string',
+      mode: 'string',
+      name: 'string',
+      shardCount: 'number',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetricStoreResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMetricStoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMetricStoreResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMetricStoreMeteringModeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The billing mode. Default value: ChargeByFunction. Valid values: ChargeByFunction and ChargeByDataIngest.
+   * 
    * @example
    * ChargeByFunction
    */
@@ -8665,10 +8952,35 @@ export class GetSqlInstanceResponse extends $tea.Model {
 
 export class GetStoreViewResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The type of the dataset.
+   * 
+   * Valid values:
+   * 
+   * *   metricstore
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   logstore
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
    * @example
    * logstore
    */
   storeType?: string;
+  /**
+   * @remarks
+   * The Logstores or Metricstores.
+   */
   stores?: StoreViewStore[];
   static names(): { [key: string]: string } {
     return {
@@ -8715,6 +9027,10 @@ export class GetStoreViewResponse extends $tea.Model {
 }
 
 export class GetStoreViewIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The index configurations.
+   */
   indexes?: GetStoreViewIndexResponseBodyIndexes[];
   static names(): { [key: string]: string } {
     return {
@@ -8796,8 +9112,26 @@ export class ListAlertsRequest extends $tea.Model {
 }
 
 export class ListAlertsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of alert rules that are returned.
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * The alert rules.
+   */
   results?: Alert[];
+  /**
+   * @remarks
+   * The total number of alert rules in the project.
+   * 
+   * @example
+   * 80
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9128,6 +9462,10 @@ export class ListAnnotationLabelsResponse extends $tea.Model {
 }
 
 export class ListCollectionPoliciesRequest extends $tea.Model {
+  /**
+   * @example
+   * your-central-project1
+   */
   centralProject?: string;
   /**
    * @example
@@ -9139,6 +9477,10 @@ export class ListCollectionPoliciesRequest extends $tea.Model {
    * your-test-bucket1
    */
   instanceId?: string;
+  /**
+   * @example
+   * 0
+   */
   offset?: number;
   /**
    * @example
@@ -9150,6 +9492,10 @@ export class ListCollectionPoliciesRequest extends $tea.Model {
    * oss
    */
   productCode?: string;
+  /**
+   * @example
+   * 50
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9244,7 +9590,7 @@ export class ListCollectionPoliciesResponse extends $tea.Model {
 export class ListConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the Logtail configuration.
+   * The name of the Logtail configuration, which is used for fuzzy match.
    * 
    * @example
    * logtail-config-sample
@@ -10267,6 +10613,96 @@ export class ListMachinesResponse extends $tea.Model {
   }
 }
 
+export class ListMetricStoresRequest extends $tea.Model {
+  mode?: string;
+  /**
+   * @example
+   * metric_store
+   */
+  name?: string;
+  /**
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @example
+   * 500
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'mode',
+      name: 'name',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: 'string',
+      name: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricStoresResponseBody extends $tea.Model {
+  count?: number;
+  metricstores?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      metricstores: 'metricstores',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      metricstores: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricStoresResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMetricStoresResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMetricStoresResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOSSExportsRequest extends $tea.Model {
   logstore?: string;
   /**
@@ -10483,8 +10919,26 @@ export class ListOSSIngestionsRequest extends $tea.Model {
 }
 
 export class ListOSSIngestionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of OSS data import jobs that are returned.
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * The OSS data import jobs.
+   */
   results?: OSSIngestion[];
+  /**
+   * @remarks
+   * The total number of OSS data import jobs in the project.
+   * 
+   * @example
+   * 80
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10760,6 +11214,13 @@ export class ListSavedSearchResponse extends $tea.Model {
 }
 
 export class ListScheduledSQLsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Logstore.
+   * 
+   * @example
+   * ali-test-logstore
+   */
   logstore?: string;
   /**
    * @example
@@ -10877,21 +11338,51 @@ export class ListShardsResponse extends $tea.Model {
 
 export class ListStoreViewsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The dataset name that is used for fuzzy match.
+   * 
    * @example
    * my_storeview
    */
   name?: string;
   /**
+   * @remarks
+   * The offset of the datasets to return. Default value: 0.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
+   * @remarks
+   * The number of datasets to return. Default value: 100.
+   * 
    * @example
    * 100
    */
   size?: number;
   /**
+   * @remarks
+   * The type of the datasets to return. By default, datasets are not filtered by type.
+   * 
+   * Valid values:
+   * 
+   * *   metricstore
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   logstore
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
    * @example
    * logstore
    */
@@ -10921,12 +11412,22 @@ export class ListStoreViewsRequest extends $tea.Model {
 
 export class ListStoreViewsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of returned datasets.
+   * 
    * @example
    * 100
    */
   count?: number;
+  /**
+   * @remarks
+   * The dataset names.
+   */
   storeviews?: string[];
   /**
+   * @remarks
+   * The total number of datasets in the project.
+   * 
    * @example
    * 100
    */
@@ -11984,17 +12485,33 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateAlertRequest extends $tea.Model {
   /**
    * @remarks
+   * The detailed configurations of the alert rule.
+   * 
    * This parameter is required.
    */
   configuration?: AlertConfiguration;
+  /**
+   * @remarks
+   * The description of the alert rule.
+   * 
+   * @example
+   * this is description
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the alert rule.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * this is alert
    */
   displayName?: string;
   /**
    * @remarks
+   * The scheduling settings of the alert rule.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;
@@ -12528,12 +13045,19 @@ export class UpdateLogStoreRequest extends $tea.Model {
   encryptConf?: EncryptConf;
   /**
    * @remarks
-   * The retention period of data in the hot storage tier of the Logstore. Minimum value: 30. Unit: day. You can specify a value that ranges from 30 to the value of ttl. Hot data that is stored for longer than the period specified by hot_ttl is converted to cold data. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
+   * The retention period of data in the hot storage tier of the Logstore. Valid values: 7 to 3000. Unit: days. After the retention period that is specified for the hot storage tier elapses, the data is moved to the Infrequent Access (IA) storage tier. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
    * 
    * @example
    * 60
    */
   hotTtl?: number;
+  /**
+   * @remarks
+   * The retention period of data in the IA storage tier of the Logstore. You must set this parameter to at least 30 days. After the data retention period that you specify for the IA storage tier elapses, the data is moved to the Archive storage tier.
+   * 
+   * @example
+   * 30
+   */
   infrequentAccessTTL?: number;
   /**
    * @remarks
@@ -12547,9 +13071,9 @@ export class UpdateLogStoreRequest extends $tea.Model {
   logstoreName?: string;
   /**
    * @remarks
-   * The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 64.
+   * The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 256.
    * 
-   * > If you set autoSplit to true, you must specify maxSplitShard.
+   * >  If you set autoSplit to true, you must specify maxSplitShard.
    * 
    * @example
    * 64
@@ -12557,20 +13081,21 @@ export class UpdateLogStoreRequest extends $tea.Model {
   maxSplitShard?: number;
   /**
    * @remarks
-   * The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores.
+   * The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores. Valid values:
    * 
    * *   **standard**: Standard Logstore. This type of Logstore supports the log analysis feature and is suitable for scenarios such as real-time monitoring and interactive analysis. You can also use this type of Logstore to build a comprehensive observability system.
-   * *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the volume of data is large, the log retention period is long, or log analysis is not required. Log retention periods of weeks or months are considered long.
+   * *   **query**: Query Logstore. This type of Logstore supports high-performance queries. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the log retention period is long, or log analysis is not required. If logs are stored for weeks or months, the log retention period is considered long.
    * 
    * @example
    * standard
    */
   mode?: string;
+  processorId?: string;
   /**
    * @remarks
    * The number of shards.
    * 
-   * > You cannot call the UpdateLogstore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
+   * >  You cannot call the UpdateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
    * 
    * @example
    * 2
@@ -12580,10 +13105,10 @@ export class UpdateLogStoreRequest extends $tea.Model {
   shardCount?: number;
   /**
    * @remarks
-   * The type of the log that you want to query. Valid values:
+   * The type of the observable data. Valid values:
    * 
-   * *   None: all types of logs.
-   * *   Metrics: metrics.
+   * *   None (default): log data.
+   * *   Metrics: metric data.
    * 
    * @example
    * None
@@ -12593,7 +13118,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
   telemetryType?: string;
   /**
    * @remarks
-   * The retention period of data. Unit: day. Valid values: 1 to 3650. If you set ttl to 3650, data is permanently stored.
+   * The retention period of data. Unit: days. Valid values: 1 to 3650. If you set this parameter to 3650, logs are permanently stored.
    * 
    * This parameter is required.
    * 
@@ -12612,6 +13137,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
+      processorId: 'processorId',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
@@ -12629,6 +13155,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       logstoreName: 'string',
       maxSplitShard: 'number',
       mode: 'string',
+      processorId: 'string',
       shardCount: 'number',
       telemetryType: 'string',
       ttl: 'number',
@@ -13024,6 +13551,64 @@ export class UpdateMachineGroupMachineResponse extends $tea.Model {
   }
 }
 
+export class UpdateMetricStoreRequest extends $tea.Model {
+  autoSplit?: boolean;
+  /**
+   * @example
+   * 64
+   */
+  maxSplitShard?: number;
+  mode?: string;
+  /**
+   * @example
+   * 7
+   */
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoSplit: 'autoSplit',
+      maxSplitShard: 'maxSplitShard',
+      mode: 'mode',
+      ttl: 'ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSplit: 'boolean',
+      maxSplitShard: 'number',
+      mode: 'string',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetricStoreResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMetricStoreMeteringModeRequest extends $tea.Model {
   /**
    * @remarks
@@ -13073,9 +13658,20 @@ export class UpdateMetricStoreMeteringModeResponse extends $tea.Model {
 }
 
 export class UpdateOSSExportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration details of the job.
+   */
   configuration?: OSSExportConfiguration;
+  /**
+   * @remarks
+   * The description of the job.
+   */
   description?: string;
   /**
+   * @remarks
+   * The display name of the job.
+   * 
    * @example
    * ali-test-oss-job
    */
@@ -13124,9 +13720,20 @@ export class UpdateOSSExportResponse extends $tea.Model {
 }
 
 export class UpdateOSSHDFSExportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration details of the job.
+   */
   configuration?: OSSExportConfiguration;
+  /**
+   * @remarks
+   * The description of the job.
+   */
   description?: string;
   /**
+   * @remarks
+   * The display name of the job.
+   * 
    * @example
    * ali-test-oss-hdfs-job
    */
@@ -13177,15 +13784,27 @@ export class UpdateOSSHDFSExportResponse extends $tea.Model {
 export class UpdateOSSIngestionRequest extends $tea.Model {
   /**
    * @remarks
+   * The configurations of the OSS data import job.
+   * 
    * This parameter is required.
    */
   configuration?: OSSIngestionConfiguration;
+  /**
+   * @remarks
+   * The description of the OSS data import job.
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the OSS data import job.
+   * 
    * This parameter is required.
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The scheduling type. By default, you do not need to specify this parameter. If you want to import data at regular intervals, such as importing data every Monday at 08: 00., you can specify a cron expression.
+   */
   schedule?: Schedule;
   static names(): { [key: string]: string } {
     return {
@@ -13645,6 +14264,26 @@ export class UpdateSqlInstanceResponse extends $tea.Model {
 export class UpdateStoreViewRequest extends $tea.Model {
   /**
    * @remarks
+   * The type of the dataset.
+   * 
+   * Valid values:
+   * 
+   * *   metricstore
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   logstore
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13653,6 +14292,8 @@ export class UpdateStoreViewRequest extends $tea.Model {
   storeType?: string;
   /**
    * @remarks
+   * The Logstores or Metricstores.
+   * 
    * This parameter is required.
    */
   stores?: StoreViewStore[];
@@ -14535,7 +15176,7 @@ export class CreateOssExternalStoreRequestParameterColumns extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the field.
+   * The data type of the field.
    * 
    * This parameter is required.
    * 
@@ -14565,7 +15206,7 @@ export class CreateOssExternalStoreRequestParameterColumns extends $tea.Model {
 export class CreateOssExternalStoreRequestParameter extends $tea.Model {
   /**
    * @remarks
-   * The AccessKey ID of your account.
+   * The AccessKey ID.
    * 
    * This parameter is required.
    * 
@@ -14575,7 +15216,7 @@ export class CreateOssExternalStoreRequestParameter extends $tea.Model {
   accessid?: string;
   /**
    * @remarks
-   * The AccessKey secret of your account.
+   * The AccessKey secret.
    * 
    * This parameter is required.
    * 
@@ -14595,14 +15236,14 @@ export class CreateOssExternalStoreRequestParameter extends $tea.Model {
   bucket?: string;
   /**
    * @remarks
-   * The fields that are associated to the external store.
+   * The associated fields.
    * 
    * This parameter is required.
    */
   columns?: CreateOssExternalStoreRequestParameterColumns[];
   /**
    * @remarks
-   * The Object Storage Service (OSS) endpoint.
+   * The OSS endpoint. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
    * 
    * This parameter is required.
    * 
@@ -14612,7 +15253,7 @@ export class CreateOssExternalStoreRequestParameter extends $tea.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The names of the OSS objects that are associated to the external store.
+   * The associated OSS objects. Valid values of n: 1 to 100.
    * 
    * This parameter is required.
    */
@@ -15368,9 +16009,25 @@ export class GetIndexResponseBodyLine extends $tea.Model {
 }
 
 export class GetLogsV2ResponseBodyMetaPhraseQueryInfo extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   beginOffset?: number;
+  /**
+   * @example
+   * 0
+   */
   endOffset?: number;
+  /**
+   * @example
+   * 1
+   */
   endTime?: number;
+  /**
+   * @example
+   * true
+   */
   scanAll?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15413,7 +16070,15 @@ export class GetLogsV2ResponseBodyMeta extends $tea.Model {
    * 1
    */
   count?: number;
+  /**
+   * @example
+   * 3
+   */
   cpuCores?: number;
+  /**
+   * @example
+   * 0.002
+   */
   cpuSec?: number;
   /**
    * @remarks
@@ -15434,7 +16099,7 @@ export class GetLogsV2ResponseBodyMeta extends $tea.Model {
   highlights?: LogContent[][];
   /**
    * @remarks
-   * Indicates whether the returned result is accurate.
+   * Indicates whether the returned result is accurate to seconds.
    * 
    * @example
    * true
@@ -15445,7 +16110,15 @@ export class GetLogsV2ResponseBodyMeta extends $tea.Model {
    * All keys in the query result.
    */
   keys?: string[];
+  /**
+   * @example
+   * 100
+   */
   limited?: number;
+  /**
+   * @example
+   * 0
+   */
   mode?: number;
   phraseQueryInfo?: GetLogsV2ResponseBodyMetaPhraseQueryInfo;
   /**
@@ -15475,6 +16148,10 @@ export class GetLogsV2ResponseBodyMeta extends $tea.Model {
    * Complete
    */
   progress?: string;
+  /**
+   * @example
+   * 1024
+   */
   scanBytes?: number;
   /**
    * @remarks
@@ -15604,13 +16281,23 @@ export class GetSqlInstanceResponseBody extends $tea.Model {
 }
 
 export class GetStoreViewIndexResponseBodyIndexes extends $tea.Model {
+  /**
+   * @remarks
+   * The index configurations of the Logstore.
+   */
   index?: Index;
   /**
+   * @remarks
+   * The name of the Logstore.
+   * 
    * @example
    * my-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The name of the project to which the Logstore belongs.
+   * 
    * @example
    * example-project
    */
@@ -15681,7 +16368,15 @@ export class ListCollectionPoliciesResponseBodyDataCentralizeConfig extends $tea
 }
 
 export class ListCollectionPoliciesResponseBodyDataDataConfig extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
   dataProject?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   dataRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15710,6 +16405,10 @@ export class ListCollectionPoliciesResponseBodyDataPolicyConfig extends $tea.Mod
    * all
    */
   resourceMode?: string;
+  /**
+   * @example
+   * {"tag1":"value1","tag2":"value2"}
+   */
   resourceTags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -15735,6 +16434,10 @@ export class ListCollectionPoliciesResponseBodyDataPolicyConfig extends $tea.Mod
 }
 
 export class ListCollectionPoliciesResponseBodyDataResourceDirectory extends $tea.Model {
+  /**
+   * @example
+   * all,custom
+   */
   accountGroupType?: string;
   members?: string[];
   static names(): { [key: string]: string } {
@@ -15774,6 +16477,10 @@ export class ListCollectionPoliciesResponseBodyData extends $tea.Model {
    * true
    */
   enabled?: boolean;
+  /**
+   * @example
+   * false
+   */
   internalPolicy?: boolean;
   policyConfig?: ListCollectionPoliciesResponseBodyDataPolicyConfig;
   /**
@@ -15781,6 +16488,10 @@ export class ListCollectionPoliciesResponseBodyData extends $tea.Model {
    * your_log_policy
    */
   policyName?: string;
+  /**
+   * @example
+   * 148***********50
+   */
   policyUid?: string;
   /**
    * @example
@@ -15826,7 +16537,15 @@ export class ListCollectionPoliciesResponseBodyData extends $tea.Model {
 }
 
 export class ListCollectionPoliciesResponseBodyStatisticsPolicySourceList extends $tea.Model {
+  /**
+   * @example
+   * policy_name1_from148
+   */
   policyName?: string;
+  /**
+   * @example
+   * 148***********50
+   */
   policyUid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15849,6 +16568,10 @@ export class ListCollectionPoliciesResponseBodyStatisticsPolicySourceList extend
 
 export class ListCollectionPoliciesResponseBodyStatistics extends $tea.Model {
   policySourceList?: ListCollectionPoliciesResponseBodyStatisticsPolicySourceList[];
+  /**
+   * @example
+   * oss
+   */
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16927,7 +17650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource group of a resource.
+   * Changes the resource group to which a resource belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -16971,7 +17694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource group of a resource.
+   * Changes the resource group to which a resource belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -16987,8 +17710,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * *   Connections between consumers and servers are established by sending heartbeats at regular intervals. If a server does not receive heartbeats from a consumer on schedule, the server deletes the consumer.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Connections between consumers and Simple Log Service are established by sending heartbeat messages at regular intervals. If Simple Log Service does not receive heartbeat messages from a consumer on schedule, Simple Log Service deletes the consumer.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:ConsumerGroupHeartBeat`|`acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}`|
    * 
    * @param request - ConsumerGroupHeartBeatRequest
    * @param headers - map
@@ -17029,8 +17761,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * *   Connections between consumers and servers are established by sending heartbeats at regular intervals. If a server does not receive heartbeats from a consumer on schedule, the server deletes the consumer.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Connections between consumers and Simple Log Service are established by sending heartbeat messages at regular intervals. If Simple Log Service does not receive heartbeat messages from a consumer on schedule, Simple Log Service deletes the consumer.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:ConsumerGroupHeartBeat`|`acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}`|
    * 
    * @param request - ConsumerGroupHeartBeatRequest
    * @returns ConsumerGroupHeartBeatResponse
@@ -17706,11 +18447,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Logstore
+   * Creates a Logstore.
    * 
    * @remarks
    * ### Usage notes
-   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * * You can create up to 200 Logstores in each project.
+   * * If the retention period of a log reaches the data retention period that you specified for the Logstore, the log is deleted.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:CreateLogStore`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
    * 
    * @param request - CreateLogStoreRequest
    * @param headers - map
@@ -17758,6 +18509,10 @@ export default class Client extends OpenApi {
       body["mode"] = request.mode;
     }
 
+    if (!Util.isUnset(request.processorId)) {
+      body["processorId"] = request.processorId;
+    }
+
     if (!Util.isUnset(request.shardCount)) {
       body["shardCount"] = request.shardCount;
     }
@@ -17790,11 +18545,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Logstore
+   * Creates a Logstore.
    * 
    * @remarks
    * ### Usage notes
-   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * * You can create up to 200 Logstores in each project.
+   * * If the retention period of a log reaches the data retention period that you specified for the Logstore, the log is deleted.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:CreateLogStore`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
    * 
    * @param request - CreateLogStoreRequest
    * @returns CreateLogStoreResponse
@@ -18014,7 +18779,79 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建OSS投递任务
+   * 创建时序库
+   * 
+   * @param request - CreateMetricStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMetricStoreResponse
+   */
+  async createMetricStoreWithOptions(project: string, request: CreateMetricStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMetricStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoSplit)) {
+      body["autoSplit"] = request.autoSplit;
+    }
+
+    if (!Util.isUnset(request.maxSplitShard)) {
+      body["maxSplitShard"] = request.maxSplitShard;
+    }
+
+    if (!Util.isUnset(request.metricType)) {
+      body["metricType"] = request.metricType;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.shardCount)) {
+      body["shardCount"] = request.shardCount;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      body["ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMetricStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateMetricStoreResponse>(await this.execute(params, req, runtime), new CreateMetricStoreResponse({}));
+  }
+
+  /**
+   * 创建时序库
+   * 
+   * @param request - CreateMetricStoreRequest
+   * @returns CreateMetricStoreResponse
+   */
+  async createMetricStore(project: string, request: CreateMetricStoreRequest): Promise<CreateMetricStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMetricStoreWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
    * 
    * @param request - CreateOSSExportRequest
    * @param headers - map
@@ -18062,7 +18899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建OSS投递任务
+   * Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
    * 
    * @param request - CreateOSSExportRequest
    * @returns CreateOSSExportResponse
@@ -18134,7 +18971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建OSS导入任务
+   * Creates an Object Storage Service (OSS) data import job in a project.
    * 
    * @param request - CreateOSSIngestionRequest
    * @param headers - map
@@ -18186,7 +19023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建OSS导入任务
+   * Creates an Object Storage Service (OSS) data import job in a project.
    * 
    * @param request - CreateOSSIngestionRequest
    * @returns CreateOSSIngestionResponse
@@ -18453,7 +19290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定时SQL任务
+   * Creates a Scheduled SQL job in a project.
    * 
    * @param request - CreateScheduledSQLRequest
    * @param headers - map
@@ -18505,7 +19342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定时SQL任务
+   * Creates a Scheduled SQL job in a project.
    * 
    * @param request - CreateScheduledSQLRequest
    * @returns CreateScheduledSQLResponse
@@ -18517,7 +19354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建独享sql实例
+   * If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
    * 
    * @param request - CreateSqlInstanceRequest
    * @param headers - map
@@ -18557,7 +19397,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建独享sql实例
+   * If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
    * 
    * @param request - CreateSqlInstanceRequest
    * @returns CreateSqlInstanceResponse
@@ -18674,7 +19517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除告警
+   * Deletes an alert rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18702,7 +19545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除告警
+   * Deletes an alert rule.
    * @returns DeleteAlertResponse
    */
   async deleteAlert(project: string, alertName: string): Promise<DeleteAlertResponse> {
@@ -18943,7 +19786,17 @@ export default class Client extends OpenApi {
    * Deletes a consumer group.
    * 
    * @remarks
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### Usage notes
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:DeleteConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18974,7 +19827,17 @@ export default class Client extends OpenApi {
    * Deletes a consumer group.
    * 
    * @remarks
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### Usage notes
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:DeleteConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
    * @returns DeleteConsumerGroupResponse
    */
   async deleteConsumerGroup(project: string, logstore: string, consumerGroup: string): Promise<DeleteConsumerGroupResponse> {
@@ -19420,6 +20283,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除时序库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMetricStoreResponse
+   */
+  async deleteMetricStoreWithOptions(project: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMetricStoreResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMetricStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores/${name}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteMetricStoreResponse>(await this.execute(params, req, runtime), new DeleteMetricStoreResponse({}));
+  }
+
+  /**
+   * 删除时序库
+   * @returns DeleteMetricStoreResponse
+   */
+  async deleteMetricStore(project: string, name: string): Promise<DeleteMetricStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMetricStoreWithOptions(project, name, headers, runtime);
+  }
+
+  /**
    * Deletes an Object Storage Service (OSS) data shipping job.
    * 
    * @param headers - map
@@ -19496,7 +20397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除OSS导入任务
+   * Deletes an Object Storage Service (OSS) data import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19524,7 +20425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除OSS导入任务
+   * Deletes an Object Storage Service (OSS) data import job.
    * @returns DeleteOSSIngestionResponse
    */
   async deleteOSSIngestion(project: string, ossIngestionName: string): Promise<DeleteOSSIngestionResponse> {
@@ -19534,7 +20435,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除project
+   * Deletes a project.
+   * 
+   * @remarks
+   * ### Usage notes
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * After you delete a project, all logs stored in the project and the configurations of the project are deleted and cannot be restored. Proceed with caution.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:DeleteProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19562,7 +20475,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除project
+   * Deletes a project.
+   * 
+   * @remarks
+   * ### Usage notes
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * After you delete a project, all logs stored in the project and the configurations of the project are deleted and cannot be restored. Proceed with caution.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:DeleteProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * @returns DeleteProjectResponse
    */
   async deleteProject(project: string): Promise<DeleteProjectResponse> {
@@ -19664,7 +20589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定时SQL任务
+   * Deletes a Scheduled SQL job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19692,7 +20617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定时SQL任务
+   * Deletes a Scheduled SQL job.
    * @returns DeleteScheduledSQLResponse
    */
   async deleteScheduledSQL(project: string, scheduledSQLName: string): Promise<DeleteScheduledSQLResponse> {
@@ -19702,7 +20627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除StoreView
+   * Deletes a dataset by using the name of the dataset.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19730,7 +20655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除StoreView
+   * Deletes a dataset by using the name of the dataset.
    * @returns DeleteStoreViewResponse
    */
   async deleteStoreView(project: string, name: string): Promise<DeleteStoreViewResponse> {
@@ -19740,7 +20665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用告警
+   * Disables an alert rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19768,7 +20693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用告警
+   * Disables an alert rule.
    * @returns DisableAlertResponse
    */
   async disableAlert(project: string, alertName: string): Promise<DisableAlertResponse> {
@@ -19816,7 +20741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用告警
+   * Enables an alert rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19844,7 +20769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用告警
+   * Enables an alert rule.
    * @returns EnableAlertResponse
    */
   async enableAlert(project: string, alertName: string): Promise<EnableAlertResponse> {
@@ -19892,7 +20817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAlert
+   * Queries the information about an alert rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19920,7 +20845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAlert
+   * Queries the information about an alert rule.
    * @returns GetAlertResponse
    */
   async getAlert(project: string, alertName: string): Promise<GetAlertResponse> {
@@ -19930,7 +20855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data in a dataset based on the unique identifier of the data.
+   * Queries data in datasets based on the unique identifier of the data.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19955,7 +20880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data in a dataset based on the unique identifier of the data.
+   * Queries data in datasets based on the unique identifier of the data.
    * @returns GetAnnotationDataResponse
    */
   async getAnnotationData(datasetId: string, annotationdataId: string): Promise<GetAnnotationDataResponse> {
@@ -20283,8 +21208,19 @@ export default class Client extends OpenApi {
    * Queries the contextual logs of a specified log.
    * 
    * @remarks
-   *   You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### Usage notes
+   * * You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * * The values of the pack_id and pack_meta fields are obtained before you query logs. The fields are internal fields, and you can obtain the values by using the debugging feature of your browser in the Simple Log Service console.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:GetLogStoreContextLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
    * 
    * @param request - GetContextLogsRequest
    * @param headers - map
@@ -20339,8 +21275,19 @@ export default class Client extends OpenApi {
    * Queries the contextual logs of a specified log.
    * 
    * @remarks
-   *   You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### Usage notes
+   * * You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * * The values of the pack_id and pack_meta fields are obtained before you query logs. The fields are internal fields, and you can obtain the values by using the debugging feature of your browser in the Simple Log Service console.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:GetLogStoreContextLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
    * 
    * @param request - GetContextLogsRequest
    * @returns GetContextLogsResponse
@@ -20814,7 +21761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取LogStore计量模式
+   * Queries the billing mode of a Logstore.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20842,7 +21789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取LogStore计量模式
+   * Queries the billing mode of a Logstore.
    * @returns GetLogStoreMeteringModeResponse
    */
   async getLogStoreMeteringMode(project: string, logstore: string): Promise<GetLogStoreMeteringModeResponse> {
@@ -20996,14 +21943,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the raw log data in a Logstore of a project. The returned result shows the raw log data in a specific time range. The returned results are compressed and transmitted.
+   * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times you must call this API operation to obtain a complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation again to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
-   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
-   * 1.  1.  Real-time data: The difference between the time record in the log and the current server time is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as real-time data. This type of log is usually generated in common scenarios.
-   * 2.  2.  Historical data: The difference between the time record in the log and the current server time is within the interval [-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+   *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
+   * *   You can call this operation by using Simple Log Service SDK for Go or Java.
+   * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
    * 
    * @param request - GetLogsV2Request
    * @param headers - GetLogsV2Headers
@@ -21088,14 +22033,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the raw log data in a Logstore of a project. The returned result shows the raw log data in a specific time range. The returned results are compressed and transmitted.
+   * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times you must call this API operation to obtain a complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation again to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
-   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
-   * 1.  1.  Real-time data: The difference between the time record in the log and the current server time is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as real-time data. This type of log is usually generated in common scenarios.
-   * 2.  2.  Historical data: The difference between the time record in the log and the current server time is within the interval [-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and the server received the log at 12:05:00, September 25, 2014 (UTC), the server processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
+   *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
+   * *   You can call this operation by using Simple Log Service SDK for Go or Java.
+   * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
    * 
    * @param request - GetLogsV2Request
    * @returns GetLogsV2Response
@@ -21151,7 +22094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetMLServiceResults
+   * Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
    * 
    * @param request - GetMLServiceResultsRequest
    * @param headers - map
@@ -21189,7 +22132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetMLServiceResults
+   * Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
    * 
    * @param request - GetMLServiceResultsRequest
    * @returns GetMLServiceResultsResponse
@@ -21245,7 +22188,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 MetricStore 计量模式
+   * 查询时序库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMetricStoreResponse
+   */
+  async getMetricStoreWithOptions(project: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMetricStoreResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMetricStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores/${name}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMetricStoreResponse>(await this.execute(params, req, runtime), new GetMetricStoreResponse({}));
+  }
+
+  /**
+   * 查询时序库
+   * @returns GetMetricStoreResponse
+   */
+  async getMetricStore(project: string, name: string): Promise<GetMetricStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMetricStoreWithOptions(project, name, headers, runtime);
+  }
+
+  /**
+   * Queries the billing mode of a Metricstore.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21273,7 +22254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 MetricStore 计量模式
+   * Queries the billing mode of a Metricstore.
    * @returns GetMetricStoreMeteringModeResponse
    */
   async getMetricStoreMeteringMode(project: string, metricStore: string): Promise<GetMetricStoreMeteringModeResponse> {
@@ -21359,7 +22340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取oss导入任务信息
+   * Queries the information about an Object Storage Service (OSS) data import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21387,7 +22368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取oss导入任务信息
+   * Queries the information about an Object Storage Service (OSS) data import job.
    * @returns GetOSSIngestionResponse
    */
   async getOSSIngestion(project: string, ossIngestionName: string): Promise<GetOSSIngestionResponse> {
@@ -21447,11 +22428,20 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * *   You can use the query parameter to specify a standard SQL statement.
-   * *   You must specify a project in the domain name of the request.
-   * *   You must specify a Logstore in the FROM clause of the SQL statement. A Logstore can be used as an SQL table.
-   * *   You must specify a time range in the SQL statement by using the __date__ parameter or __time__ parameter. The value of the __date__ parameter is a timestamp, and the value of the __time__ parameter is an integer. The unit of the __time__ parameter is seconds.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * * You must set query to a standard SQL statement.
+   * * You must specify a Logstore in the FROM clause of an SQL statement. A Logstore can be used as an SQL table.
+   * * You must specify a time range in an SQL statement by using the __date__ or __time__ parameter. The value of the __date__ parameter is a timestamp. The value of the __time__ parameter is an integer, and the unit of the value is seconds.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:GetProjectLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param request - GetProjectLogsRequest
    * @param headers - map
@@ -21495,11 +22485,20 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * *   You can use the query parameter to specify a standard SQL statement.
-   * *   You must specify a project in the domain name of the request.
-   * *   You must specify a Logstore in the FROM clause of the SQL statement. A Logstore can be used as an SQL table.
-   * *   You must specify a time range in the SQL statement by using the __date__ parameter or __time__ parameter. The value of the __date__ parameter is a timestamp, and the value of the __time__ parameter is an integer. The unit of the __time__ parameter is seconds.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * * You must set query to a standard SQL statement.
+   * * You must specify a Logstore in the FROM clause of an SQL statement. A Logstore can be used as an SQL table.
+   * * You must specify a time range in an SQL statement by using the __date__ or __time__ parameter. The value of the __date__ parameter is a timestamp. The value of the __time__ parameter is an integer, and the unit of the value is seconds.
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:GetProjectLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param request - GetProjectLogsRequest
    * @returns GetProjectLogsResponse
@@ -21609,7 +22608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看定时SQL任务
+   * Queries the information about a Scheduled SQL job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21637,7 +22636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看定时SQL任务
+   * Queries the information about a Scheduled SQL job.
    * @returns GetScheduledSQLResponse
    */
   async getScheduledSQL(project: string, scheduledSQLName: string): Promise<GetScheduledSQLResponse> {
@@ -21647,7 +22646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * getSlsService
+   * Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21672,7 +22671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * getSlsService
+   * Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
    * @returns GetSlsServiceResponse
    */
   async getSlsService(): Promise<GetSlsServiceResponse> {
@@ -21682,7 +22681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询独享sql实例
+   * Queries the configurations of the Dedicated SQL feature.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21710,7 +22709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询独享sql实例
+   * Queries the configurations of the Dedicated SQL feature.
    * @returns GetSqlInstanceResponse
    */
   async getSqlInstance(project: string): Promise<GetSqlInstanceResponse> {
@@ -21720,7 +22719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询StoreView
+   * Queries the configurations of a dataset by using the name of the dataset.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21748,7 +22747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询StoreView
+   * Queries the configurations of a dataset by using the name of the dataset.
    * @returns GetStoreViewResponse
    */
   async getStoreView(project: string, name: string): Promise<GetStoreViewResponse> {
@@ -21758,7 +22757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询StoreView索引
+   * Queries the indexes of a dataset by using the name of the dataset. Only datasets of the logstore type are supported.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21786,7 +22785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询StoreView索引
+   * Queries the indexes of a dataset by using the name of the dataset. Only datasets of the logstore type are supported.
    * @returns GetStoreViewIndexResponse
    */
   async getStoreViewIndex(project: string, name: string): Promise<GetStoreViewIndexResponse> {
@@ -21796,7 +22795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询告警列表
+   * Queries a list of alert rules in a project.
    * 
    * @param request - ListAlertsRequest
    * @param headers - map
@@ -21840,7 +22839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询告警列表
+   * Queries a list of alert rules in a project.
    * 
    * @param request - ListAlertsRequest
    * @returns ListAlertsResponse
@@ -22001,6 +23000,9 @@ export default class Client extends OpenApi {
   /**
    * 通过调用ListCollectionPolicies接口查看配置的日志采集规则
    * 
+   * @remarks
+   * You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
+   * 
    * @param request - ListCollectionPoliciesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22057,6 +23059,9 @@ export default class Client extends OpenApi {
 
   /**
    * 通过调用ListCollectionPolicies接口查看配置的日志采集规则
+   * 
+   * @remarks
+   * You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
    * 
    * @param request - ListCollectionPoliciesRequest
    * @returns ListCollectionPoliciesResponse
@@ -22704,6 +23709,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询时序库
+   * 
+   * @param request - ListMetricStoresRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMetricStoresResponse
+   */
+  async listMetricStoresWithOptions(project: string, request: ListMetricStoresRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMetricStoresResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.mode)) {
+      query["mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMetricStores",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMetricStoresResponse>(await this.execute(params, req, runtime), new ListMetricStoresResponse({}));
+  }
+
+  /**
+   * 查询时序库
+   * 
+   * @param request - ListMetricStoresRequest
+   * @returns ListMetricStoresResponse
+   */
+  async listMetricStores(project: string, request: ListMetricStoresRequest): Promise<ListMetricStoresResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMetricStoresWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * 列出OSS投递任务
    * 
    * @param request - ListOSSExportsRequest
@@ -22816,7 +23881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出oss导入任务
+   * Queries a list of Object Storage Service (OSS) data import jobs in a project.
    * 
    * @param request - ListOSSIngestionsRequest
    * @param headers - map
@@ -22860,7 +23925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出oss导入任务
+   * Queries a list of Object Storage Service (OSS) data import jobs in a project.
    * 
    * @param request - ListOSSIngestionsRequest
    * @returns ListOSSIngestionsResponse
@@ -23001,7 +24066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举定时SQL任务
+   * Queries a list of Scheduled SQL jobs in a project.
    * 
    * @param request - ListScheduledSQLsRequest
    * @param headers - map
@@ -23045,7 +24110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举定时SQL任务
+   * Queries a list of Scheduled SQL jobs in a project.
    * 
    * @param request - ListScheduledSQLsRequest
    * @returns ListScheduledSQLsResponse
@@ -23095,7 +24160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询StoreView列表
+   * Queries datasets in a project.
    * 
    * @param request - ListStoreViewsRequest
    * @param headers - map
@@ -23143,7 +24208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询StoreView列表
+   * Queries datasets in a project.
    * 
    * @param request - ListStoreViewsRequest
    * @returns ListStoreViewsResponse
@@ -23282,7 +24347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * openSlsService
+   * Activates Simple Log Service. You must activate Simple Log Service before you can use it to collect and manage logs.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23307,7 +24372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * openSlsService
+   * Activates Simple Log Service. You must activate Simple Log Service before you can use it to collect and manage logs.
    * @returns OpenSlsServiceResponse
    */
   async openSlsService(): Promise<OpenSlsServiceResponse> {
@@ -23880,7 +24945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动OSS导入任务
+   * Starts an Object Storage Service (OSS) data import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23908,7 +24973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动OSS导入任务
+   * Starts an Object Storage Service (OSS) data import job.
    * @returns StartOSSIngestionResponse
    */
   async startOSSIngestion(project: string, ossIngestionName: string): Promise<StartOSSIngestionResponse> {
@@ -24032,7 +25097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止OSS导入任务
+   * Stops an Object Storage Service (OSS) data import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24060,7 +25125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止OSS导入任务
+   * Stops an Object Storage Service (OSS) data import job.
    * @returns StopOSSIngestionResponse
    */
   async stopOSSIngestion(project: string, ossIngestionName: string): Promise<StopOSSIngestionResponse> {
@@ -24230,7 +25295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新告警
+   * Updates an alert rule.
    * 
    * @param request - UpdateAlertRequest
    * @param headers - map
@@ -24278,7 +25343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新告警
+   * Updates an alert rule.
    * 
    * @param request - UpdateAlertRequest
    * @returns UpdateAlertResponse
@@ -24758,6 +25823,10 @@ export default class Client extends OpenApi {
       body["mode"] = request.mode;
     }
 
+    if (!Util.isUnset(request.processorId)) {
+      body["processorId"] = request.processorId;
+    }
+
     if (!Util.isUnset(request.shardCount)) {
       body["shardCount"] = request.shardCount;
     }
@@ -25116,6 +26185,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新时序库
+   * 
+   * @param request - UpdateMetricStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMetricStoreResponse
+   */
+  async updateMetricStoreWithOptions(project: string, name: string, request: UpdateMetricStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMetricStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoSplit)) {
+      body["autoSplit"] = request.autoSplit;
+    }
+
+    if (!Util.isUnset(request.maxSplitShard)) {
+      body["maxSplitShard"] = request.maxSplitShard;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      body["ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMetricStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores/${name}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateMetricStoreResponse>(await this.execute(params, req, runtime), new UpdateMetricStoreResponse({}));
+  }
+
+  /**
+   * 更新时序库
+   * 
+   * @param request - UpdateMetricStoreRequest
+   * @returns UpdateMetricStoreResponse
+   */
+  async updateMetricStore(project: string, name: string, request: UpdateMetricStoreRequest): Promise<UpdateMetricStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMetricStoreWithOptions(project, name, request, headers, runtime);
+  }
+
+  /**
    * 更新 MetricStore 计量模式
    * 
    * @param request - UpdateMetricStoreMeteringModeRequest
@@ -25404,7 +26533,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:UpdateProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param request - UpdateProjectRequest
    * @param headers - map
@@ -25444,7 +26580,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:UpdateProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -25582,7 +26725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新定时SQL任务
+   * Updates a Scheduled SQL job.
    * 
    * @param request - UpdateScheduledSQLRequest
    * @param headers - map
@@ -25630,7 +26773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新定时SQL任务
+   * Updates a Scheduled SQL job.
    * 
    * @param request - UpdateScheduledSQLRequest
    * @returns UpdateScheduledSQLResponse
@@ -25642,7 +26785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新独享sql实例
+   * Updates the configurations of the Dedicated SQL feature.
    * 
    * @param request - UpdateSqlInstanceRequest
    * @param headers - map
@@ -25682,7 +26825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新独享sql实例
+   * Updates the configurations of the Dedicated SQL feature.
    * 
    * @param request - UpdateSqlInstanceRequest
    * @returns UpdateSqlInstanceResponse
@@ -25694,7 +26837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新StoreView
+   * Updates the configurations of a dataset.
    * 
    * @param request - UpdateStoreViewRequest
    * @param headers - map
@@ -25734,7 +26877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新StoreView
+   * Updates the configurations of a dataset.
    * 
    * @param request - UpdateStoreViewRequest
    * @returns UpdateStoreViewResponse
