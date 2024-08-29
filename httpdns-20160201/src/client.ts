@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,18 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddDomainRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +41,15 @@ export class AddDomainRequest extends $tea.Model {
 }
 
 export class AddDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * ADA27798-6911-4B06-AF34-53F62F62XXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,11 +71,13 @@ export class AddDomainResponseBody extends $tea.Model {
 }
 
 export class AddDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -65,6 +85,7 @@ export class AddDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDomainResponseBody,
     };
   }
@@ -75,7 +96,18 @@ export class AddDomainResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
+  /**
+   * @example
+   * 12****
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,7 +129,15 @@ export class DeleteDomainRequest extends $tea.Model {
 }
 
 export class DeleteDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * FA8C2599-362D-4113-8FB4-E88A40C2****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,11 +159,13 @@ export class DeleteDomainResponseBody extends $tea.Model {
 }
 
 export class DeleteDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -131,6 +173,7 @@ export class DeleteDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainResponseBody,
     };
   }
@@ -141,8 +184,20 @@ export class DeleteDomainResponse extends $tea.Model {
 }
 
 export class DescribeDomainsRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   accountId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -167,9 +222,25 @@ export class DescribeDomainsRequest extends $tea.Model {
 
 export class DescribeDomainsResponseBody extends $tea.Model {
   domains?: DescribeDomainsResponseBodyDomains;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * A6B3BB61-69CB-50E0-9DC0-0C1658D44A47
+   */
   requestId?: string;
+  /**
+   * @example
+   * 12
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -197,11 +268,13 @@ export class DescribeDomainsResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -209,6 +282,7 @@ export class DescribeDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainsResponseBody,
     };
   }
@@ -220,6 +294,10 @@ export class DescribeDomainsResponse extends $tea.Model {
 
 export class GetAccountInfoResponseBody extends $tea.Model {
   accountInfo?: GetAccountInfoResponseBodyAccountInfo;
+  /**
+   * @example
+   * 50F9C40E-188D-4208-BE2C-74271337****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -241,11 +319,13 @@ export class GetAccountInfoResponseBody extends $tea.Model {
 }
 
 export class GetAccountInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAccountInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -253,6 +333,7 @@ export class GetAccountInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccountInfoResponseBody,
     };
   }
@@ -263,7 +344,21 @@ export class GetAccountInfoResponse extends $tea.Model {
 }
 
 export class GetResolveCountSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * day
+   */
   granularity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   timeSpan?: number;
   static names(): { [key: string]: string } {
     return {
@@ -285,6 +380,10 @@ export class GetResolveCountSummaryRequest extends $tea.Model {
 }
 
 export class GetResolveCountSummaryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3106FFF3-3612-542A-B2CD-3CF4CD48****
+   */
   requestId?: string;
   resolveSummary?: GetResolveCountSummaryResponseBodyResolveSummary;
   static names(): { [key: string]: string } {
@@ -307,11 +406,13 @@ export class GetResolveCountSummaryResponseBody extends $tea.Model {
 }
 
 export class GetResolveCountSummaryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetResolveCountSummaryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResolveCountSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -319,6 +420,7 @@ export class GetResolveCountSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetResolveCountSummaryResponseBody,
     };
   }
@@ -329,9 +431,34 @@ export class GetResolveCountSummaryResponse extends $tea.Model {
 }
 
 export class GetResolveStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
   granularity?: string;
+  /**
+   * @example
+   * https
+   */
   protocolName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   timeSpan?: number;
   static names(): { [key: string]: string } {
     return {
@@ -358,6 +485,10 @@ export class GetResolveStatisticsRequest extends $tea.Model {
 
 export class GetResolveStatisticsResponseBody extends $tea.Model {
   dataPoints?: GetResolveStatisticsResponseBodyDataPoints;
+  /**
+   * @example
+   * 50F9C40E-188D-B00B-BE2C-7427E531****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -379,11 +510,13 @@ export class GetResolveStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetResolveStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetResolveStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResolveStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -391,6 +524,7 @@ export class GetResolveStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetResolveStatisticsResponseBody,
     };
   }
@@ -401,12 +535,22 @@ export class GetResolveStatisticsResponse extends $tea.Model {
 }
 
 export class ListDomainsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  search?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      search: 'Search',
     };
   }
 
@@ -414,6 +558,7 @@ export class ListDomainsRequest extends $tea.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      search: 'string',
     };
   }
 
@@ -424,9 +569,25 @@ export class ListDomainsRequest extends $tea.Model {
 
 export class ListDomainsResponseBody extends $tea.Model {
   domainInfos?: ListDomainsResponseBodyDomainInfos;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 50F9C40E-188D-4208-BE2C-7427E531****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 18
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -454,11 +615,13 @@ export class ListDomainsResponseBody extends $tea.Model {
 }
 
 export class ListDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -466,6 +629,7 @@ export class ListDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDomainsResponseBody,
     };
   }
@@ -476,6 +640,10 @@ export class ListDomainsResponse extends $tea.Model {
 }
 
 export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
+  /**
+   * @example
+   * www.aliyun.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -514,24 +682,68 @@ export class DescribeDomainsResponseBodyDomains extends $tea.Model {
 }
 
 export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
+  /**
+   * @example
+   * 1337****
+   */
   accountId?: string;
+  /**
+   * @example
+   * 1500000
+   */
   monthFreeCount?: number;
+  /**
+   * @example
+   * 3
+   */
   monthHttpsResolveCount?: number;
+  /**
+   * @example
+   * 9927326
+   */
   monthResolveCount?: number;
+  /**
+   * @example
+   * 0
+   */
+  packageCount?: number;
+  /**
+   * @example
+   * 50F9C40E****
+   */
   signSecret?: string;
+  /**
+   * @example
+   * 611523
+   */
   signedCount?: number;
+  /**
+   * @example
+   * 1523
+   */
   unsignedCount?: number;
+  /**
+   * @example
+   * true
+   */
   unsignedEnabled?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  userStatus?: number;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       monthFreeCount: 'MonthFreeCount',
       monthHttpsResolveCount: 'MonthHttpsResolveCount',
       monthResolveCount: 'MonthResolveCount',
+      packageCount: 'PackageCount',
       signSecret: 'SignSecret',
       signedCount: 'SignedCount',
       unsignedCount: 'UnsignedCount',
       unsignedEnabled: 'UnsignedEnabled',
+      userStatus: 'UserStatus',
     };
   }
 
@@ -541,10 +753,12 @@ export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
       monthFreeCount: 'number',
       monthHttpsResolveCount: 'number',
       monthResolveCount: 'number',
+      packageCount: 'number',
       signSecret: 'string',
       signedCount: 'number',
       unsignedCount: 'number',
       unsignedEnabled: 'boolean',
+      userStatus: 'number',
     };
   }
 
@@ -554,9 +768,25 @@ export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
 }
 
 export class GetResolveCountSummaryResponseBodyResolveSummary extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   http?: number;
+  /**
+   * @example
+   * 123
+   */
   http6?: number;
+  /**
+   * @example
+   * 123
+   */
   https?: number;
+  /**
+   * @example
+   * 123
+   */
   https6?: number;
   static names(): { [key: string]: string } {
     return {
@@ -582,7 +812,15 @@ export class GetResolveCountSummaryResponseBodyResolveSummary extends $tea.Model
 }
 
 export class GetResolveStatisticsResponseBodyDataPointsDataPoint extends $tea.Model {
+  /**
+   * @example
+   * 9703
+   */
   count?: number;
+  /**
+   * @example
+   * 1488297600
+   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -623,11 +861,32 @@ export class GetResolveStatisticsResponseBodyDataPoints extends $tea.Model {
 }
 
 export class ListDomainsResponseBodyDomainInfosDomainInfo extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 10
+   */
   resolved?: number;
+  /**
+   * @example
+   * 20
+   */
   resolved6?: number;
+  /**
+   * @example
+   * 10
+   */
   resolvedHttps?: number;
+  /**
+   * @example
+   * 20
+   */
   resolvedHttps6?: number;
+  timeModified?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
@@ -635,6 +894,7 @@ export class ListDomainsResponseBodyDomainInfosDomainInfo extends $tea.Model {
       resolved6: 'Resolved6',
       resolvedHttps: 'ResolvedHttps',
       resolvedHttps6: 'ResolvedHttps6',
+      timeModified: 'TimeModified',
     };
   }
 
@@ -645,6 +905,7 @@ export class ListDomainsResponseBodyDomainInfosDomainInfo extends $tea.Model {
       resolved6: 'number',
       resolvedHttps: 'number',
       resolvedHttps6: 'number',
+      timeModified: 'number',
     };
   }
 
@@ -695,14 +956,24 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request - AddDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDomainResponse
+   */
   async addDomainWithOptions(request: AddDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountId"] = request.accountId;
-    query["DomainName"] = request.domainName;
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddDomain",
@@ -712,25 +983,39 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddDomainResponse>(await this.callApi(params, req, runtime), new AddDomainResponse({}));
   }
 
+  /**
+   * @param request - AddDomainRequest
+   * @returns AddDomainResponse
+   */
   async addDomain(request: AddDomainRequest): Promise<AddDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainResponse
+   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountId"] = request.accountId;
-    query["DomainName"] = request.domainName;
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDomain",
@@ -740,26 +1025,43 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+   * @param request - DeleteDomainRequest
+   * @returns DeleteDomainResponse
+   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainsResponse
+   */
   async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountId"] = request.accountId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomains",
@@ -769,17 +1071,26 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDomainsResponse({}));
   }
 
+  /**
+   * @param request - DescribeDomainsRequest
+   * @returns DescribeDomainsResponse
+   */
   async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetAccountInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountInfoResponse
+   */
   async getAccountInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -790,25 +1101,38 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetAccountInfoResponse>(await this.callApi(params, req, runtime), new GetAccountInfoResponse({}));
   }
 
+  /**
+   * @returns GetAccountInfoResponse
+   */
   async getAccountInfo(): Promise<GetAccountInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountInfoWithOptions(runtime);
   }
 
+  /**
+   * @param request - GetResolveCountSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResolveCountSummaryResponse
+   */
   async getResolveCountSummaryWithOptions(request: GetResolveCountSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetResolveCountSummaryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Granularity"] = request.granularity;
-    query["TimeSpan"] = request.timeSpan;
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.timeSpan)) {
+      query["TimeSpan"] = request.timeSpan;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetResolveCountSummary",
@@ -818,27 +1142,47 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetResolveCountSummaryResponse>(await this.callApi(params, req, runtime), new GetResolveCountSummaryResponse({}));
   }
 
+  /**
+   * @param request - GetResolveCountSummaryRequest
+   * @returns GetResolveCountSummaryResponse
+   */
   async getResolveCountSummary(request: GetResolveCountSummaryRequest): Promise<GetResolveCountSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResolveCountSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetResolveStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResolveStatisticsResponse
+   */
   async getResolveStatisticsWithOptions(request: GetResolveStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetResolveStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["Granularity"] = request.granularity;
-    query["ProtocolName"] = request.protocolName;
-    query["TimeSpan"] = request.timeSpan;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.protocolName)) {
+      query["ProtocolName"] = request.protocolName;
+    }
+
+    if (!Util.isUnset(request.timeSpan)) {
+      query["TimeSpan"] = request.timeSpan;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetResolveStatistics",
@@ -848,25 +1192,43 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetResolveStatisticsResponse>(await this.callApi(params, req, runtime), new GetResolveStatisticsResponse({}));
   }
 
+  /**
+   * @param request - GetResolveStatisticsRequest
+   * @returns GetResolveStatisticsResponse
+   */
   async getResolveStatistics(request: GetResolveStatisticsRequest): Promise<GetResolveStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResolveStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainsResponse
+   */
   async listDomainsWithOptions(request: ListDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["Search"] = request.search;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListDomains",
@@ -876,12 +1238,16 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDomainsResponse>(await this.callApi(params, req, runtime), new ListDomainsResponse({}));
   }
 
+  /**
+   * @param request - ListDomainsRequest
+   * @returns ListDomainsResponse
+   */
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDomainsWithOptions(request, runtime);
