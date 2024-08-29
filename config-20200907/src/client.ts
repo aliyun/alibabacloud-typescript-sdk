@@ -12040,6 +12040,8 @@ export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
    * ca-c560626622af0005****
    */
   aggregatorId?: string;
+  endUpdateTimestamp?: number;
+  excludeResourceTypes?: string;
   /**
    * @remarks
    * The maximum number of entries to return for a single request. Valid values: 1 to 100.
@@ -12108,9 +12110,12 @@ export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
    * ACS::ECS::NetworkInterface
    */
   resourceTypes?: string;
+  startUpdateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
+      endUpdateTimestamp: 'EndUpdateTimestamp',
+      excludeResourceTypes: 'ExcludeResourceTypes',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regions: 'Regions',
@@ -12119,12 +12124,15 @@ export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
       resourceId: 'ResourceId',
       resourceOwnerId: 'ResourceOwnerId',
       resourceTypes: 'ResourceTypes',
+      startUpdateTimestamp: 'StartUpdateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aggregatorId: 'string',
+      endUpdateTimestamp: 'number',
+      excludeResourceTypes: 'string',
       maxResults: 'number',
       nextToken: 'string',
       regions: 'string',
@@ -12133,6 +12141,7 @@ export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
       resourceId: 'string',
       resourceOwnerId: 'number',
       resourceTypes: 'string',
+      startUpdateTimestamp: 'number',
     };
   }
 
@@ -13704,6 +13713,8 @@ export class ListConfigRulesResponse extends $tea.Model {
 }
 
 export class ListDiscoveredResourcesRequest extends $tea.Model {
+  endUpdateTimestamp?: number;
+  excludeResourceTypes?: string;
   /**
    * @remarks
    * The maximum number of entries returned for a single request. Valid values: 1 to 100.
@@ -13712,6 +13723,9 @@ export class ListDiscoveredResourcesRequest extends $tea.Model {
    * 
    * @example
    * 10
+   * 
+   * **if can be null:**
+   * true
    */
   maxResults?: number;
   /**
@@ -13757,25 +13771,32 @@ export class ListDiscoveredResourcesRequest extends $tea.Model {
    * ACS::ECS::NetworkInterface
    */
   resourceTypes?: string;
+  startUpdateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      endUpdateTimestamp: 'EndUpdateTimestamp',
+      excludeResourceTypes: 'ExcludeResourceTypes',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regions: 'Regions',
       resourceDeleted: 'ResourceDeleted',
       resourceId: 'ResourceId',
       resourceTypes: 'ResourceTypes',
+      startUpdateTimestamp: 'StartUpdateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endUpdateTimestamp: 'number',
+      excludeResourceTypes: 'string',
       maxResults: 'number',
       nextToken: 'string',
       regions: 'string',
       resourceDeleted: 'number',
       resourceId: 'string',
       resourceTypes: 'string',
+      startUpdateTimestamp: 'number',
     };
   }
 
@@ -29746,6 +29767,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
    * {\\"key1\\":[\\"value2\\"]}
    */
   tags?: string;
+  updateTime?: number;
   /**
    * @remarks
    * The build version of the resource.
@@ -29767,6 +29789,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
       resourceStatus: 'ResourceStatus',
       resourceType: 'ResourceType',
       tags: 'Tags',
+      updateTime: 'UpdateTime',
       version: 'Version',
     };
   }
@@ -29784,6 +29807,7 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
       resourceStatus: 'string',
       resourceType: 'string',
       tags: 'string',
+      updateTime: 'number',
       version: 'number',
     };
   }
@@ -32161,6 +32185,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
    * {\\"key1\\":[\\"value2\\"]}
    */
   tags?: string;
+  updateTime?: number;
   /**
    * @remarks
    * The version of the resource change.
@@ -32181,6 +32206,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
       resourceStatus: 'ResourceStatus',
       resourceType: 'ResourceType',
       tags: 'Tags',
+      updateTime: 'UpdateTime',
       version: 'Version',
     };
   }
@@ -32197,6 +32223,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscov
       resourceStatus: 'string',
       resourceType: 'string',
       tags: 'string',
+      updateTime: 'number',
       version: 'number',
     };
   }
@@ -39836,6 +39863,14 @@ export default class Client extends OpenApi {
       query["AggregatorId"] = request.aggregatorId;
     }
 
+    if (!Util.isUnset(request.endUpdateTimestamp)) {
+      query["EndUpdateTimestamp"] = request.endUpdateTimestamp;
+    }
+
+    if (!Util.isUnset(request.excludeResourceTypes)) {
+      query["ExcludeResourceTypes"] = request.excludeResourceTypes;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -39866,6 +39901,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceTypes)) {
       query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    if (!Util.isUnset(request.startUpdateTimestamp)) {
+      query["StartUpdateTimestamp"] = request.startUpdateTimestamp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -40179,7 +40218,7 @@ export default class Client extends OpenApi {
    * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\))
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema]
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -40221,7 +40260,7 @@ export default class Client extends OpenApi {
    * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\))
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema]
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -40610,6 +40649,14 @@ export default class Client extends OpenApi {
   async listDiscoveredResourcesWithOptions(request: ListDiscoveredResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDiscoveredResourcesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endUpdateTimestamp)) {
+      query["EndUpdateTimestamp"] = request.endUpdateTimestamp;
+    }
+
+    if (!Util.isUnset(request.excludeResourceTypes)) {
+      query["ExcludeResourceTypes"] = request.excludeResourceTypes;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -40632,6 +40679,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceTypes)) {
       query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    if (!Util.isUnset(request.startUpdateTimestamp)) {
+      query["StartUpdateTimestamp"] = request.startUpdateTimestamp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -41161,7 +41212,7 @@ export default class Client extends OpenApi {
    * Obtains resources based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\)).
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema].
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -41199,7 +41250,7 @@ export default class Client extends OpenApi {
    * Obtains resources based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](javascript:void\\(0\\)).
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema].
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
