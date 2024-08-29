@@ -11130,8 +11130,6 @@ export class DescribeDataBackupsRequest extends $tea.Model {
    * @remarks
    * The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 2011-06-01T16:00Z
    */
@@ -11161,8 +11159,6 @@ export class DescribeDataBackupsRequest extends $tea.Model {
   /**
    * @remarks
    * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 2011-06-01T15:00Z
@@ -23614,6 +23610,8 @@ export class ModifyMasterSpecRequest extends $tea.Model {
    * *   32 CU
    * 
    * >  You are charged for coordinator node resources of more than 8 compute units (CUs).
+   * 
+   * This parameter is required.
    * 
    * @example
    * 8 CU
