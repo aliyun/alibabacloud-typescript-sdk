@@ -6701,6 +6701,7 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
+  enableIdle?: boolean;
   /**
    * @example
    * -1
@@ -6745,6 +6746,7 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      enableIdle: 'EnableIdle',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       scalingRuleEnable: 'ScalingRuleEnable',
@@ -6758,6 +6760,7 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      enableIdle: 'boolean',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       scalingRuleEnable: 'boolean',
@@ -6858,11 +6861,7 @@ export class CreateApplicationScalingRuleResponse extends $tea.Model {
 export class CreateConfigMapRequest extends $tea.Model {
   /**
    * @remarks
-   * The key-value pairs of the ConfigMap in the JSON format. Format:
-   * 
-   * {"Data":"{"k1":"v1", "k2":"v2"}"}
-   * 
-   * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
+   * The ConfigMap data.
    * 
    * This parameter is required.
    * 
@@ -6872,7 +6871,11 @@ export class CreateConfigMapRequest extends $tea.Model {
   data?: string;
   /**
    * @remarks
-   * The description. The description must be 1 to 255 characters in length, and cannot contain spaces.
+   * The key-value pairs of the ConfigMap in the JSON format. Format:
+   * 
+   * {"Data":"{"k1":"v1", "k2":"v2"}"}
+   * 
+   * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
    * 
    * @example
    * test-desc
@@ -6924,6 +6927,46 @@ export class CreateConfigMapRequest extends $tea.Model {
 export class CreateConfigMapResponseBody extends $tea.Model {
   /**
    * @remarks
+   * Empty
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The trace ID that is used to query the details of the request.
+   */
+  data?: CreateConfigMapResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the ConfigMap that was created.
+   * 
+   * @example
+   * The error code. Valid values:
+   * 
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
+  requestId?: string;
+  /**
+   * @remarks
    * The HTTP status code. Valid values:
    * 
    * *   **2xx**: The call was successful.
@@ -6932,55 +6975,12 @@ export class CreateConfigMapResponseBody extends $tea.Model {
    * *   **5xx**: A server error occurred.
    * 
    * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: CreateConfigMapResponseBodyData;
-  /**
-   * @remarks
-   * The error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
-   * 
-   * @example
-   * Empty
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the ConfigMap was created. Valid values:
-   * 
-   * *   **true**: The ConfigMap was created.
-   * *   **false**: The ConfigMap failed to be created.
-   * 
-   * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The returned message.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -22501,6 +22501,7 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
+  enableIdle?: boolean;
   /**
    * @remarks
    * The percentage of the minimum number of available instances. Take note of the following rules:
@@ -22634,6 +22635,7 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      enableIdle: 'EnableIdle',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       scalingRuleMetric: 'ScalingRuleMetric',
@@ -22645,6 +22647,7 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      enableIdle: 'boolean',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       scalingRuleMetric: 'string',
@@ -26260,6 +26263,7 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
    * 1616642248938
    */
   createTime?: number;
+  enableIdle?: boolean;
   /**
    * @example
    * 1641882854484
@@ -26291,6 +26295,7 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      enableIdle: 'EnableIdle',
       lastDisableTime: 'LastDisableTime',
       metric: 'Metric',
       scaleRuleEnabled: 'ScaleRuleEnabled',
@@ -26305,6 +26310,7 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'string',
       createTime: 'number',
+      enableIdle: 'boolean',
       lastDisableTime: 'number',
       metric: CreateApplicationScalingRuleResponseBodyDataMetric,
       scaleRuleEnabled: 'boolean',
@@ -26323,7 +26329,7 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
 export class CreateConfigMapResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The ID of the ConfigMap that was created.
+   * The returned result.
    * 
    * @example
    * 1
@@ -28999,6 +29005,7 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $tea.Model {
    * 1624329843790
    */
   createTime?: number;
+  enableIdle?: boolean;
   /**
    * @remarks
    * The time when the auto scaling policy was last disabled.
@@ -29062,6 +29069,7 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      enableIdle: 'EnableIdle',
       lastDisableTime: 'LastDisableTime',
       metric: 'Metric',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
@@ -29078,6 +29086,7 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'string',
       createTime: 'number',
+      enableIdle: 'boolean',
       lastDisableTime: 'number',
       metric: DescribeApplicationScalingRuleResponseBodyDataMetric,
       minReadyInstanceRatio: 'number',
@@ -29665,6 +29674,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * 1616642248938
    */
   createTime?: number;
+  enableIdle?: boolean;
   /**
    * @remarks
    * The time when the auto scaling policy was last disabled.
@@ -29728,6 +29738,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      enableIdle: 'EnableIdle',
       lastDisableTime: 'LastDisableTime',
       metric: 'Metric',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
@@ -29744,6 +29755,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     return {
       appId: 'string',
       createTime: 'number',
+      enableIdle: 'boolean',
       lastDisableTime: 'number',
       metric: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric,
       minReadyInstanceRatio: 'number',
@@ -38171,6 +38183,7 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
    * 1616642248938
    */
   createTime?: number;
+  enableIdle?: boolean;
   /**
    * @remarks
    * The time when the auto scaling policy was last disabled.
@@ -38232,6 +38245,7 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      enableIdle: 'EnableIdle',
       lastDisableTime: 'LastDisableTime',
       metric: 'Metric',
       scaleRuleEnabled: 'ScaleRuleEnabled',
@@ -38246,6 +38260,7 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'string',
       createTime: 'number',
+      enableIdle: 'boolean',
       lastDisableTime: 'number',
       metric: UpdateApplicationScalingRuleResponseBodyDataMetric,
       scaleRuleEnabled: 'boolean',
@@ -39122,6 +39137,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.enableIdle)) {
+      query["EnableIdle"] = request.enableIdle;
     }
 
     if (!Util.isUnset(request.minReadyInstanceRatio)) {
@@ -44915,6 +44934,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.enableIdle)) {
+      query["EnableIdle"] = request.enableIdle;
     }
 
     if (!Util.isUnset(request.minReadyInstanceRatio)) {
