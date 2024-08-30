@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,11 +8,44 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddressInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 陕西省西安市新城区xxx大厦xx室
+   */
   addressDetail?: string;
+  /**
+   * @example
+   * 0
+   */
   addressId?: number;
+  /**
+   * @example
+   * 610102
+   */
   divisionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 任先生
+   */
   receiver?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 182***5674
+   */
   receiverPhone?: string;
+  /**
+   * @example
+   * 61010212
+   */
   townDivisionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,7 +75,15 @@ export class AddressInfo extends $tea.Model {
 }
 
 export class ApplyReason extends $tea.Model {
+  /**
+   * @example
+   * 403769
+   */
   reasonTextId?: number;
+  /**
+   * @example
+   * 不想要了
+   */
   reasonTips?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,10 +105,30 @@ export class ApplyReason extends $tea.Model {
 }
 
 export class Category extends $tea.Model {
+  /**
+   * @example
+   * 201792301
+   */
   categoryId?: number;
+  /**
+   * @example
+   * false
+   */
   isLeaf?: boolean;
+  /**
+   * @example
+   * 2
+   */
   level?: number;
+  /**
+   * @example
+   * 方便面/拉面/挂面/轻食面速食
+   */
   name?: string;
+  /**
+   * @example
+   * 50016422
+   */
   parentId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -97,6 +157,10 @@ export class Category extends $tea.Model {
 
 export class CategoryListQuery extends $tea.Model {
   categoryIds?: number[];
+  /**
+   * @example
+   * 5200001
+   */
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -140,7 +204,15 @@ export class CategoryListResult extends $tea.Model {
 }
 
 export class ConfirmDisburseCmd extends $tea.Model {
+  /**
+   * @example
+   * 6692****5457
+   */
   orderId?: string;
+  /**
+   * @example
+   * 6692****5696
+   */
   purchaseOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -162,7 +234,15 @@ export class ConfirmDisburseCmd extends $tea.Model {
 }
 
 export class ConfirmDisburseResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * success
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +289,13 @@ export class CooperationShop extends $tea.Model {
 }
 
 export class CreateAliPayUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   shopId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -253,9 +340,25 @@ export class CreateAliPayUrlResult extends $tea.Model {
 }
 
 export class DeliveryInfo extends $tea.Model {
+  /**
+   * @example
+   * 快递 免邮
+   */
   displayName?: string;
+  /**
+   * @example
+   * 20
+   */
   id?: string;
+  /**
+   * @example
+   * 0
+   */
   postFee?: number;
+  /**
+   * @example
+   * -4
+   */
   serviceType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -281,7 +384,15 @@ export class DeliveryInfo extends $tea.Model {
 }
 
 export class DistributionMaxRefundFee extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   maxRefundFee?: number;
+  /**
+   * @example
+   * 1
+   */
   minRefundFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -303,10 +414,30 @@ export class DistributionMaxRefundFee extends $tea.Model {
 }
 
 export class Division extends $tea.Model {
+  /**
+   * @example
+   * 310000
+   */
   divisionCode?: number;
+  /**
+   * @example
+   * 2
+   */
   divisionLevel?: number;
+  /**
+   * @example
+   * 上海
+   */
   divisionName?: string;
+  /**
+   * @example
+   * 1
+   */
   parentId?: number;
+  /**
+   * @example
+   * shang hai
+   */
   pinyin?: string;
   static names(): { [key: string]: string } {
     return {
@@ -335,6 +466,10 @@ export class Division extends $tea.Model {
 
 export class DivisionPageResult extends $tea.Model {
   divisionList?: Division[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -356,6 +491,13 @@ export class DivisionPageResult extends $tea.Model {
 }
 
 export class DivisionQuery extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   divisionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -470,7 +612,15 @@ export class GeneralBillPageResult extends $tea.Model {
   generalBills?: GeneralBill[];
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * 24
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -498,8 +648,20 @@ export class GeneralBillPageResult extends $tea.Model {
 }
 
 export class Good extends $tea.Model {
+  /**
+   * @example
+   * 儿童学习桌
+   */
   goodName?: string;
+  /**
+   * @example
+   * 6600****6736
+   */
   productId?: string;
+  /**
+   * @example
+   * 1
+   */
   quantity?: number;
   skuId?: string;
   skuTitle?: string;
@@ -529,8 +691,29 @@ export class Good extends $tea.Model {
 }
 
 export class GoodsShippingNoticeCreateCmd extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OTHER-其他 POST-中国邮政 EMS-EMS EYB-EMS快递包裹 POSTB-邮政快递包裹 STO-申通快递 YTO-圆通快递 YUNDA-韵达快递 ZJS-宅急送 FEDEX-联邦快递 DBKD-德邦物流 SHQ-华强物流 TN-特能 TAOBAO-淘宝物流 ZTO-中通快递 HTKY-百世快递 TTKDEX-天天快递 SF-顺丰速运 ZTKY-中铁物流 QFKD-全峰快递 JT-极兔物流
+   */
   cpCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6693****4352
+   */
   disputeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SF145****4351
+   */
   logisticsNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -554,7 +737,15 @@ export class GoodsShippingNoticeCreateCmd extends $tea.Model {
 }
 
 export class GoodsShippingNoticeCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * success
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -576,7 +767,15 @@ export class GoodsShippingNoticeCreateResult extends $tea.Model {
 }
 
 export class LeavePictureList extends $tea.Model {
+  /**
+   * @example
+   * 退款凭证
+   */
   desc?: string;
+  /**
+   * @example
+   * https://
+   */
   picture?: string;
   static names(): { [key: string]: string } {
     return {
@@ -597,8 +796,47 @@ export class LeavePictureList extends $tea.Model {
   }
 }
 
+export class LimitRule extends $tea.Model {
+  beginTime?: number;
+  condcase?: string;
+  endTime?: number;
+  limitNum?: number;
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'beginTime',
+      condcase: 'condcase',
+      endTime: 'endTime',
+      limitNum: 'limitNum',
+      ruleType: 'ruleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      condcase: 'string',
+      endTime: 'number',
+      limitNum: 'number',
+      ruleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogisticsDetail extends $tea.Model {
+  /**
+   * @example
+   * 2023-09-01 00:00:00
+   */
   ocurrTimeStr?: string;
+  /**
+   * @example
+   * 已签收
+   */
   standerdDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -619,8 +857,55 @@ export class LogisticsDetail extends $tea.Model {
   }
 }
 
+export class LogisticsInformationData extends $tea.Model {
+  logisticsStatus?: string;
+  modifiedTime?: string;
+  orderId?: string;
+  orderLineId?: string;
+  outerPurchaseOrderId?: string;
+  purchaserId?: string;
+  trackingCompanyCode?: string;
+  trackingCompanyName?: string;
+  trackingNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logisticsStatus: 'logisticsStatus',
+      modifiedTime: 'modifiedTime',
+      orderId: 'orderId',
+      orderLineId: 'orderLineId',
+      outerPurchaseOrderId: 'outerPurchaseOrderId',
+      purchaserId: 'purchaserId',
+      trackingCompanyCode: 'trackingCompanyCode',
+      trackingCompanyName: 'trackingCompanyName',
+      trackingNumber: 'trackingNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logisticsStatus: 'string',
+      modifiedTime: 'string',
+      orderId: 'string',
+      orderLineId: 'string',
+      outerPurchaseOrderId: 'string',
+      purchaserId: 'string',
+      trackingCompanyCode: 'string',
+      trackingCompanyName: 'string',
+      trackingNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogisticsOrderListResult extends $tea.Model {
   logisticsOrderList?: LogisticsOrderResult[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -642,12 +927,32 @@ export class LogisticsOrderListResult extends $tea.Model {
 }
 
 export class LogisticsOrderResult extends $tea.Model {
+  /**
+   * @example
+   * 菜鸟
+   */
   dataProvider?: string;
+  /**
+   * @example
+   * 菜鸟裹裹
+   */
   dataProviderTitle?: string;
   goods?: Good[];
+  /**
+   * @example
+   * SF （OTHER-其他 POST-中国邮政 EMS-EMS EYB-EMS快递包裹 POSTB-邮政快递包裹 STO-申通快递 YTO-圆通快递 YUNDA-韵达快递 ZJS-宅急送 FEDEX-联邦快递 DBKD-德邦物流 SHQ-华强物流 TN-特能 TAOBAO-淘宝物流 ZTO-中通快递 HTKY-百世快递 TTKDEX-天天快递 SF-顺丰速运 ZTKY-中铁物流 QFKD-全峰快递 JT-极兔物流）
+   */
   logisticsCompanyCode?: string;
+  /**
+   * @example
+   * 顺丰
+   */
   logisticsCompanyName?: string;
   logisticsDetailList?: LogisticsDetail[];
+  /**
+   * @example
+   * SF234***2345
+   */
   mailNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -679,6 +984,13 @@ export class LogisticsOrderResult extends $tea.Model {
 }
 
 export class MemberAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   shopId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -698,7 +1010,15 @@ export class MemberAccountRequest extends $tea.Model {
 }
 
 export class MemberAccountResult extends $tea.Model {
+  /**
+   * @example
+   * "yue***@newburn.cn"
+   */
   accountNo?: string[];
+  /**
+   * @example
+   * 123
+   */
   shopId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -757,16 +1077,60 @@ export class Money extends $tea.Model {
 }
 
 export class OrderLineResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   logisticsStatus?: string;
+  /**
+   * @example
+   * 1
+   */
   number?: string;
+  /**
+   * @example
+   * 6692****5457
+   */
   orderId?: string;
+  /**
+   * @example
+   * 6692****5458
+   */
   orderLineId?: string;
+  /**
+   * @example
+   * 1
+   */
   orderLineStatus?: string;
+  /**
+   * @example
+   * 100
+   */
   payFee?: number;
+  /**
+   * @example
+   * 6600****6736
+   */
   productId?: string;
+  /**
+   * @example
+   * //img.alicdn.com/imgextra/i4/2216003305543/O1CN01bip3Un1qokG0
+   */
   productPic?: string;
+  /**
+   * @example
+   * 儿童学习桌
+   */
   productTitle?: string;
+  /**
+   * @example
+   * 6600****6737
+   */
   skuId?: string;
+  /**
+   * @example
+   * 浅绿色
+   */
   skuTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -807,7 +1171,15 @@ export class OrderLineResult extends $tea.Model {
 
 export class OrderListResult extends $tea.Model {
   orderList?: OrderResult[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * 24
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -832,8 +1204,26 @@ export class OrderListResult extends $tea.Model {
 
 export class OrderPageQuery extends $tea.Model {
   orderIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 6692****5696
+   */
   purchaseOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -859,16 +1249,56 @@ export class OrderPageQuery extends $tea.Model {
 }
 
 export class OrderProductResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
   features?: { [key: string]: any };
+  /**
+   * @example
+   * 库存为0
+   */
   message?: string;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 6600****6736
+   */
   productId?: string;
+  /**
+   * @example
+   * //img.alicdn.com/imgextra/i4/2216003305543/O1CN01bip3Un1qokG0
+   */
   productPicUrl?: string;
+  /**
+   * @example
+   * 儿童学习桌
+   */
   productTitle?: string;
+  /**
+   * @example
+   * 56****2304
+   */
   purchaserId?: string;
+  /**
+   * @example
+   * 1
+   */
   quantity?: number;
+  /**
+   * @example
+   * 6600****6737
+   */
   skuId?: string;
+  /**
+   * @example
+   * 浅绿色
+   */
   skuTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -908,9 +1338,37 @@ export class OrderProductResult extends $tea.Model {
 }
 
 export class OrderRenderProductDTO extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6600****6736
+   */
   productId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 56****2304
+   */
   purchaserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   quantity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6600****6737
+   */
   skuId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -936,9 +1394,17 @@ export class OrderRenderProductDTO extends $tea.Model {
 }
 
 export class OrderRenderResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
   deliveryInfoList?: DeliveryInfo[];
   extInfo?: { [key: string]: any };
+  /**
+   * @example
+   * 库存为0
+   */
   message?: string;
   productList?: OrderProductResult[];
   static names(): { [key: string]: string } {
@@ -967,13 +1433,41 @@ export class OrderRenderResult extends $tea.Model {
 }
 
 export class OrderResult extends $tea.Model {
+  /**
+   * @example
+   * 2023-09-11T12:22:24.000+08:00
+   */
   createDate?: string;
+  /**
+   * @example
+   * 12****01
+   */
   distributorId?: string;
+  /**
+   * @example
+   * 1
+   */
   logisticsStatus?: string;
+  /**
+   * @example
+   * 100
+   */
   orderAmount?: number;
+  /**
+   * @example
+   * 6692****5457
+   */
   orderId?: string;
   orderLineList?: OrderLineResult[];
+  /**
+   * @example
+   * 1
+   */
   orderStatus?: string;
+  /**
+   * @example
+   * 841471F6-5D61-1331-8C38-2****B55
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1007,29 +1501,102 @@ export class OrderResult extends $tea.Model {
 }
 
 export class Product extends $tea.Model {
+  /**
+   * @example
+   * Apple/苹果
+   */
   brandName?: string;
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
   categoryChain?: Category[];
+  /**
+   * @example
+   * 201856501
+   */
   categoryLeafId?: number;
+  /**
+   * @example
+   * https://img.alicdn.com/descpath/O1CN01wciRDp22AEU14435dsf34
+   */
   descPath?: string;
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
   extendProperties?: ProductExtendProperty[];
+  /**
+   * @example
+   * 100+
+   */
   fuzzyQuantity?: string;
   images?: string[];
+  limitRules?: LimitRule[];
+  /**
+   * @example
+   * 21000017-4580902812
+   */
   lmItemId?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i3/2214281521988/O1CN01w4vomR1QYYEx6nyr5_!!2214281521988.jpg
+   */
   picUrl?: string;
+  /**
+   * @example
+   * 660460842235822080
+   */
   productId?: string;
   productSpecs?: ProductSpec[];
+  /**
+   * @example
+   * Online
+   */
   productStatus?: string;
+  /**
+   * @example
+   * Normal
+   */
   productType?: string;
   properties?: ProductProperty[];
+  /**
+   * @example
+   * -1
+   */
   quantity?: number;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * 21000017
+   */
   shopId?: string;
   skus?: Sku[];
+  /**
+   * @example
+   * 100+
+   */
   soldQuantity?: string;
+  /**
+   * @example
+   * 3040203000000000000
+   */
   taxCode?: string;
+  /**
+   * @example
+   * 600
+   */
   taxRate?: number;
+  /**
+   * @example
+   * 发财树
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1042,6 +1609,7 @@ export class Product extends $tea.Model {
       extendProperties: 'extendProperties',
       fuzzyQuantity: 'fuzzyQuantity',
       images: 'images',
+      limitRules: 'limitRules',
       lmItemId: 'lmItemId',
       picUrl: 'picUrl',
       productId: 'productId',
@@ -1071,6 +1639,7 @@ export class Product extends $tea.Model {
       extendProperties: { 'type': 'array', 'itemType': ProductExtendProperty },
       fuzzyQuantity: 'string',
       images: { 'type': 'array', 'itemType': 'string' },
+      limitRules: { 'type': 'array', 'itemType': LimitRule },
       lmItemId: 'string',
       picUrl: 'string',
       productId: 'string',
@@ -1095,10 +1664,42 @@ export class Product extends $tea.Model {
 }
 
 export class ProductDTO extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6600****6736
+   */
   productId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 56****2304
+   */
   purchaserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   quantity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6600****6737
+   */
   skuId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1126,7 +1727,15 @@ export class ProductDTO extends $tea.Model {
 }
 
 export class ProductExtendProperty extends $tea.Model {
+  /**
+   * @example
+   * ss_picture_scene
+   */
   key?: string;
+  /**
+   * @example
+   * 场景图
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1148,10 +1757,35 @@ export class ProductExtendProperty extends $tea.Model {
 }
 
 export class ProductPageResult extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   products?: Product[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1179,6 +1813,10 @@ export class ProductPageResult extends $tea.Model {
 }
 
 export class ProductPrice extends $tea.Model {
+  /**
+   * @example
+   * 120
+   */
   fundAmountMoney?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1198,6 +1836,10 @@ export class ProductPrice extends $tea.Model {
 }
 
 export class ProductProperty extends $tea.Model {
+  /**
+   * @example
+   * 颜色
+   */
   text?: string;
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1220,7 +1862,18 @@ export class ProductProperty extends $tea.Model {
 }
 
 export class ProductQuery extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 22000009
+   */
   distributorShopId?: string;
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1242,22 +1895,64 @@ export class ProductQuery extends $tea.Model {
 }
 
 export class ProductSaleInfo extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @example
+   * 有货
+   */
   fuzzyQuantity?: string;
+  limitRules?: LimitRule[];
+  /**
+   * @example
+   * 21000017-4580902812
+   */
   lmItemId?: string;
+  /**
+   * @example
+   * 660460842235822080
+   */
   productId?: string;
+  /**
+   * @example
+   * Online
+   */
   productStatus?: string;
+  /**
+   * @example
+   * 10
+   */
   quantity?: number;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * 21000017
+   */
   shopId?: string;
   skus?: SkuSaleInfo[];
+  /**
+   * @example
+   * 发财树
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
       canSell: 'canSell',
       divisionCode: 'divisionCode',
       fuzzyQuantity: 'fuzzyQuantity',
+      limitRules: 'limitRules',
       lmItemId: 'lmItemId',
       productId: 'productId',
       productStatus: 'productStatus',
@@ -1274,6 +1969,7 @@ export class ProductSaleInfo extends $tea.Model {
       canSell: 'boolean',
       divisionCode: 'string',
       fuzzyQuantity: 'string',
+      limitRules: { 'type': 'array', 'itemType': LimitRule },
       lmItemId: 'string',
       productId: 'string',
       productStatus: 'string',
@@ -1291,8 +1987,23 @@ export class ProductSaleInfo extends $tea.Model {
 }
 
 export class ProductSaleInfoListQuery extends $tea.Model {
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   productIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 22000009
+   */
   purchaserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1317,6 +2028,10 @@ export class ProductSaleInfoListQuery extends $tea.Model {
 
 export class ProductSaleInfoListResult extends $tea.Model {
   productSaleInfos?: ProductSaleInfo[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1338,7 +2053,18 @@ export class ProductSaleInfoListResult extends $tea.Model {
 }
 
 export class ProductSaleInfoQuery extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 22000009
+   */
   distributorShopId?: string;
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1360,7 +2086,15 @@ export class ProductSaleInfoQuery extends $tea.Model {
 }
 
 export class ProductSpec extends $tea.Model {
+  /**
+   * @example
+   * 颜色分类
+   */
   key?: string;
+  /**
+   * @example
+   * 1000
+   */
   keyId?: number;
   values?: ProductSpecValue[];
   static names(): { [key: string]: string } {
@@ -1385,8 +2119,20 @@ export class ProductSpec extends $tea.Model {
 }
 
 export class ProductSpecValue extends $tea.Model {
+  /**
+   * @example
+   * 白色
+   */
   value?: string;
+  /**
+   * @example
+   * 秘色
+   */
   valueAlias?: string;
+  /**
+   * @example
+   * 1000
+   */
   valueId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1410,10 +2156,32 @@ export class ProductSpecValue extends $tea.Model {
 }
 
 export class PurchaseOrderCreateCmd extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * buyer2138237
+   */
   buyerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   deliveryAddress?: AddressInfo;
   extInfo?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * outer123456
+   */
   outerPurchaseOrderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   productList?: ProductDTO[];
   static names(): { [key: string]: string } {
     return {
@@ -1441,7 +2209,15 @@ export class PurchaseOrderCreateCmd extends $tea.Model {
 }
 
 export class PurchaseOrderCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 6692****5696
+   */
   purchaseOrderId?: string;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1463,9 +2239,28 @@ export class PurchaseOrderCreateResult extends $tea.Model {
 }
 
 export class PurchaseOrderRenderQuery extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1234567
+   */
   buyerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   deliveryAddress?: AddressInfo;
+  /**
+   * @example
+   * {}
+   */
   extInfo?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   productList?: OrderRenderProductDTO[];
   static names(): { [key: string]: string } {
     return {
@@ -1492,10 +2287,22 @@ export class PurchaseOrderRenderQuery extends $tea.Model {
 
 export class PurchaseOrderRenderResult extends $tea.Model {
   addressList?: AddressInfo[];
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
   extInfo?: { [key: string]: any };
+  /**
+   * @example
+   * 库存为0
+   */
   message?: string;
   orderList?: OrderRenderResult[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   unsellableOrderList?: OrderRenderResult[];
   static names(): { [key: string]: string } {
@@ -1528,7 +2335,15 @@ export class PurchaseOrderRenderResult extends $tea.Model {
 }
 
 export class PurchaseOrderStatusResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1550,7 +2365,15 @@ export class PurchaseOrderStatusResult extends $tea.Model {
 }
 
 export class RefundFeeData extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   maxRefundFee?: number;
+  /**
+   * @example
+   * 1
+   */
   minRefundFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1572,14 +2395,64 @@ export class RefundFeeData extends $tea.Model {
 }
 
 export class RefundOrderCmd extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 47821
+   */
   applyReasonTextId?: number;
+  /**
+   * @example
+   * 不想要了
+   */
   applyReasonTips?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   applyRefundCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   applyRefundFee?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   bizClaimType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   goodsStatus?: number;
+  /**
+   * @example
+   * 不想要了
+   */
   leaveMessage?: string;
   leavePictureLists?: LeavePictureList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6692****5458
+   */
   orderLineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1615,9 +2488,25 @@ export class RefundOrderCmd extends $tea.Model {
 }
 
 export class RefundOrderResult extends $tea.Model {
+  /**
+   * @example
+   * 6693****4352
+   */
   disputeId?: string;
+  /**
+   * @example
+   * 1
+   */
   disputeStatus?: number;
+  /**
+   * @example
+   * 6692****5458
+   */
   orderLineId?: string;
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1643,9 +2532,25 @@ export class RefundOrderResult extends $tea.Model {
 }
 
 export class RefundReason extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   proofRequired?: boolean;
+  /**
+   * @example
+   * 47683
+   */
   reasonTextId?: string;
+  /**
+   * @example
+   * 不想要了
+   */
   reasonTips?: string;
+  /**
+   * @example
+   * true
+   */
   refundDescRequired?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1671,8 +2576,29 @@ export class RefundReason extends $tea.Model {
 }
 
 export class RefundRenderCmd extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   bizClaimType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   goodsStatus?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6692****5458
+   */
   orderLineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1696,10 +2622,22 @@ export class RefundRenderCmd extends $tea.Model {
 }
 
 export class RefundRenderResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   bizClaimType?: number;
   maxRefundFeeData?: DistributionMaxRefundFee;
+  /**
+   * @example
+   * 6692****5458
+   */
   orderLineId?: string;
   refundReasonList?: RefundReason[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1727,27 +2665,107 @@ export class RefundRenderResult extends $tea.Model {
 }
 
 export class RefundResult extends $tea.Model {
+  /**
+   * @example
+   * 多拍不想要
+   */
   applyDisputeDesc?: string;
   applyReason?: ApplyReason;
+  /**
+   * @example
+   * 1
+   */
   bizClaimType?: number;
+  /**
+   * @example
+   * 2023-09-02T00:00:00.000Z
+   */
   disputeCreateTime?: string;
+  /**
+   * @example
+   * 多拍不想要
+   */
   disputeDesc?: string;
+  /**
+   * @example
+   * 2023-09-02T12:00:00.000Z
+   */
   disputeEndTime?: string;
+  /**
+   * @example
+   * 6693****4352
+   */
   disputeId?: string;
+  /**
+   * @example
+   * 1
+   */
   disputeStatus?: number;
+  /**
+   * @example
+   * 6692****5457
+   */
   orderId?: string;
+  /**
+   * @example
+   * 6692****5458
+   */
   orderLineId?: string;
+  /**
+   * @example
+   * 1
+   */
   orderLogisticsStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   refundFee?: number;
   refundFeeData?: RefundFeeData;
+  /**
+   * @example
+   * 阿里云云谷
+   */
   refunderAddress?: string;
+  /**
+   * @example
+   * 赵先生
+   */
   refunderName?: string;
+  /**
+   * @example
+   * 182****1334
+   */
   refunderTel?: string;
+  /**
+   * @example
+   * 331001
+   */
   refunderZipCode?: string;
+  /**
+   * @example
+   * 841471F6-5D61-1331-8C38-2****B55
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   returnGoodLogisticsStatus?: number;
+  /**
+   * @example
+   * 同意退款
+   */
   sellerAgreeMsg?: string;
+  /**
+   * @example
+   * 不同意退款
+   */
   sellerRefuseAgreementMessage?: string;
+  /**
+   * @example
+   * 商品没问题，买家举证无效
+   */
   sellerRefuseReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1809,15 +2827,55 @@ export class RefundResult extends $tea.Model {
 }
 
 export class Shop extends $tea.Model {
+  /**
+   * @example
+   * 12***01
+   */
   cooperationShops?: CooperationShop[];
+  /**
+   * @example
+   * 12****09
+   */
   distributorId?: string;
+  /**
+   * @example
+   * 2024-09-09 00:00:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * PID56****2304
+   */
   purchaserId?: string;
+  /**
+   * @example
+   * 48A34399-A72C-1E23-8388-7E63****E927
+   */
   requestId?: string;
+  /**
+   * @example
+   * 22****09
+   */
   shopId?: string;
+  /**
+   * @example
+   * 儿童分销店铺
+   */
   shopName?: string;
+  /**
+   * @example
+   * DistributorQYG
+   */
   shopType?: string;
+  /**
+   * @example
+   * 2023-09-09 00:00:00
+   */
   startDate?: string;
+  /**
+   * @example
+   * Working
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1855,10 +2913,39 @@ export class Shop extends $tea.Model {
 }
 
 export class ShopCreateRequest extends $tea.Model {
+  /**
+   * @example
+   * 12344335
+   */
   afterSaleDingTalkId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 店铺描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12344335
+   */
   operatorDingTalkId?: string;
+  /**
+   * @example
+   * 12344335
+   */
   preSaleDingTalkId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 店铺名称
+   */
   shopName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1886,7 +2973,15 @@ export class ShopCreateRequest extends $tea.Model {
 }
 
 export class ShopCreateResult extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   shopId?: string;
+  /**
+   * @example
+   * WORKING
+   */
   shopStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1908,13 +3003,45 @@ export class ShopCreateResult extends $tea.Model {
 }
 
 export class ShopPageDataResult extends $tea.Model {
+  /**
+   * @example
+   * 12****01
+   */
   cooperationShops?: CooperationShop[];
+  /**
+   * @example
+   * 2023-09-01 00:00:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * PID56****2304
+   */
   purchaserId?: string;
+  /**
+   * @example
+   * 22****09
+   */
   shopId?: string;
+  /**
+   * @example
+   * 儿童座椅分销店铺
+   */
   shopName?: string;
+  /**
+   * @example
+   * DistributorQYG
+   */
   shopType?: string;
+  /**
+   * @example
+   * 2023-09-01 00:00:00
+   */
   startDate?: string;
+  /**
+   * @example
+   * Working
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1948,8 +3075,16 @@ export class ShopPageDataResult extends $tea.Model {
 }
 
 export class ShopPageResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   shopList?: ShopPageDataResult[];
+  /**
+   * @example
+   * 24
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1973,7 +3108,21 @@ export class ShopPageResult extends $tea.Model {
 }
 
 export class ShopStatusChangeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   shopId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WORKING
+   */
   shopStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1995,6 +3144,10 @@ export class ShopStatusChangeRequest extends $tea.Model {
 }
 
 export class ShopStatusChangeResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   operate?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2014,22 +3167,86 @@ export class ShopStatusChangeResult extends $tea.Model {
 }
 
 export class Sku extends $tea.Model {
+  /**
+   * @example
+   * 6922454329176
+   */
   barcode?: string;
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @example
+   * 有货
+   */
   fuzzyQuantity?: string;
+  /**
+   * @example
+   * 999900
+   */
   markPrice?: number;
+  /**
+   * @example
+   * https:////img.alicdn.com/imgextra///img.alicdn.com/imgextra/i2/2216003305543/O1CN010DEQCX1qokFYGRfPE_!!2216003305543.png
+   */
   picUrl?: string;
+  /**
+   * @example
+   * 999900
+   */
   platformPrice?: number;
+  /**
+   * @example
+   * 19800
+   */
   price?: number;
+  /**
+   * @example
+   * 660460842235822080
+   */
   productId?: string;
+  /**
+   * @example
+   * -1
+   */
   quantity?: number;
+  /**
+   * @example
+   * 3
+   */
   rankValue?: number;
+  /**
+   * @example
+   * 21000017
+   */
   shopId?: string;
+  /**
+   * @example
+   * 660460842235822081
+   */
   skuId?: string;
   skuSpecs?: SkuSpec[];
+  /**
+   * @example
+   * 颜色分类:天蓝色
+   */
   skuSpecsCode?: string;
+  /**
+   * @example
+   * Online
+   */
   skuStatus?: string;
+  /**
+   * @example
+   * 天蓝色
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2081,7 +3298,21 @@ export class Sku extends $tea.Model {
 }
 
 export class SkuQueryParam extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 660460842235822080
+   */
   productId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 660460842235822081
+   */
   skuId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2103,16 +3334,60 @@ export class SkuQueryParam extends $tea.Model {
 }
 
 export class SkuSaleInfo extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   canSell?: boolean;
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @example
+   * 有货
+   */
   fuzzyQuantity?: string;
+  /**
+   * @example
+   * 999900
+   */
   markPrice?: number;
+  /**
+   * @example
+   * 19800
+   */
   price?: number;
+  /**
+   * @example
+   * 660460842235822080
+   */
   productId?: string;
+  /**
+   * @example
+   * -1
+   */
   quantity?: number;
+  /**
+   * @example
+   * 21000017
+   */
   shopId?: string;
+  /**
+   * @example
+   * 660460842235822081
+   */
   skuId?: string;
+  /**
+   * @example
+   * Online
+   */
   skuStatus?: string;
+  /**
+   * @example
+   * 天蓝色
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2152,8 +3427,23 @@ export class SkuSaleInfo extends $tea.Model {
 }
 
 export class SkuSaleInfoListQuery extends $tea.Model {
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 21000017
+   */
   purchaserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   skuQueryParams?: SkuQueryParam[];
   static names(): { [key: string]: string } {
     return {
@@ -2177,6 +3467,10 @@ export class SkuSaleInfoListQuery extends $tea.Model {
 }
 
 export class SkuSaleInfoListResult extends $tea.Model {
+  /**
+   * @example
+   * 3239281273464326823
+   */
   requestId?: string;
   skuSaleInfos?: SkuSaleInfo[];
   static names(): { [key: string]: string } {
@@ -2199,10 +3493,30 @@ export class SkuSaleInfoListResult extends $tea.Model {
 }
 
 export class SkuSpec extends $tea.Model {
+  /**
+   * @example
+   * 颜色分类
+   */
   key?: string;
+  /**
+   * @example
+   * 1000
+   */
   keyId?: number;
+  /**
+   * @example
+   * 天蓝色
+   */
   value?: string;
+  /**
+   * @example
+   * 秘色
+   */
   valueAlias?: string;
+  /**
+   * @example
+   * 1000
+   */
   valueId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2255,6 +3569,10 @@ export class CancelRefundOrderResponse extends $tea.Model {
 }
 
 export class ConfirmDisburseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: ConfirmDisburseCmd;
   static names(): { [key: string]: string } {
     return {
@@ -2299,6 +3617,10 @@ export class ConfirmDisburseResponse extends $tea.Model {
 }
 
 export class CreateGoodsShippingNoticeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: GoodsShippingNoticeCreateCmd;
   static names(): { [key: string]: string } {
     return {
@@ -2343,6 +3665,10 @@ export class CreateGoodsShippingNoticeResponse extends $tea.Model {
 }
 
 export class CreatePurchaseOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: PurchaseOrderCreateCmd;
   static names(): { [key: string]: string } {
     return {
@@ -2387,6 +3713,10 @@ export class CreatePurchaseOrderResponse extends $tea.Model {
 }
 
 export class CreateRefundOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: RefundOrderCmd;
   static names(): { [key: string]: string } {
     return {
@@ -2531,7 +3861,18 @@ export class GetRefundOrderResponse extends $tea.Model {
 }
 
 export class GetSelectionProductRequest extends $tea.Model {
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 56****2304
+   */
   purchaserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2578,7 +3919,18 @@ export class GetSelectionProductResponse extends $tea.Model {
 }
 
 export class GetSelectionProductSaleInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * 110000
+   */
   divisionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 56****2304
+   */
   purchaserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2694,7 +4046,15 @@ export class ListLogisticsOrdersResponse extends $tea.Model {
 }
 
 export class ListPurchaserShopsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2741,6 +4101,10 @@ export class ListPurchaserShopsResponse extends $tea.Model {
 }
 
 export class ListSelectionProductSaleInfosRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: ProductSaleInfoListQuery;
   static names(): { [key: string]: string } {
     return {
@@ -2785,8 +4149,29 @@ export class ListSelectionProductSaleInfosResponse extends $tea.Model {
 }
 
 export class ListSelectionProductsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 56****2304
+   */
   purchaserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2835,6 +4220,10 @@ export class ListSelectionProductsResponse extends $tea.Model {
 }
 
 export class ListSelectionSkuSaleInfosRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: SkuSaleInfoListQuery;
   static names(): { [key: string]: string } {
     return {
@@ -2879,6 +4268,10 @@ export class ListSelectionSkuSaleInfosResponse extends $tea.Model {
 }
 
 export class QueryChildDivisionCodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: DivisionQuery;
   static names(): { [key: string]: string } {
     return {
@@ -2923,6 +4316,10 @@ export class QueryChildDivisionCodeResponse extends $tea.Model {
 }
 
 export class QueryOrdersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: OrderPageQuery;
   static names(): { [key: string]: string } {
     return {
@@ -2967,6 +4364,10 @@ export class QueryOrdersResponse extends $tea.Model {
 }
 
 export class RenderPurchaseOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: PurchaseOrderRenderQuery;
   static names(): { [key: string]: string } {
     return {
@@ -3011,6 +4412,10 @@ export class RenderPurchaseOrderResponse extends $tea.Model {
 }
 
 export class RenderRefundOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: RefundRenderCmd;
   static names(): { [key: string]: string } {
     return {
@@ -3209,11 +4614,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消逆向单
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelRefundOrderResponse
+   * 取消逆向单
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelRefundOrderResponse
    */
   async cancelRefundOrderWithOptions(disputeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelRefundOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3234,9 +4639,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消逆向单
-   *
-   * @return CancelRefundOrderResponse
+   * 取消逆向单
+   * @returns CancelRefundOrderResponse
    */
   async cancelRefundOrder(disputeId: string): Promise<CancelRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3245,12 +4649,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 确认收货（订单）
-   *
-   * @param request ConfirmDisburseRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfirmDisburseResponse
+   * 确认收货（订单）
+   * 
+   * @param request - ConfirmDisburseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmDisburseResponse
    */
   async confirmDisburseWithOptions(request: ConfirmDisburseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConfirmDisburseResponse> {
     Util.validateModel(request);
@@ -3273,10 +4677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 确认收货（订单）
-   *
-   * @param request ConfirmDisburseRequest
-   * @return ConfirmDisburseResponse
+   * 确认收货（订单）
+   * 
+   * @param request - ConfirmDisburseRequest
+   * @returns ConfirmDisburseResponse
    */
   async confirmDisburse(request: ConfirmDisburseRequest): Promise<ConfirmDisburseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3285,12 +4689,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交运单信息
-   *
-   * @param request CreateGoodsShippingNoticeRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGoodsShippingNoticeResponse
+   * 提交运单信息
+   * 
+   * @param request - CreateGoodsShippingNoticeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGoodsShippingNoticeResponse
    */
   async createGoodsShippingNoticeWithOptions(request: CreateGoodsShippingNoticeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGoodsShippingNoticeResponse> {
     Util.validateModel(request);
@@ -3313,10 +4717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交运单信息
-   *
-   * @param request CreateGoodsShippingNoticeRequest
-   * @return CreateGoodsShippingNoticeResponse
+   * 提交运单信息
+   * 
+   * @param request - CreateGoodsShippingNoticeRequest
+   * @returns CreateGoodsShippingNoticeResponse
    */
   async createGoodsShippingNotice(request: CreateGoodsShippingNoticeRequest): Promise<CreateGoodsShippingNoticeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3325,12 +4729,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建采购单
-   *
-   * @param request CreatePurchaseOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePurchaseOrderResponse
+   * 创建采购单
+   * 
+   * @param request - CreatePurchaseOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePurchaseOrderResponse
    */
   async createPurchaseOrderWithOptions(request: CreatePurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePurchaseOrderResponse> {
     Util.validateModel(request);
@@ -3353,10 +4757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建采购单
-   *
-   * @param request CreatePurchaseOrderRequest
-   * @return CreatePurchaseOrderResponse
+   * 创建采购单
+   * 
+   * @param request - CreatePurchaseOrderRequest
+   * @returns CreatePurchaseOrderResponse
    */
   async createPurchaseOrder(request: CreatePurchaseOrderRequest): Promise<CreatePurchaseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3365,12 +4769,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建逆向单
-   *
-   * @param request CreateRefundOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRefundOrderResponse
+   * 创建逆向单
+   * 
+   * @param request - CreateRefundOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRefundOrderResponse
    */
   async createRefundOrderWithOptions(request: CreateRefundOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRefundOrderResponse> {
     Util.validateModel(request);
@@ -3393,10 +4797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建逆向单
-   *
-   * @param request CreateRefundOrderRequest
-   * @return CreateRefundOrderResponse
+   * 创建逆向单
+   * 
+   * @param request - CreateRefundOrderRequest
+   * @returns CreateRefundOrderResponse
    */
   async createRefundOrder(request: CreateRefundOrderRequest): Promise<CreateRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3405,11 +4809,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询主单详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOrderResponse
+   * 查询主单详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrderResponse
    */
   async getOrderWithOptions(orderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3430,9 +4834,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询主单详情
-   *
-   * @return GetOrderResponse
+   * 查询主单详情
+   * @returns GetOrderResponse
    */
   async getOrder(orderId: string): Promise<GetOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3441,11 +4844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询采购单状态
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPurchaseOrderStatusResponse
+   * 查询采购单状态
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPurchaseOrderStatusResponse
    */
   async getPurchaseOrderStatusWithOptions(purchaseOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPurchaseOrderStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3466,9 +4869,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询采购单状态
-   *
-   * @return GetPurchaseOrderStatusResponse
+   * 查询采购单状态
+   * @returns GetPurchaseOrderStatusResponse
    */
   async getPurchaseOrderStatus(purchaseOrderId: string): Promise<GetPurchaseOrderStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3477,11 +4879,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询分销商店铺
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPurchaserShopResponse
+   * 查询分销商店铺
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPurchaserShopResponse
    */
   async getPurchaserShopWithOptions(purchaserId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPurchaserShopResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3502,9 +4904,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询分销商店铺
-   *
-   * @return GetPurchaserShopResponse
+   * 查询分销商店铺
+   * @returns GetPurchaserShopResponse
    */
   async getPurchaserShop(purchaserId: string): Promise<GetPurchaserShopResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3513,11 +4914,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询逆向单详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRefundOrderResponse
+   * 查询逆向单详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRefundOrderResponse
    */
   async getRefundOrderWithOptions(disputeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRefundOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3538,9 +4939,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询逆向单详情
-   *
-   * @return GetRefundOrderResponse
+   * 查询逆向单详情
+   * @returns GetRefundOrderResponse
    */
   async getRefundOrder(disputeId: string): Promise<GetRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3549,12 +4949,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询选品池商品详情
-   *
-   * @param request GetSelectionProductRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSelectionProductResponse
+   * 查询选品池商品详情
+   * 
+   * @param request - GetSelectionProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSelectionProductResponse
    */
   async getSelectionProductWithOptions(productId: string, request: GetSelectionProductRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSelectionProductResponse> {
     Util.validateModel(request);
@@ -3586,10 +4986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询选品池商品详情
-   *
-   * @param request GetSelectionProductRequest
-   * @return GetSelectionProductResponse
+   * 查询选品池商品详情
+   * 
+   * @param request - GetSelectionProductRequest
+   * @returns GetSelectionProductResponse
    */
   async getSelectionProduct(productId: string, request: GetSelectionProductRequest): Promise<GetSelectionProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3598,12 +4998,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询选品池商品库存
-   *
-   * @param request GetSelectionProductSaleInfoRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSelectionProductSaleInfoResponse
+   * 查询选品池商品库存
+   * 
+   * @param request - GetSelectionProductSaleInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSelectionProductSaleInfoResponse
    */
   async getSelectionProductSaleInfoWithOptions(productId: string, request: GetSelectionProductSaleInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSelectionProductSaleInfoResponse> {
     Util.validateModel(request);
@@ -3635,10 +5035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询选品池商品库存
-   *
-   * @param request GetSelectionProductSaleInfoRequest
-   * @return GetSelectionProductSaleInfoResponse
+   * 查询选品池商品库存
+   * 
+   * @param request - GetSelectionProductSaleInfoRequest
+   * @returns GetSelectionProductSaleInfoResponse
    */
   async getSelectionProductSaleInfo(productId: string, request: GetSelectionProductSaleInfoRequest): Promise<GetSelectionProductSaleInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3647,12 +5047,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询类目
-   *
-   * @param request ListCategoriesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCategoriesResponse
+   * 查询类目
+   * 
+   * @param request - ListCategoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCategoriesResponse
    */
   async listCategoriesWithOptions(request: ListCategoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCategoriesResponse> {
     Util.validateModel(request);
@@ -3675,10 +5075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询类目
-   *
-   * @param request ListCategoriesRequest
-   * @return ListCategoriesResponse
+   * 查询类目
+   * 
+   * @param request - ListCategoriesRequest
+   * @returns ListCategoriesResponse
    */
   async listCategories(request: ListCategoriesRequest): Promise<ListCategoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3687,11 +5087,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询物流信息（订单）
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLogisticsOrdersResponse
+   * 查询物流信息（订单）
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLogisticsOrdersResponse
    */
   async listLogisticsOrdersWithOptions(orderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogisticsOrdersResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -3712,9 +5112,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询物流信息（订单）
-   *
-   * @return ListLogisticsOrdersResponse
+   * 查询物流信息（订单）
+   * @returns ListLogisticsOrdersResponse
    */
   async listLogisticsOrders(orderId: string): Promise<ListLogisticsOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3723,12 +5122,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 采购方店铺列表查询
-   *
-   * @param request ListPurchaserShopsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPurchaserShopsResponse
+   * 采购方店铺列表查询
+   * 
+   * @param request - ListPurchaserShopsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPurchaserShopsResponse
    */
   async listPurchaserShopsWithOptions(request: ListPurchaserShopsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPurchaserShopsResponse> {
     Util.validateModel(request);
@@ -3760,10 +5159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 采购方店铺列表查询
-   *
-   * @param request ListPurchaserShopsRequest
-   * @return ListPurchaserShopsResponse
+   * 采购方店铺列表查询
+   * 
+   * @param request - ListPurchaserShopsRequest
+   * @returns ListPurchaserShopsResponse
    */
   async listPurchaserShops(request: ListPurchaserShopsRequest): Promise<ListPurchaserShopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3772,12 +5171,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询选品池商品库存
-   *
-   * @param request ListSelectionProductSaleInfosRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSelectionProductSaleInfosResponse
+   * 批量查询选品池商品库存
+   * 
+   * @param request - ListSelectionProductSaleInfosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSelectionProductSaleInfosResponse
    */
   async listSelectionProductSaleInfosWithOptions(request: ListSelectionProductSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionProductSaleInfosResponse> {
     Util.validateModel(request);
@@ -3800,10 +5199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询选品池商品库存
-   *
-   * @param request ListSelectionProductSaleInfosRequest
-   * @return ListSelectionProductSaleInfosResponse
+   * 批量查询选品池商品库存
+   * 
+   * @param request - ListSelectionProductSaleInfosRequest
+   * @returns ListSelectionProductSaleInfosResponse
    */
   async listSelectionProductSaleInfos(request: ListSelectionProductSaleInfosRequest): Promise<ListSelectionProductSaleInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3812,12 +5211,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询商品列表
-   *
-   * @param request ListSelectionProductsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSelectionProductsResponse
+   * 查询商品列表
+   * 
+   * @param request - ListSelectionProductsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSelectionProductsResponse
    */
   async listSelectionProductsWithOptions(request: ListSelectionProductsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionProductsResponse> {
     Util.validateModel(request);
@@ -3853,10 +5252,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询商品列表
-   *
-   * @param request ListSelectionProductsRequest
-   * @return ListSelectionProductsResponse
+   * 查询商品列表
+   * 
+   * @param request - ListSelectionProductsRequest
+   * @returns ListSelectionProductsResponse
    */
   async listSelectionProducts(request: ListSelectionProductsRequest): Promise<ListSelectionProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3865,12 +5264,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询选品池商品SKU库存
-   *
-   * @param request ListSelectionSkuSaleInfosRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSelectionSkuSaleInfosResponse
+   * 批量查询选品池商品SKU库存
+   * 
+   * @param request - ListSelectionSkuSaleInfosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSelectionSkuSaleInfosResponse
    */
   async listSelectionSkuSaleInfosWithOptions(request: ListSelectionSkuSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionSkuSaleInfosResponse> {
     Util.validateModel(request);
@@ -3893,10 +5292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询选品池商品SKU库存
-   *
-   * @param request ListSelectionSkuSaleInfosRequest
-   * @return ListSelectionSkuSaleInfosResponse
+   * 批量查询选品池商品SKU库存
+   * 
+   * @param request - ListSelectionSkuSaleInfosRequest
+   * @returns ListSelectionSkuSaleInfosResponse
    */
   async listSelectionSkuSaleInfos(request: ListSelectionSkuSaleInfosRequest): Promise<ListSelectionSkuSaleInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3905,12 +5304,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址divisionCode
-   *
-   * @param request QueryChildDivisionCodeRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryChildDivisionCodeResponse
+   * 查询地址divisionCode
+   * 
+   * @param request - QueryChildDivisionCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryChildDivisionCodeResponse
    */
   async queryChildDivisionCodeWithOptions(request: QueryChildDivisionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryChildDivisionCodeResponse> {
     Util.validateModel(request);
@@ -3933,10 +5332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地址divisionCode
-   *
-   * @param request QueryChildDivisionCodeRequest
-   * @return QueryChildDivisionCodeResponse
+   * 查询地址divisionCode
+   * 
+   * @param request - QueryChildDivisionCodeRequest
+   * @returns QueryChildDivisionCodeResponse
    */
   async queryChildDivisionCode(request: QueryChildDivisionCodeRequest): Promise<QueryChildDivisionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3945,12 +5344,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询主单列表
-   *
-   * @param request QueryOrdersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryOrdersResponse
+   * 查询主单列表
+   * 
+   * @param request - QueryOrdersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryOrdersResponse
    */
   async queryOrdersWithOptions(request: QueryOrdersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryOrdersResponse> {
     Util.validateModel(request);
@@ -3973,10 +5372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询主单列表
-   *
-   * @param request QueryOrdersRequest
-   * @return QueryOrdersResponse
+   * 查询主单列表
+   * 
+   * @param request - QueryOrdersRequest
+   * @returns QueryOrdersResponse
    */
   async queryOrders(request: QueryOrdersRequest): Promise<QueryOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3985,12 +5384,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 渲染采购单
-   *
-   * @param request RenderPurchaseOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenderPurchaseOrderResponse
+   * 渲染采购单
+   * 
+   * @param request - RenderPurchaseOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenderPurchaseOrderResponse
    */
   async renderPurchaseOrderWithOptions(request: RenderPurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenderPurchaseOrderResponse> {
     Util.validateModel(request);
@@ -4013,10 +5412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 渲染采购单
-   *
-   * @param request RenderPurchaseOrderRequest
-   * @return RenderPurchaseOrderResponse
+   * 渲染采购单
+   * 
+   * @param request - RenderPurchaseOrderRequest
+   * @returns RenderPurchaseOrderResponse
    */
   async renderPurchaseOrder(request: RenderPurchaseOrderRequest): Promise<RenderPurchaseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4025,12 +5424,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 逆向单渲染
-   *
-   * @param request RenderRefundOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenderRefundOrderResponse
+   * 逆向单渲染
+   * 
+   * @param request - RenderRefundOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenderRefundOrderResponse
    */
   async renderRefundOrderWithOptions(request: RenderRefundOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenderRefundOrderResponse> {
     Util.validateModel(request);
@@ -4053,10 +5452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 逆向单渲染
-   *
-   * @param request RenderRefundOrderRequest
-   * @return RenderRefundOrderResponse
+   * 逆向单渲染
+   * 
+   * @param request - RenderRefundOrderRequest
+   * @returns RenderRefundOrderResponse
    */
   async renderRefundOrder(request: RenderRefundOrderRequest): Promise<RenderRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4065,12 +5464,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 渲染拆分采购单
-   *
-   * @param request SplitPurchaseOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SplitPurchaseOrderResponse
+   * 渲染拆分采购单
+   * 
+   * @param request - SplitPurchaseOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SplitPurchaseOrderResponse
    */
   async splitPurchaseOrderWithOptions(request: SplitPurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitPurchaseOrderResponse> {
     Util.validateModel(request);
@@ -4093,10 +5492,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 渲染拆分采购单
-   *
-   * @param request SplitPurchaseOrderRequest
-   * @return SplitPurchaseOrderResponse
+   * 渲染拆分采购单
+   * 
+   * @param request - SplitPurchaseOrderRequest
+   * @returns SplitPurchaseOrderResponse
    */
   async splitPurchaseOrder(request: SplitPurchaseOrderRequest): Promise<SplitPurchaseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
