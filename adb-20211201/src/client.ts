@@ -9555,7 +9555,7 @@ export class DescribeElasticPlansRequest extends $tea.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -24027,6 +24027,28 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
   }
 }
 
+export class DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
   /**
    * @remarks
@@ -24102,6 +24124,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
    * 2021093000414401000000023503151******
    */
   processId?: string;
+  queryProperties?: DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties[];
   /**
    * @remarks
    * The amount of time that is consumed for queuing. Unit: milliseconds.
@@ -24236,6 +24259,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
       outputRows: 'OutputRows',
       peakMemory: 'PeakMemory',
       processId: 'ProcessId',
+      queryProperties: 'QueryProperties',
       queueTime: 'QueueTime',
       rcHost: 'RcHost',
       resourceCostRank: 'ResourceCostRank',
@@ -24264,6 +24288,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
       outputRows: 'number',
       peakMemory: 'number',
       processId: 'string',
+      queryProperties: { 'type': 'array', 'itemType': DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties },
       queueTime: 'number',
       rcHost: 'string',
       resourceCostRank: 'number',
@@ -31592,10 +31617,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scaling plans of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries scaling plans of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeElasticPlansRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31650,10 +31675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scaling plans of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries scaling plans of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeElasticPlansRequest
    * @returns DescribeElasticPlansResponse
