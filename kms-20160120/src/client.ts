@@ -8104,7 +8104,7 @@ export class GetSecretValueResponseBody extends $tea.Model {
    * @remarks
    * The stage labels that mark the secret versions.
    */
-  versionStages?: string[];
+  versionStages?: GetSecretValueResponseBodyVersionStages;
   static names(): { [key: string]: string } {
     return {
       automaticRotation: 'AutomaticRotation',
@@ -8137,7 +8137,7 @@ export class GetSecretValueResponseBody extends $tea.Model {
       secretName: 'string',
       secretType: 'string',
       versionId: 'string',
-      versionStages: { 'type': 'array', 'itemType': 'string' },
+      versionStages: GetSecretValueResponseBodyVersionStages,
     };
   }
 
@@ -13820,6 +13820,25 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $tea.Model {
       vpcNum: 'number',
       vswitchIds: 'string',
       zoneIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSecretValueResponseBodyVersionStages extends $tea.Model {
+  versionStage?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      versionStage: 'VersionStage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionStage: { 'type': 'array', 'itemType': 'string' },
     };
   }
 

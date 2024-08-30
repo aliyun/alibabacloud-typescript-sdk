@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/kms20160120",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
