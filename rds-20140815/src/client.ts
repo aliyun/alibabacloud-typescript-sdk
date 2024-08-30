@@ -3201,7 +3201,7 @@ export class CreateAccountRequest extends $tea.Model {
    * *   **Super**: privileged account.
    * *   **Sysadmin**: system admin account. The account type is available only for ApsaraDB RDS for SQL Server instances.
    * 
-   * Before you create a system admin account, check whether the RDS instance meets all prerequisites. For more information, see [Create a system admin account](https://help.aliyun.com/document_detail/170736.html).
+   * Before you create a system admin account, check whether the instance meets all prerequisites. For more information, see [Create a system admin account](https://help.aliyun.com/document_detail/170736.html).
    * 
    * @example
    * Normal
@@ -3856,11 +3856,10 @@ export class CreateDBInstanceRequest extends $tea.Model {
   amount?: number;
   /**
    * @remarks
-   * 是否自动创建代理。取值范围：
+   * Specifies whether to automatically create a proxy. Valid values:
    * 
-   * - **true**：开启自动创建，默认为通用代理。
-   * 
-   * - **false**：不开启自动创建。
+   * *   **true**: automatically creates a proxy. By default, general-purpose proxies are enabled.
+   * *   **false**: does not automatically create a proxy.
    * 
    * @example
    * false
@@ -3922,7 +3921,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   bpeEnabled?: string;
   /**
    * @remarks
-   * An invalid parameter. You do not need to specify this parameter.
+   * Specifies whether to enable the I/O burst feature of general ESSDs. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  For more information about the I/O burst feature of general ESSDs, see [What are general ESSDs?](https://help.aliyun.com/document_detail/2340501.html)
    * 
    * @example
    * false
@@ -3972,7 +3976,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Specifies whether to enable the data archiving feature of general ESSDs. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  For more information about the data archiving feature of general ESSDs, see [Use the data archiving feature of general ESSDs](https://help.aliyun.com/document_detail/2701832.html).
    * 
    * @example
    * false
@@ -4065,17 +4074,18 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * The storage type of the instance. Valid values:
    * 
    * *   **local_ssd**: local SSD. This is the recommended storage type.
+   * *   **general_essd**: general Enterprise SSD (ESSD). This is the recommended storage type.
+   * *   **cloud_essd**: PL1 ESSD
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
    * *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
-   * *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
-   * *   **cloud_essd2**: ESSD of PL2.
-   * *   **cloud_essd3**: ESSD of PL3.
    * 
    * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
    * 
    * *   If the instance type specifies the local SSD storage type, the default value of this parameter is **local_ssd**.
    * *   If the instance type specifies the standard SSD or ESSD storage type, the default value of this parameter is **cloud_essd**.
    * 
-   * >  Serverless instances use only ESSDs of PL1. If you create a serverless instance, you must set this parameter to **cloud_essd**.
+   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
    * 
    * @example
    * cloud_essd
@@ -4229,13 +4239,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * *   **VPC**: virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > 
-   * 
-   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -4243,7 +4249,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Specifies whether to enable the I/O acceleration feature of general ESSDs. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * >  For more information about the I/O acceleration feature of general ESSDs, see [Introduction](https://help.aliyun.com/document_detail/2527067.html).
    * 
    * @example
    * 0
@@ -4695,11 +4706,10 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   amount?: number;
   /**
    * @remarks
-   * 是否自动创建代理。取值范围：
+   * Specifies whether to automatically create a proxy. Valid values:
    * 
-   * - **true**：开启自动创建，默认为通用代理。
-   * 
-   * - **false**：不开启自动创建。
+   * *   **true**: automatically creates a proxy. By default, general-purpose proxies are enabled.
+   * *   **false**: does not automatically create a proxy.
    * 
    * @example
    * false
@@ -4761,7 +4771,12 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   bpeEnabled?: string;
   /**
    * @remarks
-   * An invalid parameter. You do not need to specify this parameter.
+   * Specifies whether to enable the I/O burst feature of general ESSDs. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  For more information about the I/O burst feature of general ESSDs, see [What are general ESSDs?](https://help.aliyun.com/document_detail/2340501.html)
    * 
    * @example
    * false
@@ -4811,7 +4826,12 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Specifies whether to enable the data archiving feature of general ESSDs. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  For more information about the data archiving feature of general ESSDs, see [Use the data archiving feature of general ESSDs](https://help.aliyun.com/document_detail/2701832.html).
    * 
    * @example
    * false
@@ -4904,17 +4924,18 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * The storage type of the instance. Valid values:
    * 
    * *   **local_ssd**: local SSD. This is the recommended storage type.
+   * *   **general_essd**: general Enterprise SSD (ESSD). This is the recommended storage type.
+   * *   **cloud_essd**: PL1 ESSD
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
    * *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
-   * *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
-   * *   **cloud_essd2**: ESSD of PL2.
-   * *   **cloud_essd3**: ESSD of PL3.
    * 
    * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
    * 
    * *   If the instance type specifies the local SSD storage type, the default value of this parameter is **local_ssd**.
    * *   If the instance type specifies the standard SSD or ESSD storage type, the default value of this parameter is **cloud_essd**.
    * 
-   * >  Serverless instances use only ESSDs of PL1. If you create a serverless instance, you must set this parameter to **cloud_essd**.
+   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
    * 
    * @example
    * cloud_essd
@@ -5068,13 +5089,9 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * *   **VPC**: virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > 
-   * 
-   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -5082,7 +5099,12 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * Specifies whether to enable the I/O acceleration feature of general ESSDs. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * >  For more information about the I/O acceleration feature of general ESSDs, see [Introduction](https://help.aliyun.com/document_detail/2527067.html).
    * 
    * @example
    * 0
@@ -7323,6 +7345,7 @@ export class CreateDdrInstanceRequest extends $tea.Model {
    * local_ssd
    */
   DBInstanceStorageType?: string;
+  encryptionKey?: string;
   /**
    * @remarks
    * The database engine of the destination instance. Valid values:
@@ -7445,6 +7468,7 @@ export class CreateDdrInstanceRequest extends $tea.Model {
    * BackupSet
    */
   restoreType?: string;
+  roleARN?: string;
   /**
    * @remarks
    * The IP address whitelist of the destination instance. If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. You can add a maximum of 1,000 entries. For more information, see [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/43185.html). The entries in the IP address whitelist must be in one of the following formats:
@@ -7544,6 +7568,7 @@ export class CreateDdrInstanceRequest extends $tea.Model {
       DBInstanceNetType: 'DBInstanceNetType',
       DBInstanceStorage: 'DBInstanceStorage',
       DBInstanceStorageType: 'DBInstanceStorageType',
+      encryptionKey: 'EncryptionKey',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       instanceNetworkType: 'InstanceNetworkType',
@@ -7558,6 +7583,7 @@ export class CreateDdrInstanceRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
       restoreType: 'RestoreType',
+      roleARN: 'RoleARN',
       securityIPList: 'SecurityIPList',
       sourceDBInstanceName: 'SourceDBInstanceName',
       sourceRegion: 'SourceRegion',
@@ -7579,6 +7605,7 @@ export class CreateDdrInstanceRequest extends $tea.Model {
       DBInstanceNetType: 'string',
       DBInstanceStorage: 'number',
       DBInstanceStorageType: 'string',
+      encryptionKey: 'string',
       engine: 'string',
       engineVersion: 'string',
       instanceNetworkType: 'string',
@@ -7593,6 +7620,7 @@ export class CreateDdrInstanceRequest extends $tea.Model {
       resourceOwnerId: 'number',
       restoreTime: 'string',
       restoreType: 'string',
+      roleARN: 'string',
       securityIPList: 'string',
       sourceDBInstanceName: 'string',
       sourceRegion: 'string',
@@ -9570,11 +9598,10 @@ export class CreateRCDeploymentSetResponse extends $tea.Model {
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
-   * 是否自动创建代理。取值范围：
+   * Specifies whether to automatically create database proxies. Valid values:
    * 
-   * - **true**：开启自动创建，默认为通用代理。
-   * 
-   * - **false**：不开启自动创建。
+   * *   **true**: enables the feature. By default, general-purpose database proxies are created.
+   * *   **false**: disables the feature. No database proxies are created.
    * 
    * @example
    * false
@@ -10087,6 +10114,8 @@ export class CreateReadOnlyDBInstanceResponse extends $tea.Model {
 export class CreateReplicationLinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10095,6 +10124,11 @@ export class CreateReplicationLinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * *   **true**: performs a dry run but does not create the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
+   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10102,46 +10136,80 @@ export class CreateReplicationLinkRequest extends $tea.Model {
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The account of the database that is used for data synchronization.
+   * 
    * @example
    * testdbuser
    */
   replicatorAccount?: string;
   /**
+   * @remarks
+   * The password of the account.
+   * 
    * @example
    * testpassword
    */
   replicatorPassword?: string;
   /**
+   * @remarks
+   * The endpoint of the source instance.
+   * 
    * @example
    * pgm-****.pg.rds.aliyuncs.com
    */
   sourceAddress?: string;
   /**
+   * @remarks
+   * The type of the source instance. Valid values:
+   * 
+   * *   **other**: other instances
+   * *   **aliyunRDS**: an ApsaraDB RDS instance
+   * 
    * @example
    * aliyunRDS
    */
   sourceCategory?: string;
   /**
+   * @remarks
+   * The name of the source instance.
+   * 
+   * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
+   * 
    * @example
    * testInstance
    */
   sourceInstanceName?: string;
   /**
+   * @remarks
+   * The ID of the region where the source instance is located.
+   * 
+   * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
+   * 
    * @example
    * cn-hangzhou
    */
   sourceInstanceRegionId?: string;
   /**
+   * @remarks
+   * The port number of the source instance.
+   * 
    * @example
    * 5432
    */
   sourcePort?: number;
   /**
+   * @remarks
+   * The task ID of the successful dry run.
+   * 
    * @example
    * 439946016
    */
   taskId?: number;
   /**
+   * @remarks
+   * The name of the task. You can specify a custom task name. If you do not specify this parameter, ApsaraDB RDS automatically generates a task name.
+   * 
    * @example
    * test01
    */
@@ -10185,21 +10253,33 @@ export class CreateReplicationLinkRequest extends $tea.Model {
 
 export class CreateReplicationLinkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * pgm-****.pg.rds.aliyuncs.com
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 564532302
    */
   taskId?: number;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * test01
    */
@@ -12956,6 +13036,8 @@ export class DeleteRCInstancesResponse extends $tea.Model {
 export class DeleteReplicationLinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12964,6 +13046,11 @@ export class DeleteReplicationLinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Specifies whether to promote the disaster recovery instance to the primary instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12994,21 +13081,33 @@ export class DeleteReplicationLinkRequest extends $tea.Model {
 
 export class DeleteReplicationLinkResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * pgm-bp1trqb4p1xd****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 847BA085-B377-4BFA-8267-F82345ECE1D2
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 3472****
    */
   taskId?: number;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * test01
    */
@@ -16177,6 +16276,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
    * 1
    */
   supportVolumeShadowCopy?: number;
+  supportsHighFrequencyBackup?: number;
   static names(): { [key: string]: string } {
     return {
       archiveBackupKeepCount: 'ArchiveBackupKeepCount',
@@ -16207,6 +16307,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       supportModifyBackupPriority: 'SupportModifyBackupPriority',
       supportReleasedKeep: 'SupportReleasedKeep',
       supportVolumeShadowCopy: 'SupportVolumeShadowCopy',
+      supportsHighFrequencyBackup: 'SupportsHighFrequencyBackup',
     };
   }
 
@@ -16240,6 +16341,7 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
       supportModifyBackupPriority: 'boolean',
       supportReleasedKeep: 'number',
       supportVolumeShadowCopy: 'number',
+      supportsHighFrequencyBackup: 'number',
     };
   }
 
@@ -26473,17 +26575,17 @@ export class DescribeHistoryTasksStatRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
-   * *   Scheduled
-   * *   Running
-   * *   Succeed
-   * *   Failed
-   * *   Cancelling
-   * *   Canceled
-   * *   Waiting
+   * *   **Scheduled**
+   * *   **Running**
+   * *   **Succeed**
+   * *   **Failed**
+   * *   **Cancelling**
+   * *   **Canceled**
+   * *   **Waiting**
    * 
-   * Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
+   * Separate multiple statuses with commas (,). By default, this parameter is left empty. This indicates that tasks in all statuses are queried.
    * 
    * @example
    * Scheduled
@@ -26569,7 +26671,7 @@ export class DescribeHistoryTasksStatRequest extends $tea.Model {
 export class DescribeHistoryTasksStatResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The information about the task.
+   * The queried tasks.
    */
   items?: DescribeHistoryTasksStatResponseBodyItems[];
   /**
@@ -32476,6 +32578,8 @@ export class DescribeRenewalPriceResponse extends $tea.Model {
 export class DescribeReplicationLinkLogsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32483,27 +32587,49 @@ export class DescribeReplicationLinkLogsRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the task. You can call the **CreateReplicationLink** operation to create the task ID of the disaster recovery instance.
+   * 
    * @example
    * 8413252
    */
   taskId?: number;
   /**
+   * @remarks
+   * The name of the task. You can call the **CreateReplicationLink** operation to create a disaster recovery instance. You can specify a task name in the request parameters of the call.
+   * 
    * @example
    * test01
    */
   taskName?: string;
   /**
    * @remarks
+   * The type of the task. Valid values:
+   * 
+   * *   **create**: creates a synchronization link.
+   * *   **create-dryrun**: performs a precheck before a synchronization link is created.
+   * 
+   * Valid values:
+   * 
+   * *   create: creates a replication link.
+   * *   create-dryrun: performs a precheck before a replication link is created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32539,17 +32665,30 @@ export class DescribeReplicationLinkLogsRequest extends $tea.Model {
 
 export class DescribeReplicationLinkLogsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * pgm-bp1trqb4p1xd****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The items.
+   */
   items?: DescribeReplicationLinkLogsResponseBodyItems[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16C62438-491B-5C02-9B49-BA924A1372A2
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -33376,7 +33515,7 @@ export class DescribeSQLLogFilesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: **1 to 100000**. Default value: **1**.
+   * The page number. Valid values: **1 to 100000**. Default value: **1**.
    * 
    * @example
    * 1
@@ -33384,7 +33523,7 @@ export class DescribeSQLLogFilesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid value: **30 to 200**. Default value: **30**.
+   * The number of entries per page. Valid values: **30 to 200**. Default value: **30**.
    * 
    * @example
    * 30
@@ -33587,9 +33726,9 @@ export class DescribeSQLLogRecordsRequest extends $tea.Model {
    * 
    * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, you cannot filter log entries by keyword.
    * *   You can specify up to 10 keywords. The keywords are evaluated by using the **AND** operator. Separate multiple keywords with spaces.
-   * *   If a field name in the specified SQL statement is enclosed in backquotes (\\`) and you want to use the field name as a keyword, you must enter the backquotes (\\`) as part of the field name. For example, if the field name is \\`id\\`, enter \\`id\\` instead of id.
+   * *   If a field name in the specified SQL statement is enclosed in grave accents (\\`) and you want to use the field name as a keyword, you must enter the grave accents (\\`) as part of the field name. For example, if the field name is \\`id\\`, enter \\`id\\` instead of id.
    * 
-   * >  After you enter a keyword, the system matches the keyword based on the **Database**, **User**, and **QueryKeywords** parameters. The parameters are evaluated by using the **OR** operator.
+   * >  After you enter a keyword, the system matches the keyword based on the **Database**, **User**, and **QueryKeywords** parameters. The parameters are evaluated by using the **AND** operator.
    * 
    * @example
    * table_name
@@ -39488,8 +39627,11 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * *   **True** or **1**: enables the log backup feature.
    * *   **False** or **0**: disables the log backup feature.
    * 
-   * > *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
-   * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+   * > 
+   * 
+   * *   You must specify this parameter when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+   * 
+   * *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
    * 
    * @example
    * 1
@@ -39560,8 +39702,11 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
    * @remarks
    * The number of binary log files that you want to retain on the instance. Default value: **60**. Valid values: **6** to **100**.
    * 
-   * > *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
-   * > *   If the instance runs MySQL, you can set this parameter to \\*\\*-1\\*\\*. The value \\*\\*-1\\*\\* specifies that an unlimited number of binary log files can be retained on the instance.
+   * > 
+   * 
+   * *   This parameter takes effect only when you set the **BackupPolicyMode** parameter to **LogBackupPolicy**.
+   * 
+   * *   If the instance runs MySQL, you can set this parameter to \\*\\*-1\\*\\*. The value \\*\\*-1\\*\\* specifies that an unlimited number of binary log files can be retained on the instance.
    * 
    * @example
    * 60
@@ -42895,9 +43040,9 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * @remarks
    * The effective time. Valid values:
    * 
-   * *   **Immediate** (default)
+   * *   **Immediate** (default): The effective time immediately takes effect.
    * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **ScheduleTime**: The change takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -43211,9 +43356,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * @remarks
    * The effective time. Valid values:
    * 
-   * *   **Immediate** (default)
+   * *   **Immediate** (default): The effective time immediately takes effect.
    * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **ScheduleTime**: The change takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -43518,12 +43663,10 @@ export class ModifyDBInstanceTDERequest extends $tea.Model {
    * @remarks
    * Specifies whether to replace the key. Valid values:
    * 
-   * *   **true**: replaces the key.
-   * *   **false**: does not replace the key.
+   * *   **true**
+   * *   **false** (default)
    * 
-   * Default value: **false**
-   * 
-   * > This parameter is available only when the instance runs PostgreSQL.
+   * >  This parameter is available for only ApsaraDB RDS for PostgreSQL instances.
    * 
    * @example
    * false
@@ -46562,9 +46705,9 @@ export class ModifyParameterRequest extends $tea.Model {
    * @remarks
    * The time at which the modification takes effect. Valid values:
    * 
-   * *   **Immediate**: immediately modifies the parameter. This is the default value.
-   * *   **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
-   * *   **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
+   * - **Immediate**: immediately modifies the parameter. This is the default value.
+   * - **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
+   * - **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
    * 
    * @example
    * ScheduleTime
@@ -50297,7 +50440,7 @@ export class RenewInstanceRequest extends $tea.Model {
    * *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
    * *   **False** (default): disables automatic payment. You have to manually pay the order in the console.
    * 
-   * >  For more information about how to manually pay the order in the console, see the following topics:
+   * >  For more information about how to renew the instance in the console, see the following topics:
    * 
    * *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
    * 
@@ -59370,6 +59513,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtr
 }
 
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra extends $tea.Model {
+  accountSecurityPolicy?: string;
   /**
    * @remarks
    * The instance IDs.
@@ -59385,6 +59529,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtr
   recoveryModel?: string;
   static names(): { [key: string]: string } {
     return {
+      accountSecurityPolicy: 'AccountSecurityPolicy',
       DBInstanceIds: 'DBInstanceIds',
       recoveryModel: 'RecoveryModel',
     };
@@ -59392,6 +59537,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtr
 
   static types(): { [key: string]: any } {
     return {
+      accountSecurityPolicy: 'string',
       DBInstanceIds: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtraDBInstanceIds,
       recoveryModel: 'string',
     };
@@ -59855,6 +60001,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * true
    */
   deletionProtection?: boolean;
+  disasterRecoveryInfo?: string;
+  disasterRecoveryInstances?: string;
   /**
    * @remarks
    * The database engine of the instance. Valid values:
@@ -60277,6 +60425,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBMaxQuantity: 'DBMaxQuantity',
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       deletionProtection: 'DeletionProtection',
+      disasterRecoveryInfo: 'DisasterRecoveryInfo',
+      disasterRecoveryInstances: 'DisasterRecoveryInstances',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
@@ -60358,6 +60508,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBMaxQuantity: 'number',
       dedicatedHostGroupId: 'string',
       deletionProtection: 'boolean',
+      disasterRecoveryInfo: 'string',
+      disasterRecoveryInstances: 'string',
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
@@ -66972,15 +67124,15 @@ export class DescribeHistoryTasksResponseBodyItems extends $tea.Model {
 export class DescribeHistoryTasksStatResponseBodyItems extends $tea.Model {
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
-   * *   Scheduled
-   * *   Running
-   * *   Succeed
-   * *   Failed
-   * *   Cancelling
-   * *   Canceled
-   * *   Waiting
+   * *   **Scheduled**
+   * *   **Running**
+   * *   **Succeed**
+   * *   **Failed**
+   * *   **Cancelling**
+   * *   **Canceled**
+   * *   **Waiting**
    * 
    * @example
    * Succeed,Waiting
@@ -71319,81 +71471,148 @@ export class DescribeRenewalPriceResponseBodyRules extends $tea.Model {
 
 export class DescribeReplicationLinkLogsResponseBodyItems extends $tea.Model {
   /**
+   * @remarks
+   * The details of the task.
+   * 
    * @example
    * [Check rds empty]\\nCheck rds databases: success\\n[Check source connectivity]\\nCheck ip connectable: success\\nCheck port connectable: success\\nCheck database connectable: success\\nCheck account replication privilege: success\\nCheck account createrole privilege: success\\nCheck account monitor privilege: success\\n[Check source version]\\nCheck major version consistent: success\\n[Check source glibc version]\\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\\n[Check disk size]\\nCheck disk size enough: success\\n[Check wal keep size]\\nCheck wal keep size large enough: success\\n[Check spec params]\\nCheck if spec params too large: success\\n [Check triggers]\\nCheck triggers compatible: success\\n[Check user functions]\\nCheck user functions compatible: success\\n*Migrate check success*
    */
   detail?: string;
   /**
+   * @remarks
+   * The creation time. The time is displayed in UTC.
+   * 
    * @example
    * 2022-02-25T06:57:41Z
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The modification time. The time is displayed in UTC.
+   * 
    * @example
    * 2022-03-01T06:39:51Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The synchronization information. This parameter is a reserved parameter.
+   * 
    * @example
    * None
    */
   replicationInfo?: string;
   /**
+   * @remarks
+   * The status of the synchronization. Valid values:
+   * 
+   * *   **steaming**: The synchronization is in progress.
+   * *   **finish**: The synchronization is complete.
+   * *   **disconnect**: The synchronization is disconnected.
+   * 
    * @example
    * finish
    */
   replicationState?: string;
   /**
+   * @remarks
+   * The account of the database that is used for data synchronization.
+   * 
    * @example
    * testdbuser
    */
   replicatorAccount?: string;
   /**
+   * @remarks
+   * The password of the account.
+   * 
    * @example
    * testpassword
    */
   replicatorPassword?: string;
   /**
+   * @remarks
+   * The endpoint of the source instance.
+   * 
    * @example
    * pgm-****.pg.rds.aliyuncs.com
    */
   sourceAddress?: string;
   /**
+   * @remarks
+   * The type of the source instance. Valid values:
+   * 
+   * *   other: other instances
+   * *   aliyunRDS: an ApsaraDB RDS instance
+   * 
    * @example
    * aliyunRDS
    */
   sourceCategory?: string;
   /**
+   * @remarks
+   * The port number of the source instance.
+   * 
    * @example
    * 5432
    */
   sourcePort?: number;
   /**
+   * @remarks
+   * The destination instance ID.
+   * 
    * @example
    * pgm-bp1l4dutw453****
    */
   targetInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 8413252
    */
   taskId?: number;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * test01
    */
   taskName?: string;
   /**
+   * @remarks
+   * The stage of the task. Valid values:
+   * 
+   * *   **precheck**: the precheck stage.
+   * *   **basebackup**: the basic backup stage.
+   * *   **startup**: the startup stage.
+   * *   **increment**: the incremental synchronization stage.
+   * 
    * @example
    * increment
    */
   taskStage?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **success**
+   * *   **failure**
+   * *   **running**
+   * 
    * @example
    * success
    */
   taskStatus?: string;
   /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * *   **create**: creates a synchronization link.
+   * *   **create-dryrun**: performs a precheck before a synchronization link is created.
+   * 
    * @example
    * create
    */
@@ -78464,6 +78683,10 @@ export default class Client extends OpenApi {
       query["DBInstanceStorageType"] = request.DBInstanceStorageType;
     }
 
+    if (!Util.isUnset(request.encryptionKey)) {
+      query["EncryptionKey"] = request.encryptionKey;
+    }
+
     if (!Util.isUnset(request.engine)) {
       query["Engine"] = request.engine;
     }
@@ -78518,6 +78741,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.restoreType)) {
       query["RestoreType"] = request.restoreType;
+    }
+
+    if (!Util.isUnset(request.roleARN)) {
+      query["RoleARN"] = request.roleARN;
     }
 
     if (!Util.isUnset(request.securityIPList)) {
@@ -79691,7 +79918,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建复制链路
+   * Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - CreateReplicationLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -79762,7 +79993,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建复制链路
+   * Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - CreateReplicationLinkRequest
    * @returns CreateReplicationLinkResponse
@@ -81425,7 +81660,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除复制链路
+   * Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - DeleteReplicationLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81464,7 +81703,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除复制链路
+   * Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - DeleteReplicationLinkRequest
    * @returns DeleteReplicationLinkResponse
@@ -87427,7 +87670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 事件中心事件统计
+   * Queries event statistics in the event center.
    * 
    * @param request - DescribeHistoryEventsStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -87474,7 +87717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 事件中心事件统计
+   * Queries event statistics in the event center.
    * 
    * @param request - DescribeHistoryEventsStatRequest
    * @returns DescribeHistoryEventsStatResponse
@@ -90345,7 +90588,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询复制链路操作日志
+   * Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - DescribeReplicationLinkLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -90396,7 +90643,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询复制链路操作日志
+   * Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - DescribeReplicationLinkLogsRequest
    * @returns DescribeReplicationLinkLogsResponse
@@ -98505,7 +98756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心修改任务信息
+   * Modifies the task information in the task center.
    * 
    * @param request - ModifyTaskInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98564,7 +98815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心修改任务信息
+   * Modifies the task information in the task center.
    * 
    * @param request - ModifyTaskInfoRequest
    * @returns ModifyTaskInfoResponse
@@ -99221,7 +99472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores an ApsaraDB RDS for SQL Server instance.
+   * Restores backup data of an ApsaraDB RDS for SQL Server instance to an existing instance or a new instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -99319,7 +99570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores an ApsaraDB RDS for SQL Server instance.
+   * Restores backup data of an ApsaraDB RDS for SQL Server instance to an existing instance or a new instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
