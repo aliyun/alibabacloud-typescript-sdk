@@ -5139,6 +5139,7 @@ export class CreateFileRequest extends $tea.Model {
    * {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
    */
   advancedSettings?: string;
+  applyScheduleImmediately?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the automatic parsing feature for the file. Valid values:
@@ -5450,6 +5451,7 @@ export class CreateFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       advancedSettings: 'AdvancedSettings',
+      applyScheduleImmediately: 'ApplyScheduleImmediately',
       autoParsing: 'AutoParsing',
       autoRerunIntervalMillis: 'AutoRerunIntervalMillis',
       autoRerunTimes: 'AutoRerunTimes',
@@ -5486,6 +5488,7 @@ export class CreateFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       advancedSettings: 'string',
+      applyScheduleImmediately: 'boolean',
       autoParsing: 'boolean',
       autoRerunIntervalMillis: 'number',
       autoRerunTimes: 'number',
@@ -37790,6 +37793,103 @@ export class ListTableThemeResponse extends $tea.Model {
   }
 }
 
+export class ListTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * odps
+   * emr
+   * mysql
+   * holo
+   */
+  dataSourceType?: string;
+  /**
+   * @example
+   * 12222
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'DataSourceType',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBody extends $tea.Model {
+  data?: ListTablesResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E25887B7-579C-54A5-9C4F-83A0DE367DD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListTablesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTopicsRequest extends $tea.Model {
   /**
    * @remarks
@@ -46768,6 +46868,7 @@ export class UpdateFileRequest extends $tea.Model {
    * {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
    */
   advancedSettings?: string;
+  applyScheduleImmediately?: boolean;
   /**
    * @remarks
    * Specifies whether the automatic parsing feature is enabled for the file. Valid values:
@@ -47070,6 +47171,7 @@ export class UpdateFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       advancedSettings: 'AdvancedSettings',
+      applyScheduleImmediately: 'ApplyScheduleImmediately',
       autoParsing: 'AutoParsing',
       autoRerunIntervalMillis: 'AutoRerunIntervalMillis',
       autoRerunTimes: 'AutoRerunTimes',
@@ -47105,6 +47207,7 @@ export class UpdateFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       advancedSettings: 'string',
+      applyScheduleImmediately: 'boolean',
       autoParsing: 'boolean',
       autoRerunIntervalMillis: 'number',
       autoRerunTimes: 'number',
@@ -60098,6 +60201,7 @@ export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $t
 }
 
 export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
+  applyScheduleImmediately?: string;
   /**
    * @remarks
    * The interval between automatic reruns after an error occurs. Unit: milliseconds.
@@ -60275,6 +60379,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
   stop?: boolean;
   static names(): { [key: string]: string } {
     return {
+      applyScheduleImmediately: 'ApplyScheduleImmediately',
       autoRerunIntervalMillis: 'AutoRerunIntervalMillis',
       autoRerunTimes: 'AutoRerunTimes',
       cronExpress: 'CronExpress',
@@ -60298,6 +60403,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyScheduleImmediately: 'string',
       autoRerunIntervalMillis: 'number',
       autoRerunTimes: 'number',
       cronExpress: 'string',
@@ -81103,6 +81209,116 @@ export class ListTableThemeResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListTablesResponseBodyDataTableEntityListEntityContent extends $tea.Model {
+  /**
+   * @example
+   * accountId:cn-shanghai:odps:project
+   */
+  dataSourceQualifiedName?: string;
+  /**
+   * @example
+   * e70f92239d491057f6a2563b545bdaf8cc6b537d9dc55ec84c55f7cfefg
+   */
+  dataSourceUniqueId?: string;
+  /**
+   * @example
+   * database
+   */
+  databaseName?: string;
+  /**
+   * @example
+   * rm-uf6rn0123
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * project
+   */
+  projectName?: string;
+  /**
+   * @example
+   * table
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceQualifiedName: 'DataSourceQualifiedName',
+      dataSourceUniqueId: 'DataSourceUniqueId',
+      databaseName: 'DatabaseName',
+      instanceId: 'InstanceId',
+      projectName: 'ProjectName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceQualifiedName: 'string',
+      dataSourceUniqueId: 'string',
+      databaseName: 'string',
+      instanceId: 'string',
+      projectName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBodyDataTableEntityList extends $tea.Model {
+  entityContent?: ListTablesResponseBodyDataTableEntityListEntityContent;
+  /**
+   * @example
+   * maxcompute-table.project.table
+   */
+  entityQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityContent: 'EntityContent',
+      entityQualifiedName: 'EntityQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityContent: ListTablesResponseBodyDataTableEntityListEntityContent,
+      entityQualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBodyData extends $tea.Model {
+  tableEntityList?: ListTablesResponseBodyDataTableEntityList[];
+  /**
+   * @example
+   * 100
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tableEntityList: 'TableEntityList',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableEntityList: { 'type': 'array', 'itemType': ListTablesResponseBodyDataTableEntityList },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTopicsResponseBodyDataTopics extends $tea.Model {
   /**
    * @remarks
@@ -85154,6 +85370,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.advancedSettings)) {
       body["AdvancedSettings"] = request.advancedSettings;
+    }
+
+    if (!Util.isUnset(request.applyScheduleImmediately)) {
+      body["ApplyScheduleImmediately"] = request.applyScheduleImmediately;
     }
 
     if (!Util.isUnset(request.autoParsing)) {
@@ -96835,6 +97055,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页获取租户下面的数据源类型粒度的表名称
+   * 
+   * @param request - ListTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesResponse
+   */
+  async listTablesWithOptions(request: ListTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTables",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
+  }
+
+  /**
+   * 分页获取租户下面的数据源类型粒度的表名称
+   * 
+   * @param request - ListTablesRequest
+   * @returns ListTablesResponse
+   */
+  async listTables(request: ListTablesRequest): Promise<ListTablesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTablesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries events.
    * 
    * @param request - ListTopicsRequest
@@ -100031,6 +100301,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.advancedSettings)) {
       body["AdvancedSettings"] = request.advancedSettings;
+    }
+
+    if (!Util.isUnset(request.applyScheduleImmediately)) {
+      body["ApplyScheduleImmediately"] = request.applyScheduleImmediately;
     }
 
     if (!Util.isUnset(request.autoParsing)) {
