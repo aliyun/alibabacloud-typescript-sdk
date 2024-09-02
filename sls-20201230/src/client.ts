@@ -910,6 +910,133 @@ export class Histogram extends $tea.Model {
   }
 }
 
+export class IndexJsonKey extends $tea.Model {
+  /**
+   * @example
+   * myAlias
+   */
+  alias?: string;
+  /**
+   * @example
+   * true
+   */
+  caseSensitive?: boolean;
+  /**
+   * @example
+   * true
+   */
+  chn?: boolean;
+  /**
+   * @example
+   * true
+   */
+  docValue?: boolean;
+  token?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      caseSensitive: 'caseSensitive',
+      chn: 'chn',
+      docValue: 'doc_value',
+      token: 'token',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      caseSensitive: 'boolean',
+      chn: 'boolean',
+      docValue: 'boolean',
+      token: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IndexKey extends $tea.Model {
+  /**
+   * @example
+   * myAlias
+   */
+  alias?: string;
+  /**
+   * @example
+   * true
+   */
+  caseSensitive?: boolean;
+  /**
+   * @example
+   * true
+   */
+  chn?: boolean;
+  /**
+   * @example
+   * true
+   */
+  docValue?: boolean;
+  /**
+   * @example
+   * true
+   */
+  indexAll?: boolean;
+  jsonKeys?: { [key: string]: IndexJsonKey };
+  maxDepth?: number;
+  token?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      caseSensitive: 'caseSensitive',
+      chn: 'chn',
+      docValue: 'doc_value',
+      indexAll: 'index_all',
+      jsonKeys: 'json_keys',
+      maxDepth: 'max_depth',
+      token: 'token',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      caseSensitive: 'boolean',
+      chn: 'boolean',
+      docValue: 'boolean',
+      indexAll: 'boolean',
+      jsonKeys: { 'type': 'map', 'keyType': 'string', 'valueType': IndexJsonKey },
+      maxDepth: 'number',
+      token: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IngestProcessor extends $tea.Model {
   /**
    * @remarks
@@ -3208,12 +3335,7 @@ export class ExternalStore extends $tea.Model {
 }
 
 export class Index extends $tea.Model {
-  keys?: { [key: string]: IndexKeysValue };
-  /**
-   * @example
-   * 1622186280
-   */
-  lastModifyTime?: number;
+  keys?: { [key: string]: IndexKey };
   line?: IndexLine;
   /**
    * @example
@@ -3227,37 +3349,25 @@ export class Index extends $tea.Model {
    * 2048
    */
   maxTextLen?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 30
-   */
-  ttl?: number;
   static names(): { [key: string]: string } {
     return {
       keys: 'keys',
-      lastModifyTime: 'lastModifyTime',
       line: 'line',
       logReduce: 'log_reduce',
       logReduceBlackList: 'log_reduce_black_list',
       logReduceWhiteList: 'log_reduce_white_list',
       maxTextLen: 'max_text_len',
-      ttl: 'ttl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keys: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKeysValue },
-      lastModifyTime: 'number',
+      keys: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKey },
       line: IndexLine,
       logReduce: 'boolean',
       logReduceBlackList: { 'type': 'array', 'itemType': 'string' },
       logReduceWhiteList: { 'type': 'array', 'itemType': 'string' },
       maxTextLen: 'number',
-      ttl: 'number',
     };
   }
 
@@ -3698,150 +3808,6 @@ export class MLDataParamPredictionsValue extends $tea.Model {
       annotatedBy: 'string',
       updateTime: 'number',
       results: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IndexKeysValue extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  chn?: boolean;
-  /**
-   * @example
-   * true
-   */
-  caseSensitive?: boolean;
-  token?: string[];
-  /**
-   * @example
-   * myAlias
-   */
-  alias?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * text
-   */
-  type?: string;
-  /**
-   * @example
-   * true
-   */
-  docValue?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      chn: 'chn',
-      caseSensitive: 'caseSensitive',
-      token: 'token',
-      alias: 'alias',
-      type: 'type',
-      docValue: 'doc_value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chn: 'boolean',
-      caseSensitive: 'boolean',
-      token: { 'type': 'array', 'itemType': 'string' },
-      alias: 'string',
-      type: 'string',
-      docValue: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class KeysValue extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable case sensitivity. This parameter is required only when **type** is set to **text**. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  caseSensitive?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to include Chinese characters. This parameter is required only when **type** is set to **text**. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  chn?: boolean;
-  /**
-   * @remarks
-   * The data type of the field value. Valid values: text, json, double, and long.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * text
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The alias of the field.
-   * 
-   * @example
-   * myAlias
-   */
-  alias?: string;
-  /**
-   * @remarks
-   * The delimiters that are used to split text.
-   */
-  token?: string[];
-  /**
-   * @remarks
-   * Specifies whether to turn on Enable Analytics for the field.
-   * 
-   * @example
-   * false
-   */
-  docValue?: boolean;
-  vectorIndex?: string;
-  embedding?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caseSensitive: 'caseSensitive',
-      chn: 'chn',
-      type: 'type',
-      alias: 'alias',
-      token: 'token',
-      docValue: 'doc_value',
-      vectorIndex: 'vector_index',
-      embedding: 'embedding',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseSensitive: 'boolean',
-      chn: 'boolean',
-      type: 'string',
-      alias: 'string',
-      token: { 'type': 'array', 'itemType': 'string' },
-      docValue: 'boolean',
-      vectorIndex: 'string',
-      embedding: 'string',
     };
   }
 
@@ -4660,69 +4626,18 @@ export class CreateETLResponse extends $tea.Model {
 export class CreateIndexRequest extends $tea.Model {
   /**
    * @remarks
-   * The configuration of field indexes. A field index is a key-value pair in which the key specifies the name of the field and the value specifies the index configuration of the field. You must specify this parameter, the line parameter, or both parameters. For more information, see Example.
+   * The request body.
    */
-  keys?: { [key: string]: KeysValue };
-  /**
-   * @remarks
-   * The configuration of full-text indexes. You must specify this parameter, the keys parameter, or both parameters. For more information, see Example.
-   */
-  line?: CreateIndexRequestLine;
-  /**
-   * @remarks
-   * Specifies whether to turn on LogReduce. After you turn on LogReduce, either the whitelist or blacklist takes effect.
-   * 
-   * @example
-   * false
-   */
-  logReduce?: boolean;
-  /**
-   * @remarks
-   * The fields in the blacklist that you want to use to cluster logs.
-   */
-  logReduceBlackList?: string[];
-  /**
-   * @remarks
-   * The fields in the whitelist that you want to use to cluster logs.
-   */
-  logReduceWhiteList?: string[];
-  /**
-   * @remarks
-   * The maximum length of a field value that can be retained. Default value: 2048. Unit: bytes. The default value is equal to 2 KB. You can change the value of max_text_len. Valid values: 64 to 16384.
-   * 
-   * @example
-   * 2048
-   */
-  maxTextLen?: number;
-  /**
-   * @remarks
-   * The retention period of logs. Unit: days. Valid values: 7, 30, and 90.
-   * 
-   * @example
-   * 30
-   */
-  ttl?: number;
+  body?: Index;
   static names(): { [key: string]: string } {
     return {
-      keys: 'keys',
-      line: 'line',
-      logReduce: 'log_reduce',
-      logReduceBlackList: 'log_reduce_black_list',
-      logReduceWhiteList: 'log_reduce_white_list',
-      maxTextLen: 'max_text_len',
-      ttl: 'ttl',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keys: { 'type': 'map', 'keyType': 'string', 'valueType': KeysValue },
-      line: CreateIndexRequestLine,
-      logReduce: 'boolean',
-      logReduceBlackList: { 'type': 'array', 'itemType': 'string' },
-      logReduceWhiteList: { 'type': 'array', 'itemType': 'string' },
-      maxTextLen: 'number',
-      ttl: 'number',
+      body: Index,
     };
   }
 
@@ -7777,7 +7692,7 @@ export class GetIndexResponseBody extends $tea.Model {
    * @remarks
    * The configurations of field indexes. A field index is in the key-value format in which the key specifies the name of the field and the value specifies the index configuration of the field.
    */
-  keys?: { [key: string]: KeysValue };
+  keys?: { [key: string]: IndexKey };
   /**
    * @remarks
    * The time when the index configurations were last updated. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
@@ -7829,6 +7744,8 @@ export class GetIndexResponseBody extends $tea.Model {
    * @remarks
    * The lifecycle of the index file. Valid values: 7, 30, and 90. Unit: day.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 30
    */
@@ -7851,7 +7768,7 @@ export class GetIndexResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       indexMode: 'string',
-      keys: { 'type': 'map', 'keyType': 'string', 'valueType': KeysValue },
+      keys: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKey },
       lastModifyTime: 'number',
       line: GetIndexResponseBodyLine,
       logReduce: 'boolean',
@@ -8507,6 +8424,10 @@ export class GetMachineGroupResponse extends $tea.Model {
 }
 
 export class GetMetricStoreResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   autoSplit?: boolean;
   /**
    * @example
@@ -11916,75 +11837,6 @@ export class PutWebtrackingResponse extends $tea.Model {
   }
 }
 
-export class QueryMLServiceResultsRequest extends $tea.Model {
-  allowBuiltin?: boolean;
-  body?: MLServiceAnalysisParam;
-  static names(): { [key: string]: string } {
-    return {
-      allowBuiltin: 'allowBuiltin',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowBuiltin: 'boolean',
-      body: MLServiceAnalysisParam,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMLServiceResultsResponseBody extends $tea.Model {
-  data?: { [key: string]: string }[];
-  status?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      status: 'status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-      status: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMLServiceResultsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMLServiceResultsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMLServiceResultsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RefreshTokenRequest extends $tea.Model {
   /**
    * @example
@@ -12909,71 +12761,18 @@ export class UpdateETLResponse extends $tea.Model {
 export class UpdateIndexRequest extends $tea.Model {
   /**
    * @remarks
-   * The configuration of field indexes. A field index is a key-value pair in which the key specifies the name of the field and the value specifies the index configuration of the field.
+   * The request body.
    */
-  keys?: { [key: string]: KeysValue };
-  /**
-   * @remarks
-   * The configuration of full-text indexes.
-   */
-  line?: UpdateIndexRequestLine;
-  /**
-   * @remarks
-   * Specifies whether to turn on LogReduce. If you turn on LogReduce, only one of `log_reduce_white_list` and `log_reduce_black_list` takes effect.
-   * 
-   * @example
-   * false
-   */
-  logReduce?: boolean;
-  /**
-   * @remarks
-   * The fields in the blacklist that you want to use to cluster logs.
-   */
-  logReduceBlackList?: string[];
-  /**
-   * @remarks
-   * The fields in the whitelist that you want to use to cluster logs.
-   */
-  logReduceWhiteList?: string[];
-  /**
-   * @remarks
-   * The maximum length of a field value that can be retained.
-   * 
-   * @example
-   * 2048
-   */
-  maxTextLen?: number;
-  /**
-   * @remarks
-   * The retention period of data. Unit: days. Valid values: 7, 30, and 90.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 30
-   */
-  ttl?: number;
+  body?: Index;
   static names(): { [key: string]: string } {
     return {
-      keys: 'keys',
-      line: 'line',
-      logReduce: 'log_reduce',
-      logReduceBlackList: 'log_reduce_black_list',
-      logReduceWhiteList: 'log_reduce_white_list',
-      maxTextLen: 'max_text_len',
-      ttl: 'ttl',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keys: { 'type': 'map', 'keyType': 'string', 'valueType': KeysValue },
-      line: UpdateIndexRequestLine,
-      logReduce: 'boolean',
-      logReduceBlackList: { 'type': 'array', 'itemType': 'string' },
-      logReduceWhiteList: { 'type': 'array', 'itemType': 'string' },
-      maxTextLen: 'number',
-      ttl: 'number',
+      body: Index,
     };
   }
 
@@ -15013,71 +14812,6 @@ export class CreateDownloadJobRequestConfiguration extends $tea.Model {
   }
 }
 
-export class CreateIndexRequestLine extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable case sensitivity. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  caseSensitive?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to include Chinese characters. Valid values:
-   * 
-   * *   true
-   * *   false (default)
-   * 
-   * @example
-   * false
-   */
-  chn?: boolean;
-  /**
-   * @remarks
-   * The excluded fields. You cannot specify both include_keys and exclude_keys.
-   */
-  excludeKeys?: string[];
-  /**
-   * @remarks
-   * The included fields. You cannot specify both include_keys and exclude_keys.
-   */
-  includeKeys?: string[];
-  /**
-   * @remarks
-   * The delimiters. You can specify a delimiter to delimit the content of a field value. For more information about delimiters, see Example.
-   * 
-   * This parameter is required.
-   */
-  token?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      caseSensitive: 'caseSensitive',
-      chn: 'chn',
-      excludeKeys: 'exclude_keys',
-      includeKeys: 'include_keys',
-      token: 'token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseSensitive: 'boolean',
-      chn: 'boolean',
-      excludeKeys: { 'type': 'array', 'itemType': 'string' },
-      includeKeys: { 'type': 'array', 'itemType': 'string' },
-      token: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateLoggingRequestLoggingDetails extends $tea.Model {
   /**
    * @remarks
@@ -15981,6 +15715,8 @@ export class GetIndexResponseBodyLine extends $tea.Model {
   /**
    * @remarks
    * The delimiters.
+   * 
+   * This parameter is required.
    */
   token?: string[];
   static names(): { [key: string]: string } {
@@ -17071,75 +16807,6 @@ export class TagResourcesRequestTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateIndexRequestLine extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable case sensitivity. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  caseSensitive?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to include Chinese characters. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  chn?: boolean;
-  /**
-   * @remarks
-   * The excluded fields. You cannot specify both include_keys and exclude_keys.
-   */
-  excludeKeys?: string[];
-  /**
-   * @remarks
-   * The included fields. You cannot specify both include_keys and exclude_keys.
-   */
-  includeKeys?: string[];
-  /**
-   * @remarks
-   * The delimiters that are used to split text.
-   * 
-   * This parameter is required.
-   */
-  token?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      caseSensitive: 'caseSensitive',
-      chn: 'chn',
-      excludeKeys: 'exclude_keys',
-      includeKeys: 'include_keys',
-      token: 'token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseSensitive: 'boolean',
-      chn: 'boolean',
-      excludeKeys: { 'type': 'array', 'itemType': 'string' },
-      includeKeys: { 'type': 'array', 'itemType': 'string' },
-      token: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -18383,39 +18050,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keys)) {
-      body["keys"] = request.keys;
-    }
-
-    if (!Util.isUnset(request.line)) {
-      body["line"] = request.line;
-    }
-
-    if (!Util.isUnset(request.logReduce)) {
-      body["log_reduce"] = request.logReduce;
-    }
-
-    if (!Util.isUnset(request.logReduceBlackList)) {
-      body["log_reduce_black_list"] = request.logReduceBlackList;
-    }
-
-    if (!Util.isUnset(request.logReduceWhiteList)) {
-      body["log_reduce_white_list"] = request.logReduceWhiteList;
-    }
-
-    if (!Util.isUnset(request.maxTextLen)) {
-      body["max_text_len"] = request.maxTextLen;
-    }
-
-    if (!Util.isUnset(request.ttl)) {
-      body["ttl"] = request.ttl;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateIndex",
@@ -24624,58 +24262,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * queryMLServiceResults
-   * 
-   * @deprecated OpenAPI QueryMLServiceResults is deprecated
-   * 
-   * @param request - QueryMLServiceResultsRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns QueryMLServiceResultsResponse
-   */
-  // Deprecated
-  async queryMLServiceResultsWithOptions(serviceName: string, request: QueryMLServiceResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryMLServiceResultsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.allowBuiltin)) {
-      query["allowBuiltin"] = request.allowBuiltin;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(request.body),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryMLServiceResults",
-      version: "2020-12-30",
-      protocol: "HTTPS",
-      pathname: `/ml/service/${serviceName}/analysis`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryMLServiceResultsResponse>(await this.execute(params, req, runtime), new QueryMLServiceResultsResponse({}));
-  }
-
-  /**
-   * queryMLServiceResults
-   * 
-   * @deprecated OpenAPI QueryMLServiceResults is deprecated
-   * 
-   * @param request - QueryMLServiceResultsRequest
-   * @returns QueryMLServiceResultsResponse
-   */
-  // Deprecated
-  async queryMLServiceResults(serviceName: string, request: QueryMLServiceResultsRequest): Promise<QueryMLServiceResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.queryMLServiceResultsWithOptions(serviceName, request, headers, runtime);
-  }
-
-  /**
    * 刷新token
    * 
    * @param request - RefreshTokenRequest
@@ -25705,39 +25291,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keys)) {
-      body["keys"] = request.keys;
-    }
-
-    if (!Util.isUnset(request.line)) {
-      body["line"] = request.line;
-    }
-
-    if (!Util.isUnset(request.logReduce)) {
-      body["log_reduce"] = request.logReduce;
-    }
-
-    if (!Util.isUnset(request.logReduceBlackList)) {
-      body["log_reduce_black_list"] = request.logReduceBlackList;
-    }
-
-    if (!Util.isUnset(request.logReduceWhiteList)) {
-      body["log_reduce_white_list"] = request.logReduceWhiteList;
-    }
-
-    if (!Util.isUnset(request.maxTextLen)) {
-      body["max_text_len"] = request.maxTextLen;
-    }
-
-    if (!Util.isUnset(request.ttl)) {
-      body["ttl"] = request.ttl;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateIndex",
