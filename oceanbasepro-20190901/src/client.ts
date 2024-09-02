@@ -35073,7 +35073,7 @@ export class DescribeRestorableTenantsResponseBodyTenants extends $tea.Model {
    * @example
    * Oracle
    */
-  tenantMode?: number;
+  tenantMode?: string;
   /**
    * @example
    * sbtest1
@@ -35130,7 +35130,7 @@ export class DescribeRestorableTenantsResponseBodyTenants extends $tea.Model {
       tenantAlias: 'string',
       tenantDataBackupRemainDays: 'number',
       tenantId: 'string',
-      tenantMode: 'number',
+      tenantMode: 'string',
       tenantName: 'string',
       timeIntervalList: { 'type': 'array', 'itemType': DescribeRestorableTenantsResponseBodyTenantsTimeIntervalList },
       unitNum: 'number',
