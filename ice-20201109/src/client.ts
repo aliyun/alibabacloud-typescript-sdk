@@ -7,6 +7,50 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AIAgentRuntimeConfig extends $tea.Model {
+  avatarChat3D?: AIAgentRuntimeConfigAvatarChat3D;
+  voiceChat?: AIAgentRuntimeConfigVoiceChat;
+  static names(): { [key: string]: string } {
+    return {
+      avatarChat3D: 'AvatarChat3D',
+      voiceChat: 'VoiceChat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarChat3D: AIAgentRuntimeConfigAvatarChat3D,
+      voiceChat: AIAgentRuntimeConfigVoiceChat,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentTemplateConfig extends $tea.Model {
+  avatarChat3D?: AIAgentTemplateConfigAvatarChat3D;
+  voiceChat?: AIAgentTemplateConfigVoiceChat;
+  static names(): { [key: string]: string } {
+    return {
+      avatarChat3D: 'AvatarChat3D',
+      voiceChat: 'VoiceChat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarChat3D: AIAgentTemplateConfigAvatarChat3D,
+      voiceChat: AIAgentTemplateConfigVoiceChat,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryRequest extends $tea.Model {
   /**
    * @remarks
@@ -4272,6 +4316,83 @@ export class DeleteTemplateResponse extends $tea.Model {
   }
 }
 
+export class DescribeAIAgentInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIAgentInstanceResponseBody extends $tea.Model {
+  instance?: DescribeAIAgentInstanceResponseBodyInstance;
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instance: 'Instance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instance: DescribeAIAgentInstanceResponseBodyInstance,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIAgentInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAIAgentInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAIAgentInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMeterImsEditUsageRequest extends $tea.Model {
   /**
    * @remarks
@@ -4774,6 +4895,108 @@ export class DescribeMeterImsSummaryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeMeterImsSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNotifyConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNotifyConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://customer.com/callback
+   */
+  callbackUrl?: string;
+  /**
+   * @example
+   * true
+   */
+  enableNotify?: boolean;
+  /**
+   * @example
+   * agent_start,agent_stop,error
+   */
+  eventTypes?: string;
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbackUrl: 'CallbackUrl',
+      enableNotify: 'EnableNotify',
+      eventTypes: 'EventTypes',
+      requestId: 'RequestId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackUrl: 'string',
+      enableNotify: 'boolean',
+      eventTypes: 'string',
+      requestId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNotifyConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNotifyConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNotifyConfigResponseBody,
     };
   }
 
@@ -5326,6 +5549,175 @@ export class DropSearchLibResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DropSearchLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAIAgentCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  /**
+   * @example
+   * 3600
+   */
+  expire?: number;
+  templateConfig?: AIAgentTemplateConfig;
+  /**
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      expire: 'Expire',
+      templateConfig: 'TemplateConfig',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      expire: 'number',
+      templateConfig: AIAgentTemplateConfig,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAIAgentCallShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  /**
+   * @example
+   * 3600
+   */
+  expire?: number;
+  templateConfigShrink?: string;
+  /**
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      expire: 'Expire',
+      templateConfigShrink: 'TemplateConfig',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      expire: 'number',
+      templateConfigShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAIAgentCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 877ae632caae49b1afc81c2e8194ffb4
+   */
+  AIAgentUserId?: string;
+  /**
+   * @example
+   * 70f22d5784194938a7e387052f2b3208
+   */
+  channelId?: string;
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
+  token?: string;
+  /**
+   * @example
+   * user123
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentUserId: 'AIAgentUserId',
+      channelId: 'ChannelId',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      token: 'Token',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentUserId: 'string',
+      channelId: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+      token: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAIAgentCallResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateAIAgentCallResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateAIAgentCallResponseBody,
     };
   }
 
@@ -9161,6 +9553,111 @@ export class InsertMediaToSearchLibResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InsertMediaToSearchLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAIAgentInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4***
+   */
+  AIAgentId?: string;
+  /**
+   * @example
+   * 2023-01-02T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2023-01-01T00:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAIAgentInstanceResponseBody extends $tea.Model {
+  instances?: ListAIAgentInstanceResponseBodyInstances[];
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListAIAgentInstanceResponseBodyInstances },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAIAgentInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAIAgentInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAIAgentInstanceResponseBody,
     };
   }
 
@@ -15592,6 +16089,94 @@ export class SearchPublicMediaInfoResponse extends $tea.Model {
   }
 }
 
+export class SendAIAgentSpeechRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enableInterrupt?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInterrupt: 'EnableInterrupt',
+      instanceId: 'InstanceId',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInterrupt: 'boolean',
+      instanceId: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendAIAgentSpeechResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendAIAgentSpeechResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendAIAgentSpeechResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendAIAgentSpeechResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendLiveSnapshotJobCommandRequest extends $tea.Model {
   /**
    * @remarks
@@ -16138,6 +16723,252 @@ export class SetEventCallbackResponse extends $tea.Model {
   }
 }
 
+export class SetNotifyConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  /**
+   * @example
+   * http://customer.com/callback
+   */
+  callbackUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enableNotify?: boolean;
+  /**
+   * @example
+   * agent_start,agent_stop,error
+   */
+  eventTypes?: string;
+  /**
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      callbackUrl: 'CallbackUrl',
+      enableNotify: 'EnableNotify',
+      eventTypes: 'EventTypes',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      callbackUrl: 'string',
+      enableNotify: 'boolean',
+      eventTypes: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetNotifyConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 771A1414-27BF-53E6-AB73-EFCB*****ACF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetNotifyConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetNotifyConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetNotifyConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAIAgentInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  runtimeConfig?: AIAgentRuntimeConfig;
+  templateConfig?: AIAgentTemplateConfig;
+  /**
+   * @example
+   * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      runtimeConfig: 'RuntimeConfig',
+      templateConfig: 'TemplateConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      runtimeConfig: AIAgentRuntimeConfig,
+      templateConfig: AIAgentTemplateConfig,
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAIAgentInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  runtimeConfigShrink?: string;
+  templateConfigShrink?: string;
+  /**
+   * @example
+   * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      runtimeConfigShrink: 'RuntimeConfig',
+      templateConfigShrink: 'TemplateConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      runtimeConfigShrink: 'string',
+      templateConfigShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAIAgentInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAIAgentInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartAIAgentInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartAIAgentInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartRtcRobotInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -16411,6 +17242,80 @@ export class StartWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAIAgentInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAIAgentInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAIAgentInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopAIAgentInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopAIAgentInstanceResponseBody,
     };
   }
 
@@ -20388,6 +21293,112 @@ export class SubmitVideoTranslationJobResponse extends $tea.Model {
   }
 }
 
+export class UpdateAIAgentInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  templateConfig?: AIAgentTemplateConfig;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateConfig: 'TemplateConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateConfig: AIAgentTemplateConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAIAgentInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  templateConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      templateConfigShrink: 'TemplateConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      templateConfigShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAIAgentInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAIAgentInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAIAgentInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAIAgentInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAvatarTrainingJobRequest extends $tea.Model {
   avatarDescription?: string;
   avatarName?: string;
@@ -22318,6 +23329,121 @@ export class UploadStreamByURLResponse extends $tea.Model {
   }
 }
 
+export class AIAgentRuntimeConfigAvatarChat3D extends $tea.Model {
+  agentUserId?: string;
+  authToken?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUserId: 'string',
+      authToken: 'string',
+      channelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentRuntimeConfigVoiceChat extends $tea.Model {
+  agentUserId?: string;
+  authToken?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUserId: 'string',
+      authToken: 'string',
+      channelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
+  avatarId?: string;
+  enableVoiceInterrupt?: boolean;
+  gracefulShutdown?: boolean;
+  greeting?: string;
+  voiceId?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatarId: 'AvatarId',
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      gracefulShutdown: 'GracefulShutdown',
+      greeting: 'Greeting',
+      voiceId: 'VoiceId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarId: 'string',
+      enableVoiceInterrupt: 'boolean',
+      gracefulShutdown: 'boolean',
+      greeting: 'string',
+      voiceId: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
+  enableVoiceInterrupt?: boolean;
+  gracefulShutdown?: boolean;
+  greeting?: string;
+  voiceId?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      gracefulShutdown: 'GracefulShutdown',
+      greeting: 'Greeting',
+      voiceId: 'VoiceId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVoiceInterrupt: 'boolean',
+      gracefulShutdown: 'boolean',
+      greeting: 'string',
+      voiceId: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryResponseBodyCategory extends $tea.Model {
   /**
    * @example
@@ -23753,6 +24879,57 @@ export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $te
     return {
       createTimestamp: 'number',
       result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIAgentInstanceResponseBodyInstance extends $tea.Model {
+  /**
+   * @example
+   * https://example.com/call_logs/12345
+   */
+  callLogUrl?: string;
+  /**
+   * @example
+   * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
+   */
+  runtimeConfig?: AIAgentRuntimeConfig;
+  /**
+   * @example
+   * Finished
+   */
+  status?: string;
+  /**
+   * @example
+   * {"VoiceChat": {"AppId": "your_voice_chat_app_id"}}
+   */
+  templateConfig?: AIAgentTemplateConfig;
+  /**
+   * @example
+   * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callLogUrl: 'CallLogUrl',
+      runtimeConfig: 'RuntimeConfig',
+      status: 'Status',
+      templateConfig: 'TemplateConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callLogUrl: 'string',
+      runtimeConfig: AIAgentRuntimeConfig,
+      status: 'string',
+      templateConfig: AIAgentTemplateConfig,
+      userData: 'string',
     };
   }
 
@@ -33098,6 +34275,57 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
       taskInput: 'string',
       userData: 'string',
       workflow: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAIAgentInstanceResponseBodyInstances extends $tea.Model {
+  /**
+   * @example
+   * https://example.com/call_logs/12345.json
+   */
+  callLogUrl?: string;
+  /**
+   * @example
+   * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
+   */
+  runtimeConfig?: AIAgentRuntimeConfig;
+  /**
+   * @example
+   * Finished
+   */
+  status?: string;
+  /**
+   * @example
+   * {"VoiceChat": {"VoiceId": "zhixiaoxia"}}
+   */
+  templateConfig?: AIAgentTemplateConfig;
+  /**
+   * @example
+   * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callLogUrl: 'CallLogUrl',
+      runtimeConfig: 'RuntimeConfig',
+      status: 'Status',
+      templateConfig: 'TemplateConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callLogUrl: 'string',
+      runtimeConfig: AIAgentRuntimeConfig,
+      status: 'string',
+      templateConfig: AIAgentTemplateConfig,
+      userData: 'string',
     };
   }
 
@@ -50979,6 +52207,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例
+   * 
+   * @param request - DescribeAIAgentInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIAgentInstanceResponse
+   */
+  async describeAIAgentInstanceWithOptions(request: DescribeAIAgentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAIAgentInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAIAgentInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAIAgentInstanceResponse>(await this.callApi(params, req, runtime), new DescribeAIAgentInstanceResponse({}));
+  }
+
+  /**
+   * 查询实例
+   * 
+   * @param request - DescribeAIAgentInstanceRequest
+   * @returns DescribeAIAgentInstanceResponse
+   */
+  async describeAIAgentInstance(request: DescribeAIAgentInstanceRequest): Promise<DescribeAIAgentInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAIAgentInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeMeterImsEditUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMeterImsEditUsageResponse
@@ -51229,6 +52499,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 描述回调配置
+   * 
+   * @param request - DescribeNotifyConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNotifyConfigResponse
+   */
+  async describeNotifyConfigWithOptions(request: DescribeNotifyConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNotifyConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNotifyConfig",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNotifyConfigResponse>(await this.callApi(params, req, runtime), new DescribeNotifyConfigResponse({}));
+  }
+
+  /**
+   * 描述回调配置
+   * 
+   * @param request - DescribeNotifyConfigRequest
+   * @returns DescribeNotifyConfigResponse
+   */
+  async describeNotifyConfig(request: DescribeNotifyConfigRequest): Promise<DescribeNotifyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNotifyConfigWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribePlayListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePlayListResponse
@@ -51476,6 +52788,66 @@ export default class Client extends OpenApi {
   async dropSearchLib(request: DropSearchLibRequest): Promise<DropSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dropSearchLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * 
+   * @param tmpReq - GenerateAIAgentCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAIAgentCallResponse
+   */
+  async generateAIAgentCallWithOptions(tmpReq: GenerateAIAgentCallRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAIAgentCallResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GenerateAIAgentCallShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!Util.isUnset(request.expire)) {
+      query["Expire"] = request.expire;
+    }
+
+    if (!Util.isUnset(request.templateConfigShrink)) {
+      query["TemplateConfig"] = request.templateConfigShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateAIAgentCall",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateAIAgentCallResponse>(await this.callApi(params, req, runtime), new GenerateAIAgentCallResponse({}));
+  }
+
+  /**
+   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * 
+   * @param request - GenerateAIAgentCallRequest
+   * @returns GenerateAIAgentCallResponse
+   */
+  async generateAIAgentCall(request: GenerateAIAgentCallRequest): Promise<GenerateAIAgentCallResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateAIAgentCallWithOptions(request, runtime);
   }
 
   /**
@@ -53388,6 +54760,64 @@ export default class Client extends OpenApi {
   async insertMediaToSearchLib(request: InsertMediaToSearchLibRequest): Promise<InsertMediaToSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertMediaToSearchLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出实例
+   * 
+   * @param request - ListAIAgentInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIAgentInstanceResponse
+   */
+  async listAIAgentInstanceWithOptions(request: ListAIAgentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListAIAgentInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAIAgentInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAIAgentInstanceResponse>(await this.callApi(params, req, runtime), new ListAIAgentInstanceResponse({}));
+  }
+
+  /**
+   * 列出实例
+   * 
+   * @param request - ListAIAgentInstanceRequest
+   * @returns ListAIAgentInstanceResponse
+   */
+  async listAIAgentInstance(request: ListAIAgentInstanceRequest): Promise<ListAIAgentInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAIAgentInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -56467,6 +57897,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用来立即让某个智能体实例播报指定的文本。
+   * 
+   * @param request - SendAIAgentSpeechRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAIAgentSpeechResponse
+   */
+  async sendAIAgentSpeechWithOptions(request: SendAIAgentSpeechRequest, runtime: $Util.RuntimeOptions): Promise<SendAIAgentSpeechResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableInterrupt)) {
+      query["EnableInterrupt"] = request.enableInterrupt;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendAIAgentSpeech",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendAIAgentSpeechResponse>(await this.callApi(params, req, runtime), new SendAIAgentSpeechResponse({}));
+  }
+
+  /**
+   * 用来立即让某个智能体实例播报指定的文本。
+   * 
+   * @param request - SendAIAgentSpeechRequest
+   * @returns SendAIAgentSpeechResponse
+   */
+  async sendAIAgentSpeech(request: SendAIAgentSpeechRequest): Promise<SendAIAgentSpeechResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendAIAgentSpeechWithOptions(request, runtime);
+  }
+
+  /**
    * 发送实时截图任务指令
    * 
    * @param request - SendLiveSnapshotJobCommandRequest
@@ -56763,6 +58243,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新回调配置
+   * 
+   * @param request - SetNotifyConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetNotifyConfigResponse
+   */
+  async setNotifyConfigWithOptions(request: SetNotifyConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetNotifyConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!Util.isUnset(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!Util.isUnset(request.enableNotify)) {
+      query["EnableNotify"] = request.enableNotify;
+    }
+
+    if (!Util.isUnset(request.eventTypes)) {
+      query["EventTypes"] = request.eventTypes;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetNotifyConfig",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetNotifyConfigResponse>(await this.callApi(params, req, runtime), new SetNotifyConfigResponse({}));
+  }
+
+  /**
+   * 更新回调配置
+   * 
+   * @param request - SetNotifyConfigRequest
+   * @returns SetNotifyConfigResponse
+   */
+  async setNotifyConfig(request: SetNotifyConfigRequest): Promise<SetNotifyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setNotifyConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动一个智能体实例，并加入通话。
+   * 
+   * @param tmpReq - StartAIAgentInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAIAgentInstanceResponse
+   */
+  async startAIAgentInstanceWithOptions(tmpReq: StartAIAgentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartAIAgentInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartAIAgentInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.runtimeConfig)) {
+      request.runtimeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeConfig, "RuntimeConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!Util.isUnset(request.runtimeConfigShrink)) {
+      query["RuntimeConfig"] = request.runtimeConfigShrink;
+    }
+
+    if (!Util.isUnset(request.templateConfigShrink)) {
+      query["TemplateConfig"] = request.templateConfigShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartAIAgentInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartAIAgentInstanceResponse>(await this.callApi(params, req, runtime), new StartAIAgentInstanceResponse({}));
+  }
+
+  /**
+   * 启动一个智能体实例，并加入通话。
+   * 
+   * @param request - StartAIAgentInstanceRequest
+   * @returns StartAIAgentInstanceResponse
+   */
+  async startAIAgentInstance(request: StartAIAgentInstanceRequest): Promise<StartAIAgentInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startAIAgentInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 开启一个机器人实例
    * 
    * @param tmpReq - StartRtcRobotInstanceRequest
@@ -56878,6 +58480,48 @@ export default class Client extends OpenApi {
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止一个智能体实例。
+   * 
+   * @param request - StopAIAgentInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAIAgentInstanceResponse
+   */
+  async stopAIAgentInstanceWithOptions(request: StopAIAgentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopAIAgentInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopAIAgentInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopAIAgentInstanceResponse>(await this.callApi(params, req, runtime), new StopAIAgentInstanceResponse({}));
+  }
+
+  /**
+   * 停止一个智能体实例。
+   * 
+   * @param request - StopAIAgentInstanceRequest
+   * @returns StopAIAgentInstanceResponse
+   */
+  async stopAIAgentInstance(request: StopAIAgentInstanceRequest): Promise<StopAIAgentInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopAIAgentInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -58762,6 +60406,58 @@ export default class Client extends OpenApi {
   async submitVideoTranslationJob(request: SubmitVideoTranslationJobRequest): Promise<SubmitVideoTranslationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitVideoTranslationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例的配置
+   * 
+   * @param tmpReq - UpdateAIAgentInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAIAgentInstanceResponse
+   */
+  async updateAIAgentInstanceWithOptions(tmpReq: UpdateAIAgentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAIAgentInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateAIAgentInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.templateConfigShrink)) {
+      query["TemplateConfig"] = request.templateConfigShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAIAgentInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAIAgentInstanceResponse>(await this.callApi(params, req, runtime), new UpdateAIAgentInstanceResponse({}));
+  }
+
+  /**
+   * 修改实例的配置
+   * 
+   * @param request - UpdateAIAgentInstanceRequest
+   * @returns UpdateAIAgentInstanceResponse
+   */
+  async updateAIAgentInstance(request: UpdateAIAgentInstanceRequest): Promise<UpdateAIAgentInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAIAgentInstanceWithOptions(request, runtime);
   }
 
   /**
