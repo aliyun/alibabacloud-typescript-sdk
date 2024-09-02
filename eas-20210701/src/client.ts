@@ -1269,7 +1269,7 @@ export class CreateBenchmarkTaskResponse extends $tea.Model {
 export class CreateGatewayRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group ID. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
    * 
    * @example
    * eas-r-4gt8twzwllfo******
@@ -1282,20 +1282,7 @@ export class CreateGatewayRequest extends $tea.Model {
    * Valid values:
    * 
    * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * false
@@ -1303,7 +1290,12 @@ export class CreateGatewayRequest extends $tea.Model {
   enableInternet?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable internal network access. Default value: true.
+   * Specifies whether to enable private access. Default value: true.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -1311,7 +1303,12 @@ export class CreateGatewayRequest extends $tea.Model {
   enableIntranet?: boolean;
   /**
    * @remarks
-   * The instance type used for the private gateway.
+   * The instance type used by the private gateway. Valid values:
+   * 
+   * *   2c4g
+   * *   4c8g
+   * *   8c16g
+   * *   16c32g
    * 
    * This parameter is required.
    * 
@@ -1321,12 +1318,19 @@ export class CreateGatewayRequest extends $tea.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The private gateway alias.
+   * The alias of the private gateway.
    * 
    * @example
    * mygateway1
    */
   name?: string;
+  /**
+   * @remarks
+   * The number of nodes in the private gateway.
+   * 
+   * @example
+   * 2
+   */
   replicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4229,7 +4233,7 @@ export class DescribeGatewayResponseBody extends $tea.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The private gateway alias.
+   * The alias of the private gateway.
    * 
    * @example
    * mygateway1
@@ -4237,7 +4241,14 @@ export class DescribeGatewayResponseBody extends $tea.Model {
   gatewayName?: string;
   /**
    * @remarks
-   * The instance type used for the private gateway.
+   * The instance type used by the private gateway.
+   * 
+   * Valid values:
+   * 
+   * *   8c16g
+   * *   4c8g
+   * *   2c4g
+   * *   16c32g
    * 
    * @example
    * ecs.c6.4xlarge
@@ -4259,6 +4270,21 @@ export class DescribeGatewayResponseBody extends $tea.Model {
    * true
    */
   internetEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether Internet access is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   Creating: Internet access is being enabled.
+   * *   Failed: Internet access failed to be enabled or deleted.
+   * *   Running: Internet access is running.
+   * *   Deleted: Internet access is deleted.
+   * *   Deleting: Internet access is being deleted.
+   * 
+   * @example
+   * Running
+   */
   internetStatus?: string;
   /**
    * @remarks
@@ -4268,7 +4294,21 @@ export class DescribeGatewayResponseBody extends $tea.Model {
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-hangzhou.pai-eas.aliyuncs.com
    */
   intranetDomain?: string;
+  /**
+   * @remarks
+   * Indicates whether it is the default private gateway.
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The number of nodes in the private gateway.
+   * 
+   * @example
+   * 2
+   */
   replicas?: number;
   /**
    * @remarks
@@ -4280,7 +4320,17 @@ export class DescribeGatewayResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the private gateway.
+   * The status of the private gateway.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   Stopped
+   * *   Failed
+   * *   Running
+   * *   Deleted
+   * *   Deleting
+   * *   Waiting
    * 
    * @example
    * PrivateGatewayRunning
@@ -9255,6 +9305,13 @@ export class UpdateGatewayRequest extends $tea.Model {
    * ecs.c6.4xlarge
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * Indicates whether it is the default private gateway.
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
   /**
    * @remarks
@@ -9264,6 +9321,13 @@ export class UpdateGatewayRequest extends $tea.Model {
    * mygateway1
    */
   name?: string;
+  /**
+   * @remarks
+   * The number of nodes in the private gateway.
+   * 
+   * @example
+   * 2
+   */
   replicas?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11264,16 +11328,8 @@ export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.M
   }
 }
 
-export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
-  /**
-   * @example
-   * default
-   */
+export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends $tea.Model {
   comment?: string;
-  /**
-   * @example
-   * 10.23.XX.XX/32
-   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11294,16 +11350,27 @@ export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
   }
 }
 
-export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList extends $tea.Model {
-  /**
-   * @example
-   * Test Entry
-   */
+export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
+  aclPolicyList?: ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList[];
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyList: 'AclPolicyList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList extends $tea.Model {
   comment?: string;
-  /**
-   * @example
-   * 192.168.XX.XX/24
-   */
   entry?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11325,7 +11392,7 @@ export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyL
 }
 
 export class ListAclPolicyResponseBodyIntranetVpcAclPolicyList extends $tea.Model {
-  intranetAclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList[];
+  aclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList[];
   /**
    * @example
    * vpc-uf66uio7md****
@@ -11333,14 +11400,14 @@ export class ListAclPolicyResponseBodyIntranetVpcAclPolicyList extends $tea.Mode
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      intranetAclPolicyList: 'IntranetAclPolicyList',
+      aclPolicyList: 'AclPolicyList',
       vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      intranetAclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyIntranetVpcAclPolicyListIntranetAclPolicyList },
+      aclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList },
       vpcId: 'string',
     };
   }

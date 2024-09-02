@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/eas20210701",
-  "version": "5.1.0",
+  "version": "6.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
