@@ -60430,6 +60430,25 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
   }
 }
 
+export class GetFileResponseBodyDataResourceDownloadLink extends $tea.Model {
+  downloadLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadLink: 'downloadLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadLink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -60441,10 +60460,12 @@ export class GetFileResponseBodyData extends $tea.Model {
    * The scheduling configurations of the file.
    */
   nodeConfiguration?: GetFileResponseBodyDataNodeConfiguration;
+  resourceDownloadLink?: GetFileResponseBodyDataResourceDownloadLink;
   static names(): { [key: string]: string } {
     return {
       file: 'File',
       nodeConfiguration: 'NodeConfiguration',
+      resourceDownloadLink: 'ResourceDownloadLink',
     };
   }
 
@@ -60452,6 +60473,7 @@ export class GetFileResponseBodyData extends $tea.Model {
     return {
       file: GetFileResponseBodyDataFile,
       nodeConfiguration: GetFileResponseBodyDataNodeConfiguration,
+      resourceDownloadLink: GetFileResponseBodyDataResourceDownloadLink,
     };
   }
 
