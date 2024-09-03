@@ -81294,6 +81294,7 @@ export class ListTablesResponseBodyDataTableEntityList extends $tea.Model {
 }
 
 export class ListTablesResponseBodyData extends $tea.Model {
+  nextToken?: string;
   tableEntityList?: ListTablesResponseBodyDataTableEntityList[];
   /**
    * @example
@@ -81302,6 +81303,7 @@ export class ListTablesResponseBodyData extends $tea.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       tableEntityList: 'TableEntityList',
       total: 'Total',
     };
@@ -81309,6 +81311,7 @@ export class ListTablesResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       tableEntityList: { 'type': 'array', 'itemType': ListTablesResponseBodyDataTableEntityList },
       total: 'number',
     };
