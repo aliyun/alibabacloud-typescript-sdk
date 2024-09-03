@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cams20200606",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.8",
-    "@alicloud/openapi-client": "^0.4.10",
+    "@alicloud/tea-util": "^1.4.9",
+    "@alicloud/openapi-client": "^0.4.11",
     "@alicloud/openapi-util": "^0.3.2",
     "@alicloud/endpoint-util": "^0.0.1"
   },
