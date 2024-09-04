@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -60,6 +59,10 @@ export class AndroidPayload extends $tea.Model {
 
 export class Aps extends $tea.Model {
   alert?: Alert;
+  /**
+   * @example
+   * +1(自增)，-1(自减)，4(设置数字)
+   */
   badge?: string;
   category?: string;
   contentAvailable?: number;
@@ -169,6 +172,11 @@ export class ChannelProperties extends $tea.Model {
   huaweiChannelImportance?: string;
   mainActivity?: string;
   oppoChannelId?: string;
+  /**
+   * @example
+   * "true",默认"false"
+   */
+  vivoAddBadge?: string;
   vivoCategory?: string;
   xiaomiChannelId?: string;
   static names(): { [key: string]: string } {
@@ -179,6 +187,7 @@ export class ChannelProperties extends $tea.Model {
       huaweiChannelImportance: 'huaweiChannelImportance',
       mainActivity: 'mainActivity',
       oppoChannelId: 'oppoChannelId',
+      vivoAddBadge: 'vivoAddBadge',
       vivoCategory: 'vivoCategory',
       xiaomiChannelId: 'xiaomiChannelId',
     };
@@ -192,6 +201,7 @@ export class ChannelProperties extends $tea.Model {
       huaweiChannelImportance: 'string',
       mainActivity: 'string',
       oppoChannelId: 'string',
+      vivoAddBadge: 'string',
       vivoCategory: 'string',
       xiaomiChannelId: 'string',
     };
@@ -225,9 +235,21 @@ export class IosPayload extends $tea.Model {
 }
 
 export class Policy extends $tea.Model {
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   expireTime?: string;
   outerBizNo?: string;
+  /**
+   * @example
+   * 5000
+   */
   speed?: number;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -253,6 +275,10 @@ export class Policy extends $tea.Model {
 }
 
 export class CancelByMsgIdRequest extends $tea.Model {
+  /**
+   * @example
+   * ucj0242167047014687101
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -272,11 +298,31 @@ export class CancelByMsgIdRequest extends $tea.Model {
 }
 
 export class CancelByMsgIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: CancelByMsgIdResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -331,6 +377,10 @@ export class CancelByMsgIdResponse extends $tea.Model {
 }
 
 export class QueryMsgStatRequest extends $tea.Model {
+  /**
+   * @example
+   * ufe29y2167046828041801
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -350,11 +400,31 @@ export class QueryMsgStatRequest extends $tea.Model {
 }
 
 export class QueryMsgStatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: QueryMsgStatResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -409,6 +479,13 @@ export class QueryMsgStatResponse extends $tea.Model {
 }
 
 export class SendByAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   alias?: string;
   aliasType?: string;
   androidPayload?: AndroidPayload;
@@ -416,8 +493,16 @@ export class SendByAliasRequest extends $tea.Model {
   description?: string;
   iosPayload?: IosPayload;
   policy?: Policy;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -458,6 +543,13 @@ export class SendByAliasRequest extends $tea.Model {
 }
 
 export class SendByAliasShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   alias?: string;
   aliasType?: string;
   androidPayloadShrink?: string;
@@ -465,8 +557,16 @@ export class SendByAliasShrinkRequest extends $tea.Model {
   description?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -507,11 +607,31 @@ export class SendByAliasShrinkRequest extends $tea.Model {
 }
 
 export class SendByAliasResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: SendByAliasResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -570,11 +690,26 @@ export class SendByAliasFileIdRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
   channelProperties?: ChannelProperties;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PF835431668603208261
+   */
   fileId?: string;
   iosPayload?: IosPayload;
   policy?: Policy;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -619,11 +754,26 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PF835431668603208261
+   */
   fileId?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -664,11 +814,31 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
 }
 
 export class SendByAliasFileIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: SendByAliasFileIdResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -728,8 +898,16 @@ export class SendByAppRequest extends $tea.Model {
   description?: string;
   iosPayload?: IosPayload;
   policy?: Policy;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -771,8 +949,16 @@ export class SendByAppShrinkRequest extends $tea.Model {
   description?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -809,11 +995,31 @@ export class SendByAppShrinkRequest extends $tea.Model {
 }
 
 export class SendByAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: SendByAppResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -871,11 +1077,26 @@ export class SendByDeviceRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
   channelProperties?: ChannelProperties;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
+   */
   deviceTokens?: string;
   iosPayload?: IosPayload;
   policy?: Policy;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -917,11 +1138,26 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
+   */
   deviceTokens?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -960,11 +1196,31 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
 }
 
 export class SendByDeviceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: SendByDeviceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 内部错误
+   */
   message?: string;
+  /**
+   * @example
+   * 74808AA4-A044-102F-8F5F-AFE4D97A0F26
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1022,11 +1278,26 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
   channelProperties?: ChannelProperties;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PF835431668603208261
+   */
   fileId?: string;
   iosPayload?: IosPayload;
   policy?: Policy;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -1068,11 +1339,26 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PF835431668603208261
+   */
   fileId?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -1111,11 +1397,31 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
 }
 
 export class SendByDeviceFileIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: SendByDeviceFileIdResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1173,11 +1479,23 @@ export class SendByFilterRequest extends $tea.Model {
   androidPayload?: AndroidPayload;
   channelProperties?: ChannelProperties;
   description?: string;
+  /**
+   * @example
+   * "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
+   */
   filter?: string;
   iosPayload?: IosPayload;
   policy?: Policy;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -1219,11 +1537,23 @@ export class SendByFilterShrinkRequest extends $tea.Model {
   androidPayloadShrink?: string;
   channelPropertiesShrink?: string;
   description?: string;
+  /**
+   * @example
+   * "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
+   */
   filter?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
+  /**
+   * @example
+   * true
+   */
   productionMode?: boolean;
   receiptType?: number;
+  /**
+   * @example
+   * https://msg.umeng.com/upush/receipt
+   */
   receiptUrl?: string;
   thirdPartyId?: string;
   static names(): { [key: string]: string } {
@@ -1262,11 +1592,31 @@ export class SendByFilterShrinkRequest extends $tea.Model {
 }
 
 export class SendByFilterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: SendByFilterResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1321,6 +1671,11 @@ export class SendByFilterResponse extends $tea.Model {
 }
 
 export class UploadDeviceRequest extends $tea.Model {
+  /**
+   * @example
+   * device_token_1\\ndevice_token_2\\ndevice_token_3\\n...
+   * alias1\\nalias2\\nalias3\\n...
+   */
   deviceTokens?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1340,11 +1695,31 @@ export class UploadDeviceRequest extends $tea.Model {
 }
 
 export class UploadDeviceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: UploadDeviceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1399,6 +1774,10 @@ export class UploadDeviceResponse extends $tea.Model {
 }
 
 export class CancelByMsgIdResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ucj0242167047014687101
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1418,13 +1797,45 @@ export class CancelByMsgIdResponseBodyData extends $tea.Model {
 }
 
 export class QueryMsgStatResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   accept?: number;
+  /**
+   * @example
+   * 1
+   */
   arrive?: number;
+  /**
+   * @example
+   * 0
+   */
   closePush?: number;
+  /**
+   * @example
+   * 0
+   */
   dismiss?: number;
+  /**
+   * @example
+   * ufe29y2167046828041801
+   */
   msgId?: string;
+  /**
+   * @example
+   * 1
+   */
   open?: number;
+  /**
+   * @example
+   * 1
+   */
   sent?: number;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1458,6 +1869,10 @@ export class QueryMsgStatResponseBodyData extends $tea.Model {
 }
 
 export class SendByAliasResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * uacxo27167041814609201
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1477,6 +1892,10 @@ export class SendByAliasResponseBodyData extends $tea.Model {
 }
 
 export class SendByAliasFileIdResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ucj0242167047014687101
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1496,6 +1915,10 @@ export class SendByAliasFileIdResponseBodyData extends $tea.Model {
 }
 
 export class SendByAppResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * um3zlgb166876370784300
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1515,6 +1938,10 @@ export class SendByAppResponseBodyData extends $tea.Model {
 }
 
 export class SendByDeviceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ula4wbu166876119986400
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1534,6 +1961,10 @@ export class SendByDeviceResponseBodyData extends $tea.Model {
 }
 
 export class SendByDeviceFileIdResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ufe29y2167046828041801
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1553,6 +1984,10 @@ export class SendByDeviceFileIdResponseBodyData extends $tea.Model {
 }
 
 export class SendByFilterResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * usouag1167056659161101
+   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1572,6 +2007,10 @@ export class SendByFilterResponseBodyData extends $tea.Model {
 }
 
 export class UploadDeviceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * PF835431668603208261
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1613,6 +2052,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 根据消息ID取消发送
+   * 
+   * @param request - CancelByMsgIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelByMsgIdResponse
+   */
   async cancelByMsgIdWithOptions(request: CancelByMsgIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelByMsgIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1638,12 +2085,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelByMsgIdResponse>(await this.callApi(params, req, runtime), new CancelByMsgIdResponse({}));
   }
 
+  /**
+   * 根据消息ID取消发送
+   * 
+   * @param request - CancelByMsgIdRequest
+   * @returns CancelByMsgIdResponse
+   */
   async cancelByMsgId(request: CancelByMsgIdRequest): Promise<CancelByMsgIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelByMsgIdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 消息状态查询
+   * 
+   * @param request - QueryMsgStatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMsgStatResponse
+   */
   async queryMsgStatWithOptions(request: QueryMsgStatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryMsgStatResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1669,12 +2130,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMsgStatResponse>(await this.callApi(params, req, runtime), new QueryMsgStatResponse({}));
   }
 
+  /**
+   * 消息状态查询
+   * 
+   * @param request - QueryMsgStatRequest
+   * @returns QueryMsgStatResponse
+   */
   async queryMsgStat(request: QueryMsgStatRequest): Promise<QueryMsgStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryMsgStatWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 指定别名发送
+   * 
+   * @param tmpReq - SendByAliasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendByAliasResponse
+   */
   async sendByAliasWithOptions(tmpReq: SendByAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendByAliasResponse> {
     Util.validateModel(tmpReq);
     let request = new SendByAliasShrinkRequest({ });
@@ -1758,12 +2233,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendByAliasResponse>(await this.callApi(params, req, runtime), new SendByAliasResponse({}));
   }
 
+  /**
+   * 指定别名发送
+   * 
+   * @param request - SendByAliasRequest
+   * @returns SendByAliasResponse
+   */
   async sendByAlias(request: SendByAliasRequest): Promise<SendByAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendByAliasWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 指定别名文件发送
+   * 
+   * @param tmpReq - SendByAliasFileIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendByAliasFileIdResponse
+   */
   async sendByAliasFileIdWithOptions(tmpReq: SendByAliasFileIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendByAliasFileIdResponse> {
     Util.validateModel(tmpReq);
     let request = new SendByAliasFileIdShrinkRequest({ });
@@ -1847,12 +2336,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendByAliasFileIdResponse>(await this.callApi(params, req, runtime), new SendByAliasFileIdResponse({}));
   }
 
+  /**
+   * 指定别名文件发送
+   * 
+   * @param request - SendByAliasFileIdRequest
+   * @returns SendByAliasFileIdResponse
+   */
   async sendByAliasFileId(request: SendByAliasFileIdRequest): Promise<SendByAliasFileIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendByAliasFileIdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 广播
+   * 
+   * @param tmpReq - SendByAppRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendByAppResponse
+   */
   async sendByAppWithOptions(tmpReq: SendByAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendByAppResponse> {
     Util.validateModel(tmpReq);
     let request = new SendByAppShrinkRequest({ });
@@ -1928,12 +2431,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendByAppResponse>(await this.callApi(params, req, runtime), new SendByAppResponse({}));
   }
 
+  /**
+   * 广播
+   * 
+   * @param request - SendByAppRequest
+   * @returns SendByAppResponse
+   */
   async sendByApp(request: SendByAppRequest): Promise<SendByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendByAppWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 指定设备发送
+   * 
+   * @param tmpReq - SendByDeviceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendByDeviceResponse
+   */
   async sendByDeviceWithOptions(tmpReq: SendByDeviceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendByDeviceResponse> {
     Util.validateModel(tmpReq);
     let request = new SendByDeviceShrinkRequest({ });
@@ -2013,12 +2530,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendByDeviceResponse>(await this.callApi(params, req, runtime), new SendByDeviceResponse({}));
   }
 
+  /**
+   * 指定设备发送
+   * 
+   * @param request - SendByDeviceRequest
+   * @returns SendByDeviceResponse
+   */
   async sendByDevice(request: SendByDeviceRequest): Promise<SendByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendByDeviceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 指定设备文件发送
+   * 
+   * @param tmpReq - SendByDeviceFileIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendByDeviceFileIdResponse
+   */
   async sendByDeviceFileIdWithOptions(tmpReq: SendByDeviceFileIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendByDeviceFileIdResponse> {
     Util.validateModel(tmpReq);
     let request = new SendByDeviceFileIdShrinkRequest({ });
@@ -2098,12 +2629,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendByDeviceFileIdResponse>(await this.callApi(params, req, runtime), new SendByDeviceFileIdResponse({}));
   }
 
+  /**
+   * 指定设备文件发送
+   * 
+   * @param request - SendByDeviceFileIdRequest
+   * @returns SendByDeviceFileIdResponse
+   */
   async sendByDeviceFileId(request: SendByDeviceFileIdRequest): Promise<SendByDeviceFileIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendByDeviceFileIdWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 根据筛选条件发送
+   * 
+   * @param tmpReq - SendByFilterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendByFilterResponse
+   */
   async sendByFilterWithOptions(tmpReq: SendByFilterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendByFilterResponse> {
     Util.validateModel(tmpReq);
     let request = new SendByFilterShrinkRequest({ });
@@ -2183,12 +2728,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendByFilterResponse>(await this.callApi(params, req, runtime), new SendByFilterResponse({}));
   }
 
+  /**
+   * 根据筛选条件发送
+   * 
+   * @param request - SendByFilterRequest
+   * @returns SendByFilterResponse
+   */
   async sendByFilter(request: SendByFilterRequest): Promise<SendByFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendByFilterWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 上传设备列表创建设备文件
+   * 
+   * @param request - UploadDeviceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadDeviceResponse
+   */
   async uploadDeviceWithOptions(request: UploadDeviceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadDeviceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2214,6 +2773,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadDeviceResponse>(await this.callApi(params, req, runtime), new UploadDeviceResponse({}));
   }
 
+  /**
+   * 上传设备列表创建设备文件
+   * 
+   * @param request - UploadDeviceRequest
+   * @returns UploadDeviceResponse
+   */
   async uploadDevice(request: UploadDeviceRequest): Promise<UploadDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
