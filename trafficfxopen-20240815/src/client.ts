@@ -408,9 +408,6 @@ export class SearchRequest extends $tea.Model {
    */
   terminal?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * “121343”
    */
