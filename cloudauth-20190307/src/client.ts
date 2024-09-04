@@ -153,6 +153,7 @@ export class BankMetaVerifyRequest extends $tea.Model {
    * 429001********8211
    */
   identifyNum?: string;
+  identityType?: string;
   /**
    * @example
    * 138******11
@@ -178,6 +179,7 @@ export class BankMetaVerifyRequest extends $tea.Model {
     return {
       bankCard: 'BankCard',
       identifyNum: 'IdentifyNum',
+      identityType: 'IdentityType',
       mobile: 'Mobile',
       paramType: 'ParamType',
       productType: 'ProductType',
@@ -190,6 +192,7 @@ export class BankMetaVerifyRequest extends $tea.Model {
     return {
       bankCard: 'string',
       identifyNum: 'string',
+      identityType: 'string',
       mobile: 'string',
       paramType: 'string',
       productType: 'string',
@@ -5248,6 +5251,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.identifyNum)) {
       query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      query["IdentityType"] = request.identityType;
     }
 
     if (!Util.isUnset(request.mobile)) {
