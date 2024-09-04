@@ -2107,6 +2107,7 @@ export class CreateClusterRequest extends $tea.Model {
    * 1.16.9-aliyun.1
    */
   kubernetesVersion?: string;
+  loadBalancerId?: string;
   /**
    * @remarks
    * The specification of the Server Load Balancer (SLB) instance. Valid values:
@@ -2806,6 +2807,7 @@ export class CreateClusterRequest extends $tea.Model {
       keepInstanceName: 'keep_instance_name',
       keyPair: 'key_pair',
       kubernetesVersion: 'kubernetes_version',
+      loadBalancerId: 'load_balancer_id',
       loadBalancerSpec: 'load_balancer_spec',
       loggingType: 'logging_type',
       loginPassword: 'login_password',
@@ -2902,6 +2904,7 @@ export class CreateClusterRequest extends $tea.Model {
       keepInstanceName: 'boolean',
       keyPair: 'string',
       kubernetesVersion: 'string',
+      loadBalancerId: 'string',
       loadBalancerSpec: 'string',
       loggingType: 'string',
       loginPassword: 'string',
@@ -3948,7 +3951,7 @@ export class DeleteAlertContactShrinkRequest extends $tea.Model {
 export class DeleteAlertContactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: DeleteAlertContactResponseBody[];
+  body?: DeleteAlertContactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3961,7 +3964,7 @@ export class DeleteAlertContactResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: { 'type': 'array', 'itemType': DeleteAlertContactResponseBody },
+      body: DeleteAlertContactResponseBody,
     };
   }
 
@@ -17126,7 +17129,7 @@ export class CreateClusterNodePoolRequestTeeConfig extends $tea.Model {
   }
 }
 
-export class DeleteAlertContactResponseBody extends $tea.Model {
+export class DeleteAlertContactResponseBodyResult extends $tea.Model {
   status?: boolean;
   msg?: string;
   contactId?: string;
@@ -17143,6 +17146,25 @@ export class DeleteAlertContactResponseBody extends $tea.Model {
       status: 'boolean',
       msg: 'string',
       contactId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactResponseBody extends $tea.Model {
+  result?: DeleteAlertContactResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: { 'type': 'array', 'itemType': DeleteAlertContactResponseBodyResult },
     };
   }
 
@@ -27686,6 +27708,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.kubernetesVersion)) {
       body["kubernetes_version"] = request.kubernetesVersion;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      body["load_balancer_id"] = request.loadBalancerId;
     }
 
     if (!Util.isUnset(request.loadBalancerSpec)) {
