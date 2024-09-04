@@ -1745,7 +1745,7 @@ export class CheckServiceLinkedRoleResponse extends $tea.Model {
 export class CloneDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature. Valid values:
+   * Specifies whether to enable the automatic payment feature for the new instance. Valid values:
    * 
    * 1.  **true**: enables the feature. You must make sure that your account balance is sufficient.
    * 2.  **false**: disables the feature. An unpaid order is generated.
@@ -1857,15 +1857,16 @@ export class CloneDBInstanceRequest extends $tea.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The storage type of the new instance. Valid values:
    * 
-   * *   **local_ssd**: local SSDs
-   * *   **cloud_ssd**: standard SSDs
-   * *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-   * *   **cloud_essd2**: ESSDs of PL2
-   * *   **cloud_essd3**: ESSD of PL3
+   * *   **general_essd** (recommend): general Enterprise SSD (ESSD)
+   * *   **local_ssd**: local SSD
+   * *   **cloud_ssd**: standard SSD
+   * *   **cloud_essd**: performance level 1 (PL1) ESSD
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
    * 
-   * > Serverless instances support only ESSDs of PL 1. For a serverless instance, you must set this parameter to **cloud_essd**.
+   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
    * 
    * @example
    * cloud_essd
@@ -1889,7 +1890,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the release protection feature for the instance. Valid values:
+   * Specifies whether to enable the release protection feature for the new instance. Valid values:
    * 
    * *   **true**
    * *   **false** (default)
@@ -2136,7 +2137,7 @@ export class CloneDBInstanceRequest extends $tea.Model {
 export class CloneDBInstanceShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature. Valid values:
+   * Specifies whether to enable the automatic payment feature for the new instance. Valid values:
    * 
    * 1.  **true**: enables the feature. You must make sure that your account balance is sufficient.
    * 2.  **false**: disables the feature. An unpaid order is generated.
@@ -2248,15 +2249,16 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The storage type of the new instance. Valid values:
    * 
-   * *   **local_ssd**: local SSDs
-   * *   **cloud_ssd**: standard SSDs
-   * *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-   * *   **cloud_essd2**: ESSDs of PL2
-   * *   **cloud_essd3**: ESSD of PL3
+   * *   **general_essd** (recommend): general Enterprise SSD (ESSD)
+   * *   **local_ssd**: local SSD
+   * *   **cloud_ssd**: standard SSD
+   * *   **cloud_essd**: performance level 1 (PL1) ESSD
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
    * 
-   * > Serverless instances support only ESSDs of PL 1. For a serverless instance, you must set this parameter to **cloud_essd**.
+   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
    * 
    * @example
    * cloud_essd
@@ -2280,7 +2282,7 @@ export class CloneDBInstanceShrinkRequest extends $tea.Model {
   dedicatedHostGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the release protection feature for the instance. Valid values:
+   * Specifies whether to enable the release protection feature for the new instance. Valid values:
    * 
    * *   **true**
    * *   **false** (default)
@@ -54096,12 +54098,12 @@ export class UpgradeDBInstanceKernelVersionResponse extends $tea.Model {
 export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   /**
    * @remarks
-   * The time at which the system collects the statistics of the new instance. Valid values:
+   * Specify the point in time at which the system collects the statistics of the instance.
    * 
-   * *   Before: ApsaraDB RDS collects the statistics of the new instance before the switchover to ensure service stability. If the original instance contains a large amount of data, the upgrade may require a long period of time.
-   * *   After: ApsaraDB RDS collects the statistics of the new instance after the switchover to accelerate the upgrade. If you access tables for which no statistics are generated, the execution plans that you specify may be inaccurate. In addition, your database service may be unavailable during peak hours.
+   * *   **Before**: The system collects the statistics of the instance before the switchover to ensure service stability. If the instance contains a large amount of data, the upgrade may require a long period of time.
+   * *   **After**: The system collects the statistics of the instance after the switchover to accelerate the upgrade. After the upgrade, if you access tables for which no statistics are generated, the query plans may be inaccurate, and your database service may be unavailable during peak hours.
    * 
-   * > If you set SwitchOver to false, the value Before of this parameter specifies that ApsaraDB RDS collects the statistics of the new instance before the new instance starts to process read and write requests, and the value After of this parameter specifies that ApsaraDB RDS collects the statistics of the new instance after the new instance starts to process read and write requests.
+   * >  If you set the SwitchOver parameter to false, the value Before specifies that the system collects the statistics of the instance before the instance starts to process read and write requests, and the value After specifies that the system collects the statistics of the instance after the instance starts to process read and write requests.
    * 
    * @example
    * After
@@ -54109,11 +54111,11 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   collectStatMode?: string;
   /**
    * @remarks
-   * The instance type of the new instance. The CPU and memory specifications of the new instance must be higher than or equal to the CPU and memory specifications of the original instance.
+   * The new instance type of the instance. The new CPU and memory specifications of the instance must be higher than or equal to the original CPU and memory specifications. If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
    * 
-   * For example, if the instance type of the original instance is `pg.n2.small.2c`, which provides 1 core and 2 GB of memory, the instance type of the new instance can be `pg.n2.medium.2c`, which provides 2 cores and 4 GB of memory.
+   * For example, you can upgrade the instance type from `pg.n2.small.2c` to `pg.n2.medium.2c`. The pg.n2.small.2c instance type provides 1 CPU core and 2 GB of memory. The pg.n2.medium.2c instance type provides 2 CPU cores and 4 GB of memory.
    * 
-   * > For more information about instance types in ApsaraDB RDS for PostgreSQL, see [Primary ApsaraDB RDS for PostgreSQL instance types](https://help.aliyun.com/document_detail/276990.html).
+   * >  For more information about the instance types of ApsaraDB RDS for PostgreSQL instances, see [Instance types for primary ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/276990.html).
    * 
    * @example
    * pg.n2.medium.2c
@@ -54129,17 +54131,16 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The storage capacity of the new instance.
-   * 
-   * Unit: GB
+   * The new storage capacity of the instance. Unit: GB If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
    * 
    * Valid values:
    * 
-   * *   Valid values if you use enhanced SSDs (ESSDs) of performance level 1 (PL1): 20 to 3200
-   * *   Valid values if you use ESSDs of PL2: 500 to 3200
-   * *   Valid values if you use ESSDs of PL3: 1500 to 3200
+   * *   **PL1 ESSD**: 20 GB to 32,000 GB
+   * *   **PL2 ESSD**: 500 GB to 3,200 GB
+   * *   **PL3 ESSD**: 1,500 GB to 3,200 GB
+   * *   **General ESSD**: 40 GB to 2,000 GB
    * 
-   * > If the original instance uses local disks, you can reduce the storage capacity of the instance when you upgrade the major engine version of the instance. For more information about the minimum available storage capacity, see [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html).
+   * >  If the original instance uses local disks, you can reduce the storage capacity of the instance when you upgrade the major engine version of the instance. For more information about the minimum storage capacity, see [Upgrade the major engine version](https://help.aliyun.com/document_detail/203309.html).
    * 
    * @example
    * 20
@@ -54147,20 +54148,21 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the new instance.
+   * The storage type of the instance that runs the required major engine version.
    * 
    * Valid values:
    * 
-   * *   cloud_ssd: standard SSDs
-   * *   cloud_essd: ESSD of PL1
-   * *   cloud_essd2: ESSD of PL2
-   * *   cloud_essd3: ESSD of PL3
+   * *   **cloud_ssd**: standard SSD
+   * *   **cloud_essd**: performance level 1 (PL1) Enterprise SSD (ESSD)
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
+   * *   **general_essd**: general ESSD
    * 
-   * The major engine version upgrade feature is based on cloud disk snapshots. You can select a storage type based on the following conditions:
+   * The major engine version upgrade feature is developed based on snapshots for cloud disks. You can select a storage type after the upgrade based on the following items:
    * 
-   * *   If the original instance uses standard SSDs, you can set this parameter to cloud_ssd.
-   * *   If the original instance uses ESSDs, you can set this parameter to cloud_essd, cloud_essd2, or cloud_essd3.
-   * *   If the original instance uses local disks, you can set this parameter to cloud_essd, cloud_essd2, or cloud_essd3.
+   * *   If the original instance uses standard SSDs, set this parameter to cloud_ssd.
+   * *   If the original instance uses ESSDs, set this parameter to cloud_essd, cloud_essd2, cloud_essd3, or general_essd.
+   * *   If the original instance uses local SSDs, set this parameter to cloud_essd, cloud_essd2, cloud_essd3, or general_essd.
    * 
    * @example
    * cloud_essd
@@ -54207,20 +54209,25 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether the system automatically switches your workloads over to the new instance after data is migrated to the new instance.
+   * Specifies whether to switch your workloads over to the instance that runs the required major engine version based on your business requirements.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false Before you perform an upgrade, we recommend that you set this parameter to false to test whether the new major engine version is compatible with your workloads.
+   * *   **true**: The system automatically switches workloads over to the instance. This configuration method is used to perform an upgrade after you verify that the new major engine version is compatible with your workloads.
+   * *   **false**: The system does not automatically switch your workloads over to the instance. In most cases, this configuration method is used to test whether the new major engine version is compatible with your workloads before you perform the upgrade.
    * 
-   * > *   If you set this parameter to true, you must take note of the following information:
-   * > *   After the switchover is complete, you cannot roll your workloads back to the original instance. Proceed with caution.
-   * > *   During the switchover, the original instance processes only read requests. We recommend that you perform the switchover during off-peak hours.
-   * > *   If read-only instances are attached to the original instance, you can set this parameter only to false. In this case, the read-only instances that are attached to the original instance cannot be cloned. After the upgrade is complete, you must create read-only instances for the new instance.
-   * > *   If you set this parameter to false, you must take note of the following information:
-   * > *   The data migration does not interrupt your workloads on the original instance.
-   * > *   After data is migrated to the new instance, you must update the endpoint configuration on your application. This update requires you to replace the endpoint of the original instance with the endpoint of the new instance. For more information about how to view the endpoint of an instance, see [View and change the internal and public endpoints and port numbers of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96788.html).
+   * > 
+   * 
+   * *   If you set this parameter to true, you must take note of the following items:
+   * 
+   *     *   After the switchover is complete, you cannot roll your workloads back to the original instance. Proceed with caution.
+   *     *   During the switchover, the original instance processes only read requests. We recommend that you perform the switchover during off-peak hours.
+   *     *   If read-only instances are attached to the original instance, you can set this parameter only to false. In this case, the read-only instances that are attached to the original instance cannot be cloned. After the upgrade is complete, you must create read-only instances for the instance.
+   * 
+   * *   If you set this parameter to false, you must take note of the following items:
+   * 
+   *     *   The data migration does not interrupt your workloads on the original instance.
+   *     *   After data is migrated to the instance that runs the required major engine version, you must update the endpoint configuration in your application. This update requires you to replace the endpoint of the original instance with the endpoint of the instance that runs the required major engine version. For more information about how to view the endpoint of an instance, see [Viewing and change of the internal and public endpoints and port numbers](https://help.aliyun.com/document_detail/96788.html).
    * 
    * @example
    * false
@@ -54236,12 +54243,12 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The switchover time. This parameter is used together with SwitchOver. This parameter is available only when **SwitchOver** is set to **true**.
+   * The point in time at which the workloads are switched over. This parameter is used together with the SwitchOver parameter. This parameter is available only when you set the **SwitchOver** parameter to **true**.
    * 
    * Valid values:
    * 
-   * *   Immediate: The settings immediately take effect.
-   * *   MaintainTime: The settings take effect during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window of an instance.
+   * *   **Immediate**: The workloads are immediately switched over.
+   * *   **MaintainTime**: The workloads are switched over within the maintenance window that you specify. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window of an instance.
    * 
    * @example
    * Immediate
@@ -54257,6 +54264,16 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
    * 13.0
    */
   targetMajorVersion?: string;
+  /**
+   * @remarks
+   * The upgrade mode. This parameter is required when you set the **SwitchOver** parameter to **true**. Valid values:
+   * 
+   * *   **inPlaceUpgrade**: local upgrade. The major engine version upgrade is performed on the original instance, and no new instance is created. After the upgrade, the original instance runs the required major engine version and inherits the original orders, name, tags, alert rules in CloudMonitor, and backup settings.
+   * *   **blueGreenDeployment**: blue-green deployment. After the major engine version of the instance is upgraded, the original instance is retained and a new instance is created. Fees are generated for the new instance based on the billing method that you specified. However, no fees are generated for the creation of the new instance. After the upgrade is complete, fees are generated for both the original and new instances and the new instance cannot enjoy the discounts provided for the original instance.
+   * 
+   * @example
+   * inPlaceUpgrade
+   */
   upgradeMode?: string;
   /**
    * @remarks
@@ -54268,7 +54285,9 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The VPC ID. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+   * The virtual private cloud (VPC) ID of the instance. If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
+   * 
+   * You can call the DescribeDBInstanceAttribute operation to query the VPC ID of the original instance.
    * 
    * @example
    * vpc-bp1opxu1zkhn00gzv****
@@ -54276,8 +54295,10 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   VPCId?: string;
   /**
    * @remarks
-   * *   If the original instance runs RDS Basic Edition, you must enter the vSwitch ID of the new instance.
-   * *   If the original instance runs RDS High-availability Edition, you must enter the vSwitch ID of the new instance and the vSwitch ID of the secondary instance of the new instance. Separate the vSwitch IDs with commas (,).
+   * The vSwitch ID of the instance that runs the required major engine version. If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
+   * 
+   * *   If the original instance runs RDS Basic Edition, configure the vSwitch ID for the instance that runs the required major engine version.
+   * *   If the original instance runs RDS High-availability Edition, configure the vSwitch IDs for the instance that runs the required major engine version and its secondary instance. Separate the vSwitch IDs with commas (,).
    * 
    * >  The vSwitches that you specify must reside in the same zone as the original instance. You can call the DescribeVSwitches operation to query the vSwitch IDs.
    * 
@@ -54287,7 +54308,9 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the new primary instance belongs. You can call the DescribeRegions operation to query zone IDs.
+   * The ID of the zone to which the primary instance that runs the required major engine version belongs. If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
+   * 
+   * You can call the DescribeRegions operation to query zone IDs.
    * 
    * You can select a zone that belongs to the region in which the original instance resides.
    * 
@@ -54297,7 +54320,7 @@ export class UpgradeDBInstanceMajorVersionRequest extends $tea.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the new secondary instance belongs. This parameter is available only when the original instance runs RDS High-availability Edition.
+   * The ID of the zone to which the secondary instance runs the required major engine version belongs. This parameter is available only when the original instance runs RDS High-availability Edition. If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
    * 
    * You can select a zone that belongs to the region in which the original instance resides.
    * 
@@ -69664,6 +69687,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
    * {dblink,plpgsql}
    */
   requires?: string;
+  uid?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -69674,6 +69698,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
       owner: 'Owner',
       priority: 'Priority',
       requires: 'Requires',
+      uid: 'Uid',
     };
   }
 
@@ -69687,6 +69712,7 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
       owner: 'string',
       priority: 'string',
       requires: 'string',
+      uid: 'string',
     };
   }
 
@@ -69760,6 +69786,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
    * {dblink,plpgsql}
    */
   requires?: string;
+  uid?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -69770,6 +69797,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
       owner: 'Owner',
       priority: 'Priority',
       requires: 'Requires',
+      uid: 'Uid',
     };
   }
 
@@ -69783,6 +69811,7 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
       owner: 'string',
       priority: 'string',
       requires: 'string',
+      uid: 'string',
     };
   }
 
@@ -90416,7 +90445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the regions that are available for ApsaraDB RDS.
+   * Queries the details of all regions and zones for ApsaraDB RDS. The regions that are no longer supported are also queried. Exercise caution when you call this operation.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -90458,7 +90487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the regions that are available for ApsaraDB RDS.
+   * Queries the details of all regions and zones for ApsaraDB RDS. The regions that are no longer supported are also queried. Exercise caution when you call this operation.
    * 
    * @remarks
    * ### [](#)Supported database engines
