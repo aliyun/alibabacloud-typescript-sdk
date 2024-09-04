@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,19 +8,38 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddFacesRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFacesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -31,16 +49,22 @@ export class AddFacesRequest extends $tea.Model {
 }
 
 export class AddFacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddFacesResponseBody,
     };
   }
 
@@ -50,19 +74,38 @@ export class AddFacesResponse extends $tea.Model {
 }
 
 export class AddGroupsRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGroupsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -72,16 +115,22 @@ export class AddGroupsRequest extends $tea.Model {
 }
 
 export class AddGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddGroupsResponseBody,
     };
   }
 
@@ -91,19 +140,38 @@ export class AddGroupsResponse extends $tea.Model {
 }
 
 export class AddPersonRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPersonResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -113,16 +181,22 @@ export class AddPersonRequest extends $tea.Model {
 }
 
 export class AddPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddPersonResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddPersonResponseBody,
     };
   }
 
@@ -150,17 +224,42 @@ export class AddSimilarityImageRequest extends $tea.Model {
   }
 }
 
+export class AddSimilarityImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddSimilarityImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSimilarityImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddSimilarityImageResponseBody,
     };
   }
 
@@ -188,17 +287,42 @@ export class AddSimilarityLibraryRequest extends $tea.Model {
   }
 }
 
+export class AddSimilarityLibraryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddSimilarityLibraryResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSimilarityLibraryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddSimilarityLibraryResponseBody,
     };
   }
 
@@ -226,17 +350,42 @@ export class AddVideoDnaRequest extends $tea.Model {
   }
 }
 
+export class AddVideoDnaResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddVideoDnaResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVideoDnaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddVideoDnaResponseBody,
     };
   }
 
@@ -264,17 +413,42 @@ export class AddVideoDnaGroupRequest extends $tea.Model {
   }
 }
 
+export class AddVideoDnaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddVideoDnaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVideoDnaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddVideoDnaGroupResponseBody,
     };
   }
 
@@ -284,19 +458,38 @@ export class AddVideoDnaGroupResponse extends $tea.Model {
 }
 
 export class DeleteFacesRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFacesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -306,16 +499,22 @@ export class DeleteFacesRequest extends $tea.Model {
 }
 
 export class DeleteFacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFacesResponseBody,
     };
   }
 
@@ -325,19 +524,38 @@ export class DeleteFacesResponse extends $tea.Model {
 }
 
 export class DeleteGroupsRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -347,16 +565,22 @@ export class DeleteGroupsRequest extends $tea.Model {
 }
 
 export class DeleteGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGroupsResponseBody,
     };
   }
 
@@ -366,19 +590,38 @@ export class DeleteGroupsResponse extends $tea.Model {
 }
 
 export class DeletePersonRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePersonResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -388,16 +631,22 @@ export class DeletePersonRequest extends $tea.Model {
 }
 
 export class DeletePersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePersonResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePersonResponseBody,
     };
   }
 
@@ -425,17 +674,42 @@ export class DeleteSimilarityImageRequest extends $tea.Model {
   }
 }
 
+export class DeleteSimilarityImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSimilarityImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSimilarityImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSimilarityImageResponseBody,
     };
   }
 
@@ -463,17 +737,42 @@ export class DeleteSimilarityLibraryRequest extends $tea.Model {
   }
 }
 
+export class DeleteSimilarityLibraryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSimilarityLibraryResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSimilarityLibraryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSimilarityLibraryResponseBody,
     };
   }
 
@@ -501,17 +800,42 @@ export class DeleteVideoDnaRequest extends $tea.Model {
   }
 }
 
+export class DeleteVideoDnaResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVideoDnaResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVideoDnaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVideoDnaResponseBody,
     };
   }
 
@@ -539,17 +863,42 @@ export class DeleteVideoDnaGroupRequest extends $tea.Model {
   }
 }
 
+export class DeleteVideoDnaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVideoDnaGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVideoDnaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVideoDnaGroupResponseBody,
     };
   }
 
@@ -577,17 +926,42 @@ export class DetectFaceRequest extends $tea.Model {
   }
 }
 
+export class DetectFaceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetectFaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectFaceResponseBody,
     };
   }
 
@@ -615,17 +989,42 @@ export class FileAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class FileAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FileAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FileAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FileAsyncScanResponseBody,
     };
   }
 
@@ -653,17 +1052,42 @@ export class FileAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class FileAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FileAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FileAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FileAsyncScanResultsResponseBody,
     };
   }
 
@@ -672,17 +1096,21 @@ export class FileAsyncScanResultsResponse extends $tea.Model {
   }
 }
 
-export class GetAddVideoDnaResultsRequest extends $tea.Model {
-  clientInfo?: string;
+export class FileAsyncScanV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DA36A1DA-C466-538D-AD52-E64D75597750
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientInfo: 'ClientInfo',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientInfo: 'string',
+      requestId: 'string',
     };
   }
 
@@ -691,17 +1119,23 @@ export class GetAddVideoDnaResultsRequest extends $tea.Model {
   }
 }
 
-export class GetAddVideoDnaResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+export class FileAsyncScanV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FileAsyncScanV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FileAsyncScanV2ResponseBody,
     };
   }
 
@@ -711,19 +1145,19 @@ export class GetAddVideoDnaResultsResponse extends $tea.Model {
 }
 
 export class GetFacesRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
     };
   }
 
@@ -752,11 +1186,13 @@ export class GetFacesResponseBody extends $tea.Model {
 }
 
 export class GetFacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetFacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -764,6 +1200,7 @@ export class GetFacesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetFacesResponseBody,
     };
   }
@@ -774,19 +1211,38 @@ export class GetFacesResponse extends $tea.Model {
 }
 
 export class GetGroupsRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -796,16 +1252,22 @@ export class GetGroupsRequest extends $tea.Model {
 }
 
 export class GetGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetGroupsResponseBody,
     };
   }
 
@@ -815,19 +1277,38 @@ export class GetGroupsResponse extends $tea.Model {
 }
 
 export class GetPersonRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPersonResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -837,16 +1318,22 @@ export class GetPersonRequest extends $tea.Model {
 }
 
 export class GetPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPersonResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPersonResponseBody,
     };
   }
 
@@ -856,19 +1343,38 @@ export class GetPersonResponse extends $tea.Model {
 }
 
 export class GetPersonsRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPersonsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -878,16 +1384,22 @@ export class GetPersonsRequest extends $tea.Model {
 }
 
 export class GetPersonsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPersonsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPersonsResponseBody,
     };
   }
 
@@ -915,17 +1427,42 @@ export class GetSimilarityImageRequest extends $tea.Model {
   }
 }
 
+export class GetSimilarityImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSimilarityImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSimilarityImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSimilarityImageResponseBody,
     };
   }
 
@@ -953,17 +1490,42 @@ export class GetSimilarityLibraryRequest extends $tea.Model {
   }
 }
 
+export class GetSimilarityLibraryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSimilarityLibraryResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSimilarityLibraryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSimilarityLibraryResponseBody,
     };
   }
 
@@ -991,17 +1553,42 @@ export class ImageAsyncManualScanRequest extends $tea.Model {
   }
 }
 
+export class ImageAsyncManualScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageAsyncManualScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageAsyncManualScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageAsyncManualScanResponseBody,
     };
   }
 
@@ -1029,17 +1616,42 @@ export class ImageAsyncManualScanResultsRequest extends $tea.Model {
   }
 }
 
+export class ImageAsyncManualScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageAsyncManualScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageAsyncManualScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageAsyncManualScanResultsResponseBody,
     };
   }
 
@@ -1067,17 +1679,42 @@ export class ImageAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class ImageAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageAsyncScanResponseBody,
     };
   }
 
@@ -1105,17 +1742,42 @@ export class ImageAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class ImageAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageAsyncScanResultsResponseBody,
     };
   }
 
@@ -1143,17 +1805,42 @@ export class ImageScanFeedbackRequest extends $tea.Model {
   }
 }
 
+export class ImageScanFeedbackResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageScanFeedbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageScanFeedbackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageScanFeedbackResponseBody,
     };
   }
 
@@ -1181,17 +1868,42 @@ export class ImageSyncScanRequest extends $tea.Model {
   }
 }
 
+export class ImageSyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageSyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageSyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageSyncScanResponseBody,
     };
   }
 
@@ -1219,17 +1931,42 @@ export class ListSimilarityImagesRequest extends $tea.Model {
   }
 }
 
+export class ListSimilarityImagesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSimilarityImagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSimilarityImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSimilarityImagesResponseBody,
     };
   }
 
@@ -1257,17 +1994,42 @@ export class ListSimilarityLibrariesRequest extends $tea.Model {
   }
 }
 
+export class ListSimilarityLibrariesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSimilarityLibrariesResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSimilarityLibrariesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSimilarityLibrariesResponseBody,
     };
   }
 
@@ -1295,17 +2057,42 @@ export class LiveStreamAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class LiveStreamAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LiveStreamAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LiveStreamAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LiveStreamAsyncScanResponseBody,
     };
   }
 
@@ -1333,17 +2120,42 @@ export class LiveStreamAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class LiveStreamAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LiveStreamAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LiveStreamAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LiveStreamAsyncScanResultsResponseBody,
     };
   }
 
@@ -1371,58 +2183,42 @@ export class LiveStreamCancelScanRequest extends $tea.Model {
   }
 }
 
+export class LiveStreamCancelScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LiveStreamCancelScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LiveStreamCancelScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPersonRequest extends $tea.Model {
-  regionId?: string;
-  clientInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      clientInfo: 'ClientInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      clientInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LiveStreamCancelScanResponseBody,
     };
   }
 
@@ -1432,19 +2228,38 @@ export class SearchPersonResponse extends $tea.Model {
 }
 
 export class SetPersonRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPersonResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -1454,16 +2269,22 @@ export class SetPersonRequest extends $tea.Model {
 }
 
 export class SetPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetPersonResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetPersonResponseBody,
     };
   }
 
@@ -1491,17 +2312,42 @@ export class TextAsyncManualScanRequest extends $tea.Model {
   }
 }
 
+export class TextAsyncManualScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextAsyncManualScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextAsyncManualScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextAsyncManualScanResponseBody,
     };
   }
 
@@ -1529,17 +2375,42 @@ export class TextAsyncManualScanResultsRequest extends $tea.Model {
   }
 }
 
+export class TextAsyncManualScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextAsyncManualScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextAsyncManualScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextAsyncManualScanResultsResponseBody,
     };
   }
 
@@ -1567,17 +2438,42 @@ export class TextFeedbackRequest extends $tea.Model {
   }
 }
 
+export class TextFeedbackResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextFeedbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextFeedbackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextFeedbackResponseBody,
     };
   }
 
@@ -1605,17 +2501,42 @@ export class TextScanRequest extends $tea.Model {
   }
 }
 
+export class TextScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextScanResponseBody,
     };
   }
 
@@ -1625,19 +2546,38 @@ export class TextScanResponse extends $tea.Model {
 }
 
 export class UploadCredentialsRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCredentialsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -1647,16 +2587,22 @@ export class UploadCredentialsRequest extends $tea.Model {
 }
 
 export class UploadCredentialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadCredentialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadCredentialsResponseBody,
     };
   }
 
@@ -1684,17 +2630,42 @@ export class VideoAsyncManualScanRequest extends $tea.Model {
   }
 }
 
+export class VideoAsyncManualScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoAsyncManualScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoAsyncManualScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoAsyncManualScanResponseBody,
     };
   }
 
@@ -1722,17 +2693,42 @@ export class VideoAsyncManualScanResultsRequest extends $tea.Model {
   }
 }
 
+export class VideoAsyncManualScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoAsyncManualScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoAsyncManualScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoAsyncManualScanResultsResponseBody,
     };
   }
 
@@ -1760,17 +2756,42 @@ export class VideoAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class VideoAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoAsyncScanResponseBody,
     };
   }
 
@@ -1798,17 +2819,42 @@ export class VideoAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class VideoAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoAsyncScanResultsResponseBody,
     };
   }
 
@@ -1836,17 +2882,42 @@ export class VideoCancelScanRequest extends $tea.Model {
   }
 }
 
+export class VideoCancelScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoCancelScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoCancelScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoCancelScanResponseBody,
     };
   }
 
@@ -1874,17 +2945,42 @@ export class VideoFeedbackRequest extends $tea.Model {
   }
 }
 
+export class VideoFeedbackResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoFeedbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoFeedbackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoFeedbackResponseBody,
     };
   }
 
@@ -1912,17 +3008,42 @@ export class VideoSyncScanRequest extends $tea.Model {
   }
 }
 
+export class VideoSyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoSyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoSyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoSyncScanResponseBody,
     };
   }
 
@@ -1950,17 +3071,42 @@ export class VodAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class VodAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VodAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VodAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VodAsyncScanResponseBody,
     };
   }
 
@@ -1988,17 +3134,42 @@ export class VodAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class VodAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VodAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VodAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VodAsyncScanResultsResponseBody,
     };
   }
 
@@ -2026,17 +3197,42 @@ export class VoiceAsyncManualScanRequest extends $tea.Model {
   }
 }
 
+export class VoiceAsyncManualScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceAsyncManualScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceAsyncManualScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceAsyncManualScanResponseBody,
     };
   }
 
@@ -2064,17 +3260,42 @@ export class VoiceAsyncManualScanResultsRequest extends $tea.Model {
   }
 }
 
+export class VoiceAsyncManualScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceAsyncManualScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceAsyncManualScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceAsyncManualScanResultsResponseBody,
     };
   }
 
@@ -2102,17 +3323,42 @@ export class VoiceAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class VoiceAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceAsyncScanResponseBody,
     };
   }
 
@@ -2140,17 +3386,42 @@ export class VoiceAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class VoiceAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceAsyncScanResultsResponseBody,
     };
   }
 
@@ -2178,17 +3449,42 @@ export class VoiceCancelScanRequest extends $tea.Model {
   }
 }
 
+export class VoiceCancelScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceCancelScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceCancelScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceCancelScanResponseBody,
     };
   }
 
@@ -2198,19 +3494,38 @@ export class VoiceCancelScanResponse extends $tea.Model {
 }
 
 export class VoiceIdentityCheckRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceIdentityCheckResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -2220,16 +3535,22 @@ export class VoiceIdentityCheckRequest extends $tea.Model {
 }
 
 export class VoiceIdentityCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceIdentityCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceIdentityCheckResponseBody,
     };
   }
 
@@ -2239,19 +3560,38 @@ export class VoiceIdentityCheckResponse extends $tea.Model {
 }
 
 export class VoiceIdentityRegisterRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceIdentityRegisterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -2261,16 +3601,22 @@ export class VoiceIdentityRegisterRequest extends $tea.Model {
 }
 
 export class VoiceIdentityRegisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceIdentityRegisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceIdentityRegisterResponseBody,
     };
   }
 
@@ -2280,19 +3626,38 @@ export class VoiceIdentityRegisterResponse extends $tea.Model {
 }
 
 export class VoiceIdentityStartCheckRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceIdentityStartCheckResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -2302,16 +3667,22 @@ export class VoiceIdentityStartCheckRequest extends $tea.Model {
 }
 
 export class VoiceIdentityStartCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceIdentityStartCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceIdentityStartCheckResponseBody,
     };
   }
 
@@ -2321,19 +3692,38 @@ export class VoiceIdentityStartCheckResponse extends $tea.Model {
 }
 
 export class VoiceIdentityStartRegisterRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceIdentityStartRegisterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -2343,16 +3733,22 @@ export class VoiceIdentityStartRegisterRequest extends $tea.Model {
 }
 
 export class VoiceIdentityStartRegisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceIdentityStartRegisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceIdentityStartRegisterResponseBody,
     };
   }
 
@@ -2362,19 +3758,38 @@ export class VoiceIdentityStartRegisterResponse extends $tea.Model {
 }
 
 export class VoiceIdentityUnregisterRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceIdentityUnregisterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -2384,16 +3799,22 @@ export class VoiceIdentityUnregisterRequest extends $tea.Model {
 }
 
 export class VoiceIdentityUnregisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceIdentityUnregisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceIdentityUnregisterResponseBody,
     };
   }
 
@@ -2403,19 +3824,42 @@ export class VoiceIdentityUnregisterResponse extends $tea.Model {
 }
 
 export class VoiceSyncScanRequest extends $tea.Model {
-  regionId?: string;
   clientInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientInfo: 'ClientInfo',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientInfo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceSyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
     };
   }
 
@@ -2425,16 +3869,22 @@ export class VoiceSyncScanRequest extends $tea.Model {
 }
 
 export class VoiceSyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceSyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceSyncScanResponseBody,
     };
   }
 
@@ -2462,17 +3912,42 @@ export class WebpageAsyncScanRequest extends $tea.Model {
   }
 }
 
+export class WebpageAsyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WebpageAsyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebpageAsyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebpageAsyncScanResponseBody,
     };
   }
 
@@ -2500,17 +3975,42 @@ export class WebpageAsyncScanResultsRequest extends $tea.Model {
   }
 }
 
+export class WebpageAsyncScanResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WebpageAsyncScanResultsResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebpageAsyncScanResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebpageAsyncScanResultsResponseBody,
     };
   }
 
@@ -2538,17 +4038,42 @@ export class WebpageSyncScanRequest extends $tea.Model {
   }
 }
 
+export class WebpageSyncScanResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WebpageSyncScanResponse extends $tea.Model {
-  headers: { [key: string]: string };
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WebpageSyncScanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WebpageSyncScanResponseBody,
     };
   }
 
@@ -2600,84 +4125,161 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 添加人脸
+   * 
+   * @param request - AddFacesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFacesResponse
+   */
+  async addFacesWithOptions(request: AddFacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddFacesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientInfo)) {
+      query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddFaces",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/face/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddFacesResponse>(await this.callApi(params, req, runtime), new AddFacesResponse({}));
+  }
+
+  /**
+   * 添加人脸
+   * 
+   * @param request - AddFacesRequest
+   * @returns AddFacesResponse
+   */
   async addFaces(request: AddFacesRequest): Promise<AddFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addFacesWithOptions(request, headers, runtime);
   }
 
-  async addFacesWithOptions(request: AddFacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddFacesResponse> {
+  /**
+   * 添加分组
+   * 
+   * @param request - AddGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGroupsResponse
+   */
+  async addGroupsWithOptions(request: AddGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddFacesResponse>(await this.doROARequest("AddFaces", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/face/add`, "none", req, runtime), new AddFacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddGroups",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/person/groups/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGroupsResponse>(await this.callApi(params, req, runtime), new AddGroupsResponse({}));
   }
 
+  /**
+   * 添加分组
+   * 
+   * @param request - AddGroupsRequest
+   * @returns AddGroupsResponse
+   */
   async addGroups(request: AddGroupsRequest): Promise<AddGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addGroupsWithOptions(request, headers, runtime);
   }
 
-  async addGroupsWithOptions(request: AddGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupsResponse> {
+  /**
+   * 添加个体
+   * 
+   * @param request - AddPersonRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPersonResponse
+   */
+  async addPersonWithOptions(request: AddPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddPersonResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddGroupsResponse>(await this.doROARequest("AddGroups", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/person/groups/add`, "none", req, runtime), new AddGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddPerson",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/person/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddPersonResponse>(await this.callApi(params, req, runtime), new AddPersonResponse({}));
   }
 
+  /**
+   * 添加个体
+   * 
+   * @param request - AddPersonRequest
+   * @returns AddPersonResponse
+   */
   async addPerson(request: AddPersonRequest): Promise<AddPersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addPersonWithOptions(request, headers, runtime);
   }
 
-  async addPersonWithOptions(request: AddPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddPersonResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.clientInfo)) {
-      query["ClientInfo"] = request.clientInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<AddPersonResponse>(await this.doROARequest("AddPerson", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/person/add`, "none", req, runtime), new AddPersonResponse({}));
-  }
-
-  async addSimilarityImage(request: AddSimilarityImageRequest): Promise<AddSimilarityImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.addSimilarityImageWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * 添加相似图
+   * 
+   * @param request - AddSimilarityImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSimilarityImageResponse
+   */
   async addSimilarityImageWithOptions(request: AddSimilarityImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddSimilarityImageResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2689,15 +4291,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddSimilarityImageResponse>(await this.doROARequest("AddSimilarityImage", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/image/add`, "none", req, runtime), new AddSimilarityImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddSimilarityImage",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/image/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSimilarityImageResponse>(await this.callApi(params, req, runtime), new AddSimilarityImageResponse({}));
   }
 
-  async addSimilarityLibrary(request: AddSimilarityLibraryRequest): Promise<AddSimilarityLibraryResponse> {
+  /**
+   * 添加相似图
+   * 
+   * @param request - AddSimilarityImageRequest
+   * @returns AddSimilarityImageResponse
+   */
+  async addSimilarityImage(request: AddSimilarityImageRequest): Promise<AddSimilarityImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addSimilarityLibraryWithOptions(request, headers, runtime);
+    return await this.addSimilarityImageWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 添加相似图库
+   * 
+   * @param request - AddSimilarityLibraryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSimilarityLibraryResponse
+   */
   async addSimilarityLibraryWithOptions(request: AddSimilarityLibraryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddSimilarityLibraryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2709,15 +4336,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddSimilarityLibraryResponse>(await this.doROARequest("AddSimilarityLibrary", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/library/add`, "none", req, runtime), new AddSimilarityLibraryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddSimilarityLibrary",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/library/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSimilarityLibraryResponse>(await this.callApi(params, req, runtime), new AddSimilarityLibraryResponse({}));
   }
 
-  async addVideoDna(request: AddVideoDnaRequest): Promise<AddVideoDnaResponse> {
+  /**
+   * 添加相似图库
+   * 
+   * @param request - AddSimilarityLibraryRequest
+   * @returns AddSimilarityLibraryResponse
+   */
+  async addSimilarityLibrary(request: AddSimilarityLibraryRequest): Promise<AddSimilarityLibraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addVideoDnaWithOptions(request, headers, runtime);
+    return await this.addSimilarityLibraryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 添加视频Dna
+   * 
+   * @param request - AddVideoDnaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddVideoDnaResponse
+   */
   async addVideoDnaWithOptions(request: AddVideoDnaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddVideoDnaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2729,15 +4381,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddVideoDnaResponse>(await this.doROARequest("AddVideoDna", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/dna/add`, "none", req, runtime), new AddVideoDnaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddVideoDna",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/dna/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddVideoDnaResponse>(await this.callApi(params, req, runtime), new AddVideoDnaResponse({}));
   }
 
-  async addVideoDnaGroup(request: AddVideoDnaGroupRequest): Promise<AddVideoDnaGroupResponse> {
+  /**
+   * 添加视频Dna
+   * 
+   * @param request - AddVideoDnaRequest
+   * @returns AddVideoDnaResponse
+   */
+  async addVideoDna(request: AddVideoDnaRequest): Promise<AddVideoDnaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addVideoDnaGroupWithOptions(request, headers, runtime);
+    return await this.addVideoDnaWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 添加视频Dna分组
+   * 
+   * @param request - AddVideoDnaGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddVideoDnaGroupResponse
+   */
   async addVideoDnaGroupWithOptions(request: AddVideoDnaGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddVideoDnaGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2749,87 +4426,187 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddVideoDnaGroupResponse>(await this.doROARequest("AddVideoDnaGroup", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/dna/group/add`, "none", req, runtime), new AddVideoDnaGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddVideoDnaGroup",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/dna/group/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddVideoDnaGroupResponse>(await this.callApi(params, req, runtime), new AddVideoDnaGroupResponse({}));
   }
 
+  /**
+   * 添加视频Dna分组
+   * 
+   * @param request - AddVideoDnaGroupRequest
+   * @returns AddVideoDnaGroupResponse
+   */
+  async addVideoDnaGroup(request: AddVideoDnaGroupRequest): Promise<AddVideoDnaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addVideoDnaGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除人脸
+   * 
+   * @param request - DeleteFacesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFacesResponse
+   */
+  async deleteFacesWithOptions(request: DeleteFacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFacesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientInfo)) {
+      query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFaces",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/face/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFacesResponse>(await this.callApi(params, req, runtime), new DeleteFacesResponse({}));
+  }
+
+  /**
+   * 删除人脸
+   * 
+   * @param request - DeleteFacesRequest
+   * @returns DeleteFacesResponse
+   */
   async deleteFaces(request: DeleteFacesRequest): Promise<DeleteFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFacesWithOptions(request, headers, runtime);
   }
 
-  async deleteFacesWithOptions(request: DeleteFacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFacesResponse> {
+  /**
+   * 删除分组
+   * 
+   * @param request - DeleteGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGroupsResponse
+   */
+  async deleteGroupsWithOptions(request: DeleteGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteFacesResponse>(await this.doROARequest("DeleteFaces", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/face/delete`, "none", req, runtime), new DeleteFacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGroups",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/person/groups/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupsResponse>(await this.callApi(params, req, runtime), new DeleteGroupsResponse({}));
   }
 
+  /**
+   * 删除分组
+   * 
+   * @param request - DeleteGroupsRequest
+   * @returns DeleteGroupsResponse
+   */
   async deleteGroups(request: DeleteGroupsRequest): Promise<DeleteGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGroupsWithOptions(request, headers, runtime);
   }
 
-  async deleteGroupsWithOptions(request: DeleteGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupsResponse> {
+  /**
+   * 删除个体
+   * 
+   * @param request - DeletePersonRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePersonResponse
+   */
+  async deletePersonWithOptions(request: DeletePersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePersonResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGroupsResponse>(await this.doROARequest("DeleteGroups", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/person/groups/delete`, "none", req, runtime), new DeleteGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePerson",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/person/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePersonResponse>(await this.callApi(params, req, runtime), new DeletePersonResponse({}));
   }
 
+  /**
+   * 删除个体
+   * 
+   * @param request - DeletePersonRequest
+   * @returns DeletePersonResponse
+   */
   async deletePerson(request: DeletePersonRequest): Promise<DeletePersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deletePersonWithOptions(request, headers, runtime);
   }
 
-  async deletePersonWithOptions(request: DeletePersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePersonResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.clientInfo)) {
-      query["ClientInfo"] = request.clientInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<DeletePersonResponse>(await this.doROARequest("DeletePerson", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/person/delete`, "none", req, runtime), new DeletePersonResponse({}));
-  }
-
-  async deleteSimilarityImage(request: DeleteSimilarityImageRequest): Promise<DeleteSimilarityImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteSimilarityImageWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * 删除相似图
+   * 
+   * @param request - DeleteSimilarityImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSimilarityImageResponse
+   */
   async deleteSimilarityImageWithOptions(request: DeleteSimilarityImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSimilarityImageResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2841,15 +4618,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSimilarityImageResponse>(await this.doROARequest("DeleteSimilarityImage", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/image/delete`, "none", req, runtime), new DeleteSimilarityImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSimilarityImage",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/image/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSimilarityImageResponse>(await this.callApi(params, req, runtime), new DeleteSimilarityImageResponse({}));
   }
 
-  async deleteSimilarityLibrary(request: DeleteSimilarityLibraryRequest): Promise<DeleteSimilarityLibraryResponse> {
+  /**
+   * 删除相似图
+   * 
+   * @param request - DeleteSimilarityImageRequest
+   * @returns DeleteSimilarityImageResponse
+   */
+  async deleteSimilarityImage(request: DeleteSimilarityImageRequest): Promise<DeleteSimilarityImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteSimilarityLibraryWithOptions(request, headers, runtime);
+    return await this.deleteSimilarityImageWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除相似图库
+   * 
+   * @param request - DeleteSimilarityLibraryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSimilarityLibraryResponse
+   */
   async deleteSimilarityLibraryWithOptions(request: DeleteSimilarityLibraryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSimilarityLibraryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2861,15 +4663,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSimilarityLibraryResponse>(await this.doROARequest("DeleteSimilarityLibrary", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/library/delete`, "none", req, runtime), new DeleteSimilarityLibraryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSimilarityLibrary",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/library/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSimilarityLibraryResponse>(await this.callApi(params, req, runtime), new DeleteSimilarityLibraryResponse({}));
   }
 
-  async deleteVideoDna(request: DeleteVideoDnaRequest): Promise<DeleteVideoDnaResponse> {
+  /**
+   * 删除相似图库
+   * 
+   * @param request - DeleteSimilarityLibraryRequest
+   * @returns DeleteSimilarityLibraryResponse
+   */
+  async deleteSimilarityLibrary(request: DeleteSimilarityLibraryRequest): Promise<DeleteSimilarityLibraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteVideoDnaWithOptions(request, headers, runtime);
+    return await this.deleteSimilarityLibraryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除视频Dna
+   * 
+   * @param request - DeleteVideoDnaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVideoDnaResponse
+   */
   async deleteVideoDnaWithOptions(request: DeleteVideoDnaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVideoDnaResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2881,15 +4708,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVideoDnaResponse>(await this.doROARequest("DeleteVideoDna", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/dna/delete`, "none", req, runtime), new DeleteVideoDnaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVideoDna",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/dna/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVideoDnaResponse>(await this.callApi(params, req, runtime), new DeleteVideoDnaResponse({}));
   }
 
-  async deleteVideoDnaGroup(request: DeleteVideoDnaGroupRequest): Promise<DeleteVideoDnaGroupResponse> {
+  /**
+   * 删除视频Dna
+   * 
+   * @param request - DeleteVideoDnaRequest
+   * @returns DeleteVideoDnaResponse
+   */
+  async deleteVideoDna(request: DeleteVideoDnaRequest): Promise<DeleteVideoDnaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteVideoDnaGroupWithOptions(request, headers, runtime);
+    return await this.deleteVideoDnaWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 删除视频Dna分组
+   * 
+   * @param request - DeleteVideoDnaGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVideoDnaGroupResponse
+   */
   async deleteVideoDnaGroupWithOptions(request: DeleteVideoDnaGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVideoDnaGroupResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2901,15 +4753,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVideoDnaGroupResponse>(await this.doROARequest("DeleteVideoDnaGroup", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/dna/group/delete`, "none", req, runtime), new DeleteVideoDnaGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVideoDnaGroup",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/dna/group/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVideoDnaGroupResponse>(await this.callApi(params, req, runtime), new DeleteVideoDnaGroupResponse({}));
   }
 
-  async detectFace(request: DetectFaceRequest): Promise<DetectFaceResponse> {
+  /**
+   * 删除视频Dna分组
+   * 
+   * @param request - DeleteVideoDnaGroupRequest
+   * @returns DeleteVideoDnaGroupResponse
+   */
+  async deleteVideoDnaGroup(request: DeleteVideoDnaGroupRequest): Promise<DeleteVideoDnaGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.detectFaceWithOptions(request, headers, runtime);
+    return await this.deleteVideoDnaGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 人脸属性检测
+   * 
+   * @param request - DetectFaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectFaceResponse
+   */
   async detectFaceWithOptions(request: DetectFaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DetectFaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2921,15 +4798,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetectFaceResponse>(await this.doROARequest("DetectFace", "2018-05-09", "HTTPS", "POST", "AK", `/green/face/detect`, "none", req, runtime), new DetectFaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectFace",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/face/detect`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectFaceResponse>(await this.callApi(params, req, runtime), new DetectFaceResponse({}));
   }
 
-  async fileAsyncScan(request: FileAsyncScanRequest): Promise<FileAsyncScanResponse> {
+  /**
+   * 人脸属性检测
+   * 
+   * @param request - DetectFaceRequest
+   * @returns DetectFaceResponse
+   */
+  async detectFace(request: DetectFaceRequest): Promise<DetectFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fileAsyncScanWithOptions(request, headers, runtime);
+    return await this.detectFaceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 文件异步检测
+   * 
+   * @param request - FileAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileAsyncScanResponse
+   */
   async fileAsyncScanWithOptions(request: FileAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2941,15 +4843,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<FileAsyncScanResponse>(await this.doROARequest("FileAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/file/asyncscan`, "none", req, runtime), new FileAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "FileAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/file/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FileAsyncScanResponse>(await this.callApi(params, req, runtime), new FileAsyncScanResponse({}));
   }
 
-  async fileAsyncScanResults(request: FileAsyncScanResultsRequest): Promise<FileAsyncScanResultsResponse> {
+  /**
+   * 文件异步检测
+   * 
+   * @param request - FileAsyncScanRequest
+   * @returns FileAsyncScanResponse
+   */
+  async fileAsyncScan(request: FileAsyncScanRequest): Promise<FileAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fileAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.fileAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 文件异步检测结果
+   * 
+   * @param request - FileAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileAsyncScanResultsResponse
+   */
   async fileAsyncScanResultsWithOptions(request: FileAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -2961,131 +4888,271 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<FileAsyncScanResultsResponse>(await this.doROARequest("FileAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/file/results`, "none", req, runtime), new FileAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "FileAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/file/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FileAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new FileAsyncScanResultsResponse({}));
   }
 
-  async getAddVideoDnaResults(request: GetAddVideoDnaResultsRequest): Promise<GetAddVideoDnaResultsResponse> {
+  /**
+   * 文件异步检测结果
+   * 
+   * @param request - FileAsyncScanResultsRequest
+   * @returns FileAsyncScanResultsResponse
+   */
+  async fileAsyncScanResults(request: FileAsyncScanResultsRequest): Promise<FileAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAddVideoDnaResultsWithOptions(request, headers, runtime);
+    return await this.fileAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
-  async getAddVideoDnaResultsWithOptions(request: GetAddVideoDnaResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAddVideoDnaResultsResponse> {
+  /**
+   * 文件检测新版本
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileAsyncScanV2Response
+   */
+  async fileAsyncScanV2WithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileAsyncScanV2Response> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "FileAsyncScanV2",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/file/asyncscanv2`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FileAsyncScanV2Response>(await this.callApi(params, req, runtime), new FileAsyncScanV2Response({}));
+  }
+
+  /**
+   * 文件检测新版本
+   * @returns FileAsyncScanV2Response
+   */
+  async fileAsyncScanV2(): Promise<FileAsyncScanV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.fileAsyncScanV2WithOptions(headers, runtime);
+  }
+
+  /**
+   * 获取人脸列表
+   * 
+   * @param request - GetFacesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFacesResponse
+   */
+  async getFacesWithOptions(request: GetFacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFacesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAddVideoDnaResultsResponse>(await this.doROARequest("GetAddVideoDnaResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/dna/add/results`, "none", req, runtime), new GetAddVideoDnaResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFaces",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/faces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFacesResponse>(await this.callApi(params, req, runtime), new GetFacesResponse({}));
   }
 
+  /**
+   * 获取人脸列表
+   * 
+   * @param request - GetFacesRequest
+   * @returns GetFacesResponse
+   */
   async getFaces(request: GetFacesRequest): Promise<GetFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFacesWithOptions(request, headers, runtime);
   }
 
-  async getFacesWithOptions(request: GetFacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFacesResponse> {
+  /**
+   * 获取组列表
+   * 
+   * @param request - GetGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGroupsResponse
+   */
+  async getGroupsWithOptions(request: GetGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetFacesResponse>(await this.doROARequest("GetFaces", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/faces`, "json", req, runtime), new GetFacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetGroups",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGroupsResponse>(await this.callApi(params, req, runtime), new GetGroupsResponse({}));
   }
 
+  /**
+   * 获取组列表
+   * 
+   * @param request - GetGroupsRequest
+   * @returns GetGroupsResponse
+   */
   async getGroups(request: GetGroupsRequest): Promise<GetGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGroupsWithOptions(request, headers, runtime);
   }
 
-  async getGroupsWithOptions(request: GetGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupsResponse> {
+  /**
+   * 获取单个个体
+   * 
+   * @param request - GetPersonRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPersonResponse
+   */
+  async getPersonWithOptions(request: GetPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPersonResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetGroupsResponse>(await this.doROARequest("GetGroups", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/groups`, "none", req, runtime), new GetGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPerson",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/person`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPersonResponse>(await this.callApi(params, req, runtime), new GetPersonResponse({}));
   }
 
+  /**
+   * 获取单个个体
+   * 
+   * @param request - GetPersonRequest
+   * @returns GetPersonResponse
+   */
   async getPerson(request: GetPersonRequest): Promise<GetPersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPersonWithOptions(request, headers, runtime);
   }
 
-  async getPersonWithOptions(request: GetPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPersonResponse> {
+  /**
+   * 获取个体列表
+   * 
+   * @param request - GetPersonsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPersonsResponse
+   */
+  async getPersonsWithOptions(request: GetPersonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPersonsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPersonResponse>(await this.doROARequest("GetPerson", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/person`, "none", req, runtime), new GetPersonResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPersons",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/group/persons`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPersonsResponse>(await this.callApi(params, req, runtime), new GetPersonsResponse({}));
   }
 
+  /**
+   * 获取个体列表
+   * 
+   * @param request - GetPersonsRequest
+   * @returns GetPersonsResponse
+   */
   async getPersons(request: GetPersonsRequest): Promise<GetPersonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPersonsWithOptions(request, headers, runtime);
   }
 
-  async getPersonsWithOptions(request: GetPersonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPersonsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.clientInfo)) {
-      query["ClientInfo"] = request.clientInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<GetPersonsResponse>(await this.doROARequest("GetPersons", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/group/persons`, "none", req, runtime), new GetPersonsResponse({}));
-  }
-
-  async getSimilarityImage(request: GetSimilarityImageRequest): Promise<GetSimilarityImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getSimilarityImageWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * 获取相似图
+   * 
+   * @param request - GetSimilarityImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSimilarityImageResponse
+   */
   async getSimilarityImageWithOptions(request: GetSimilarityImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSimilarityImageResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3097,15 +5164,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSimilarityImageResponse>(await this.doROARequest("GetSimilarityImage", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/image/get`, "none", req, runtime), new GetSimilarityImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSimilarityImage",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/image/get`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSimilarityImageResponse>(await this.callApi(params, req, runtime), new GetSimilarityImageResponse({}));
   }
 
-  async getSimilarityLibrary(request: GetSimilarityLibraryRequest): Promise<GetSimilarityLibraryResponse> {
+  /**
+   * 获取相似图
+   * 
+   * @param request - GetSimilarityImageRequest
+   * @returns GetSimilarityImageResponse
+   */
+  async getSimilarityImage(request: GetSimilarityImageRequest): Promise<GetSimilarityImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSimilarityLibraryWithOptions(request, headers, runtime);
+    return await this.getSimilarityImageWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取相似图库
+   * 
+   * @param request - GetSimilarityLibraryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSimilarityLibraryResponse
+   */
   async getSimilarityLibraryWithOptions(request: GetSimilarityLibraryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSimilarityLibraryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3117,15 +5209,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSimilarityLibraryResponse>(await this.doROARequest("GetSimilarityLibrary", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/library/get`, "none", req, runtime), new GetSimilarityLibraryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSimilarityLibrary",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/library/get`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSimilarityLibraryResponse>(await this.callApi(params, req, runtime), new GetSimilarityLibraryResponse({}));
   }
 
-  async imageAsyncManualScan(request: ImageAsyncManualScanRequest): Promise<ImageAsyncManualScanResponse> {
+  /**
+   * 获取相似图库
+   * 
+   * @param request - GetSimilarityLibraryRequest
+   * @returns GetSimilarityLibraryResponse
+   */
+  async getSimilarityLibrary(request: GetSimilarityLibraryRequest): Promise<GetSimilarityLibraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.imageAsyncManualScanWithOptions(request, headers, runtime);
+    return await this.getSimilarityLibraryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片人工异步审核
+   * 
+   * @param request - ImageAsyncManualScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageAsyncManualScanResponse
+   */
   async imageAsyncManualScanWithOptions(request: ImageAsyncManualScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImageAsyncManualScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3137,15 +5254,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImageAsyncManualScanResponse>(await this.doROARequest("ImageAsyncManualScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/image/manual/asyncScan`, "none", req, runtime), new ImageAsyncManualScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImageAsyncManualScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/image/manual/asyncScan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageAsyncManualScanResponse>(await this.callApi(params, req, runtime), new ImageAsyncManualScanResponse({}));
   }
 
-  async imageAsyncManualScanResults(request: ImageAsyncManualScanResultsRequest): Promise<ImageAsyncManualScanResultsResponse> {
+  /**
+   * 图片人工异步审核
+   * 
+   * @param request - ImageAsyncManualScanRequest
+   * @returns ImageAsyncManualScanResponse
+   */
+  async imageAsyncManualScan(request: ImageAsyncManualScanRequest): Promise<ImageAsyncManualScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.imageAsyncManualScanResultsWithOptions(request, headers, runtime);
+    return await this.imageAsyncManualScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片人工异步审核结果
+   * 
+   * @param request - ImageAsyncManualScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageAsyncManualScanResultsResponse
+   */
   async imageAsyncManualScanResultsWithOptions(request: ImageAsyncManualScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImageAsyncManualScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3157,15 +5299,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImageAsyncManualScanResultsResponse>(await this.doROARequest("ImageAsyncManualScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/image/manual/scan/results`, "none", req, runtime), new ImageAsyncManualScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImageAsyncManualScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/image/manual/scan/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageAsyncManualScanResultsResponse>(await this.callApi(params, req, runtime), new ImageAsyncManualScanResultsResponse({}));
   }
 
-  async imageAsyncScan(request: ImageAsyncScanRequest): Promise<ImageAsyncScanResponse> {
+  /**
+   * 图片人工异步审核结果
+   * 
+   * @param request - ImageAsyncManualScanResultsRequest
+   * @returns ImageAsyncManualScanResultsResponse
+   */
+  async imageAsyncManualScanResults(request: ImageAsyncManualScanResultsRequest): Promise<ImageAsyncManualScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.imageAsyncScanWithOptions(request, headers, runtime);
+    return await this.imageAsyncManualScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片异步检测
+   * 
+   * @param request - ImageAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageAsyncScanResponse
+   */
   async imageAsyncScanWithOptions(request: ImageAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImageAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3177,15 +5344,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImageAsyncScanResponse>(await this.doROARequest("ImageAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/image/asyncscan`, "none", req, runtime), new ImageAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImageAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/image/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageAsyncScanResponse>(await this.callApi(params, req, runtime), new ImageAsyncScanResponse({}));
   }
 
-  async imageAsyncScanResults(request: ImageAsyncScanResultsRequest): Promise<ImageAsyncScanResultsResponse> {
+  /**
+   * 图片异步检测
+   * 
+   * @param request - ImageAsyncScanRequest
+   * @returns ImageAsyncScanResponse
+   */
+  async imageAsyncScan(request: ImageAsyncScanRequest): Promise<ImageAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.imageAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.imageAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片异步检测结果
+   * 
+   * @param request - ImageAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageAsyncScanResultsResponse
+   */
   async imageAsyncScanResultsWithOptions(request: ImageAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImageAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3197,15 +5389,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImageAsyncScanResultsResponse>(await this.doROARequest("ImageAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/image/results`, "none", req, runtime), new ImageAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImageAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/image/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new ImageAsyncScanResultsResponse({}));
   }
 
-  async imageScanFeedback(request: ImageScanFeedbackRequest): Promise<ImageScanFeedbackResponse> {
+  /**
+   * 图片异步检测结果
+   * 
+   * @param request - ImageAsyncScanResultsRequest
+   * @returns ImageAsyncScanResultsResponse
+   */
+  async imageAsyncScanResults(request: ImageAsyncScanResultsRequest): Promise<ImageAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.imageScanFeedbackWithOptions(request, headers, runtime);
+    return await this.imageAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片检测反馈
+   * 
+   * @param request - ImageScanFeedbackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageScanFeedbackResponse
+   */
   async imageScanFeedbackWithOptions(request: ImageScanFeedbackRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImageScanFeedbackResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3217,15 +5434,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImageScanFeedbackResponse>(await this.doROARequest("ImageScanFeedback", "2018-05-09", "HTTPS", "POST", "AK", `/green/image/feedback`, "none", req, runtime), new ImageScanFeedbackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImageScanFeedback",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/image/feedback`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageScanFeedbackResponse>(await this.callApi(params, req, runtime), new ImageScanFeedbackResponse({}));
   }
 
-  async imageSyncScan(request: ImageSyncScanRequest): Promise<ImageSyncScanResponse> {
+  /**
+   * 图片检测反馈
+   * 
+   * @param request - ImageScanFeedbackRequest
+   * @returns ImageScanFeedbackResponse
+   */
+  async imageScanFeedback(request: ImageScanFeedbackRequest): Promise<ImageScanFeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.imageSyncScanWithOptions(request, headers, runtime);
+    return await this.imageScanFeedbackWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 图片同步检测
+   * 
+   * @param request - ImageSyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageSyncScanResponse
+   */
   async imageSyncScanWithOptions(request: ImageSyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImageSyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3237,15 +5479,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImageSyncScanResponse>(await this.doROARequest("ImageSyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/image/scan`, "none", req, runtime), new ImageSyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImageSyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/image/scan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageSyncScanResponse>(await this.callApi(params, req, runtime), new ImageSyncScanResponse({}));
   }
 
-  async listSimilarityImages(request: ListSimilarityImagesRequest): Promise<ListSimilarityImagesResponse> {
+  /**
+   * 图片同步检测
+   * 
+   * @param request - ImageSyncScanRequest
+   * @returns ImageSyncScanResponse
+   */
+  async imageSyncScan(request: ImageSyncScanRequest): Promise<ImageSyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSimilarityImagesWithOptions(request, headers, runtime);
+    return await this.imageSyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取相似图
+   * 
+   * @param request - ListSimilarityImagesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSimilarityImagesResponse
+   */
   async listSimilarityImagesWithOptions(request: ListSimilarityImagesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSimilarityImagesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3257,15 +5524,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSimilarityImagesResponse>(await this.doROARequest("ListSimilarityImages", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/image/list`, "none", req, runtime), new ListSimilarityImagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSimilarityImages",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/image/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSimilarityImagesResponse>(await this.callApi(params, req, runtime), new ListSimilarityImagesResponse({}));
   }
 
-  async listSimilarityLibraries(request: ListSimilarityLibrariesRequest): Promise<ListSimilarityLibrariesResponse> {
+  /**
+   * 获取相似图
+   * 
+   * @param request - ListSimilarityImagesRequest
+   * @returns ListSimilarityImagesResponse
+   */
+  async listSimilarityImages(request: ListSimilarityImagesRequest): Promise<ListSimilarityImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSimilarityLibrariesWithOptions(request, headers, runtime);
+    return await this.listSimilarityImagesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取相似图库
+   * 
+   * @param request - ListSimilarityLibrariesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSimilarityLibrariesResponse
+   */
   async listSimilarityLibrariesWithOptions(request: ListSimilarityLibrariesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSimilarityLibrariesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3277,15 +5569,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSimilarityLibrariesResponse>(await this.doROARequest("ListSimilarityLibraries", "2018-05-09", "HTTPS", "POST", "AK", `/green/similarity/library/list`, "none", req, runtime), new ListSimilarityLibrariesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSimilarityLibraries",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/similarity/library/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSimilarityLibrariesResponse>(await this.callApi(params, req, runtime), new ListSimilarityLibrariesResponse({}));
   }
 
-  async liveStreamAsyncScan(request: LiveStreamAsyncScanRequest): Promise<LiveStreamAsyncScanResponse> {
+  /**
+   * 获取相似图库
+   * 
+   * @param request - ListSimilarityLibrariesRequest
+   * @returns ListSimilarityLibrariesResponse
+   */
+  async listSimilarityLibraries(request: ListSimilarityLibrariesRequest): Promise<ListSimilarityLibrariesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.liveStreamAsyncScanWithOptions(request, headers, runtime);
+    return await this.listSimilarityLibrariesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 直播流异步检测
+   * 
+   * @param request - LiveStreamAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LiveStreamAsyncScanResponse
+   */
   async liveStreamAsyncScanWithOptions(request: LiveStreamAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LiveStreamAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3297,15 +5614,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<LiveStreamAsyncScanResponse>(await this.doROARequest("LiveStreamAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/livestream/asyncscan`, "none", req, runtime), new LiveStreamAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LiveStreamAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/livestream/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LiveStreamAsyncScanResponse>(await this.callApi(params, req, runtime), new LiveStreamAsyncScanResponse({}));
   }
 
-  async liveStreamAsyncScanResults(request: LiveStreamAsyncScanResultsRequest): Promise<LiveStreamAsyncScanResultsResponse> {
+  /**
+   * 直播流异步检测
+   * 
+   * @param request - LiveStreamAsyncScanRequest
+   * @returns LiveStreamAsyncScanResponse
+   */
+  async liveStreamAsyncScan(request: LiveStreamAsyncScanRequest): Promise<LiveStreamAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.liveStreamAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.liveStreamAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 直播流异步检测结果
+   * 
+   * @param request - LiveStreamAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LiveStreamAsyncScanResultsResponse
+   */
   async liveStreamAsyncScanResultsWithOptions(request: LiveStreamAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LiveStreamAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3317,15 +5659,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<LiveStreamAsyncScanResultsResponse>(await this.doROARequest("LiveStreamAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/livestream/results`, "none", req, runtime), new LiveStreamAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LiveStreamAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/livestream/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LiveStreamAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new LiveStreamAsyncScanResultsResponse({}));
   }
 
-  async liveStreamCancelScan(request: LiveStreamCancelScanRequest): Promise<LiveStreamCancelScanResponse> {
+  /**
+   * 直播流异步检测结果
+   * 
+   * @param request - LiveStreamAsyncScanResultsRequest
+   * @returns LiveStreamAsyncScanResultsResponse
+   */
+  async liveStreamAsyncScanResults(request: LiveStreamAsyncScanResultsRequest): Promise<LiveStreamAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.liveStreamCancelScanWithOptions(request, headers, runtime);
+    return await this.liveStreamAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 直播流取消检测
+   * 
+   * @param request - LiveStreamCancelScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LiveStreamCancelScanResponse
+   */
   async liveStreamCancelScanWithOptions(request: LiveStreamCancelScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LiveStreamCancelScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3337,63 +5704,89 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<LiveStreamCancelScanResponse>(await this.doROARequest("LiveStreamCancelScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/livestream/cancelscan`, "none", req, runtime), new LiveStreamCancelScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LiveStreamCancelScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/livestream/cancelscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LiveStreamCancelScanResponse>(await this.callApi(params, req, runtime), new LiveStreamCancelScanResponse({}));
   }
 
-  async searchPerson(request: SearchPersonRequest): Promise<SearchPersonResponse> {
+  /**
+   * 直播流取消检测
+   * 
+   * @param request - LiveStreamCancelScanRequest
+   * @returns LiveStreamCancelScanResponse
+   */
+  async liveStreamCancelScan(request: LiveStreamCancelScanRequest): Promise<LiveStreamCancelScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchPersonWithOptions(request, headers, runtime);
+    return await this.liveStreamCancelScanWithOptions(request, headers, runtime);
   }
 
-  async searchPersonWithOptions(request: SearchPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchPersonResponse> {
+  /**
+   * 设置个体
+   * 
+   * @param request - SetPersonRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPersonResponse
+   */
+  async setPersonWithOptions(request: SetPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SetPersonResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SearchPersonResponse>(await this.doROARequest("SearchPerson", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/search`, "none", req, runtime), new SearchPersonResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetPerson",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/sface/person/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetPersonResponse>(await this.callApi(params, req, runtime), new SetPersonResponse({}));
   }
 
+  /**
+   * 设置个体
+   * 
+   * @param request - SetPersonRequest
+   * @returns SetPersonResponse
+   */
   async setPerson(request: SetPersonRequest): Promise<SetPersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.setPersonWithOptions(request, headers, runtime);
   }
 
-  async setPersonWithOptions(request: SetPersonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SetPersonResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.clientInfo)) {
-      query["ClientInfo"] = request.clientInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<SetPersonResponse>(await this.doROARequest("SetPerson", "2018-05-09", "HTTPS", "POST", "AK", `/green/sface/person/update`, "none", req, runtime), new SetPersonResponse({}));
-  }
-
-  async textAsyncManualScan(request: TextAsyncManualScanRequest): Promise<TextAsyncManualScanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.textAsyncManualScanWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * 文本异步人工审核
+   * 
+   * @param request - TextAsyncManualScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TextAsyncManualScanResponse
+   */
   async textAsyncManualScanWithOptions(request: TextAsyncManualScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TextAsyncManualScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3405,15 +5798,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TextAsyncManualScanResponse>(await this.doROARequest("TextAsyncManualScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/text/manual/asyncScan`, "none", req, runtime), new TextAsyncManualScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TextAsyncManualScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/text/manual/asyncScan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TextAsyncManualScanResponse>(await this.callApi(params, req, runtime), new TextAsyncManualScanResponse({}));
   }
 
-  async textAsyncManualScanResults(request: TextAsyncManualScanResultsRequest): Promise<TextAsyncManualScanResultsResponse> {
+  /**
+   * 文本异步人工审核
+   * 
+   * @param request - TextAsyncManualScanRequest
+   * @returns TextAsyncManualScanResponse
+   */
+  async textAsyncManualScan(request: TextAsyncManualScanRequest): Promise<TextAsyncManualScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.textAsyncManualScanResultsWithOptions(request, headers, runtime);
+    return await this.textAsyncManualScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 文本异步人工审核结果
+   * 
+   * @param request - TextAsyncManualScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TextAsyncManualScanResultsResponse
+   */
   async textAsyncManualScanResultsWithOptions(request: TextAsyncManualScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TextAsyncManualScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3425,15 +5843,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TextAsyncManualScanResultsResponse>(await this.doROARequest("TextAsyncManualScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/text/manual/scan/results`, "none", req, runtime), new TextAsyncManualScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TextAsyncManualScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/text/manual/scan/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TextAsyncManualScanResultsResponse>(await this.callApi(params, req, runtime), new TextAsyncManualScanResultsResponse({}));
   }
 
-  async textFeedback(request: TextFeedbackRequest): Promise<TextFeedbackResponse> {
+  /**
+   * 文本异步人工审核结果
+   * 
+   * @param request - TextAsyncManualScanResultsRequest
+   * @returns TextAsyncManualScanResultsResponse
+   */
+  async textAsyncManualScanResults(request: TextAsyncManualScanResultsRequest): Promise<TextAsyncManualScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.textFeedbackWithOptions(request, headers, runtime);
+    return await this.textAsyncManualScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 文本结果反馈
+   * 
+   * @param request - TextFeedbackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TextFeedbackResponse
+   */
   async textFeedbackWithOptions(request: TextFeedbackRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TextFeedbackResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3445,15 +5888,38 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TextFeedbackResponse>(await this.doROARequest("TextFeedback", "2018-05-09", "HTTPS", "POST", "AK", `/green/text/feedback`, "none", req, runtime), new TextFeedbackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TextFeedback",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/text/feedback`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TextFeedbackResponse>(await this.callApi(params, req, runtime), new TextFeedbackResponse({}));
   }
 
-  async textScan(request: TextScanRequest): Promise<TextScanResponse> {
+  /**
+   * 文本结果反馈
+   * 
+   * @param request - TextFeedbackRequest
+   * @returns TextFeedbackResponse
+   */
+  async textFeedback(request: TextFeedbackRequest): Promise<TextFeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.textScanWithOptions(request, headers, runtime);
+    return await this.textFeedbackWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param request - TextScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TextScanResponse
+   */
   async textScanWithOptions(request: TextScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TextScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3465,39 +5931,87 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TextScanResponse>(await this.doROARequest("TextScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/text/scan`, "none", req, runtime), new TextScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TextScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/text/scan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TextScanResponse>(await this.callApi(params, req, runtime), new TextScanResponse({}));
   }
 
-  async uploadCredentials(request: UploadCredentialsRequest): Promise<UploadCredentialsResponse> {
+  /**
+   * @param request - TextScanRequest
+   * @returns TextScanResponse
+   */
+  async textScan(request: TextScanRequest): Promise<TextScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.uploadCredentialsWithOptions(request, headers, runtime);
+    return await this.textScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 获取上传证书
+   * 
+   * @param request - UploadCredentialsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadCredentialsResponse
+   */
   async uploadCredentialsWithOptions(request: UploadCredentialsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadCredentialsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UploadCredentialsResponse>(await this.doROARequest("UploadCredentials", "2018-05-09", "HTTPS", "POST", "AK", `/green/credentials/uploadcredentials`, "none", req, runtime), new UploadCredentialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UploadCredentials",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/credentials/uploadcredentials`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadCredentialsResponse>(await this.callApi(params, req, runtime), new UploadCredentialsResponse({}));
   }
 
-  async videoAsyncManualScan(request: VideoAsyncManualScanRequest): Promise<VideoAsyncManualScanResponse> {
+  /**
+   * 获取上传证书
+   * 
+   * @param request - UploadCredentialsRequest
+   * @returns UploadCredentialsResponse
+   */
+  async uploadCredentials(request: UploadCredentialsRequest): Promise<UploadCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoAsyncManualScanWithOptions(request, headers, runtime);
+    return await this.uploadCredentialsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频异步人工审核
+   * 
+   * @param request - VideoAsyncManualScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoAsyncManualScanResponse
+   */
   async videoAsyncManualScanWithOptions(request: VideoAsyncManualScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoAsyncManualScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3509,15 +6023,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoAsyncManualScanResponse>(await this.doROARequest("VideoAsyncManualScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/manual/asyncScan`, "none", req, runtime), new VideoAsyncManualScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoAsyncManualScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/manual/asyncScan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoAsyncManualScanResponse>(await this.callApi(params, req, runtime), new VideoAsyncManualScanResponse({}));
   }
 
-  async videoAsyncManualScanResults(request: VideoAsyncManualScanResultsRequest): Promise<VideoAsyncManualScanResultsResponse> {
+  /**
+   * 视频异步人工审核
+   * 
+   * @param request - VideoAsyncManualScanRequest
+   * @returns VideoAsyncManualScanResponse
+   */
+  async videoAsyncManualScan(request: VideoAsyncManualScanRequest): Promise<VideoAsyncManualScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoAsyncManualScanResultsWithOptions(request, headers, runtime);
+    return await this.videoAsyncManualScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频异步人工审核结果
+   * 
+   * @param request - VideoAsyncManualScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoAsyncManualScanResultsResponse
+   */
   async videoAsyncManualScanResultsWithOptions(request: VideoAsyncManualScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoAsyncManualScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3529,15 +6068,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoAsyncManualScanResultsResponse>(await this.doROARequest("VideoAsyncManualScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/manual/scan/results`, "none", req, runtime), new VideoAsyncManualScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoAsyncManualScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/manual/scan/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoAsyncManualScanResultsResponse>(await this.callApi(params, req, runtime), new VideoAsyncManualScanResultsResponse({}));
   }
 
-  async videoAsyncScan(request: VideoAsyncScanRequest): Promise<VideoAsyncScanResponse> {
+  /**
+   * 视频异步人工审核结果
+   * 
+   * @param request - VideoAsyncManualScanResultsRequest
+   * @returns VideoAsyncManualScanResultsResponse
+   */
+  async videoAsyncManualScanResults(request: VideoAsyncManualScanResultsRequest): Promise<VideoAsyncManualScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoAsyncScanWithOptions(request, headers, runtime);
+    return await this.videoAsyncManualScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频异步检测
+   * 
+   * @param request - VideoAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoAsyncScanResponse
+   */
   async videoAsyncScanWithOptions(request: VideoAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3549,15 +6113,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoAsyncScanResponse>(await this.doROARequest("VideoAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/asyncscan`, "none", req, runtime), new VideoAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoAsyncScanResponse>(await this.callApi(params, req, runtime), new VideoAsyncScanResponse({}));
   }
 
-  async videoAsyncScanResults(request: VideoAsyncScanResultsRequest): Promise<VideoAsyncScanResultsResponse> {
+  /**
+   * 视频异步检测
+   * 
+   * @param request - VideoAsyncScanRequest
+   * @returns VideoAsyncScanResponse
+   */
+  async videoAsyncScan(request: VideoAsyncScanRequest): Promise<VideoAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.videoAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频异步检测结果
+   * 
+   * @param request - VideoAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoAsyncScanResultsResponse
+   */
   async videoAsyncScanResultsWithOptions(request: VideoAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3569,15 +6158,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoAsyncScanResultsResponse>(await this.doROARequest("VideoAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/results`, "none", req, runtime), new VideoAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new VideoAsyncScanResultsResponse({}));
   }
 
-  async videoCancelScan(request: VideoCancelScanRequest): Promise<VideoCancelScanResponse> {
+  /**
+   * 视频异步检测结果
+   * 
+   * @param request - VideoAsyncScanResultsRequest
+   * @returns VideoAsyncScanResultsResponse
+   */
+  async videoAsyncScanResults(request: VideoAsyncScanResultsRequest): Promise<VideoAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoCancelScanWithOptions(request, headers, runtime);
+    return await this.videoAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频取消检测
+   * 
+   * @param request - VideoCancelScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoCancelScanResponse
+   */
   async videoCancelScanWithOptions(request: VideoCancelScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoCancelScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3589,15 +6203,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoCancelScanResponse>(await this.doROARequest("VideoCancelScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/cancelscan`, "none", req, runtime), new VideoCancelScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoCancelScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/cancelscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoCancelScanResponse>(await this.callApi(params, req, runtime), new VideoCancelScanResponse({}));
   }
 
-  async videoFeedback(request: VideoFeedbackRequest): Promise<VideoFeedbackResponse> {
+  /**
+   * 视频取消检测
+   * 
+   * @param request - VideoCancelScanRequest
+   * @returns VideoCancelScanResponse
+   */
+  async videoCancelScan(request: VideoCancelScanRequest): Promise<VideoCancelScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoFeedbackWithOptions(request, headers, runtime);
+    return await this.videoCancelScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频结果反馈
+   * 
+   * @param request - VideoFeedbackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoFeedbackResponse
+   */
   async videoFeedbackWithOptions(request: VideoFeedbackRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoFeedbackResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3609,15 +6248,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoFeedbackResponse>(await this.doROARequest("VideoFeedback", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/feedback`, "none", req, runtime), new VideoFeedbackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoFeedback",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/feedback`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoFeedbackResponse>(await this.callApi(params, req, runtime), new VideoFeedbackResponse({}));
   }
 
-  async videoSyncScan(request: VideoSyncScanRequest): Promise<VideoSyncScanResponse> {
+  /**
+   * 视频结果反馈
+   * 
+   * @param request - VideoFeedbackRequest
+   * @returns VideoFeedbackResponse
+   */
+  async videoFeedback(request: VideoFeedbackRequest): Promise<VideoFeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.videoSyncScanWithOptions(request, headers, runtime);
+    return await this.videoFeedbackWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频同步检测
+   * 
+   * @param request - VideoSyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoSyncScanResponse
+   */
   async videoSyncScanWithOptions(request: VideoSyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VideoSyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3629,15 +6293,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VideoSyncScanResponse>(await this.doROARequest("VideoSyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/video/syncscan`, "none", req, runtime), new VideoSyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VideoSyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/video/syncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VideoSyncScanResponse>(await this.callApi(params, req, runtime), new VideoSyncScanResponse({}));
   }
 
-  async vodAsyncScan(request: VodAsyncScanRequest): Promise<VodAsyncScanResponse> {
+  /**
+   * 视频同步检测
+   * 
+   * @param request - VideoSyncScanRequest
+   * @returns VideoSyncScanResponse
+   */
+  async videoSyncScan(request: VideoSyncScanRequest): Promise<VideoSyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.vodAsyncScanWithOptions(request, headers, runtime);
+    return await this.videoSyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频点播异步检测
+   * 
+   * @param request - VodAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VodAsyncScanResponse
+   */
   async vodAsyncScanWithOptions(request: VodAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VodAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3649,15 +6338,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VodAsyncScanResponse>(await this.doROARequest("VodAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/vod/asyncscan`, "none", req, runtime), new VodAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VodAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/vod/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VodAsyncScanResponse>(await this.callApi(params, req, runtime), new VodAsyncScanResponse({}));
   }
 
-  async vodAsyncScanResults(request: VodAsyncScanResultsRequest): Promise<VodAsyncScanResultsResponse> {
+  /**
+   * 视频点播异步检测
+   * 
+   * @param request - VodAsyncScanRequest
+   * @returns VodAsyncScanResponse
+   */
+  async vodAsyncScan(request: VodAsyncScanRequest): Promise<VodAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.vodAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.vodAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 视频点播异步检测结果
+   * 
+   * @param request - VodAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VodAsyncScanResultsResponse
+   */
   async vodAsyncScanResultsWithOptions(request: VodAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VodAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3669,15 +6383,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VodAsyncScanResultsResponse>(await this.doROARequest("VodAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/vod/results`, "none", req, runtime), new VodAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VodAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/vod/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VodAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new VodAsyncScanResultsResponse({}));
   }
 
-  async voiceAsyncManualScan(request: VoiceAsyncManualScanRequest): Promise<VoiceAsyncManualScanResponse> {
+  /**
+   * 视频点播异步检测结果
+   * 
+   * @param request - VodAsyncScanResultsRequest
+   * @returns VodAsyncScanResultsResponse
+   */
+  async vodAsyncScanResults(request: VodAsyncScanResultsRequest): Promise<VodAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.voiceAsyncManualScanWithOptions(request, headers, runtime);
+    return await this.vodAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 语音异步人工审核
+   * 
+   * @param request - VoiceAsyncManualScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceAsyncManualScanResponse
+   */
   async voiceAsyncManualScanWithOptions(request: VoiceAsyncManualScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceAsyncManualScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3689,15 +6428,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceAsyncManualScanResponse>(await this.doROARequest("VoiceAsyncManualScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/manual/asyncScan`, "none", req, runtime), new VoiceAsyncManualScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceAsyncManualScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/manual/asyncScan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceAsyncManualScanResponse>(await this.callApi(params, req, runtime), new VoiceAsyncManualScanResponse({}));
   }
 
-  async voiceAsyncManualScanResults(request: VoiceAsyncManualScanResultsRequest): Promise<VoiceAsyncManualScanResultsResponse> {
+  /**
+   * 语音异步人工审核
+   * 
+   * @param request - VoiceAsyncManualScanRequest
+   * @returns VoiceAsyncManualScanResponse
+   */
+  async voiceAsyncManualScan(request: VoiceAsyncManualScanRequest): Promise<VoiceAsyncManualScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.voiceAsyncManualScanResultsWithOptions(request, headers, runtime);
+    return await this.voiceAsyncManualScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 语音异步人工审核结果
+   * 
+   * @param request - VoiceAsyncManualScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceAsyncManualScanResultsResponse
+   */
   async voiceAsyncManualScanResultsWithOptions(request: VoiceAsyncManualScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceAsyncManualScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3709,15 +6473,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceAsyncManualScanResultsResponse>(await this.doROARequest("VoiceAsyncManualScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/manual/scan/results`, "none", req, runtime), new VoiceAsyncManualScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceAsyncManualScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/manual/scan/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceAsyncManualScanResultsResponse>(await this.callApi(params, req, runtime), new VoiceAsyncManualScanResultsResponse({}));
   }
 
-  async voiceAsyncScan(request: VoiceAsyncScanRequest): Promise<VoiceAsyncScanResponse> {
+  /**
+   * 语音异步人工审核结果
+   * 
+   * @param request - VoiceAsyncManualScanResultsRequest
+   * @returns VoiceAsyncManualScanResultsResponse
+   */
+  async voiceAsyncManualScanResults(request: VoiceAsyncManualScanResultsRequest): Promise<VoiceAsyncManualScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.voiceAsyncScanWithOptions(request, headers, runtime);
+    return await this.voiceAsyncManualScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 语音异步检测
+   * 
+   * @param request - VoiceAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceAsyncScanResponse
+   */
   async voiceAsyncScanWithOptions(request: VoiceAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3729,15 +6518,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceAsyncScanResponse>(await this.doROARequest("VoiceAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/asyncscan`, "none", req, runtime), new VoiceAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceAsyncScanResponse>(await this.callApi(params, req, runtime), new VoiceAsyncScanResponse({}));
   }
 
-  async voiceAsyncScanResults(request: VoiceAsyncScanResultsRequest): Promise<VoiceAsyncScanResultsResponse> {
+  /**
+   * 语音异步检测
+   * 
+   * @param request - VoiceAsyncScanRequest
+   * @returns VoiceAsyncScanResponse
+   */
+  async voiceAsyncScan(request: VoiceAsyncScanRequest): Promise<VoiceAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.voiceAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.voiceAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 语音异步检测结果
+   * 
+   * @param request - VoiceAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceAsyncScanResultsResponse
+   */
   async voiceAsyncScanResultsWithOptions(request: VoiceAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3749,15 +6563,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceAsyncScanResultsResponse>(await this.doROARequest("VoiceAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/results`, "none", req, runtime), new VoiceAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new VoiceAsyncScanResultsResponse({}));
   }
 
-  async voiceCancelScan(request: VoiceCancelScanRequest): Promise<VoiceCancelScanResponse> {
+  /**
+   * 语音异步检测结果
+   * 
+   * @param request - VoiceAsyncScanResultsRequest
+   * @returns VoiceAsyncScanResultsResponse
+   */
+  async voiceAsyncScanResults(request: VoiceAsyncScanResultsRequest): Promise<VoiceAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.voiceCancelScanWithOptions(request, headers, runtime);
+    return await this.voiceAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 语音取消检测
+   * 
+   * @param request - VoiceCancelScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceCancelScanResponse
+   */
   async voiceCancelScanWithOptions(request: VoiceCancelScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceCancelScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3769,159 +6608,334 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceCancelScanResponse>(await this.doROARequest("VoiceCancelScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/cancelscan`, "none", req, runtime), new VoiceCancelScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceCancelScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/cancelscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceCancelScanResponse>(await this.callApi(params, req, runtime), new VoiceCancelScanResponse({}));
   }
 
+  /**
+   * 语音取消检测
+   * 
+   * @param request - VoiceCancelScanRequest
+   * @returns VoiceCancelScanResponse
+   */
+  async voiceCancelScan(request: VoiceCancelScanRequest): Promise<VoiceCancelScanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.voiceCancelScanWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 声纹比对
+   * 
+   * @param request - VoiceIdentityCheckRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceIdentityCheckResponse
+   */
+  async voiceIdentityCheckWithOptions(request: VoiceIdentityCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityCheckResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientInfo)) {
+      query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VoiceIdentityCheck",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/auth/check`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceIdentityCheckResponse>(await this.callApi(params, req, runtime), new VoiceIdentityCheckResponse({}));
+  }
+
+  /**
+   * 声纹比对
+   * 
+   * @param request - VoiceIdentityCheckRequest
+   * @returns VoiceIdentityCheckResponse
+   */
   async voiceIdentityCheck(request: VoiceIdentityCheckRequest): Promise<VoiceIdentityCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.voiceIdentityCheckWithOptions(request, headers, runtime);
   }
 
-  async voiceIdentityCheckWithOptions(request: VoiceIdentityCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityCheckResponse> {
+  /**
+   * 声纹注册
+   * 
+   * @param request - VoiceIdentityRegisterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceIdentityRegisterResponse
+   */
+  async voiceIdentityRegisterWithOptions(request: VoiceIdentityRegisterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityRegisterResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceIdentityCheckResponse>(await this.doROARequest("VoiceIdentityCheck", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/auth/check`, "none", req, runtime), new VoiceIdentityCheckResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceIdentityRegister",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/auth/register`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceIdentityRegisterResponse>(await this.callApi(params, req, runtime), new VoiceIdentityRegisterResponse({}));
   }
 
+  /**
+   * 声纹注册
+   * 
+   * @param request - VoiceIdentityRegisterRequest
+   * @returns VoiceIdentityRegisterResponse
+   */
   async voiceIdentityRegister(request: VoiceIdentityRegisterRequest): Promise<VoiceIdentityRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.voiceIdentityRegisterWithOptions(request, headers, runtime);
   }
 
-  async voiceIdentityRegisterWithOptions(request: VoiceIdentityRegisterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityRegisterResponse> {
+  /**
+   * 声纹开始比对
+   * 
+   * @param request - VoiceIdentityStartCheckRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceIdentityStartCheckResponse
+   */
+  async voiceIdentityStartCheckWithOptions(request: VoiceIdentityStartCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityStartCheckResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceIdentityRegisterResponse>(await this.doROARequest("VoiceIdentityRegister", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/auth/register`, "none", req, runtime), new VoiceIdentityRegisterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceIdentityStartCheck",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/auth/start/check`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceIdentityStartCheckResponse>(await this.callApi(params, req, runtime), new VoiceIdentityStartCheckResponse({}));
   }
 
+  /**
+   * 声纹开始比对
+   * 
+   * @param request - VoiceIdentityStartCheckRequest
+   * @returns VoiceIdentityStartCheckResponse
+   */
   async voiceIdentityStartCheck(request: VoiceIdentityStartCheckRequest): Promise<VoiceIdentityStartCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.voiceIdentityStartCheckWithOptions(request, headers, runtime);
   }
 
-  async voiceIdentityStartCheckWithOptions(request: VoiceIdentityStartCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityStartCheckResponse> {
+  /**
+   * 声纹开始注册
+   * 
+   * @param request - VoiceIdentityStartRegisterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceIdentityStartRegisterResponse
+   */
+  async voiceIdentityStartRegisterWithOptions(request: VoiceIdentityStartRegisterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityStartRegisterResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceIdentityStartCheckResponse>(await this.doROARequest("VoiceIdentityStartCheck", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/auth/start/check`, "none", req, runtime), new VoiceIdentityStartCheckResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceIdentityStartRegister",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/auth/start/register`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceIdentityStartRegisterResponse>(await this.callApi(params, req, runtime), new VoiceIdentityStartRegisterResponse({}));
   }
 
+  /**
+   * 声纹开始注册
+   * 
+   * @param request - VoiceIdentityStartRegisterRequest
+   * @returns VoiceIdentityStartRegisterResponse
+   */
   async voiceIdentityStartRegister(request: VoiceIdentityStartRegisterRequest): Promise<VoiceIdentityStartRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.voiceIdentityStartRegisterWithOptions(request, headers, runtime);
   }
 
-  async voiceIdentityStartRegisterWithOptions(request: VoiceIdentityStartRegisterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityStartRegisterResponse> {
+  /**
+   * 声纹注销
+   * 
+   * @param request - VoiceIdentityUnregisterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceIdentityUnregisterResponse
+   */
+  async voiceIdentityUnregisterWithOptions(request: VoiceIdentityUnregisterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityUnregisterResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceIdentityStartRegisterResponse>(await this.doROARequest("VoiceIdentityStartRegister", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/auth/start/register`, "none", req, runtime), new VoiceIdentityStartRegisterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceIdentityUnregister",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/auth/unregister`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceIdentityUnregisterResponse>(await this.callApi(params, req, runtime), new VoiceIdentityUnregisterResponse({}));
   }
 
+  /**
+   * 声纹注销
+   * 
+   * @param request - VoiceIdentityUnregisterRequest
+   * @returns VoiceIdentityUnregisterResponse
+   */
   async voiceIdentityUnregister(request: VoiceIdentityUnregisterRequest): Promise<VoiceIdentityUnregisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.voiceIdentityUnregisterWithOptions(request, headers, runtime);
   }
 
-  async voiceIdentityUnregisterWithOptions(request: VoiceIdentityUnregisterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceIdentityUnregisterResponse> {
+  /**
+   * 语音同步检测
+   * 
+   * @param request - VoiceSyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VoiceSyncScanResponse
+   */
+  async voiceSyncScanWithOptions(request: VoiceSyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceSyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.clientInfo)) {
       query["ClientInfo"] = request.clientInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VoiceIdentityUnregisterResponse>(await this.doROARequest("VoiceIdentityUnregister", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/auth/unregister`, "none", req, runtime), new VoiceIdentityUnregisterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VoiceSyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/voice/syncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<VoiceSyncScanResponse>(await this.callApi(params, req, runtime), new VoiceSyncScanResponse({}));
   }
 
+  /**
+   * 语音同步检测
+   * 
+   * @param request - VoiceSyncScanRequest
+   * @returns VoiceSyncScanResponse
+   */
   async voiceSyncScan(request: VoiceSyncScanRequest): Promise<VoiceSyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.voiceSyncScanWithOptions(request, headers, runtime);
   }
 
-  async voiceSyncScanWithOptions(request: VoiceSyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VoiceSyncScanResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.clientInfo)) {
-      query["ClientInfo"] = request.clientInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<VoiceSyncScanResponse>(await this.doROARequest("VoiceSyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/voice/syncscan`, "none", req, runtime), new VoiceSyncScanResponse({}));
-  }
-
-  async webpageAsyncScan(request: WebpageAsyncScanRequest): Promise<WebpageAsyncScanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.webpageAsyncScanWithOptions(request, headers, runtime);
-  }
-
+  /**
+   * 站点异步检测
+   * 
+   * @param request - WebpageAsyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WebpageAsyncScanResponse
+   */
   async webpageAsyncScanWithOptions(request: WebpageAsyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WebpageAsyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3933,15 +6947,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<WebpageAsyncScanResponse>(await this.doROARequest("WebpageAsyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/webpage/asyncscan`, "none", req, runtime), new WebpageAsyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "WebpageAsyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/webpage/asyncscan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WebpageAsyncScanResponse>(await this.callApi(params, req, runtime), new WebpageAsyncScanResponse({}));
   }
 
-  async webpageAsyncScanResults(request: WebpageAsyncScanResultsRequest): Promise<WebpageAsyncScanResultsResponse> {
+  /**
+   * 站点异步检测
+   * 
+   * @param request - WebpageAsyncScanRequest
+   * @returns WebpageAsyncScanResponse
+   */
+  async webpageAsyncScan(request: WebpageAsyncScanRequest): Promise<WebpageAsyncScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.webpageAsyncScanResultsWithOptions(request, headers, runtime);
+    return await this.webpageAsyncScanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 站点异步检测结果
+   * 
+   * @param request - WebpageAsyncScanResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WebpageAsyncScanResultsResponse
+   */
   async webpageAsyncScanResultsWithOptions(request: WebpageAsyncScanResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WebpageAsyncScanResultsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3953,15 +6992,40 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<WebpageAsyncScanResultsResponse>(await this.doROARequest("WebpageAsyncScanResults", "2018-05-09", "HTTPS", "POST", "AK", `/green/webpage/results`, "none", req, runtime), new WebpageAsyncScanResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "WebpageAsyncScanResults",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/webpage/results`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WebpageAsyncScanResultsResponse>(await this.callApi(params, req, runtime), new WebpageAsyncScanResultsResponse({}));
   }
 
-  async webpageSyncScan(request: WebpageSyncScanRequest): Promise<WebpageSyncScanResponse> {
+  /**
+   * 站点异步检测结果
+   * 
+   * @param request - WebpageAsyncScanResultsRequest
+   * @returns WebpageAsyncScanResultsResponse
+   */
+  async webpageAsyncScanResults(request: WebpageAsyncScanResultsRequest): Promise<WebpageAsyncScanResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.webpageSyncScanWithOptions(request, headers, runtime);
+    return await this.webpageAsyncScanResultsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 站点同步检测
+   * 
+   * @param request - WebpageSyncScanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WebpageSyncScanResponse
+   */
   async webpageSyncScanWithOptions(request: WebpageSyncScanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WebpageSyncScanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3973,7 +7037,30 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<WebpageSyncScanResponse>(await this.doROARequest("WebpageSyncScan", "2018-05-09", "HTTPS", "POST", "AK", `/green/webpage/scan`, "none", req, runtime), new WebpageSyncScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "WebpageSyncScan",
+      version: "2018-05-09",
+      protocol: "HTTPS",
+      pathname: `/green/webpage/scan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WebpageSyncScanResponse>(await this.callApi(params, req, runtime), new WebpageSyncScanResponse({}));
+  }
+
+  /**
+   * 站点同步检测
+   * 
+   * @param request - WebpageSyncScanRequest
+   * @returns WebpageSyncScanResponse
+   */
+  async webpageSyncScan(request: WebpageSyncScanRequest): Promise<WebpageSyncScanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.webpageSyncScanWithOptions(request, headers, runtime);
   }
 
 }
