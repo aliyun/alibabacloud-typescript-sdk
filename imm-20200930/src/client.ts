@@ -146,6 +146,32 @@ export class AlgorithmDefinition extends $tea.Model {
   }
 }
 
+export class Answer extends $tea.Model {
+  /**
+   * @example
+   * 你好
+   */
+  content?: string;
+  references?: ReferenceFile[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      references: 'References',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      references: { 'type': 'array', 'itemType': ReferenceFile },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class App extends $tea.Model {
   appDescription?: string;
   appId?: string;
@@ -513,6 +539,82 @@ export class Codes extends $tea.Model {
   }
 }
 
+export class ContextualFile extends $tea.Model {
+  contentType?: string;
+  datasetName?: string;
+  elements?: Element[];
+  mediaType?: string;
+  OSSURI?: string;
+  objectId?: string;
+  ownerId?: string;
+  projectName?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      datasetName: 'DatasetName',
+      elements: 'Elements',
+      mediaType: 'MediaType',
+      OSSURI: 'OSSURI',
+      objectId: 'ObjectId',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      datasetName: 'string',
+      elements: { 'type': 'array', 'itemType': Element },
+      mediaType: 'string',
+      OSSURI: 'string',
+      objectId: 'string',
+      ownerId: 'string',
+      projectName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextualMessage extends $tea.Model {
+  /**
+   * @example
+   * 你好
+   */
+  content?: string;
+  files?: ContextualFile[];
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      files: 'Files',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      files: { 'type': 'array', 'itemType': ContextualFile },
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CredentialConfig extends $tea.Model {
   chain?: CredentialConfigChain[];
   policy?: string;
@@ -712,15 +814,27 @@ export class Dataset extends $tea.Model {
 
 export class Element extends $tea.Model {
   elementContents?: ElementContent[];
+  elementRelations?: ElementRelation[];
+  elementType?: string;
+  objectId?: string;
+  semanticSimilarity?: number;
   static names(): { [key: string]: string } {
     return {
       elementContents: 'ElementContents',
+      elementRelations: 'ElementRelations',
+      elementType: 'ElementType',
+      objectId: 'ObjectId',
+      semanticSimilarity: 'SemanticSimilarity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       elementContents: { 'type': 'array', 'itemType': ElementContent },
+      elementRelations: { 'type': 'array', 'itemType': ElementRelation },
+      elementType: 'string',
+      objectId: 'string',
+      semanticSimilarity: 'number',
     };
   }
 
@@ -749,6 +863,28 @@ export class ElementContent extends $tea.Model {
       timeRange: { 'type': 'array', 'itemType': 'number' },
       type: 'string',
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElementRelation extends $tea.Model {
+  objectId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      objectId: 'ObjectId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectId: 'string',
+      type: 'string',
     };
   }
 
@@ -1238,6 +1374,54 @@ export class File extends $tea.Model {
       videoHeight: 'number',
       videoStreams: { 'type': 'array', 'itemType': VideoStream },
       videoWidth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileSmartCluster extends $tea.Model {
+  similarity?: number;
+  smartClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      similarity: 'Similarity',
+      smartClusterId: 'SmartClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      similarity: 'number',
+      smartClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FunctionCall extends $tea.Model {
+  arguments?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arguments: 'Arguments',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arguments: 'string',
+      name: 'string',
     };
   }
 
@@ -2067,6 +2251,50 @@ export class Property extends $tea.Model {
   }
 }
 
+export class ReferenceFile extends $tea.Model {
+  /**
+   * @example
+   * test-dataset
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * 75d5de2c50754e3dadd5c35dbca5f9949369e37eb342a73821f690c94c36c7f7
+   */
+  objectId?: string;
+  /**
+   * @example
+   * test-project
+   */
+  projectName?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object.jpg
+   */
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegionType extends $tea.Model {
   localName?: string;
   regionId?: string;
@@ -2722,6 +2950,28 @@ export class TimeRange extends $tea.Model {
     return {
       end: 'string',
       start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ToolCall extends $tea.Model {
+  function?: FunctionCall;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      function: 'Function',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      function: FunctionCall,
+      type: 'string',
     };
   }
 
@@ -16868,6 +17118,7 @@ export class SemanticQueryRequest extends $tea.Model {
    * This parameter is required.
    */
   query?: string;
+  smartClusterIds?: string[];
   withFields?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -16877,6 +17128,7 @@ export class SemanticQueryRequest extends $tea.Model {
       nextToken: 'NextToken',
       projectName: 'ProjectName',
       query: 'Query',
+      smartClusterIds: 'SmartClusterIds',
       withFields: 'WithFields',
     };
   }
@@ -16889,6 +17141,7 @@ export class SemanticQueryRequest extends $tea.Model {
       nextToken: 'string',
       projectName: 'string',
       query: 'string',
+      smartClusterIds: { 'type': 'array', 'itemType': 'string' },
       withFields: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -16931,6 +17184,7 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
    * This parameter is required.
    */
   query?: string;
+  smartClusterIdsShrink?: string;
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16940,6 +17194,7 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
       nextToken: 'NextToken',
       projectName: 'ProjectName',
       query: 'Query',
+      smartClusterIdsShrink: 'SmartClusterIds',
       withFieldsShrink: 'WithFields',
     };
   }
@@ -16952,6 +17207,7 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
       nextToken: 'string',
       projectName: 'string',
       query: 'string',
+      smartClusterIdsShrink: 'string',
       withFieldsShrink: 'string',
     };
   }
@@ -21497,7 +21753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建绑定
+   * 创建一个绑定任务，将 IMM 的数据集和 OSS Bucket 进行绑定，自动对其文件进行索引。
    * 
    * @param request - CreateBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21536,7 +21792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建绑定
+   * 创建一个绑定任务，将 IMM 的数据集和 OSS Bucket 进行绑定，自动对其文件进行索引。
    * 
    * @param request - CreateBindingRequest
    * @returns CreateBindingResponse
@@ -24929,7 +25185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取绑定
+   * 获取一个绑定任务的运行详情。
    * 
    * @param request - GetBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24968,7 +25224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取绑定
+   * 获取一个绑定任务的运行详情。
    * 
    * @param request - GetBindingRequest
    * @returns GetBindingResponse
@@ -26831,6 +27087,10 @@ export default class Client extends OpenApi {
       request.mediaTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mediaTypes, "MediaTypes", "json");
     }
 
+    if (!Util.isUnset(tmpReq.smartClusterIds)) {
+      request.smartClusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.smartClusterIds, "SmartClusterIds", "json");
+    }
+
     if (!Util.isUnset(tmpReq.withFields)) {
       request.withFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.withFields, "WithFields", "json");
     }
@@ -26858,6 +27118,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.query)) {
       query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.smartClusterIdsShrink)) {
+      query["SmartClusterIds"] = request.smartClusterIdsShrink;
     }
 
     if (!Util.isUnset(request.withFieldsShrink)) {
