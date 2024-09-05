@@ -4547,6 +4547,7 @@ export class CreateEventShrinkHeaders extends $tea.Model {
 
 export class CreateEventRequest extends $tea.Model {
   attendees?: CreateEventRequestAttendees[];
+  cardInstances?: CreateEventRequestCardInstances[];
   description?: string;
   end?: CreateEventRequestEnd;
   extra?: { [key: string]: string };
@@ -4586,6 +4587,7 @@ export class CreateEventRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       attendees: 'Attendees',
+      cardInstances: 'CardInstances',
       description: 'Description',
       end: 'End',
       extra: 'Extra',
@@ -4605,6 +4607,7 @@ export class CreateEventRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       attendees: { 'type': 'array', 'itemType': CreateEventRequestAttendees },
+      cardInstances: { 'type': 'array', 'itemType': CreateEventRequestCardInstances },
       description: 'string',
       end: CreateEventRequestEnd,
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -4628,6 +4631,7 @@ export class CreateEventRequest extends $tea.Model {
 
 export class CreateEventShrinkRequest extends $tea.Model {
   attendeesShrink?: string;
+  cardInstancesShrink?: string;
   description?: string;
   endShrink?: string;
   extraShrink?: string;
@@ -4667,6 +4671,7 @@ export class CreateEventShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       attendeesShrink: 'Attendees',
+      cardInstancesShrink: 'CardInstances',
       description: 'Description',
       endShrink: 'End',
       extraShrink: 'Extra',
@@ -4686,6 +4691,7 @@ export class CreateEventShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       attendeesShrink: 'string',
+      cardInstancesShrink: 'string',
       description: 'string',
       endShrink: 'string',
       extraShrink: 'string',
@@ -19322,6 +19328,192 @@ export class GetSheetResponse extends $tea.Model {
   }
 }
 
+export class GetSheetContentJobIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetSheetContentJobIdHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetSheetContentJobIdHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSheetContentJobIdShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSheetContentJobIdRequest extends $tea.Model {
+  /**
+   * @example
+   * MNDoBb60VLYDGNPytQe7Gzp4JlemrZQ3
+   */
+  dentryUuid?: string;
+  /**
+   * @example
+   * dingTalksheetToxlsx
+   */
+  exportType?: string;
+  tenantContext?: GetSheetContentJobIdRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      dentryUuid: 'DentryUuid',
+      exportType: 'ExportType',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryUuid: 'string',
+      exportType: 'string',
+      tenantContext: GetSheetContentJobIdRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSheetContentJobIdShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * MNDoBb60VLYDGNPytQe7Gzp4JlemrZQ3
+   */
+  dentryUuid?: string;
+  /**
+   * @example
+   * dingTalksheetToxlsx
+   */
+  exportType?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentryUuid: 'DentryUuid',
+      exportType: 'ExportType',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryUuid: 'string',
+      exportType: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSheetContentJobIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 14640056080
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * init
+   */
+  status?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'jobId',
+      requestId: 'requestId',
+      status: 'status',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+      status: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSheetContentJobIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSheetContentJobIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSheetContentJobIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSpaceDirectoriesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetSpaceDirectoriesHeadersAccountContext;
@@ -20431,6 +20623,177 @@ export class GetUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetUserIdHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetUserIdHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdRequest extends $tea.Model {
+  tenantContext?: GetUserIdRequestTenantContext;
+  /**
+   * @remarks
+   * unionId
+   * 
+   * @example
+   * ****iE
+   */
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: GetUserIdRequestTenantContext,
+      unionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  /**
+   * @remarks
+   * unionId
+   * 
+   * @example
+   * ****iE
+   */
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      unionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      userId: 'userId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserIdResponseBody,
     };
   }
 
@@ -24788,6 +25151,7 @@ export class PatchEventRequest extends $tea.Model {
    * primary
    */
   calendarId?: string;
+  cardInstances?: PatchEventRequestCardInstances[];
   description?: string;
   end?: PatchEventRequestEnd;
   /**
@@ -24813,6 +25177,7 @@ export class PatchEventRequest extends $tea.Model {
     return {
       attendees: 'Attendees',
       calendarId: 'CalendarId',
+      cardInstances: 'CardInstances',
       description: 'Description',
       end: 'End',
       eventId: 'EventId',
@@ -24830,6 +25195,7 @@ export class PatchEventRequest extends $tea.Model {
     return {
       attendees: { 'type': 'array', 'itemType': PatchEventRequestAttendees },
       calendarId: 'string',
+      cardInstances: { 'type': 'array', 'itemType': PatchEventRequestCardInstances },
       description: 'string',
       end: PatchEventRequestEnd,
       eventId: 'string',
@@ -24858,6 +25224,7 @@ export class PatchEventShrinkRequest extends $tea.Model {
    * primary
    */
   calendarId?: string;
+  cardInstancesShrink?: string;
   description?: string;
   endShrink?: string;
   /**
@@ -24883,6 +25250,7 @@ export class PatchEventShrinkRequest extends $tea.Model {
     return {
       attendeesShrink: 'Attendees',
       calendarId: 'CalendarId',
+      cardInstancesShrink: 'CardInstances',
       description: 'Description',
       endShrink: 'End',
       eventId: 'EventId',
@@ -24900,6 +25268,7 @@ export class PatchEventShrinkRequest extends $tea.Model {
     return {
       attendeesShrink: 'string',
       calendarId: 'string',
+      cardInstancesShrink: 'string',
       description: 'string',
       endShrink: 'string',
       eventId: 'string',
@@ -40852,6 +41221,28 @@ export class CreateEventRequestAttendees extends $tea.Model {
   }
 }
 
+export class CreateEventRequestCardInstances extends $tea.Model {
+  outTrackId?: string;
+  scenario?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outTrackId: 'OutTrackId',
+      scenario: 'Scenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outTrackId: 'string',
+      scenario: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventRequestEnd extends $tea.Model {
   /**
    * @example
@@ -49300,6 +49691,55 @@ export class GetSheetRequestTenantContext extends $tea.Model {
   }
 }
 
+export class GetSheetContentJobIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSheetContentJobIdRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSpaceDirectoriesHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -50462,6 +50902,55 @@ export class GetUserResponseBodyUnionEmpExt extends $tea.Model {
       corpId: 'string',
       unionEmpMapList: { 'type': 'array', 'itemType': GetUserResponseBodyUnionEmpExtUnionEmpMapList },
       userid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -54079,6 +54568,28 @@ export class PatchEventRequestAttendees extends $tea.Model {
     return {
       id: 'string',
       isOptional: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestCardInstances extends $tea.Model {
+  outTrackId?: string;
+  scenario?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outTrackId: 'OutTrackId',
+      scenario: 'Scenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outTrackId: 'string',
+      scenario: 'string',
     };
   }
 
@@ -63198,6 +63709,10 @@ export default class Client extends OpenApi {
       request.attendeesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attendees, "Attendees", "json");
     }
 
+    if (!Util.isUnset(tmpReq.cardInstances)) {
+      request.cardInstancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cardInstances, "CardInstances", "json");
+    }
+
     if (!Util.isUnset(tmpReq.end)) {
       request.endShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.end, "End", "json");
     }
@@ -63237,6 +63752,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.attendeesShrink)) {
       body["Attendees"] = request.attendeesShrink;
+    }
+
+    if (!Util.isUnset(request.cardInstancesShrink)) {
+      body["CardInstances"] = request.cardInstancesShrink;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -69443,6 +69962,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取表格文档内容jobId
+   * 
+   * @param tmpReq - GetSheetContentJobIdRequest
+   * @param tmpHeader - GetSheetContentJobIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSheetContentJobIdResponse
+   */
+  async getSheetContentJobIdWithOptions(tmpReq: GetSheetContentJobIdRequest, tmpHeader: GetSheetContentJobIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetSheetContentJobIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetSheetContentJobIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetSheetContentJobIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dentryUuid)) {
+      body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!Util.isUnset(request.exportType)) {
+      body["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSheetContentJobId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v2/documents/getSheetContentJobId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSheetContentJobIdResponse>(await this.callApi(params, req, runtime), new GetSheetContentJobIdResponse({}));
+  }
+
+  /**
+   * 获取表格文档内容jobId
+   * 
+   * @param request - GetSheetContentJobIdRequest
+   * @returns GetSheetContentJobIdResponse
+   */
+  async getSheetContentJobId(request: GetSheetContentJobIdRequest): Promise<GetSheetContentJobIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetSheetContentJobIdHeaders({ });
+    return await this.getSheetContentJobIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询知识库下的目录结构
    * 
    * @param tmpReq - GetSpaceDirectoriesRequest
@@ -69818,6 +70411,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetUserHeaders({ });
     return await this.getUserWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据unionId获取用户userId
+   * 
+   * @param tmpReq - GetUserIdRequest
+   * @param tmpHeader - GetUserIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserIdResponse
+   */
+  async getUserIdWithOptions(tmpReq: GetUserIdRequest, tmpHeader: GetUserIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetUserIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetUserIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.unionId)) {
+      body["UnionId"] = request.unionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getUserId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserIdResponse>(await this.callApi(params, req, runtime), new GetUserIdResponse({}));
+  }
+
+  /**
+   * 根据unionId获取用户userId
+   * 
+   * @param request - GetUserIdRequest
+   * @returns GetUserIdResponse
+   */
+  async getUserId(request: GetUserIdRequest): Promise<GetUserIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserIdHeaders({ });
+    return await this.getUserIdWithOptions(request, headers, runtime);
   }
 
   /**
@@ -71566,6 +72229,10 @@ export default class Client extends OpenApi {
       request.attendeesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attendees, "Attendees", "json");
     }
 
+    if (!Util.isUnset(tmpReq.cardInstances)) {
+      request.cardInstancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cardInstances, "CardInstances", "json");
+    }
+
     if (!Util.isUnset(tmpReq.end)) {
       request.endShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.end, "End", "json");
     }
@@ -71597,6 +72264,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.calendarId)) {
       body["CalendarId"] = request.calendarId;
+    }
+
+    if (!Util.isUnset(request.cardInstancesShrink)) {
+      body["CardInstances"] = request.cardInstancesShrink;
     }
 
     if (!Util.isUnset(request.description)) {
