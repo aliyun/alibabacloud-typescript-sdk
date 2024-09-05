@@ -1295,6 +1295,7 @@ export class CreateAppGroupRequest extends $tea.Model {
   name?: string;
   quota?: CreateAppGroupRequestQuota;
   resourceGroupId?: string;
+  tags?: CreateAppGroupRequestTags[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1302,6 +1303,7 @@ export class CreateAppGroupRequest extends $tea.Model {
       name: 'name',
       quota: 'quota',
       resourceGroupId: 'resourceGroupId',
+      tags: 'tags',
       type: 'type',
     };
   }
@@ -1312,6 +1314,7 @@ export class CreateAppGroupRequest extends $tea.Model {
       name: 'string',
       quota: CreateAppGroupRequestQuota,
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateAppGroupRequestTags },
       type: 'string',
     };
   }
@@ -13972,6 +13975,28 @@ export class CreateAppGroupRequestQuota extends $tea.Model {
   }
 }
 
+export class CreateAppGroupRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppGroupResponseBodyResultQuota extends $tea.Model {
   /**
    * @remarks
@@ -24176,6 +24201,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.type)) {

@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/opensearch20171225",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
