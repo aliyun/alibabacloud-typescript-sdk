@@ -214,6 +214,206 @@ export class RunMarketingInformationWritingResponse extends $tea.Model {
   }
 }
 
+export class RunScriptContinueRequest extends $tea.Model {
+  /**
+   * @example
+   * 一队全副武装的执法人员和消防员闯入了一间明显已被遗弃多日、门窗紧闭并用胶带封死的公寓，面对着屋内令人作呕的恶臭和门厅里的混乱场面，他们似乎在寻找某种隐藏的真相或危险源，而一封日期为16号的信件成为了揭开谜团的关键线索，随着便衣探员深入探索，一系列封闭的房间暗示着这里曾发生过不为人知的秘密事件。
+   */
+  scriptSummary?: string;
+  /**
+   * @example
+   * 悬疑，都市，惊悚
+   */
+  scriptTypeKeyword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 门厅一片狼藉。朝向天井的窗户开着。公寓门突然被撞开了。\n一名便衣探员、两名穿制服的警察和几位消防员———也身着工作服———进来，四下张望。他们都戴着手套以及盖住口鼻的面罩。在他们身后，门房和他妻子也挤进门厅。他们都捂着鼻子。门房的另一只手里拿着一叠信件和促销广告单。他们身后，跟着一位女邻居。\n便衣探员（对门房和邻居）：请在外面等候。\n他向一名警察示意，警察正忙着把好奇的旁观者请出门外。\n警察（对门房，指着那一叠信件）：最近的一封是哪天的？\n门房（查对信件）：最近的一封似乎是16号的......等一下......\n便衣探员想打开左侧的门，却是徒劳。门用胶带封上了。\n便衣探员（对消防员）：你来试一下好吗？\n消防员摆弄门的时候，便衣探员进了卧室隔壁的餐厅。他迅速打开窗，转身，想经过对开门进左侧的房间。这两扇门也锁着，门缝被贴上了胶带。他右转进入起居室，也打开了窗户
+   */
+  userProvidedContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scriptSummary: 'scriptSummary',
+      scriptTypeKeyword: 'scriptTypeKeyword',
+      userProvidedContent: 'userProvidedContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scriptSummary: 'string',
+      scriptTypeKeyword: 'string',
+      userProvidedContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunScriptContinueResponseBodyHeader;
+  payload?: RunScriptContinueResponseBodyPayload;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      header: 'header',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunScriptContinueResponseBodyHeader,
+      payload: RunScriptContinueResponseBodyPayload,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunScriptContinueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunScriptContinueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningRequest extends $tea.Model {
+  /**
+   * @example
+   * 故事尽可能狗血
+   */
+  additionalNote?: string;
+  dialogueInScene?: boolean;
+  plotConflict?: boolean;
+  /**
+   * @example
+   * 都市战神
+   */
+  scriptName?: string;
+  /**
+   * @example
+   * 3
+   */
+  scriptShotCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 在一个宁静的小镇上，每个家庭都在同一天收到一个神秘的、没有标记的包裹。
+   */
+  scriptSummary?: string;
+  /**
+   * @example
+   * 现代，都市，爱情，玄幻
+   */
+  scriptTypeKeyword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalNote: 'additionalNote',
+      dialogueInScene: 'dialogueInScene',
+      plotConflict: 'plotConflict',
+      scriptName: 'scriptName',
+      scriptShotCount: 'scriptShotCount',
+      scriptSummary: 'scriptSummary',
+      scriptTypeKeyword: 'scriptTypeKeyword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalNote: 'string',
+      dialogueInScene: 'boolean',
+      plotConflict: 'boolean',
+      scriptName: 'string',
+      scriptShotCount: 'number',
+      scriptSummary: 'string',
+      scriptTypeKeyword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunScriptPlanningResponseBodyHeader;
+  payload?: RunScriptPlanningResponseBodyPayload;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      header: 'header',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunScriptPlanningResponseBodyHeader,
+      payload: RunScriptPlanningResponseBodyPayload,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunScriptPlanningResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunScriptPlanningResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunStyleWritingRequest extends $tea.Model {
   /**
    * @remarks
@@ -796,6 +996,314 @@ export class RunMarketingInformationWritingResponseBodyPayload extends $tea.Mode
     return {
       output: RunMarketingInformationWritingResponseBodyPayloadOutput,
       usage: RunMarketingInformationWritingResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptContinueResponseBodyPayload extends $tea.Model {
+  output?: RunScriptContinueResponseBodyPayloadOutput;
+  usage?: RunScriptContinueResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunScriptContinueResponseBodyPayloadOutput,
+      usage: RunScriptContinueResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 0EB27AE3-CA53-5FAE-83C6-EE66CA4DF5DF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      eventInfo: 'eventInfo',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunScriptPlanningResponseBodyPayload extends $tea.Model {
+  output?: RunScriptPlanningResponseBodyPayloadOutput;
+  usage?: RunScriptPlanningResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunScriptPlanningResponseBodyPayloadOutput,
+      usage: RunScriptPlanningResponseBodyPayloadUsage,
     };
   }
 
@@ -1653,6 +2161,128 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runMarketingInformationWritingWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 剧本续写
+   * 
+   * @param request - RunScriptContinueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptContinueResponse
+   */
+  async runScriptContinueWithOptions(workspaceId: string, request: RunScriptContinueRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunScriptContinueResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.scriptSummary)) {
+      body["scriptSummary"] = request.scriptSummary;
+    }
+
+    if (!Util.isUnset(request.scriptTypeKeyword)) {
+      body["scriptTypeKeyword"] = request.scriptTypeKeyword;
+    }
+
+    if (!Util.isUnset(request.userProvidedContent)) {
+      body["userProvidedContent"] = request.userProvidedContent;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunScriptContinue",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runScriptContinue`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunScriptContinueResponse>(await this.callApi(params, req, runtime), new RunScriptContinueResponse({}));
+  }
+
+  /**
+   * 剧本续写
+   * 
+   * @param request - RunScriptContinueRequest
+   * @returns RunScriptContinueResponse
+   */
+  async runScriptContinue(workspaceId: string, request: RunScriptContinueRequest): Promise<RunScriptContinueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runScriptContinueWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 剧本策划
+   * 
+   * @param request - RunScriptPlanningRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptPlanningResponse
+   */
+  async runScriptPlanningWithOptions(workspaceId: string, request: RunScriptPlanningRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunScriptPlanningResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.additionalNote)) {
+      body["additionalNote"] = request.additionalNote;
+    }
+
+    if (!Util.isUnset(request.dialogueInScene)) {
+      body["dialogueInScene"] = request.dialogueInScene;
+    }
+
+    if (!Util.isUnset(request.plotConflict)) {
+      body["plotConflict"] = request.plotConflict;
+    }
+
+    if (!Util.isUnset(request.scriptName)) {
+      body["scriptName"] = request.scriptName;
+    }
+
+    if (!Util.isUnset(request.scriptShotCount)) {
+      body["scriptShotCount"] = request.scriptShotCount;
+    }
+
+    if (!Util.isUnset(request.scriptSummary)) {
+      body["scriptSummary"] = request.scriptSummary;
+    }
+
+    if (!Util.isUnset(request.scriptTypeKeyword)) {
+      body["scriptTypeKeyword"] = request.scriptTypeKeyword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunScriptPlanning",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runScriptPlanning`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunScriptPlanningResponse>(await this.callApi(params, req, runtime), new RunScriptPlanningResponse({}));
+  }
+
+  /**
+   * 剧本策划
+   * 
+   * @param request - RunScriptPlanningRequest
+   * @returns RunScriptPlanningResponse
+   */
+  async runScriptPlanning(workspaceId: string, request: RunScriptPlanningRequest): Promise<RunScriptPlanningResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runScriptPlanningWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
