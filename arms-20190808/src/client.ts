@@ -49876,6 +49876,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * true
    */
   enableAuthToken?: string;
+  extraInfo?: { [key: string]: string };
   /**
    * @remarks
    * The ID of the Grafana workspace.
@@ -50063,6 +50064,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       enableAuthFreeRead: 'EnableAuthFreeRead',
       enableAuthFreeWrite: 'EnableAuthFreeWrite',
       enableAuthToken: 'EnableAuthToken',
+      extraInfo: 'ExtraInfo',
       grafanaInstanceId: 'GrafanaInstanceId',
       httpApiInterUrl: 'HttpApiInterUrl',
       httpApiIntraUrl: 'HttpApiIntraUrl',
@@ -50102,6 +50104,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       enableAuthFreeRead: 'boolean',
       enableAuthFreeWrite: 'boolean',
       enableAuthToken: 'string',
+      extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       grafanaInstanceId: 'string',
       httpApiInterUrl: 'string',
       httpApiIntraUrl: 'string',
