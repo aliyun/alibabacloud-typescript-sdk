@@ -13862,6 +13862,8 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
    * 100
    */
   pageSize?: number;
+  releaseInitiatorList?: string;
+  releaseReasonList?: string;
   satisfactionDescriptionList?: string;
   /**
    * @example
@@ -13911,6 +13913,8 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
       orderByField: 'OrderByField',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      releaseInitiatorList: 'ReleaseInitiatorList',
+      releaseReasonList: 'ReleaseReasonList',
       satisfactionDescriptionList: 'SatisfactionDescriptionList',
       satisfactionRateList: 'SatisfactionRateList',
       satisfactionSurveyChannel: 'SatisfactionSurveyChannel',
@@ -13940,6 +13944,8 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
       orderByField: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      releaseInitiatorList: 'string',
+      releaseReasonList: 'string',
       satisfactionDescriptionList: 'string',
       satisfactionRateList: 'string',
       satisfactionSurveyChannel: 'string',
@@ -20976,6 +20982,7 @@ export class MakeCallRequest extends $tea.Model {
    * device
    */
   deviceId?: string;
+  flashSmsVariables?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -21010,6 +21017,7 @@ export class MakeCallRequest extends $tea.Model {
       callee: 'Callee',
       caller: 'Caller',
       deviceId: 'DeviceId',
+      flashSmsVariables: 'FlashSmsVariables',
       instanceId: 'InstanceId',
       maskedCallee: 'MaskedCallee',
       mediaType: 'MediaType',
@@ -21024,6 +21032,7 @@ export class MakeCallRequest extends $tea.Model {
       callee: 'string',
       caller: 'string',
       deviceId: 'string',
+      flashSmsVariables: 'string',
       instanceId: 'string',
       maskedCallee: 'string',
       mediaType: 'string',
@@ -38247,6 +38256,7 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
    * 16
    */
   callDuration?: string;
+  callIds?: string;
   /**
    * @example
    * 1332315****
@@ -38449,6 +38459,7 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
       agentNames: 'AgentNames',
       broker: 'Broker',
       callDuration: 'CallDuration',
+      callIds: 'CallIds',
       calledNumber: 'CalledNumber',
       calleeLocation: 'CalleeLocation',
       callerLocation: 'CallerLocation',
@@ -38506,6 +38517,7 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
       agentNames: 'string',
       broker: 'string',
       callDuration: 'string',
+      callIds: 'string',
       calledNumber: 'string',
       calleeLocation: 'string',
       callerLocation: 'string',
@@ -61064,6 +61076,14 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.releaseInitiatorList)) {
+      query["ReleaseInitiatorList"] = request.releaseInitiatorList;
+    }
+
+    if (!Util.isUnset(request.releaseReasonList)) {
+      query["ReleaseReasonList"] = request.releaseReasonList;
+    }
+
     if (!Util.isUnset(request.satisfactionDescriptionList)) {
       query["SatisfactionDescriptionList"] = request.satisfactionDescriptionList;
     }
@@ -64098,6 +64118,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.flashSmsVariables)) {
+      query["FlashSmsVariables"] = request.flashSmsVariables;
     }
 
     if (!Util.isUnset(request.instanceId)) {
