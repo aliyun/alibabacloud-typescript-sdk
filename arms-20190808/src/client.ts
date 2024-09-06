@@ -4810,7 +4810,7 @@ export class CreateAlertContactGroupRequest extends $tea.Model {
   contactIds?: string;
   /**
    * @remarks
-   * The ID of the region. Default value: `cn-hangzhou`.
+   * The region ID. Default value: `cn-hangzhou`.
    * 
    * This parameter is required.
    * 
@@ -4850,7 +4850,7 @@ export class CreateAlertContactGroupResponseBody extends $tea.Model {
   contactGroupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 70675725-8F11-4817-8106-CFE0AD71****
@@ -5745,6 +5745,15 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
   grafanaVersion?: string;
   /**
    * @remarks
+   * The edition.
+   * 
+   * **Valid values:**
+   * 
+   * *   standard: `Beta Edition or Standard Edition`
+   * *   personal_edition: Developer Edition
+   * *   experts_edition: Pro Edition
+   * *   advanced_edition: Advanced Edition
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5852,6 +5861,15 @@ export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
   grafanaVersion?: string;
   /**
    * @remarks
+   * The edition.
+   * 
+   * **Valid values:**
+   * 
+   * *   standard: `Beta Edition or Standard Edition`
+   * *   personal_edition: Developer Edition
+   * *   experts_edition: Pro Edition
+   * *   advanced_edition: Advanced Edition
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7857,6 +7875,8 @@ export class CreateOrUpdateWebhookContactResponse extends $tea.Model {
 export class CreatePrometheusAlertRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7864,12 +7884,17 @@ export class CreatePrometheusAlertRuleRequest extends $tea.Model {
    */
   alertName?: string;
   /**
+   * @remarks
+   * The annotations that are described in a JSON string. You must specify the name and value of each annotation.
+   * 
    * @example
    * [{"Value": "xxx","Name": "description"}]
    */
   annotations?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7877,17 +7902,27 @@ export class CreatePrometheusAlertRuleRequest extends $tea.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The ID of the notification policy. This parameter is required if the NotifyType parameter is set to `DISPATCH_RULE`.
+   * 
    * @example
    * 10282
    */
   dispatchRuleId?: number;
   /**
    * @remarks
+   * The duration. The value ranges from 1 to 1440 minutes.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 10m
    */
   duration?: string;
   /**
    * @remarks
+   * The expression of the alert rule. The expression must follow the PromQL syntax.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7895,30 +7930,56 @@ export class CreatePrometheusAlertRuleRequest extends $tea.Model {
    */
   expression?: string;
   /**
+   * @remarks
+   * The tags that are described in a JSON string. You must specify the name and value of each tag.
+   * 
    * @example
    * [{"Value": "critical","Name": "severity"}]
    */
   labels?: string;
   /**
    * @remarks
+   * The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
    */
   message?: string;
   /**
+   * @remarks
+   * The method that is used to send alert notifications. Valid values:
+   * 
+   * - `ALERT_MANAGER`: Alert notifications are sent by Operation Center. This is the default value.
+   * - `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
+   * 
    * @example
    * ALERT_MANAGER
    */
   notifyType?: string;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: CreatePrometheusAlertRuleRequestTags[];
   /**
+   * @remarks
+   * The type of the alert rule. Valid values:
+   * 
+   * - 99: custom alert
+   * - 101: Prometheus Service alert
+   * 
    * @example
    * 101
    */
@@ -7963,14 +8024,42 @@ export class CreatePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class CreatePrometheusAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned struct.
+   */
   prometheusAlertRule?: CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 9FEA6D00-317F-45E3-9004-7FB8B0B7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8700,6 +8789,7 @@ export class CreateRumAppRequest extends $tea.Model {
    * com.xxxx.xxxxxx
    */
   packageName?: string;
+  realRegionId?: string;
   /**
    * @remarks
    * The region ID.
@@ -8748,6 +8838,7 @@ export class CreateRumAppRequest extends $tea.Model {
       description: 'Description',
       nickName: 'NickName',
       packageName: 'PackageName',
+      realRegionId: 'RealRegionId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       siteType: 'SiteType',
@@ -8763,6 +8854,7 @@ export class CreateRumAppRequest extends $tea.Model {
       description: 'string',
       nickName: 'string',
       packageName: 'string',
+      realRegionId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       siteType: 'string',
@@ -8819,6 +8911,7 @@ export class CreateRumAppShrinkRequest extends $tea.Model {
    * com.xxxx.xxxxxx
    */
   packageName?: string;
+  realRegionId?: string;
   /**
    * @remarks
    * The region ID.
@@ -8867,6 +8960,7 @@ export class CreateRumAppShrinkRequest extends $tea.Model {
       description: 'Description',
       nickName: 'NickName',
       packageName: 'PackageName',
+      realRegionId: 'RealRegionId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       siteType: 'SiteType',
@@ -8882,6 +8976,7 @@ export class CreateRumAppShrinkRequest extends $tea.Model {
       description: 'string',
       nickName: 'string',
       packageName: 'string',
+      realRegionId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       siteType: 'string',
@@ -9685,15 +9780,25 @@ export class CreateSyntheticTaskResponse extends $tea.Model {
 }
 
 export class CreateTimingSyntheticTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of assertions.
+   */
   availableAssertions?: CreateTimingSyntheticTaskRequestAvailableAssertions[];
   /**
    * @remarks
    * The general settings.
    */
   commonSetting?: CreateTimingSyntheticTaskRequestCommonSetting;
+  /**
+   * @remarks
+   * The general settings.
+   */
   customPeriod?: CreateTimingSyntheticTaskRequestCustomPeriod;
   /**
    * @remarks
+   * The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9702,6 +9807,11 @@ export class CreateTimingSyntheticTaskRequest extends $tea.Model {
   frequency?: string;
   /**
    * @remarks
+   * The detection point type. Valid values:
+   * 
+   * - 1: PC
+   * - 2: mobile device
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9717,6 +9827,8 @@ export class CreateTimingSyntheticTaskRequest extends $tea.Model {
   monitorConf?: CreateTimingSyntheticTaskRequestMonitorConf;
   /**
    * @remarks
+   * The list of detection points.
+   * 
    * This parameter is required.
    */
   monitors?: CreateTimingSyntheticTaskRequestMonitors[];
@@ -9741,10 +9853,17 @@ export class CreateTimingSyntheticTaskRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The parameter is optional.
+   * 
    * @example
    * xxxx
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tags?: CreateTimingSyntheticTaskRequestTags[];
   /**
    * @remarks
@@ -9798,15 +9917,25 @@ export class CreateTimingSyntheticTaskRequest extends $tea.Model {
 }
 
 export class CreateTimingSyntheticTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of assertions.
+   */
   availableAssertionsShrink?: string;
   /**
    * @remarks
    * The general settings.
    */
   commonSettingShrink?: string;
+  /**
+   * @remarks
+   * The general settings.
+   */
   customPeriodShrink?: string;
   /**
    * @remarks
+   * The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9815,6 +9944,11 @@ export class CreateTimingSyntheticTaskShrinkRequest extends $tea.Model {
   frequency?: string;
   /**
    * @remarks
+   * The detection point type. Valid values:
+   * 
+   * - 1: PC
+   * - 2: mobile device
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9830,6 +9964,8 @@ export class CreateTimingSyntheticTaskShrinkRequest extends $tea.Model {
   monitorConfShrink?: string;
   /**
    * @remarks
+   * The list of detection points.
+   * 
    * This parameter is required.
    */
   monitorsShrink?: string;
@@ -9854,10 +9990,17 @@ export class CreateTimingSyntheticTaskShrinkRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The parameter is optional.
+   * 
    * @example
    * xxxx
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tagsShrink?: string;
   /**
    * @remarks
@@ -9912,12 +10055,22 @@ export class CreateTimingSyntheticTaskShrinkRequest extends $tea.Model {
 
 export class CreateTimingSyntheticTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code returned. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The struct returned.
+   */
   data?: CreateTimingSyntheticTaskResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * success
    */
@@ -9931,6 +10084,9 @@ export class CreateTimingSyntheticTaskResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -13515,6 +13671,7 @@ export class DeleteRumAppRequest extends $tea.Model {
    * b590lhguqs@28f515462******
    */
   appId?: string;
+  realRegionId?: string;
   /**
    * @remarks
    * The ID of the region.
@@ -13529,6 +13686,7 @@ export class DeleteRumAppRequest extends $tea.Model {
     return {
       appGroup: 'AppGroup',
       appId: 'AppId',
+      realRegionId: 'RealRegionId',
       regionId: 'RegionId',
     };
   }
@@ -13537,6 +13695,7 @@ export class DeleteRumAppRequest extends $tea.Model {
     return {
       appGroup: 'string',
       appId: 'string',
+      realRegionId: 'string',
       regionId: 'string',
     };
   }
@@ -14210,6 +14369,8 @@ export class DeleteSourceMapResponse extends $tea.Model {
 export class DeleteSyntheticTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The region ID. Default value: cn-hangzhou.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14218,6 +14379,8 @@ export class DeleteSyntheticTaskRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The task IDs.
+   * 
    * This parameter is required.
    */
   taskIds?: string[];
@@ -14243,13 +14406,19 @@ export class DeleteSyntheticTaskRequest extends $tea.Model {
 export class DeleteSyntheticTaskResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the specified tasks are deleted.
+   * 
+   * *   `true`: The tasks are deleted.
+   * *   `false`: The tasks fail to be deleted.
+   * 
    * @example
    * true
    */
@@ -16120,6 +16289,13 @@ export class DescribePrometheusAlertRuleRequest extends $tea.Model {
    * 3888704
    */
   alertId?: number;
+  /**
+   * @remarks
+   * The ID of the Prometheus instance.
+   * 
+   * @example
+   * cc7a37ee31aea4ed1a059eff8034b****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16141,7 +16317,21 @@ export class DescribePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class DescribePrometheusAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
@@ -16156,6 +16346,16 @@ export class DescribePrometheusAlertRuleResponseBody extends $tea.Model {
    * 9FEA6D00-317F-45E3-9004-7FB8B0B7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16967,6 +17167,114 @@ export class GetAgentDownloadUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAgentDownloadUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDownloadUrlV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * JavaAgent
+   */
+  agentType?: string;
+  /**
+   * @example
+   * amd64
+   */
+  archType?: string;
+  /**
+   * @example
+   * linux
+   */
+  osType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentType: 'AgentType',
+      archType: 'ArchType',
+      osType: 'OsType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentType: 'string',
+      archType: 'string',
+      osType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDownloadUrlV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetAgentDownloadUrlV2ResponseBodyData;
+  message?: string;
+  /**
+   * @example
+   * 78901766-3806-4E96-8E47-CFEF59E4****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetAgentDownloadUrlV2ResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDownloadUrlV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentDownloadUrlV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAgentDownloadUrlV2ResponseBody,
     };
   }
 
@@ -21729,7 +22037,7 @@ export class GetSyntheticMonitorsResponse extends $tea.Model {
 export class GetSyntheticTaskDetailRequest extends $tea.Model {
   /**
    * @remarks
-   * 地域ID。默认为cn-hangzhou。
+   * The region ID. Default value: cn-hangzhou.
    * 
    * @example
    * cn-hangzhou
@@ -21737,7 +22045,7 @@ export class GetSyntheticTaskDetailRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 云拨测任务ID。
+   * The ID of the synthetic monitoring task.
    * 
    * This parameter is required.
    * 
@@ -21767,7 +22075,7 @@ export class GetSyntheticTaskDetailRequest extends $tea.Model {
 export class GetSyntheticTaskDetailResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * 4D6C358A-A58B-4F4B-94CE-F5AAF023****
@@ -21775,7 +22083,7 @@ export class GetSyntheticTaskDetailResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * 任务详情。
+   * The details of the task.
    */
   taskDetail?: GetSyntheticTaskDetailResponseBodyTaskDetail;
   static names(): { [key: string]: string } {
@@ -21824,46 +22132,86 @@ export class GetSyntheticTaskDetailResponse extends $tea.Model {
 
 export class GetSyntheticTaskListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The order by which the queried tasks are sorted. Valid values:
+   * 
+   * *   **asc**: ascending
+   * *   **desc**: descending
+   * 
    * @example
    * asc
    */
   direction?: string;
   /**
+   * @remarks
+   * The condition by which the queried tasks are sorted.
+   * 
    * @example
    * CreateTime
    */
   order?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID. Default value: **cn-hangzhou**.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
    * net-test
    */
   taskName?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **0**: The task is stopped.
+   * *   **1**: The task is started.
+   * *   **9**: The task is ended.
+   * 
    * @example
    * 1
    */
   taskStatus?: string;
   /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * 1.  3: web page performance - IE
+   * 2.  34: web page performance - Chrome
+   * 3.  0: network quality
+   * 4.  40: file download
+   * 5.  7: API performance
+   * 
    * @example
    * 0
    */
   taskType?: string;
   /**
+   * @remarks
+   * The URL for synthetic monitoring.
+   * 
    * @example
    * https://www.example.com
    */
@@ -21902,8 +22250,15 @@ export class GetSyntheticTaskListRequest extends $tea.Model {
 }
 
 export class GetSyntheticTaskListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The query results.
+   */
   pageInfo?: GetSyntheticTaskListResponseBodyPageInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A5EC8221-08F2-4C95-9AF1-49FD998C****
    */
@@ -22411,7 +22766,16 @@ export class GetTraceAppConfigRequest extends $tea.Model {
    * @remarks
    * The process ID (PID) of the application.
    * 
-   * Log on to the ARMS console. In the left-side navigation pane, choose **Application Monitoring** > **Application List**. On the Application List page, click the name of an application. The URL in the address bar contains the PID of the application. The PID is indicated in the pid=xxx format. The PID is usually percent encoded as xxx%40xxx. You must modify this value to remove the percent encoding. For example, if the PID in the URL is xxx%4074xxx, you must replace %40 with an at sign (@) to obtain xxx@74xxx.
+   * You can use one of the following methods to obtain the PID:
+   * 
+   * *   API: Call the [ListTraceApps](https://help.aliyun.com/document_detail/2588008.html) operation
+   * *   Console: Log on to the Application Real-Time Monitoring Service (ARMS) console. In the left-side navigation pane, choose **Application Monitoring** > **Application List**. On the Application List page, click the name of your application. The URL in the address bar contains the PID of the application. The PID is indicated in the pid=xxx format. The PID is usually percent encoded as xxx%40xxx. You must modify this value to remove the percent encoding. For example, if the PID in the URL is xxx%4074xxx, you must replace %40 with an at sign (@) to obtain xxx@74xxx.
+   * 
+   * > 
+   * 
+   * *   To obtain the PID in the console, your application must be monitored by Application Monitoring rather than Managed Service for OpenTelemetry.
+   * 
+   * *   The GetTraceAppConfig operation can query only the custom settings of applications that are monitored by Application Monitoring.
    * 
    * This parameter is required.
    * 
@@ -23652,6 +24016,7 @@ export class ListActivatedAlertsRequest extends $tea.Model {
 }
 
 export class ListActivatedAlertsResponseBody extends $tea.Model {
+  message?: string;
   /**
    * @remarks
    * The struct returned.
@@ -23667,6 +24032,7 @@ export class ListActivatedAlertsResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       page: 'Page',
       requestId: 'RequestId',
     };
@@ -23674,6 +24040,7 @@ export class ListActivatedAlertsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       page: ListActivatedAlertsResponseBodyPage,
       requestId: 'string',
     };
@@ -24338,6 +24705,7 @@ export class ListAlertsRequest extends $tea.Model {
 }
 
 export class ListAlertsResponseBody extends $tea.Model {
+  message?: string;
   /**
    * @remarks
    * The information about the array object.
@@ -24353,6 +24721,7 @@ export class ListAlertsResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       pageBean: 'PageBean',
       requestId: 'RequestId',
     };
@@ -24360,6 +24729,7 @@ export class ListAlertsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       pageBean: ListAlertsResponseBodyPageBean,
       requestId: 'string',
     };
@@ -24963,12 +25333,17 @@ export class ListDashboardsByNameResponse extends $tea.Model {
 
 export class ListDispatchRuleRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the notification policy. Fuzzy match is supported.
+   * 
    * @example
    * Prod
    */
   name?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24976,6 +25351,12 @@ export class ListDispatchRuleRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * *   The type of notification policies to be queried. Valid values: `false` (default): notification policies created in Application Real-Time Monitoring Service (ARMS).
+   * *   `true`: notification policies created in an external system.
+   * 
+   * >  You cannot use the ARMS console to modify the dispatch rules of a notification policy that is created in an external system.
+   * 
    * @example
    * true
    */
@@ -25002,8 +25383,15 @@ export class ListDispatchRuleRequest extends $tea.Model {
 }
 
 export class ListDispatchRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned struct.
+   */
   dispatchRules?: ListDispatchRuleResponseBodyDispatchRules[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 34ED024E-9E31-434A-9E4E-D9D15C3****
    */
@@ -27026,6 +27414,8 @@ export class ListOnCallSchedulesResponse extends $tea.Model {
 export class ListPrometheusAlertRulesRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27033,17 +27423,25 @@ export class ListPrometheusAlertRulesRequest extends $tea.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The tag match conditions that are described in a JSON string. For more information about this parameter, see the **Additional description of the MatchExpressions parameter** section.
+   * 
    * @example
    * [{"key":"severity","value":"critical","operator":"re"}]
    */
   matchExpressions?: string;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * Prometheus_Alert
    */
   name?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27051,11 +27449,28 @@ export class ListPrometheusAlertRulesRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Specifies whether the alert rule is enabled. Valid values:
+   * 
+   * - 1: enables the alert rule.
+   * - 0: disables the alert rule.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListPrometheusAlertRulesRequestTags[];
+  /**
+   * @remarks
+   * The type of the alert rule.
+   * 
+   * @example
+   * Custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27087,14 +27502,42 @@ export class ListPrometheusAlertRulesRequest extends $tea.Model {
 }
 
 export class ListPrometheusAlertRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned struct.
+   */
   prometheusAlertRules?: ListPrometheusAlertRulesResponseBodyPrometheusAlertRules[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 9FEA6D00-317F-45E3-9004-7FB8B0B7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -33448,10 +33891,17 @@ export class StartAlertResponse extends $tea.Model {
 
 export class StartTimingSyntheticTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The region ID. Default value: cn-hangzhou.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The task IDs.
+   */
   taskIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -33474,10 +33924,17 @@ export class StartTimingSyntheticTaskRequest extends $tea.Model {
 
 export class StartTimingSyntheticTaskShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The region ID. Default value: cn-hangzhou.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The task IDs.
+   */
   taskIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33500,21 +33957,33 @@ export class StartTimingSyntheticTaskShrinkRequest extends $tea.Model {
 
 export class StartTimingSyntheticTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2A0CEDF1-06FE-44AC-8E21-21A5BE65****
    */
@@ -33824,10 +34293,20 @@ export class StopTimingSyntheticTaskResponse extends $tea.Model {
 
 export class SwitchSyntheticTaskStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to start or stop the task. Valid values:
+   * 
+   * *   **0**: stops the task
+   * *   **1**: starts the task
+   * 
    * @example
    * 0
    */
   switchStatus?: number;
+  /**
+   * @remarks
+   * The task IDs. You can specify up to 30 task IDs at a time.
+   */
   taskIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -33850,11 +34329,20 @@ export class SwitchSyntheticTaskStatusRequest extends $tea.Model {
 
 export class SwitchSyntheticTaskStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`
+   * *   `false`
+   * 
    * @example
    * true
    */
@@ -36624,6 +37112,10 @@ export class UpdatePrometheusAlertRuleRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: UpdatePrometheusAlertRuleRequestTags[];
   type?: string;
   static names(): { [key: string]: string } {
@@ -36668,7 +37160,21 @@ export class UpdatePrometheusAlertRuleRequest extends $tea.Model {
 }
 
 export class UpdatePrometheusAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   prometheusAlertRule?: UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule;
   /**
@@ -36676,6 +37182,16 @@ export class UpdatePrometheusAlertRuleResponseBody extends $tea.Model {
    * 9FEA6D00-317F-45E3-9004-7FB8B0B7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`
+   * *   `false`
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -36909,6 +37425,16 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
    */
   archiveDuration?: number;
   /**
+   * **if can be null:**
+   * true
+   */
+  authFreeReadPolicy?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  authFreeWritePolicy?: string;
+  /**
    * @remarks
    * The ID of the Prometheus instance.
    * 
@@ -36918,6 +37444,21 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
    * vpc-xxx
    */
   clusterId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  enableAuthFreeRead?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  enableAuthFreeWrite?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  enableAuthToken?: boolean;
   /**
    * @remarks
    * The region ID.
@@ -36947,7 +37488,12 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       archiveDuration: 'ArchiveDuration',
+      authFreeReadPolicy: 'AuthFreeReadPolicy',
+      authFreeWritePolicy: 'AuthFreeWritePolicy',
       clusterId: 'ClusterId',
+      enableAuthFreeRead: 'EnableAuthFreeRead',
+      enableAuthFreeWrite: 'EnableAuthFreeWrite',
+      enableAuthToken: 'EnableAuthToken',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       storageDuration: 'StorageDuration',
@@ -36957,7 +37503,12 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       archiveDuration: 'number',
+      authFreeReadPolicy: 'string',
+      authFreeWritePolicy: 'string',
       clusterId: 'string',
+      enableAuthFreeRead: 'boolean',
+      enableAuthFreeWrite: 'boolean',
+      enableAuthToken: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
       storageDuration: 'number',
@@ -37588,6 +38139,7 @@ export class UpdateRumAppRequest extends $tea.Model {
    * b5xxxxs@d8deedfa9bf****
    */
   pid?: string;
+  realRegionId?: string;
   /**
    * @remarks
    * The region ID.
@@ -37630,6 +38182,7 @@ export class UpdateRumAppRequest extends $tea.Model {
       isSubscribe: 'IsSubscribe',
       nickname: 'Nickname',
       pid: 'Pid',
+      realRegionId: 'RealRegionId',
       regionId: 'RegionId',
       restart: 'Restart',
       serviceDomainOperationJson: 'ServiceDomainOperationJson',
@@ -37645,6 +38198,7 @@ export class UpdateRumAppRequest extends $tea.Model {
       isSubscribe: 'boolean',
       nickname: 'string',
       pid: 'string',
+      realRegionId: 'string',
       regionId: 'string',
       restart: 'boolean',
       serviceDomainOperationJson: 'string',
@@ -41353,7 +41907,21 @@ export class CreateOrUpdateWebhookContactResponseBodyWebhookContact extends $tea
 }
 
 export class CreatePrometheusAlertRuleRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * type
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41376,10 +41944,20 @@ export class CreatePrometheusAlertRuleRequestTags extends $tea.Model {
 
 export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations extends $tea.Model {
   /**
+   * @remarks
+   * The name of the annotation.
+   * 
    * @example
    * message
    */
   name?: string;
+  /**
+   * @remarks
+   * The value of the annotation.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41402,11 +41980,17 @@ export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations
 
 export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleLabels extends $tea.Model {
   /**
+   * @remarks
+   * The name of the tag.
+   * 
    * @example
    * severity
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * critical
    */
@@ -41432,44 +42016,100 @@ export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleLabels exte
 
 export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
    * @example
    * 3888704
    */
   alertId?: number;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * Prometheus_Alert
    */
   alertName?: string;
+  /**
+   * @remarks
+   * The annotations of the alert rule.
+   */
   annotations?: CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations[];
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * c0bad479465464e1d8c1e641b0afb****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The ID of the notification policy.
+   * 
    * @example
    * 10282
    */
   dispatchRuleId?: number;
+  /**
+   * @remarks
+   * The duration. The value ranges from 1 to 1440 minutes.
+   * 
+   * @example
+   * 10m
+   */
   duration?: string;
   /**
+   * @remarks
+   * The expression of the alert rule.
+   * 
    * @example
    * 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \\"pod_name\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (pod_name))>75
    */
   expression?: string;
+  /**
+   * @remarks
+   * The tags of the alert rule.
+   */
   labels?: CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleLabels[];
+  /**
+   * @remarks
+   * The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
+   */
   message?: string;
   /**
+   * @remarks
+   * The method that is used to send alert notifications. Valid values:
+   * 
+   * - ALERT_MANAGER: Alert notifications are sent by Operation Center.
+   * - DISPATCH_RULE: Alert notifications are sent based on the specified notification policy.
+   * 
    * @example
    * ALERT_MANAGER
    */
   notifyType?: string;
   /**
+   * @remarks
+   * Indicates whether the alert rule is enabled. Valid values:
+   * 
+   * - `1`: The alert rule is enabled.
+   * - `0`: The alert rule is disabled.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The type of the alert rule.
+   * 
+   * @example
+   * Kubernetes component alert
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43136,6 +43776,8 @@ export class CreateSyntheticTaskResponseBodyData extends $tea.Model {
 export class CreateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Model {
   /**
    * @remarks
+   * The expected value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43144,6 +43786,8 @@ export class CreateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Mo
   expect?: string;
   /**
    * @remarks
+   * The condition. gt: greater than. gte: greater than or equal to. lt: less than. lte: less than or equal to. eq: equal to. neq: not equal to. ctn: contain. nctn: does not contain. exist: exist. n_exist: does not exist. belong: belong to. n_belong: does not belong to. reg_match: regular expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43151,12 +43795,17 @@ export class CreateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Mo
    */
   operator?: string;
   /**
+   * @remarks
+   * The check target. If you set the type parameter to HttpResCode, HttpResBody, or HttpResponseTime, you do not need to set the target parameter. If you set the type parameter to HttpResHead, you must specify the key in the header. If you set the type parameter to HttpResBodyJson, use jsonPath.
+   * 
    * @example
    * key
    */
   target?: string;
   /**
    * @remarks
+   * The assertion type. Valid values: HttpResCode, HttpResHead, HttpResBody, HttpResBodyJson, HttpResponseTime, IcmpPackLoss (packet loss rate), IcmpPackMaxLatency (maximum packet latency), IcmpPackAvgLatency (average packet latency), TraceRouteHops (number of hops), DnsARecord (A record), DnsCName (CNAME), websiteTTFB (time to first packet), websiteTTLB (time to last packet), websiteFST (first paint time), websiteFFST (first meaningful paint), websiteOnload (full loaded time). For more information, see the following description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43189,7 +43838,7 @@ export class CreateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Mo
 export class CreateTimingSyntheticTaskRequestCommonSettingCustomHostHosts extends $tea.Model {
   /**
    * @remarks
-   * The domain name
+   * The domain name.
    * 
    * This parameter is required.
    * 
@@ -43280,8 +43929,26 @@ export class CreateTimingSyntheticTaskRequestCommonSettingCustomHost extends $te
 }
 
 export class CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting extends $tea.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * null
+   */
   prometheusClusterId?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * null
+   */
   prometheusClusterRegion?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   prometheusLabels?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -43366,6 +44033,10 @@ export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
    * The custom host settings.
    */
   customHost?: CreateTimingSyntheticTaskRequestCommonSettingCustomHost;
+  /**
+   * @remarks
+   * The reserved parameters.
+   */
   customPrometheusSetting?: CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting;
   /**
    * @remarks
@@ -43457,6 +44128,8 @@ export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
 export class CreateTimingSyntheticTaskRequestCustomPeriod extends $tea.Model {
   /**
    * @remarks
+   * The custom host settings.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43465,6 +44138,8 @@ export class CreateTimingSyntheticTaskRequestCustomPeriod extends $tea.Model {
   endHour?: number;
   /**
    * @remarks
+   * The list of hosts.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43555,6 +44230,17 @@ export class CreateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
    */
   method?: string;
   /**
+   * @remarks
+   * The ALPN protocol version. You can configure this parameter when you perform an HTTPS synthetic test on a WAP mobile client. Valid values:
+   * 
+   * 0: default
+   * 
+   * 1: http/1.1
+   * 
+   * 2: h2
+   * 
+   * 3: disables the ALPN protocol
+   * 
    * @example
    * 1
    */
@@ -43833,7 +44519,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfNetDNS extends $tea.Mode
    * @remarks
    * The IP version of the DNS server.
    * 
-   * *   0 (default value): IPv4.
+   * *   0 (default): IPv4.
    * *   1: IPv6.
    * *   2: A version is automatically selected.
    * 
@@ -43853,7 +44539,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfNetDNS extends $tea.Mode
    * @remarks
    * The DNS query method. Valid values:
    * 
-   * *   0 (default value): recursive
+   * *   0 (default): recursive
    * *   1: iterative
    * 
    * @example
@@ -44121,7 +44807,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfStream extends $tea.Mode
    * The address type of the resource. Valid values:
    * 
    * *   1: resource URL
-   * *   0 (default value): page URL
+   * *   0 (default): page URL
    * 
    * @example
    * 0
@@ -44193,7 +44879,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
    * @remarks
    * Specifies whether to automatically scroll up and down the screen to load a page.
    * 
-   * *   0 (default value): no
+   * *   0 (default): no
    * *   1: yes
    * 
    * @example
@@ -44204,7 +44890,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
    * @remarks
    * Specifies whether to create a custom header.
    * 
-   * *   0 (default value): No custom header is created.
+   * *   0 (default): No custom header is created.
    * *   1: A custom header is created for the first packet.
    * *   2: A custom header is created for all packets.
    * 
@@ -44232,7 +44918,7 @@ export class CreateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
    * Specifies whether to disable caching.
    * 
    * *   0: no
-   * *   1 (default value): yes
+   * *   1 (default): yes
    * 
    * @example
    * 1
@@ -44475,6 +45161,8 @@ export class CreateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
 export class CreateTimingSyntheticTaskRequestMonitors extends $tea.Model {
   /**
    * @remarks
+   * The city code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44483,6 +45171,13 @@ export class CreateTimingSyntheticTaskRequestMonitors extends $tea.Model {
   cityCode?: string;
   /**
    * @remarks
+   * The client type of the detection point. Valid values:
+   * 
+   * - 1: data center
+   * - 2: Internet
+   * - 3: mobile device
+   * - 4: ECS instance
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44491,6 +45186,8 @@ export class CreateTimingSyntheticTaskRequestMonitors extends $tea.Model {
   clientType?: number;
   /**
    * @remarks
+   * The carrier code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44520,11 +45217,17 @@ export class CreateTimingSyntheticTaskRequestMonitors extends $tea.Model {
 
 export class CreateTimingSyntheticTaskRequestTags extends $tea.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * Key
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * 500
    */
@@ -44550,11 +45253,26 @@ export class CreateTimingSyntheticTaskRequestTags extends $tea.Model {
 
 export class CreateTimingSyntheticTaskResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * - INIT: The task is in the initial state.
+   * - RELEASE: The task is being parsed.
+   * - RUNNING: The task is running.
+   * - STOP: The task is suspended.
+   * - SYSTEM_STOP: The task is suspended by the system.
+   * - CANCEL: The task is canceled.
+   * - SYSTEM_CANCEL: The task is canceled by the system.
+   * - DONE: The task is complete.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the synthetic monitoring task.
+   * 
    * @example
    * 5308a2691f59422c8c3b7aeccec9cd3b
    */
@@ -47107,6 +47825,36 @@ export class DescribeWebhookContactsResponseBodyPageBean extends $tea.Model {
   }
 }
 
+export class GetAgentDownloadUrlV2ResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * http://arms-apm-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/3.2.9/ArmsAgent.zip
+   */
+  url?: string;
+  /**
+   * @example
+   * 3.2.9
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAlertRulesRequestTags extends $tea.Model {
   /**
    * @remarks
@@ -49045,6 +49793,22 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   archiveDuration?: number;
   /**
    * @remarks
+   * Read the whitelist policy for password-free addresses.
+   * 
+   * @example
+   * null
+   */
+  authFreeReadPolicy?: string;
+  /**
+   * @remarks
+   * Write exempt password address whitelist policy.
+   * 
+   * @example
+   * null
+   */
+  authFreeWritePolicy?: string;
+  /**
+   * @remarks
    * The authorization token.
    * 
    * @example
@@ -49088,6 +49852,22 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * RUNNING
    */
   dbInstanceStatus?: string;
+  /**
+   * @remarks
+   * Whether to enable password-free reading.
+   * 
+   * @example
+   * false
+   */
+  enableAuthFreeRead?: boolean;
+  /**
+   * @remarks
+   * Whether to enable write access without password.
+   * 
+   * @example
+   * false
+   */
+  enableAuthFreeWrite?: boolean;
   /**
    * @remarks
    * Indicates whether access token authentication is enabled.
@@ -49235,6 +50015,10 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * [{"headers":{},"regionId":"cn-hangzhou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c39a1048921e04fceb039db2fbb73\\*\\*\\*","sourceName":"arms-luyao-test","dataSource":"","userId":"167275301789\\*\\*\\*"},{"headers":{},"regionId":"cn-beijing","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c6b6485496d5b400abde22cb47b5\\*\\*\\*\\*","sourceName":"agent-321-test","dataSource":"","userId":"1672753017899\\*\\*\\*"},{"headers":{},"regionId":"cn-zhangjiakou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c261a4f3200c446659133f1ade789b15e","sourceName":"zaifeng-cardinality-01","dataSource":"","userId":"167275301789\\*\\*\\*"}]
    */
   subClustersJson?: string;
+  /**
+   * @remarks
+   * Supported authentication types.
+   */
   supportAuthTypes?: string[];
   /**
    * @remarks
@@ -49269,11 +50053,15 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
     return {
       accessType: 'AccessType',
       archiveDuration: 'ArchiveDuration',
+      authFreeReadPolicy: 'AuthFreeReadPolicy',
+      authFreeWritePolicy: 'AuthFreeWritePolicy',
       authToken: 'AuthToken',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       dbInstanceStatus: 'DbInstanceStatus',
+      enableAuthFreeRead: 'EnableAuthFreeRead',
+      enableAuthFreeWrite: 'EnableAuthFreeWrite',
       enableAuthToken: 'EnableAuthToken',
       grafanaInstanceId: 'GrafanaInstanceId',
       httpApiInterUrl: 'HttpApiInterUrl',
@@ -49304,11 +50092,15 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
     return {
       accessType: 'string',
       archiveDuration: 'number',
+      authFreeReadPolicy: 'string',
+      authFreeWritePolicy: 'string',
       authToken: 'string',
       clusterId: 'string',
       clusterName: 'string',
       clusterType: 'string',
       dbInstanceStatus: 'string',
+      enableAuthFreeRead: 'boolean',
+      enableAuthFreeWrite: 'boolean',
       enableAuthToken: 'string',
       grafanaInstanceId: 'string',
       httpApiInterUrl: 'string',
@@ -51184,26 +51976,41 @@ export class GetSyntheticMonitorsResponseBodyData extends $tea.Model {
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailCommonParamAlertList extends $tea.Model {
   /**
+   * @remarks
+   * The low-risk alert.
+   * 
    * @example
    * 1
    */
   generalAlert?: string;
   /**
+   * @remarks
+   * Indicates whether the condition is essential.
+   * 
    * @example
    * 0
    */
   isCritical?: string;
   /**
+   * @remarks
+   * The alert name.
+   * 
    * @example
    * alert-test
    */
   name?: string;
   /**
+   * @remarks
+   * The Critical-level alert.
+   * 
    * @example
    * 1
    */
   seriousAlert?: string;
   /**
+   * @remarks
+   * Greater than or less than.
+   * 
    * @example
    * 1
    */
@@ -51235,27 +52042,46 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailCommonParamAlertList ex
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailCommonParam extends $tea.Model {
   /**
+   * @remarks
+   * The identifier of the alert.
+   * 
    * @example
    * 1
    */
   alarmFlag?: number;
+  /**
+   * @remarks
+   * The list of alerts.
+   */
   alertList?: GetSyntheticTaskDetailResponseBodyTaskDetailCommonParamAlertList[];
   /**
+   * @remarks
+   * The ID of the alert identifier.
+   * 
    * @example
    * 1
    */
   alertNotifierId?: string;
   /**
+   * @remarks
+   * The ID of the alert policy.
+   * 
    * @example
    * 1
    */
   alertPolicyId?: string;
   /**
+   * @remarks
+   * The monitoring samples.
+   * 
    * @example
    * 1
    */
   monitorSamples?: string;
   /**
+   * @remarks
+   * The start time of the execution.
+   * 
    * @example
    * 1664427128
    */
@@ -51289,61 +52115,114 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailCommonParam extends $te
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailDownload extends $tea.Model {
   /**
+   * @remarks
+   * The timeout period of the file download task.
+   * 
    * @example
    * 200
    */
   connectionTimeout?: number;
   /**
+   * @remarks
+   * The items to be ignored in a certificate error. Multiple values are concatenated with vertical bars (|).
+   * 
    * @example
    * char
    */
   downloadCustomHeaderContent?: string;
   /**
+   * @remarks
+   * The custom host. Valid values:
+   * 
+   * *   1: round robin
+   * *   0: random
+   * 
    * @example
    * 0
    */
   downloadCustomHost?: number;
   /**
+   * @remarks
+   * The custom IP address of the host. Multiple IP addresses are separated with commas (,).
+   * 
    * @example
    * 168.23.45.1
    */
   downloadCustomHostIp?: string;
   /**
+   * @remarks
+   * The kernel type. Valid values:
+   * 
+   * *   1: curl
+   * *   0: WinInet
+   * 
    * @example
    * 1
    */
   downloadKernel?: number;
   /**
+   * @remarks
+   * Indicates whether redirection is supported.
+   * 
    * @example
    * 1
    */
   downloadRedirect?: number;
   /**
+   * @remarks
+   * The file size. Unit: KB.
+   * 
    * @example
    * 20
    */
   downloadTransmissionSize?: number;
   /**
+   * @remarks
+   * The monitoring duration.
+   * 
    * @example
    * 12
    */
   monitorTimeout?: number;
   /**
+   * @remarks
+   * The QUIC protocol type. Valid values:
+   * 
+   * *   1: HTTP/1
+   * *   2: HTTP/2
+   * *   3: http3
+   * 
    * @example
    * 1
    */
   quickProtocol?: string;
   /**
+   * @remarks
+   * The keyword that is used in verification.
+   * 
    * @example
    * test
    */
   validateKeywords?: string;
   /**
+   * @remarks
+   * The method that is used to verify the response content. Valid values:
+   * 
+   * *   0: no verification.
+   * *   1: exact match with the verification string.
+   * *   2: partial match with the verification string.
+   * *   3: MD5 verification.
+   * 
    * @example
    * 0
    */
   verifyWay?: number;
   /**
+   * @remarks
+   * The whitelisted objects that are used to avoid DNS hijacking. Format: `<domain name>:<objects>`.
+   * 
+   * >  WAP networks do not support hijacking.
+   * 
    * @example
    * [{\\"src\\":\\"211.154.166.174\\"}]
    */
@@ -51390,21 +52269,21 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailDownload extends $tea.M
 export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends $tea.Model {
   /**
    * @remarks
-   * 拨测执行周期。
+   * The day on which synthetic monitoring is performed. Valid values:
    * 
-   * - -1：每天
-   * - 0：周日
-   * - 1：周一
-   * - 2：周二
-   * - 3：周三
-   * - 4：周四
-   * - 5：周五
-   * - 6：周六
+   * *   \\-1: every day
+   * *   0: Sunday
+   * *   1: Monday
+   * *   2: Tuesday
+   * *   3: Wednesday
+   * *   4: Thursday
+   * *   5: Friday
+   * *   6: Saturday
    */
   days?: number[];
   /**
    * @remarks
-   * 当天结束分钟数。
+   * The minute at which synthetic monitoring ends.
    * 
    * @example
    * 20
@@ -51412,7 +52291,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends 
   endMinute?: number;
   /**
    * @remarks
-   * 周期结束时间 ，格式为yyyy-MM-dd HH。
+   * The time when synthetic monitoring ends. Format: `yyyy-MM-dd HH`.
    * 
    * @example
    * 2022-05-03 11:40
@@ -51420,7 +52299,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends 
   endTime?: string;
   /**
    * @remarks
-   * 当天结束小时数。
+   * The hour at which synthetic monitoring ends.
    * 
    * @example
    * 12
@@ -51428,7 +52307,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends 
   endhour?: number;
   /**
    * @remarks
-   * 当天开始拨测时间的小时数。
+   * The hour at which synthetic monitoring starts.
    * 
    * @example
    * 9
@@ -51436,7 +52315,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends 
   startHour?: number;
   /**
    * @remarks
-   * 当天开始拨测时间的分钟数。
+   * The minute at which synthetic monitoring starts.
    * 
    * @example
    * 20
@@ -51444,7 +52323,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends 
   startMinute?: number;
   /**
    * @remarks
-   * 周期开始时间，格式yyyy-MM-dd HH 。
+   * The time when synthetic monitoring starts. Format: yyyy-MM-dd HH.
    * 
    * @example
    * 2022-02-26 11:40
@@ -51482,7 +52361,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval extends 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $tea.Model {
   /**
    * @remarks
-   * 城市编码。
+   * The city code.
    * 
    * @example
    * 110100
@@ -51490,10 +52369,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $te
   cityCode?: number;
   /**
    * @remarks
-   * 监测类型：
-   * - IDC
-   * - LastMilie
-   * - Mobile
+   * The type of the detection point.
    * 
    * @example
    * IDC
@@ -51501,7 +52377,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $te
   monitorType?: number;
   /**
    * @remarks
-   * 运营商ID。
+   * The ID of the network service.
    * 
    * @example
    * 12001
@@ -51509,7 +52385,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $te
   netServiceId?: number;
   /**
    * @remarks
-   * 下发次数。
+   * The number of times that the system sends detection requests.
    * 
    * @example
    * 20
@@ -51540,141 +52416,277 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $te
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailNav extends $tea.Model {
   /**
+   * @remarks
+   * The DNS whitelist.
+   * 
    * @example
    * 119.119.53.156
    */
   dnsHijackWhitelist?: string;
   /**
+   * @remarks
+   * The element blacklist.
+   * 
    * @example
    * test
    */
   elementBlacklist?: string;
   /**
+   * @remarks
+   * Indicates whether ActiveX is executed. Valid values:
+   * 
+   * *   3: yes
+   * *   0: no
+   * 
+   * >  Only IE elements support this parameter.
+   * 
    * @example
    * 3
    */
   executeActiveX?: number;
   /**
+   * @remarks
+   * Indicates whether the applet is executed. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 1
    */
   executeApplet?: number;
   /**
+   * @remarks
+   * Indicates whether scripts are executed. Valid values:
+   * 
+   * *   1: yes
+   * *   0: no
+   * 
+   * >  Only IE elements support this parameter.
+   * 
    * @example
    * 1
    */
   executeScript?: number;
   /**
+   * @remarks
+   * Indicates whether invalid IP addresses are excluded. Valid values:
+   * 
+   * *   1: no
+   * *   0: yes
+   * 
    * @example
    * 1
    */
   filterInvalidIP?: number;
   /**
+   * @remarks
+   * The element that is used in DNS hijacking.
+   * 
    * @example
    * 12
    */
   flowHijackJumpTimes?: number;
   /**
+   * @remarks
+   * The tag that is used in DNS hijacking.
+   * 
    * @example
    * target
    */
   flowHijackLogo?: string;
   /**
+   * @remarks
+   * The monitoring timeout period.
+   * 
    * @example
    * 20
    */
   monitorTimeout?: number;
   /**
+   * @remarks
+   * Indicates whether the screen is automatically scrolled up and down to load a page. Valid values:
+   * 
+   * *   1: yes
+   * *   0: no
+   * 
    * @example
    * 1
    */
   navAutomaticScrolling?: number;
   /**
+   * @remarks
+   * Indicates whether a custom header is created. Valid values:
+   * 
+   * *   0: no
+   * *   1: A custom header is created for the first packet.
+   * *   2: A custom header is created for all packets.
+   * 
    * @example
    * 0
    */
   navCustomHeader?: string;
   /**
+   * @remarks
+   * The format of the custom header. Multiple fields are separated with vertical bars (|).
+   * 
    * @example
    * content
    */
   navCustomHeaderContent?: string;
   /**
+   * @remarks
+   * The custom host mode. Valid values:
+   * 
+   * *   1: round robin
+   * *   0: random
+   * 
    * @example
    * 1
    */
   navCustomHost?: number;
   /**
+   * @remarks
+   * The custom IP address of the host. Multiple IP addresses are separated with commas (,).
+   * 
    * @example
    * 119.119.53.156/32
    */
   navCustomHostIp?: string;
   /**
+   * @remarks
+   * Indicates whether caching is disabled. Valid values:
+   * 
+   * *   1: Caching is disabled.
+   * *   0: Caching is enabled.
+   * 
    * @example
    * 1
    */
   navDisableCache?: number;
   /**
+   * @remarks
+   * Indicates whether compression is disabled. Valid values:
+   * 
+   * *   0: Compression is enabled.
+   * *   1: Compression is disabled.
+   * 
    * @example
    * 0
    */
   navDisableCompression?: number;
   /**
+   * @remarks
+   * Indicates whether certificate errors are ignored during certificate verification in the SSL handshake. Valid values:
+   * 
+   * *   1: yes
+   * *   0: no
+   * 
    * @example
    * 1
    */
   navIgnoreCertificateError?: number;
   /**
+   * @remarks
+   * Indicates whether redirection is enabled. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 1
    */
   navRedirect?: number;
   /**
+   * @remarks
+   * Indicates whether the elements on the page are returned.
+   * 
+   * *   1: no. The basic document data is returned.
+   * *   2: yes. All document data is returned.
+   * 
    * @example
    * 1
    */
   navReturnElement?: number;
   /**
+   * @remarks
+   * The page tampering.
+   * 
    * @example
    * content
    */
   pageTampering?: string;
   /**
+   * @remarks
+   * The process ID.
+   * 
    * @example
    * ssh
    */
   processName?: string;
   /**
+   * @remarks
+   * The domain name of the QUIC request element.
+   * 
    * @example
    * www.example.com
    */
   quicDomain?: string;
   /**
+   * @remarks
+   * The QUIC version. Default value: 0. Valid values:
+   * 
+   * *   35
+   * *   39
+   * *   43
+   * *   44
+   * 
+   * >  Only Chrome elements support this parameter.
+   * 
    * @example
    * 0
    */
   quicVersion?: number;
   /**
+   * @remarks
+   * Indicates whether request headers are returned. Valid values:
+   * 
+   * *   0: no
+   * *   1: The headers of base documents are returned.
+   * *   2: All headers are returned.
+   * 
    * @example
    * 0
    */
   requestHeader?: number;
   /**
+   * @remarks
+   * The time threshold that is used to define a slow element. Unit: seconds.
+   * 
    * @example
    * 30
    */
   slowElementThreshold?: number;
   /**
+   * @remarks
+   * The blacklist for string verification.
+   * 
    * @example
    * test
    */
   verifyStringBlacklist?: string;
   /**
+   * @remarks
+   * The whitelist for string verification.
+   * 
    * @example
    * test
    */
   verifyStringWhitelist?: string;
   /**
+   * @remarks
+   * The timeout period of waiting for the monitoring to complete.
+   * 
    * @example
    * 20
    */
@@ -51752,86 +52764,164 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailNav extends $tea.Model 
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailNet extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the data is displayed in the DIG format. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 0
    */
   netDigSwitch?: number;
   /**
+   * @remarks
+   * The NS server.
+   * 
    * @example
    * 189.12.32.124
    */
   netDnsNs?: string;
   /**
+   * @remarks
+   * The DNS query method. Valid values:
+   * 
+   * *   1: recursive
+   * *   2: iterative
+   * 
    * @example
    * 1
    */
   netDnsQueryMethod?: string;
   /**
+   * @remarks
+   * The type of the DNS server. Valid values:
+   * 
+   * *   0: ipv4
+   * *   1: ipv6
+   * *   2: A version is automatically selected.
+   * 
    * @example
    * 0
    */
   netDnsServer?: number;
   /**
+   * @remarks
+   * Indicates whether DNS test is enabled. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 0
    */
   netDnsSwitch?: number;
   /**
+   * @remarks
+   * The timeout period of DNS requests.
+   * 
    * @example
    * 10
    */
   netDnsTimeout?: string;
   /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   0 : ICMP
+   * *   1 : TCP
+   * 
    * @example
    * 0
    */
   netIcmpActive?: number;
   /**
+   * @remarks
+   * Indicates whether packets are split. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
    * @example
    * 0
    */
   netIcmpDataCut?: number;
   /**
+   * @remarks
+   * The interval at which the synthetic monitoring task is executed.
+   * 
    * @example
    * 10
    */
   netIcmpInterval?: number;
   /**
+   * @remarks
+   * The number of packets.
+   * 
    * @example
    * 10
    */
   netIcmpNum?: number;
   /**
+   * @remarks
+   * The packet size.
+   * 
    * @example
    * 30
    */
   netIcmpSize?: number;
   /**
+   * @remarks
+   * Indicates whether ICMP test is enabled. Valid values:
+   * 
+   * *   0: no.
+   * *   1: yes. If you set this parameter to 1, you must also set the Icmp parameter.
+   * 
    * @example
    * 0
    */
   netIcmpSwitch?: number;
   /**
+   * @remarks
+   * The monitoring timeout period.
+   * 
    * @example
    * 20
    */
   netIcmpTimeout?: number;
   /**
+   * @remarks
+   * The maximum number of active detection points.
+   * 
    * @example
    * 30
    */
   netTraceRouteNum?: number;
   /**
+   * @remarks
+   * Indicates whether Tracert test is enabled. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes. If you set this parameter to 1, you must also set the Tracert parameter.
+   * 
    * @example
    * 0
    */
   netTraceRouteSwitch?: number;
   /**
+   * @remarks
+   * The monitoring timeout period. Valid values: 0 to 300. Unit: seconds.
+   * 
    * @example
    * 20
    */
   netTraceRouteTimeout?: number;
   /**
+   * @remarks
+   * The whitelisted objects that are used to avoid DNS hijacking. Format: `<domain name>:<objects>`.
+   * 
+   * >  WAP networks do not support hijacking.
+   * 
    * @example
    * 119.119.53.156/32
    */
@@ -51887,11 +52977,17 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailNet extends $tea.Model 
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentBodyFormdata extends $tea.Model {
   /**
+   * @remarks
+   * The key of the **form-data**.
+   * 
    * @example
    * appId
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the form-data.
+   * 
    * @example
    * 3425
    */
@@ -51917,11 +53013,17 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentB
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentBodyUrlencoded extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * appId
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * 11080
    */
@@ -51946,22 +53048,49 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentB
 }
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data content. This parameter is returned when Mode is set to form-data.
+   */
   formdata?: GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentBodyFormdata;
   /**
+   * @remarks
+   * The language used when Mode is set to raw. Valid values:
+   * 
+   * *   json
+   * *   xml
+   * *   javascript
+   * *   html
+   * *   text
+   * 
    * @example
    * xml
    */
   language?: string;
   /**
+   * @remarks
+   * The type of the content. Valid values:
+   * 
+   * *   form-data
+   * *   x-www-form-urlencoded
+   * *   raw
+   * 
    * @example
    * form-data
    */
   mode?: string;
   /**
+   * @remarks
+   * The data content. This parameter is returned when **Mode** is set to **raw**.
+   * 
    * @example
    * content
    */
   raw?: string;
+  /**
+   * @remarks
+   * The URL of the body content.
+   */
   urlencoded?: GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentBodyUrlencoded;
   static names(): { [key: string]: string } {
     return {
@@ -51990,11 +53119,17 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentB
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentHeader extends $tea.Model {
   /**
+   * @remarks
+   * The key of the header in the request parameters.
+   * 
    * @example
    * regionId
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the header in the request parameters.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -52019,9 +53154,23 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentH
 }
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContent extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the request body.
+   */
   body?: GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentBody;
+  /**
+   * @remarks
+   * The request header.
+   */
   header?: GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContentHeader[];
   /**
+   * @remarks
+   * The request method. Valid values:
+   * 
+   * *   POST
+   * *   GET
+   * 
    * @example
    * POST
    */
@@ -52049,42 +53198,83 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContent 
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocol extends $tea.Model {
   /**
+   * @remarks
+   * The encoding format. Valid values:
+   * 
+   * *   0: UTF-8
+   * *   1: GBK
+   * *   2: GB2312
+   * *   3: Unicode
+   * 
    * @example
    * 0
    */
   characterEncoding?: number;
   /**
+   * @remarks
+   * The custom host. Valid values:
+   * 
+   * *   1: round robin
+   * *   0: random
+   * 
    * @example
    * 1
    */
   customHost?: number;
   /**
+   * @remarks
+   * The custom IP address of the host. Multiple IP addresses are separated with commas (,).
+   * 
    * @example
    * 119.119.53.156
    */
   customHostIp?: string;
   /**
+   * @remarks
+   * The timeout period.
+   * 
    * @example
    * 20
    */
   protocolConnectionTimeout?: number;
   /**
+   * @remarks
+   * The timeout period of API performance monitoring. Unit: seconds.
+   * 
    * @example
    * 30
    */
   protocolMonitorTimeout?: number;
   /**
+   * @remarks
+   * The size of the received data. This parameter is returned when **VerifyWay** is set to 2.
+   * 
    * @example
    * 30
    */
   receivedDataSize?: number;
+  /**
+   * @remarks
+   * The request content, including the header and body.
+   */
   requestContent?: GetSyntheticTaskDetailResponseBodyTaskDetailProtocolRequestContent;
   /**
+   * @remarks
+   * The verification string.
+   * 
    * @example
    * list
    */
   verifyContent?: string;
   /**
+   * @remarks
+   * The method that is used to verify the response content. Valid values:
+   * 
+   * *   0: no verification.
+   * *   1: exact match with the verification string.
+   * *   2: partial match with the verification string.
+   * *   3: MD5 verification.
+   * 
    * @example
    * 0
    */
@@ -52123,35 +53313,39 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailProtocol extends $tea.M
 }
 
 export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The list of common parameters.
+   */
   commonParam?: GetSyntheticTaskDetailResponseBodyTaskDetailCommonParam;
   /**
    * @remarks
-   * 文件下载任务。
+   * The file download task.
    */
   download?: GetSyntheticTaskDetailResponseBodyTaskDetailDownload;
   /**
    * @remarks
-   * 自定义扩展频率。
+   * The frequency.
    */
   extendInterval?: GetSyntheticTaskDetailResponseBodyTaskDetailExtendInterval;
   /**
    * @remarks
-   * 拨测频率，单位为分钟。可选频率如下：
+   * The interval at which synthetic monitoring is performed. Unit: minutes. Valid values:
    * 
-   * - 1
-   * - 5
-   * - 10
-   * - 15
-   * - 20
-   * - 30
-   * - 60
-   * - 120
-   * - 180
-   * - 240
-   * - 360
-   * - 480
-   * - 720
-   * - 1440
+   * *   1
+   * *   5
+   * *   10
+   * *   15
+   * *   20
+   * *   30
+   * *   60
+   * *   120
+   * *   180
+   * *   240
+   * *   360
+   * *   480
+   * *   720
+   * *   1440
    * 
    * @example
    * 20
@@ -52159,10 +53353,10 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
   intervalTime?: number;
   /**
    * @remarks
-   * 监测周期类型：
+   * The interval type. Valid values:
    * 
-   * 0：每天
-   * 1：自定义扩展频率
+   * *   0: daily
+   * *   1: custom frequency
    * 
    * @example
    * 0
@@ -52170,11 +53364,11 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
   intervalType?: number;
   /**
    * @remarks
-   * IP类型：
+   * The IP version. Valid values:
    * 
-   * 0：自动
-   * 1：IPv4
-   * 2：IPv6
+   * *   0: A version is automatically selected.
+   * *   1: IPv4.
+   * *   2: IPv6.
    * 
    * @example
    * 0
@@ -52182,20 +53376,35 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
   ipType?: number;
   /**
    * @remarks
-   * 拨测任务的检测点列表。
+   * The detection points.
    */
   monitorList?: GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList[];
   /**
+   * @remarks
+   * The detection points.
+   * 
    * @example
    * 12
    */
   monitorListString?: string;
+  /**
+   * @remarks
+   * The browser test task.
+   */
   nav?: GetSyntheticTaskDetailResponseBodyTaskDetailNav;
+  /**
+   * @remarks
+   * The network synthetic monitoring task.
+   */
   net?: GetSyntheticTaskDetailResponseBodyTaskDetailNet;
+  /**
+   * @remarks
+   * The synthetic monitoring task of the API performance type.
+   */
   protocol?: GetSyntheticTaskDetailResponseBodyTaskDetailProtocol;
   /**
    * @remarks
-   * 云拨测任务ID。
+   * The ID of the synthetic monitoring task.
    * 
    * @example
    * 19584
@@ -52203,7 +53412,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
   taskId?: number;
   /**
    * @remarks
-   * 任务名称。
+   * The name of the task.
    * 
    * @example
    * net-test
@@ -52211,13 +53420,13 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
   taskName?: string;
   /**
    * @remarks
-   * 任务类型：
+   * The type of the task. Valid values:
    * 
-   * 3：网页性能-IE
-   * 34：网页性能-Chrome
-   * 0：网络质量
-   * 40：文件下载
-   * 7：API性能
+   * 1.  3: web page performance - IE
+   * 2.  34: web page performance - Chrome
+   * 3.  0: network quality
+   * 4.  40: file download
+   * 5.  7: API performance
    * 
    * @example
    * 0
@@ -52225,7 +53434,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
   taskType?: number;
   /**
    * @remarks
-   * 拨测地址。
+   * The URL for synthetic monitoring.
    * 
    * @example
    * www.example.com
@@ -52278,42 +53487,80 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetail extends $tea.Model {
 
 export class GetSyntheticTaskListResponseBodyPageInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 1634005438000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The number of detection points.
+   * 
    * @example
    * 2
    */
   monitorNumber?: number;
   /**
+   * @remarks
+   * The ID of the synthetic monitoring task.
+   * 
    * @example
    * 2118709
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
    * net-test
    */
   taskName?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **0**: The task is stopped.
+   * *   **1**: The task is started.
+   * *   **9**: The task is ended.
+   * 
    * @example
    * 0
    */
   taskStatus?: string;
   /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * 1.  3: web page performance - IE
+   * 2.  34: web page performance - Chrome
+   * 3.  0: network quality
+   * 4.  40: file download
+   * 5.  7: API performance
+   * 
    * @example
    * 0
    */
   taskType?: number;
+  /**
+   * @remarks
+   * The name of the task type.
+   */
   taskTypeName?: string;
   /**
+   * @remarks
+   * The URL for synthetic monitoring.
+   * 
    * @example
    * www.example.com
    */
   url?: string;
   /**
+   * @remarks
+   * The availability. Only the data of the last day is counted. If no data is available for the last day, an empty value is returned.
+   * 
    * @example
    * 0.80
    */
@@ -52353,62 +53600,102 @@ export class GetSyntheticTaskListResponseBodyPageInfoList extends $tea.Model {
 
 export class GetSyntheticTaskListResponseBodyPageInfo extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the current page is followed by a page.
+   * 
    * @example
    * false
    */
   hasNextPage?: string;
   /**
+   * @remarks
+   * Indicates whether a previous page exists.
+   * 
    * @example
    * true
    */
   hasPreviousPage?: boolean;
   /**
+   * @remarks
+   * Indicates whether the page is the first page.
+   * 
    * @example
    * true
    */
   isFirstPage?: boolean;
   /**
+   * @remarks
+   * Indicates whether the page is the last page.
+   * 
    * @example
    * true
    */
   isLastPage?: boolean;
+  /**
+   * @remarks
+   * The task information.
+   */
   list?: GetSyntheticTaskListResponseBodyPageInfoList[];
   /**
+   * @remarks
+   * The first page on the navigation bar.
+   * 
    * @example
    * 1
    */
   navigateFirstPage?: string;
   /**
+   * @remarks
+   * The last page on the navigation bar.
+   * 
    * @example
    * 3
    */
   navigateLastPage?: string;
   /**
+   * @remarks
+   * All navigation page numbers.
+   * 
    * @example
    * 1,2,3
    */
   navigatePageNums?: string;
   /**
+   * @remarks
+   * The next page.
+   * 
    * @example
    * 3
    */
   nextPage?: string;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 10
    */
   pages?: string;
   /**
+   * @remarks
+   * The previous page.
+   * 
    * @example
    * 1
    */
   prepage?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */
@@ -57467,16 +58754,28 @@ export class ListDashboardsResponseBodyDashboardVos extends $tea.Model {
 
 export class ListDispatchRuleResponseBodyDispatchRules extends $tea.Model {
   /**
+   * @remarks
+   * The name of the notification policy.
+   * 
    * @example
    * Prod
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the notification policy.
+   * 
    * @example
    * 10282
    */
   ruleId?: number;
   /**
+   * @remarks
+   * Indicates whether the notification policy is enabled. Valid values:
+   * 
+   * *   `true`
+   * *   `false`
+   * 
    * @example
    * true
    */
@@ -59975,7 +61274,21 @@ export class ListOnCallSchedulesResponseBodyPageBean extends $tea.Model {
 }
 
 export class ListPrometheusAlertRulesRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * owner
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * zhangsan
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59998,10 +61311,20 @@ export class ListPrometheusAlertRulesRequestTags extends $tea.Model {
 
 export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesAnnotations extends $tea.Model {
   /**
+   * @remarks
+   * The name of the annotation.
+   * 
    * @example
    * message
    */
   name?: string;
+  /**
+   * @remarks
+   * The value of the annotation.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60024,11 +61347,17 @@ export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesAnnotations
 
 export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesLabels extends $tea.Model {
   /**
+   * @remarks
+   * The name of the tag.
+   * 
    * @example
    * severity
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the tag associated with the instance.
+   * 
    * @example
    * critical
    */
@@ -60053,7 +61382,21 @@ export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesLabels exte
 }
 
 export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60076,49 +61419,105 @@ export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesTags extend
 
 export class ListPrometheusAlertRulesResponseBodyPrometheusAlertRules extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
    * @example
    * 3888704
    */
   alertId?: number;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * Prometheus_Alert
    */
   alertName?: string;
+  /**
+   * @remarks
+   * The annotations of the alert rule.
+   */
   annotations?: ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesAnnotations[];
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * c0bad479465464e1d8c1e641b0afb****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The ID of the notification policy. This parameter is returned if the NotifyType parameter is set to `DISPATCH_RULE`.
+   * 
    * @example
    * 10282
    */
   dispatchRuleId?: number;
   /**
+   * @remarks
+   * The duration of the alert. Valid values: 1 to 1440. Unit: minutes.
+   * 
    * @example
    * 1m
    */
   duration?: string;
   /**
+   * @remarks
+   * The expression of the alert rule.
+   * 
    * @example
    * 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \\"pod_name\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (pod_name))>75
    */
   expression?: string;
+  /**
+   * @remarks
+   * The tags of the alert rule.
+   */
   labels?: ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesLabels[];
+  /**
+   * @remarks
+   * The alert message. Tags can be referenced in the {{$labels.xxx}} format.
+   * 
+   * @example
+   * The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
+   */
   message?: string;
   /**
+   * @remarks
+   * The method that is used to send alert notifications. Valid values:
+   * 
+   * - ALERT_MANAGER: Alert notifications are sent by Operation Center.
+   * - DISPATCH_RULE: Alert notifications are
+   * 
    * @example
    * ALERT_MANAGER
    */
   notifyType?: string;
   /**
+   * @remarks
+   * Indicates whether the alert rule is enabled. Valid values:
+   * 
+   * - 1: The alert rule is enabled.
+   * - 0: The alert rule is disabled.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListPrometheusAlertRulesResponseBodyPrometheusAlertRulesTags[];
+  /**
+   * @remarks
+   * The type of the alert rule.
+   * 
+   * @example
+   * Custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65723,7 +67122,21 @@ export class UpdateIntegrationResponseBodyIntegration extends $tea.Model {
 }
 
 export class UpdatePrometheusAlertRuleRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66205,8 +67618,20 @@ export class UpdateTimingSyntheticTaskRequestCommonSettingCustomHost extends $te
 }
 
 export class UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting extends $tea.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   prometheusClusterId?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   prometheusClusterRegion?: string;
+  /**
+   * @remarks
+   * The reserved parameters.
+   */
   prometheusLabels?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -66291,6 +67716,10 @@ export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
    * The custom host settings.
    */
   customHost?: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost;
+  /**
+   * @remarks
+   * The reserved parameters.
+   */
   customPrometheusSetting?: UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting;
   /**
    * @remarks
@@ -66321,8 +67750,8 @@ export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
    * @remarks
    * Specifies whether to evenly distribute monitoring samples. Valid values:
    * 
-   * *   0: no.
-   * *   1: yes.
+   * *   0: no
+   * *   1: yes
    * 
    * @example
    * 0
@@ -66418,7 +67847,7 @@ export class UpdateTimingSyntheticTaskRequestCustomPeriod extends $tea.Model {
 export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody extends $tea.Model {
   /**
    * @remarks
-   * The content of the request body. Format: JSON string. The parameter is required if the type parameter is set to text/plain, application/json, application/xml, or text/html.
+   * The content of the request body. Format: JSON string. The parameter is required if the Type parameter is set to text/plain, application/json, application/xml, or text/html. Format: JSON string.
    * 
    * @example
    * {
@@ -66457,7 +67886,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTPRequestBody exten
 export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to verify the certificate. Default value: No.
+   * Specifies whether to verify the certificate. Default value: false.
    * 
    * @example
    * true
@@ -66473,7 +67902,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
   connectTimeout?: number;
   /**
    * @remarks
-   * The request method.
+   * The request method. Valid values:
    * 
    * *   POST
    * *   GET
@@ -66483,6 +67912,17 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfApiHTTP extends $tea.Mod
    */
   method?: string;
   /**
+   * @remarks
+   * The ALPN protocol version. You can configure this parameter when you perform an HTTPS synthetic test on a WAP mobile client. Valid values:
+   * 
+   * 0: default
+   * 
+   * 1-http/1.1
+   * 
+   * 2-h2
+   * 
+   * 3: disables the ALPN protocol
+   * 
    * @example
    * 0
    */
@@ -66571,7 +68011,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   downloadKernel?: number;
   /**
    * @remarks
-   * Specifies whether to ignore CA certificate authentication errors. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore CA certificate authentication errors. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66579,7 +68019,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   ignoreCertificateAuthError?: number;
   /**
    * @remarks
-   * Specifies whether to ignore certificate revocation errors. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore certificate revocation errors. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66587,7 +68027,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   ignoreCertificateCanceledError?: number;
   /**
    * @remarks
-   * Specifies whether to ignore certificate invalidity. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore certificate invalidity. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66595,7 +68035,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   ignoreCertificateOutOfDateError?: number;
   /**
    * @remarks
-   * Specifies whether to ignore certificate status errors. 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore certificate status errors. 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66603,7 +68043,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   ignoreCertificateStatusError?: number;
   /**
    * @remarks
-   * Specifies whether to ignore certificate incredibility. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore certificate incredibility. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66611,7 +68051,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   ignoreCertificateUntrustworthyError?: number;
   /**
    * @remarks
-   * Specifies whether to ignore certificate usage errors. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore certificate usage errors. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66619,7 +68059,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   ignoreCertificateUsingError?: number;
   /**
    * @remarks
-   * Specifies whether to ignore host invalidity. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore host invalidity. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66639,7 +68079,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
    * 
    * *   1: HTTP/1
    * *   2: HTTP/2
-   * *   3: HTTP/3
+   * *   3: http3
    * 
    * @example
    * 1
@@ -66647,7 +68087,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
   quickProtocol?: number;
   /**
    * @remarks
-   * Specifies whether to support redirection. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to support redirection. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -66751,7 +68191,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfFileDownload extends $te
 export class UpdateTimingSyntheticTaskRequestMonitorConfNetDNS extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to use the dig command to display the data. Valid values: 0: No. 1: Yes.
+   * Specifies whether to use the dig command to display the data. Valid values: 0: no. 1: yes.
    * 
    * @example
    * 0
@@ -66791,7 +68231,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfNetDNS extends $tea.Mode
   targetUrl?: string;
   /**
    * @remarks
-   * The timeout period for the DNS synthetic test. Unit: milliseconds. The minimum value is 1000 and the maximum value is 45000. Default value: 5000.
+   * The timeout period for the DNS synthetic test. Unit: milliseconds. Minimum value: 1000. Maximum value: 45000. Default value: 5000.
    * 
    * @example
    * 1000
@@ -67037,8 +68477,8 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfStream extends $tea.Mode
    * @remarks
    * The address type of the resource. Valid values:
    * 
-   * *   1: resource URL
-   * *   0: page URL Default value: 0.
+   * *   1: resource URL.
+   * *   0: page URL. Default value: 0.
    * 
    * @example
    * 1
@@ -67108,7 +68548,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfStream extends $tea.Mode
 export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to automatically scroll up and down the screen to load a page. Valid values: 0: No. 1: Yes. Default value: 0.
+   * Specifies whether to automatically scroll up and down the screen to load a page. Valid values: 0: no. 1: yes. Default value: 0.
    * 
    * @example
    * 0
@@ -67116,7 +68556,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
   automaticScrolling?: number;
   /**
    * @remarks
-   * Specifies whether to create a custom header. Valid values: 0: No. 1: The first packet is modified. 2: All packets are modified. Default value: 0.
+   * Specifies whether to create a custom header. Valid values: 0: no. 1: The first packet is modified. 2: All packets are modified. Default value: 0.
    * 
    * @example
    * 0
@@ -67139,7 +68579,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
   DNSHijackWhitelist?: string;
   /**
    * @remarks
-   * Specifies whether to disable the cache. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to disable the cache. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -67147,7 +68587,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
   disableCache?: number;
   /**
    * @remarks
-   * Specifies whether to accept compressed files based on the HTTP Accept-Encoding request header. Valid values: 0: No. 1: Yes. Default value: 0.
+   * Specifies whether to accept compressed files based on the HTTP Accept-Encoding request header. Valid values: 0: no. 1: yes. Default value: 0.
    * 
    * @example
    * 0
@@ -67165,8 +68605,8 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
    * @remarks
    * Specifies whether to exclude invalid IP addresses. Valid values:
    * 
-   * *   1: No
-   * *   0: Yes
+   * *   1: no
+   * *   0: yes
    * 
    * @example
    * 0
@@ -67190,7 +68630,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
   flowHijackLogo?: string;
   /**
    * @remarks
-   * Specifies whether to ignore SSL certificate errors during browsing. Valid values: 0: No. 1: Yes. Default value: 1.
+   * Specifies whether to ignore SSL certificate errors during browsing. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -67214,7 +68654,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConfWebsite extends $tea.Mod
   pageTamper?: string;
   /**
    * @remarks
-   * Specifies whether to continue browsing after redirection. Valid values: 0: No. 1:Yes. Default value: 1.
+   * Specifies whether to continue browsing after redirection. Valid values: 0: no. 1: yes. Default value: 1.
    * 
    * @example
    * 0
@@ -67336,7 +68776,7 @@ export class UpdateTimingSyntheticTaskRequestMonitorConf extends $tea.Model {
   netICMP?: UpdateTimingSyntheticTaskRequestMonitorConfNetICMP;
   /**
    * @remarks
-   * The parameters of the TCP synthetic test. This parameter is required if the TaskType parameter is set to 2.
+   * The parameters of the TCP synthetic test.
    */
   netTCP?: UpdateTimingSyntheticTaskRequestMonitorConfNetTCP;
   /**
@@ -67866,10 +69306,13 @@ export default class Client extends OpenApi {
   /**
    * Creates a Prometheus instance for Remote Write.
    * 
+   * @deprecated OpenAPI AddPrometheusInstance is deprecated, please use ARMS::2019-08-08::CreatePrometheusInstance instead.
+   * 
    * @param request - AddPrometheusInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPrometheusInstanceResponse
    */
+  // Deprecated
   async addPrometheusInstanceWithOptions(request: AddPrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67905,9 +69348,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a Prometheus instance for Remote Write.
    * 
+   * @deprecated OpenAPI AddPrometheusInstance is deprecated, please use ARMS::2019-08-08::CreatePrometheusInstance instead.
+   * 
    * @param request - AddPrometheusInstanceRequest
    * @returns AddPrometheusInstanceResponse
    */
+  // Deprecated
   async addPrometheusInstance(request: AddPrometheusInstanceRequest): Promise<AddPrometheusInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusInstanceWithOptions(request, runtime);
@@ -68763,7 +70209,7 @@ export default class Client extends OpenApi {
    * Creates an alert contact group.
    * 
    * @remarks
-   * ***********
+   * The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
    * 
    * @param request - CreateAlertContactGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68805,7 +70251,7 @@ export default class Client extends OpenApi {
    * Creates an alert contact group.
    * 
    * @remarks
-   * ***********
+   * The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
    * 
    * @param request - CreateAlertContactGroupRequest
    * @returns CreateAlertContactGroupResponse
@@ -69958,7 +71404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prometheus告警规则
+   * Creates an alert rule.
    * 
    * @param request - CreatePrometheusAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70033,7 +71479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prometheus告警规则
+   * Creates an alert rule.
    * 
    * @param request - CreatePrometheusAlertRuleRequest
    * @returns CreatePrometheusAlertRuleResponse
@@ -70291,6 +71737,10 @@ export default class Client extends OpenApi {
       query["PackageName"] = request.packageName;
     }
 
+    if (!Util.isUnset(request.realRegionId)) {
+      query["RealRegionId"] = request.realRegionId;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -70343,7 +71793,7 @@ export default class Client extends OpenApi {
    * Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
    * 
    * @remarks
-   * This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
+   * This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/document_detail/2579659.html).
    * 
    * @param request - CreateRumUploadFileUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70405,7 +71855,7 @@ export default class Client extends OpenApi {
    * Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
    * 
    * @remarks
-   * This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
+   * This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/document_detail/2579659.html).
    * 
    * @param request - CreateRumUploadFileUrlRequest
    * @returns CreateRumUploadFileUrlResponse
@@ -72105,6 +73555,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.realRegionId)) {
+      query["RealRegionId"] = request.realRegionId;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -72346,7 +73800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云拨测任务
+   * Deletes scheduled synthetic monitoring tasks.
    * 
    * @param request - DeleteSyntheticTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72381,7 +73835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云拨测任务
+   * Deletes scheduled synthetic monitoring tasks.
    * 
    * @param request - DeleteSyntheticTaskRequest
    * @returns DeleteSyntheticTaskResponse
@@ -73092,7 +74546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an alert rule of Prometheus Service.
+   * Queries the details about an alert rule for a Prometheus instance.
    * 
    * @param request - DescribePrometheusAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73127,7 +74581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an alert rule of Prometheus Service.
+   * Queries the details about an alert rule for a Prometheus instance.
    * 
    * @param request - DescribePrometheusAlertRuleRequest
    * @returns DescribePrometheusAlertRuleResponse
@@ -73349,6 +74803,56 @@ export default class Client extends OpenApi {
   async getAgentDownloadUrl(request: GetAgentDownloadUrlRequest): Promise<GetAgentDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取探针下载地址
+   * 
+   * @param request - GetAgentDownloadUrlV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentDownloadUrlV2Response
+   */
+  async getAgentDownloadUrlV2WithOptions(request: GetAgentDownloadUrlV2Request, runtime: $Util.RuntimeOptions): Promise<GetAgentDownloadUrlV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!Util.isUnset(request.archType)) {
+      query["ArchType"] = request.archType;
+    }
+
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAgentDownloadUrlV2",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAgentDownloadUrlV2Response>(await this.callApi(params, req, runtime), new GetAgentDownloadUrlV2Response({}));
+  }
+
+  /**
+   * 获取探针下载地址
+   * 
+   * @param request - GetAgentDownloadUrlV2Request
+   * @returns GetAgentDownloadUrlV2Response
+   */
+  async getAgentDownloadUrlV2(request: GetAgentDownloadUrlV2Request): Promise<GetAgentDownloadUrlV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAgentDownloadUrlV2WithOptions(request, runtime);
   }
 
   /**
@@ -73634,10 +75138,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
    * 
+   * @deprecated OpenAPI GetClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetPrometheusInstance instead.
+   * 
    * @param request - GetClusterAllUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetClusterAllUrlResponse
    */
+  // Deprecated
   async getClusterAllUrlWithOptions(request: GetClusterAllUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterAllUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73669,9 +75176,12 @@ export default class Client extends OpenApi {
   /**
    * Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
    * 
+   * @deprecated OpenAPI GetClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetPrometheusInstance instead.
+   * 
    * @param request - GetClusterAllUrlRequest
    * @returns GetClusterAllUrlResponse
    */
+  // Deprecated
   async getClusterAllUrl(request: GetClusterAllUrlRequest): Promise<GetClusterAllUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterAllUrlWithOptions(request, runtime);
@@ -75080,7 +76590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个拨测任务的详情
+   * Queries the details of a scheduled synthetic monitoring task.
    * 
    * @param request - GetSyntheticTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75115,7 +76625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个拨测任务的详情
+   * Queries the details of a scheduled synthetic monitoring task.
    * 
    * @param request - GetSyntheticTaskDetailRequest
    * @returns GetSyntheticTaskDetailResponse
@@ -75126,7 +76636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取拨测任务列表
+   * Queries a list of scheduled synthetic monitoring tasks.
    * 
    * @param request - GetSyntheticTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75189,7 +76699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取拨测任务列表
+   * Queries a list of scheduled synthetic monitoring tasks.
    * 
    * @param request - GetSyntheticTaskListRequest
    * @returns GetSyntheticTaskListResponse
@@ -75390,7 +76900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
+   * Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
    * 
    * @param request - GetTraceAppConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75421,7 +76931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
+   * Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
    * 
    * @param request - GetTraceAppConfigRequest
    * @returns GetTraceAppConfigResponse
@@ -76422,6 +77932,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries notification policies.
+   * 
+   * @remarks
+   * The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
+   * 
    * @param request - ListDispatchRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDispatchRuleResponse
@@ -76459,6 +77974,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries notification policies.
+   * 
+   * @remarks
+   * The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
+   * 
    * @param request - ListDispatchRuleRequest
    * @returns ListDispatchRuleResponse
    */
@@ -77132,7 +78652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The value of the annotation.
+   * Queries the alert rules created for a Prometheus instance.
    * 
    * @param request - ListPrometheusAlertRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77187,7 +78707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The value of the annotation.
+   * Queries the alert rules created for a Prometheus instance.
    * 
    * @param request - ListPrometheusAlertRulesRequest
    * @returns ListPrometheusAlertRulesResponse
@@ -79762,7 +81282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动或者禁用云拨测的任务
+   * Starts or stops a scheduled synthetic monitoring task.
    * 
    * @param request - SwitchSyntheticTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -79797,7 +81317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动或者禁用云拨测的任务
+   * Starts or stops a scheduled synthetic monitoring task.
    * 
    * @param request - SwitchSyntheticTaskStatusRequest
    * @returns SwitchSyntheticTaskStatusResponse
@@ -81001,8 +82521,28 @@ export default class Client extends OpenApi {
       query["ArchiveDuration"] = request.archiveDuration;
     }
 
+    if (!Util.isUnset(request.authFreeReadPolicy)) {
+      query["AuthFreeReadPolicy"] = request.authFreeReadPolicy;
+    }
+
+    if (!Util.isUnset(request.authFreeWritePolicy)) {
+      query["AuthFreeWritePolicy"] = request.authFreeWritePolicy;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.enableAuthFreeRead)) {
+      query["EnableAuthFreeRead"] = request.enableAuthFreeRead;
+    }
+
+    if (!Util.isUnset(request.enableAuthFreeWrite)) {
+      query["EnableAuthFreeWrite"] = request.enableAuthFreeWrite;
+    }
+
+    if (!Util.isUnset(request.enableAuthToken)) {
+      query["EnableAuthToken"] = request.enableAuthToken;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -81256,6 +82796,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pid)) {
       query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.realRegionId)) {
+      query["RealRegionId"] = request.realRegionId;
     }
 
     if (!Util.isUnset(request.regionId)) {
