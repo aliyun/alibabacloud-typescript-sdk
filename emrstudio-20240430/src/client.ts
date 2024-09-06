@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,29 +8,121 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateWorkflowRequest extends $tea.Model {
+  /**
+   * @example
+   * ag-v7n2gp3vv3j****
+   */
   alertGroupId?: string;
+  /**
+   * @example
+   * NONE
+   */
   alertStrategy?: string;
+  taskDefinitionJsonValue?: string;
+  taskRelationJsonValue?: string;
+  /**
+   * @example
+   * 0 0 * * * ? *
+   */
   cronExpr?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * PARALLEL
+   */
   executionType?: string;
+  /**
+   * @example
+   * END
+   */
   failureStrategy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * wd-v7n2gp3vv3j****
+   */
   parentDirectoryId?: string;
+  /**
+   * @example
+   * wg-acfmv4opbs****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleEndTime?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleStartTime?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   scheduleState?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"taskId":"t1","name":"t1","taskParams":{"rawScript":"echo 1"},"taskType":"SHELL"}]
+   */
   taskDefinitionJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"preTaskId":"0", "postTaskId":"t1"}]
+   */
   taskRelationJson?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
+  /**
+   * @example
+   * 10
+   */
   timeout?: number;
+  /**
+   * @example
+   * MEDIUM
+   */
   workflowInstancePriority?: string;
+  /**
+   * @example
+   * [{"prop":"key1","value":"value1"}]
+   */
   workflowParams?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       alertGroupId: 'alertGroupId',
       alertStrategy: 'alertStrategy',
+      taskDefinitionJsonValue: 'taskDefinitionJsonValue',
+      taskRelationJsonValue: 'taskRelationJsonValue',
       cronExpr: 'cronExpr',
       description: 'description',
       executionType: 'executionType',
@@ -56,6 +147,8 @@ export class CreateWorkflowRequest extends $tea.Model {
     return {
       alertGroupId: 'string',
       alertStrategy: 'string',
+      taskDefinitionJsonValue: 'string',
+      taskRelationJsonValue: 'string',
       cronExpr: 'string',
       description: 'string',
       executionType: 'string',
@@ -83,7 +176,18 @@ export class CreateWorkflowRequest extends $tea.Model {
 
 export class CreateWorkflowResponseBody extends $tea.Model {
   data?: CreateWorkflowResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA38***
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -132,6 +236,13 @@ export class CreateWorkflowResponse extends $tea.Model {
 }
 
 export class DeleteWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,7 +262,18 @@ export class DeleteWorkflowRequest extends $tea.Model {
 }
 
 export class DeleteWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -198,6 +320,13 @@ export class DeleteWorkflowResponse extends $tea.Model {
 }
 
 export class DescribeManualTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -217,16 +346,78 @@ export class DescribeManualTaskRequest extends $tea.Model {
 }
 
 export class DescribeManualTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * mt-3q9jo749ne5****
+   */
   manualTaskId?: string;
+  /**
+   * @example
+   * test
+   */
   manualTaskName?: string;
+  /**
+   * @example
+   * mtd-oy98v7n43el****
+   */
   parentDirectoryId?: string;
+  /**
+   * @example
+   * p-3q9jo749ne5****
+   */
   projectId?: string;
+  /**
+   * @example
+   * r-oy98v7n43el****
+   */
   resourceIds?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -291,6 +482,13 @@ export class DescribeManualTaskResponse extends $tea.Model {
 }
 
 export class DescribeManualTaskInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -310,17 +508,83 @@ export class DescribeManualTaskInstanceRequest extends $tea.Model {
 }
 
 export class DescribeManualTaskInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * c-b933c5aac7f7***
+   */
   emrClusterId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * application_123_***
+   */
   externalAppId?: string;
+  /**
+   * @example
+   * mti-0k5vype05xm****
+   */
   manualTaskInstanceId?: string;
+  /**
+   * @example
+   * test
+   */
   manualTaskInstanceName?: string;
+  /**
+   * @example
+   * wg-123abc***
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   submitTime?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -387,6 +651,13 @@ export class DescribeManualTaskInstanceResponse extends $tea.Model {
 }
 
 export class DescribeProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -406,9 +677,31 @@ export class DescribeProjectRequest extends $tea.Model {
 }
 
 export class DescribeProjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * this is a project description
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_project_name
+   */
   name?: string;
+  /**
+   * @example
+   * p-3q9jo749ne5****
+   */
   projectId?: string;
+  /**
+   * @example
+   * B897B94B-6754-5D09-AB8C-2E8186CCADC0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -459,6 +752,13 @@ export class DescribeProjectResponse extends $tea.Model {
 }
 
 export class DescribeTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -478,24 +778,118 @@ export class DescribeTaskRequest extends $tea.Model {
 }
 
 export class DescribeTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 0
+   */
   delayTime?: number;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * 1
+   */
   failRetryInterval?: number;
+  /**
+   * @example
+   * 0
+   */
   failRetryTimes?: number;
+  /**
+   * @example
+   * YES
+   */
   flag?: string;
+  /**
+   * @example
+   * p-3q9jo749ne5****
+   */
   projectId?: string;
+  /**
+   * @example
+   * r-oy98v7n43el****
+   */
   resourceIds?: string;
+  /**
+   * @example
+   * t-3q9jo749ne5****
+   */
   taskId?: string;
+  /**
+   * @example
+   * test
+   */
   taskName?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * MEDIUM
+   */
   taskPriority?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * 10
+   */
   timeout?: number;
+  /**
+   * @example
+   * CLOSE
+   */
   timeoutFlag?: string;
+  /**
+   * @example
+   * WARN
+   */
   timeoutNotifyStrategy?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -576,6 +970,13 @@ export class DescribeTaskResponse extends $tea.Model {
 }
 
 export class DescribeTaskInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -595,22 +996,108 @@ export class DescribeTaskInstanceRequest extends $tea.Model {
 }
 
 export class DescribeTaskInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   dryRun?: string;
+  /**
+   * @example
+   * c-b933c5aac7f7***
+   */
   emrClusterId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * application_123_***
+   */
   externalAppId?: string;
+  /**
+   * @example
+   * wg-123abc***
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 0
+   */
   retryTimes?: number;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   submitTime?: string;
+  /**
+   * @example
+   * t-3q9jo749ne5****
+   */
   taskId?: string;
+  /**
+   * @example
+   * ti-3q9jo749ne5****
+   */
   taskInstanceId?: string;
+  /**
+   * @example
+   * test
+   */
   taskInstanceName?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * 1
+   */
   taskVersion?: string;
+  /**
+   * @example
+   * wi-3q9jo749ne5****
+   */
   workflowInstanceId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -687,6 +1174,13 @@ export class DescribeTaskInstanceResponse extends $tea.Model {
 }
 
 export class DescribeWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -706,6 +1200,10 @@ export class DescribeWorkflowRequest extends $tea.Model {
 }
 
 export class DescribeWorkflowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 611AD6E6-BFE3-5897-AA12-569F79DBAF9B
+   */
   requestId?: string;
   schedule?: DescribeWorkflowResponseBodySchedule;
   taskRelations?: DescribeWorkflowResponseBodyTaskRelations[];
@@ -762,6 +1260,13 @@ export class DescribeWorkflowResponse extends $tea.Model {
 }
 
 export class DescribeWorkflowInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -781,24 +1286,100 @@ export class DescribeWorkflowInstanceRequest extends $tea.Model {
 }
 
 export class DescribeWorkflowInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ag-n72kong0832****
+   */
   alertGroupId?: string;
+  /**
+   * @example
+   * NONE
+   */
   alertStrategy?: string;
+  /**
+   * @example
+   * c-047fa6bbe732****
+   */
   emrClusterId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * END
+   */
   failureStrategy?: string;
+  /**
+   * @example
+   * false
+   */
   isComplementData?: boolean;
+  /**
+   * @example
+   * workflow_instance_name
+   */
   name?: string;
+  /**
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * wg-susqimrr649x****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   restartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   runTimes?: number;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   scheduleTime?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 0
+   */
   timeout?: number;
+  /**
+   * @example
+   * w-3q9jo749ne5****
+   */
   workflowId?: string;
+  /**
+   * @example
+   * wi-3q9jo749ne5****
+   */
   workflowInstanceId?: string;
+  /**
+   * @example
+   * MEDIUM
+   */
   workflowInstancePriority?: string;
+  /**
+   * @example
+   * 1
+   */
   workflowVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -879,12 +1460,43 @@ export class DescribeWorkflowInstanceResponse extends $tea.Model {
 }
 
 export class ListManualTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * test
+   */
   searchVal?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -917,8 +1529,23 @@ export class ListManualTaskInstancesRequest extends $tea.Model {
 
 export class ListManualTaskInstancesResponseBody extends $tea.Model {
   data?: ListManualTaskInstancesResponseBodyData[];
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -969,10 +1596,33 @@ export class ListManualTaskInstancesResponse extends $tea.Model {
 }
 
 export class ListManualTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * test
+   */
   searchVal?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1001,8 +1651,23 @@ export class ListManualTasksRequest extends $tea.Model {
 
 export class ListManualTasksResponseBody extends $tea.Model {
   data?: ListManualTasksResponseBodyData[];
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1053,9 +1718,28 @@ export class ListManualTasksResponse extends $tea.Model {
 }
 
 export class ListProjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * test
+   */
   searchVal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1082,8 +1766,20 @@ export class ListProjectsRequest extends $tea.Model {
 
 export class ListProjectsResponseBody extends $tea.Model {
   data?: ListProjectsResponseBodyData[];
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1134,13 +1830,48 @@ export class ListProjectsResponse extends $tea.Model {
 }
 
 export class ListTaskInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * test
+   */
   searchVal?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * wi-3q9jo749ne5****
+   */
   workflowInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1175,8 +1906,23 @@ export class ListTaskInstancesRequest extends $tea.Model {
 
 export class ListTaskInstancesResponseBody extends $tea.Model {
   data?: ListTaskInstancesResponseBodyData[];
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9E3A7161-EB7B-172B-8D18-FFB06BA38***
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1227,11 +1973,38 @@ export class ListTaskInstancesResponse extends $tea.Model {
 }
 
 export class ListTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: string;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * test
+   */
   searchVal?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * w-n72kong0832****
+   */
   workflowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1262,8 +2035,23 @@ export class ListTasksRequest extends $tea.Model {
 
 export class ListTasksResponseBody extends $tea.Model {
   data?: ListTasksResponseBodyData[];
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1314,12 +2102,43 @@ export class ListTasksResponse extends $tea.Model {
 }
 
 export class ListWorkflowInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * w-3q9jo749ne5****
+   */
   workflowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1352,8 +2171,20 @@ export class ListWorkflowInstancesRequest extends $tea.Model {
 
 export class ListWorkflowInstancesResponseBody extends $tea.Model {
   data?: ListWorkflowInstancesResponseBodyData[];
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1404,9 +2235,28 @@ export class ListWorkflowInstancesResponse extends $tea.Model {
 }
 
 export class ListWorkflowsRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 123abc***
+   */
   nextToken?: string;
+  /**
+   * @example
+   * test
+   */
   searchVal?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1433,8 +2283,20 @@ export class ListWorkflowsRequest extends $tea.Model {
 
 export class ListWorkflowsResponseBody extends $tea.Model {
   data?: ListWorkflowsResponseBodyData[];
+  /**
+   * @example
+   * 123abc****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1485,19 +2347,84 @@ export class ListWorkflowsResponse extends $tea.Model {
 }
 
 export class RunWorkflowRequest extends $tea.Model {
+  /**
+   * @example
+   * ag-n72kong0832****
+   */
   alertGroupId?: string;
+  /**
+   * @example
+   * NONE
+   */
   alertStrategy?: string;
+  /**
+   * @example
+   * OFF_MODE
+   */
   complementDependentMode?: string;
+  /**
+   * @example
+   * 0
+   */
   dryRun?: string;
+  /**
+   * @example
+   * START_PROCESS
+   */
   execType?: string;
+  /**
+   * @example
+   * 1
+   */
   expectedParallelismNumber?: string;
+  /**
+   * @example
+   * END
+   */
   failureStrategy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wg-acfmv4opbs****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * RUN_MODE_PARALLEL
+   */
   runMode?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00,2024-01-02 00:00:00
+   */
   scheduleTime?: string;
+  /**
+   * @example
+   * {"key1":"value1"}
+   */
   startParams?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * w-3q9jo749ne5****
+   */
   workflowId?: string;
+  /**
+   * @example
+   * MEDIUM
+   */
   workflowInstancePriority?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1543,7 +2470,18 @@ export class RunWorkflowRequest extends $tea.Model {
 }
 
 export class RunWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1590,29 +2528,112 @@ export class RunWorkflowResponse extends $tea.Model {
 }
 
 export class UpdateWorkflowRequest extends $tea.Model {
+  /**
+   * @example
+   * ag-n72kong0832****
+   */
   alertGroupId?: string;
+  /**
+   * @example
+   * NONE
+   */
   alertStrategy?: string;
+  taskDefinitionJsonValue?: string;
+  taskRelationJsonValue?: string;
+  /**
+   * @example
+   * 0 0 * * * ? *
+   */
   cronExpr?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * PARALLEL
+   */
   executionType?: string;
+  /**
+   * @example
+   * END
+   */
   failureStrategy?: string;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * wd-n72kong0832****
+   */
   parentDirectoryId?: string;
+  /**
+   * @example
+   * wg-acfmv4opbs****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleEndTime?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleStartTime?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   scheduleState?: string;
+  /**
+   * @example
+   * [{"taskId":"t1","name":"t1","taskParams":{"rawScript":"echo 1"},"taskType":"SHELL"}]
+   */
   taskDefinitionJson?: string;
+  /**
+   * @example
+   * [{"preTaskId":"0", "postTaskId":"t1"}]
+   */
   taskRelationJson?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
+  /**
+   * @example
+   * 10
+   */
   timeout?: number;
+  /**
+   * @example
+   * MEDIUM
+   */
   workflowInstancePriority?: string;
+  /**
+   * @example
+   * [{"prop":"key1","value":"value1"}]
+   */
   workflowParams?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       alertGroupId: 'alertGroupId',
       alertStrategy: 'alertStrategy',
+      taskDefinitionJsonValue: 'taskDefinitionJsonValue',
+      taskRelationJsonValue: 'taskRelationJsonValue',
       cronExpr: 'cronExpr',
       description: 'description',
       executionType: 'executionType',
@@ -1637,6 +2658,8 @@ export class UpdateWorkflowRequest extends $tea.Model {
     return {
       alertGroupId: 'string',
       alertStrategy: 'string',
+      taskDefinitionJsonValue: 'string',
+      taskRelationJsonValue: 'string',
       cronExpr: 'string',
       description: 'string',
       executionType: 'string',
@@ -1663,7 +2686,18 @@ export class UpdateWorkflowRequest extends $tea.Model {
 }
 
 export class UpdateWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1710,6 +2744,10 @@ export class UpdateWorkflowResponse extends $tea.Model {
 }
 
 export class CreateWorkflowResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * w-acfmv4opbs****
+   */
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1729,16 +2767,60 @@ export class CreateWorkflowResponseBodyData extends $tea.Model {
 }
 
 export class DescribeWorkflowResponseBodySchedule extends $tea.Model {
+  /**
+   * @example
+   * ag-n72kong0832****
+   */
   alertGroupId?: string;
+  /**
+   * @example
+   * NONE
+   */
   alertStrategy?: string;
+  /**
+   * @example
+   * 0 0 * * * ? *
+   */
   cronExpr?: string;
+  /**
+   * @example
+   * C-15F7AB9B53F1****
+   */
   emrClusterId?: string;
+  /**
+   * @example
+   * END
+   */
   failureStrategy?: string;
+  /**
+   * @example
+   * wg-susqimrr649x****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleEndTime?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleStartTime?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   scheduleState?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
+  /**
+   * @example
+   * MEDIUM
+   */
   workflowInstancePriority?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1778,7 +2860,15 @@ export class DescribeWorkflowResponseBodySchedule extends $tea.Model {
 }
 
 export class DescribeWorkflowResponseBodyTaskRelations extends $tea.Model {
+  /**
+   * @example
+   * t-n72kong0832****
+   */
   postTaskId?: string;
+  /**
+   * @example
+   * t-n72kong0832****
+   */
   preTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1800,9 +2890,25 @@ export class DescribeWorkflowResponseBodyTaskRelations extends $tea.Model {
 }
 
 export class DescribeWorkflowResponseBodyTasks extends $tea.Model {
+  /**
+   * @example
+   * task description
+   */
   description?: string;
+  /**
+   * @example
+   * task_name
+   */
   name?: string;
+  /**
+   * @example
+   * t-n72kong0832****
+   */
   taskId?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1828,14 +2934,50 @@ export class DescribeWorkflowResponseBodyTasks extends $tea.Model {
 }
 
 export class DescribeWorkflowResponseBodyWorkflow extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * PARALLEL
+   */
   executionType?: string;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * wd-n72kong0832****
+   */
   parentDirectoryId?: string;
+  /**
+   * @example
+   * 0
+   */
   timeout?: number;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   updateTime?: string;
+  /**
+   * @example
+   * w-n72kong0832****
+   */
   workflowId?: string;
+  /**
+   * @example
+   * [{"prop":"key1","value":"value1"}]
+   */
   workflowParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1871,16 +3013,75 @@ export class DescribeWorkflowResponseBodyWorkflow extends $tea.Model {
 }
 
 export class ListManualTaskInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * c-b933c5aac7f7***
+   */
   emrClusterId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * application_123_***
+   */
   externalAppId?: string;
+  /**
+   * @example
+   * mti-3q9jo749ne5****
+   */
   manualTaskInstanceId?: string;
+  /**
+   * @example
+   * test
+   */
   manualTaskInstanceName?: string;
+  /**
+   * @example
+   * wg-3q9jo749ne5****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   submitTime?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1920,15 +3121,70 @@ export class ListManualTaskInstancesResponseBodyData extends $tea.Model {
 }
 
 export class ListManualTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * mt-3q9jo749ne5****
+   */
   manualTaskId?: string;
+  /**
+   * @example
+   * test
+   */
   manualTaskName?: string;
+  /**
+   * @example
+   * mtd-oy98v7n43el****
+   */
   parentDirectoryId?: string;
+  /**
+   * @example
+   * p-3q9jo749ne5****
+   */
   projectId?: string;
+  /**
+   * @example
+   * r-oy98v7n43el****
+   */
   resourceIds?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1966,8 +3222,20 @@ export class ListManualTasksResponseBodyData extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * project_name
+   */
   name?: string;
+  /**
+   * @example
+   * p-3q9jo749ne5****
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1991,21 +3259,100 @@ export class ListProjectsResponseBodyData extends $tea.Model {
 }
 
 export class ListTaskInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   dryRun?: string;
+  /**
+   * @example
+   * c-b933c5aac7f7***
+   */
   emrClusterId?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * application_123_***
+   */
   externalAppId?: string;
+  /**
+   * @example
+   * wg-3q9jo749ne5****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 0
+   */
   retryTimes?: number;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   submitTime?: string;
+  /**
+   * @example
+   * t-3q9jo749ne5****
+   */
   taskId?: string;
+  /**
+   * @example
+   * ti-3q9jo749ne5****
+   */
   taskInstanceId?: string;
+  /**
+   * @example
+   * test
+   */
   taskInstanceName?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * 1
+   */
   taskVersion?: string;
+  /**
+   * @example
+   * wi-3q9jo749ne5****
+   */
   workflowInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2055,23 +3402,110 @@ export class ListTaskInstancesResponseBodyData extends $tea.Model {
 }
 
 export class ListTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 0
+   */
   delayTime?: number;
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * 1
+   */
   failRetryInterval?: number;
+  /**
+   * @example
+   * 0
+   */
   failRetryTimes?: number;
+  /**
+   * @example
+   * YES
+   */
   flag?: string;
+  /**
+   * @example
+   * p-3q9jo749ne5****
+   */
   projectId?: string;
+  /**
+   * @example
+   * r-3q9jo749ne5****
+   */
   resourceIds?: string;
+  /**
+   * @example
+   * t-3q9jo749ne5****
+   */
   taskId?: string;
+  /**
+   * @example
+   * test
+   */
   taskName?: string;
+  /**
+   * @example
+   * {
+   *     "yarnUser": "",
+   *     "conditionResult": "null",
+   *     "rawScript": "sleep 300",
+   *     "submitOnYarnFlag": false,
+   *     "emrClusterId": "",
+   *     "yarnPriority": "",
+   *     "dependence": "null",
+   *     "yarnMemory": "",
+   *     "localParams": [],
+   *     "switchResult": "null",
+   *     "resourceList": [],
+   *     "yarnQueue": "",
+   *     "yarnVCores": "",
+   *     "associateManualTaskFlag": false
+   * }
+   */
   taskParams?: string;
+  /**
+   * @example
+   * MEDIUM
+   */
   taskPriority?: string;
+  /**
+   * @example
+   * SHELL
+   */
   taskType?: string;
+  /**
+   * @example
+   * 0
+   */
   timeout?: number;
+  /**
+   * @example
+   * CLOSE
+   */
   timeoutFlag?: string;
+  /**
+   * @example
+   * WARN
+   */
   timeoutNotifyStrategy?: string;
+  /**
+   * @example
+   * 2024-03-27 00:00:00
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2125,13 +3559,45 @@ export class ListTasksResponseBodyData extends $tea.Model {
 }
 
 export class ListWorkflowInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * workflow_instance_name
+   */
   name?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   scheduleTime?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * w-3q9jo749ne5****
+   */
   workflowId?: string;
+  /**
+   * @example
+   * wi-3q9jo749ne5****
+   */
   workflowInstanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   workflowVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2165,11 +3631,35 @@ export class ListWorkflowInstancesResponseBodyData extends $tea.Model {
 }
 
 export class ListWorkflowsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * workflow description
+   */
   description?: string;
+  /**
+   * @example
+   * workflow_name
+   */
   name?: string;
+  /**
+   * @example
+   * wd-3q9jo749ne5****
+   */
   parentDirectoryId?: string;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
   updateTime?: string;
+  /**
+   * @example
+   * w-3q9jo749ne5****
+   */
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2222,12 +3712,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建工作流
-   *
-   * @param request CreateWorkflowRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWorkflowResponse
+   * 创建工作流
+   * 
+   * @param request - CreateWorkflowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkflowResponse
    */
   async createWorkflowWithOptions(projectId: string, request: CreateWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkflowResponse> {
     Util.validateModel(request);
@@ -2308,9 +3798,19 @@ export default class Client extends OpenApi {
       query["workspaceId"] = request.workspaceId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskDefinitionJsonValue)) {
+      body["taskDefinitionJsonValue"] = request.taskDefinitionJsonValue;
+    }
+
+    if (!Util.isUnset(request.taskRelationJsonValue)) {
+      body["taskRelationJsonValue"] = request.taskRelationJsonValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateWorkflow",
@@ -2327,10 +3827,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建工作流
-   *
-   * @param request CreateWorkflowRequest
-   * @return CreateWorkflowResponse
+   * 创建工作流
+   * 
+   * @param request - CreateWorkflowRequest
+   * @returns CreateWorkflowResponse
    */
   async createWorkflow(projectId: string, request: CreateWorkflowRequest): Promise<CreateWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2339,12 +3839,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除工作流
-   *
-   * @param request DeleteWorkflowRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWorkflowResponse
+   * 删除工作流
+   * 
+   * @param request - DeleteWorkflowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkflowResponse
    */
   async deleteWorkflowWithOptions(projectId: string, workflowId: string, request: DeleteWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkflowResponse> {
     Util.validateModel(request);
@@ -2372,10 +3872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除工作流
-   *
-   * @param request DeleteWorkflowRequest
-   * @return DeleteWorkflowResponse
+   * 删除工作流
+   * 
+   * @param request - DeleteWorkflowRequest
+   * @returns DeleteWorkflowResponse
    */
   async deleteWorkflow(projectId: string, workflowId: string, request: DeleteWorkflowRequest): Promise<DeleteWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2384,12 +3884,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取手动任务定义
-   *
-   * @param request DescribeManualTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeManualTaskResponse
+   * 获取手动任务定义
+   * 
+   * @param request - DescribeManualTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeManualTaskResponse
    */
   async describeManualTaskWithOptions(projectId: string, manualTaskId: string, request: DescribeManualTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeManualTaskResponse> {
     Util.validateModel(request);
@@ -2417,10 +3917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取手动任务定义
-   *
-   * @param request DescribeManualTaskRequest
-   * @return DescribeManualTaskResponse
+   * 获取手动任务定义
+   * 
+   * @param request - DescribeManualTaskRequest
+   * @returns DescribeManualTaskResponse
    */
   async describeManualTask(projectId: string, manualTaskId: string, request: DescribeManualTaskRequest): Promise<DescribeManualTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2429,12 +3929,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取手动任务实例
-   *
-   * @param request DescribeManualTaskInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeManualTaskInstanceResponse
+   * 获取手动任务实例
+   * 
+   * @param request - DescribeManualTaskInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeManualTaskInstanceResponse
    */
   async describeManualTaskInstanceWithOptions(manualTaskInstanceId: string, projectId: string, request: DescribeManualTaskInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeManualTaskInstanceResponse> {
     Util.validateModel(request);
@@ -2462,10 +3962,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取手动任务实例
-   *
-   * @param request DescribeManualTaskInstanceRequest
-   * @return DescribeManualTaskInstanceResponse
+   * 获取手动任务实例
+   * 
+   * @param request - DescribeManualTaskInstanceRequest
+   * @returns DescribeManualTaskInstanceResponse
    */
   async describeManualTaskInstance(manualTaskInstanceId: string, projectId: string, request: DescribeManualTaskInstanceRequest): Promise<DescribeManualTaskInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2474,12 +3974,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目详情
-   *
-   * @param request DescribeProjectRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeProjectResponse
+   * 获取项目详情
+   * 
+   * @param request - DescribeProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectResponse
    */
   async describeProjectWithOptions(projectId: string, request: DescribeProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeProjectResponse> {
     Util.validateModel(request);
@@ -2507,10 +4007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目详情
-   *
-   * @param request DescribeProjectRequest
-   * @return DescribeProjectResponse
+   * 获取项目详情
+   * 
+   * @param request - DescribeProjectRequest
+   * @returns DescribeProjectResponse
    */
   async describeProject(projectId: string, request: DescribeProjectRequest): Promise<DescribeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2519,12 +4019,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务定义
-   *
-   * @param request DescribeTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTaskResponse
+   * 查询任务定义
+   * 
+   * @param request - DescribeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTaskResponse
    */
   async describeTaskWithOptions(workflowId: string, projectId: string, taskId: string, request: DescribeTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTaskResponse> {
     Util.validateModel(request);
@@ -2552,10 +4052,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务定义
-   *
-   * @param request DescribeTaskRequest
-   * @return DescribeTaskResponse
+   * 查询任务定义
+   * 
+   * @param request - DescribeTaskRequest
+   * @returns DescribeTaskResponse
    */
   async describeTask(workflowId: string, projectId: string, taskId: string, request: DescribeTaskRequest): Promise<DescribeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2564,12 +4064,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务实例
-   *
-   * @param request DescribeTaskInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTaskInstanceResponse
+   * 获取任务实例
+   * 
+   * @param request - DescribeTaskInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTaskInstanceResponse
    */
   async describeTaskInstanceWithOptions(projectId: string, workflowInstanceId: string, taskInstanceId: string, request: DescribeTaskInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTaskInstanceResponse> {
     Util.validateModel(request);
@@ -2597,10 +4097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务实例
-   *
-   * @param request DescribeTaskInstanceRequest
-   * @return DescribeTaskInstanceResponse
+   * 获取任务实例
+   * 
+   * @param request - DescribeTaskInstanceRequest
+   * @returns DescribeTaskInstanceResponse
    */
   async describeTaskInstance(projectId: string, workflowInstanceId: string, taskInstanceId: string, request: DescribeTaskInstanceRequest): Promise<DescribeTaskInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2609,12 +4109,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流详情
-   *
-   * @param request DescribeWorkflowRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWorkflowResponse
+   * 获取工作流详情
+   * 
+   * @param request - DescribeWorkflowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWorkflowResponse
    */
   async describeWorkflowWithOptions(projectId: string, workflowId: string, request: DescribeWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowResponse> {
     Util.validateModel(request);
@@ -2642,10 +4142,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流详情
-   *
-   * @param request DescribeWorkflowRequest
-   * @return DescribeWorkflowResponse
+   * 获取工作流详情
+   * 
+   * @param request - DescribeWorkflowRequest
+   * @returns DescribeWorkflowResponse
    */
   async describeWorkflow(projectId: string, workflowId: string, request: DescribeWorkflowRequest): Promise<DescribeWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2654,12 +4154,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流实例详情
-   *
-   * @param request DescribeWorkflowInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWorkflowInstanceResponse
+   * 获取工作流实例详情
+   * 
+   * @param request - DescribeWorkflowInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWorkflowInstanceResponse
    */
   async describeWorkflowInstanceWithOptions(projectId: string, workflowInstanceId: string, request: DescribeWorkflowInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowInstanceResponse> {
     Util.validateModel(request);
@@ -2687,10 +4187,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流实例详情
-   *
-   * @param request DescribeWorkflowInstanceRequest
-   * @return DescribeWorkflowInstanceResponse
+   * 获取工作流实例详情
+   * 
+   * @param request - DescribeWorkflowInstanceRequest
+   * @returns DescribeWorkflowInstanceResponse
    */
   async describeWorkflowInstance(projectId: string, workflowInstanceId: string, request: DescribeWorkflowInstanceRequest): Promise<DescribeWorkflowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2699,12 +4199,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取手动任务实例列表
-   *
-   * @param request ListManualTaskInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListManualTaskInstancesResponse
+   * 获取手动任务实例列表
+   * 
+   * @param request - ListManualTaskInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListManualTaskInstancesResponse
    */
   async listManualTaskInstancesWithOptions(projectId: string, request: ListManualTaskInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListManualTaskInstancesResponse> {
     Util.validateModel(request);
@@ -2756,10 +4256,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取手动任务实例列表
-   *
-   * @param request ListManualTaskInstancesRequest
-   * @return ListManualTaskInstancesResponse
+   * 获取手动任务实例列表
+   * 
+   * @param request - ListManualTaskInstancesRequest
+   * @returns ListManualTaskInstancesResponse
    */
   async listManualTaskInstances(projectId: string, request: ListManualTaskInstancesRequest): Promise<ListManualTaskInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2768,12 +4268,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询手动任务定义列表
-   *
-   * @param request ListManualTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListManualTasksResponse
+   * 查询手动任务定义列表
+   * 
+   * @param request - ListManualTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListManualTasksResponse
    */
   async listManualTasksWithOptions(projectId: string, request: ListManualTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListManualTasksResponse> {
     Util.validateModel(request);
@@ -2817,10 +4317,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询手动任务定义列表
-   *
-   * @param request ListManualTasksRequest
-   * @return ListManualTasksResponse
+   * 查询手动任务定义列表
+   * 
+   * @param request - ListManualTasksRequest
+   * @returns ListManualTasksResponse
    */
   async listManualTasks(projectId: string, request: ListManualTasksRequest): Promise<ListManualTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2829,12 +4329,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目详情
-   *
-   * @param request ListProjectsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectsResponse
+   * 获取项目详情
+   * 
+   * @param request - ListProjectsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
    */
   async listProjectsWithOptions(request: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
@@ -2874,10 +4374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目详情
-   *
-   * @param request ListProjectsRequest
-   * @return ListProjectsResponse
+   * 获取项目详情
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
    */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2886,12 +4386,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务实例列表
-   *
-   * @param request ListTaskInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTaskInstancesResponse
+   * 获取任务实例列表
+   * 
+   * @param request - ListTaskInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskInstancesResponse
    */
   async listTaskInstancesWithOptions(projectId: string, request: ListTaskInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaskInstancesResponse> {
     Util.validateModel(request);
@@ -2947,10 +4447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务实例列表
-   *
-   * @param request ListTaskInstancesRequest
-   * @return ListTaskInstancesResponse
+   * 获取任务实例列表
+   * 
+   * @param request - ListTaskInstancesRequest
+   * @returns ListTaskInstancesResponse
    */
   async listTaskInstances(projectId: string, request: ListTaskInstancesRequest): Promise<ListTaskInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2959,12 +4459,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务定义列表
-   *
-   * @param request ListTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTasksResponse
+   * 查询任务定义列表
+   * 
+   * @param request - ListTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTasksResponse
    */
   async listTasksWithOptions(projectId: string, request: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
@@ -3012,10 +4512,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询任务定义列表
-   *
-   * @param request ListTasksRequest
-   * @return ListTasksResponse
+   * 查询任务定义列表
+   * 
+   * @param request - ListTasksRequest
+   * @returns ListTasksResponse
    */
   async listTasks(projectId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3024,12 +4524,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流实例列表
-   *
-   * @param request ListWorkflowInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWorkflowInstancesResponse
+   * 获取工作流实例列表
+   * 
+   * @param request - ListWorkflowInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowInstancesResponse
    */
   async listWorkflowInstancesWithOptions(projectId: string, request: ListWorkflowInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkflowInstancesResponse> {
     Util.validateModel(request);
@@ -3081,10 +4581,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流实例列表
-   *
-   * @param request ListWorkflowInstancesRequest
-   * @return ListWorkflowInstancesResponse
+   * 获取工作流实例列表
+   * 
+   * @param request - ListWorkflowInstancesRequest
+   * @returns ListWorkflowInstancesResponse
    */
   async listWorkflowInstances(projectId: string, request: ListWorkflowInstancesRequest): Promise<ListWorkflowInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3093,12 +4593,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流列表
-   *
-   * @param request ListWorkflowsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListWorkflowsResponse
+   * 获取工作流列表
+   * 
+   * @param request - ListWorkflowsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowsResponse
    */
   async listWorkflowsWithOptions(projectId: string, request: ListWorkflowsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkflowsResponse> {
     Util.validateModel(request);
@@ -3138,10 +4638,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流列表
-   *
-   * @param request ListWorkflowsRequest
-   * @return ListWorkflowsResponse
+   * 获取工作流列表
+   * 
+   * @param request - ListWorkflowsRequest
+   * @returns ListWorkflowsResponse
    */
   async listWorkflows(projectId: string, request: ListWorkflowsRequest): Promise<ListWorkflowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3150,12 +4650,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 运行工作流
-   *
-   * @param request RunWorkflowRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunWorkflowResponse
+   * 运行工作流
+   * 
+   * @param request - RunWorkflowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunWorkflowResponse
    */
   async runWorkflowWithOptions(projectId: string, request: RunWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunWorkflowResponse> {
     Util.validateModel(request);
@@ -3235,10 +4735,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 运行工作流
-   *
-   * @param request RunWorkflowRequest
-   * @return RunWorkflowResponse
+   * 运行工作流
+   * 
+   * @param request - RunWorkflowRequest
+   * @returns RunWorkflowResponse
    */
   async runWorkflow(projectId: string, request: RunWorkflowRequest): Promise<RunWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3247,12 +4747,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新工作流
-   *
-   * @param request UpdateWorkflowRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWorkflowResponse
+   * 更新工作流
+   * 
+   * @param request - UpdateWorkflowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowResponse
    */
   async updateWorkflowWithOptions(projectId: string, workflowId: string, request: UpdateWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWorkflowResponse> {
     Util.validateModel(request);
@@ -3333,9 +4833,19 @@ export default class Client extends OpenApi {
       query["workspaceId"] = request.workspaceId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskDefinitionJsonValue)) {
+      body["taskDefinitionJsonValue"] = request.taskDefinitionJsonValue;
+    }
+
+    if (!Util.isUnset(request.taskRelationJsonValue)) {
+      body["taskRelationJsonValue"] = request.taskRelationJsonValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateWorkflow",
@@ -3352,10 +4862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新工作流
-   *
-   * @param request UpdateWorkflowRequest
-   * @return UpdateWorkflowResponse
+   * 更新工作流
+   * 
+   * @param request - UpdateWorkflowRequest
+   * @returns UpdateWorkflowResponse
    */
   async updateWorkflow(projectId: string, workflowId: string, request: UpdateWorkflowRequest): Promise<UpdateWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
