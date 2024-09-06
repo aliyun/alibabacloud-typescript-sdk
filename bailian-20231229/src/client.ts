@@ -1645,10 +1645,14 @@ export class GetIndexJobStatusRequest extends $tea.Model {
    * 20230718xxxx-146c93bf
    */
   jobId?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       indexId: 'IndexId',
       jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'pageSize',
     };
   }
 
@@ -1656,6 +1660,8 @@ export class GetIndexJobStatusRequest extends $tea.Model {
     return {
       indexId: 'string',
       jobId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -6433,6 +6439,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobId)) {
       query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
