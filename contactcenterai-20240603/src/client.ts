@@ -141,6 +141,233 @@ export class AnalyzeConversationResponse extends $tea.Model {
   }
 }
 
+export class CreateConversationAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  autoSplit?: number;
+  /**
+   * @example
+   * 0
+   */
+  clientChannel?: number;
+  examples?: CreateConversationAnalysisTaskRequestExamples;
+  fields?: CreateConversationAnalysisTaskRequestFields[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * audio.mp3
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tyxmTurbo
+   */
+  modelCode?: string;
+  resultTypes?: string[];
+  sceneName?: string;
+  /**
+   * @example
+   * 0
+   */
+  serviceChannel?: number;
+  serviceChannelKeywords?: string[];
+  serviceInspection?: CreateConversationAnalysisTaskRequestServiceInspection;
+  templateIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://a.b.com/inner.mp3
+   */
+  voiceFileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSplit: 'autoSplit',
+      clientChannel: 'clientChannel',
+      examples: 'examples',
+      fields: 'fields',
+      fileName: 'fileName',
+      modelCode: 'modelCode',
+      resultTypes: 'resultTypes',
+      sceneName: 'sceneName',
+      serviceChannel: 'serviceChannel',
+      serviceChannelKeywords: 'serviceChannelKeywords',
+      serviceInspection: 'serviceInspection',
+      templateIds: 'templateIds',
+      voiceFileUrl: 'voiceFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSplit: 'number',
+      clientChannel: 'number',
+      examples: CreateConversationAnalysisTaskRequestExamples,
+      fields: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestFields },
+      fileName: 'string',
+      modelCode: 'string',
+      resultTypes: { 'type': 'array', 'itemType': 'string' },
+      sceneName: 'string',
+      serviceChannel: 'number',
+      serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
+      serviceInspection: CreateConversationAnalysisTaskRequestServiceInspection,
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+      voiceFileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskResponseBody extends $tea.Model {
+  data?: CreateConversationAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 9F1DB065-AE0D-5EE3-B1AF-48632CB0831C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateConversationAnalysisTaskResponseBodyData,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConversationAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConversationAnalysisTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultRequest extends $tea.Model {
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBody extends $tea.Model {
+  data?: GetTaskResultResponseBodyData;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-C552DED7E8BF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetTaskResultResponseBodyData,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTaskResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCompletionRequest extends $tea.Model {
   /**
    * @remarks
@@ -599,6 +826,269 @@ export class AnalyzeConversationRequestServiceInspection extends $tea.Model {
   }
 }
 
+export class CreateConversationAnalysisTaskRequestExamplesSentences extends $tea.Model {
+  /**
+   * @example
+   * chat-01
+   */
+  chatId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatId: 'chatId',
+      role: 'role',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatId: 'string',
+      role: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskRequestExamples extends $tea.Model {
+  output?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sentences?: CreateConversationAnalysisTaskRequestExamplesSentences[];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      sentences: 'sentences',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      sentences: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestExamplesSentences },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskRequestFieldsEnumValues extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      enumValue: 'enumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskRequestFields extends $tea.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  enumValues?: CreateConversationAnalysisTaskRequestFieldsEnumValues[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      desc: 'desc',
+      enumValues: 'enumValues',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskRequestServiceInspection extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionContents?: CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionIntroduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'inspectionContents',
+      inspectionIntroduction: 'inspectionIntroduction',
+      sceneIntroduction: 'sceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationAnalysisTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  /**
+   * @example
+   * FINISH
+   */
+  taskStatus?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+      taskStatus: 'taskStatus',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      taskStatus: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCompletionRequestDialogueSentences extends $tea.Model {
   chatId?: string;
   /**
@@ -901,6 +1391,144 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.analyzeConversationWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * 创建语音文件调用llm任务
+   * 
+   * @param request - CreateConversationAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConversationAnalysisTaskResponse
+   */
+  async createConversationAnalysisTaskWithOptions(workspaceId: string, appId: string, request: CreateConversationAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConversationAnalysisTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoSplit)) {
+      body["autoSplit"] = request.autoSplit;
+    }
+
+    if (!Util.isUnset(request.clientChannel)) {
+      body["clientChannel"] = request.clientChannel;
+    }
+
+    if (!Util.isUnset(request.examples)) {
+      body["examples"] = request.examples;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      body["fileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.modelCode)) {
+      body["modelCode"] = request.modelCode;
+    }
+
+    if (!Util.isUnset(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!Util.isUnset(request.sceneName)) {
+      body["sceneName"] = request.sceneName;
+    }
+
+    if (!Util.isUnset(request.serviceChannel)) {
+      body["serviceChannel"] = request.serviceChannel;
+    }
+
+    if (!Util.isUnset(request.serviceChannelKeywords)) {
+      body["serviceChannelKeywords"] = request.serviceChannelKeywords;
+    }
+
+    if (!Util.isUnset(request.serviceInspection)) {
+      body["serviceInspection"] = request.serviceInspection;
+    }
+
+    if (!Util.isUnset(request.templateIds)) {
+      body["templateIds"] = request.templateIds;
+    }
+
+    if (!Util.isUnset(request.voiceFileUrl)) {
+      body["voiceFileUrl"] = request.voiceFileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateConversationAnalysisTask",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/createConversationAnalysisTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConversationAnalysisTaskResponse>(await this.callApi(params, req, runtime), new CreateConversationAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 创建语音文件调用llm任务
+   * 
+   * @param request - CreateConversationAnalysisTaskRequest
+   * @returns CreateConversationAnalysisTaskResponse
+   */
+  async createConversationAnalysisTask(workspaceId: string, appId: string, request: CreateConversationAnalysisTaskRequest): Promise<CreateConversationAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConversationAnalysisTaskWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * 语音文件调用大模型获取结果
+   * 
+   * @param request - GetTaskResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResultResponse
+   */
+  async getTaskResultWithOptions(request: GetTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResultResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskResult",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/ccai/app/getTaskResult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
+  }
+
+  /**
+   * 语音文件调用大模型获取结果
+   * 
+   * @param request - GetTaskResultRequest
+   * @returns GetTaskResultResponse
+   */
+  async getTaskResult(request: GetTaskResultRequest): Promise<GetTaskResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskResultWithOptions(request, headers, runtime);
   }
 
   /**
