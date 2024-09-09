@@ -5948,6 +5948,1358 @@ export class QueryAsyncTaskResponse extends $tea.Model {
   }
 }
 
+export class RunAbbreviationContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 创新政务社交媒体功能。鼓励各地区、各部门结合实际，开发政务社交媒体的特色功能，如在线咨询服务、政策解读、互动问答等，增强政务社交媒体的互动性和实用性，提升公众参与度。
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunAbbreviationContentResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunAbbreviationContentResponseBodyHeader;
+  payload?: RunAbbreviationContentResponseBodyPayload;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunAbbreviationContentResponseBodyHeader,
+      payload: RunAbbreviationContentResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunAbbreviationContentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunAbbreviationContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunAbbreviationContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 创新政务社交媒体功能。鼓励各地区、各部门结合实际，开发政务社交媒体的特色功能，如在线咨询服务、政策解读、互动问答等，增强政务社交媒体的互动性和实用性，提升公众参与度。
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunContinueContentResponseBodyHeader;
+  payload?: RunContinueContentResponseBodyPayload;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunContinueContentResponseBodyHeader,
+      payload: RunContinueContentResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunContinueContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunContinueContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 创新政务社交媒体功能。鼓励各地区、各部门结合实际，开发政务社交媒体的特色功能，如在线咨询服务、政策解读、互动问答等，增强政务社交媒体的互动性和实用性，提升公众参与度。
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunExpandContentResponseBodyHeader;
+  payload?: RunExpandContentResponseBodyPayload;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunExpandContentResponseBodyHeader,
+      payload: RunExpandContentResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunExpandContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunExpandContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceData?: RunKeywordsExtractionGenerationRequestReferenceData;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referenceData: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referenceData: RunKeywordsExtractionGenerationRequestReferenceData,
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceDataShrink?: string;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referenceDataShrink: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referenceDataShrink: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationResponseBody extends $tea.Model {
+  header?: RunKeywordsExtractionGenerationResponseBodyHeader;
+  payload?: RunKeywordsExtractionGenerationResponseBodyPayload;
+  /**
+   * @example
+   * 419F3FBE-5C8D-5949-AC29-E9615235D15A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunKeywordsExtractionGenerationResponseBodyHeader,
+      payload: RunKeywordsExtractionGenerationResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunKeywordsExtractionGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunKeywordsExtractionGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisRequest extends $tea.Model {
+  contents?: string[];
+  materialIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+      materialIds: 'MaterialIds',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': 'string' },
+      materialIds: { 'type': 'array', 'itemType': 'number' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisShrinkRequest extends $tea.Model {
+  contentsShrink?: string;
+  materialIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentsShrink: 'Contents',
+      materialIdsShrink: 'MaterialIds',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentsShrink: 'string',
+      materialIdsShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunStyleFeatureAnalysisResponseBodyHeader;
+  payload?: RunStyleFeatureAnalysisResponseBodyPayload;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunStyleFeatureAnalysisResponseBodyHeader,
+      payload: RunStyleFeatureAnalysisResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunStyleFeatureAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunStyleFeatureAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 创新政务社交媒体功能。鼓励各地区、各部门结合实际，开发政务社交媒体的特色功能，如在线咨询服务、政策解读、互动问答等，增强政务社交媒体的互动性和实用性，提升公众参与度。
+   */
+  content?: string;
+  /**
+   * @example
+   * 请为上述内容生成一段摘要，字数在100~200字以内。
+   */
+  prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      prompt: 'Prompt',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      prompt: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateResponseBody extends $tea.Model {
+  end?: boolean;
+  header?: RunSummaryGenerateResponseBodyHeader;
+  payload?: RunSummaryGenerateResponseBodyPayload;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunSummaryGenerateResponseBodyHeader,
+      payload: RunSummaryGenerateResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunSummaryGenerateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunSummaryGenerateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文本内容
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingResponseBody extends $tea.Model {
+  header?: RunTextPolishingResponseBodyHeader;
+  payload?: RunTextPolishingResponseBodyPayload;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunTextPolishingResponseBodyHeader,
+      payload: RunTextPolishingResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunTextPolishingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunTextPolishingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceData?: RunTitleGenerationRequestReferenceData;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referenceData: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referenceData: RunTitleGenerationRequestReferenceData,
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceDataShrink?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referenceDataShrink: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referenceDataShrink: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationResponseBody extends $tea.Model {
+  code?: string;
+  header?: RunTitleGenerationResponseBodyHeader;
+  httpStatusCode?: string;
+  message?: string;
+  payload?: RunTitleGenerationResponseBodyPayload;
+  /**
+   * @example
+   * 94512A33-8EC1-5452-A793-5C91F18ED2F0
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      header: 'Header',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      payload: 'Payload',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      header: RunTitleGenerationResponseBodyHeader,
+      httpStatusCode: 'string',
+      message: 'string',
+      payload: RunTitleGenerationResponseBodyPayload,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunTitleGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunTitleGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * toEnglish
+   */
+  prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceData?: RunTranslateGenerationRequestReferenceData;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'Prompt',
+      referenceData: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      referenceData: RunTranslateGenerationRequestReferenceData,
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * toEnglish
+   */
+  prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceDataShrink?: string;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'Prompt',
+      referenceDataShrink: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      referenceDataShrink: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationResponseBody extends $tea.Model {
+  header?: RunTranslateGenerationResponseBodyHeader;
+  payload?: RunTranslateGenerationResponseBodyPayload;
+  /**
+   * @example
+   * DA021073-17CE-5CCF-9FEB-93226C766887
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunTranslateGenerationResponseBodyHeader,
+      payload: RunTranslateGenerationResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunTranslateGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunTranslateGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceData?: RunWriteToneGenerationRequestReferenceData;
+  /**
+   * @example
+   * 7AA2AE16-D873-5C5F-9708-15396C382EB1
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'Prompt',
+      referenceData: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      referenceData: RunWriteToneGenerationRequestReferenceData,
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceDataShrink?: string;
+  /**
+   * @example
+   * 7AA2AE16-D873-5C5F-9708-15396C382EB1
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'Prompt',
+      referenceDataShrink: 'ReferenceData',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      referenceDataShrink: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationResponseBody extends $tea.Model {
+  header?: RunWriteToneGenerationResponseBodyHeader;
+  payload?: RunWriteToneGenerationResponseBodyPayload;
+  /**
+   * @example
+   * FB698445-61DA-5361-BF73-1C5F1157E888
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunWriteToneGenerationResponseBodyHeader,
+      payload: RunWriteToneGenerationResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunWriteToneGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunWriteToneGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingRequest extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 提示词
+   */
+  prompt?: string;
+  referenceData?: RunWritingRequestReferenceData;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  writingConfig?: RunWritingRequestWritingConfig;
+  static names(): { [key: string]: string } {
+    return {
+      originSessionId: 'OriginSessionId',
+      prompt: 'Prompt',
+      referenceData: 'ReferenceData',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+      writingConfig: 'WritingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originSessionId: 'string',
+      prompt: 'string',
+      referenceData: RunWritingRequestReferenceData,
+      sessionId: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+      writingConfig: RunWritingRequestWritingConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 提示词
+   */
+  prompt?: string;
+  referenceDataShrink?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  writingConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originSessionId: 'OriginSessionId',
+      prompt: 'Prompt',
+      referenceDataShrink: 'ReferenceData',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+      writingConfigShrink: 'WritingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originSessionId: 'string',
+      prompt: 'string',
+      referenceDataShrink: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+      writingConfigShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponseBody extends $tea.Model {
+  header?: RunWritingResponseBodyHeader;
+  payload?: RunWritingResponseBodyPayload;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunWritingResponseBodyHeader,
+      payload: RunWritingResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunWritingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunWritingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveCustomTextRequest extends $tea.Model {
   /**
    * @remarks
@@ -10476,6 +11828,2018 @@ export class QueryAsyncTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class RunAbbreviationContentResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunAbbreviationContentResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunAbbreviationContentResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunAbbreviationContentResponseBodyPayload extends $tea.Model {
+  output?: RunAbbreviationContentResponseBodyPayloadOutput;
+  usage?: RunAbbreviationContentResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunAbbreviationContentResponseBodyPayloadOutput,
+      usage: RunAbbreviationContentResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunContinueContentResponseBodyPayload extends $tea.Model {
+  output?: RunContinueContentResponseBodyPayloadOutput;
+  usage?: RunContinueContentResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunContinueContentResponseBodyPayloadOutput,
+      usage: RunContinueContentResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunExpandContentResponseBodyPayload extends $tea.Model {
+  output?: RunExpandContentResponseBodyPayloadOutput;
+  usage?: RunExpandContentResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunExpandContentResponseBodyPayloadOutput,
+      usage: RunExpandContentResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationRequestReferenceData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contents?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbid
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-failed
+   */
+  event?: string;
+  /**
+   * @example
+   * 1a3d7c9f-3a6d-4e49-b176-2d8721a27397
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 8d55b429d7c6d321fcff54823e8d317b
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 210bc4e817219607963985396de8bd
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunKeywordsExtractionGenerationResponseBodyPayload extends $tea.Model {
+  output?: RunKeywordsExtractionGenerationResponseBodyPayloadOutput;
+  usage?: RunKeywordsExtractionGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunKeywordsExtractionGenerationResponseBodyPayloadOutput,
+      usage: RunKeywordsExtractionGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyPayload extends $tea.Model {
+  output?: RunStyleFeatureAnalysisResponseBodyPayloadOutput;
+  usage?: RunStyleFeatureAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunStyleFeatureAnalysisResponseBodyPayloadOutput,
+      usage: RunStyleFeatureAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSummaryGenerateResponseBodyPayload extends $tea.Model {
+  output?: RunSummaryGenerateResponseBodyPayloadOutput;
+  usage?: RunSummaryGenerateResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunSummaryGenerateResponseBodyPayloadOutput,
+      usage: RunSummaryGenerateResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 错误码
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 全链路ID
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      originSessionId: 'OriginSessionId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      originSessionId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * 文本生成结果
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTextPolishingResponseBodyPayload extends $tea.Model {
+  output?: RunTextPolishingResponseBodyPayloadOutput;
+  usage?: RunTextPolishingResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunTextPolishingResponseBodyPayloadOutput,
+      usage: RunTextPolishingResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationRequestReferenceData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contents?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbid
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xxx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-failed
+   */
+  event?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  statusCode?: number;
+  /**
+   * @example
+   * 50a1cc8e-717e-4a2b-a76b-dc9734a8564b
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 0a3d448f17000139741898287e0eb3
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      sessionId: 'SessionId',
+      statusCode: 'StatusCode',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      statusCode: 'number',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTitleGenerationResponseBodyPayload extends $tea.Model {
+  output?: RunTitleGenerationResponseBodyPayloadOutput;
+  usage?: RunTitleGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunTitleGenerationResponseBodyPayloadOutput,
+      usage: RunTitleGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationRequestReferenceData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contents?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbid
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-failed
+   */
+  event?: string;
+  /**
+   * @example
+   * 91C2B2B8-7D12-4A8D-A724-1E576D30C096
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 0abb781d17146157564845243e20b5
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTranslateGenerationResponseBodyPayload extends $tea.Model {
+  output?: RunTranslateGenerationResponseBodyPayloadOutput;
+  usage?: RunTranslateGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunTranslateGenerationResponseBodyPayloadOutput,
+      usage: RunTranslateGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationRequestReferenceData extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contents?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbid
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xxx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-failed
+   */
+  event?: string;
+  /**
+   * @example
+   * F1953EE6-157C-40DC-BBF1-87C98AC27C51
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * F1953EE6-157C-40DC-BBF1-87C98AC27C51
+   */
+  taskId?: string;
+  /**
+   * @example
+   * F1953EE6-157C-40DC-BBF1-87C98AC27C51
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWriteToneGenerationResponseBodyPayload extends $tea.Model {
+  output?: RunWriteToneGenerationResponseBodyPayloadOutput;
+  usage?: RunWriteToneGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunWriteToneGenerationResponseBodyPayloadOutput,
+      usage: RunWriteToneGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingRequestReferenceDataArticles extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 2124ca4d48a542d788aa86151e1a8c8b
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-08-28 11:38:28
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
+  tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingRequestReferenceData extends $tea.Model {
+  articles?: RunWritingRequestReferenceDataArticles[];
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunWritingRequestReferenceDataArticles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingRequestWritingConfigPromptTag extends $tea.Model {
+  /**
+   * @example
+   * 必要提示
+   */
+  necessaryTips?: string;
+  /**
+   * @example
+   * 立场
+   */
+  position?: string;
+  /**
+   * @example
+   * 反向词
+   */
+  reverseWords?: string;
+  /**
+   * @example
+   * 主题
+   */
+  theme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      necessaryTips: 'NecessaryTips',
+      position: 'Position',
+      reverseWords: 'ReverseWords',
+      theme: 'Theme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      necessaryTips: 'string',
+      position: 'string',
+      reverseWords: 'string',
+      theme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingRequestWritingConfigTags extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  keyword?: string;
+  /**
+   * @example
+   * gcNumberSizeTag
+   */
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingRequestWritingConfig extends $tea.Model {
+  /**
+   * @example
+   * 写作领域，media:传媒,government:政务,market:营销
+   */
+  domain?: string;
+  promptTag?: RunWritingRequestWritingConfigPromptTag;
+  tags?: RunWritingRequestWritingConfigTags[];
+  /**
+   * @example
+   * true
+   */
+  useSearch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      promptTag: 'PromptTag',
+      tags: 'Tags',
+      useSearch: 'UseSearch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      promptTag: RunWritingRequestWritingConfigPromptTag,
+      tags: { 'type': 'array', 'itemType': RunWritingRequestWritingConfigTags },
+      useSearch: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 错误码
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 400
+   */
+  statusCode?: number;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 全链路ID
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      originSessionId: 'OriginSessionId',
+      sessionId: 'SessionId',
+      statusCode: 'StatusCode',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      originSessionId: 'string',
+      sessionId: 'string',
+      statusCode: 'number',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponseBodyPayloadOutputArticles extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 98229f6001cf4deeb1668191d4eccc75
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-08-28 11:38:28
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
+  tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponseBodyPayloadOutput extends $tea.Model {
+  articles?: RunWritingResponseBodyPayloadOutputArticles[];
+  /**
+   * @example
+   * 文章精排之后的片段
+   */
+  miniDoc?: string[];
+  /**
+   * @example
+   * 大模型改变世界
+   */
+  searchQuery?: string;
+  /**
+   * @example
+   * 文本生成结果
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      miniDoc: 'MiniDoc',
+      searchQuery: 'SearchQuery',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunWritingResponseBodyPayloadOutputArticles },
+      miniDoc: { 'type': 'array', 'itemType': 'string' },
+      searchQuery: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  tokenMap?: { [key: string]: number };
+  /**
+   * @example
+   * 2
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      tokenMap: 'TokenMap',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      tokenMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingResponseBodyPayload extends $tea.Model {
+  output?: RunWritingResponseBodyPayloadOutput;
+  usage?: RunWritingResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunWritingResponseBodyPayloadOutput,
+      usage: RunWritingResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $tea.Model {
   /**
    * @remarks
@@ -13070,6 +16434,608 @@ export default class Client extends OpenApi {
   async queryAsyncTask(request: QueryAsyncTaskRequest): Promise<QueryAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAsyncTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容缩写
+   * 
+   * @param request - RunAbbreviationContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunAbbreviationContentResponse
+   */
+  async runAbbreviationContentWithOptions(request: RunAbbreviationContentRequest, runtime: $Util.RuntimeOptions): Promise<RunAbbreviationContentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunAbbreviationContent",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunAbbreviationContentResponse>(await this.callApi(params, req, runtime), new RunAbbreviationContentResponse({}));
+  }
+
+  /**
+   * 内容缩写
+   * 
+   * @param request - RunAbbreviationContentRequest
+   * @returns RunAbbreviationContentResponse
+   */
+  async runAbbreviationContent(request: RunAbbreviationContentRequest): Promise<RunAbbreviationContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runAbbreviationContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容续写
+   * 
+   * @param request - RunContinueContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunContinueContentResponse
+   */
+  async runContinueContentWithOptions(request: RunContinueContentRequest, runtime: $Util.RuntimeOptions): Promise<RunContinueContentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunContinueContent",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunContinueContentResponse>(await this.callApi(params, req, runtime), new RunContinueContentResponse({}));
+  }
+
+  /**
+   * 内容续写
+   * 
+   * @param request - RunContinueContentRequest
+   * @returns RunContinueContentResponse
+   */
+  async runContinueContent(request: RunContinueContentRequest): Promise<RunContinueContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runContinueContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容扩写
+   * 
+   * @param request - RunExpandContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunExpandContentResponse
+   */
+  async runExpandContentWithOptions(request: RunExpandContentRequest, runtime: $Util.RuntimeOptions): Promise<RunExpandContentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunExpandContent",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunExpandContentResponse>(await this.callApi(params, req, runtime), new RunExpandContentResponse({}));
+  }
+
+  /**
+   * 内容扩写
+   * 
+   * @param request - RunExpandContentRequest
+   * @returns RunExpandContentResponse
+   */
+  async runExpandContent(request: RunExpandContentRequest): Promise<RunExpandContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runExpandContentWithOptions(request, runtime);
+  }
+
+  /**
+   * AI妙笔-创作-抽取关键词
+   * 
+   * @param tmpReq - RunKeywordsExtractionGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunKeywordsExtractionGenerationResponse
+   */
+  async runKeywordsExtractionGenerationWithOptions(tmpReq: RunKeywordsExtractionGenerationRequest, runtime: $Util.RuntimeOptions): Promise<RunKeywordsExtractionGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunKeywordsExtractionGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.referenceData)) {
+      request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.referenceDataShrink)) {
+      body["ReferenceData"] = request.referenceDataShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunKeywordsExtractionGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.callApi(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
+  }
+
+  /**
+   * AI妙笔-创作-抽取关键词
+   * 
+   * @param request - RunKeywordsExtractionGenerationRequest
+   * @returns RunKeywordsExtractionGenerationResponse
+   */
+  async runKeywordsExtractionGeneration(request: RunKeywordsExtractionGenerationRequest): Promise<RunKeywordsExtractionGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runKeywordsExtractionGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容特点分析
+   * 
+   * @param tmpReq - RunStyleFeatureAnalysisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunStyleFeatureAnalysisResponse
+   */
+  async runStyleFeatureAnalysisWithOptions(tmpReq: RunStyleFeatureAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<RunStyleFeatureAnalysisResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunStyleFeatureAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contents)) {
+      request.contentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contents, "Contents", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.materialIds)) {
+      request.materialIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.materialIds, "MaterialIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentsShrink)) {
+      body["Contents"] = request.contentsShrink;
+    }
+
+    if (!Util.isUnset(request.materialIdsShrink)) {
+      body["MaterialIds"] = request.materialIdsShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunStyleFeatureAnalysis",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.callApi(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
+  }
+
+  /**
+   * 内容特点分析
+   * 
+   * @param request - RunStyleFeatureAnalysisRequest
+   * @returns RunStyleFeatureAnalysisResponse
+   */
+  async runStyleFeatureAnalysis(request: RunStyleFeatureAnalysisRequest): Promise<RunStyleFeatureAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runStyleFeatureAnalysisWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容摘要生成
+   * 
+   * @param request - RunSummaryGenerateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunSummaryGenerateResponse
+   */
+  async runSummaryGenerateWithOptions(request: RunSummaryGenerateRequest, runtime: $Util.RuntimeOptions): Promise<RunSummaryGenerateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunSummaryGenerate",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunSummaryGenerateResponse>(await this.callApi(params, req, runtime), new RunSummaryGenerateResponse({}));
+  }
+
+  /**
+   * 内容摘要生成
+   * 
+   * @param request - RunSummaryGenerateRequest
+   * @returns RunSummaryGenerateResponse
+   */
+  async runSummaryGenerate(request: RunSummaryGenerateRequest): Promise<RunSummaryGenerateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runSummaryGenerateWithOptions(request, runtime);
+  }
+
+  /**
+   * 创作-文本润色
+   * 
+   * @param request - RunTextPolishingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTextPolishingResponse
+   */
+  async runTextPolishingWithOptions(request: RunTextPolishingRequest, runtime: $Util.RuntimeOptions): Promise<RunTextPolishingResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunTextPolishing",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunTextPolishingResponse>(await this.callApi(params, req, runtime), new RunTextPolishingResponse({}));
+  }
+
+  /**
+   * 创作-文本润色
+   * 
+   * @param request - RunTextPolishingRequest
+   * @returns RunTextPolishingResponse
+   */
+  async runTextPolishing(request: RunTextPolishingRequest): Promise<RunTextPolishingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runTextPolishingWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙笔：标题生成
+   * 
+   * @param tmpReq - RunTitleGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTitleGenerationResponse
+   */
+  async runTitleGenerationWithOptions(tmpReq: RunTitleGenerationRequest, runtime: $Util.RuntimeOptions): Promise<RunTitleGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunTitleGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.referenceData)) {
+      request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.referenceDataShrink)) {
+      body["ReferenceData"] = request.referenceDataShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunTitleGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunTitleGenerationResponse>(await this.callApi(params, req, runtime), new RunTitleGenerationResponse({}));
+  }
+
+  /**
+   * 妙笔：标题生成
+   * 
+   * @param request - RunTitleGenerationRequest
+   * @returns RunTitleGenerationResponse
+   */
+  async runTitleGeneration(request: RunTitleGenerationRequest): Promise<RunTitleGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runTitleGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * AI妙笔-创作-中英文翻译
+   * 
+   * @param tmpReq - RunTranslateGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTranslateGenerationResponse
+   */
+  async runTranslateGenerationWithOptions(tmpReq: RunTranslateGenerationRequest, runtime: $Util.RuntimeOptions): Promise<RunTranslateGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunTranslateGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.referenceData)) {
+      request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.referenceDataShrink)) {
+      body["ReferenceData"] = request.referenceDataShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunTranslateGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunTranslateGenerationResponse>(await this.callApi(params, req, runtime), new RunTranslateGenerationResponse({}));
+  }
+
+  /**
+   * AI妙笔-创作-中英文翻译
+   * 
+   * @param request - RunTranslateGenerationRequest
+   * @returns RunTranslateGenerationResponse
+   */
+  async runTranslateGeneration(request: RunTranslateGenerationRequest): Promise<RunTranslateGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runTranslateGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * AI妙笔-创作-文风改写
+   * 
+   * @param tmpReq - RunWriteToneGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunWriteToneGenerationResponse
+   */
+  async runWriteToneGenerationWithOptions(tmpReq: RunWriteToneGenerationRequest, runtime: $Util.RuntimeOptions): Promise<RunWriteToneGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunWriteToneGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.referenceData)) {
+      request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.referenceDataShrink)) {
+      body["ReferenceData"] = request.referenceDataShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunWriteToneGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunWriteToneGenerationResponse>(await this.callApi(params, req, runtime), new RunWriteToneGenerationResponse({}));
+  }
+
+  /**
+   * AI妙笔-创作-文风改写
+   * 
+   * @param request - RunWriteToneGenerationRequest
+   * @returns RunWriteToneGenerationResponse
+   */
+  async runWriteToneGeneration(request: RunWriteToneGenerationRequest): Promise<RunWriteToneGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runWriteToneGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 直接写作
+   * 
+   * @param tmpReq - RunWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunWritingResponse
+   */
+  async runWritingWithOptions(tmpReq: RunWritingRequest, runtime: $Util.RuntimeOptions): Promise<RunWritingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.referenceData)) {
+      request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.writingConfig)) {
+      request.writingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.writingConfig, "WritingConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.originSessionId)) {
+      body["OriginSessionId"] = request.originSessionId;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.referenceDataShrink)) {
+      body["ReferenceData"] = request.referenceDataShrink;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!Util.isUnset(request.writingConfigShrink)) {
+      body["WritingConfig"] = request.writingConfigShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunWritingResponse>(await this.callApi(params, req, runtime), new RunWritingResponse({}));
+  }
+
+  /**
+   * 直接写作
+   * 
+   * @param request - RunWritingRequest
+   * @returns RunWritingResponse
+   */
+  async runWriting(request: RunWritingRequest): Promise<RunWritingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runWritingWithOptions(request, runtime);
   }
 
   /**
