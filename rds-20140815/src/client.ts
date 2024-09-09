@@ -3209,6 +3209,7 @@ export class CreateAccountRequest extends $tea.Model {
    * Normal
    */
   accountType?: string;
+  checkPolicy?: boolean;
   /**
    * @remarks
    * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
@@ -3229,6 +3230,7 @@ export class CreateAccountRequest extends $tea.Model {
       accountName: 'AccountName',
       accountPassword: 'AccountPassword',
       accountType: 'AccountType',
+      checkPolicy: 'CheckPolicy',
       DBInstanceId: 'DBInstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -3243,6 +3245,7 @@ export class CreateAccountRequest extends $tea.Model {
       accountName: 'string',
       accountPassword: 'string',
       accountType: 'string',
+      checkPolicy: 'boolean',
       DBInstanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -7347,6 +7350,16 @@ export class CreateDdrInstanceRequest extends $tea.Model {
    * local_ssd
    */
   DBInstanceStorageType?: string;
+  /**
+   * @remarks
+   * User-defined key ID for cloud disk encryption. Passing this parameter means turning on cloud disk encryption (it cannot be turned off after turning it on), and RoleARN needs to be passed in. You can view the key ID in the key management service console, or create a new key. For more information, see [Creating a Key](https://help.aliyun.com/document_detail/181610.html).
+   * 
+   * > - This parameter is only applicable to RDS SQL Server instances.
+   * > - You can also not pass this parameter and only need to pass in RoleARN, which means setting the cloud disk encryption type of the instance to the RDS managed service key (Default Service CMK).
+   * 
+   * @example
+   * 749c1df7-****-****-****-****
+   */
   encryptionKey?: string;
   /**
    * @remarks
@@ -7470,6 +7483,15 @@ export class CreateDdrInstanceRequest extends $tea.Model {
    * BackupSet
    */
   restoreType?: string;
+  /**
+   * @remarks
+   * The global resource descriptor (ARN) of the RDS cloud service account authorized by the primary account to access the KMS permission. You can view the ARN information through the [CheckCloudResourceAuthorized](https://next.api.aliyun.com/document/Rds/2014-08-15/CheckCloudResourceAuthorized) API.
+   * 
+   * > This parameter is only available for RDS SQL Server instances.
+   * 
+   * @example
+   * acs:ram::1406****:role/aliyunrdsinstanceencryptiondefaultrole
+   */
   roleARN?: string;
   /**
    * @remarks
@@ -16278,6 +16300,15 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
    * 1
    */
   supportVolumeShadowCopy?: number;
+  /**
+   * @remarks
+   * Whether to support 5-minute log backup of SQL Server.
+   * - 0 : Not Support
+   * - 1 : Support
+   * 
+   * @example
+   * 0
+   */
   supportsHighFrequencyBackup?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26537,7 +26568,7 @@ export class DescribeHistoryTasksStatRequest extends $tea.Model {
   fromExecTime?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*t*HH:mm:ss*z format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -26619,7 +26650,7 @@ export class DescribeHistoryTasksStatRequest extends $tea.Model {
   toExecTime?: number;
   /**
    * @remarks
-   * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -31606,6 +31637,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
   internetMaxBandwidthIn?: number;
   internetMaxBandwidthOut?: number;
   ioOptimized?: string;
+  keyPairName?: string;
   memory?: number;
   operationLocks?: DescribeRCInstanceAttributeResponseBodyOperationLocks;
   publicIpAddress?: DescribeRCInstanceAttributeResponseBodyPublicIpAddress;
@@ -31649,6 +31681,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
+      keyPairName: 'KeyPairName',
       memory: 'Memory',
       operationLocks: 'OperationLocks',
       publicIpAddress: 'PublicIpAddress',
@@ -31691,6 +31724,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       internetMaxBandwidthIn: 'number',
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
+      keyPairName: 'string',
       memory: 'number',
       operationLocks: DescribeRCInstanceAttributeResponseBodyOperationLocks,
       publicIpAddress: DescribeRCInstanceAttributeResponseBodyPublicIpAddress,
@@ -35935,7 +35969,7 @@ export class DescribeVSwitchesResponseBody extends $tea.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the vSwitch.
+   * Details of the vSwitches.
    */
   vSwitchs?: DescribeVSwitchesResponseBodyVSwitchs[];
   static names(): { [key: string]: string } {
@@ -42913,6 +42947,7 @@ export class ModifyDBInstanceSecurityGroupRuleResponse extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecRequest extends $tea.Model {
+  allowMajorVersionUpgrade?: boolean;
   /**
    * @remarks
    * Specifies whether to use vouchers to offset fees. Valid values:
@@ -43148,6 +43183,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * 3
    */
   usedTime?: number;
+  vSwitchId?: string;
   /**
    * @remarks
    * The RDS edition of the instance. Valid values:
@@ -43163,8 +43199,10 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * cn-hangzhou-b
    */
   zoneId?: string;
+  zoneIdSlave1?: string;
   static names(): { [key: string]: string } {
     return {
+      allowMajorVersionUpgrade: 'AllowMajorVersionUpgrade',
       autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
@@ -43189,12 +43227,15 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       switchTime: 'SwitchTime',
       targetMinorVersion: 'TargetMinorVersion',
       usedTime: 'UsedTime',
+      vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
+      zoneIdSlave1: 'ZoneIdSlave1',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowMajorVersionUpgrade: 'boolean',
       autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',
       category: 'string',
@@ -43219,7 +43260,9 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       switchTime: 'string',
       targetMinorVersion: 'string',
       usedTime: 'number',
+      vSwitchId: 'string',
       zoneId: 'string',
+      zoneIdSlave1: 'string',
     };
   }
 
@@ -43229,6 +43272,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
+  allowMajorVersionUpgrade?: boolean;
   /**
    * @remarks
    * Specifies whether to use vouchers to offset fees. Valid values:
@@ -43464,6 +43508,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * 3
    */
   usedTime?: number;
+  vSwitchId?: string;
   /**
    * @remarks
    * The RDS edition of the instance. Valid values:
@@ -43479,8 +43524,10 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * cn-hangzhou-b
    */
   zoneId?: string;
+  zoneIdSlave1?: string;
   static names(): { [key: string]: string } {
     return {
+      allowMajorVersionUpgrade: 'AllowMajorVersionUpgrade',
       autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
@@ -43505,12 +43552,15 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       switchTime: 'SwitchTime',
       targetMinorVersion: 'TargetMinorVersion',
       usedTime: 'UsedTime',
+      vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
+      zoneIdSlave1: 'ZoneIdSlave1',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowMajorVersionUpgrade: 'boolean',
       autoUseCoupon: 'boolean',
       burstingEnabled: 'boolean',
       category: 'string',
@@ -43535,7 +43585,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       switchTime: 'string',
       targetMinorVersion: 'string',
       usedTime: 'number',
+      vSwitchId: 'string',
       zoneId: 'string',
+      zoneIdSlave1: 'string',
     };
   }
 
@@ -51609,6 +51661,7 @@ export class RunRCInstancesRequest extends $tea.Model {
   dataDisk?: RunRCInstancesRequestDataDisk[];
   deploymentSetId?: string;
   description?: string;
+  dryRun?: boolean;
   imageId?: string;
   instanceChargeType?: string;
   instanceName?: string;
@@ -51647,6 +51700,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       dataDisk: 'DataDisk',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
+      dryRun: 'DryRun',
       imageId: 'ImageId',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
@@ -51676,6 +51730,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       dataDisk: { 'type': 'array', 'itemType': RunRCInstancesRequestDataDisk },
       deploymentSetId: 'string',
       description: 'string',
+      dryRun: 'boolean',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
@@ -51713,6 +51768,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
   dataDiskShrink?: string;
   deploymentSetId?: string;
   description?: string;
+  dryRun?: boolean;
   imageId?: string;
   instanceChargeType?: string;
   instanceName?: string;
@@ -51751,6 +51807,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       dataDiskShrink: 'DataDisk',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
+      dryRun: 'DryRun',
       imageId: 'ImageId',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
@@ -51780,6 +51837,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       dataDiskShrink: 'string',
       deploymentSetId: 'string',
       description: 'string',
+      dryRun: 'boolean',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
@@ -56280,6 +56338,7 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
    * f
    */
   bypassRLS?: string;
+  checkPolicy?: boolean;
   /**
    * @remarks
    * Indicates whether the account has the permissions to create databases. Valid values:
@@ -56319,6 +56378,7 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
    * The details about the permissions that are granted to the account.
    */
   databasePrivileges?: DescribeAccountsResponseBodyAccountsDBInstanceAccountDatabasePrivileges;
+  passwordExpireTime?: string;
   /**
    * @remarks
    * Indicates whether the number of databases that are managed by the account exceeds the upper limit. Valid values:
@@ -56364,10 +56424,12 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
       accountStatus: 'AccountStatus',
       accountType: 'AccountType',
       bypassRLS: 'BypassRLS',
+      checkPolicy: 'CheckPolicy',
       createDB: 'CreateDB',
       createRole: 'CreateRole',
       DBInstanceId: 'DBInstanceId',
       databasePrivileges: 'DatabasePrivileges',
+      passwordExpireTime: 'PasswordExpireTime',
       privExceeded: 'PrivExceeded',
       replication: 'Replication',
       validUntil: 'ValidUntil',
@@ -56381,10 +56443,12 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
       accountStatus: 'string',
       accountType: 'string',
       bypassRLS: 'string',
+      checkPolicy: 'boolean',
       createDB: 'string',
       createRole: 'string',
       DBInstanceId: 'string',
       databasePrivileges: DescribeAccountsResponseBodyAccountsDBInstanceAccountDatabasePrivileges,
+      passwordExpireTime: 'string',
       privExceeded: 'string',
       replication: 'string',
       validUntil: 'string',
@@ -59536,6 +59600,15 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtr
 }
 
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeExtra extends $tea.Model {
+  /**
+   * @remarks
+   * Instance account group policy.
+   * - MaximumPasswordAge: Maximum usage time
+   * - MinimumPasswordAge: Minimum usage time
+   * 
+   * @example
+   * {"MaximumPasswordAge": 42,"MinimumPasswordAge": 30}
+   */
   accountSecurityPolicy?: string;
   /**
    * @remarks
@@ -60024,7 +60097,21 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * true
    */
   deletionProtection?: boolean;
+  /**
+   * @remarks
+   * Disaster recovery source instance information.
+   * 
+   * @example
+   * {"replicatorAccount": "******","sourcePort":******,"sourceAddress": "pgm-2ze******","sourceCategory": "aliyunRDS","sourceInstanceRegionId": "cn-******","replicatorPassword": "******","sourceInstanceName": "pgm-2ze******"}
+   */
   disasterRecoveryInfo?: string;
+  /**
+   * @remarks
+   * All disaster recovery instances of the current instance.
+   * 
+   * @example
+   * [{"regionId":"cn-******","insName":"pgm-2ze******"},{"regionId":"cn-******","insName":"pgm-2ze******"}]
+   */
   disasterRecoveryInstances?: string;
   /**
    * @remarks
@@ -69687,6 +69774,15 @@ export class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $
    * {dblink,plpgsql}
    */
   requires?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud account ID.
+   * 
+   * > Only exclusive plug-ins (plug-ins written by users) will return this parameter. Each Alibaba Cloud account only displays its own exclusive plug-ins.
+   * 
+   * @example
+   * 181578148294****
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69786,6 +69882,15 @@ export class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends
    * {dblink,plpgsql}
    */
   requires?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud account ID.
+   * 
+   * > Only exclusive plug-ins (plug-ins written by users) will return this parameter. Each Alibaba Cloud account only displays its own exclusive plug-ins.
+   * 
+   * @example
+   * 181578148294****
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73731,7 +73836,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $tea.Model {
    * The description of the vSwitch.
    * 
    * @example
-   * VSwitchDescription
+   * vSwitchDescription
    */
   description?: string;
   /**
@@ -77311,6 +77416,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.accountType)) {
       query["AccountType"] = request.accountType;
+    }
+
+    if (!Util.isUnset(request.checkPolicy)) {
+      query["CheckPolicy"] = request.checkPolicy;
     }
 
     if (!Util.isUnset(request.DBInstanceId)) {
@@ -87885,7 +87994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务统计
+   * Collects tasks in the task center.
    * 
    * @param request - DescribeHistoryTasksStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -87968,7 +88077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务统计
+   * Collects tasks in the task center.
    * 
    * @param request - DescribeHistoryTasksStatRequest
    * @returns DescribeHistoryTasksStatResponse
@@ -92159,7 +92268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of VSwitch that are available in a virtual private cloud (VPC).
+   * Queries the details of vSwitch that are available in a virtual private cloud (VPC).
    * 
    * @remarks
    * ### Supported database engines
@@ -92241,7 +92350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of VSwitch that are available in a virtual private cloud (VPC).
+   * Queries the details of vSwitch that are available in a virtual private cloud (VPC).
    * 
    * @remarks
    * ### Supported database engines
@@ -96095,6 +96204,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.allowMajorVersionUpgrade)) {
+      query["AllowMajorVersionUpgrade"] = request.allowMajorVersionUpgrade;
+    }
+
     if (!Util.isUnset(request.autoUseCoupon)) {
       query["AutoUseCoupon"] = request.autoUseCoupon;
     }
@@ -96191,8 +96304,16 @@ export default class Client extends OpenApi {
       query["UsedTime"] = request.usedTime;
     }
 
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
+    }
+
+    if (!Util.isUnset(request.zoneIdSlave1)) {
+      query["ZoneIdSlave1"] = request.zoneIdSlave1;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -100826,6 +100947,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.imageId)) {
