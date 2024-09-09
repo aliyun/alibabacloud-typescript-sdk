@@ -18,10 +18,14 @@ export class FindGuestCredentialsRecordRequest extends $tea.Model {
    * 2023-08-07 12:00:00
    */
   dateTimeString?: string;
+  endDateTime?: string;
+  startDateTime?: string;
   static names(): { [key: string]: string } {
     return {
       activityId: 'ActivityId',
       dateTimeString: 'DateTimeString',
+      endDateTime: 'EndDateTime',
+      startDateTime: 'StartDateTime',
     };
   }
 
@@ -29,6 +33,8 @@ export class FindGuestCredentialsRecordRequest extends $tea.Model {
     return {
       activityId: 'string',
       dateTimeString: 'string',
+      endDateTime: 'string',
+      startDateTime: 'string',
     };
   }
 
@@ -120,10 +126,14 @@ export class FindGuestTicketRecordRequest extends $tea.Model {
    * 2023-09-04 15:14:00
    */
   dateTimeString?: string;
+  endDateTime?: string;
+  startDateTime?: string;
   static names(): { [key: string]: string } {
     return {
       activityId: 'ActivityId',
       dateTimeString: 'DateTimeString',
+      endDateTime: 'EndDateTime',
+      startDateTime: 'StartDateTime',
     };
   }
 
@@ -131,6 +141,8 @@ export class FindGuestTicketRecordRequest extends $tea.Model {
     return {
       activityId: 'string',
       dateTimeString: 'string',
+      endDateTime: 'string',
+      startDateTime: 'string',
     };
   }
 
@@ -1152,6 +1164,14 @@ export default class Client extends OpenApi {
       query["DateTimeString"] = request.dateTimeString;
     }
 
+    if (!Util.isUnset(request.endDateTime)) {
+      query["EndDateTime"] = request.endDateTime;
+    }
+
+    if (!Util.isUnset(request.startDateTime)) {
+      query["StartDateTime"] = request.startDateTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1196,6 +1216,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dateTimeString)) {
       query["DateTimeString"] = request.dateTimeString;
+    }
+
+    if (!Util.isUnset(request.endDateTime)) {
+      query["EndDateTime"] = request.endDateTime;
+    }
+
+    if (!Util.isUnset(request.startDateTime)) {
+      query["StartDateTime"] = request.startDateTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
