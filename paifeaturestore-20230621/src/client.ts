@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -61,72 +60,27 @@ export class FeatureViewConfigValuePartitionsValue extends $tea.Model {
   }
 }
 
-export class ChangeProjectFeatureEntityHotIdVersionRequest extends $tea.Model {
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeProjectFeatureEntityHotIdVersionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeProjectFeatureEntityHotIdVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeProjectFeatureEntityHotIdVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeProjectFeatureEntityHotIdVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CheckInstanceDatasourceRequest extends $tea.Model {
+  /**
+   * @example
+   * {"address": ""}
+   */
   config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Hologres
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * igraph1
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,7 +104,15 @@ export class CheckInstanceDatasourceRequest extends $tea.Model {
 }
 
 export class CheckInstanceDatasourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C03B2680-AC9C-59CD-93C5-8142B92537FA
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -197,10 +159,42 @@ export class CheckInstanceDatasourceResponse extends $tea.Model {
 }
 
 export class CreateDatasourceRequest extends $tea.Model {
+  /**
+   * @example
+   * {"address": ""}
+   */
   config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * datasource1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Hologres
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * igraph_instance1
+   */
   uri?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 234
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -228,7 +222,15 @@ export class CreateDatasourceRequest extends $tea.Model {
 }
 
 export class CreateDatasourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   datasourceId?: string;
+  /**
+   * @example
+   * 1C5B1511-8A5B-59C3-90AF-513F9210E882
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -275,8 +277,29 @@ export class CreateDatasourceResponse extends $tea.Model {
 }
 
 export class CreateFeatureEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_id
+   */
   joinId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * feature_entity_1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -300,7 +323,15 @@ export class CreateFeatureEntityRequest extends $tea.Model {
 }
 
 export class CreateFeatureEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   featureEntityId?: string;
+  /**
+   * @example
+   * 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -347,17 +378,72 @@ export class CreateFeatureEntityResponse extends $tea.Model {
 }
 
 export class CreateFeatureViewRequest extends $tea.Model {
+  /**
+   * @example
+   * {"save_original_field":true}
+   */
   config?: string;
+  /**
+   * @example
+   * 4
+   */
   featureEntityId?: string;
   fields?: CreateFeatureViewRequestFields[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FeatureView1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * 5
+   */
   registerDatasourceId?: string;
+  /**
+   * @example
+   * table1
+   */
   registerTable?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   syncOnlineTable?: boolean;
+  /**
+   * @example
+   * 90
+   */
   TTL?: number;
   tags?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Batch
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Custom
+   */
   writeMethod?: string;
   writeToFeatureDB?: boolean;
   static names(): { [key: string]: string } {
@@ -402,7 +488,15 @@ export class CreateFeatureViewRequest extends $tea.Model {
 }
 
 export class CreateFeatureViewResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   featureViewId?: string;
+  /**
+   * @example
+   * 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -449,6 +543,10 @@ export class CreateFeatureViewResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * Basic
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -468,8 +566,20 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InstanceAlreadyExistsErrorProblem
+   */
   code?: string;
+  /**
+   * @example
+   * featureStore-cn-7mz2xfu****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * C33E160C-BFCA-5719-B958-942850E949F6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -518,9 +628,34 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateLabelTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   datasourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fields?: CreateLabelTableRequestFields[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rec_test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -546,7 +681,15 @@ export class CreateLabelTableRequest extends $tea.Model {
 }
 
 export class CreateLabelTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   labelTableId?: string;
+  /**
+   * @example
+   * 0FA90B3B-F30A-5C9D-A9FD-8114F8868062
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -593,14 +736,45 @@ export class CreateLabelTableResponse extends $tea.Model {
 }
 
 export class CreateModelFeatureRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   features?: CreateModelFeatureRequestFeatures[];
+  /**
+   * @example
+   * 0
+   */
+  labelPriorityLevel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   labelTableId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * model_feature_1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
   sequenceFeatureViewIds?: string[];
   static names(): { [key: string]: string } {
     return {
       features: 'Features',
+      labelPriorityLevel: 'LabelPriorityLevel',
       labelTableId: 'LabelTableId',
       name: 'Name',
       projectId: 'ProjectId',
@@ -611,6 +785,7 @@ export class CreateModelFeatureRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       features: { 'type': 'array', 'itemType': CreateModelFeatureRequestFeatures },
+      labelPriorityLevel: 'number',
       labelTableId: 'string',
       name: 'string',
       projectId: 'string',
@@ -624,7 +799,15 @@ export class CreateModelFeatureRequest extends $tea.Model {
 }
 
 export class CreateModelFeatureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   modelFeatureId?: string;
+  /**
+   * @example
+   * 37D19490-AB69-567D-A852-407C94E510E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -671,7 +854,15 @@ export class CreateModelFeatureResponse extends $tea.Model {
 }
 
 export class CreateModelFeatureTrainingSetFGTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * project_model_training_set_fg
+   */
   trainingSetFGTableName?: string;
+  /**
+   * @example
+   * 93FF6A91-5326-5FA1-9D89-DB46DAA99E55
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -718,11 +909,47 @@ export class CreateModelFeatureTrainingSetFGTableResponse extends $tea.Model {
 }
 
 export class CreateProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * project1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   offlineDatasourceId?: string;
+  /**
+   * @example
+   * 90
+   */
   offlineLifeCycle?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   onlineDatasourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 324
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -752,7 +979,15 @@ export class CreateProjectRequest extends $tea.Model {
 }
 
 export class CreateProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * 977ADE3A-D69D-58AD-8323-96E2FB898E99
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -799,6 +1034,13 @@ export class CreateProjectResponse extends $tea.Model {
 }
 
 export class CreateServiceIdentityRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunServiceRoleForFeatureStore
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -818,8 +1060,20 @@ export class CreateServiceIdentityRoleRequest extends $tea.Model {
 }
 
 export class CreateServiceIdentityRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ServiceLinkedRoleAlreadyExistsErrorProblem
+   */
   code?: string;
+  /**
+   * @example
+   * C03B2680-AC9C-59CD-93C5-8142B92537FA
+   */
   requestId?: string;
+  /**
+   * @example
+   * AliyunServiceRoleForFeatureStore
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -868,6 +1122,10 @@ export class CreateServiceIdentityRoleResponse extends $tea.Model {
 }
 
 export class DeleteDatasourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E2E1575F-29D1-5579-B649-B7883A793562
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -912,6 +1170,10 @@ export class DeleteDatasourceResponse extends $tea.Model {
 }
 
 export class DeleteFeatureEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E23EFF09-58AA-5420-934F-8453AE01548D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -956,6 +1218,10 @@ export class DeleteFeatureEntityResponse extends $tea.Model {
 }
 
 export class DeleteFeatureViewResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BF349686-C932-55B5-9B31-DAFA395C0E06
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1000,6 +1266,10 @@ export class DeleteFeatureViewResponse extends $tea.Model {
 }
 
 export class DeleteLabelTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FFD39C0F-DD8D-51B2-864E-2842206DB0E8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1044,6 +1314,10 @@ export class DeleteLabelTableResponse extends $tea.Model {
 }
 
 export class DeleteModelFeatureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6B662A64-E4BF-56F8-BF5F-4C63F34EC0A8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1088,6 +1362,10 @@ export class DeleteModelFeatureResponse extends $tea.Model {
 }
 
 export class DeleteProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0DA35264-0877-5852-8971-7735B547C969
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1132,6 +1410,10 @@ export class DeleteProjectResponse extends $tea.Model {
 }
 
 export class ExportModelFeatureTrainingSetFGTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   trainingSetFgConfig?: ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig;
   static names(): { [key: string]: string } {
     return {
@@ -1151,7 +1433,15 @@ export class ExportModelFeatureTrainingSetFGTableRequest extends $tea.Model {
 }
 
 export class ExportModelFeatureTrainingSetFGTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   taskId?: string;
+  /**
+   * @example
+   * 514F82AF-3C04-5C3D-8F38-A11261BF37B0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1201,12 +1491,14 @@ export class ExportModelFeatureTrainingSetTableRequest extends $tea.Model {
   featureViewConfig?: { [key: string]: FeatureViewConfigValue };
   labelInputConfig?: ExportModelFeatureTrainingSetTableRequestLabelInputConfig;
   realTimeIterateInterval?: number;
+  realTimePartitionCountValue?: number;
   trainingSetConfig?: ExportModelFeatureTrainingSetTableRequestTrainingSetConfig;
   static names(): { [key: string]: string } {
     return {
       featureViewConfig: 'FeatureViewConfig',
       labelInputConfig: 'LabelInputConfig',
       realTimeIterateInterval: 'RealTimeIterateInterval',
+      realTimePartitionCountValue: 'RealTimePartitionCountValue',
       trainingSetConfig: 'TrainingSetConfig',
     };
   }
@@ -1216,6 +1508,7 @@ export class ExportModelFeatureTrainingSetTableRequest extends $tea.Model {
       featureViewConfig: { 'type': 'map', 'keyType': 'string', 'valueType': FeatureViewConfigValue },
       labelInputConfig: ExportModelFeatureTrainingSetTableRequestLabelInputConfig,
       realTimeIterateInterval: 'number',
+      realTimePartitionCountValue: 'number',
       trainingSetConfig: ExportModelFeatureTrainingSetTableRequestTrainingSetConfig,
     };
   }
@@ -1226,6 +1519,10 @@ export class ExportModelFeatureTrainingSetTableRequest extends $tea.Model {
 }
 
 export class ExportModelFeatureTrainingSetTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FBBE454-9BD1-5D8F-9129-D14DB7FAFE0B
+   */
   requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -1273,14 +1570,50 @@ export class ExportModelFeatureTrainingSetTableResponse extends $tea.Model {
 }
 
 export class GetDatasourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {"address": ""}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   datasourceId?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * datasource1
+   */
   name?: string;
+  /**
+   * @example
+   * AD7D9E95-BD31-53F2-B710-6C01866FCB05
+   */
   requestId?: string;
+  /**
+   * @example
+   * Hologres
+   */
   type?: string;
+  /**
+   * @example
+   * igraph_instance1
+   */
   uri?: string;
+  /**
+   * @example
+   * 32244
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1342,7 +1675,15 @@ export class GetDatasourceResponse extends $tea.Model {
 
 export class GetDatasourceTableResponseBody extends $tea.Model {
   fields?: GetDatasourceTableResponseBodyFields[];
+  /**
+   * @example
+   * D7B2F8C4-49C7-5CFA-8075-9D715A114873
+   */
   requestId?: string;
+  /**
+   * @example
+   * table1
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1391,12 +1732,40 @@ export class GetDatasourceTableResponse extends $tea.Model {
 }
 
 export class GetFeatureEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * user_id
+   */
   joinId?: string;
+  /**
+   * @example
+   * feature_entity_1
+   */
   name?: string;
+  /**
+   * @example
+   * 123456789*****
+   */
   owner?: string;
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * project_1
+   */
   projectName?: string;
+  /**
+   * @example
+   * E23EFF09-58AA-5420-934F-8453AE01548D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1453,28 +1822,122 @@ export class GetFeatureEntityResponse extends $tea.Model {
 }
 
 export class GetFeatureViewResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {"save_original_field":true}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   featureEntityId?: string;
+  /**
+   * @example
+   * featureEntity1
+   */
   featureEntityName?: string;
   fields?: GetFeatureViewResponseBodyFields[];
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtSyncTime?: string;
+  /**
+   * @example
+   * user_id
+   */
   joinId?: string;
+  /**
+   * @example
+   * {
+   * 	"mode": "overwrite",
+   * 	"partitions": {
+   * 		"ds": {
+   * 			"value": "20230820"
+   * 		}
+   * 	},
+   * 	"event_time": "",
+   * 	"config": {},
+   * 	"offline_to_online": true
+   * }
+   */
   lastSyncConfig?: string;
+  /**
+   * @example
+   * featureView1
+   */
   name?: string;
+  /**
+   * @example
+   * 12321421412****
+   */
   owner?: string;
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
+  /**
+   * @example
+   * from feature_store_py.fs_client import FeatureStoreClient\nimport datetime\nfrom feature_store_py.fs_datasource import MaxComputeDataSource\nimport sys\n\ncur_day = args[\"dt\"]\nprint(\"cur_day = \", cur_day)\n\naccess_key_id = o.account.access_id\naccess_key_secret = o.account.secret_access_key\nfs = FeatureStoreClient(access_key_id=access_key_id, access_key_secret=access_key_secret, region=\"cn-beijing\")\ncur_project_name = \"p1\"\nproject = fs.get_project(cur_project_name)\n\nfeature_view_name = \"user_fea\"\nbatch_feature_view = project.get_feature_view(feature_view_name)\ntask = batch_feature_view.publish_table(partitions={\"ds\":cur_day}, mode=\"Overwrite\")\ntask.wait()\ntask.print_summary()\n
+   */
   publishTableScript?: string;
+  /**
+   * @example
+   * 4
+   */
   registerDatasourceId?: string;
+  /**
+   * @example
+   * datasource1
+   */
   registerDatasourceName?: string;
+  /**
+   * @example
+   * table1
+   */
   registerTable?: string;
+  /**
+   * @example
+   * 72F15A8A-5A28-5B18-A0DE-0EABD7D3245A
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   syncOnlineTable?: boolean;
+  /**
+   * @example
+   * 90
+   */
   TTL?: number;
   tags?: string[];
+  /**
+   * @example
+   * Batch
+   */
   type?: string;
+  /**
+   * @example
+   * custom
+   */
   writeMethod?: string;
   writeToFeatureDB?: boolean;
   static names(): { [key: string]: string } {
@@ -1566,13 +2029,45 @@ export class GetFeatureViewResponse extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @example
+   * 0.8
+   */
   progress?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 1C5B1511-8A5B-59C3-90AF-513F9210E882
+   */
   requestId?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * Basic
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1631,16 +2126,52 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetLabelTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   datasourceId?: string;
+  /**
+   * @example
+   * datasource1
+   */
   datasourceName?: string;
   fields?: GetLabelTableResponseBodyFields[];
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * label_table1
+   */
   name?: string;
+  /**
+   * @example
+   * 12321312*****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   projectId?: string;
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
   relatedModelFeatures?: string[];
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1705,19 +2236,72 @@ export class GetLabelTableResponse extends $tea.Model {
 }
 
 export class GetModelFeatureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * from feature_store_py.fs_client import FeatureStoreClient\nfrom feature_store_py.fs_project import FeatureStoreProject\nfrom feature_store_py.fs_datasource import LabelInput, MaxComputeDataSource, TrainingSetOutput\nfrom feature_store_py.fs_features import FeatureSelector\nfrom feature_store_py.fs_config import LabelInputConfig, PartitionConfig, FeatureViewConfig\nfrom feature_store_py.fs_config import TrainSetOutputConfig, EASDeployConfig\nimport datetime\nimport sys\n\ncur_day = args[\"dt\"]\nprint(\"cur_day = \", cur_day)\noffset = datetime.timedelta(days=-1)\npre_day = (datetime.datetime.strptime(cur_day, \"%Y%m%d\") + offset).strftime(\"%Y%m%d\")\nprint(\"pre_day = \", pre_day)\n\n\naccess_key_id = o.account.access_id\naccess_key_secret = o.account.secret_access_key\nfs = FeatureStoreClient(access_key_id=access_key_id, access_key_secret=access_key_secret, region=\"cn-beijing\")\ncur_project_name = \"p1\"\nproject = fs.get_project(cur_project_name)\n\nlabel_partitions = PartitionConfig(name = \"ds\", value = cur_day)\nlabel_input_config = LabelInputConfig(partition_config=label_partitions)\n\nfeature_view_1_partitions = PartitionConfig(name = \"ds\", value = pre_day)\nfeature_view_1_config = FeatureViewConfig(name = \"user_fea\",\npartition_config=feature_view_1_partitions)\n\nfeature_view_2_partitions = PartitionConfig(name = \"ds\", value = pre_day)\nfeature_view_2_config = FeatureViewConfig(name = \"seq_fea\",\npartition_config=feature_view_2_partitions)\n\nfeature_view_3_partitions = PartitionConfig(name = \"ds\", value = pre_day)\nfeature_view_3_config = FeatureViewConfig(name = \"item_fea\",\npartition_config=feature_view_3_partitions)\n\nfeature_view_config_list = [feature_view_1_config,feature_view_2_config,feature_view_3_config]\ntrain_set_partitions = PartitionConfig(name = \"ds\", value = cur_day)\ntrain_set_output_config = TrainSetOutputConfig(partition_config=train_set_partitions)\n\n\nmodel_name = \"rank_v1\"\ncur_model = project.get_model(model_name)\ntask = cur_model.export_train_set(label_input_config, feature_view_config_list, train_set_output_config)\ntask.wait()\nprint(\"task_summary = \", task.task_summary)\n
+   */
   exportTrainingSetTableScript?: string;
   features?: GetModelFeatureResponseBodyFeatures[];
+  /**
+   * @example
+   * 2023-07-04T14:46:22.227+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T14:46:22.227+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 0
+   */
+  labelPriorityLevel?: number;
+  /**
+   * @example
+   * 3
+   */
   labelTableId?: string;
+  /**
+   * @example
+   * label_table1
+   */
   labelTableName?: string;
+  /**
+   * @example
+   * model_feature1
+   */
   name?: string;
+  /**
+   * @example
+   * 1231243253****
+   */
   owner?: string;
+  /**
+   * @example
+   * 5
+   */
   projectId?: string;
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
   relations?: GetModelFeatureResponseBodyRelations;
+  /**
+   * @example
+   * 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
+   */
   requestId?: string;
+  /**
+   * @example
+   * table2
+   */
   trainingSetFGTable?: string;
+  /**
+   * @example
+   * table1
+   */
   trainingSetTable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1725,6 +2309,7 @@ export class GetModelFeatureResponseBody extends $tea.Model {
       features: 'Features',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
+      labelPriorityLevel: 'LabelPriorityLevel',
       labelTableId: 'LabelTableId',
       labelTableName: 'LabelTableName',
       name: 'Name',
@@ -1744,6 +2329,7 @@ export class GetModelFeatureResponseBody extends $tea.Model {
       features: { 'type': 'array', 'itemType': GetModelFeatureResponseBodyFeatures },
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
+      labelPriorityLevel: 'number',
       labelTableId: 'string',
       labelTableName: 'string',
       name: 'string',
@@ -1790,6 +2376,10 @@ export class GetModelFeatureResponse extends $tea.Model {
 export class GetModelFeatureFGFeatureResponseBody extends $tea.Model {
   lookupFeatures?: GetModelFeatureFGFeatureResponseBodyLookupFeatures[];
   rawFeatures?: GetModelFeatureFGFeatureResponseBodyRawFeatures[];
+  /**
+   * @example
+   * E23EFF09-58AA-5420-934F-8453AE01548D
+   */
   requestId?: string;
   reserves?: string[];
   sequenceFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeatures[];
@@ -1844,7 +2434,15 @@ export class GetModelFeatureFGFeatureResponse extends $tea.Model {
 }
 
 export class GetModelFeatureFGInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {"features": [{"feature_name": "item_id","feature_type": "id_feature","value_type": "String","expression": "item:item_id","default_value": "-1024","combiner": "mean","need_prefix": false},{"feature_name": "f1","feature_type": "lookup_feature","value_type": "Integer","map": "item:f1","key": "user:1","default_value": "0","combiner": "mean","need_prefix": false,"needDiscrete": false,"needWeighting": false,"needKey": false}],"reserves": ["f1"]}
+   */
   content?: string;
+  /**
+   * @example
+   * 6B662A64-E4BF-56F8-BF5F-4C63F34EC0A8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1891,21 +2489,85 @@ export class GetModelFeatureFGInfoResponse extends $tea.Model {
 }
 
 export class GetProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 10
+   */
   featureEntityCount?: number;
+  /**
+   * @example
+   * 10
+   */
   featureViewCount?: number;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 5
+   */
   modelCount?: number;
+  /**
+   * @example
+   * project1
+   */
   name?: string;
+  /**
+   * @example
+   * 4
+   */
   offlineDatasourceId?: string;
+  /**
+   * @example
+   * datasource1
+   */
   offlineDatasourceName?: string;
+  /**
+   * @example
+   * MaxCompute
+   */
   offlineDatasourceType?: string;
+  /**
+   * @example
+   * 90
+   */
   offlineLifecycle?: number;
+  /**
+   * @example
+   * 5
+   */
   onlineDatasourceId?: string;
+  /**
+   * @example
+   * datasource2
+   */
   onlineDatasourceName?: string;
+  /**
+   * @example
+   * Hologres
+   */
   onlineDatasourceType?: string;
+  /**
+   * @example
+   * 1232132543543****
+   */
   owner?: string;
+  /**
+   * @example
+   * C33E160C-BFCA-5719-B958-942850E949F6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1980,11 +2642,35 @@ export class GetProjectResponse extends $tea.Model {
 }
 
 export class GetProjectFeatureEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   featureEntityId?: string;
+  /**
+   * @example
+   * user_id
+   */
   joinId?: string;
+  /**
+   * @example
+   * feature_entity_1
+   */
   name?: string;
+  /**
+   * @example
+   * project_1
+   */
   projectName?: string;
+  /**
+   * @example
+   * 37D19490-AB69-567D-A852-407C94E510E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 34245
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2038,249 +2724,24 @@ export class GetProjectFeatureEntityResponse extends $tea.Model {
   }
 }
 
-export class GetProjectFeatureEntityHotIdsResponseBody extends $tea.Model {
-  count?: number;
-  hotIds?: string;
-  nextSeqNumber?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      hotIds: 'HotIds',
-      nextSeqNumber: 'NextSeqNumber',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      hotIds: 'string',
-      nextSeqNumber: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectFeatureEntityHotIdsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetProjectFeatureEntityHotIdsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetProjectFeatureEntityHotIdsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectFeatureViewResponseBody extends $tea.Model {
-  config?: string;
-  featureEntityId?: string;
-  featureEntityName?: string;
-  featureViewId?: string;
-  fields?: GetProjectFeatureViewResponseBodyFields[];
-  gmtSyncTime?: string;
-  joinId?: string;
-  lastSyncConfig?: string;
-  name?: string;
-  owner?: string;
-  projectId?: string;
-  projectName?: string;
-  registerDatasourceId?: string;
-  registerTable?: string;
-  requestId?: string;
-  syncOnlineTable?: boolean;
-  TTL?: number;
-  tags?: string[];
-  type?: string;
-  writeMethod?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      featureEntityId: 'FeatureEntityId',
-      featureEntityName: 'FeatureEntityName',
-      featureViewId: 'FeatureViewId',
-      fields: 'Fields',
-      gmtSyncTime: 'GmtSyncTime',
-      joinId: 'JoinId',
-      lastSyncConfig: 'LastSyncConfig',
-      name: 'Name',
-      owner: 'Owner',
-      projectId: 'ProjectId',
-      projectName: 'ProjectName',
-      registerDatasourceId: 'RegisterDatasourceId',
-      registerTable: 'RegisterTable',
-      requestId: 'RequestId',
-      syncOnlineTable: 'SyncOnlineTable',
-      TTL: 'TTL',
-      tags: 'Tags',
-      type: 'Type',
-      writeMethod: 'WriteMethod',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      featureEntityId: 'string',
-      featureEntityName: 'string',
-      featureViewId: 'string',
-      fields: { 'type': 'array', 'itemType': GetProjectFeatureViewResponseBodyFields },
-      gmtSyncTime: 'string',
-      joinId: 'string',
-      lastSyncConfig: 'string',
-      name: 'string',
-      owner: 'string',
-      projectId: 'string',
-      projectName: 'string',
-      registerDatasourceId: 'string',
-      registerTable: 'string',
-      requestId: 'string',
-      syncOnlineTable: 'boolean',
-      TTL: 'number',
-      tags: { 'type': 'array', 'itemType': 'string' },
-      type: 'string',
-      writeMethod: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectFeatureViewResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetProjectFeatureViewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetProjectFeatureViewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectModelFeatureResponseBody extends $tea.Model {
-  features?: GetProjectModelFeatureResponseBodyFeatures[];
-  gmtCreateTime?: string;
-  gmtModifiedTime?: string;
-  labelDatasourceId?: string;
-  labelDatasourceTable?: string;
-  labelEventTime?: string;
-  labelTableId?: string;
-  modelFeatureId?: string;
-  name?: string;
-  owner?: string;
-  projectId?: string;
-  projectName?: string;
-  requestId?: string;
-  trainingSetFGTable?: string;
-  trainingSetTable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      features: 'Features',
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      labelDatasourceId: 'LabelDatasourceId',
-      labelDatasourceTable: 'LabelDatasourceTable',
-      labelEventTime: 'LabelEventTime',
-      labelTableId: 'LabelTableId',
-      modelFeatureId: 'ModelFeatureId',
-      name: 'Name',
-      owner: 'Owner',
-      projectId: 'ProjectId',
-      projectName: 'ProjectName',
-      requestId: 'RequestId',
-      trainingSetFGTable: 'TrainingSetFGTable',
-      trainingSetTable: 'TrainingSetTable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      features: { 'type': 'array', 'itemType': GetProjectModelFeatureResponseBodyFeatures },
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      labelDatasourceId: 'string',
-      labelDatasourceTable: 'string',
-      labelEventTime: 'string',
-      labelTableId: 'string',
-      modelFeatureId: 'string',
-      name: 'string',
-      owner: 'string',
-      projectId: 'string',
-      projectName: 'string',
-      requestId: 'string',
-      trainingSetFGTable: 'string',
-      trainingSetTable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectModelFeatureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetProjectModelFeatureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetProjectModelFeatureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetServiceIdentityRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   * "Version": "1",
+   * "Statement":[]
+   * }
+   */
   policy?: string;
+  /**
+   * @example
+   * 6F629E92-F64D-502D-85AA-A9C54894CA3D
+   */
   requestId?: string;
+  /**
+   * @example
+   * AliyunServiceRoleForPaiFeatureStore
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2329,18 +2790,78 @@ export class GetServiceIdentityRoleResponse extends $tea.Model {
 }
 
 export class GetTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   * 	"mode": "overwrite",
+   * 	"partitions": {
+   * 		"dt": "20230820"
+   * 	},
+   * 	"event_time": "",
+   * 	"config": {},
+   * 	"offline_to_online": true
+   * }
+   */
   config?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtExecutedTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtFinishedTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 3
+   */
   objectId?: string;
+  /**
+   * @example
+   * ModelFeature
+   */
   objectType?: string;
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * project_1
+   */
   projectName?: string;
+  /**
+   * @example
+   * 37D19490-AB69-567D-A852-407C94E510E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * DROP TABLE IF EXISTS public.fsxxx
+   */
   runningConfig?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * OfflineToOnline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2409,6 +2930,10 @@ export class GetTaskResponse extends $tea.Model {
 }
 
 export class ListDatasourceTablesRequest extends $tea.Model {
+  /**
+   * @example
+   * table1
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2428,8 +2953,16 @@ export class ListDatasourceTablesRequest extends $tea.Model {
 }
 
 export class ListDatasourceTablesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C03B2680-AC9C-59CD-93C5-8142B92537FA
+   */
   requestId?: string;
   tables?: string[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2478,12 +3011,40 @@ export class ListDatasourceTablesResponse extends $tea.Model {
 }
 
 export class ListDatasourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * datasource1
+   */
   name?: string;
+  /**
+   * @example
+   * Asc
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * MaxCompute
+   */
   type?: string;
+  /**
+   * @example
+   * 234
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2516,7 +3077,15 @@ export class ListDatasourcesRequest extends $tea.Model {
 
 export class ListDatasourcesResponseBody extends $tea.Model {
   datasources?: ListDatasourcesResponseBodyDatasources[];
+  /**
+   * @example
+   * 44933189-493B-5C43-A5C6-11EEC2A43520
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2566,12 +3135,43 @@ export class ListDatasourcesResponse extends $tea.Model {
 
 export class ListFeatureEntitiesRequest extends $tea.Model {
   featureEntityIds?: string[];
+  /**
+   * @example
+   * feature_entity_1
+   */
   name?: string;
+  /**
+   * @example
+   * Desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1231432*****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2606,12 +3206,43 @@ export class ListFeatureEntitiesRequest extends $tea.Model {
 
 export class ListFeatureEntitiesShrinkRequest extends $tea.Model {
   featureEntityIdsShrink?: string;
+  /**
+   * @example
+   * feature_entity_1
+   */
   name?: string;
+  /**
+   * @example
+   * Desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1231432*****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2646,7 +3277,15 @@ export class ListFeatureEntitiesShrinkRequest extends $tea.Model {
 
 export class ListFeatureEntitiesResponseBody extends $tea.Model {
   featureEntities?: ListFeatureEntitiesResponseBodyFeatureEntities[];
+  /**
+   * @example
+   * 37D19490-AB69-567D-A852-407C94E510E9
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2696,6 +3335,10 @@ export class ListFeatureEntitiesResponse extends $tea.Model {
 
 export class ListFeatureViewFieldRelationshipsResponseBody extends $tea.Model {
   relationships?: ListFeatureViewFieldRelationshipsResponseBodyRelationships[];
+  /**
+   * @example
+   * BF349686-C932-55B5-9B31-DAFA395C0E06
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2742,6 +3385,10 @@ export class ListFeatureViewFieldRelationshipsResponse extends $tea.Model {
 }
 
 export class ListFeatureViewOnlineFeaturesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   joinIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2761,6 +3408,10 @@ export class ListFeatureViewOnlineFeaturesRequest extends $tea.Model {
 }
 
 export class ListFeatureViewOnlineFeaturesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   joinIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2781,6 +3432,10 @@ export class ListFeatureViewOnlineFeaturesShrinkRequest extends $tea.Model {
 
 export class ListFeatureViewOnlineFeaturesResponseBody extends $tea.Model {
   onlineFeatures?: string[];
+  /**
+   * @example
+   * BF349686-C932-55B5-9B31-DAFA395C0E06
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2828,6 +3483,10 @@ export class ListFeatureViewOnlineFeaturesResponse extends $tea.Model {
 
 export class ListFeatureViewRelationshipsResponseBody extends $tea.Model {
   relationships?: ListFeatureViewRelationshipsResponseBodyRelationships[];
+  /**
+   * @example
+   * 0FBBE454-9BD1-5D8F-9129-D14DB7FAFE0B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2874,16 +3533,59 @@ export class ListFeatureViewRelationshipsResponse extends $tea.Model {
 }
 
 export class ListFeatureViewsRequest extends $tea.Model {
+  /**
+   * @example
+   * feature1
+   */
   featureName?: string;
   featureViewIds?: string[];
+  /**
+   * @example
+   * fv1
+   */
   name?: string;
+  /**
+   * @example
+   * Desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1232143243242****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * tag1
+   */
   tag?: string;
+  /**
+   * @example
+   * Batch
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2923,16 +3625,59 @@ export class ListFeatureViewsRequest extends $tea.Model {
 }
 
 export class ListFeatureViewsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * feature1
+   */
   featureName?: string;
   featureViewIdsShrink?: string;
+  /**
+   * @example
+   * fv1
+   */
   name?: string;
+  /**
+   * @example
+   * Desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1232143243242****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * tag1
+   */
   tag?: string;
+  /**
+   * @example
+   * Batch
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2973,7 +3718,15 @@ export class ListFeatureViewsShrinkRequest extends $tea.Model {
 
 export class ListFeatureViewsResponseBody extends $tea.Model {
   featureViews?: ListFeatureViewsResponseBodyFeatureViews[];
+  /**
+   * @example
+   * C03B2680-AC9C-59CD-93C5-8142B92537FA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3022,10 +3775,30 @@ export class ListFeatureViewsResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * DESC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3054,7 +3827,15 @@ export class ListInstancesRequest extends $tea.Model {
 
 export class ListInstancesResponseBody extends $tea.Model {
   instances?: ListInstancesResponseBodyInstances[];
+  /**
+   * @example
+   * 2CA11923-2A3D-5E5A-8314-E699D2DD15DE
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3104,12 +3885,43 @@ export class ListInstancesResponse extends $tea.Model {
 
 export class ListLabelTablesRequest extends $tea.Model {
   labelTableIds?: string[];
+  /**
+   * @example
+   * label_table1
+   */
   name?: string;
+  /**
+   * @example
+   * Asc
+   */
   order?: string;
+  /**
+   * @example
+   * 1231432432****
+   */
   owner?: string;
+  /**
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * project1
+   */
   projectId?: string;
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3144,12 +3956,43 @@ export class ListLabelTablesRequest extends $tea.Model {
 
 export class ListLabelTablesShrinkRequest extends $tea.Model {
   labelTableIdsShrink?: string;
+  /**
+   * @example
+   * label_table1
+   */
   name?: string;
+  /**
+   * @example
+   * Asc
+   */
   order?: string;
+  /**
+   * @example
+   * 1231432432****
+   */
   owner?: string;
+  /**
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * project1
+   */
   projectId?: string;
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3184,7 +4027,15 @@ export class ListLabelTablesShrinkRequest extends $tea.Model {
 
 export class ListLabelTablesResponseBody extends $tea.Model {
   labelTables?: ListLabelTablesResponseBodyLabelTables[];
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 21
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3233,6 +4084,10 @@ export class ListLabelTablesResponse extends $tea.Model {
 }
 
 export class ListModelFeatureAvailableFeaturesRequest extends $tea.Model {
+  /**
+   * @example
+   * f1
+   */
   featureName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3253,7 +4108,15 @@ export class ListModelFeatureAvailableFeaturesRequest extends $tea.Model {
 
 export class ListModelFeatureAvailableFeaturesResponseBody extends $tea.Model {
   avaliableFeatures?: ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * ED4DEA2F-F216-57F0-AE28-08D791233280
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3303,12 +4166,43 @@ export class ListModelFeatureAvailableFeaturesResponse extends $tea.Model {
 
 export class ListModelFeaturesRequest extends $tea.Model {
   modelFeatureIds?: string[];
+  /**
+   * @example
+   * model_feature1
+   */
   name?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * 12323143****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   projectId?: string;
+  /**
+   * @example
+   * DESC
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3343,12 +4237,43 @@ export class ListModelFeaturesRequest extends $tea.Model {
 
 export class ListModelFeaturesShrinkRequest extends $tea.Model {
   modelFeatureIdsShrink?: string;
+  /**
+   * @example
+   * model_feature1
+   */
   name?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * 12323143****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   projectId?: string;
+  /**
+   * @example
+   * DESC
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3383,7 +4308,15 @@ export class ListModelFeaturesShrinkRequest extends $tea.Model {
 
 export class ListModelFeaturesResponseBody extends $tea.Model {
   modelFeatures?: ListModelFeaturesResponseBodyModelFeatures[];
+  /**
+   * @example
+   * 2CA11923-2A3D-5E5A-8314-E699D2DD15DE
+   */
   requestId?: string;
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3431,103 +4364,17 @@ export class ListModelFeaturesResponse extends $tea.Model {
   }
 }
 
-export class ListProjectFeatureViewOwnersResponseBody extends $tea.Model {
-  owners?: string[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      owners: 'Owners',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      owners: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectFeatureViewOwnersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListProjectFeatureViewOwnersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListProjectFeatureViewOwnersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectFeatureViewTagsResponseBody extends $tea.Model {
-  requestId?: string;
-  tags?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tags: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectFeatureViewTagsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListProjectFeatureViewTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListProjectFeatureViewTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListProjectFeatureViewsResponseBody extends $tea.Model {
   featureViews?: ListProjectFeatureViewsResponseBodyFeatureViews[];
+  /**
+   * @example
+   * AE2AF33E-0C0D-51A8-B89B-C5F1DF261D92
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3576,13 +4423,41 @@ export class ListProjectFeatureViewsResponse extends $tea.Model {
 }
 
 export class ListProjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * fs1
+   */
   name?: string;
+  /**
+   * @example
+   * Asc
+   */
   order?: string;
+  /**
+   * @example
+   * 134324352****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   projectIds?: string[];
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 234
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3616,13 +4491,41 @@ export class ListProjectsRequest extends $tea.Model {
 }
 
 export class ListProjectsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * fs1
+   */
   name?: string;
+  /**
+   * @example
+   * Asc
+   */
   order?: string;
+  /**
+   * @example
+   * 134324352****
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   projectIdsShrink?: string;
+  /**
+   * @example
+   * GmtModifiedTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 234
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3657,7 +4560,15 @@ export class ListProjectsShrinkRequest extends $tea.Model {
 
 export class ListProjectsResponseBody extends $tea.Model {
   projects?: ListProjectsResponseBodyProjects[];
+  /**
+   * @example
+   * 44933189-493B-5C43-A5C6-11EEC2A43520
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3706,7 +4617,15 @@ export class ListProjectsResponse extends $tea.Model {
 }
 
 export class ListTaskLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3729,7 +4648,15 @@ export class ListTaskLogsRequest extends $tea.Model {
 
 export class ListTaskLogsResponseBody extends $tea.Model {
   logs?: string[];
+  /**
+   * @example
+   * 72F15A8A-5A28-5B18-A0DE-0EABD7D3245A
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3778,13 +4705,44 @@ export class ListTaskLogsResponse extends $tea.Model {
 }
 
 export class ListTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   objectId?: string;
+  /**
+   * @example
+   * ModelFeature
+   */
   objectType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   projectId?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   taskIds?: string[];
+  /**
+   * @example
+   * OfflineToOnline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3818,13 +4776,44 @@ export class ListTasksRequest extends $tea.Model {
 }
 
 export class ListTasksShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   objectId?: string;
+  /**
+   * @example
+   * ModelFeature
+   */
   objectType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   projectId?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   taskIdsShrink?: string;
+  /**
+   * @example
+   * OfflineToOnline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3858,8 +4847,16 @@ export class ListTasksShrinkRequest extends $tea.Model {
 }
 
 export class ListTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C33E160C-BFCA-5719-B958-942850E949F6
+   */
   requestId?: string;
   tasks?: ListTasksResponseBodyTasks[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3908,9 +4905,31 @@ export class ListTasksResponse extends $tea.Model {
 }
 
 export class PublishFeatureViewTableRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   eventTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Overwrite
+   */
   mode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   offlineToOnline?: boolean;
   partitions?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
@@ -3939,6 +4958,10 @@ export class PublishFeatureViewTableRequest extends $tea.Model {
 }
 
 export class PublishFeatureViewTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 627B5776-4D06-5A49-8A04-508AA39653F4
+   */
   requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -3986,8 +5009,26 @@ export class PublishFeatureViewTableResponse extends $tea.Model {
 }
 
 export class UpdateDatasourceRequest extends $tea.Model {
+  /**
+   * @example
+   * {"address": ""}
+   */
   config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * datasource1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * igraph_instance1
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4011,6 +5052,10 @@ export class UpdateDatasourceRequest extends $tea.Model {
 }
 
 export class UpdateDatasourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C33E160C-BFCA-5719-B958-942850E949F6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4055,8 +5100,20 @@ export class UpdateDatasourceResponse extends $tea.Model {
 }
 
 export class UpdateLabelTableRequest extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   datasourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fields?: UpdateLabelTableRequestFields[];
+  /**
+   * @example
+   * rec_test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4080,6 +5137,10 @@ export class UpdateLabelTableRequest extends $tea.Model {
 }
 
 export class UpdateLabelTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4125,6 +5186,10 @@ export class UpdateLabelTableResponse extends $tea.Model {
 
 export class UpdateModelFeatureRequest extends $tea.Model {
   features?: UpdateModelFeatureRequestFeatures[];
+  /**
+   * @example
+   * 4
+   */
   labelTableId?: string;
   sequenceFeatureViewIds?: string[];
   static names(): { [key: string]: string } {
@@ -4149,6 +5214,10 @@ export class UpdateModelFeatureRequest extends $tea.Model {
 }
 
 export class UpdateModelFeatureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C33E160C-BFCA-5719-B958-942850E949F6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4195,6 +5264,10 @@ export class UpdateModelFeatureResponse extends $tea.Model {
 export class UpdateModelFeatureFGFeatureRequest extends $tea.Model {
   lookupFeatures?: UpdateModelFeatureFGFeatureRequestLookupFeatures[];
   rawFeatures?: UpdateModelFeatureFGFeatureRequestRawFeatures[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   reserves?: string[];
   sequenceFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeatures[];
   static names(): { [key: string]: string } {
@@ -4221,6 +5294,10 @@ export class UpdateModelFeatureFGFeatureRequest extends $tea.Model {
 }
 
 export class UpdateModelFeatureFGFeatureResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7D497816-607C-5B67-97B1-61354B6ACB2B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4265,6 +5342,13 @@ export class UpdateModelFeatureFGFeatureResponse extends $tea.Model {
 }
 
 export class UpdateModelFeatureFGInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"features": [{"feature_name": "item_id","feature_type": "id_feature","value_type": "String","expression": "item:item_id","default_value": "-1024","combiner": "mean","need_prefix": false},{"feature_name": "f1","feature_type": "lookup_feature","value_type": "Integer","map": "item:f1","key": "user:1","default_value": "0","combiner": "mean","need_prefix": false,"needDiscrete": false,"needWeighting": false,"needKey": false}],"reserves": ["f1"]}
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4284,6 +5368,10 @@ export class UpdateModelFeatureFGInfoRequest extends $tea.Model {
 }
 
 export class UpdateModelFeatureFGInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E8CA47C5-B3E8-5BD7-9910-245432A365EB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4328,7 +5416,15 @@ export class UpdateModelFeatureFGInfoResponse extends $tea.Model {
 }
 
 export class UpdateProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * project1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4350,6 +5446,10 @@ export class UpdateProjectRequest extends $tea.Model {
 }
 
 export class UpdateProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2150233F-A1F7-54D2-B5B5-8A70567549BD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4394,6 +5494,13 @@ export class UpdateProjectResponse extends $tea.Model {
 }
 
 export class WriteFeatureViewTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Merge
+   */
   mode?: string;
   partitions?: { [key: string]: {[key: string]: any} };
   urlDatasource?: WriteFeatureViewTableRequestUrlDatasource;
@@ -4419,6 +5526,10 @@ export class WriteFeatureViewTableRequest extends $tea.Model {
 }
 
 export class WriteFeatureViewTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
+   */
   requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -4465,75 +5576,17 @@ export class WriteFeatureViewTableResponse extends $tea.Model {
   }
 }
 
-export class WriteProjectFeatureEntityHotIdsRequest extends $tea.Model {
-  hotIds?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hotIds: 'HotIds',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hotIds: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WriteProjectFeatureEntityHotIdsResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WriteProjectFeatureEntityHotIdsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: WriteProjectFeatureEntityHotIdsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: WriteProjectFeatureEntityHotIdsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateFeatureViewRequestFields extends $tea.Model {
   attributes?: string[];
+  /**
+   * @example
+   * age
+   */
   name?: string;
+  /**
+   * @example
+   * INT32
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4557,8 +5610,26 @@ export class CreateFeatureViewRequestFields extends $tea.Model {
 }
 
 export class CreateLabelTableRequestFields extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   attributes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lat
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INT32
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4582,9 +5653,34 @@ export class CreateLabelTableRequestFields extends $tea.Model {
 }
 
 export class CreateModelFeatureRequestFeatures extends $tea.Model {
+  /**
+   * @example
+   * userid
+   */
   aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   featureViewId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_id
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * STRING
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4610,8 +5706,20 @@ export class CreateModelFeatureRequestFeatures extends $tea.Model {
 }
 
 export class ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig extends $tea.Model {
+  /**
+   * @example
+   * rank_v1_fg.json
+   */
   fgJsonName?: string;
+  /**
+   * @example
+   * fg_on_odps-1.3.60-jar-with-dependencies.jar
+   */
   jarName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   partitions?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
     return {
@@ -4635,6 +5743,10 @@ export class ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig exte
 }
 
 export class ExportModelFeatureTrainingSetTableRequestLabelInputConfig extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-02 00:00:00
+   */
   eventTime?: string;
   partitions?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
@@ -4677,7 +5789,15 @@ export class ExportModelFeatureTrainingSetTableRequestTrainingSetConfig extends 
 
 export class GetDatasourceTableResponseBodyFields extends $tea.Model {
   attributes?: string[];
+  /**
+   * @example
+   * field1
+   */
   name?: string;
+  /**
+   * @example
+   * INT32
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4702,7 +5822,15 @@ export class GetDatasourceTableResponseBodyFields extends $tea.Model {
 
 export class GetFeatureViewResponseBodyFields extends $tea.Model {
   attributes?: string[];
+  /**
+   * @example
+   * user
+   */
   name?: string;
+  /**
+   * @example
+   * int
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4727,7 +5855,15 @@ export class GetFeatureViewResponseBodyFields extends $tea.Model {
 
 export class GetLabelTableResponseBodyFields extends $tea.Model {
   attributes?: string[];
+  /**
+   * @example
+   * field1
+   */
   name?: string;
+  /**
+   * @example
+   * INT32
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4751,10 +5887,30 @@ export class GetLabelTableResponseBodyFields extends $tea.Model {
 }
 
 export class GetModelFeatureResponseBodyFeatures extends $tea.Model {
+  /**
+   * @example
+   * feature2
+   */
   aliasName?: string;
+  /**
+   * @example
+   * 3
+   */
   featureViewId?: string;
+  /**
+   * @example
+   * feature_view_1
+   */
   featureViewName?: string;
+  /**
+   * @example
+   * feature1
+   */
   name?: string;
+  /**
+   * @example
+   * INT32
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4782,8 +5938,23 @@ export class GetModelFeatureResponseBodyFeatures extends $tea.Model {
 }
 
 export class GetModelFeatureResponseBodyRelationsDomains extends $tea.Model {
+  /**
+   * @example
+   * FeatureEntity
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * Domain ID。
+   * 
+   * @example
+   * 3
+   */
   id?: string;
+  /**
+   * @example
+   * feature_entity_1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4807,8 +5978,20 @@ export class GetModelFeatureResponseBodyRelationsDomains extends $tea.Model {
 }
 
 export class GetModelFeatureResponseBodyRelationsLinks extends $tea.Model {
+  /**
+   * @example
+   * model_feature_2
+   */
   from?: string;
+  /**
+   * @example
+   * user_id
+   */
   link?: string;
+  /**
+   * @example
+   * feature_entity_3
+   */
   to?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4854,12 +6037,40 @@ export class GetModelFeatureResponseBodyRelations extends $tea.Model {
 }
 
 export class GetModelFeatureFGFeatureResponseBodyLookupFeatures extends $tea.Model {
+  /**
+   * @example
+   * -1024
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @example
+   * Item
+   */
   keyFeatureDomain?: string;
+  /**
+   * @example
+   * 1
+   */
   keyFeatureName?: string;
+  /**
+   * @example
+   * User
+   */
   mapFeatureDomain?: string;
+  /**
+   * @example
+   * item_id
+   */
   mapFeatureName?: string;
+  /**
+   * @example
+   * STRING
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4891,11 +6102,35 @@ export class GetModelFeatureFGFeatureResponseBodyLookupFeatures extends $tea.Mod
 }
 
 export class GetModelFeatureFGFeatureResponseBodyRawFeatures extends $tea.Model {
+  /**
+   * @example
+   * -1024
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * User
+   */
   featureDomain?: string;
+  /**
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @example
+   * IdFeature
+   */
   featureType?: string;
+  /**
+   * @example
+   * item_id
+   */
   inputFeatureName?: string;
+  /**
+   * @example
+   * STRING
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4925,11 +6160,35 @@ export class GetModelFeatureFGFeatureResponseBodyRawFeatures extends $tea.Model 
 }
 
 export class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures extends $tea.Model {
+  /**
+   * @example
+   * -1024
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * User
+   */
   featureDomain?: string;
+  /**
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @example
+   * IdFeature
+   */
   featureType?: string;
+  /**
+   * @example
+   * item_id
+   */
   inputFeatureName?: string;
+  /**
+   * @example
+   * STRING
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4959,9 +6218,25 @@ export class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures ext
 }
 
 export class GetModelFeatureFGFeatureResponseBodySequenceFeatures extends $tea.Model {
+  /**
+   * @example
+   * #
+   */
   attributeDelim?: string;
+  /**
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @example
+   * ;
+   */
   sequenceDelim?: string;
+  /**
+   * @example
+   * 50
+   */
   sequenceLength?: number;
   subFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures[];
   static names(): { [key: string]: string } {
@@ -4989,70 +6264,46 @@ export class GetModelFeatureFGFeatureResponseBodySequenceFeatures extends $tea.M
   }
 }
 
-export class GetProjectFeatureViewResponseBodyFields extends $tea.Model {
-  attributes?: string[];
-  name?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributes: 'Attributes',
-      name: 'Name',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributes: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectModelFeatureResponseBodyFeatures extends $tea.Model {
-  aliasName?: string;
-  featureViewId?: string;
-  featureViewName?: string;
-  name?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      featureViewId: 'FeatureViewId',
-      featureViewName: 'FeatureViewName',
-      name: 'Name',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      featureViewId: 'string',
-      featureViewName: 'string',
-      name: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListDatasourcesResponseBodyDatasources extends $tea.Model {
+  /**
+   * @example
+   * {"address": ""}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   datasourceId?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * datasource1
+   */
   name?: string;
+  /**
+   * @example
+   * Hologres
+   */
   type?: string;
+  /**
+   * @example
+   * igraph_instance1
+   */
   uri?: string;
+  /**
+   * @example
+   * 32324
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5086,12 +6337,40 @@ export class ListDatasourcesResponseBodyDatasources extends $tea.Model {
 }
 
 export class ListFeatureEntitiesResponseBodyFeatureEntities extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   featureEntityId?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * user_id
+   */
   joinId?: string;
+  /**
+   * @example
+   * feature_entity_1
+   */
   name?: string;
+  /**
+   * @example
+   * 123456789****
+   */
   owner?: string;
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * project_1
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5123,7 +6402,15 @@ export class ListFeatureEntitiesResponseBodyFeatureEntities extends $tea.Model {
 }
 
 export class ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   modelId?: string;
+  /**
+   * @example
+   * dbmtl
+   */
   modelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5145,9 +6432,21 @@ export class ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels ex
 }
 
 export class ListFeatureViewFieldRelationshipsResponseBodyRelationships extends $tea.Model {
+  /**
+   * @example
+   * featureView1
+   */
   featureName?: string;
   models?: ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels[];
+  /**
+   * @example
+   * table2
+   */
   offlineTableName?: string;
+  /**
+   * @example
+   * table1
+   */
   onlineTableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5173,7 +6472,15 @@ export class ListFeatureViewFieldRelationshipsResponseBodyRelationships extends 
 }
 
 export class ListFeatureViewRelationshipsResponseBodyRelationshipsModels extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   modelId?: string;
+  /**
+   * @example
+   * dbmtl
+   */
   modelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5195,8 +6502,16 @@ export class ListFeatureViewRelationshipsResponseBodyRelationshipsModels extends
 }
 
 export class ListFeatureViewRelationshipsResponseBodyRelationships extends $tea.Model {
+  /**
+   * @example
+   * fv1
+   */
   featureViewName?: string;
   models?: ListFeatureViewRelationshipsResponseBodyRelationshipsModels[];
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5220,18 +6535,70 @@ export class ListFeatureViewRelationshipsResponseBodyRelationships extends $tea.
 }
 
 export class ListFeatureViewsResponseBodyFeatureViews extends $tea.Model {
+  /**
+   * @example
+   * featureEntity1
+   */
   featureEntityName?: string;
+  /**
+   * @example
+   * 3
+   */
   featureViewId?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * featureView1
+   */
   name?: string;
+  /**
+   * @example
+   * 12321421412****
+   */
   owner?: string;
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
+  /**
+   * @example
+   * 4
+   */
   registerDatasourceId?: string;
+  /**
+   * @example
+   * datasource1
+   */
   registerDatasourceName?: string;
+  /**
+   * @example
+   * table1
+   */
   registerTable?: string;
+  /**
+   * @example
+   * 90
+   */
   TTL?: number;
+  /**
+   * @example
+   * Batch
+   */
   type?: string;
   writeToFeatureDB?: boolean;
   static names(): { [key: string]: string } {
@@ -5278,11 +6645,35 @@ export class ListFeatureViewsResponseBodyFeatureViews extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstances extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * featureStore-cn-7mz2xfu****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * Initializing
+   */
   status?: string;
+  /**
+   * @example
+   * Basic
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5312,14 +6703,50 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class ListLabelTablesResponseBodyLabelTables extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   datasourceId?: string;
+  /**
+   * @example
+   * datasource1
+   */
   datasourceName?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 3
+   */
   labelTableId?: string;
+  /**
+   * @example
+   * label_table1
+   */
   name?: string;
+  /**
+   * @example
+   * 123214213214
+   */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   projectId?: string;
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5355,9 +6782,25 @@ export class ListLabelTablesResponseBodyLabelTables extends $tea.Model {
 }
 
 export class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures extends $tea.Model {
+  /**
+   * @example
+   * age
+   */
   name?: string;
+  /**
+   * @example
+   * user_fea
+   */
   sourceName?: string;
+  /**
+   * @example
+   * FeatureView
+   */
   sourceType?: string;
+  /**
+   * @example
+   * STRING
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5383,13 +6826,45 @@ export class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures exte
 }
 
 export class ListModelFeaturesResponseBodyModelFeatures extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-04T14:46:22.227+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T14:46:22.227+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * label_table_1
+   */
   labelTableName?: string;
+  /**
+   * @example
+   * 3
+   */
   modelFeatureId?: string;
+  /**
+   * @example
+   * model_feature1
+   */
   name?: string;
+  /**
+   * @example
+   * 1231243253****
+   */
   owner?: string;
+  /**
+   * @example
+   * 5
+   */
   projectId?: string;
+  /**
+   * @example
+   * project1
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5424,7 +6899,15 @@ export class ListModelFeaturesResponseBodyModelFeatures extends $tea.Model {
 
 export class ListProjectFeatureViewsResponseBodyFeatureViewsFeatures extends $tea.Model {
   attributes?: string[];
+  /**
+   * @example
+   * f1
+   */
   name?: string;
+  /**
+   * @example
+   * INT32
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5448,8 +6931,16 @@ export class ListProjectFeatureViewsResponseBodyFeatureViewsFeatures extends $te
 }
 
 export class ListProjectFeatureViewsResponseBodyFeatureViews extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   featureViewId?: string;
   features?: ListProjectFeatureViewsResponseBodyFeatureViewsFeatures[];
+  /**
+   * @example
+   * feature_view1
+   */
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -5476,21 +6967,85 @@ export class ListProjectFeatureViewsResponseBodyFeatureViews extends $tea.Model 
 }
 
 export class ListProjectsResponseBodyProjects extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 10
+   */
   featureEntityCount?: number;
+  /**
+   * @example
+   * 10
+   */
   featureViewCount?: number;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 5
+   */
   modelCount?: number;
+  /**
+   * @example
+   * project1
+   */
   name?: string;
+  /**
+   * @example
+   * 4
+   */
   offlineDatasourceId?: string;
+  /**
+   * @example
+   * datasource1
+   */
   offlineDatasourceName?: string;
+  /**
+   * @example
+   * MaxCompute
+   */
   offlineDatasourceType?: string;
+  /**
+   * @example
+   * 10
+   */
   offlineLifecycle?: number;
+  /**
+   * @example
+   * 5
+   */
   onlineDatasourceId?: string;
+  /**
+   * @example
+   * datasource2
+   */
   onlineDatasourceName?: string;
+  /**
+   * @example
+   * Hologres
+   */
   onlineDatasourceType?: string;
+  /**
+   * @example
+   * 1232132543543****
+   */
   owner?: string;
+  /**
+   * @example
+   * 3
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5540,15 +7095,55 @@ export class ListProjectsResponseBodyProjects extends $tea.Model {
 }
 
 export class ListTasksResponseBodyTasks extends $tea.Model {
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtExecutedTime?: string;
+  /**
+   * @example
+   * 2023-07-04T11:26:09.036+08:00
+   */
   gmtFinishedTime?: string;
+  /**
+   * @example
+   * 5
+   */
   objectId?: string;
+  /**
+   * @example
+   * ModelFeature
+   */
   objectType?: string;
+  /**
+   * @example
+   * 4
+   */
   projectId?: string;
+  /**
+   * @example
+   * project_1
+   */
   projectName?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 4
+   */
   taskId?: string;
+  /**
+   * @example
+   * OfflineToOnline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5586,8 +7181,26 @@ export class ListTasksResponseBodyTasks extends $tea.Model {
 }
 
 export class UpdateLabelTableRequestFields extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   attributes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lat
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DOUBLE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5611,9 +7224,34 @@ export class UpdateLabelTableRequestFields extends $tea.Model {
 }
 
 export class UpdateModelFeatureRequestFeatures extends $tea.Model {
+  /**
+   * @example
+   * sex
+   */
   aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   featureViewId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gender
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * STRING
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5639,12 +7277,61 @@ export class UpdateModelFeatureRequestFeatures extends $tea.Model {
 }
 
 export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * -1024
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Item
+   */
   keyFeatureDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   keyFeatureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * User
+   */
   mapFeatureDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   mapFeatureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * STRING
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5676,11 +7363,53 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $tea.Model
 }
 
 export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * -1024
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * User
+   */
   featureDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IdFeature
+   */
   featureType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   inputFeatureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * STRING
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5710,11 +7439,53 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $tea.Model {
 }
 
 export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * -1024
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * User
+   */
   featureDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RawFeature
+   */
   featureType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   inputFeatureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * STRING
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5744,9 +7515,37 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
 }
 
 export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * #
+   */
   attributeDelim?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   featureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ;
+   */
   sequenceDelim?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 50
+   */
   sequenceLength?: number;
   subFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures[];
   static names(): { [key: string]: string } {
@@ -5775,8 +7574,20 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $tea.Mod
 }
 
 export class WriteFeatureViewTableRequestUrlDatasource extends $tea.Model {
+  /**
+   * @example
+   * ,
+   */
   delimiter?: string;
+  /**
+   * @example
+   * true
+   */
   omitHeader?: boolean;
+  /**
+   * @example
+   * xxx.xxx.com/file.csv
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5823,57 +7634,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 切换生效的热点数据的版本。
-   *
-   * @param request ChangeProjectFeatureEntityHotIdVersionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeProjectFeatureEntityHotIdVersionResponse
-   */
-  async changeProjectFeatureEntityHotIdVersionWithOptions(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: ChangeProjectFeatureEntityHotIdVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeProjectFeatureEntityHotIdVersionResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.version)) {
-      body["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ChangeProjectFeatureEntityHotIdVersion",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/featureentities/${OpenApiUtil.getEncodeParam(FeatureEntityName)}/action/changehotidversion`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ChangeProjectFeatureEntityHotIdVersionResponse>(await this.callApi(params, req, runtime), new ChangeProjectFeatureEntityHotIdVersionResponse({}));
-  }
-
-  /**
-   * @summary 切换生效的热点数据的版本。
-   *
-   * @param request ChangeProjectFeatureEntityHotIdVersionRequest
-   * @return ChangeProjectFeatureEntityHotIdVersionResponse
-   */
-  async changeProjectFeatureEntityHotIdVersion(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: ChangeProjectFeatureEntityHotIdVersionRequest): Promise<ChangeProjectFeatureEntityHotIdVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.changeProjectFeatureEntityHotIdVersionWithOptions(InstanceId, ProjectId, FeatureEntityName, request, headers, runtime);
-  }
-
-  /**
-   * @summary 检测资源连接状态。
-   *
-   * @param request CheckInstanceDatasourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckInstanceDatasourceResponse
+   * 检测资源连接状态。
+   * 
+   * @param request - CheckInstanceDatasourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckInstanceDatasourceResponse
    */
   async checkInstanceDatasourceWithOptions(InstanceId: string, request: CheckInstanceDatasourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckInstanceDatasourceResponse> {
     Util.validateModel(request);
@@ -5909,10 +7675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测资源连接状态。
-   *
-   * @param request CheckInstanceDatasourceRequest
-   * @return CheckInstanceDatasourceResponse
+   * 检测资源连接状态。
+   * 
+   * @param request - CheckInstanceDatasourceRequest
+   * @returns CheckInstanceDatasourceResponse
    */
   async checkInstanceDatasource(InstanceId: string, request: CheckInstanceDatasourceRequest): Promise<CheckInstanceDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5921,12 +7687,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据源。
-   *
-   * @param request CreateDatasourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDatasourceResponse
+   * 创建数据源。
+   * 
+   * @param request - CreateDatasourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasourceResponse
    */
   async createDatasourceWithOptions(InstanceId: string, request: CreateDatasourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDatasourceResponse> {
     Util.validateModel(request);
@@ -5970,10 +7736,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据源。
-   *
-   * @param request CreateDatasourceRequest
-   * @return CreateDatasourceResponse
+   * 创建数据源。
+   * 
+   * @param request - CreateDatasourceRequest
+   * @returns CreateDatasourceResponse
    */
   async createDatasource(InstanceId: string, request: CreateDatasourceRequest): Promise<CreateDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5982,12 +7748,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征实体
-   *
-   * @param request CreateFeatureEntityRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFeatureEntityResponse
+   * 创建特征实体
+   * 
+   * @param request - CreateFeatureEntityRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFeatureEntityResponse
    */
   async createFeatureEntityWithOptions(InstanceId: string, request: CreateFeatureEntityRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureEntityResponse> {
     Util.validateModel(request);
@@ -6023,10 +7789,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征实体
-   *
-   * @param request CreateFeatureEntityRequest
-   * @return CreateFeatureEntityResponse
+   * 创建特征实体
+   * 
+   * @param request - CreateFeatureEntityRequest
+   * @returns CreateFeatureEntityResponse
    */
   async createFeatureEntity(InstanceId: string, request: CreateFeatureEntityRequest): Promise<CreateFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6035,12 +7801,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征视图。
-   *
-   * @param request CreateFeatureViewRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFeatureViewResponse
+   * 创建特征视图。
+   * 
+   * @param request - CreateFeatureViewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFeatureViewResponse
    */
   async createFeatureViewWithOptions(InstanceId: string, request: CreateFeatureViewRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureViewResponse> {
     Util.validateModel(request);
@@ -6116,10 +7882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征视图。
-   *
-   * @param request CreateFeatureViewRequest
-   * @return CreateFeatureViewResponse
+   * 创建特征视图。
+   * 
+   * @param request - CreateFeatureViewRequest
+   * @returns CreateFeatureViewResponse
    */
   async createFeatureView(InstanceId: string, request: CreateFeatureViewRequest): Promise<CreateFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6128,12 +7894,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建Feature Store实例。
-   *
-   * @param request CreateInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * 创建Feature Store实例。
+   * 
+   * @param request - CreateInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -6161,10 +7927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建Feature Store实例。
-   *
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * 创建Feature Store实例。
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6173,12 +7939,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建label表
-   *
-   * @param request CreateLabelTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLabelTableResponse
+   * 创建label表
+   * 
+   * @param request - CreateLabelTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLabelTableResponse
    */
   async createLabelTableWithOptions(InstanceId: string, request: CreateLabelTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLabelTableResponse> {
     Util.validateModel(request);
@@ -6218,10 +7984,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建label表
-   *
-   * @param request CreateLabelTableRequest
-   * @return CreateLabelTableResponse
+   * 创建label表
+   * 
+   * @param request - CreateLabelTableRequest
+   * @returns CreateLabelTableResponse
    */
   async createLabelTable(InstanceId: string, request: CreateLabelTableRequest): Promise<CreateLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6230,18 +7996,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建模型特征。
-   *
-   * @param request CreateModelFeatureRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateModelFeatureResponse
+   * 创建模型特征。
+   * 
+   * @param request - CreateModelFeatureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelFeatureResponse
    */
   async createModelFeatureWithOptions(InstanceId: string, request: CreateModelFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelFeatureResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.features)) {
       body["Features"] = request.features;
+    }
+
+    if (!Util.isUnset(request.labelPriorityLevel)) {
+      body["LabelPriorityLevel"] = request.labelPriorityLevel;
     }
 
     if (!Util.isUnset(request.labelTableId)) {
@@ -6279,10 +8049,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建模型特征。
-   *
-   * @param request CreateModelFeatureRequest
-   * @return CreateModelFeatureResponse
+   * 创建模型特征。
+   * 
+   * @param request - CreateModelFeatureRequest
+   * @returns CreateModelFeatureResponse
    */
   async createModelFeature(InstanceId: string, request: CreateModelFeatureRequest): Promise<CreateModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6291,11 +8061,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建训练样本FG表。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateModelFeatureTrainingSetFGTableResponse
+   * 创建训练样本FG表。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelFeatureTrainingSetFGTableResponse
    */
   async createModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6316,9 +8086,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建训练样本FG表。
-   *
-   * @return CreateModelFeatureTrainingSetFGTableResponse
+   * 创建训练样本FG表。
+   * @returns CreateModelFeatureTrainingSetFGTableResponse
    */
   async createModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6327,12 +8096,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建FeatureStore项目
-   *
-   * @param request CreateProjectRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateProjectResponse
+   * 创建FeatureStore项目
+   * 
+   * @param request - CreateProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
    */
   async createProjectWithOptions(InstanceId: string, request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
@@ -6380,10 +8149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建FeatureStore项目
-   *
-   * @param request CreateProjectRequest
-   * @return CreateProjectResponse
+   * 创建FeatureStore项目
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
    */
   async createProject(InstanceId: string, request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6392,12 +8161,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建feature store服务账户角色
-   *
-   * @param request CreateServiceIdentityRoleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServiceIdentityRoleResponse
+   * 创建feature store服务账户角色
+   * 
+   * @param request - CreateServiceIdentityRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceIdentityRoleResponse
    */
   async createServiceIdentityRoleWithOptions(request: CreateServiceIdentityRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceIdentityRoleResponse> {
     Util.validateModel(request);
@@ -6425,10 +8194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建feature store服务账户角色
-   *
-   * @param request CreateServiceIdentityRoleRequest
-   * @return CreateServiceIdentityRoleResponse
+   * 创建feature store服务账户角色
+   * 
+   * @param request - CreateServiceIdentityRoleRequest
+   * @returns CreateServiceIdentityRoleResponse
    */
   async createServiceIdentityRole(request: CreateServiceIdentityRoleRequest): Promise<CreateServiceIdentityRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6437,11 +8206,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定数据源。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDatasourceResponse
+   * 删除指定数据源。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasourceResponse
    */
   async deleteDatasourceWithOptions(InstanceId: string, DatasourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDatasourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6462,9 +8231,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定数据源。
-   *
-   * @return DeleteDatasourceResponse
+   * 删除指定数据源。
+   * @returns DeleteDatasourceResponse
    */
   async deleteDatasource(InstanceId: string, DatasourceId: string): Promise<DeleteDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6473,11 +8241,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定特征实体
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFeatureEntityResponse
+   * 删除指定特征实体
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFeatureEntityResponse
    */
   async deleteFeatureEntityWithOptions(InstanceId: string, FeatureEntityId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFeatureEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6498,9 +8266,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定特征实体
-   *
-   * @return DeleteFeatureEntityResponse
+   * 删除指定特征实体
+   * @returns DeleteFeatureEntityResponse
    */
   async deleteFeatureEntity(InstanceId: string, FeatureEntityId: string): Promise<DeleteFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6509,11 +8276,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定特征视图。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFeatureViewResponse
+   * 删除指定特征视图。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFeatureViewResponse
    */
   async deleteFeatureViewWithOptions(InstanceId: string, FeatureViewId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFeatureViewResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6534,9 +8301,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定特征视图。
-   *
-   * @return DeleteFeatureViewResponse
+   * 删除指定特征视图。
+   * @returns DeleteFeatureViewResponse
    */
   async deleteFeatureView(InstanceId: string, FeatureViewId: string): Promise<DeleteFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6545,11 +8311,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除label表
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLabelTableResponse
+   * 删除label表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLabelTableResponse
    */
   async deleteLabelTableWithOptions(InstanceId: string, LabelTableId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLabelTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6570,9 +8336,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除label表
-   *
-   * @return DeleteLabelTableResponse
+   * 删除label表
+   * @returns DeleteLabelTableResponse
    */
   async deleteLabelTable(InstanceId: string, LabelTableId: string): Promise<DeleteLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6581,11 +8346,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定模型特征。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteModelFeatureResponse
+   * 删除指定模型特征。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelFeatureResponse
    */
   async deleteModelFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteModelFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6606,9 +8371,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定模型特征。
-   *
-   * @return DeleteModelFeatureResponse
+   * 删除指定模型特征。
+   * @returns DeleteModelFeatureResponse
    */
   async deleteModelFeature(InstanceId: string, ModelFeatureId: string): Promise<DeleteModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6617,11 +8381,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定Feature Store项目。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteProjectResponse
+   * 删除指定Feature Store项目。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
    */
   async deleteProjectWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6642,9 +8406,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定Feature Store项目。
-   *
-   * @return DeleteProjectResponse
+   * 删除指定Feature Store项目。
+   * @returns DeleteProjectResponse
    */
   async deleteProject(InstanceId: string, ProjectId: string): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6653,12 +8416,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出训练样本FG表。
-   *
-   * @param request ExportModelFeatureTrainingSetFGTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportModelFeatureTrainingSetFGTableResponse
+   * 导出训练样本FG表。
+   * 
+   * @param request - ExportModelFeatureTrainingSetFGTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportModelFeatureTrainingSetFGTableResponse
    */
   async exportModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
     Util.validateModel(request);
@@ -6686,10 +8449,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出训练样本FG表。
-   *
-   * @param request ExportModelFeatureTrainingSetFGTableRequest
-   * @return ExportModelFeatureTrainingSetFGTableResponse
+   * 导出训练样本FG表。
+   * 
+   * @param request - ExportModelFeatureTrainingSetFGTableRequest
+   * @returns ExportModelFeatureTrainingSetFGTableResponse
    */
   async exportModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6698,12 +8461,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出训练集表。
-   *
-   * @param request ExportModelFeatureTrainingSetTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportModelFeatureTrainingSetTableResponse
+   * 导出训练集表。
+   * 
+   * @param request - ExportModelFeatureTrainingSetTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportModelFeatureTrainingSetTableResponse
    */
   async exportModelFeatureTrainingSetTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetTableResponse> {
     Util.validateModel(request);
@@ -6718,6 +8481,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.realTimeIterateInterval)) {
       body["RealTimeIterateInterval"] = request.realTimeIterateInterval;
+    }
+
+    if (!Util.isUnset(request.realTimePartitionCountValue)) {
+      body["RealTimePartitionCountValue"] = request.realTimePartitionCountValue;
     }
 
     if (!Util.isUnset(request.trainingSetConfig)) {
@@ -6743,10 +8510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出训练集表。
-   *
-   * @param request ExportModelFeatureTrainingSetTableRequest
-   * @return ExportModelFeatureTrainingSetTableResponse
+   * 导出训练集表。
+   * 
+   * @param request - ExportModelFeatureTrainingSetTableRequest
+   * @returns ExportModelFeatureTrainingSetTableResponse
    */
   async exportModelFeatureTrainingSetTable(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetTableRequest): Promise<ExportModelFeatureTrainingSetTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6755,11 +8522,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDatasourceResponse
+   * 获取数据源详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasourceResponse
    */
   async getDatasourceWithOptions(InstanceId: string, DatasourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatasourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6780,9 +8547,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源详细信息。
-   *
-   * @return GetDatasourceResponse
+   * 获取数据源详细信息。
+   * @returns GetDatasourceResponse
    */
   async getDatasource(InstanceId: string, DatasourceId: string): Promise<GetDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6791,11 +8557,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源下指定表的详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDatasourceTableResponse
+   * 获取数据源下指定表的详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasourceTableResponse
    */
   async getDatasourceTableWithOptions(InstanceId: string, DatasourceId: string, TableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatasourceTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6816,9 +8582,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源下指定表的详细信息。
-   *
-   * @return GetDatasourceTableResponse
+   * 获取数据源下指定表的详细信息。
+   * @returns GetDatasourceTableResponse
    */
   async getDatasourceTable(InstanceId: string, DatasourceId: string, TableName: string): Promise<GetDatasourceTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6827,11 +8592,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征实体详细信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFeatureEntityResponse
+   * 获取特征实体详细信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFeatureEntityResponse
    */
   async getFeatureEntityWithOptions(InstanceId: string, FeatureEntityId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6852,9 +8617,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征实体详细信息
-   *
-   * @return GetFeatureEntityResponse
+   * 获取特征实体详细信息
+   * @returns GetFeatureEntityResponse
    */
   async getFeatureEntity(InstanceId: string, FeatureEntityId: string): Promise<GetFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6863,11 +8627,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFeatureViewResponse
+   * 获取特征视图详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFeatureViewResponse
    */
   async getFeatureViewWithOptions(InstanceId: string, FeatureViewId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureViewResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6888,9 +8652,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图详细信息。
-   *
-   * @return GetFeatureViewResponse
+   * 获取特征视图详细信息。
+   * @returns GetFeatureViewResponse
    */
   async getFeatureView(InstanceId: string, FeatureViewId: string): Promise<GetFeatureViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6899,11 +8662,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例详细信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResponse
+   * 获取实例详细信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResponse
    */
   async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6924,9 +8687,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例详细信息
-   *
-   * @return GetInstanceResponse
+   * 获取实例详细信息
+   * @returns GetInstanceResponse
    */
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6935,11 +8697,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Label表详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLabelTableResponse
+   * 获取Label表详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLabelTableResponse
    */
   async getLabelTableWithOptions(InstanceId: string, LabelTableId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLabelTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6960,9 +8722,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Label表详细信息。
-   *
-   * @return GetLabelTableResponse
+   * 获取Label表详细信息。
+   * @returns GetLabelTableResponse
    */
   async getLabelTable(InstanceId: string, LabelTableId: string): Promise<GetLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6971,11 +8732,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征详情。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetModelFeatureResponse
+   * 获取模型特征详情。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelFeatureResponse
    */
   async getModelFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -6996,9 +8757,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征详情。
-   *
-   * @return GetModelFeatureResponse
+   * 获取模型特征详情。
+   * @returns GetModelFeatureResponse
    */
   async getModelFeature(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7007,11 +8767,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征的FG特征配置信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetModelFeatureFGFeatureResponse
+   * 获取模型特征的FG特征配置信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelFeatureFGFeatureResponse
    */
   async getModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureFGFeatureResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7032,9 +8792,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征的FG特征配置信息。
-   *
-   * @return GetModelFeatureFGFeatureResponse
+   * 获取模型特征的FG特征配置信息。
+   * @returns GetModelFeatureFGFeatureResponse
    */
   async getModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureFGFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7043,11 +8802,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征的fg.json文件配置信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetModelFeatureFGInfoResponse
+   * 获取模型特征的fg.json文件配置信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelFeatureFGInfoResponse
    */
   async getModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetModelFeatureFGInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7068,9 +8827,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征的fg.json文件配置信息。
-   *
-   * @return GetModelFeatureFGInfoResponse
+   * 获取模型特征的fg.json文件配置信息。
+   * @returns GetModelFeatureFGInfoResponse
    */
   async getModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string): Promise<GetModelFeatureFGInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7079,11 +8837,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定Feature Store项目详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectResponse
+   * 获取指定Feature Store项目详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectResponse
    */
   async getProjectWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7104,9 +8862,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定Feature Store项目详细信息。
-   *
-   * @return GetProjectResponse
+   * 获取指定Feature Store项目详细信息。
+   * @returns GetProjectResponse
    */
   async getProject(InstanceId: string, ProjectId: string): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7115,11 +8872,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目下特征实体详细信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectFeatureEntityResponse
+   * 获取项目下特征实体详细信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectFeatureEntityResponse
    */
   async getProjectFeatureEntityWithOptions(InstanceId: string, ProjectId: string, FeatureEntityName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectFeatureEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7140,9 +8897,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目下特征实体详细信息
-   *
-   * @return GetProjectFeatureEntityResponse
+   * 获取项目下特征实体详细信息
+   * @returns GetProjectFeatureEntityResponse
    */
   async getProjectFeatureEntity(InstanceId: string, ProjectId: string, FeatureEntityName: string): Promise<GetProjectFeatureEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7151,119 +8907,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目下，指定特征实体指定的热点数据。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectFeatureEntityHotIdsResponse
-   */
-  async getProjectFeatureEntityHotIdsWithOptions(InstanceId: string, ProjectId: string, NextSeqNumber: string, FeatureEntityName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectFeatureEntityHotIdsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetProjectFeatureEntityHotIds",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/featureentities/${OpenApiUtil.getEncodeParam(FeatureEntityName)}/hotids/${OpenApiUtil.getEncodeParam(NextSeqNumber)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProjectFeatureEntityHotIdsResponse>(await this.callApi(params, req, runtime), new GetProjectFeatureEntityHotIdsResponse({}));
-  }
-
-  /**
-   * @summary 获取项目下，指定特征实体指定的热点数据。
-   *
-   * @return GetProjectFeatureEntityHotIdsResponse
-   */
-  async getProjectFeatureEntityHotIds(InstanceId: string, ProjectId: string, NextSeqNumber: string, FeatureEntityName: string): Promise<GetProjectFeatureEntityHotIdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getProjectFeatureEntityHotIdsWithOptions(InstanceId, ProjectId, NextSeqNumber, FeatureEntityName, headers, runtime);
-  }
-
-  /**
-   * @summary 获取项目下特征视图详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectFeatureViewResponse
-   */
-  async getProjectFeatureViewWithOptions(InstanceId: string, ProjectId: string, FeatureViewName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectFeatureViewResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetProjectFeatureView",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/featureviews/${OpenApiUtil.getEncodeParam(FeatureViewName)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProjectFeatureViewResponse>(await this.callApi(params, req, runtime), new GetProjectFeatureViewResponse({}));
-  }
-
-  /**
-   * @summary 获取项目下特征视图详细信息。
-   *
-   * @return GetProjectFeatureViewResponse
-   */
-  async getProjectFeatureView(InstanceId: string, ProjectId: string, FeatureViewName: string): Promise<GetProjectFeatureViewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getProjectFeatureViewWithOptions(InstanceId, ProjectId, FeatureViewName, headers, runtime);
-  }
-
-  /**
-   * @summary 获取项目下指定模型特征的详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectModelFeatureResponse
-   */
-  async getProjectModelFeatureWithOptions(InstanceId: string, ProjectId: string, ModelFeatureName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectModelFeatureResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetProjectModelFeature",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureName)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProjectModelFeatureResponse>(await this.callApi(params, req, runtime), new GetProjectModelFeatureResponse({}));
-  }
-
-  /**
-   * @summary 获取项目下指定模型特征的详细信息。
-   *
-   * @return GetProjectModelFeatureResponse
-   */
-  async getProjectModelFeature(InstanceId: string, ProjectId: string, ModelFeatureName: string): Promise<GetProjectModelFeatureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getProjectModelFeatureWithOptions(InstanceId, ProjectId, ModelFeatureName, headers, runtime);
-  }
-
-  /**
-   * @summary 获取feature store服务账户角色。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetServiceIdentityRoleResponse
+   * 获取feature store服务账户角色。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceIdentityRoleResponse
    */
   async getServiceIdentityRoleWithOptions(RoleName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceIdentityRoleResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7284,9 +8932,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取feature store服务账户角色。
-   *
-   * @return GetServiceIdentityRoleResponse
+   * 获取feature store服务账户角色。
+   * @returns GetServiceIdentityRoleResponse
    */
   async getServiceIdentityRole(RoleName: string): Promise<GetServiceIdentityRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7295,11 +8942,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTaskResponse
+   * 获取任务详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResponse
    */
   async getTaskWithOptions(InstanceId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7320,9 +8967,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务详情
-   *
-   * @return GetTaskResponse
+   * 获取任务详情
+   * @returns GetTaskResponse
    */
   async getTask(InstanceId: string, TaskId: string): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7331,12 +8977,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源下所有表。
-   *
-   * @param request ListDatasourceTablesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDatasourceTablesResponse
+   * 获取数据源下所有表。
+   * 
+   * @param request - ListDatasourceTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasourceTablesResponse
    */
   async listDatasourceTablesWithOptions(InstanceId: string, DatasourceId: string, request: ListDatasourceTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasourceTablesResponse> {
     Util.validateModel(request);
@@ -7364,10 +9010,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源下所有表。
-   *
-   * @param request ListDatasourceTablesRequest
-   * @return ListDatasourceTablesResponse
+   * 获取数据源下所有表。
+   * 
+   * @param request - ListDatasourceTablesRequest
+   * @returns ListDatasourceTablesResponse
    */
   async listDatasourceTables(InstanceId: string, DatasourceId: string, request: ListDatasourceTablesRequest): Promise<ListDatasourceTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7376,12 +9022,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源列表。
-   *
-   * @param request ListDatasourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDatasourcesResponse
+   * 获取数据源列表。
+   * 
+   * @param request - ListDatasourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasourcesResponse
    */
   async listDatasourcesWithOptions(InstanceId: string, request: ListDatasourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasourcesResponse> {
     Util.validateModel(request);
@@ -7433,10 +9079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源列表。
-   *
-   * @param request ListDatasourcesRequest
-   * @return ListDatasourcesResponse
+   * 获取数据源列表。
+   * 
+   * @param request - ListDatasourcesRequest
+   * @returns ListDatasourcesResponse
    */
   async listDatasources(InstanceId: string, request: ListDatasourcesRequest): Promise<ListDatasourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7445,12 +9091,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征实体列表
-   *
-   * @param tmpReq ListFeatureEntitiesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureEntitiesResponse
+   * 创建特征实体列表
+   * 
+   * @param tmpReq - ListFeatureEntitiesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureEntitiesResponse
    */
   async listFeatureEntitiesWithOptions(InstanceId: string, tmpReq: ListFeatureEntitiesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureEntitiesResponse> {
     Util.validateModel(tmpReq);
@@ -7512,10 +9158,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征实体列表
-   *
-   * @param request ListFeatureEntitiesRequest
-   * @return ListFeatureEntitiesResponse
+   * 创建特征实体列表
+   * 
+   * @param request - ListFeatureEntitiesRequest
+   * @returns ListFeatureEntitiesResponse
    */
   async listFeatureEntities(InstanceId: string, request: ListFeatureEntitiesRequest): Promise<ListFeatureEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7524,11 +9170,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征字段血缘关系。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureViewFieldRelationshipsResponse
+   * 获取特征字段血缘关系。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureViewFieldRelationshipsResponse
    */
   async listFeatureViewFieldRelationshipsWithOptions(InstanceId: string, FeatureViewId: string, FieldName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewFieldRelationshipsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7549,9 +9195,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征字段血缘关系。
-   *
-   * @return ListFeatureViewFieldRelationshipsResponse
+   * 获取特征字段血缘关系。
+   * @returns ListFeatureViewFieldRelationshipsResponse
    */
   async listFeatureViewFieldRelationships(InstanceId: string, FeatureViewId: string, FieldName: string): Promise<ListFeatureViewFieldRelationshipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7560,12 +9205,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图下的在线特征数据。
-   *
-   * @param tmpReq ListFeatureViewOnlineFeaturesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureViewOnlineFeaturesResponse
+   * 获取特征视图下的在线特征数据。
+   * 
+   * @param tmpReq - ListFeatureViewOnlineFeaturesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureViewOnlineFeaturesResponse
    */
   async listFeatureViewOnlineFeaturesWithOptions(InstanceId: string, FeatureViewId: string, tmpReq: ListFeatureViewOnlineFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewOnlineFeaturesResponse> {
     Util.validateModel(tmpReq);
@@ -7599,10 +9244,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图下的在线特征数据。
-   *
-   * @param request ListFeatureViewOnlineFeaturesRequest
-   * @return ListFeatureViewOnlineFeaturesResponse
+   * 获取特征视图下的在线特征数据。
+   * 
+   * @param request - ListFeatureViewOnlineFeaturesRequest
+   * @returns ListFeatureViewOnlineFeaturesResponse
    */
   async listFeatureViewOnlineFeatures(InstanceId: string, FeatureViewId: string, request: ListFeatureViewOnlineFeaturesRequest): Promise<ListFeatureViewOnlineFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7611,11 +9256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图血缘关系。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureViewRelationshipsResponse
+   * 获取特征视图血缘关系。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureViewRelationshipsResponse
    */
   async listFeatureViewRelationshipsWithOptions(InstanceId: string, FeatureViewId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewRelationshipsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -7636,9 +9281,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图血缘关系。
-   *
-   * @return ListFeatureViewRelationshipsResponse
+   * 获取特征视图血缘关系。
+   * @returns ListFeatureViewRelationshipsResponse
    */
   async listFeatureViewRelationships(InstanceId: string, FeatureViewId: string): Promise<ListFeatureViewRelationshipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7647,12 +9291,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图列表。
-   *
-   * @param tmpReq ListFeatureViewsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureViewsResponse
+   * 获取特征视图列表。
+   * 
+   * @param tmpReq - ListFeatureViewsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureViewsResponse
    */
   async listFeatureViewsWithOptions(InstanceId: string, tmpReq: ListFeatureViewsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureViewsResponse> {
     Util.validateModel(tmpReq);
@@ -7726,10 +9370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图列表。
-   *
-   * @param request ListFeatureViewsRequest
-   * @return ListFeatureViewsResponse
+   * 获取特征视图列表。
+   * 
+   * @param request - ListFeatureViewsRequest
+   * @returns ListFeatureViewsResponse
    */
   async listFeatureViews(InstanceId: string, request: ListFeatureViewsRequest): Promise<ListFeatureViewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7738,12 +9382,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Feature Store实例列表。
-   *
-   * @param request ListInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * 获取Feature Store实例列表。
+   * 
+   * @param request - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
@@ -7787,10 +9431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Feature Store实例列表。
-   *
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * 获取Feature Store实例列表。
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7799,12 +9443,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Label表列表。
-   *
-   * @param tmpReq ListLabelTablesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLabelTablesResponse
+   * 获取Label表列表。
+   * 
+   * @param tmpReq - ListLabelTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLabelTablesResponse
    */
   async listLabelTablesWithOptions(InstanceId: string, tmpReq: ListLabelTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLabelTablesResponse> {
     Util.validateModel(tmpReq);
@@ -7866,10 +9510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Label表列表。
-   *
-   * @param request ListLabelTablesRequest
-   * @return ListLabelTablesResponse
+   * 获取Label表列表。
+   * 
+   * @param request - ListLabelTablesRequest
+   * @returns ListLabelTablesResponse
    */
   async listLabelTables(InstanceId: string, request: ListLabelTablesRequest): Promise<ListLabelTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7878,12 +9522,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取注册FG特征时模型特征下可选的所有特征。
-   *
-   * @param request ListModelFeatureAvailableFeaturesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListModelFeatureAvailableFeaturesResponse
+   * 获取注册FG特征时模型特征下可选的所有特征。
+   * 
+   * @param request - ListModelFeatureAvailableFeaturesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelFeatureAvailableFeaturesResponse
    */
   async listModelFeatureAvailableFeaturesWithOptions(InstanceId: string, ModelFeatureId: string, request: ListModelFeatureAvailableFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelFeatureAvailableFeaturesResponse> {
     Util.validateModel(request);
@@ -7911,10 +9555,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取注册FG特征时模型特征下可选的所有特征。
-   *
-   * @param request ListModelFeatureAvailableFeaturesRequest
-   * @return ListModelFeatureAvailableFeaturesResponse
+   * 获取注册FG特征时模型特征下可选的所有特征。
+   * 
+   * @param request - ListModelFeatureAvailableFeaturesRequest
+   * @returns ListModelFeatureAvailableFeaturesResponse
    */
   async listModelFeatureAvailableFeatures(InstanceId: string, ModelFeatureId: string, request: ListModelFeatureAvailableFeaturesRequest): Promise<ListModelFeatureAvailableFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7923,12 +9567,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征列表。
-   *
-   * @param tmpReq ListModelFeaturesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListModelFeaturesResponse
+   * 获取模型特征列表。
+   * 
+   * @param tmpReq - ListModelFeaturesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelFeaturesResponse
    */
   async listModelFeaturesWithOptions(InstanceId: string, tmpReq: ListModelFeaturesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListModelFeaturesResponse> {
     Util.validateModel(tmpReq);
@@ -7990,10 +9634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模型特征列表。
-   *
-   * @param request ListModelFeaturesRequest
-   * @return ListModelFeaturesResponse
+   * 获取模型特征列表。
+   * 
+   * @param request - ListModelFeaturesRequest
+   * @returns ListModelFeaturesResponse
    */
   async listModelFeatures(InstanceId: string, request: ListModelFeaturesRequest): Promise<ListModelFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8002,83 +9646,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目下特征视图的所有创建人。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectFeatureViewOwnersResponse
-   */
-  async listProjectFeatureViewOwnersWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectFeatureViewOwnersResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "ListProjectFeatureViewOwners",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/featureviewowners`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListProjectFeatureViewOwnersResponse>(await this.callApi(params, req, runtime), new ListProjectFeatureViewOwnersResponse({}));
-  }
-
-  /**
-   * @summary 获取项目下特征视图的所有创建人。
-   *
-   * @return ListProjectFeatureViewOwnersResponse
-   */
-  async listProjectFeatureViewOwners(InstanceId: string, ProjectId: string): Promise<ListProjectFeatureViewOwnersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listProjectFeatureViewOwnersWithOptions(InstanceId, ProjectId, headers, runtime);
-  }
-
-  /**
-   * @summary 获取项目下特征视图的所有标签。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectFeatureViewTagsResponse
-   */
-  async listProjectFeatureViewTagsWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectFeatureViewTagsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "ListProjectFeatureViewTags",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/featureviewtags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListProjectFeatureViewTagsResponse>(await this.callApi(params, req, runtime), new ListProjectFeatureViewTagsResponse({}));
-  }
-
-  /**
-   * @summary 获取项目下特征视图的所有标签。
-   *
-   * @return ListProjectFeatureViewTagsResponse
-   */
-  async listProjectFeatureViewTags(InstanceId: string, ProjectId: string): Promise<ListProjectFeatureViewTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listProjectFeatureViewTagsWithOptions(InstanceId, ProjectId, headers, runtime);
-  }
-
-  /**
-   * @summary 获取项目下的所有特征视图、特征信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectFeatureViewsResponse
+   * 获取项目下的所有特征视图、特征信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectFeatureViewsResponse
    */
   async listProjectFeatureViewsWithOptions(InstanceId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectFeatureViewsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -8099,9 +9671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目下的所有特征视图、特征信息。
-   *
-   * @return ListProjectFeatureViewsResponse
+   * 获取项目下的所有特征视图、特征信息。
+   * @returns ListProjectFeatureViewsResponse
    */
   async listProjectFeatureViews(InstanceId: string, ProjectId: string): Promise<ListProjectFeatureViewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8110,12 +9681,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Feature Store项目列表。
-   *
-   * @param tmpReq ListProjectsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectsResponse
+   * 获取Feature Store项目列表。
+   * 
+   * @param tmpReq - ListProjectsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
    */
   async listProjectsWithOptions(InstanceId: string, tmpReq: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
@@ -8177,10 +9748,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Feature Store项目列表。
-   *
-   * @param request ListProjectsRequest
-   * @return ListProjectsResponse
+   * 获取Feature Store项目列表。
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
    */
   async listProjects(InstanceId: string, request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8189,12 +9760,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务日志列表
-   *
-   * @param request ListTaskLogsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTaskLogsResponse
+   * 获取任务日志列表
+   * 
+   * @param request - ListTaskLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskLogsResponse
    */
   async listTaskLogsWithOptions(InstanceId: string, TaskId: string, request: ListTaskLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaskLogsResponse> {
     Util.validateModel(request);
@@ -8226,10 +9797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务日志列表
-   *
-   * @param request ListTaskLogsRequest
-   * @return ListTaskLogsResponse
+   * 获取任务日志列表
+   * 
+   * @param request - ListTaskLogsRequest
+   * @returns ListTaskLogsResponse
    */
   async listTaskLogs(InstanceId: string, TaskId: string, request: ListTaskLogsRequest): Promise<ListTaskLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8238,12 +9809,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务列表
-   *
-   * @param tmpReq ListTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTasksResponse
+   * 获取任务列表
+   * 
+   * @param tmpReq - ListTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTasksResponse
    */
   async listTasksWithOptions(InstanceId: string, tmpReq: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(tmpReq);
@@ -8305,10 +9876,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务列表
-   *
-   * @param request ListTasksRequest
-   * @return ListTasksResponse
+   * 获取任务列表
+   * 
+   * @param request - ListTasksRequest
+   * @returns ListTasksResponse
    */
   async listTasks(InstanceId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8317,12 +9888,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 将特征视图的离线数据发布/同步到线上。
-   *
-   * @param request PublishFeatureViewTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishFeatureViewTableResponse
+   * 将特征视图的离线数据发布/同步到线上。
+   * 
+   * @param request - PublishFeatureViewTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishFeatureViewTableResponse
    */
   async publishFeatureViewTableWithOptions(InstanceId: string, FeatureViewId: string, request: PublishFeatureViewTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFeatureViewTableResponse> {
     Util.validateModel(request);
@@ -8366,10 +9937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 将特征视图的离线数据发布/同步到线上。
-   *
-   * @param request PublishFeatureViewTableRequest
-   * @return PublishFeatureViewTableResponse
+   * 将特征视图的离线数据发布/同步到线上。
+   * 
+   * @param request - PublishFeatureViewTableRequest
+   * @returns PublishFeatureViewTableResponse
    */
   async publishFeatureViewTable(InstanceId: string, FeatureViewId: string, request: PublishFeatureViewTableRequest): Promise<PublishFeatureViewTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8378,12 +9949,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数据源信息。
-   *
-   * @param request UpdateDatasourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDatasourceResponse
+   * 更新数据源信息。
+   * 
+   * @param request - UpdateDatasourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasourceResponse
    */
   async updateDatasourceWithOptions(InstanceId: string, DatasourceId: string, request: UpdateDatasourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDatasourceResponse> {
     Util.validateModel(request);
@@ -8419,10 +9990,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数据源信息。
-   *
-   * @param request UpdateDatasourceRequest
-   * @return UpdateDatasourceResponse
+   * 更新数据源信息。
+   * 
+   * @param request - UpdateDatasourceRequest
+   * @returns UpdateDatasourceResponse
    */
   async updateDatasource(InstanceId: string, DatasourceId: string, request: UpdateDatasourceRequest): Promise<UpdateDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8431,12 +10002,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新label表。
-   *
-   * @param request UpdateLabelTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLabelTableResponse
+   * 更新label表。
+   * 
+   * @param request - UpdateLabelTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLabelTableResponse
    */
   async updateLabelTableWithOptions(InstanceId: string, LabelTableId: string, request: UpdateLabelTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLabelTableResponse> {
     Util.validateModel(request);
@@ -8472,10 +10043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新label表。
-   *
-   * @param request UpdateLabelTableRequest
-   * @return UpdateLabelTableResponse
+   * 更新label表。
+   * 
+   * @param request - UpdateLabelTableRequest
+   * @returns UpdateLabelTableResponse
    */
   async updateLabelTable(InstanceId: string, LabelTableId: string, request: UpdateLabelTableRequest): Promise<UpdateLabelTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8484,12 +10055,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新模型特征。
-   *
-   * @param request UpdateModelFeatureRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateModelFeatureResponse
+   * 更新模型特征。
+   * 
+   * @param request - UpdateModelFeatureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelFeatureResponse
    */
   async updateModelFeatureWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureResponse> {
     Util.validateModel(request);
@@ -8525,10 +10096,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新模型特征。
-   *
-   * @param request UpdateModelFeatureRequest
-   * @return UpdateModelFeatureResponse
+   * 更新模型特征。
+   * 
+   * @param request - UpdateModelFeatureRequest
+   * @returns UpdateModelFeatureResponse
    */
   async updateModelFeature(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureRequest): Promise<UpdateModelFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8537,12 +10108,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新模型特征的FG特征配置信息。
-   *
-   * @param request UpdateModelFeatureFGFeatureRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateModelFeatureFGFeatureResponse
+   * 更新模型特征的FG特征配置信息。
+   * 
+   * @param request - UpdateModelFeatureFGFeatureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelFeatureFGFeatureResponse
    */
   async updateModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGFeatureRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGFeatureResponse> {
     Util.validateModel(request);
@@ -8582,10 +10153,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新模型特征的FG特征配置信息。
-   *
-   * @param request UpdateModelFeatureFGFeatureRequest
-   * @return UpdateModelFeatureFGFeatureResponse
+   * 更新模型特征的FG特征配置信息。
+   * 
+   * @param request - UpdateModelFeatureFGFeatureRequest
+   * @returns UpdateModelFeatureFGFeatureResponse
    */
   async updateModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGFeatureRequest): Promise<UpdateModelFeatureFGFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8594,12 +10165,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新模型特征的fg.json文件配置信息。
-   *
-   * @param request UpdateModelFeatureFGInfoRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateModelFeatureFGInfoResponse
+   * 更新模型特征的fg.json文件配置信息。
+   * 
+   * @param request - UpdateModelFeatureFGInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelFeatureFGInfoResponse
    */
   async updateModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGInfoResponse> {
     Util.validateModel(request);
@@ -8627,10 +10198,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新模型特征的fg.json文件配置信息。
-   *
-   * @param request UpdateModelFeatureFGInfoRequest
-   * @return UpdateModelFeatureFGInfoResponse
+   * 更新模型特征的fg.json文件配置信息。
+   * 
+   * @param request - UpdateModelFeatureFGInfoRequest
+   * @returns UpdateModelFeatureFGInfoResponse
    */
   async updateModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest): Promise<UpdateModelFeatureFGInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8639,12 +10210,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定Feature Store项目信息。
-   *
-   * @param request UpdateProjectRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateProjectResponse
+   * 更新指定Feature Store项目信息。
+   * 
+   * @param request - UpdateProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectResponse
    */
   async updateProjectWithOptions(InstanceId: string, ProjectId: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
@@ -8676,10 +10247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定Feature Store项目信息。
-   *
-   * @param request UpdateProjectRequest
-   * @return UpdateProjectResponse
+   * 更新指定Feature Store项目信息。
+   * 
+   * @param request - UpdateProjectRequest
+   * @returns UpdateProjectResponse
    */
   async updateProject(InstanceId: string, ProjectId: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8688,12 +10259,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图血缘关系。
-   *
-   * @param request WriteFeatureViewTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return WriteFeatureViewTableResponse
+   * 获取特征视图血缘关系。
+   * 
+   * @param request - WriteFeatureViewTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WriteFeatureViewTableResponse
    */
   async writeFeatureViewTableWithOptions(InstanceId: string, FeatureViewId: string, request: WriteFeatureViewTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WriteFeatureViewTableResponse> {
     Util.validateModel(request);
@@ -8729,64 +10300,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征视图血缘关系。
-   *
-   * @param request WriteFeatureViewTableRequest
-   * @return WriteFeatureViewTableResponse
+   * 获取特征视图血缘关系。
+   * 
+   * @param request - WriteFeatureViewTableRequest
+   * @returns WriteFeatureViewTableResponse
    */
   async writeFeatureViewTable(InstanceId: string, FeatureViewId: string, request: WriteFeatureViewTableRequest): Promise<WriteFeatureViewTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.writeFeatureViewTableWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
-  }
-
-  /**
-   * @summary 向指定项目下的特征实体写入热点数据。
-   *
-   * @param request WriteProjectFeatureEntityHotIdsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return WriteProjectFeatureEntityHotIdsResponse
-   */
-  async writeProjectFeatureEntityHotIdsWithOptions(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: WriteProjectFeatureEntityHotIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WriteProjectFeatureEntityHotIdsResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.hotIds)) {
-      body["HotIds"] = request.hotIds;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      body["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "WriteProjectFeatureEntityHotIds",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/featureentities/${OpenApiUtil.getEncodeParam(FeatureEntityName)}/action/writehotids`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<WriteProjectFeatureEntityHotIdsResponse>(await this.callApi(params, req, runtime), new WriteProjectFeatureEntityHotIdsResponse({}));
-  }
-
-  /**
-   * @summary 向指定项目下的特征实体写入热点数据。
-   *
-   * @param request WriteProjectFeatureEntityHotIdsRequest
-   * @return WriteProjectFeatureEntityHotIdsResponse
-   */
-  async writeProjectFeatureEntityHotIds(InstanceId: string, ProjectId: string, FeatureEntityName: string, request: WriteProjectFeatureEntityHotIdsRequest): Promise<WriteProjectFeatureEntityHotIdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.writeProjectFeatureEntityHotIdsWithOptions(InstanceId, ProjectId, FeatureEntityName, request, headers, runtime);
   }
 
 }
