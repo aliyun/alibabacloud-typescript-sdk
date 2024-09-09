@@ -600,6 +600,11 @@ export class TextTaskCreateCmd extends $tea.Model {
    */
   relatedRagIds?: number[];
   /**
+   * @example
+   * true
+   */
+  streamApi?: boolean;
+  /**
    * @remarks
    * This parameter is required.
    */
@@ -627,6 +632,7 @@ export class TextTaskCreateCmd extends $tea.Model {
       point: 'point',
       referenceTag: 'referenceTag',
       relatedRagIds: 'relatedRagIds',
+      streamApi: 'streamApi',
       style: 'style',
       target: 'target',
       textModeType: 'textModeType',
@@ -646,6 +652,7 @@ export class TextTaskCreateCmd extends $tea.Model {
       point: 'string',
       referenceTag: ReferenceTag,
       relatedRagIds: { 'type': 'array', 'itemType': 'number' },
+      streamApi: 'boolean',
       style: 'string',
       target: 'string',
       textModeType: 'string',
@@ -805,6 +812,7 @@ export class UploadInfo extends $tea.Model {
 
 export class VoiceModelResponse extends $tea.Model {
   resourceTypeDesc?: string;
+  ttsVersion?: number;
   useScene?: string;
   voiceDesc?: string;
   voiceGender?: string;
@@ -817,6 +825,7 @@ export class VoiceModelResponse extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       resourceTypeDesc: 'resourceTypeDesc',
+      ttsVersion: 'ttsVersion',
       useScene: 'useScene',
       voiceDesc: 'voiceDesc',
       voiceGender: 'voiceGender',
@@ -832,6 +841,7 @@ export class VoiceModelResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       resourceTypeDesc: 'string',
+      ttsVersion: 'number',
       useScene: 'string',
       voiceDesc: 'string',
       voiceGender: 'string',
@@ -1248,6 +1258,166 @@ export class CreateIllustrationTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: IllustrationTaskResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRealisticPortraitRequest extends $tea.Model {
+  ages?: number[];
+  /**
+   * @example
+   * 1
+   */
+  cloth?: number;
+  /**
+   * @example
+   * 1
+   */
+  color?: number;
+  /**
+   * @example
+   * 11
+   */
+  custom?: string;
+  face?: number[];
+  /**
+   * @example
+   * 1
+   */
+  figure?: number;
+  /**
+   * @example
+   * 1
+   */
+  gender?: number;
+  /**
+   * @example
+   * 1
+   */
+  hairColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  hairstyle?: number;
+  /**
+   * @example
+   * 500
+   */
+  height?: number;
+  imageUrl?: string;
+  /**
+   * @example
+   * 4
+   */
+  numbers?: number;
+  /**
+   * @example
+   * 1:1
+   */
+  ratio?: string;
+  /**
+   * @example
+   * 500
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ages: 'ages',
+      cloth: 'cloth',
+      color: 'color',
+      custom: 'custom',
+      face: 'face',
+      figure: 'figure',
+      gender: 'gender',
+      hairColor: 'hairColor',
+      hairstyle: 'hairstyle',
+      height: 'height',
+      imageUrl: 'imageUrl',
+      numbers: 'numbers',
+      ratio: 'ratio',
+      width: 'width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ages: { 'type': 'array', 'itemType': 'number' },
+      cloth: 'number',
+      color: 'number',
+      custom: 'string',
+      face: { 'type': 'array', 'itemType': 'number' },
+      figure: 'number',
+      gender: 'number',
+      hairColor: 'number',
+      hairstyle: 'number',
+      height: 'number',
+      imageUrl: 'string',
+      numbers: 'number',
+      ratio: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRealisticPortraitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D5798660-1531-5D12-9C20-16FEE9D22351
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 313123123
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRealisticPortraitResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRealisticPortraitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRealisticPortraitResponseBody,
     };
   }
 
@@ -2241,6 +2411,195 @@ export class QueryAvatarResourceResponse extends $tea.Model {
   }
 }
 
+export class QueryTextStreamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  end?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  index?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * None
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'end',
+      index: 'index',
+      message: 'message',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      index: 'number',
+      message: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTextStreamResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTextStreamResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTextStreamResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SelectImageTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 1
+   */
+  failed?: string;
+  /**
+   * @example
+   * PLATFORM
+   */
+  generationSource?: string;
+  /**
+   * @example
+   * 1
+   */
+  gmtCreate?: string;
+  imageInfos?: SelectImageTaskResponseBodyImageInfos[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  scene?: string;
+  /**
+   * @example
+   * Successed
+   */
+  status?: string;
+  /**
+   * @example
+   * 1
+   */
+  subtaskProcessing?: string;
+  /**
+   * @example
+   * 1
+   */
+  success?: string;
+  /**
+   * @example
+   * 10
+   */
+  total?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      failed: 'failed',
+      generationSource: 'generationSource',
+      gmtCreate: 'gmtCreate',
+      imageInfos: 'imageInfos',
+      requestId: 'requestId',
+      scene: 'scene',
+      status: 'status',
+      subtaskProcessing: 'subtaskProcessing',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      failed: 'string',
+      generationSource: 'string',
+      gmtCreate: 'string',
+      imageInfos: { 'type': 'array', 'itemType': SelectImageTaskResponseBodyImageInfos },
+      requestId: 'string',
+      scene: 'string',
+      status: 'string',
+      subtaskProcessing: 'string',
+      success: 'string',
+      total: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SelectImageTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SelectImageTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SelectImageTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SelectResourceRequest extends $tea.Model {
   /**
    * @example
@@ -2459,11 +2818,15 @@ export class StartAvatarSessionResponseBody extends $tea.Model {
    * 121dlsga4o7golrl1hoja
    */
   sessionId?: string;
+  token?: string;
+  webSocketUrl?: string;
   static names(): { [key: string]: string } {
     return {
       channelToken: 'channelToken',
       requestId: 'requestId',
       sessionId: 'sessionId',
+      token: 'token',
+      webSocketUrl: 'webSocketUrl',
     };
   }
 
@@ -2472,6 +2835,8 @@ export class StartAvatarSessionResponseBody extends $tea.Model {
       channelToken: 'string',
       requestId: 'string',
       sessionId: 'string',
+      token: 'string',
+      webSocketUrl: 'string',
     };
   }
 
@@ -2763,6 +3128,122 @@ export class SubmitProjectTaskResponse extends $tea.Model {
   }
 }
 
+export class TransferPortraitStyleRequest extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
+  height?: number;
+  /**
+   * @example
+   * WWW
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * 4
+   */
+  numbers?: number;
+  /**
+   * @example
+   * 1
+   */
+  redrawAmplitude?: number;
+  /**
+   * @example
+   * 1
+   */
+  style?: number;
+  /**
+   * @example
+   * 500
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'height',
+      imageUrl: 'imageUrl',
+      numbers: 'numbers',
+      redrawAmplitude: 'redrawAmplitude',
+      style: 'style',
+      width: 'width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      imageUrl: 'string',
+      numbers: 'number',
+      redrawAmplitude: 'number',
+      style: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferPortraitStyleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 725E87CD-F2DE-5FC4-8A09-2EBDFBF26DAA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 313123123
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferPortraitStyleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferPortraitStyleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransferPortraitStyleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchGetProjectTaskResponseBodyResultList extends $tea.Model {
   errorMsg?: string;
   /**
@@ -2976,6 +3457,50 @@ export class QueryAvatarResourceResponseBodyQueryResourceInfoList extends $tea.M
   }
 }
 
+export class SelectImageTaskResponseBodyImageInfos extends $tea.Model {
+  /**
+   * @example
+   * www.ali.com
+   */
+  customImageUrl?: string;
+  /**
+   * @example
+   * 1
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 500
+   */
+  imageH?: string;
+  /**
+   * @example
+   * 500
+   */
+  imageW?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customImageUrl: 'customImageUrl',
+      gmtCreate: 'gmtCreate',
+      imageH: 'imageH',
+      imageW: 'imageW',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customImageUrl: 'string',
+      gmtCreate: 'string',
+      imageH: 'string',
+      imageW: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SelectResourceResponseBodyResourceInfoList extends $tea.Model {
   /**
    * @example
@@ -3043,11 +3568,13 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
    * https://meeting.dingtalk.com/j/1COFppy0POR
    */
   url?: string;
+  volume?: number;
   static names(): { [key: string]: string } {
     return {
       format: 'format',
       id: 'id',
       url: 'url',
+      volume: 'volume',
     };
   }
 
@@ -3056,6 +3583,7 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
       format: 'string',
       id: 'string',
       url: 'string',
+      volume: 'number',
     };
   }
 
@@ -3568,6 +4096,103 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIllustrationTaskWithOptions(textId, request, headers, runtime);
+  }
+
+  /**
+   * 写实人像创作
+   * 
+   * @param request - CreateRealisticPortraitRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRealisticPortraitResponse
+   */
+  async createRealisticPortraitWithOptions(request: CreateRealisticPortraitRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRealisticPortraitResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ages)) {
+      body["ages"] = request.ages;
+    }
+
+    if (!Util.isUnset(request.cloth)) {
+      body["cloth"] = request.cloth;
+    }
+
+    if (!Util.isUnset(request.color)) {
+      body["color"] = request.color;
+    }
+
+    if (!Util.isUnset(request.custom)) {
+      body["custom"] = request.custom;
+    }
+
+    if (!Util.isUnset(request.face)) {
+      body["face"] = request.face;
+    }
+
+    if (!Util.isUnset(request.figure)) {
+      body["figure"] = request.figure;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.hairColor)) {
+      body["hairColor"] = request.hairColor;
+    }
+
+    if (!Util.isUnset(request.hairstyle)) {
+      body["hairstyle"] = request.hairstyle;
+    }
+
+    if (!Util.isUnset(request.height)) {
+      body["height"] = request.height;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["imageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.numbers)) {
+      body["numbers"] = request.numbers;
+    }
+
+    if (!Util.isUnset(request.ratio)) {
+      body["ratio"] = request.ratio;
+    }
+
+    if (!Util.isUnset(request.width)) {
+      body["width"] = request.width;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRealisticPortrait",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/images/portrait/realistic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRealisticPortraitResponse>(await this.callApi(params, req, runtime), new CreateRealisticPortraitResponse({}));
+  }
+
+  /**
+   * 写实人像创作
+   * 
+   * @param request - CreateRealisticPortraitRequest
+   * @returns CreateRealisticPortraitResponse
+   */
+  async createRealisticPortrait(request: CreateRealisticPortraitRequest): Promise<CreateRealisticPortraitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRealisticPortraitWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4224,6 +4849,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 流式输出文案
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTextStreamResponse
+   */
+  async queryTextStreamWithOptions(textId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTextStreamResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTextStream",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/stream/queryTextStream/${OpenApiUtil.getEncodeParam(textId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTextStreamResponse>(await this.callApi(params, req, runtime), new QueryTextStreamResponse({}));
+  }
+
+  /**
+   * 流式输出文案
+   * @returns QueryTextStreamResponse
+   */
+  async queryTextStream(textId: string): Promise<QueryTextStreamResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTextStreamWithOptions(textId, headers, runtime);
+  }
+
+  /**
+   * 查询图片任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SelectImageTaskResponse
+   */
+  async selectImageTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SelectImageTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "SelectImageTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/images/portrait/select/${OpenApiUtil.getEncodeParam(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SelectImageTaskResponse>(await this.callApi(params, req, runtime), new SelectImageTaskResponse({}));
+  }
+
+  /**
+   * 查询图片任务
+   * @returns SelectImageTaskResponse
+   */
+  async selectImageTask(taskId: string): Promise<SelectImageTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.selectImageTaskWithOptions(taskId, headers, runtime);
+  }
+
+  /**
    * 查询离线数字人剩余资源
    * 
    * @param request - SelectResourceRequest
@@ -4527,6 +5222,71 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.submitProjectTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 人像风格变化
+   * 
+   * @param request - TransferPortraitStyleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferPortraitStyleResponse
+   */
+  async transferPortraitStyleWithOptions(request: TransferPortraitStyleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransferPortraitStyleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.height)) {
+      body["height"] = request.height;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["imageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.numbers)) {
+      body["numbers"] = request.numbers;
+    }
+
+    if (!Util.isUnset(request.redrawAmplitude)) {
+      body["redrawAmplitude"] = request.redrawAmplitude;
+    }
+
+    if (!Util.isUnset(request.style)) {
+      body["style"] = request.style;
+    }
+
+    if (!Util.isUnset(request.width)) {
+      body["width"] = request.width;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransferPortraitStyle",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/images/portrait/transferPortraitStyle`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferPortraitStyleResponse>(await this.callApi(params, req, runtime), new TransferPortraitStyleResponse({}));
+  }
+
+  /**
+   * 人像风格变化
+   * 
+   * @param request - TransferPortraitStyleRequest
+   * @returns TransferPortraitStyleResponse
+   */
+  async transferPortraitStyle(request: TransferPortraitStyleRequest): Promise<TransferPortraitStyleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.transferPortraitStyleWithOptions(request, headers, runtime);
   }
 
 }
