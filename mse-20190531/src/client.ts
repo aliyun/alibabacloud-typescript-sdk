@@ -5505,10 +5505,14 @@ export class CloneNacosConfigRequest extends $tea.Model {
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The configuration items that you want to clone. The value of this parameter is the combination of the values of the dataId and group parameters. Separate multiple configuration items with commas (,).
+   */
   dataIds?: string;
   /**
    * @remarks
-   * The data structure.
+   * The list of configuration IDs.
    * 
    * @example
    * 253661,253662
@@ -5601,7 +5605,7 @@ export class CloneNacosConfigResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * The number of skipped operations.
+   * The data returned.
    */
   data?: CloneNacosConfigResponseBodyData;
   /**
@@ -9747,11 +9751,17 @@ export class CreateOrUpdateSwimmingLaneGroupResponse extends $tea.Model {
 
 export class CreatePluginConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
+   * 
    * @example
    * status_code: 200
    * headers:
@@ -9761,6 +9771,12 @@ export class CreatePluginConfigRequest extends $tea.Model {
   config?: string;
   /**
    * @remarks
+   * The application scope of the plug-in. Valid values:
+   * 
+   * *   0: global
+   * *   1: route
+   * *   2: domain name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9769,6 +9785,8 @@ export class CreatePluginConfigRequest extends $tea.Model {
   configLevel?: number;
   /**
    * @remarks
+   * Indicates whether the plug-in is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9777,6 +9795,8 @@ export class CreatePluginConfigRequest extends $tea.Model {
   enable?: boolean;
   /**
    * @remarks
+   * The unique ID of the gateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9785,12 +9805,18 @@ export class CreatePluginConfigRequest extends $tea.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
+   * The gateway plug-in ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 20
    */
   pluginId?: number;
+  /**
+   * @remarks
+   * The domain IDs or route IDs. They are distinguished based on ConfigLevel.
+   */
   resourceIdList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -9823,11 +9849,17 @@ export class CreatePluginConfigRequest extends $tea.Model {
 
 export class CreatePluginConfigShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
+   * 
    * @example
    * status_code: 200
    * headers:
@@ -9837,6 +9869,12 @@ export class CreatePluginConfigShrinkRequest extends $tea.Model {
   config?: string;
   /**
    * @remarks
+   * The application scope of the plug-in. Valid values:
+   * 
+   * *   0: global
+   * *   1: route
+   * *   2: domain name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9845,6 +9883,8 @@ export class CreatePluginConfigShrinkRequest extends $tea.Model {
   configLevel?: number;
   /**
    * @remarks
+   * Indicates whether the plug-in is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9853,6 +9893,8 @@ export class CreatePluginConfigShrinkRequest extends $tea.Model {
   enable?: boolean;
   /**
    * @remarks
+   * The unique ID of the gateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9861,12 +9903,18 @@ export class CreatePluginConfigShrinkRequest extends $tea.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
+   * The gateway plug-in ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 20
    */
   pluginId?: number;
+  /**
+   * @remarks
+   * The domain IDs or route IDs. They are distinguished based on ConfigLevel.
+   */
   resourceIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9899,11 +9947,17 @@ export class CreatePluginConfigShrinkRequest extends $tea.Model {
 
 export class CreatePluginConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The plug-in configuration ID.
+   * 
    * @example
    * 10
    */
   pluginConfigID?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 03A3E2F4-6804-5663-9D5D-2EC47A1*****
    */
@@ -13872,12 +13926,17 @@ export class DeleteNamespaceResponse extends $tea.Model {
 
 export class DeletePluginConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The unique ID of the gateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13886,6 +13945,8 @@ export class DeletePluginConfigRequest extends $tea.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
+   * The plug-in configuration ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13915,6 +13976,9 @@ export class DeletePluginConfigRequest extends $tea.Model {
 
 export class DeletePluginConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DC34E4A3-5F1C-4E40-86EA-02EDF967****
    */
@@ -15717,31 +15781,46 @@ export class FetchLosslessRuleListResponse extends $tea.Model {
 
 export class GatewayBlackWhiteListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
   descSort?: boolean;
   /**
    * @remarks
-   * parse from filterParams
+   * The filter parameters.
    */
   filterParams?: GatewayBlackWhiteListRequestFilterParams;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
   orderItem?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 1.
+   * 
    * @example
    * 1
    */
@@ -15775,31 +15854,46 @@ export class GatewayBlackWhiteListRequest extends $tea.Model {
 
 export class GatewayBlackWhiteListShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
   descSort?: boolean;
   /**
    * @remarks
-   * parse from filterParams
+   * The filter parameters.
    */
   filterParamsShrink?: string;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
   orderItem?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 1.
+   * 
    * @example
    * 1
    */
@@ -15833,42 +15927,73 @@ export class GatewayBlackWhiteListShrinkRequest extends $tea.Model {
 
 export class GatewayBlackWhiteListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 is returned if the request is successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GatewayBlackWhiteListResponseBodyData;
   /**
+   * @remarks
+   * The placeholder in the dynamic error message. This parameter is not returned.
+   * 
    * @example
    * code
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic message. This parameter is not returned.
+   * 
    * @example
    * The specified parameter is invalid.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 58E06A0A-BD2C-47A0-99C2-B100F353****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`
+   * *   `false`
+   * 
    * @example
    * true
    */
@@ -18580,7 +18705,7 @@ export class GetKubernetesSourceResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * The data structure.
+   * The data returned.
    */
   data?: GetKubernetesSourceResponseBodyData[];
   /**
@@ -48611,7 +48736,7 @@ export class CloneNacosConfigResponseBodyDataSkipData extends $tea.Model {
 export class CloneNacosConfigResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The ID of the data.
+   * The details of the failed configurations.
    */
   failData?: CloneNacosConfigResponseBodyDataFailData[];
   /**
@@ -51214,36 +51339,61 @@ export class FetchLosslessRuleListResponseBodyData extends $tea.Model {
 
 export class GatewayBlackWhiteListRequestFilterParams extends $tea.Model {
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * 81
    */
   gatewayId?: number;
   /**
+   * @remarks
+   * The unique ID of the gateway. If this parameter is used together with the GatewayId parameter, the value of the GatewayId parameter is used.
+   * 
    * @example
    * gw-5017305290e14centbrveca****
    */
   gatewayUniqueId?: string;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
   isWhite?: boolean;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The content that you want to query.
+   * 
    * @example
    * 1.1.1.1
    */
   searchContent?: string;
   /**
+   * @remarks
+   * The query type. Valid values:
+   * 
+   * *   ROUTE: The list is queried by route. If the value of this parameter is ROUTE, set the SearchContent parameter to the route name.
+   * *   DOMAIN: The list is queried by domain name. If the value of this parameter is DOMAIN, set the SearchContent parameter to the domain name.
+   * *   IP: The list is queried by specified IP address. If the value of this parameter is IP, set the SearchContent parameter to the IP address.
+   * 
    * @example
    * IP
    */
   searchType?: string;
   /**
+   * @remarks
+   * This parameter is unavailable for public use.
+   * 
    * @example
    * ""
    */
@@ -51279,72 +51429,128 @@ export class GatewayBlackWhiteListRequestFilterParams extends $tea.Model {
 
 export class GatewayBlackWhiteListResponseBodyDataResult extends $tea.Model {
   /**
+   * @remarks
+   * The content of the blacklist.
+   * 
    * @example
    * 1.1.1.1
    */
   content?: string;
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * 81
    */
   gatewayId?: number;
   /**
+   * @remarks
+   * The unique ID of the gateway.
+   * 
    * @example
    * gw-5017305290e14centbrveca****
    */
   gatewayUniqueId?: string;
   /**
+   * @remarks
+   * The time when the blacklist or whitelist was created.
+   * 
    * @example
    * 2024-08-02T02:43:40.000+0000
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the rule was modified.
+   * 
    * @example
    * 2024-08-02T02:43:40.000+0000
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The ID of the blacklist and whitelist.
+   * 
    * @example
    * 549
    */
   id?: number;
   /**
+   * @remarks
+   * Specifies whether to enable the whitelist feature.
+   * 
    * @example
    * true
    */
   isWhite?: boolean;
   /**
+   * @remarks
+   * The name of the blacklist.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The comment.
+   */
   note?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * 549
    */
   resourceId?: number;
   /**
+   * @remarks
+   * The list of resource IDs in the JSON format.
+   * 
+   * *   If the value of the ResourceType parameter is ROUTE, the value of this parameter is the list of route IDs.
+   * *   If the value of the ResourceType parameter is DOMAIN, the value of this parameter is the list of domain names.
+   * 
    * @example
    * [234]
    */
   resourceIdJsonList?: string;
   /**
+   * @remarks
+   * The description of the resource name.
+   * 
    * @example
    * {}
    */
   resourceIdNameJson?: string;
   /**
+   * @remarks
+   * The effective scope of the blacklist or whitelist. Valid values:
+   * 
+   * *   GATEWAY
+   * *   DOMAIN
+   * *   ROUTE
+   * 
    * @example
    * GATEWAY
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The status of the blacklist or whitelist.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the blacklist and whitelist. The value is fixed to IP address blacklist and whitelist.
+   * 
    * @example
    * IP
    */
@@ -51396,17 +51602,30 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $tea.Model {
 
 export class GatewayBlackWhiteListResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The returned information.
+   */
   result?: GatewayBlackWhiteListResponseBodyDataResult[];
   /**
+   * @remarks
+   * The total number of instances returned.
+   * 
    * @example
    * 1
    */
@@ -55473,6 +55692,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
    * test
    */
   serviceNameInRegistry?: string;
+  servicePort?: number;
   /**
    * @remarks
    * The protocol of the service.
@@ -55527,6 +55747,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       ports: 'Ports',
       serviceFQDN: 'ServiceFQDN',
       serviceNameInRegistry: 'ServiceNameInRegistry',
+      servicePort: 'ServicePort',
       serviceProtocol: 'ServiceProtocol',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
@@ -55555,6 +55776,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       ports: { 'type': 'array', 'itemType': 'number' },
       serviceFQDN: 'string',
       serviceNameInRegistry: 'string',
+      servicePort: 'number',
       serviceProtocol: 'string',
       sourceId: 'number',
       sourceType: 'string',
@@ -60939,6 +61161,28 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
   }
 }
 
+export class ListGatewayResponseBodyDataResultElasticPolicyEnableScaleTimePolicyList extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList extends $tea.Model {
   /**
    * @remarks
@@ -61004,6 +61248,8 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $tea.Model {
    * CronHPA
    */
   elasticType?: string;
+  enableScaleTimePolicyList?: ListGatewayResponseBodyDataResultElasticPolicyEnableScaleTimePolicyList[];
+  loadWarningThreshold?: boolean;
   /**
    * @remarks
    * The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
@@ -61021,6 +61267,8 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $tea.Model {
     return {
       elastic: 'Elastic',
       elasticType: 'ElasticType',
+      enableScaleTimePolicyList: 'EnableScaleTimePolicyList',
+      loadWarningThreshold: 'LoadWarningThreshold',
       maxReplica: 'MaxReplica',
       timePolicyList: 'TimePolicyList',
     };
@@ -61030,6 +61278,8 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $tea.Model {
     return {
       elastic: 'boolean',
       elasticType: 'string',
+      enableScaleTimePolicyList: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultElasticPolicyEnableScaleTimePolicyList },
+      loadWarningThreshold: 'boolean',
       maxReplica: 'number',
       timePolicyList: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList },
     };
@@ -75862,7 +76112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建插件配置
+   * Creates a plug-in configuration.
    * 
    * @param tmpReq - CreatePluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75923,7 +76173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建插件配置
+   * Creates a plug-in configuration.
    * 
    * @param request - CreatePluginConfigRequest
    * @returns CreatePluginConfigResponse
@@ -77266,7 +77516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除插件配置
+   * Deletes a plug-in configuration.
    * 
    * @param request - DeletePluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77305,7 +77555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除插件配置
+   * Deletes a plug-in configuration.
    * 
    * @param request - DeletePluginConfigRequest
    * @returns DeletePluginConfigResponse
@@ -77890,7 +78140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 黑白名单列表
+   * Queries a list of blacklists and whitelists of a gateway.
    * 
    * @param tmpReq - GatewayBlackWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77947,7 +78197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 黑白名单列表
+   * Queries a list of blacklists and whitelists of a gateway.
    * 
    * @param request - GatewayBlackWhiteListRequest
    * @returns GatewayBlackWhiteListResponse
