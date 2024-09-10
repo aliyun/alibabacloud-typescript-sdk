@@ -1313,6 +1313,7 @@ export class GetInstanceResponseBody extends $tea.Model {
    * null
    */
   code?: string;
+  credentialConfig?: CredentialConfig;
   datasets?: GetInstanceResponseBodyDatasets[];
   /**
    * @example
@@ -1503,6 +1504,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
       code: 'Code',
+      credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
       driver: 'Driver',
       ecsSpec: 'EcsSpec',
@@ -1554,6 +1556,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       affinity: GetInstanceResponseBodyAffinity,
       cloudDisks: { 'type': 'array', 'itemType': GetInstanceResponseBodyCloudDisks },
       code: 'string',
+      credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': GetInstanceResponseBodyDatasets },
       driver: 'string',
       ecsSpec: 'string',
@@ -6159,6 +6162,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
    * []
    */
   cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
+  credentialConfig?: CredentialConfig;
   datasets?: ListInstancesResponseBodyInstancesDatasets[];
   /**
    * @example
@@ -6327,6 +6331,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
       affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
+      credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
       driver: 'Driver',
       ecsSpec: 'EcsSpec',
@@ -6372,6 +6377,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       accumulatedRunningTimeInMs: 'number',
       affinity: ListInstancesResponseBodyInstancesAffinity,
       cloudDisks: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesCloudDisks },
+      credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
       driver: 'string',
       ecsSpec: 'string',
