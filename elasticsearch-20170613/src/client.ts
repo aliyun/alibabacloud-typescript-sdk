@@ -21629,7 +21629,9 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
    * 5601
    */
   kibanaPort?: number;
+  kibanaPrivateDomain?: string;
   kibanaPrivateIPWhitelist?: string[];
+  kibanaPrivatePort?: string;
   masterConfiguration?: DescribeInstanceResponseBodyResultMasterConfiguration;
   networkConfig?: DescribeInstanceResponseBodyResultNetworkConfig;
   /**
@@ -21741,7 +21743,9 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       kibanaDomain: 'kibanaDomain',
       kibanaIPWhitelist: 'kibanaIPWhitelist',
       kibanaPort: 'kibanaPort',
+      kibanaPrivateDomain: 'kibanaPrivateDomain',
       kibanaPrivateIPWhitelist: 'kibanaPrivateIPWhitelist',
+      kibanaPrivatePort: 'kibanaPrivatePort',
       masterConfiguration: 'masterConfiguration',
       networkConfig: 'networkConfig',
       nodeAmount: 'nodeAmount',
@@ -21800,7 +21804,9 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       kibanaDomain: 'string',
       kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
       kibanaPort: 'number',
+      kibanaPrivateDomain: 'string',
       kibanaPrivateIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      kibanaPrivatePort: 'string',
       masterConfiguration: DescribeInstanceResponseBodyResultMasterConfiguration,
       networkConfig: DescribeInstanceResponseBodyResultNetworkConfig,
       nodeAmount: 'number',
