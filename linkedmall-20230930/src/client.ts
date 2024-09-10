@@ -3243,6 +3243,7 @@ export class Sku extends $tea.Model {
    * Online
    */
   skuStatus?: string;
+  suggestedRetailPrice?: number;
   /**
    * @example
    * 天蓝色
@@ -3266,6 +3267,7 @@ export class Sku extends $tea.Model {
       skuSpecs: 'skuSpecs',
       skuSpecsCode: 'skuSpecsCode',
       skuStatus: 'skuStatus',
+      suggestedRetailPrice: 'suggestedRetailPrice',
       title: 'title',
     };
   }
@@ -3288,6 +3290,7 @@ export class Sku extends $tea.Model {
       skuSpecs: { 'type': 'array', 'itemType': SkuSpec },
       skuSpecsCode: 'string',
       skuStatus: 'string',
+      suggestedRetailPrice: 'number',
       title: 'string',
     };
   }
