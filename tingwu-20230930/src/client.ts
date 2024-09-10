@@ -614,6 +614,7 @@ export class CreateTaskRequestInput extends $tea.Model {
    * pcm
    */
   format?: string;
+  languageHints?: string[];
   multipleStreamsEnabled?: boolean;
   outputPath?: string;
   progressiveCallbacksEnabled?: boolean;
@@ -640,6 +641,7 @@ export class CreateTaskRequestInput extends $tea.Model {
     return {
       fileUrl: 'FileUrl',
       format: 'Format',
+      languageHints: 'LanguageHints',
       multipleStreamsEnabled: 'MultipleStreamsEnabled',
       outputPath: 'OutputPath',
       progressiveCallbacksEnabled: 'ProgressiveCallbacksEnabled',
@@ -654,6 +656,7 @@ export class CreateTaskRequestInput extends $tea.Model {
     return {
       fileUrl: 'string',
       format: 'string',
+      languageHints: { 'type': 'array', 'itemType': 'string' },
       multipleStreamsEnabled: 'boolean',
       outputPath: 'string',
       progressiveCallbacksEnabled: 'boolean',

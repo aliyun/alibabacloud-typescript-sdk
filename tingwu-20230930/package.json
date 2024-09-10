@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/tingwu20230930",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
