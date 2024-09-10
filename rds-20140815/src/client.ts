@@ -2873,7 +2873,31 @@ export class ConfirmNotifyResponse extends $tea.Model {
 }
 
 export class CopyDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * rm-uf6wjk5******
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * Destination database name.
+   * 
+   * @example
+   * db2***
+   */
+  dstDBName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Reserve account.
+   * 
+   * @example
+   * 1
+   */
+  reserveAccount?: number;
   /**
    * @remarks
    * The ID of the resource group.
@@ -2884,21 +2908,37 @@ export class CopyDatabaseRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Source database name.
+   * 
+   * @example
+   * db1***
+   */
+  srcDBName?: string;
   static names(): { [key: string]: string } {
     return {
+      DBInstanceName: 'DBInstanceName',
+      dstDBName: 'DstDBName',
       ownerId: 'OwnerId',
+      reserveAccount: 'ReserveAccount',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      srcDBName: 'SrcDBName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      DBInstanceName: 'string',
+      dstDBName: 'string',
       ownerId: 'number',
+      reserveAccount: 'number',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      srcDBName: 'string',
     };
   }
 
@@ -7352,10 +7392,15 @@ export class CreateDdrInstanceRequest extends $tea.Model {
   DBInstanceStorageType?: string;
   /**
    * @remarks
-   * User-defined key ID for cloud disk encryption. Passing this parameter means turning on cloud disk encryption (it cannot be turned off after turning it on), and RoleARN needs to be passed in. You can view the key ID in the key management service console, or create a new key. For more information, see [Creating a Key](https://help.aliyun.com/document_detail/181610.html).
+   * The ID of the customer master key (CMK) for cloud disk encryption. If this parameter is specified, cloud disk encryption is enabled and you must also specify the **RoleARN** parameter. Cloud disk encryption cannot be disabled after it is enabled. You can obtain the ID of the key in the KMS console or create a key. For more information, see [Create a key](https://help.aliyun.com/document_detail/181610.html).
    * 
-   * > - This parameter is only applicable to RDS SQL Server instances.
-   * > - You can also not pass this parameter and only need to pass in RoleARN, which means setting the cloud disk encryption type of the instance to the RDS managed service key (Default Service CMK).
+   * **
+   * 
+   * **Notes**
+   * 
+   * *   This parameter is applicable only to ApsaraDB RDS for SQL Server instances.
+   * 
+   * *   You can leave this parameter empty. If you do not specify this parameter, you only need to specify the **RoleARN** to use the service key that is managed by ApsaraDB RDS to encrypt cloud disks.
    * 
    * @example
    * 749c1df7-****-****-****-****
@@ -7485,9 +7530,9 @@ export class CreateDdrInstanceRequest extends $tea.Model {
   restoreType?: string;
   /**
    * @remarks
-   * The global resource descriptor (ARN) of the RDS cloud service account authorized by the primary account to access the KMS permission. You can view the ARN information through the [CheckCloudResourceAuthorized](https://next.api.aliyun.com/document/Rds/2014-08-15/CheckCloudResourceAuthorized) API.
+   * The Alibaba Cloud Resource Name (ARN) that is provided by your Alibaba Cloud account for Resource Access Management (RAM) users. RAM users can use the ARN to connect to ApsaraDB RDS to Key Management Service (KMS). You can call the [CheckCloudResourceAuthorized](https://help.aliyun.com/document_detail/2628797.html) operation to query the ARN.
    * 
-   * > This parameter is only available for RDS SQL Server instances.
+   * >  This parameter is applicable only to ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * acs:ram::1406****:role/aliyunrdsinstanceencryptiondefaultrole
@@ -10198,7 +10243,7 @@ export class CreateReplicationLinkRequest extends $tea.Model {
    * @remarks
    * The name of the source instance.
    * 
-   * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
+   * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
    * 
    * @example
    * testInstance
@@ -10206,9 +10251,9 @@ export class CreateReplicationLinkRequest extends $tea.Model {
   sourceInstanceName?: string;
   /**
    * @remarks
-   * The ID of the region where the source instance is located.
+   * The region ID of the source instance.
    * 
-   * >  You must specify this parameter if **SourceCategory** is set to **aliyunRDS**.
+   * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
    * 
    * @example
    * cn-hangzhou
@@ -10216,7 +10261,7 @@ export class CreateReplicationLinkRequest extends $tea.Model {
   sourceInstanceRegionId?: string;
   /**
    * @remarks
-   * The port number of the source instance.
+   * The port of the source instance.
    * 
    * @example
    * 5432
@@ -14186,7 +14231,7 @@ export class DescribeAccountsRequest extends $tea.Model {
 export class DescribeAccountsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details about the account.
+   * The details of the account.
    */
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
@@ -16302,9 +16347,10 @@ export class DescribeBackupPolicyResponseBody extends $tea.Model {
   supportVolumeShadowCopy?: number;
   /**
    * @remarks
-   * Whether to support 5-minute log backup of SQL Server.
-   * - 0 : Not Support
-   * - 1 : Support
+   * Indicates whether log backups for SQL Server are performed verery five minutes.
+   * 
+   * *   0: No
+   * *   1: Yes
    * 
    * @example
    * 0
@@ -39010,6 +39056,129 @@ export class ModifyADInfoResponse extends $tea.Model {
   }
 }
 
+export class ModifyAccountCheckPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DatabaseTest
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  checkPolicy?: boolean;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOC****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxxxxx
+   */
+  DBInstanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * rg-acfmy****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      checkPolicy: 'CheckPolicy',
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      checkPolicy: 'boolean',
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountCheckPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 866F5EB8-4650-4061-87F0-379F6F968BCE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountCheckPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountCheckPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAccountCheckPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAccountDescriptionRequest extends $tea.Model {
   /**
    * @remarks
@@ -39221,6 +39390,116 @@ export class ModifyAccountMaskingPrivilegeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAccountMaskingPrivilegeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountSecurityPolicyRequest extends $tea.Model {
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-bp1ibu****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"accountSecurityPolicy": {"MaximumPasswordAge": 30, "MinimumPasswordAge": 20}}
+   */
+  groupPolicy?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * rg-acfmy****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      groupPolicy: 'GroupPolicy',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      groupPolicy: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountSecurityPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F2911788-25E8-42E5-A3A3-1B38D263F01E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountSecurityPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountSecurityPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAccountSecurityPolicyResponseBody,
     };
   }
 
@@ -45619,7 +45898,7 @@ export class ModifyDbProxyInstanceSslResponse extends $tea.Model {
 export class ModifyEventInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * The action parameter. Set this value in the JSON string format.
+   * The action-related parameters. You can add action-related parameters based on your business requirements. The parameter value varies with the value of the TaskAction parameter.
    * 
    * @example
    * {\\"recoverTime\\":\\"2023-04-17T14:02:35Z\\",\\"recoverMode\\":\\"timePoint\\"}
@@ -45627,7 +45906,12 @@ export class ModifyEventInfoRequest extends $tea.Model {
   actionParams?: string;
   /**
    * @remarks
-   * The event handling action. Set this value to archive or undo.
+   * The event handling action. Valid values:
+   * 
+   * *   **archive**
+   * *   **undo**
+   * 
+   * >  This parameter is required.
    * 
    * @example
    * archive
@@ -45635,7 +45919,7 @@ export class ModifyEventInfoRequest extends $tea.Model {
   eventAction?: string;
   /**
    * @remarks
-   * The event ID. Separate multiple event IDs with commas (,). You can configure up to 20 event IDs.
+   * The event ID. You can call the DescribeEvents operation to obtain the IDs of the events. Separate multiple event IDs with commas (,). You can specify up to 20 event IDs.
    * 
    * This parameter is required.
    * 
@@ -45645,7 +45929,7 @@ export class ModifyEventInfoRequest extends $tea.Model {
   eventId?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -48175,7 +48459,15 @@ export class ModifySecurityIpsResponse extends $tea.Model {
 export class ModifyTaskInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * The action parameter.
+   * The action-related parameters. You can add action-related parameters based on your business requirements. If you set the TaskAction parameter to modifySwitchTime, you must set this parameter to `{"recoverMode": "xxx", "recoverTime": "xxx"}`.
+   * 
+   * The recoverMode field specifies the task restoration mode. valid values:
+   * 
+   * *   **timePoint**: The task is executed at a specified point in time.
+   * *   **Immediate**: The task is executed immediately.
+   * *   **maintainTime**: The task is executed based on the O\\&M time.
+   * 
+   * The recoverTime field specifies restoration time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If you set the recoverMode field to timePoint, you must also specify the recoverTime field.
    * 
    * @example
    * {\\"recoverTime\\":\\"2023-04-12T18:30:00Z\\",\\"recoverMode\\":\\"timePoint\\"}
@@ -48204,12 +48496,7 @@ export class ModifyTaskInfoRequest extends $tea.Model {
   stepName?: string;
   /**
    * @remarks
-   * The name of the operation that you can call to execute the task. Valid values:
-   * 
-   * *   ImportImage
-   * *   ExportImage
-   * *   RedeployInstance
-   * *   ModifyDiskSpec
+   * The task action. Set the value to modifySwitchTime. The value specifies that you want to change the switching time or restoration time.
    * 
    * @example
    * ImportImage
@@ -48217,7 +48504,7 @@ export class ModifyTaskInfoRequest extends $tea.Model {
   taskAction?: string;
   /**
    * @remarks
-   * The task ID.
+   * The task ID. You can call the DescribeTasks operation to query task IDs.
    * 
    * This parameter is required.
    * 
@@ -77252,8 +77539,20 @@ export default class Client extends OpenApi {
   async copyDatabaseWithOptions(request: CopyDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dstDBName)) {
+      query["DstDBName"] = request.dstDBName;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.reserveAccount)) {
+      query["ReserveAccount"] = request.reserveAccount;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -77266,6 +77565,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.srcDBName)) {
+      query["SrcDBName"] = request.srcDBName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -87706,7 +88009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 事件中心事件列表
+   * Queries historical events in the event center.
    * 
    * @param request - DescribeHistoryEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -87797,7 +88100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 事件中心事件列表
+   * Queries historical events in the event center.
    * 
    * @param request - DescribeHistoryEventsRequest
    * @returns DescribeHistoryEventsResponse
@@ -87808,7 +88111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries event statistics in the event center.
+   * Queries the statistics of historical events in the event center.
    * 
    * @param request - DescribeHistoryEventsStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -87855,7 +88158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries event statistics in the event center.
+   * Queries the statistics of historical events in the event center.
    * 
    * @param request - DescribeHistoryEventsStatRequest
    * @returns DescribeHistoryEventsStatResponse
@@ -91751,14 +92054,16 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)Supported database engines
    * *   MySQL
-   * > This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+   *     **
+   *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
    * *   SQL Server
-   * > This operation is supported only for RDS instances that run SQL Server 2008 R2.
+   *     **
+   *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
    * *   MariaDB
-   * ### [](#)Precautions
+   * ### [](#)Prerequisites
    * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
    * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
-   * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
+   * *   Starting from September 01, 2024, the template algorithm for slow queries is optimized. When you call the operation, you must change the value of the **SQLHASH** parameter. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2845725~~).
    * 
    * @param request - DescribeSlowLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91834,14 +92139,16 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)Supported database engines
    * *   MySQL
-   * > This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+   *     **
+   *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
    * *   SQL Server
-   * > This operation is supported only for RDS instances that run SQL Server 2008 R2.
+   *     **
+   *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
    * *   MariaDB
-   * ### [](#)Precautions
+   * ### [](#)Prerequisites
    * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
    * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
-   * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
+   * *   Starting from September 01, 2024, the template algorithm for slow queries is optimized. When you call the operation, you must change the value of the **SQLHASH** parameter. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2845725~~).
    * 
    * @param request - DescribeSlowLogsRequest
    * @returns DescribeSlowLogsResponse
@@ -93966,6 +94273,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改账号检查策略
+   * 
+   * @param request - ModifyAccountCheckPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountCheckPolicyResponse
+   */
+  async modifyAccountCheckPolicyWithOptions(request: ModifyAccountCheckPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountCheckPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.checkPolicy)) {
+      query["CheckPolicy"] = request.checkPolicy;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAccountCheckPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccountCheckPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAccountCheckPolicyResponse({}));
+  }
+
+  /**
+   * 修改账号检查策略
+   * 
+   * @param request - ModifyAccountCheckPolicyRequest
+   * @returns ModifyAccountCheckPolicyResponse
+   */
+  async modifyAccountCheckPolicy(request: ModifyAccountCheckPolicyRequest): Promise<ModifyAccountCheckPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAccountCheckPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the description of a database account.
    * 
    * @remarks
@@ -94109,6 +94490,76 @@ export default class Client extends OpenApi {
   async modifyAccountMaskingPrivilege(request: ModifyAccountMaskingPrivilegeRequest): Promise<ModifyAccountMaskingPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountMaskingPrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改密码策略
+   * 
+   * @param request - ModifyAccountSecurityPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountSecurityPolicyResponse
+   */
+  async modifyAccountSecurityPolicyWithOptions(request: ModifyAccountSecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountSecurityPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.groupPolicy)) {
+      query["GroupPolicy"] = request.groupPolicy;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAccountSecurityPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccountSecurityPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAccountSecurityPolicyResponse({}));
+  }
+
+  /**
+   * 修改密码策略
+   * 
+   * @param request - ModifyAccountSecurityPolicyRequest
+   * @returns ModifyAccountSecurityPolicyResponse
+   */
+  async modifyAccountSecurityPolicy(request: ModifyAccountSecurityPolicyRequest): Promise<ModifyAccountSecurityPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAccountSecurityPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -97352,7 +97803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 事件中心修改事件信息
+   * Modifies information about the events in the event center.
    * 
    * @param request - ModifyEventInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97399,7 +97850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 事件中心修改事件信息
+   * Modifies information about the events in the event center.
    * 
    * @param request - ModifyEventInfoRequest
    * @returns ModifyEventInfoResponse
@@ -98906,7 +99357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the task information in the task center.
+   * Modifies information about the historical tasks in the task center.
    * 
    * @param request - ModifyTaskInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98965,7 +99416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the task information in the task center.
+   * Modifies information about the historical tasks in the task center.
    * 
    * @param request - ModifyTaskInfoRequest
    * @returns ModifyTaskInfoResponse
@@ -100535,12 +100986,12 @@ export default class Client extends OpenApi {
    * Restores data to an existing instance across regions.
    * 
    * @remarks
-   * >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
-   * ### [](#)Supported database engine
+   * >  Before restoration, you can call the CheckCreateDdrDBInstance operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * ### [](#)Supported database engines
    * MySQL
    * ### [](#)References
-   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
    * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
    * 
    * @param request - RestoreDdrTableRequest
@@ -100623,12 +101074,12 @@ export default class Client extends OpenApi {
    * Restores data to an existing instance across regions.
    * 
    * @remarks
-   * >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
-   * ### [](#)Supported database engine
+   * >  Before restoration, you can call the CheckCreateDdrDBInstance operation to check whether a cross-region backup set can be used for cross-region restoration.
+   * ### [](#)Supported database engines
    * MySQL
    * ### [](#)References
-   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
    * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
    * 
    * @param request - RestoreDdrTableRequest
