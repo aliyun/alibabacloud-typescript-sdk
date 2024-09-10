@@ -684,6 +684,244 @@ export class DeleteCustomTextResponse extends $tea.Model {
   }
 }
 
+export class DeleteCustomTopicByTopicRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 话题
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTopicByTopicResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 33
+   */
+  data?: number;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTopicByTopicResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomTopicByTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomTopicByTopicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTopicViewPointByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dfd73894e6a94fd79fe7ffbe865796fb
+   */
+  customViewPointId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      customViewPointId: 'CustomViewPointId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      customViewPointId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTopicViewPointByIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 7
+   */
+  data?: number;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTopicViewPointByIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomTopicViewPointByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomTopicViewPointByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGeneratedContentRequest extends $tea.Model {
   /**
    * @remarks
@@ -1293,6 +1531,229 @@ export class ExportGeneratedContentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExportGeneratedContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportHotTopicPlanningProposalsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 025c6cee437741368098b790c90166f8
+   */
+  customViewPointIds?: string[];
+  /**
+   * @example
+   * 导出文档类型，word:导出为word,xmind:导处为xmind
+   */
+  exportType?: string;
+  titles?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 选题策划类型：CustomViewPoints:自定义视角，HotViewPoints:热门视角、TimedViewPoints:时效性视角、WebReviewPoints:网友视角、FreshViewPoints:新颖视角
+   */
+  viewPointType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      customViewPointIds: 'CustomViewPointIds',
+      exportType: 'ExportType',
+      titles: 'Titles',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+      viewPointType: 'ViewPointType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      customViewPointIds: { 'type': 'array', 'itemType': 'string' },
+      exportType: 'string',
+      titles: { 'type': 'array', 'itemType': 'string' },
+      topic: 'string',
+      topicSource: 'string',
+      viewPointType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportHotTopicPlanningProposalsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 025c6cee437741368098b790c90166f8
+   */
+  customViewPointIdsShrink?: string;
+  /**
+   * @example
+   * 导出文档类型，word:导出为word,xmind:导处为xmind
+   */
+  exportType?: string;
+  titlesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 选题策划类型：CustomViewPoints:自定义视角，HotViewPoints:热门视角、TimedViewPoints:时效性视角、WebReviewPoints:网友视角、FreshViewPoints:新颖视角
+   */
+  viewPointType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      customViewPointIdsShrink: 'CustomViewPointIds',
+      exportType: 'ExportType',
+      titlesShrink: 'Titles',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+      viewPointType: 'ViewPointType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      customViewPointIdsShrink: 'string',
+      exportType: 'string',
+      titlesShrink: 'string',
+      topic: 'string',
+      topicSource: 'string',
+      viewPointType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportHotTopicPlanningProposalsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 业务数据
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportHotTopicPlanningProposalsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportHotTopicPlanningProposalsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportHotTopicPlanningProposalsResponseBody,
     };
   }
 
@@ -2502,6 +2963,121 @@ export class GetCustomTextResponse extends $tea.Model {
   }
 }
 
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0dbf1055f8a2475d99904c3b76a0ffba
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataSourceOrderConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -2609,6 +3185,121 @@ export class GetDataSourceOrderConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDataSourceOrderConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocClusterTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 93771c8e1142467fb1aedf1763feba1e
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocClusterTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetDocClusterTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDocClusterTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocClusterTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocClusterTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocClusterTaskResponseBody,
     };
   }
 
@@ -3378,6 +4069,233 @@ export class GetPropertiesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetPropertiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 数据ID
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicByIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetTopicByIdResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTopicByIdResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicByIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTopicByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * c9f226b02cca4f42a84c5e955c39dfd2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicSelectionPerspectiveAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTopicSelectionPerspectiveAnalysisTaskResponseBody,
     };
   }
 
@@ -4395,6 +5313,272 @@ export class ListCustomTextResponse extends $tea.Model {
   }
 }
 
+export class ListCustomViewPointsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点
+   *      *
+   */
+  attitudes?: string[];
+  /**
+   * @example
+   * 461591f4880747f890702c1b90494d1a
+   */
+  customViewPointId?: string;
+  /**
+   * @example
+   * 7ece3d1212e04c9ca716ae2486228f3f
+   */
+  customViewPointIds?: string[];
+  /**
+   * @example
+   * 52
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @example
+   * 1d20ed14db0840efb1c7eaaf4d46352b
+   */
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      attitude: 'Attitude',
+      attitudes: 'Attitudes',
+      customViewPointId: 'CustomViewPointId',
+      customViewPointIds: 'CustomViewPointIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topic: 'Topic',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      attitude: 'string',
+      attitudes: { 'type': 'array', 'itemType': 'string' },
+      customViewPointId: 'string',
+      customViewPointIds: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      topic: 'string',
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewPointsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点
+   *      *
+   */
+  attitudesShrink?: string;
+  /**
+   * @example
+   * 461591f4880747f890702c1b90494d1a
+   */
+  customViewPointId?: string;
+  /**
+   * @example
+   * 7ece3d1212e04c9ca716ae2486228f3f
+   */
+  customViewPointIdsShrink?: string;
+  /**
+   * @example
+   * 52
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @example
+   * 1d20ed14db0840efb1c7eaaf4d46352b
+   */
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      attitude: 'Attitude',
+      attitudesShrink: 'Attitudes',
+      customViewPointId: 'CustomViewPointId',
+      customViewPointIdsShrink: 'CustomViewPointIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topic: 'Topic',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      attitude: 'string',
+      attitudesShrink: 'string',
+      customViewPointId: 'string',
+      customViewPointIdsShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topic: 'string',
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewPointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListCustomViewPointsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 60
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 73
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCustomViewPointsResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewPointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomViewPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomViewPointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDialoguesRequest extends $tea.Model {
   /**
    * @remarks
@@ -4555,6 +5739,166 @@ export class ListDialoguesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDialoguesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreshViewPointsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 6
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topic: 'string',
+      topicSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreshViewPointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListFreshViewPointsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 94
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 26
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListFreshViewPointsResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreshViewPointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFreshViewPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListFreshViewPointsResponseBody,
     };
   }
 
@@ -4904,6 +6248,554 @@ export class ListHotNewsWithTypeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotNewsWithTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotSourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 66
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotSourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListHotSourcesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 4
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * xxxxxx
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 30
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListHotSourcesResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotSourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotSourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotSourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  topicIds?: string[];
+  /**
+   * @example
+   * 根据热榜主题全文检索
+   */
+  topicQuery?: string;
+  /**
+   * @example
+   * 热榜源筛选，支持的热榜源。热榜源详见API：ListHotSources
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 数据版本筛选
+   */
+  topicVersion?: string;
+  topics?: string[];
+  /**
+   * @example
+   * true
+   */
+  withNews?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topicIds: 'TopicIds',
+      topicQuery: 'TopicQuery',
+      topicSource: 'TopicSource',
+      topicVersion: 'TopicVersion',
+      topics: 'Topics',
+      withNews: 'WithNews',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topicIds: { 'type': 'array', 'itemType': 'string' },
+      topicQuery: 'string',
+      topicSource: 'string',
+      topicVersion: 'string',
+      topics: { 'type': 'array', 'itemType': 'string' },
+      withNews: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  topicIdsShrink?: string;
+  /**
+   * @example
+   * 根据热榜主题全文检索
+   */
+  topicQuery?: string;
+  /**
+   * @example
+   * 热榜源筛选，支持的热榜源。热榜源详见API：ListHotSources
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 数据版本筛选
+   */
+  topicVersion?: string;
+  topicsShrink?: string;
+  /**
+   * @example
+   * true
+   */
+  withNews?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topicIdsShrink: 'TopicIds',
+      topicQuery: 'TopicQuery',
+      topicSource: 'TopicSource',
+      topicVersion: 'TopicVersion',
+      topicsShrink: 'Topics',
+      withNews: 'WithNews',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topicIdsShrink: 'string',
+      topicQuery: 'string',
+      topicSource: 'string',
+      topicVersion: 'string',
+      topicsShrink: 'string',
+      withNews: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListHotTopicsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 94
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 23
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListHotTopicsResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotTopicsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotTopicsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 56
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topic: 'string',
+      topicSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListHotViewPointsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 67
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 70
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListHotViewPointsResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotViewPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotViewPointsResponseBody,
     };
   }
 
@@ -5731,6 +7623,751 @@ export class ListMaterialDocumentsResponse extends $tea.Model {
   }
 }
 
+export class ListPlanningProposalRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * e7b26a9e1211444db8f0a984361a5e0f
+   */
+  customViewPointId?: string;
+  /**
+   * @example
+   * 27971fc8f3ce4ed58c7e7fc4b503e432
+   */
+  customViewPointIds?: string[];
+  /**
+   * @example
+   * 73
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 标题
+   *      *
+   */
+  titles?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 2024-09-10_08
+   */
+  topicVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CustomViewPoints
+   */
+  viewPointType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      customViewPointId: 'CustomViewPointId',
+      customViewPointIds: 'CustomViewPointIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      titles: 'Titles',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+      topicVersion: 'TopicVersion',
+      viewPointType: 'ViewPointType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      customViewPointId: 'string',
+      customViewPointIds: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      titles: { 'type': 'array', 'itemType': 'string' },
+      topic: 'string',
+      topicSource: 'string',
+      topicVersion: 'string',
+      viewPointType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPlanningProposalShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * e7b26a9e1211444db8f0a984361a5e0f
+   */
+  customViewPointId?: string;
+  /**
+   * @example
+   * 27971fc8f3ce4ed58c7e7fc4b503e432
+   */
+  customViewPointIdsShrink?: string;
+  /**
+   * @example
+   * 73
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 标题
+   *      *
+   */
+  titlesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 2024-09-10_08
+   */
+  topicVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CustomViewPoints
+   */
+  viewPointType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      customViewPointId: 'CustomViewPointId',
+      customViewPointIdsShrink: 'CustomViewPointIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      titlesShrink: 'Titles',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+      topicVersion: 'TopicVersion',
+      viewPointType: 'ViewPointType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      customViewPointId: 'string',
+      customViewPointIdsShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      titlesShrink: 'string',
+      topic: 'string',
+      topicSource: 'string',
+      topicVersion: 'string',
+      viewPointType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPlanningProposalResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListPlanningProposalResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 77
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 80
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPlanningProposalResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPlanningProposalResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPlanningProposalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPlanningProposalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimedViewAttitudeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 53
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topic: 'string',
+      topicSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimedViewAttitudeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListTimedViewAttitudeResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 15
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 58
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListTimedViewAttitudeResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimedViewAttitudeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTimedViewAttitudeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTimedViewAttitudeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicRecommendEventListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 72
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicRecommendEventListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: string[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 71
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * x\\"x\\"x
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 60
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicRecommendEventListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicRecommendEventListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTopicRecommendEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicViewPointRecommendEventListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * xxx
+   */
+  id?: string;
+  /**
+   * @example
+   * 66
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      id: 'Id',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      id: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicViewPointRecommendEventListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: string[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 8
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 32
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicViewPointRecommendEventListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicViewPointRecommendEventListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTopicViewPointRecommendEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVersionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -5828,6 +8465,166 @@ export class ListVersionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 81
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜主题
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 热榜源
+   */
+  topicSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      topic: 'string',
+      topicSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListWebReviewPointsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 79
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 下一页的token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 32
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWebReviewPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWebReviewPointsResponseBody,
     };
   }
 
@@ -6134,6 +8931,277 @@ export class RunContinueContentResponse extends $tea.Model {
   }
 }
 
+export class RunCustomHotTopicAnalysisRequest extends $tea.Model {
+  /**
+   * @example
+   * 模型反问
+   */
+  askUser?: string;
+  /**
+   * @example
+   * false
+   */
+  forceAnalysisExistsTopic?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 用户输入Prompt
+   */
+  prompt?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 用户针对模型反问的输入
+   */
+  userBack?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      askUser: 'AskUser',
+      forceAnalysisExistsTopic: 'ForceAnalysisExistsTopic',
+      prompt: 'Prompt',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      userBack: 'UserBack',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      askUser: 'string',
+      forceAnalysisExistsTopic: 'boolean',
+      prompt: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      userBack: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicAnalysisResponseBody extends $tea.Model {
+  header?: RunCustomHotTopicAnalysisResponseBodyHeader;
+  payload?: RunCustomHotTopicAnalysisResponseBodyPayload;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunCustomHotTopicAnalysisResponseBodyHeader,
+      payload: RunCustomHotTopicAnalysisResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicAnalysisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCustomHotTopicAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunCustomHotTopicAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisRequest extends $tea.Model {
+  /**
+   * @example
+   * 模型反问
+   */
+  askUser?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 自定义选题视角的Prompt
+   */
+  prompt?: string;
+  /**
+   * @example
+   * 改写后的Query
+   */
+  searchQuery?: string;
+  /**
+   * @example
+   * true
+   */
+  skipAskUser?: boolean;
+  /**
+   * @example
+   * 热点主题
+   */
+  topic?: string;
+  /**
+   * @example
+   * 热点主题ID
+   */
+  topicId?: string;
+  /**
+   * @example
+   * 热点主题来源
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 热点主题版本
+   */
+  topicVersion?: string;
+  /**
+   * @example
+   * 用户反馈
+   */
+  userBack?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      askUser: 'AskUser',
+      prompt: 'Prompt',
+      searchQuery: 'SearchQuery',
+      skipAskUser: 'SkipAskUser',
+      topic: 'Topic',
+      topicId: 'TopicId',
+      topicSource: 'TopicSource',
+      topicVersion: 'TopicVersion',
+      userBack: 'UserBack',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      askUser: 'string',
+      prompt: 'string',
+      searchQuery: 'string',
+      skipAskUser: 'boolean',
+      topic: 'string',
+      topicId: 'string',
+      topicSource: 'string',
+      topicVersion: 'string',
+      userBack: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisResponseBody extends $tea.Model {
+  header?: RunCustomHotTopicViewPointAnalysisResponseBodyHeader;
+  payload?: RunCustomHotTopicViewPointAnalysisResponseBodyPayload;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunCustomHotTopicViewPointAnalysisResponseBodyHeader,
+      payload: RunCustomHotTopicViewPointAnalysisResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCustomHotTopicViewPointAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunCustomHotTopicViewPointAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunExpandContentRequest extends $tea.Model {
   /**
    * @remarks
@@ -6353,6 +9421,186 @@ export class RunKeywordsExtractionGenerationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunKeywordsExtractionGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequest extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 提示词
+   */
+  prompt?: string;
+  referenceData?: RunStepByStepWritingRequestReferenceData;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  writingConfig?: RunStepByStepWritingRequestWritingConfig;
+  static names(): { [key: string]: string } {
+    return {
+      originSessionId: 'OriginSessionId',
+      prompt: 'Prompt',
+      referenceData: 'ReferenceData',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+      writingConfig: 'WritingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originSessionId: 'string',
+      prompt: 'string',
+      referenceData: RunStepByStepWritingRequestReferenceData,
+      sessionId: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+      writingConfig: RunStepByStepWritingRequestWritingConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 提示词
+   */
+  prompt?: string;
+  referenceDataShrink?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  writingConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originSessionId: 'OriginSessionId',
+      prompt: 'Prompt',
+      referenceDataShrink: 'ReferenceData',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+      writingConfigShrink: 'WritingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originSessionId: 'string',
+      prompt: 'string',
+      referenceDataShrink: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+      writingConfigShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBody extends $tea.Model {
+  header?: RunStepByStepWritingResponseBodyHeader;
+  payload?: RunStepByStepWritingResponseBodyPayload;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunStepByStepWritingResponseBodyHeader,
+      payload: RunStepByStepWritingResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunStepByStepWritingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunStepByStepWritingResponseBody,
     };
   }
 
@@ -8238,6 +11486,529 @@ export class SubmitAsyncTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  documents?: SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 自定义观点的输入Prompt
+   */
+  prompt?: string;
+  /**
+   * @example
+   * 待分析的主题名（documents与topic二者至少传一个）
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      documents: 'Documents',
+      prompt: 'Prompt',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      documents: { 'type': 'array', 'itemType': SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments },
+      prompt: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  documentsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 自定义观点的输入Prompt
+   */
+  prompt?: string;
+  /**
+   * @example
+   * 待分析的主题名（documents与topic二者至少传一个）
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      documentsShrink: 'Documents',
+      prompt: 'Prompt',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      documentsShrink: 'string',
+      prompt: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocClusterTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  documents?: SubmitDocClusterTaskRequestDocuments[];
+  /**
+   * @example
+   * 49
+   */
+  summaryLength?: number;
+  /**
+   * @example
+   * 69
+   */
+  titleLength?: number;
+  /**
+   * @example
+   * 15
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      documents: 'Documents',
+      summaryLength: 'SummaryLength',
+      titleLength: 'TitleLength',
+      topicCount: 'TopicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      documents: { 'type': 'array', 'itemType': SubmitDocClusterTaskRequestDocuments },
+      summaryLength: 'number',
+      titleLength: 'number',
+      topicCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocClusterTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  documentsShrink?: string;
+  /**
+   * @example
+   * 49
+   */
+  summaryLength?: number;
+  /**
+   * @example
+   * 69
+   */
+  titleLength?: number;
+  /**
+   * @example
+   * 15
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      documentsShrink: 'Documents',
+      summaryLength: 'SummaryLength',
+      titleLength: 'TitleLength',
+      topicCount: 'TopicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      documentsShrink: 'string',
+      summaryLength: 'number',
+      titleLength: 'number',
+      topicCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocClusterTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SubmitDocClusterTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitDocClusterTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocClusterTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocClusterTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDocClusterTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  documents?: SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments[];
+  /**
+   * @example
+   * TimedViewPoints
+   */
+  perspectiveTypes?: string[];
+  /**
+   * @example
+   * 待分析的主题名（documents与topic二者至少传一个）
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      documents: 'Documents',
+      perspectiveTypes: 'PerspectiveTypes',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      documents: { 'type': 'array', 'itemType': SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments },
+      perspectiveTypes: { 'type': 'array', 'itemType': 'string' },
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  documentsShrink?: string;
+  /**
+   * @example
+   * TimedViewPoints
+   */
+  perspectiveTypesShrink?: string;
+  /**
+   * @example
+   * 待分析的主题名（documents与topic二者至少传一个）
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      documentsShrink: 'Documents',
+      perspectiveTypesShrink: 'PerspectiveTypes',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      documentsShrink: 'string',
+      perspectiveTypesShrink: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTopicSelectionPerspectiveAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCustomTextRequest extends $tea.Model {
   /**
    * @remarks
@@ -9414,6 +13185,168 @@ export class GetCustomTextResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPoints extends $tea.Model {
+  outlines?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudes extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResult extends $tea.Model {
+  attitudes?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudes[];
+  /**
+   * @example
+   * 热点主题事件
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attitudes: 'Attitudes',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitudes: { 'type': 'array', 'itemType': GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudes },
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $tea.Model {
+  customViewPointsResult?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResult;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * FAILED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customViewPointsResult: 'CustomViewPointsResult',
+      errorMessage: 'ErrorMessage',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customViewPointsResult: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResult,
+      errorMessage: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList extends $tea.Model {
   /**
    * @example
@@ -9465,6 +13398,72 @@ export class GetDataSourceOrderConfigResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       userConfigDataSourceList: { 'type': 'array', 'itemType': GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocClusterTaskResponseBodyDataTopics extends $tea.Model {
+  docIds?: string[];
+  /**
+   * @example
+   * 聚类主题摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 聚类主题名
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docIds: 'DocIds',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIds: { 'type': 'array', 'itemType': 'string' },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocClusterTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * PENDING
+   */
+  status?: string;
+  topics?: GetDocClusterTaskResponseBodyDataTopics[];
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      status: 'Status',
+      topics: 'Topics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      status: 'string',
+      topics: { 'type': 'array', 'itemType': GetDocClusterTaskResponseBodyDataTopics },
     };
   }
 
@@ -10313,6 +14312,921 @@ export class GetPropertiesResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetTopicByIdResponseBodyDataStructureSummaryDocList extends $tea.Model {
+  source?: string;
+  title?: string;
+  /**
+   * @example
+   * http://www.example.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'Source',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicByIdResponseBodyDataStructureSummary extends $tea.Model {
+  docList?: GetTopicByIdResponseBodyDataStructureSummaryDocList[];
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docList: 'DocList',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docList: { 'type': 'array', 'itemType': GetTopicByIdResponseBodyDataStructureSummaryDocList },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicByIdResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 异步任务ID（自定义主题场景下使用）
+   */
+  asyncTaskId?: string;
+  /**
+   * @example
+   * 创建用户ID（自定义主题场景下使用）
+   */
+  createUser?: string;
+  /**
+   * @example
+   * 43
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * 热榜ID
+   */
+  id?: string;
+  /**
+   * @example
+   * PENDING
+   */
+  status?: string;
+  structureSummary?: GetTopicByIdResponseBodyDataStructureSummary[];
+  /**
+   * @example
+   * 热榜摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 异步任务失败错误信息
+   */
+  taskErrorMessage?: string;
+  /**
+   * @example
+   * 14
+   */
+  taskStatus?: number;
+  /**
+   * @example
+   * 主题唯一名称
+   */
+  topic?: string;
+  /**
+   * @example
+   * 热榜源，目前支持的热榜源: Toutiao：头条、Quark：夸克、Baidu：百度、Sina：新浪。Custom：自定义、Aggregation：热点话题榜
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 数据版本
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asyncTaskId: 'AsyncTaskId',
+      createUser: 'CreateUser',
+      hotValue: 'HotValue',
+      id: 'Id',
+      status: 'Status',
+      structureSummary: 'StructureSummary',
+      summary: 'Summary',
+      taskErrorMessage: 'TaskErrorMessage',
+      taskStatus: 'TaskStatus',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncTaskId: 'string',
+      createUser: 'string',
+      hotValue: 'number',
+      id: 'string',
+      status: 'string',
+      structureSummary: { 'type': 'array', 'itemType': GetTopicByIdResponseBodyDataStructureSummary },
+      summary: 'string',
+      taskErrorMessage: 'string',
+      taskStatus: 'number',
+      topic: 'string',
+      topicSource: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPoints extends $tea.Model {
+  outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudes extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResult extends $tea.Model {
+  attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudes[];
+  static names(): { [key: string]: string } {
+    return {
+      attitudes: 'Attitudes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitudes: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews extends $tea.Model {
+  /**
+   * @example
+   * 9957175DEDCF49C5ACF7A956B4FD67B2
+   */
+  docId?: string;
+  /**
+   * @example
+   * 123456
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.png
+   */
+  imageUrls?: string[];
+  /**
+   * @example
+   * ["标签1","标签2"]
+   */
+  tags?: string[];
+  /**
+   * @example
+   * 文章主题
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      imageUrls: 'ImageUrls',
+      tags: 'Tags',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': 'string' },
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPoints extends $tea.Model {
+  outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudes extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  news?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews[];
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      news: 'News',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      news: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews },
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResult extends $tea.Model {
+  attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudes[];
+  static names(): { [key: string]: string } {
+    return {
+      attitudes: 'Attitudes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitudes: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPoints extends $tea.Model {
+  outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudes extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  /**
+   * @example
+   * 2024-01-22 10:29
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  /**
+   * @example
+   * 新浪
+   */
+  source?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  /**
+   * @example
+   * http://www.example.com/news/1.html
+   */
+  url?: string;
+  viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      pubTime: 'PubTime',
+      ratio: 'Ratio',
+      source: 'Source',
+      title: 'Title',
+      url: 'Url',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      pubTime: 'string',
+      ratio: 'string',
+      source: 'string',
+      title: 'string',
+      url: 'string',
+      viewPoints: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResult extends $tea.Model {
+  attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudes[];
+  static names(): { [key: string]: string } {
+    return {
+      attitudes: 'Attitudes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitudes: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummariesDocList extends $tea.Model {
+  source?: string;
+  title?: string;
+  /**
+   * @example
+   * http://www.example.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'Source',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummaries extends $tea.Model {
+  docList?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummariesDocList[];
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docList: 'DocList',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docList: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummariesDocList },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResult extends $tea.Model {
+  summaries?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummaries[];
+  static names(): { [key: string]: string } {
+    return {
+      summaries: 'Summaries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaries: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummaries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesComments extends $tea.Model {
+  /**
+   * @example
+   * 来源
+   */
+  source?: string;
+  /**
+   * @example
+   * 评论内容
+   */
+  text?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  /**
+   * @example
+   * 当前评论所属的URL
+   */
+  url?: string;
+  /**
+   * @example
+   * 评论用户名
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'Source',
+      text: 'Text',
+      title: 'Title',
+      url: 'Url',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      text: 'string',
+      title: 'string',
+      url: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPoints extends $tea.Model {
+  outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudes extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  comments?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesComments[];
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      comments: 'Comments',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      comments: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesComments },
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResult extends $tea.Model {
+  attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudes[];
+  static names(): { [key: string]: string } {
+    return {
+      attitudes: 'Attitudes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitudes: { 'type': 'array', 'itemType': GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  freshViewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResult;
+  hotViewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResult;
+  /**
+   * @example
+   * SUSPENDED
+   */
+  status?: string;
+  timedViewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResult;
+  /**
+   * @example
+   * 热点主题事件
+   */
+  topic?: string;
+  topicSummaryResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResult;
+  webReviewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResult;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      freshViewPointsResult: 'FreshViewPointsResult',
+      hotViewPointsResult: 'HotViewPointsResult',
+      status: 'Status',
+      timedViewPointsResult: 'TimedViewPointsResult',
+      topic: 'Topic',
+      topicSummaryResult: 'TopicSummaryResult',
+      webReviewPointsResult: 'WebReviewPointsResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      freshViewPointsResult: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResult,
+      hotViewPointsResult: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResult,
+      status: 'string',
+      timedViewPointsResult: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResult,
+      topic: 'string',
+      topicSummaryResult: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResult,
+      webReviewPointsResult: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportInterveneFileResponseBodyData extends $tea.Model {
   failIdList?: string[];
   /**
@@ -10903,6 +15817,144 @@ export class ListCustomTextResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCustomViewPointsResponseBodyDataViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewPointsResponseBodyDataViewPoints extends $tea.Model {
+  outlines?: ListCustomViewPointsResponseBodyDataViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListCustomViewPointsResponseBodyDataViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomViewPointsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2323ac73e174428a98c91097a59c67e0
+   */
+  asyncTaskId?: string;
+  /**
+   * @example
+   * 观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 2024-08-15 16:18:59
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  createUser?: string;
+  /**
+   * @example
+   * 709806dd051042d5ab9de8bdbb3a64ca
+   */
+  id?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  /**
+   * @example
+   * 参数校验失败
+   */
+  taskErrorMessage?: string;
+  /**
+   * @example
+   * 1
+   */
+  taskStatus?: number;
+  viewPoints?: ListCustomViewPointsResponseBodyDataViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      asyncTaskId: 'AsyncTaskId',
+      attitude: 'Attitude',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      id: 'Id',
+      status: 'Status',
+      taskErrorMessage: 'TaskErrorMessage',
+      taskStatus: 'TaskStatus',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncTaskId: 'string',
+      attitude: 'string',
+      createTime: 'string',
+      createUser: 'string',
+      id: 'string',
+      status: 'string',
+      taskErrorMessage: 'string',
+      taskStatus: 'number',
+      viewPoints: { 'type': 'array', 'itemType': ListCustomViewPointsResponseBodyDataViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDialoguesResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -10953,6 +16005,69 @@ export class ListDialoguesResponseBodyData extends $tea.Model {
       dialogueType: 'number',
       taskId: 'string',
       user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreshViewPointsResponseBodyDataOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreshViewPointsResponseBodyData extends $tea.Model {
+  outlines?: ListFreshViewPointsResponseBodyDataOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListFreshViewPointsResponseBodyDataOutlines },
+      point: 'string',
+      summary: 'string',
     };
   }
 
@@ -11157,6 +16272,418 @@ export class ListHotNewsWithTypeResponseBodyData extends $tea.Model {
       newsType: 'string',
       newsTypeName: 'string',
       totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotSourcesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 热榜源描述
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  show?: boolean;
+  /**
+   * @example
+   * 86
+   */
+  sort?: number;
+  /**
+   * @example
+   * 热榜源标识
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      show: 'Show',
+      sort: 'Sort',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      show: 'boolean',
+      sort: 'number',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsResponseBodyDataStructureSummaryDocList extends $tea.Model {
+  source?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  title?: string;
+  /**
+   * @example
+   * http://www.example.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'Source',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsResponseBodyDataStructureSummary extends $tea.Model {
+  docList?: ListHotTopicsResponseBodyDataStructureSummaryDocList[];
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docList: 'DocList',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docList: { 'type': 'array', 'itemType': ListHotTopicsResponseBodyDataStructureSummaryDocList },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 异步任务ID（自定义主题场景下使用）
+   */
+  asyncTaskId?: string;
+  /**
+   * @example
+   * 创建用户ID（自定义主题场景下使用）
+   */
+  createUser?: string;
+  /**
+   * @example
+   * 61
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * 热榜ID
+   */
+  id?: string;
+  /**
+   * @example
+   * FAILED
+   */
+  status?: string;
+  structureSummary?: ListHotTopicsResponseBodyDataStructureSummary[];
+  /**
+   * @example
+   * 热榜摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 异步任务失败错误信息
+   */
+  taskErrorMessage?: string;
+  /**
+   * @example
+   * 26
+   */
+  taskStatus?: number;
+  /**
+   * @example
+   * 主题唯一名称
+   */
+  topic?: string;
+  /**
+   * @example
+   * 热榜源，目前支持的热榜源: Toutiao：头条、Quark：夸克、Baidu：百度、Sina：新浪。Custom：自定义、Aggregation：热点话题榜
+   */
+  topicSource?: string;
+  /**
+   * @example
+   * 数据版本
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asyncTaskId: 'AsyncTaskId',
+      createUser: 'CreateUser',
+      hotValue: 'HotValue',
+      id: 'Id',
+      status: 'Status',
+      structureSummary: 'StructureSummary',
+      summary: 'Summary',
+      taskErrorMessage: 'TaskErrorMessage',
+      taskStatus: 'TaskStatus',
+      topic: 'Topic',
+      topicSource: 'TopicSource',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncTaskId: 'string',
+      createUser: 'string',
+      hotValue: 'number',
+      id: 'string',
+      status: 'string',
+      structureSummary: { 'type': 'array', 'itemType': ListHotTopicsResponseBodyDataStructureSummary },
+      summary: 'string',
+      taskErrorMessage: 'string',
+      taskStatus: 'number',
+      topic: 'string',
+      topicSource: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsResponseBodyDataNews extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  docId?: string;
+  /**
+   * @example
+   * 123456
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.png
+   */
+  imageUrls?: string[];
+  /**
+   * @example
+   * 2024-01-22 10:29:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 新浪
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * ["标签1","标签2"]
+   */
+  tags?: string[];
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * 文章主题
+   */
+  topic?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      imageUrls: 'ImageUrls',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tags: 'Tags',
+      title: 'Title',
+      topic: 'Topic',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      title: 'string',
+      topic: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsResponseBodyDataViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsResponseBodyDataViewPoints extends $tea.Model {
+  outlines?: ListHotViewPointsResponseBodyDataViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListHotViewPointsResponseBodyDataViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotViewPointsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  news?: ListHotViewPointsResponseBodyDataNews[];
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: ListHotViewPointsResponseBodyDataViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      news: 'News',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      news: { 'type': 'array', 'itemType': ListHotViewPointsResponseBodyDataNews },
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': ListHotViewPointsResponseBodyDataViewPoints },
     };
   }
 
@@ -11622,6 +17149,192 @@ export class ListMaterialDocumentsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListPlanningProposalResponseBodyDataOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPlanningProposalResponseBodyData extends $tea.Model {
+  outlines?: ListPlanningProposalResponseBodyDataOutlines[];
+  summary?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListPlanningProposalResponseBodyDataOutlines },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimedViewAttitudeResponseBodyDataViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimedViewAttitudeResponseBodyDataViewPoints extends $tea.Model {
+  outlines?: ListTimedViewAttitudeResponseBodyDataViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListTimedViewAttitudeResponseBodyDataViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimedViewAttitudeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  /**
+   * @example
+   * 2024-01-22 10:29
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  /**
+   * @example
+   * 新浪
+   */
+  source?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  /**
+   * @example
+   * http://www.example.com/news/1.html
+   */
+  url?: string;
+  viewPoints?: ListTimedViewAttitudeResponseBodyDataViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      pubTime: 'PubTime',
+      ratio: 'Ratio',
+      source: 'Source',
+      title: 'Title',
+      url: 'Url',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      pubTime: 'string',
+      ratio: 'string',
+      source: 'string',
+      title: 'string',
+      url: 'string',
+      viewPoints: { 'type': 'array', 'itemType': ListTimedViewAttitudeResponseBodyDataViewPoints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVersionsResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -11710,6 +17423,163 @@ export class ListVersionsResponseBodyData extends $tea.Model {
       versionDetail: 'string',
       versionName: 'string',
       versionStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyDataComments extends $tea.Model {
+  /**
+   * @example
+   * 来源
+   */
+  source?: string;
+  /**
+   * @example
+   * 评论内容
+   */
+  text?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  /**
+   * @example
+   * 当前评论所属的URL
+   */
+  url?: string;
+  /**
+   * @example
+   * 评论用户名
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'Source',
+      text: 'Text',
+      title: 'Title',
+      url: 'Url',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      text: 'string',
+      title: 'string',
+      url: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyDataViewPointsOutlines extends $tea.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyDataViewPoints extends $tea.Model {
+  outlines?: ListWebReviewPointsResponseBodyDataViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyDataViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  comments?: ListWebReviewPointsResponseBodyDataComments[];
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: ListWebReviewPointsResponseBodyDataViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      comments: 'Comments',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      comments: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyDataComments },
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyDataViewPoints },
     };
   }
 
@@ -12122,6 +17992,451 @@ export class RunContinueContentResponseBodyPayload extends $tea.Model {
   }
 }
 
+export class RunCustomHotTopicAnalysisResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 错误码
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 全链路ID
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      originSessionId: 'OriginSessionId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      originSessionId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicAnalysisResponseBodyPayloadOutputArticles extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * a2103fcfbd5441f1991c72f8834833e3
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-08-27 14:50:47
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
+  tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicAnalysisResponseBodyPayloadOutput extends $tea.Model {
+  articles?: RunCustomHotTopicAnalysisResponseBodyPayloadOutputArticles[];
+  askUser?: string[];
+  /**
+   * @example
+   * 异步任务ID
+   */
+  asyncTaskId?: string;
+  /**
+   * @example
+   * 自定义选题视角
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 大模型改变世界
+   */
+  searchQuery?: string;
+  /**
+   * @example
+   * 文本生成结果
+   */
+  text?: string;
+  /**
+   * @example
+   * 话题ID
+   */
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      askUser: 'AskUser',
+      asyncTaskId: 'AsyncTaskId',
+      attitude: 'Attitude',
+      searchQuery: 'SearchQuery',
+      text: 'Text',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunCustomHotTopicAnalysisResponseBodyPayloadOutputArticles },
+      askUser: { 'type': 'array', 'itemType': 'string' },
+      asyncTaskId: 'string',
+      attitude: 'string',
+      searchQuery: 'string',
+      text: 'string',
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicAnalysisResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 60
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 13
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 73
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicAnalysisResponseBodyPayload extends $tea.Model {
+  output?: RunCustomHotTopicAnalysisResponseBodyPayloadOutput;
+  usage?: RunCustomHotTopicAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunCustomHotTopicAnalysisResponseBodyPayloadOutput,
+      usage: RunCustomHotTopicAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 错误码
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 全链路ID
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      originSessionId: 'OriginSessionId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      originSessionId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput extends $tea.Model {
+  askUser?: string[];
+  /**
+   * @example
+   * 异步任务ID
+   */
+  asyncTaskId?: string;
+  /**
+   * @example
+   * 模型生成的自定义选题视角的观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * xxxxxx
+   */
+  customViewPointId?: string;
+  /**
+   * @example
+   * 文本生成结果
+   */
+  text?: string;
+  /**
+   * @example
+   * 话题ID
+   */
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      askUser: 'AskUser',
+      asyncTaskId: 'AsyncTaskId',
+      attitude: 'Attitude',
+      customViewPointId: 'CustomViewPointId',
+      text: 'Text',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      askUser: { 'type': 'array', 'itemType': 'string' },
+      asyncTaskId: 'string',
+      attitude: 'string',
+      customViewPointId: 'string',
+      text: 'string',
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 51
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 79
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 130
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCustomHotTopicViewPointAnalysisResponseBodyPayload extends $tea.Model {
+  output?: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput;
+  usage?: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput,
+      usage: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunExpandContentResponseBodyHeader extends $tea.Model {
   /**
    * @example
@@ -12424,6 +18739,596 @@ export class RunKeywordsExtractionGenerationResponseBodyPayload extends $tea.Mod
     return {
       output: RunKeywordsExtractionGenerationResponseBodyPayloadOutput,
       usage: RunKeywordsExtractionGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestReferenceDataArticles extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 8a20e007a6174522af4d6a2657d5526f
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * http://www.example.com
+   */
+  mediaUrl?: string;
+  /**
+   * @example
+   * 2024-09-10 14:17:54
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
+  tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      mediaUrl: 'MediaUrl',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      mediaUrl: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestReferenceDataOutlinesArticles extends $tea.Model {
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * 文章链接
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestReferenceDataOutlines extends $tea.Model {
+  articles?: RunStepByStepWritingRequestReferenceDataOutlinesArticles[];
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      outline: 'Outline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunStepByStepWritingRequestReferenceDataOutlinesArticles },
+      outline: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestReferenceData extends $tea.Model {
+  articles?: RunStepByStepWritingRequestReferenceDataArticles[];
+  miniDoc?: string[];
+  outlines?: RunStepByStepWritingRequestReferenceDataOutlines[];
+  summarization?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      miniDoc: 'MiniDoc',
+      outlines: 'Outlines',
+      summarization: 'Summarization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunStepByStepWritingRequestReferenceDataArticles },
+      miniDoc: { 'type': 'array', 'itemType': 'string' },
+      outlines: { 'type': 'array', 'itemType': RunStepByStepWritingRequestReferenceDataOutlines },
+      summarization: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestWritingConfigPromptTag extends $tea.Model {
+  /**
+   * @example
+   * 必要提示
+   */
+  necessaryTips?: string;
+  /**
+   * @example
+   * 立场
+   */
+  position?: string;
+  /**
+   * @example
+   * 反向词
+   */
+  reverseWords?: string;
+  /**
+   * @example
+   * 主题
+   */
+  theme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      necessaryTips: 'NecessaryTips',
+      position: 'Position',
+      reverseWords: 'ReverseWords',
+      theme: 'Theme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      necessaryTips: 'string',
+      position: 'string',
+      reverseWords: 'string',
+      theme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestWritingConfigTags extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  keyword?: string;
+  /**
+   * @example
+   * gcNumberSizeTag
+   */
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingRequestWritingConfig extends $tea.Model {
+  /**
+   * @example
+   * media
+   */
+  domain?: string;
+  keywords?: string[];
+  promptTag?: RunStepByStepWritingRequestWritingConfigPromptTag;
+  /**
+   * @example
+   * 分步骤写作场景，传媒写作支持的写作场景:新闻写作(默认),新闻评论,通用文体，公文写作支持的写作场景:通知(默认),通告,通报,请示,决定,函,通用文体
+   */
+  scene?: string;
+  /**
+   * @example
+   * Writing
+   */
+  step?: string;
+  tags?: RunStepByStepWritingRequestWritingConfigTags[];
+  /**
+   * @example
+   * true
+   */
+  useSearch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      keywords: 'Keywords',
+      promptTag: 'PromptTag',
+      scene: 'Scene',
+      step: 'Step',
+      tags: 'Tags',
+      useSearch: 'UseSearch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      promptTag: RunStepByStepWritingRequestWritingConfigPromptTag,
+      scene: 'string',
+      step: 'string',
+      tags: { 'type': 'array', 'itemType': RunStepByStepWritingRequestWritingConfigTags },
+      useSearch: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * 错误码
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 全链路ID
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      originSessionId: 'OriginSessionId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      originSessionId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBodyPayloadOutputArticles extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * f1da53894e784759946d22e2cb2b522a
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * http://www.example.com
+   */
+  mediaUrl?: string;
+  /**
+   * @example
+   * 2024-09-10 14:17:53
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标签
+   */
+  tag?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      mediaUrl: 'MediaUrl',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      mediaUrl: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBodyPayloadOutputExtraOutput extends $tea.Model {
+  summarization?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      summarization: 'summarization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summarization: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBodyPayloadOutput extends $tea.Model {
+  articles?: RunStepByStepWritingResponseBodyPayloadOutputArticles[];
+  extraOutput?: RunStepByStepWritingResponseBodyPayloadOutputExtraOutput;
+  /**
+   * @example
+   * 文章精排之后的片段
+   */
+  miniDoc?: string[];
+  /**
+   * @example
+   * 大模型改变世界
+   */
+  searchQuery?: string;
+  /**
+   * @example
+   * 文本生成结果
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      extraOutput: 'ExtraOutput',
+      miniDoc: 'MiniDoc',
+      searchQuery: 'SearchQuery',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunStepByStepWritingResponseBodyPayloadOutputArticles },
+      extraOutput: RunStepByStepWritingResponseBodyPayloadOutputExtraOutput,
+      miniDoc: { 'type': 'array', 'itemType': 'string' },
+      searchQuery: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 65
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 80
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 32
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStepByStepWritingResponseBodyPayload extends $tea.Model {
+  output?: RunStepByStepWritingResponseBodyPayloadOutput;
+  usage?: RunStepByStepWritingResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunStepByStepWritingResponseBodyPayloadOutput,
+      usage: RunStepByStepWritingResponseBodyPayloadUsage,
     };
   }
 
@@ -14029,6 +20934,258 @@ export class SubmitAsyncTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-01-22 10:29:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 新浪
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocClusterTaskRequestDocuments extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文档内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档ID。用于在返回聚类文章时标识文章。如果文章列表中都不传则使用数组索引作为ID。如果部分传则会报错
+   */
+  docId?: string;
+  /**
+   * @example
+   * 文档标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      docId: 'DocId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      docId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocClusterTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-01-22 10:29:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 新浪
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 任务名称
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -14319,6 +21476,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据主题删除自定义主题事件
+   * 
+   * @param request - DeleteCustomTopicByTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomTopicByTopicResponse
+   */
+  async deleteCustomTopicByTopicWithOptions(request: DeleteCustomTopicByTopicRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomTopicByTopicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomTopicByTopic",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
+  }
+
+  /**
+   * 根据主题删除自定义主题事件
+   * 
+   * @param request - DeleteCustomTopicByTopicRequest
+   * @returns DeleteCustomTopicByTopicResponse
+   */
+  async deleteCustomTopicByTopic(request: DeleteCustomTopicByTopicRequest): Promise<DeleteCustomTopicByTopicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomTopicByTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据自定义观点ID删除自定义观点
+   * 
+   * @param request - DeleteCustomTopicViewPointByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomTopicViewPointByIdResponse
+   */
+  async deleteCustomTopicViewPointByIdWithOptions(request: DeleteCustomTopicViewPointByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomTopicViewPointByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customViewPointId)) {
+      body["CustomViewPointId"] = request.customViewPointId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomTopicViewPointById",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
+  }
+
+  /**
+   * 根据自定义观点ID删除自定义观点
+   * 
+   * @param request - DeleteCustomTopicViewPointByIdRequest
+   * @returns DeleteCustomTopicViewPointByIdResponse
+   */
+  async deleteCustomTopicViewPointById(request: DeleteCustomTopicViewPointByIdRequest): Promise<DeleteCustomTopicViewPointByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomTopicViewPointByIdWithOptions(request, runtime);
+  }
+
+  /**
    * 文档管理-删除。
    * 
    * @param request - DeleteGeneratedContentRequest
@@ -14566,6 +21819,84 @@ export default class Client extends OpenApi {
   async exportGeneratedContent(request: ExportGeneratedContentRequest): Promise<ExportGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportGeneratedContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+   * 
+   * @param tmpReq - ExportHotTopicPlanningProposalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportHotTopicPlanningProposalsResponse
+   */
+  async exportHotTopicPlanningProposalsWithOptions(tmpReq: ExportHotTopicPlanningProposalsRequest, runtime: $Util.RuntimeOptions): Promise<ExportHotTopicPlanningProposalsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExportHotTopicPlanningProposalsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customViewPointIds)) {
+      request.customViewPointIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customViewPointIds, "CustomViewPointIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.titles)) {
+      request.titlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.titles, "Titles", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customViewPointIdsShrink)) {
+      body["CustomViewPointIds"] = request.customViewPointIdsShrink;
+    }
+
+    if (!Util.isUnset(request.exportType)) {
+      body["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.titlesShrink)) {
+      body["Titles"] = request.titlesShrink;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    if (!Util.isUnset(request.viewPointType)) {
+      body["ViewPointType"] = request.viewPointType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportHotTopicPlanningProposals",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.callApi(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
+  }
+
+  /**
+   * 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+   * 
+   * @param request - ExportHotTopicPlanningProposalsRequest
+   * @returns ExportHotTopicPlanningProposalsResponse
+   */
+  async exportHotTopicPlanningProposals(request: ExportHotTopicPlanningProposalsRequest): Promise<ExportHotTopicPlanningProposalsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportHotTopicPlanningProposalsWithOptions(request, runtime);
   }
 
   /**
@@ -15023,6 +22354,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取自定义选题视角分析任务结果
+   * 
+   * @param request - GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(request: GetCustomTopicSelectionPerspectiveAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCustomTopicSelectionPerspectiveAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 获取自定义选题视角分析任务结果
+   * 
+   * @param request - GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+   * @returns GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async getCustomTopicSelectionPerspectiveAnalysisTask(request: GetCustomTopicSelectionPerspectiveAnalysisTaskRequest): Promise<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 获取系统数据源配置和个人配置
    * 
    * @param request - GetDataSourceOrderConfigRequest
@@ -15068,6 +22447,54 @@ export default class Client extends OpenApi {
   async getDataSourceOrderConfig(request: GetDataSourceOrderConfigRequest): Promise<GetDataSourceOrderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataSourceOrderConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文档聚合任务结果
+   * 
+   * @param request - GetDocClusterTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocClusterTaskResponse
+   */
+  async getDocClusterTaskWithOptions(request: GetDocClusterTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetDocClusterTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDocClusterTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocClusterTaskResponse>(await this.callApi(params, req, runtime), new GetDocClusterTaskResponse({}));
+  }
+
+  /**
+   * 获取文档聚合任务结果
+   * 
+   * @param request - GetDocClusterTaskRequest
+   * @returns GetDocClusterTaskResponse
+   */
+  async getDocClusterTask(request: GetDocClusterTaskRequest): Promise<GetDocClusterTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDocClusterTaskWithOptions(request, runtime);
   }
 
   /**
@@ -15386,6 +22813,102 @@ export default class Client extends OpenApi {
   async getProperties(request: GetPropertiesRequest): Promise<GetPropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPropertiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据ID获取热点事件信息
+   * 
+   * @param request - GetTopicByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTopicByIdResponse
+   */
+  async getTopicByIdWithOptions(request: GetTopicByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTopicById",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTopicByIdResponse>(await this.callApi(params, req, runtime), new GetTopicByIdResponse({}));
+  }
+
+  /**
+   * 根据ID获取热点事件信息
+   * 
+   * @param request - GetTopicByIdRequest
+   * @returns GetTopicByIdResponse
+   */
+  async getTopicById(request: GetTopicByIdRequest): Promise<GetTopicByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTopicByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取选题视角分析任务结果
+   * 
+   * @param request - GetTopicSelectionPerspectiveAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async getTopicSelectionPerspectiveAnalysisTaskWithOptions(request: GetTopicSelectionPerspectiveAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicSelectionPerspectiveAnalysisTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTopicSelectionPerspectiveAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 获取选题视角分析任务结果
+   * 
+   * @param request - GetTopicSelectionPerspectiveAnalysisTaskRequest
+   * @returns GetTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async getTopicSelectionPerspectiveAnalysisTask(request: GetTopicSelectionPerspectiveAnalysisTaskRequest): Promise<GetTopicSelectionPerspectiveAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
   }
 
   /**
@@ -15803,6 +23326,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自定义视角列表
+   * 
+   * @param tmpReq - ListCustomViewPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomViewPointsResponse
+   */
+  async listCustomViewPointsWithOptions(tmpReq: ListCustomViewPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomViewPointsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListCustomViewPointsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.attitudes)) {
+      request.attitudesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attitudes, "Attitudes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.customViewPointIds)) {
+      request.customViewPointIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customViewPointIds, "CustomViewPointIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attitude)) {
+      body["Attitude"] = request.attitude;
+    }
+
+    if (!Util.isUnset(request.attitudesShrink)) {
+      body["Attitudes"] = request.attitudesShrink;
+    }
+
+    if (!Util.isUnset(request.customViewPointId)) {
+      body["CustomViewPointId"] = request.customViewPointId;
+    }
+
+    if (!Util.isUnset(request.customViewPointIdsShrink)) {
+      body["CustomViewPointIds"] = request.customViewPointIdsShrink;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicId)) {
+      body["TopicId"] = request.topicId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomViewPoints",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomViewPointsResponse>(await this.callApi(params, req, runtime), new ListCustomViewPointsResponse({}));
+  }
+
+  /**
+   * 自定义视角列表
+   * 
+   * @param request - ListCustomViewPointsRequest
+   * @returns ListCustomViewPointsResponse
+   */
+  async listCustomViewPoints(request: ListCustomViewPointsRequest): Promise<ListCustomViewPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomViewPointsWithOptions(request, runtime);
+  }
+
+  /**
    * 生成历史列表
    * 
    * @param request - ListDialoguesRequest
@@ -15868,6 +23477,66 @@ export default class Client extends OpenApi {
   async listDialogues(request: ListDialoguesRequest): Promise<ListDialoguesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDialoguesWithOptions(request, runtime);
+  }
+
+  /**
+   * 新颖视角列表
+   * 
+   * @param request - ListFreshViewPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFreshViewPointsResponse
+   */
+  async listFreshViewPointsWithOptions(request: ListFreshViewPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListFreshViewPointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFreshViewPoints",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFreshViewPointsResponse>(await this.callApi(params, req, runtime), new ListFreshViewPointsResponse({}));
+  }
+
+  /**
+   * 新颖视角列表
+   * 
+   * @param request - ListFreshViewPointsRequest
+   * @returns ListFreshViewPointsResponse
+   */
+  async listFreshViewPoints(request: ListFreshViewPointsRequest): Promise<ListFreshViewPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFreshViewPointsWithOptions(request, runtime);
   }
 
   /**
@@ -16010,6 +23679,204 @@ export default class Client extends OpenApi {
   async listHotNewsWithType(request: ListHotNewsWithTypeRequest): Promise<ListHotNewsWithTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotNewsWithTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取所有平台热榜源列表
+   * 
+   * @param request - ListHotSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotSourcesResponse
+   */
+  async listHotSourcesWithOptions(request: ListHotSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListHotSourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotSources",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotSourcesResponse>(await this.callApi(params, req, runtime), new ListHotSourcesResponse({}));
+  }
+
+  /**
+   * 获取所有平台热榜源列表
+   * 
+   * @param request - ListHotSourcesRequest
+   * @returns ListHotSourcesResponse
+   */
+  async listHotSources(request: ListHotSourcesRequest): Promise<ListHotSourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHotSourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取热点事件列表
+   * 
+   * @param tmpReq - ListHotTopicsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotTopicsResponse
+   */
+  async listHotTopicsWithOptions(tmpReq: ListHotTopicsRequest, runtime: $Util.RuntimeOptions): Promise<ListHotTopicsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListHotTopicsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.topicIds)) {
+      request.topicIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicIds, "TopicIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.topicIdsShrink)) {
+      body["TopicIds"] = request.topicIdsShrink;
+    }
+
+    if (!Util.isUnset(request.topicQuery)) {
+      body["TopicQuery"] = request.topicQuery;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    if (!Util.isUnset(request.topicVersion)) {
+      body["TopicVersion"] = request.topicVersion;
+    }
+
+    if (!Util.isUnset(request.topicsShrink)) {
+      body["Topics"] = request.topicsShrink;
+    }
+
+    if (!Util.isUnset(request.withNews)) {
+      body["WithNews"] = request.withNews;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotTopics",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotTopicsResponse>(await this.callApi(params, req, runtime), new ListHotTopicsResponse({}));
+  }
+
+  /**
+   * 获取热点事件列表
+   * 
+   * @param request - ListHotTopicsRequest
+   * @returns ListHotTopicsResponse
+   */
+  async listHotTopics(request: ListHotTopicsRequest): Promise<ListHotTopicsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHotTopicsWithOptions(request, runtime);
+  }
+
+  /**
+   * 热门视角列表
+   * 
+   * @param request - ListHotViewPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotViewPointsResponse
+   */
+  async listHotViewPointsWithOptions(request: ListHotViewPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListHotViewPointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotViewPoints",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotViewPointsResponse>(await this.callApi(params, req, runtime), new ListHotViewPointsResponse({}));
+  }
+
+  /**
+   * 热门视角列表
+   * 
+   * @param request - ListHotViewPointsRequest
+   * @returns ListHotViewPointsResponse
+   */
+  async listHotViewPoints(request: ListHotViewPointsRequest): Promise<ListHotViewPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHotViewPointsWithOptions(request, runtime);
   }
 
   /**
@@ -16347,6 +24214,264 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取选题策划列表
+   * 
+   * @param tmpReq - ListPlanningProposalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPlanningProposalResponse
+   */
+  async listPlanningProposalWithOptions(tmpReq: ListPlanningProposalRequest, runtime: $Util.RuntimeOptions): Promise<ListPlanningProposalResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPlanningProposalShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customViewPointIds)) {
+      request.customViewPointIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customViewPointIds, "CustomViewPointIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.titles)) {
+      request.titlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.titles, "Titles", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customViewPointId)) {
+      body["CustomViewPointId"] = request.customViewPointId;
+    }
+
+    if (!Util.isUnset(request.customViewPointIdsShrink)) {
+      body["CustomViewPointIds"] = request.customViewPointIdsShrink;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.titlesShrink)) {
+      body["Titles"] = request.titlesShrink;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    if (!Util.isUnset(request.topicVersion)) {
+      body["TopicVersion"] = request.topicVersion;
+    }
+
+    if (!Util.isUnset(request.viewPointType)) {
+      body["ViewPointType"] = request.viewPointType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPlanningProposal",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPlanningProposalResponse>(await this.callApi(params, req, runtime), new ListPlanningProposalResponse({}));
+  }
+
+  /**
+   * 获取选题策划列表
+   * 
+   * @param request - ListPlanningProposalRequest
+   * @returns ListPlanningProposalResponse
+   */
+  async listPlanningProposal(request: ListPlanningProposalRequest): Promise<ListPlanningProposalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPlanningProposalWithOptions(request, runtime);
+  }
+
+  /**
+   * 时效性视角列表
+   * 
+   * @param request - ListTimedViewAttitudeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTimedViewAttitudeResponse
+   */
+  async listTimedViewAttitudeWithOptions(request: ListTimedViewAttitudeRequest, runtime: $Util.RuntimeOptions): Promise<ListTimedViewAttitudeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTimedViewAttitude",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTimedViewAttitudeResponse>(await this.callApi(params, req, runtime), new ListTimedViewAttitudeResponse({}));
+  }
+
+  /**
+   * 时效性视角列表
+   * 
+   * @param request - ListTimedViewAttitudeRequest
+   * @returns ListTimedViewAttitudeResponse
+   */
+  async listTimedViewAttitude(request: ListTimedViewAttitudeRequest): Promise<ListTimedViewAttitudeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTimedViewAttitudeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取热点推荐事件
+   * 
+   * @param request - ListTopicRecommendEventListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTopicRecommendEventListResponse
+   */
+  async listTopicRecommendEventListWithOptions(request: ListTopicRecommendEventListRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicRecommendEventListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTopicRecommendEventList",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTopicRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicRecommendEventListResponse({}));
+  }
+
+  /**
+   * 获取热点推荐事件
+   * 
+   * @param request - ListTopicRecommendEventListRequest
+   * @returns ListTopicRecommendEventListResponse
+   */
+  async listTopicRecommendEventList(request: ListTopicRecommendEventListRequest): Promise<ListTopicRecommendEventListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTopicRecommendEventListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取主题事件推荐观点列表
+   * 
+   * @param request - ListTopicViewPointRecommendEventListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTopicViewPointRecommendEventListResponse
+   */
+  async listTopicViewPointRecommendEventListWithOptions(request: ListTopicViewPointRecommendEventListRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicViewPointRecommendEventListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTopicViewPointRecommendEventList",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
+  }
+
+  /**
+   * 获取主题事件推荐观点列表
+   * 
+   * @param request - ListTopicViewPointRecommendEventListRequest
+   * @returns ListTopicViewPointRecommendEventListResponse
+   */
+  async listTopicViewPointRecommendEventList(request: ListTopicViewPointRecommendEventListRequest): Promise<ListTopicViewPointRecommendEventListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTopicViewPointRecommendEventListWithOptions(request, runtime);
+  }
+
+  /**
    * 获取系统所有实例信息
    * 
    * @param request - ListVersionsRequest
@@ -16386,6 +24511,66 @@ export default class Client extends OpenApi {
   async listVersions(request: ListVersionsRequest): Promise<ListVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 网友视角列表
+   * 
+   * @param request - ListWebReviewPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebReviewPointsResponse
+   */
+  async listWebReviewPointsWithOptions(request: ListWebReviewPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListWebReviewPointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWebReviewPoints",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebReviewPointsResponse>(await this.callApi(params, req, runtime), new ListWebReviewPointsResponse({}));
+  }
+
+  /**
+   * 网友视角列表
+   * 
+   * @param request - ListWebReviewPointsRequest
+   * @returns ListWebReviewPointsResponse
+   */
+  async listWebReviewPoints(request: ListWebReviewPointsRequest): Promise<ListWebReviewPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWebReviewPointsWithOptions(request, runtime);
   }
 
   /**
@@ -16529,6 +24714,150 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自定义热点话题分析
+   * 
+   * @param request - RunCustomHotTopicAnalysisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCustomHotTopicAnalysisResponse
+   */
+  async runCustomHotTopicAnalysisWithOptions(request: RunCustomHotTopicAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<RunCustomHotTopicAnalysisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.askUser)) {
+      body["AskUser"] = request.askUser;
+    }
+
+    if (!Util.isUnset(request.forceAnalysisExistsTopic)) {
+      body["ForceAnalysisExistsTopic"] = request.forceAnalysisExistsTopic;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.userBack)) {
+      body["UserBack"] = request.userBack;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunCustomHotTopicAnalysis",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
+  }
+
+  /**
+   * 自定义热点话题分析
+   * 
+   * @param request - RunCustomHotTopicAnalysisRequest
+   * @returns RunCustomHotTopicAnalysisResponse
+   */
+  async runCustomHotTopicAnalysis(request: RunCustomHotTopicAnalysisRequest): Promise<RunCustomHotTopicAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runCustomHotTopicAnalysisWithOptions(request, runtime);
+  }
+
+  /**
+   * 自定义选题视角分析
+   * 
+   * @param request - RunCustomHotTopicViewPointAnalysisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCustomHotTopicViewPointAnalysisResponse
+   */
+  async runCustomHotTopicViewPointAnalysisWithOptions(request: RunCustomHotTopicViewPointAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<RunCustomHotTopicViewPointAnalysisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.askUser)) {
+      body["AskUser"] = request.askUser;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.searchQuery)) {
+      body["SearchQuery"] = request.searchQuery;
+    }
+
+    if (!Util.isUnset(request.skipAskUser)) {
+      body["SkipAskUser"] = request.skipAskUser;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.topicId)) {
+      body["TopicId"] = request.topicId;
+    }
+
+    if (!Util.isUnset(request.topicSource)) {
+      body["TopicSource"] = request.topicSource;
+    }
+
+    if (!Util.isUnset(request.topicVersion)) {
+      body["TopicVersion"] = request.topicVersion;
+    }
+
+    if (!Util.isUnset(request.userBack)) {
+      body["UserBack"] = request.userBack;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunCustomHotTopicViewPointAnalysis",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
+  }
+
+  /**
+   * 自定义选题视角分析
+   * 
+   * @param request - RunCustomHotTopicViewPointAnalysisRequest
+   * @returns RunCustomHotTopicViewPointAnalysisResponse
+   */
+  async runCustomHotTopicViewPointAnalysis(request: RunCustomHotTopicViewPointAnalysisRequest): Promise<RunCustomHotTopicViewPointAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runCustomHotTopicViewPointAnalysisWithOptions(request, runtime);
+  }
+
+  /**
    * 内容扩写
    * 
    * @param request - RunExpandContentRequest
@@ -16628,6 +24957,82 @@ export default class Client extends OpenApi {
   async runKeywordsExtractionGeneration(request: RunKeywordsExtractionGenerationRequest): Promise<RunKeywordsExtractionGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runKeywordsExtractionGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创作-分步骤写作
+   * 
+   * @param tmpReq - RunStepByStepWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunStepByStepWritingResponse
+   */
+  async runStepByStepWritingWithOptions(tmpReq: RunStepByStepWritingRequest, runtime: $Util.RuntimeOptions): Promise<RunStepByStepWritingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunStepByStepWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.referenceData)) {
+      request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.writingConfig)) {
+      request.writingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.writingConfig, "WritingConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.originSessionId)) {
+      body["OriginSessionId"] = request.originSessionId;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.referenceDataShrink)) {
+      body["ReferenceData"] = request.referenceDataShrink;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!Util.isUnset(request.writingConfigShrink)) {
+      body["WritingConfig"] = request.writingConfigShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunStepByStepWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunStepByStepWritingResponse>(await this.callApi(params, req, runtime), new RunStepByStepWritingResponse({}));
+  }
+
+  /**
+   * 创作-分步骤写作
+   * 
+   * @param request - RunStepByStepWritingRequest
+   * @returns RunStepByStepWritingResponse
+   */
+  async runStepByStepWriting(request: RunStepByStepWritingRequest): Promise<RunStepByStepWritingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runStepByStepWritingWithOptions(request, runtime);
   }
 
   /**
@@ -17386,6 +25791,200 @@ export default class Client extends OpenApi {
   async submitAsyncTask(request: SubmitAsyncTaskRequest): Promise<SubmitAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAsyncTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交自定义热点选题视角分析任务
+   * 
+   * @param tmpReq - SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(tmpReq: SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documents)) {
+      request.documentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documents, "Documents", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentsShrink)) {
+      body["Documents"] = request.documentsShrink;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCustomTopicSelectionPerspectiveAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 提交自定义热点选题视角分析任务
+   * 
+   * @param request - SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+   * @returns SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async submitCustomTopicSelectionPerspectiveAnalysisTask(request: SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest): Promise<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交文档聚合任务
+   * 
+   * @param tmpReq - SubmitDocClusterTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocClusterTaskResponse
+   */
+  async submitDocClusterTaskWithOptions(tmpReq: SubmitDocClusterTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDocClusterTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitDocClusterTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documents)) {
+      request.documentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documents, "Documents", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentsShrink)) {
+      body["Documents"] = request.documentsShrink;
+    }
+
+    if (!Util.isUnset(request.summaryLength)) {
+      body["SummaryLength"] = request.summaryLength;
+    }
+
+    if (!Util.isUnset(request.titleLength)) {
+      body["TitleLength"] = request.titleLength;
+    }
+
+    if (!Util.isUnset(request.topicCount)) {
+      body["TopicCount"] = request.topicCount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDocClusterTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDocClusterTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocClusterTaskResponse({}));
+  }
+
+  /**
+   * 提交文档聚合任务
+   * 
+   * @param request - SubmitDocClusterTaskRequest
+   * @returns SubmitDocClusterTaskResponse
+   */
+  async submitDocClusterTask(request: SubmitDocClusterTaskRequest): Promise<SubmitDocClusterTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDocClusterTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交选题热点分析任务
+   * 
+   * @param tmpReq - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async submitTopicSelectionPerspectiveAnalysisTaskWithOptions(tmpReq: SubmitTopicSelectionPerspectiveAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTopicSelectionPerspectiveAnalysisTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documents)) {
+      request.documentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documents, "Documents", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.perspectiveTypes)) {
+      request.perspectiveTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspectiveTypes, "PerspectiveTypes", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentsShrink)) {
+      body["Documents"] = request.documentsShrink;
+    }
+
+    if (!Util.isUnset(request.perspectiveTypesShrink)) {
+      body["PerspectiveTypes"] = request.perspectiveTypesShrink;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTopicSelectionPerspectiveAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 提交选题热点分析任务
+   * 
+   * @param request - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+   * @returns SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+   */
+  async submitTopicSelectionPerspectiveAnalysisTask(request: SubmitTopicSelectionPerspectiveAnalysisTaskRequest): Promise<SubmitTopicSelectionPerspectiveAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
   }
 
   /**
