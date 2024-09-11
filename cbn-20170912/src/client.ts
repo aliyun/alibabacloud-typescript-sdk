@@ -5253,6 +5253,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $tea.Model {
    * tr-bp1su1ytdxtataupl****
    */
   transitRouterId?: string;
+  transitRouterVPCAttachmentOptions?: { [key: string]: string };
   /**
    * @remarks
    * The VPC ID.
@@ -5298,6 +5299,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $tea.Model {
       transitRouterAttachmentDescription: 'TransitRouterAttachmentDescription',
       transitRouterAttachmentName: 'TransitRouterAttachmentName',
       transitRouterId: 'TransitRouterId',
+      transitRouterVPCAttachmentOptions: 'TransitRouterVPCAttachmentOptions',
       vpcId: 'VpcId',
       vpcOwnerId: 'VpcOwnerId',
       zoneMappings: 'ZoneMappings',
@@ -5320,9 +5322,191 @@ export class CreateTransitRouterVpcAttachmentRequest extends $tea.Model {
       transitRouterAttachmentDescription: 'string',
       transitRouterAttachmentName: 'string',
       transitRouterId: 'string',
+      transitRouterVPCAttachmentOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       vpcId: 'string',
       vpcOwnerId: 'number',
       zoneMappings: { 'type': 'array', 'itemType': CreateTransitRouterVpcAttachmentRequestZoneMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTransitRouterVpcAttachmentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to VPCs. Valid values:
+   * 
+   * *   **false:** (default)
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
+  autoPublishRouteEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * 
+   * @example
+   * cen-j3jzhw1zpau2km****
+   */
+  cenId?: string;
+  /**
+   * @remarks
+   * The billing method. The default value is **POSTPAY**, which specifies the pay-as-you-go billing method.
+   * 
+   * @example
+   * POSTPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
+   * @example
+   * 02fb3da4-130e-11e9-8e44-001****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * *   **false** (default): performs a dry run and sends the request.
+   * *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region where the VPC is deployed.
+   * 
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The information about the tags.
+   * 
+   * You can specify at most 20 tags in each call.
+   */
+  tag?: CreateTransitRouterVpcAttachmentShrinkRequestTag[];
+  /**
+   * @remarks
+   * The description of the VPC connection.
+   * 
+   * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * 
+   * @example
+   * testname
+   */
+  transitRouterAttachmentDescription?: string;
+  /**
+   * @remarks
+   * The name of the VPC connection.
+   * 
+   * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
+   * 
+   * @example
+   * testname
+   */
+  transitRouterAttachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the Enterprise Edition transit router.
+   * 
+   * @example
+   * tr-bp1su1ytdxtataupl****
+   */
+  transitRouterId?: string;
+  transitRouterVPCAttachmentOptionsShrink?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1kbjcre9vtsebo1****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the VPC belongs. The default value is the ID of the current Alibaba Cloud account.
+   * 
+   * > If the network instance and CEN instance belong to different Alibaba Cloud accounts, this parameter is required.
+   * 
+   * @example
+   * 1250123456123456
+   */
+  vpcOwnerId?: number;
+  /**
+   * @remarks
+   * A zone that supports Enterprise Edition transit routers.
+   * 
+   * You can specify at most 10 zones.
+   * 
+   * This parameter is required.
+   */
+  zoneMappings?: CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
+      cenId: 'CenId',
+      chargeType: 'ChargeType',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
+      transitRouterAttachmentDescription: 'TransitRouterAttachmentDescription',
+      transitRouterAttachmentName: 'TransitRouterAttachmentName',
+      transitRouterId: 'TransitRouterId',
+      transitRouterVPCAttachmentOptionsShrink: 'TransitRouterVPCAttachmentOptions',
+      vpcId: 'VpcId',
+      vpcOwnerId: 'VpcOwnerId',
+      zoneMappings: 'ZoneMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPublishRouteEnabled: 'boolean',
+      cenId: 'string',
+      chargeType: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateTransitRouterVpcAttachmentShrinkRequestTag },
+      transitRouterAttachmentDescription: 'string',
+      transitRouterAttachmentName: 'string',
+      transitRouterId: 'string',
+      transitRouterVPCAttachmentOptionsShrink: 'string',
+      vpcId: 'string',
+      vpcOwnerId: 'number',
+      zoneMappings: { 'type': 'array', 'itemType': CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings },
     };
   }
 
@@ -11652,6 +11836,7 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
    * 125012345612****
    */
   childInstanceOwnerId?: number;
+  enabledIpv6?: boolean;
   /**
    * @remarks
    * *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** in the response indicates the total number of entries returned.
@@ -11706,6 +11891,7 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
       cenId: 'CenId',
       childInstanceId: 'ChildInstanceId',
       childInstanceOwnerId: 'ChildInstanceOwnerId',
+      enabledIpv6: 'EnabledIpv6',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
@@ -11722,6 +11908,7 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
       cenId: 'string',
       childInstanceId: 'string',
       childInstanceOwnerId: 'number',
+      enabledIpv6: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       ownerAccount: 'string',
@@ -14882,6 +15069,7 @@ export class ListGrantVSwitchesToCenRequest extends $tea.Model {
    * cen-44m0p68spvlrqq****
    */
   cenId?: string;
+  enabledIpv6?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -14940,6 +15128,7 @@ export class ListGrantVSwitchesToCenRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
+      enabledIpv6: 'EnabledIpv6',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -14955,6 +15144,7 @@ export class ListGrantVSwitchesToCenRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cenId: 'string',
+      enabledIpv6: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -24323,6 +24513,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $tea.Model
    * testname
    */
   transitRouterAttachmentName?: string;
+  transitRouterVPCAttachmentOptions?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
@@ -24335,6 +24526,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $tea.Model
       transitRouterAttachmentDescription: 'TransitRouterAttachmentDescription',
       transitRouterAttachmentId: 'TransitRouterAttachmentId',
       transitRouterAttachmentName: 'TransitRouterAttachmentName',
+      transitRouterVPCAttachmentOptions: 'TransitRouterVPCAttachmentOptions',
     };
   }
 
@@ -24350,6 +24542,114 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $tea.Model
       transitRouterAttachmentDescription: 'string',
       transitRouterAttachmentId: 'string',
       transitRouterAttachmentName: 'string',
+      transitRouterVPCAttachmentOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow the Enterprise Edition transit router to advertise routes to the VPC. Valid values:
+   * 
+   * *   **false:** (default)
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
+  autoPublishRouteEnabled?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * 
+   * @example
+   * 02fb3da4-130e-11e9-8e44-001****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Default values:
+   * 
+   * *   **false** (default): performs a dry run and sends the request.
+   * *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The description of the VPC connection.
+   * 
+   * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * testdesc
+   */
+  transitRouterAttachmentDescription?: string;
+  /**
+   * @remarks
+   * The ID of the VPC connection.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tr-attach-nls9fzkfat8934****
+   */
+  transitRouterAttachmentId?: string;
+  /**
+   * @remarks
+   * The name of the VPC connection.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * @example
+   * testname
+   */
+  transitRouterAttachmentName?: string;
+  transitRouterVPCAttachmentOptionsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      transitRouterAttachmentDescription: 'TransitRouterAttachmentDescription',
+      transitRouterAttachmentId: 'TransitRouterAttachmentId',
+      transitRouterAttachmentName: 'TransitRouterAttachmentName',
+      transitRouterVPCAttachmentOptionsShrink: 'TransitRouterVPCAttachmentOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPublishRouteEnabled: 'boolean',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      transitRouterAttachmentDescription: 'string',
+      transitRouterAttachmentId: 'string',
+      transitRouterAttachmentName: 'string',
+      transitRouterVPCAttachmentOptionsShrink: 'string',
     };
   }
 
@@ -24844,6 +25144,7 @@ export class WithdrawPublishedRouteEntriesResponse extends $tea.Model {
 }
 
 export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Model {
+  addressFamily?: string;
   /**
    * @remarks
    * The destination CIDR block that is used to match packets.
@@ -24949,6 +25250,7 @@ export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules e
   trafficMatchRuleName?: string;
   static names(): { [key: string]: string } {
     return {
+      addressFamily: 'AddressFamily',
       dstCidr: 'DstCidr',
       dstPortRange: 'DstPortRange',
       matchDscp: 'MatchDscp',
@@ -24962,6 +25264,7 @@ export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules e
 
   static types(): { [key: string]: any } {
     return {
+      addressFamily: 'string',
       dstCidr: 'string',
       dstPortRange: { 'type': 'array', 'itemType': 'number' },
       matchDscp: 'number',
@@ -25319,6 +25622,7 @@ export class CreateFlowlogRequestTag extends $tea.Model {
 }
 
 export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Model {
+  addressFamily?: string;
   /**
    * @remarks
    * The destination CIDR block that is used to match packets.
@@ -25440,6 +25744,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
   trafficMatchRuleName?: string;
   static names(): { [key: string]: string } {
     return {
+      addressFamily: 'AddressFamily',
       dstCidr: 'DstCidr',
       dstPortRange: 'DstPortRange',
       matchDscp: 'MatchDscp',
@@ -25453,6 +25758,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      addressFamily: 'string',
       dstCidr: 'string',
       dstPortRange: { 'type': 'array', 'itemType': 'number' },
       matchDscp: 'number',
@@ -25921,6 +26227,96 @@ export class CreateTransitRouterVpcAttachmentRequestTag extends $tea.Model {
 }
 
 export class CreateTransitRouterVpcAttachmentRequestZoneMappings extends $tea.Model {
+  /**
+   * @remarks
+   * A vSwitch that is deployed in the zone that supports Enterprise Edition transit routers.
+   * 
+   * You can specify vSwitches for at most 10 zones in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1a214sbus8z3b54****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the zone that supports Enterprise Edition transit routers.
+   * 
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * 
+   * You can specify at most 10 zones in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTransitRouterVpcAttachmentShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * tagtest
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * tagtest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings extends $tea.Model {
   /**
    * @remarks
    * A vSwitch that is deployed in the zone that supports Enterprise Edition transit routers.
@@ -30664,6 +31060,7 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTrafficMatchRules extends $tea.Model {
+  addressFamily?: string;
   /**
    * @remarks
    * The destination CIDR block that is used to match packets.
@@ -30748,6 +31145,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
   trafficMatchRuleStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      addressFamily: 'AddressFamily',
       dstCidr: 'DstCidr',
       dstPortRange: 'DstPortRange',
       matchDscp: 'MatchDscp',
@@ -30763,6 +31161,7 @@ export class ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTraffic
 
   static types(): { [key: string]: any } {
     return {
+      addressFamily: 'string',
       dstCidr: 'string',
       dstPortRange: { 'type': 'array', 'itemType': 'number' },
       matchDscp: 'number',
@@ -33391,6 +33790,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
    * tr-bp1su1ytdxtataupl****
    */
   transitRouterId?: string;
+  transitRouterVPCAttachmentOptions?: { [key: string]: string };
   /**
    * @remarks
    * The VPC ID.
@@ -33434,6 +33834,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
       transitRouterAttachmentId: 'TransitRouterAttachmentId',
       transitRouterAttachmentName: 'TransitRouterAttachmentName',
       transitRouterId: 'TransitRouterId',
+      transitRouterVPCAttachmentOptions: 'TransitRouterVPCAttachmentOptions',
       vpcId: 'VpcId',
       vpcOwnerId: 'VpcOwnerId',
       vpcRegionId: 'VpcRegionId',
@@ -33455,6 +33856,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
       transitRouterAttachmentId: 'string',
       transitRouterAttachmentName: 'string',
       transitRouterId: 'string',
+      transitRouterVPCAttachmentOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       vpcId: 'string',
       vpcOwnerId: 'number',
       vpcRegionId: 'string',
@@ -34144,6 +34546,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules extends $tea.Model {
+  addressFamily?: string;
   /**
    * @remarks
    * The destination CIDR block that is used to match packets.
@@ -34265,6 +34668,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules exte
   trafficMatchRuleName?: string;
   static names(): { [key: string]: string } {
     return {
+      addressFamily: 'AddressFamily',
       dstCidr: 'DstCidr',
       dstPortRange: 'DstPortRange',
       matchDscp: 'MatchDscp',
@@ -34278,6 +34682,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules exte
 
   static types(): { [key: string]: any } {
     return {
+      addressFamily: 'string',
       dstCidr: 'string',
       dstPortRange: { 'type': 'array', 'itemType': 'number' },
       matchDscp: 'number',
@@ -34295,6 +34700,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules exte
 }
 
 export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules extends $tea.Model {
+  addressFamily?: string;
   /**
    * @remarks
    * The destination CIDR block that is used to match packets.
@@ -34361,6 +34767,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules e
   trafficMatchRuleName?: string;
   static names(): { [key: string]: string } {
     return {
+      addressFamily: 'AddressFamily',
       dstCidr: 'DstCidr',
       dstPortRange: 'DstPortRange',
       matchDscp: 'MatchDscp',
@@ -34374,6 +34781,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules e
 
   static types(): { [key: string]: any } {
     return {
+      addressFamily: 'string',
       dstCidr: 'string',
       dstPortRange: { 'type': 'array', 'itemType': 'number' },
       matchDscp: 'number',
@@ -37254,12 +37662,18 @@ export default class Client extends OpenApi {
    * *   To connect to a network instance that belongs to another Alibaba Cloud account, you must first acquire the required permissions from the account. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](https://help.aliyun.com/document_detail/181553.html).
    * *   VPC connections incur fees. Take note of the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
    * 
-   * @param request - CreateTransitRouterVpcAttachmentRequest
+   * @param tmpReq - CreateTransitRouterVpcAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTransitRouterVpcAttachmentResponse
    */
-  async createTransitRouterVpcAttachmentWithOptions(request: CreateTransitRouterVpcAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateTransitRouterVpcAttachmentResponse> {
-    Util.validateModel(request);
+  async createTransitRouterVpcAttachmentWithOptions(tmpReq: CreateTransitRouterVpcAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateTransitRouterVpcAttachmentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTransitRouterVpcAttachmentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.transitRouterVPCAttachmentOptions)) {
+      request.transitRouterVPCAttachmentOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transitRouterVPCAttachmentOptions, "TransitRouterVPCAttachmentOptions", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.autoPublishRouteEnabled)) {
       query["AutoPublishRouteEnabled"] = request.autoPublishRouteEnabled;
@@ -37315,6 +37729,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.transitRouterId)) {
       query["TransitRouterId"] = request.transitRouterId;
+    }
+
+    if (!Util.isUnset(request.transitRouterVPCAttachmentOptionsShrink)) {
+      query["TransitRouterVPCAttachmentOptions"] = request.transitRouterVPCAttachmentOptionsShrink;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -40758,6 +41176,10 @@ export default class Client extends OpenApi {
       query["ChildInstanceOwnerId"] = request.childInstanceOwnerId;
     }
 
+    if (!Util.isUnset(request.enabledIpv6)) {
+      query["EnabledIpv6"] = request.enabledIpv6;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -42368,6 +42790,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.cenId)) {
       query["CenId"] = request.cenId;
+    }
+
+    if (!Util.isUnset(request.enabledIpv6)) {
+      query["EnabledIpv6"] = request.enabledIpv6;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -47229,12 +47655,18 @@ export default class Client extends OpenApi {
    * *   If a VPC connection is in the **Modifying** state, the VPC connection is being modified. You can query the VPC connection but cannot perform other operations.
    * *   If a VPC connection is in the **Attached** state, the VPC connection is modified.
    * 
-   * @param request - UpdateTransitRouterVpcAttachmentAttributeRequest
+   * @param tmpReq - UpdateTransitRouterVpcAttachmentAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTransitRouterVpcAttachmentAttributeResponse
    */
-  async updateTransitRouterVpcAttachmentAttributeWithOptions(request: UpdateTransitRouterVpcAttachmentAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTransitRouterVpcAttachmentAttributeResponse> {
-    Util.validateModel(request);
+  async updateTransitRouterVpcAttachmentAttributeWithOptions(tmpReq: UpdateTransitRouterVpcAttachmentAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTransitRouterVpcAttachmentAttributeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTransitRouterVpcAttachmentAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.transitRouterVPCAttachmentOptions)) {
+      request.transitRouterVPCAttachmentOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transitRouterVPCAttachmentOptions, "TransitRouterVPCAttachmentOptions", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.autoPublishRouteEnabled)) {
       query["AutoPublishRouteEnabled"] = request.autoPublishRouteEnabled;
@@ -47274,6 +47706,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.transitRouterAttachmentName)) {
       query["TransitRouterAttachmentName"] = request.transitRouterAttachmentName;
+    }
+
+    if (!Util.isUnset(request.transitRouterVPCAttachmentOptionsShrink)) {
+      query["TransitRouterVPCAttachmentOptions"] = request.transitRouterVPCAttachmentOptionsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
