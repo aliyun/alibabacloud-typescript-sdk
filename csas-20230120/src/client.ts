@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,20 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AttachApplication2ConnectorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIds?: string[];
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
   connectorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +43,20 @@ export class AttachApplication2ConnectorRequest extends $tea.Model {
 }
 
 export class AttachApplication2ConnectorShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIdsShrink?: string;
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
   connectorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,6 +78,10 @@ export class AttachApplication2ConnectorShrinkRequest extends $tea.Model {
 }
 
 export class AttachApplication2ConnectorResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,12 +126,42 @@ export class AttachApplication2ConnectorResponse extends $tea.Model {
 }
 
 export class CreateClientUserRequest extends $tea.Model {
+  /**
+   * @example
+   * 10797
+   */
   departmentId?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * johndoe@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 727
+   */
   idpConfigId?: string;
+  /**
+   * @example
+   * 13641966835
+   */
   mobileNumber?: string;
+  /**
+   * @example
+   * kehudiyi
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,7 +193,15 @@ export class CreateClientUserRequest extends $tea.Model {
 }
 
 export class CreateClientUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 726
+   */
   data?: string;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -182,13 +249,59 @@ export class CreateClientUserResponse extends $tea.Model {
 
 export class CreateDynamicRouteRequest extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Application
+   */
   applicationType?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * connector
+   */
   dynamicRouteType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dynamic_route_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * connector-8ccb13b6f52c****
+   */
   nextHop?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99
+   */
   priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   regionIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Disabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
@@ -227,7 +340,15 @@ export class CreateDynamicRouteRequest extends $tea.Model {
 }
 
 export class CreateDynamicRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dr-ca9fddfac7c6****
+   */
   dynamicRouteId?: string;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -274,7 +395,18 @@ export class CreateDynamicRouteResponse extends $tea.Model {
 }
 
 export class CreateIdpDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   departmentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1222
+   */
   idpConfigId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -296,7 +428,15 @@ export class CreateIdpDepartmentRequest extends $tea.Model {
 }
 
 export class CreateIdpDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 726
+   */
   data?: string;
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -343,17 +483,52 @@ export class CreateIdpDepartmentResponse extends $tea.Model {
 }
 
 export class CreatePrivateAccessApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   addresses?: string[];
+  browserAccessStatus?: string;
   description?: string;
+  l7ProxyDomainAutomaticPrefix?: string;
+  l7ProxyDomainCustom?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * private_access_application_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   portRanges?: CreatePrivateAccessApplicationRequestPortRanges[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * All
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
       addresses: 'Addresses',
+      browserAccessStatus: 'BrowserAccessStatus',
       description: 'Description',
+      l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
+      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
       name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
@@ -365,7 +540,10 @@ export class CreatePrivateAccessApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addresses: { 'type': 'array', 'itemType': 'string' },
+      browserAccessStatus: 'string',
       description: 'string',
+      l7ProxyDomainAutomaticPrefix: 'string',
+      l7ProxyDomainCustom: 'string',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': CreatePrivateAccessApplicationRequestPortRanges },
       protocol: 'string',
@@ -380,7 +558,15 @@ export class CreatePrivateAccessApplicationRequest extends $tea.Model {
 }
 
 export class CreatePrivateAccessApplicationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -428,17 +614,67 @@ export class CreatePrivateAccessApplicationResponse extends $tea.Model {
 
 export class CreatePrivateAccessPolicyRequest extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Application
+   */
   applicationType?: string;
   customUserAttributes?: CreatePrivateAccessPolicyRequestCustomUserAttributes[];
   description?: string;
   deviceAttributeAction?: string;
   deviceAttributeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Allow
+   */
   policyAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * 内网访问标签ID集合。最多可输入100个内网访问标签ID。当**ApplicationType**为**Tag时**，必填。和**ApplicationIds**互斥。
+   */
   tagIds?: string[];
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * 内网访问策略的用户组类型。取值：
+   * - **Normal**：普通用户组。
+   * - **Custom**：自定义用户组。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
   userGroupMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -482,7 +718,15 @@ export class CreatePrivateAccessPolicyRequest extends $tea.Model {
 }
 
 export class CreatePrivateAccessPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pa-policy-867ef4007c8a****
+   */
   policyId?: string;
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -530,6 +774,13 @@ export class CreatePrivateAccessPolicyResponse extends $tea.Model {
 
 export class CreatePrivateAccessTagRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tag_name
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -551,7 +802,15 @@ export class CreatePrivateAccessTagRequest extends $tea.Model {
 }
 
 export class CreatePrivateAccessTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -599,13 +858,52 @@ export class CreatePrivateAccessTagResponse extends $tea.Model {
 
 export class CreateRegistrationPolicyRequest extends $tea.Model {
   companyLimitCount?: CreateRegistrationPolicyRequestCompanyLimitCount;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitAll
+   */
   companyLimitType?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UserGroupAll
+   */
   matchMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registration_policy_name
+   */
   name?: string;
   personalLimitCount?: CreateRegistrationPolicyRequestPersonalLimitCount;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitDiff
+   */
   personalLimitType?: string;
+  /**
+   * @example
+   * 99
+   */
   priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -648,13 +946,52 @@ export class CreateRegistrationPolicyRequest extends $tea.Model {
 
 export class CreateRegistrationPolicyShrinkRequest extends $tea.Model {
   companyLimitCountShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitAll
+   */
   companyLimitType?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UserGroupAll
+   */
   matchMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * registration_policy_name
+   */
   name?: string;
   personalLimitCountShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LimitDiff
+   */
   personalLimitType?: string;
+  /**
+   * @example
+   * 99
+   */
   priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -697,6 +1034,10 @@ export class CreateRegistrationPolicyShrinkRequest extends $tea.Model {
 
 export class CreateRegistrationPolicyResponseBody extends $tea.Model {
   policy?: CreateRegistrationPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -743,8 +1084,19 @@ export class CreateRegistrationPolicyResponse extends $tea.Model {
 }
 
 export class CreateUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   attributes?: CreateUserGroupRequestAttributes[];
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_group_name
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,7 +1120,15 @@ export class CreateUserGroupRequest extends $tea.Model {
 }
 
 export class CreateUserGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -815,13 +1175,60 @@ export class CreateUserGroupResponse extends $tea.Model {
 }
 
 export class CreateWmBaseImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1080
+   */
   height?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 255
+   */
   opacity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   scale?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1920
+   */
   width?: number;
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
   wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @example
+   * 12*****
+   */
   wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureWebappInvisible
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -856,6 +1263,10 @@ export class CreateWmBaseImageRequest extends $tea.Model {
 
 export class CreateWmBaseImageResponseBody extends $tea.Model {
   data?: CreateWmBaseImageResponseBodyData;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -903,15 +1314,64 @@ export class CreateWmBaseImageResponse extends $tea.Model {
 
 export class CreateWmEmbedTaskRequest extends $tea.Model {
   documentControl?: CreateWmEmbedTaskRequestDocumentControl;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/abc****.pdf
+   */
   fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc****.pdf
+   */
   filename?: string;
+  /**
+   * @example
+   * 95
+   */
   imageEmbedJpegQuality?: number;
+  /**
+   * @example
+   * 2
+   */
   imageEmbedLevel?: number;
+  /**
+   * @example
+   * 3000k
+   */
   videoBitrate?: string;
+  /**
+   * @example
+   * false
+   */
   videoIsLong?: boolean;
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
   wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @example
+   * 123***
+   */
   wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -952,15 +1412,64 @@ export class CreateWmEmbedTaskRequest extends $tea.Model {
 
 export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
   documentControlShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/abc****.pdf
+   */
   fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc****.pdf
+   */
   filename?: string;
+  /**
+   * @example
+   * 95
+   */
   imageEmbedJpegQuality?: number;
+  /**
+   * @example
+   * 2
+   */
   imageEmbedLevel?: number;
+  /**
+   * @example
+   * 3000k
+   */
   videoBitrate?: string;
+  /**
+   * @example
+   * false
+   */
   videoIsLong?: boolean;
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
   wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @example
+   * 123***
+   */
   wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1001,6 +1510,10 @@ export class CreateWmEmbedTaskShrinkRequest extends $tea.Model {
 
 export class CreateWmEmbedTaskResponseBody extends $tea.Model {
   data?: CreateWmEmbedTaskResponseBodyData;
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1047,12 +1560,49 @@ export class CreateWmEmbedTaskResponse extends $tea.Model {
 }
 
 export class CreateWmExtractTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   documentIsCapture?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://example.com/test-****.pdf
+   */
   fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-****.pdf
+   */
   filename?: string;
+  /**
+   * @example
+   * false
+   */
   videoIsLong?: boolean;
+  /**
+   * @example
+   * 1
+   */
   videoSpeed?: string;
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1085,6 +1635,10 @@ export class CreateWmExtractTaskRequest extends $tea.Model {
 
 export class CreateWmExtractTaskResponseBody extends $tea.Model {
   data?: CreateWmExtractTaskResponseBodyData;
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1131,8 +1685,26 @@ export class CreateWmExtractTaskResponse extends $tea.Model {
 }
 
 export class CreateWmInfoMappingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aGVsbG8gc2F*****
+   */
   wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1157,6 +1729,10 @@ export class CreateWmInfoMappingRequest extends $tea.Model {
 
 export class CreateWmInfoMappingResponseBody extends $tea.Model {
   data?: CreateWmInfoMappingResponseBodyData;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1203,6 +1779,13 @@ export class CreateWmInfoMappingResponse extends $tea.Model {
 }
 
 export class DeleteClientUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 27058
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1222,6 +1805,10 @@ export class DeleteClientUserRequest extends $tea.Model {
 }
 
 export class DeleteClientUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1266,6 +1853,13 @@ export class DeleteClientUserResponse extends $tea.Model {
 }
 
 export class DeleteDynamicRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dr-ca9fddfac7c6****
+   */
   dynamicRouteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1285,6 +1879,10 @@ export class DeleteDynamicRouteRequest extends $tea.Model {
 }
 
 export class DeleteDynamicRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1329,7 +1927,21 @@ export class DeleteDynamicRouteResponse extends $tea.Model {
 }
 
 export class DeleteIdpDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10829
+   */
   departmentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 507
+   */
   idpConfigId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1351,6 +1963,10 @@ export class DeleteIdpDepartmentRequest extends $tea.Model {
 }
 
 export class DeleteIdpDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1395,6 +2011,13 @@ export class DeleteIdpDepartmentResponse extends $tea.Model {
 }
 
 export class DeletePrivateAccessApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1414,6 +2037,10 @@ export class DeletePrivateAccessApplicationRequest extends $tea.Model {
 }
 
 export class DeletePrivateAccessApplicationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1458,6 +2085,13 @@ export class DeletePrivateAccessApplicationResponse extends $tea.Model {
 }
 
 export class DeletePrivateAccessPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-policy-867ef4007c8a****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1477,6 +2111,10 @@ export class DeletePrivateAccessPolicyRequest extends $tea.Model {
 }
 
 export class DeletePrivateAccessPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1521,6 +2159,13 @@ export class DeletePrivateAccessPolicyResponse extends $tea.Model {
 }
 
 export class DeletePrivateAccessTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1540,6 +2185,10 @@ export class DeletePrivateAccessTagRequest extends $tea.Model {
 }
 
 export class DeletePrivateAccessTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1584,6 +2233,10 @@ export class DeletePrivateAccessTagResponse extends $tea.Model {
 }
 
 export class DeleteRegistrationPoliciesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1603,6 +2256,10 @@ export class DeleteRegistrationPoliciesRequest extends $tea.Model {
 }
 
 export class DeleteRegistrationPoliciesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1666,6 +2323,10 @@ export class DeleteUserDevicesRequest extends $tea.Model {
 }
 
 export class DeleteUserDevicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1710,6 +2371,13 @@ export class DeleteUserDevicesResponse extends $tea.Model {
 }
 
 export class DeleteUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1729,6 +2397,10 @@ export class DeleteUserGroupRequest extends $tea.Model {
 }
 
 export class DeleteUserGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1773,7 +2445,20 @@ export class DeleteUserGroupResponse extends $tea.Model {
 }
 
 export class DetachApplication2ConnectorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIds?: string[];
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
   connectorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1795,7 +2480,20 @@ export class DetachApplication2ConnectorRequest extends $tea.Model {
 }
 
 export class DetachApplication2ConnectorShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIdsShrink?: string;
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
   connectorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1817,6 +2515,10 @@ export class DetachApplication2ConnectorShrinkRequest extends $tea.Model {
 }
 
 export class DetachApplication2ConnectorResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1863,17 +2565,37 @@ export class DetachApplication2ConnectorResponse extends $tea.Model {
 export class ExportUserDevicesRequest extends $tea.Model {
   appStatuses?: string[];
   department?: string;
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
   deviceStatuses?: string[];
   deviceTags?: string[];
   deviceTypes?: string[];
   dlpStatuses?: string[];
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
   iaStatuses?: string[];
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
   nacStatuses?: string[];
   paStatuses?: string[];
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
   username?: string;
   static names(): { [key: string]: string } {
@@ -1922,7 +2644,15 @@ export class ExportUserDevicesRequest extends $tea.Model {
 }
 
 export class ExportUserDevicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
   requestId?: string;
+  /**
+   * @example
+   * https://sase-export.oss-cn-hangzhou.aliyuncs.com/export%2Fapp-device%2F20240607154831.xlsx?Expires=1717746571&OSSAccessKeyId=********************
+   */
   signedUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1970,6 +2700,10 @@ export class ExportUserDevicesResponse extends $tea.Model {
 
 export class GetActiveIdpConfigResponseBody extends $tea.Model {
   data?: GetActiveIdpConfigResponseBodyData;
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2016,7 +2750,18 @@ export class GetActiveIdpConfigResponse extends $tea.Model {
 }
 
 export class GetClientUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 598
+   */
   idpConfigId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2039,6 +2784,10 @@ export class GetClientUserRequest extends $tea.Model {
 
 export class GetClientUserResponseBody extends $tea.Model {
   data?: GetClientUserResponseBodyData;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2085,6 +2834,13 @@ export class GetClientUserResponse extends $tea.Model {
 }
 
 export class GetDynamicRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dr-16ff07c8207d****
+   */
   dynamicRouteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2105,6 +2861,10 @@ export class GetDynamicRouteRequest extends $tea.Model {
 
 export class GetDynamicRouteResponseBody extends $tea.Model {
   dynamicRoute?: GetDynamicRouteResponseBodyDynamicRoute;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2151,6 +2911,13 @@ export class GetDynamicRouteResponse extends $tea.Model {
 }
 
 export class GetIdpConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1465
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2171,6 +2938,10 @@ export class GetIdpConfigRequest extends $tea.Model {
 
 export class GetIdpConfigResponseBody extends $tea.Model {
   data?: GetIdpConfigResponseBodyData;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2217,6 +2988,13 @@ export class GetIdpConfigResponse extends $tea.Model {
 }
 
 export class GetPrivateAccessApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2237,6 +3015,10 @@ export class GetPrivateAccessApplicationRequest extends $tea.Model {
 
 export class GetPrivateAccessApplicationResponseBody extends $tea.Model {
   application?: GetPrivateAccessApplicationResponseBodyApplication;
+  /**
+   * @example
+   * 3ACC5EDC-2B7D-5032-8C58-D7615D66C1D4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2283,6 +3065,13 @@ export class GetPrivateAccessApplicationResponse extends $tea.Model {
 }
 
 export class GetPrivateAccessPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-policy-63b2f1844b86****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2303,6 +3092,10 @@ export class GetPrivateAccessPolicyRequest extends $tea.Model {
 
 export class GetPrivateAccessPolicyResponseBody extends $tea.Model {
   policy?: GetPrivateAccessPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2349,6 +3142,13 @@ export class GetPrivateAccessPolicyResponse extends $tea.Model {
 }
 
 export class GetRegistrationPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2368,14 +3168,42 @@ export class GetRegistrationPolicyRequest extends $tea.Model {
 }
 
 export class GetRegistrationPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   description?: string;
   limitDetail?: GetRegistrationPolicyResponseBodyLimitDetail[];
+  /**
+   * @example
+   * UserGroupAll
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 99
+   */
   priority?: number;
+  /**
+   * @example
+   * 47363C2B-1AAA-5954-8847-0E50FCC54117
+   */
   requestId?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -2442,6 +3270,13 @@ export class GetRegistrationPolicyResponse extends $tea.Model {
 }
 
 export class GetUserDeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2462,6 +3297,10 @@ export class GetUserDeviceRequest extends $tea.Model {
 
 export class GetUserDeviceResponseBody extends $tea.Model {
   device?: GetUserDeviceResponseBodyDevice;
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2508,6 +3347,10 @@ export class GetUserDeviceResponse extends $tea.Model {
 }
 
 export class GetUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2527,6 +3370,10 @@ export class GetUserGroupRequest extends $tea.Model {
 }
 
 export class GetUserGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1310DBC7-7E1F-55D3-B4B4-E4BE912517FB
+   */
   requestId?: string;
   userGroup?: GetUserGroupResponseBodyUserGroup;
   static names(): { [key: string]: string } {
@@ -2574,6 +3421,13 @@ export class GetUserGroupResponse extends $tea.Model {
 }
 
 export class GetWmEmbedTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job:5GfrJYsoaffmCE7Z5bZtjU********
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2594,6 +3448,10 @@ export class GetWmEmbedTaskRequest extends $tea.Model {
 
 export class GetWmEmbedTaskResponseBody extends $tea.Model {
   data?: GetWmEmbedTaskResponseBodyData;
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2640,6 +3498,13 @@ export class GetWmEmbedTaskResponse extends $tea.Model {
 }
 
 export class GetWmExtractTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wmt-9648c22d2eb2cb57bb855dcae7898464********
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2660,6 +3525,10 @@ export class GetWmExtractTaskRequest extends $tea.Model {
 
 export class GetWmExtractTaskResponseBody extends $tea.Model {
   data?: GetWmExtractTaskResponseBodyData;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2706,6 +3575,10 @@ export class GetWmExtractTaskResponse extends $tea.Model {
 }
 
 export class ListApplicationsForPrivateAccessPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2726,6 +3599,10 @@ export class ListApplicationsForPrivateAccessPolicyRequest extends $tea.Model {
 
 export class ListApplicationsForPrivateAccessPolicyResponseBody extends $tea.Model {
   polices?: ListApplicationsForPrivateAccessPolicyResponseBodyPolices[];
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2772,6 +3649,10 @@ export class ListApplicationsForPrivateAccessPolicyResponse extends $tea.Model {
 }
 
 export class ListApplicationsForPrivateAccessTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2791,6 +3672,10 @@ export class ListApplicationsForPrivateAccessTagRequest extends $tea.Model {
 }
 
 export class ListApplicationsForPrivateAccessTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B608C6AE-623D-55C4-9454-601B88AE937E
+   */
   requestId?: string;
   tags?: ListApplicationsForPrivateAccessTagResponseBodyTags[];
   static names(): { [key: string]: string } {
@@ -2838,12 +3723,43 @@ export class ListApplicationsForPrivateAccessTagResponse extends $tea.Model {
 }
 
 export class ListClientUsersRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10785
+   */
   departmentId?: string;
+  /**
+   * @example
+   * johndoe@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1071
+   */
   idpConfigId?: string;
+  /**
+   * @example
+   * 18980976559
+   */
   mobileNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -2879,6 +3795,10 @@ export class ListClientUsersRequest extends $tea.Model {
 
 export class ListClientUsersResponseBody extends $tea.Model {
   data?: ListClientUsersResponseBodyData;
+  /**
+   * @example
+   * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2926,8 +3846,26 @@ export class ListClientUsersResponse extends $tea.Model {
 
 export class ListConnectorsRequest extends $tea.Model {
   connectorIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * connector_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   status?: string;
   switchStatus?: string;
@@ -2960,7 +3898,15 @@ export class ListConnectorsRequest extends $tea.Model {
 
 export class ListConnectorsResponseBody extends $tea.Model {
   connectors?: ListConnectorsResponseBodyConnectors[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3010,7 +3956,15 @@ export class ListConnectorsResponse extends $tea.Model {
 
 export class ListDynamicRouteRegionsResponseBody extends $tea.Model {
   regions?: string[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3059,14 +4013,48 @@ export class ListDynamicRouteRegionsResponse extends $tea.Model {
 }
 
 export class ListDynamicRoutesRequest extends $tea.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
   dynamicRouteIds?: string[];
+  /**
+   * @example
+   * dynamic_route_name
+   */
   name?: string;
+  /**
+   * @example
+   * connector-8ccb13b6f52c****
+   */
   nextHop?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   regionIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3103,7 +4091,15 @@ export class ListDynamicRoutesRequest extends $tea.Model {
 
 export class ListDynamicRoutesResponseBody extends $tea.Model {
   dynamicRoutes?: ListDynamicRoutesResponseBodyDynamicRoutes[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3153,12 +4149,42 @@ export class ListDynamicRoutesResponse extends $tea.Model {
 
 export class ListExcessiveDeviceRegistrationApplicationsRequest extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
   department?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
   statuses?: string[];
   username?: string;
@@ -3199,7 +4225,15 @@ export class ListExcessiveDeviceRegistrationApplicationsRequest extends $tea.Mod
 
 export class ListExcessiveDeviceRegistrationApplicationsResponseBody extends $tea.Model {
   applications?: ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3248,8 +4282,20 @@ export class ListExcessiveDeviceRegistrationApplicationsResponse extends $tea.Mo
 }
 
 export class ListIdpConfigsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * CSAS,DingTalk,LDAP
+   */
   include?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3274,6 +4320,10 @@ export class ListIdpConfigsRequest extends $tea.Model {
 
 export class ListIdpConfigsResponseBody extends $tea.Model {
   data?: ListIdpConfigsResponseBodyData;
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3320,8 +4370,23 @@ export class ListIdpConfigsResponse extends $tea.Model {
 }
 
 export class ListIdpDepartmentsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1440
+   */
   idpConfigId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3346,6 +4411,10 @@ export class ListIdpDepartmentsRequest extends $tea.Model {
 
 export class ListIdpDepartmentsResponseBody extends $tea.Model {
   data?: ListIdpDepartmentsResponseBodyData;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3392,13 +4461,41 @@ export class ListIdpDepartmentsResponse extends $tea.Model {
 }
 
 export class ListNacUserCertRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: string;
   department?: string;
+  /**
+   * @example
+   * windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 1702770400
+   */
   endTime?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 1702260834
+   */
   startTime?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * zhang**
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3432,10 +4529,26 @@ export class ListNacUserCertRequest extends $tea.Model {
 }
 
 export class ListNacUserCertResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
   dataList?: ListNacUserCertResponseBodyDataList[];
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3488,6 +4601,10 @@ export class ListNacUserCertResponse extends $tea.Model {
 }
 
 export class ListPolicesForPrivateAccessApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3508,6 +4625,10 @@ export class ListPolicesForPrivateAccessApplicationRequest extends $tea.Model {
 
 export class ListPolicesForPrivateAccessApplicationResponseBody extends $tea.Model {
   applications?: ListPolicesForPrivateAccessApplicationResponseBodyApplications[];
+  /**
+   * @example
+   * 4AB972E2-D702-5464-B132-B1911498B8BF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3554,6 +4675,10 @@ export class ListPolicesForPrivateAccessApplicationResponse extends $tea.Model {
 }
 
 export class ListPolicesForPrivateAccessTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3573,6 +4698,10 @@ export class ListPolicesForPrivateAccessTagRequest extends $tea.Model {
 }
 
 export class ListPolicesForPrivateAccessTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   tags?: ListPolicesForPrivateAccessTagResponseBodyTags[];
   static names(): { [key: string]: string } {
@@ -3620,6 +4749,10 @@ export class ListPolicesForPrivateAccessTagResponse extends $tea.Model {
 }
 
 export class ListPolicesForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3639,6 +4772,10 @@ export class ListPolicesForUserGroupRequest extends $tea.Model {
 }
 
 export class ListPolicesForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5F04DFBD-3F48-5F70-AE72-474026670128
+   */
   requestId?: string;
   userGroups?: ListPolicesForUserGroupResponseBodyUserGroups[];
   static names(): { [key: string]: string } {
@@ -3686,8 +4823,20 @@ export class ListPolicesForUserGroupResponse extends $tea.Model {
 }
 
 export class ListPopTrafficStatisticsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1681293719
+   */
   endTime?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * 1681035708
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3711,6 +4860,13 @@ export class ListPopTrafficStatisticsRequest extends $tea.Model {
 }
 
 export class ListPopTrafficStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
   requestId?: string;
   trafficData?: ListPopTrafficStatisticsResponseBodyTrafficData[];
   static names(): { [key: string]: string } {
@@ -3758,17 +4914,53 @@ export class ListPopTrafficStatisticsResponse extends $tea.Model {
 }
 
 export class ListPrivateAccessApplicationsRequest extends $tea.Model {
+  accessModes?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
   address?: string;
   applicationIds?: string[];
   connectorId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * private_access_application_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * pa-policy-54a7838a48bf****
+   */
   policyId?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessModes: 'AccessModes',
       address: 'Address',
       applicationIds: 'ApplicationIds',
       connectorId: 'ConnectorId',
@@ -3783,6 +4975,7 @@ export class ListPrivateAccessApplicationsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessModes: 'string',
       address: 'string',
       applicationIds: { 'type': 'array', 'itemType': 'string' },
       connectorId: 'string',
@@ -3802,7 +4995,15 @@ export class ListPrivateAccessApplicationsRequest extends $tea.Model {
 
 export class ListPrivateAccessApplicationsResponseBody extends $tea.Model {
   applications?: ListPrivateAccessApplicationsResponseBodyApplications[];
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3851,6 +5052,10 @@ export class ListPrivateAccessApplicationsResponse extends $tea.Model {
 }
 
 export class ListPrivateAccessApplicationsForDynamicRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dynamicRouteIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3871,6 +5076,10 @@ export class ListPrivateAccessApplicationsForDynamicRouteRequest extends $tea.Mo
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBody extends $tea.Model {
   dynamicRoutes?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes[];
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3917,16 +5126,59 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponse extends $tea.M
 }
 
 export class ListPrivateAccessPolicesRequest extends $tea.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
   applicationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * Allow
+   */
   policyAction?: string;
   policyIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * tag-c0cb77857a99****
+   */
   tagId?: string;
   tagName?: string;
+  /**
+   * @remarks
+   * 用户组ID。取值来源：
+   * - [ListUserGroups](~~ListUserGroups~~)：批量查询用户组。
+   * - [CreateUserGroup](~~CreateUserGroup~~)：创建用户组。
+   * 
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3967,7 +5219,15 @@ export class ListPrivateAccessPolicesRequest extends $tea.Model {
 
 export class ListPrivateAccessPolicesResponseBody extends $tea.Model {
   polices?: ListPrivateAccessPolicesResponseBodyPolices[];
+  /**
+   * @example
+   * 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4016,12 +5276,68 @@ export class ListPrivateAccessPolicesResponse extends $tea.Model {
 }
 
 export class ListPrivateAccessTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the internal access application. You can obtain the application ID by calling the following operations:
+   * 
+   * *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries all internal access applications.
+   * *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal access application.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  /**
+   * @remarks
+   * The page number. Valid values: 1 to 10000.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * tag_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 1000.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the internal access policy. You can obtain the policy ID by calling the following operations:
+   * 
+   * *   [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries all internal access policies.
+   * *   [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal access policy.
+   * 
+   * @example
+   * pa-policy-54a7838a48bf****
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the simple query mode. A value of true specifies that policy IDs are not queried.
+   * 
+   * @example
+   * true
+   */
   simpleMode?: boolean;
+  /**
+   * @remarks
+   * The IDs of internal access tags. You can specify up to 100 tag IDs.
+   */
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4053,8 +5369,26 @@ export class ListPrivateAccessTagsRequest extends $tea.Model {
 }
 
 export class ListPrivateAccessTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 54C1D236-CDB9-586C-B44D-AFDCEA195545
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The internal access tags.
+   */
   tags?: ListPrivateAccessTagsResponseBodyTags[];
+  /**
+   * @remarks
+   * The total number of internal access tags.
+   * 
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4103,6 +5437,10 @@ export class ListPrivateAccessTagsResponse extends $tea.Model {
 }
 
 export class ListPrivateAccessTagsForDynamicRouteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dynamicRouteIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4123,6 +5461,10 @@ export class ListPrivateAccessTagsForDynamicRouteRequest extends $tea.Model {
 
 export class ListPrivateAccessTagsForDynamicRouteResponseBody extends $tea.Model {
   dynamicRoutes?: ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes[];
+  /**
+   * @example
+   * B608C6AE-623D-55C4-9454-601B88AE937E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4169,14 +5511,52 @@ export class ListPrivateAccessTagsForDynamicRouteResponse extends $tea.Model {
 }
 
 export class ListRegistrationPoliciesRequest extends $tea.Model {
+  /**
+   * @example
+   * LimitAll
+   */
   companyLimitType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * UserGroupAll
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * LimitDiff
+   */
   personalLimitType?: string;
   policyIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4213,7 +5593,15 @@ export class ListRegistrationPoliciesRequest extends $tea.Model {
 
 export class ListRegistrationPoliciesResponseBody extends $tea.Model {
   policies?: ListRegistrationPoliciesResponseBodyPolicies[];
+  /**
+   * @example
+   * 7A8FE38A-E29C-5678-B84A-FEDBCB83552F
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4262,6 +5650,10 @@ export class ListRegistrationPoliciesResponse extends $tea.Model {
 }
 
 export class ListRegistrationPoliciesForUserGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4281,6 +5673,10 @@ export class ListRegistrationPoliciesForUserGroupRequest extends $tea.Model {
 }
 
 export class ListRegistrationPoliciesForUserGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   userGroups?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroups[];
   static names(): { [key: string]: string } {
@@ -4328,8 +5724,29 @@ export class ListRegistrationPoliciesForUserGroupResponse extends $tea.Model {
 }
 
 export class ListSoftwareForUserDeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4353,8 +5770,16 @@ export class ListSoftwareForUserDeviceRequest extends $tea.Model {
 }
 
 export class ListSoftwareForUserDeviceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   software?: ListSoftwareForUserDeviceResponseBodySoftware[];
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4403,6 +5828,10 @@ export class ListSoftwareForUserDeviceResponse extends $tea.Model {
 }
 
 export class ListTagsForPrivateAccessApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4423,6 +5852,10 @@ export class ListTagsForPrivateAccessApplicationRequest extends $tea.Model {
 
 export class ListTagsForPrivateAccessApplicationResponseBody extends $tea.Model {
   applications?: ListTagsForPrivateAccessApplicationResponseBodyApplications[];
+  /**
+   * @example
+   * 7241F45B-E8D3-5BA3-8172-8A58AC2AB0FC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4469,6 +5902,10 @@ export class ListTagsForPrivateAccessApplicationResponse extends $tea.Model {
 }
 
 export class ListTagsForPrivateAccessPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4489,6 +5926,10 @@ export class ListTagsForPrivateAccessPolicyRequest extends $tea.Model {
 
 export class ListTagsForPrivateAccessPolicyResponseBody extends $tea.Model {
   polices?: ListTagsForPrivateAccessPolicyResponseBodyPolices[];
+  /**
+   * @example
+   * 9EE61139-A6A8-5E13-80AF-83435C21B26B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4536,21 +5977,55 @@ export class ListTagsForPrivateAccessPolicyResponse extends $tea.Model {
 
 export class ListUserDevicesRequest extends $tea.Model {
   appStatuses?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
   department?: string;
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
   deviceStatuses?: string[];
   deviceTags?: string[];
   deviceTypes?: string[];
   dlpStatuses?: string[];
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
   iaStatuses?: string[];
   innerIp?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
   nacStatuses?: string[];
   paStatuses?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
   sortBy?: string;
   username?: string;
@@ -4609,7 +6084,15 @@ export class ListUserDevicesRequest extends $tea.Model {
 
 export class ListUserDevicesResponseBody extends $tea.Model {
   devices?: ListUserDevicesResponseBodyDevices[];
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4658,10 +6141,39 @@ export class ListUserDevicesResponse extends $tea.Model {
 }
 
 export class ListUserGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * username
+   */
   attributeValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * 用户组名称。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
+   * 
+   * @example
+   * user_group_name
+   */
   name?: string;
+  /**
+   * @example
+   * pa-policy-54a7838a48bf****
+   */
   PAPolicyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   userGroupIds?: string[];
   static names(): { [key: string]: string } {
@@ -4692,7 +6204,15 @@ export class ListUserGroupsRequest extends $tea.Model {
 }
 
 export class ListUserGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4AB972E2-D702-5464-B132-B1911498B8BF
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   userGroups?: ListUserGroupsResponseBodyUserGroups[];
   static names(): { [key: string]: string } {
@@ -4742,6 +6262,10 @@ export class ListUserGroupsResponse extends $tea.Model {
 }
 
 export class ListUserGroupsForPrivateAccessPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4762,6 +6286,10 @@ export class ListUserGroupsForPrivateAccessPolicyRequest extends $tea.Model {
 
 export class ListUserGroupsForPrivateAccessPolicyResponseBody extends $tea.Model {
   polices?: ListUserGroupsForPrivateAccessPolicyResponseBodyPolices[];
+  /**
+   * @example
+   * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4808,6 +6336,10 @@ export class ListUserGroupsForPrivateAccessPolicyResponse extends $tea.Model {
 }
 
 export class ListUserGroupsForRegistrationPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4828,6 +6360,10 @@ export class ListUserGroupsForRegistrationPolicyRequest extends $tea.Model {
 
 export class ListUserGroupsForRegistrationPolicyResponseBody extends $tea.Model {
   policies?: ListUserGroupsForRegistrationPolicyResponseBodyPolicies[];
+  /**
+   * @example
+   * D89009C7-54C6-51B6-BAE7-3F373920C6BF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4874,12 +6410,30 @@ export class ListUserGroupsForRegistrationPolicyResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
   department?: string;
   fuzzyUsername?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   preciseUsername?: string;
   saseUserIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4911,7 +6465,15 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: string;
   users?: ListUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
@@ -4961,8 +6523,26 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class LookupWmInfoMappingRequest extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
   wmInfoUint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PureDocument
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4987,6 +6567,10 @@ export class LookupWmInfoMappingRequest extends $tea.Model {
 
 export class LookupWmInfoMappingResponseBody extends $tea.Model {
   data?: LookupWmInfoMappingResponseBodyData;
+  /**
+   * @example
+   * 7E9D7ACD-53D5-56EF-A913-79D148D06299
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5033,7 +6617,21 @@ export class LookupWmInfoMappingResponse extends $tea.Model {
 }
 
 export class RevokeUserSessionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345678
+   */
   externalIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * idp-cfg9vcrqylo39c39uxnw
+   */
   idpId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5055,6 +6653,10 @@ export class RevokeUserSessionRequest extends $tea.Model {
 }
 
 export class RevokeUserSessionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D6707286-A50E-57B1-B2CF-EFAC59E850D8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5099,10 +6701,29 @@ export class RevokeUserSessionResponse extends $tea.Model {
 }
 
 export class UpdateClientUserRequest extends $tea.Model {
+  /**
+   * @example
+   * 10701
+   */
   departmentId?: string;
   description?: string;
+  /**
+   * @example
+   * johndoe@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20644
+   */
   id?: string;
+  /**
+   * @example
+   * 13641966835
+   */
   mobileNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5130,6 +6751,10 @@ export class UpdateClientUserRequest extends $tea.Model {
 }
 
 export class UpdateClientUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5174,7 +6799,15 @@ export class UpdateClientUserResponse extends $tea.Model {
 }
 
 export class UpdateClientUserPasswordRequest extends $tea.Model {
+  /**
+   * @example
+   * 1128
+   */
   id?: string;
+  /**
+   * @example
+   * kehudiyidj
+   */
   password?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -5199,6 +6832,10 @@ export class UpdateClientUserPasswordRequest extends $tea.Model {
 }
 
 export class UpdateClientUserPasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5243,7 +6880,21 @@ export class UpdateClientUserPasswordResponse extends $tea.Model {
 }
 
 export class UpdateClientUserStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1495
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5265,6 +6916,10 @@ export class UpdateClientUserStatusRequest extends $tea.Model {
 }
 
 export class UpdateClientUserStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5310,15 +6965,50 @@ export class UpdateClientUserStatusResponse extends $tea.Model {
 
 export class UpdateDynamicRouteRequest extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dr-ca9fddfac7c6****
+   */
   dynamicRouteId?: string;
+  /**
+   * @example
+   * connector
+   */
   dynamicRouteType?: string;
+  /**
+   * @example
+   * Cover
+   */
   modifyType?: string;
+  /**
+   * @example
+   * dynamic_route_name
+   */
   name?: string;
+  /**
+   * @example
+   * connector-8ccb13b6f52c****
+   */
   nextHop?: string;
+  /**
+   * @example
+   * 99
+   */
   priority?: number;
   regionIds?: string[];
+  /**
+   * @example
+   * Disabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
@@ -5361,6 +7051,10 @@ export class UpdateDynamicRouteRequest extends $tea.Model {
 }
 
 export class UpdateDynamicRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BE4FB974-11BC-5453-9BE1-1606A73EACA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5405,7 +7099,18 @@ export class UpdateDynamicRouteResponse extends $tea.Model {
 }
 
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   applicationIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Approved
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5428,6 +7133,10 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends 
 
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody extends $tea.Model {
   applications?: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications[];
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5474,8 +7183,26 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponse extends
 }
 
 export class UpdateIdpDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10653
+   */
   departmentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   departmentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 598
+   */
   idpConfigId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5499,6 +7226,10 @@ export class UpdateIdpDepartmentRequest extends $tea.Model {
 }
 
 export class UpdateIdpDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5544,6 +7275,10 @@ export class UpdateIdpDepartmentResponse extends $tea.Model {
 
 export class UpdateNacUserCertStatusRequest extends $tea.Model {
   idList?: UpdateNacUserCertStatusRequestIdList[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5565,8 +7300,20 @@ export class UpdateNacUserCertStatusRequest extends $tea.Model {
 }
 
 export class UpdateNacUserCertStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5616,18 +7363,51 @@ export class UpdateNacUserCertStatusResponse extends $tea.Model {
 
 export class UpdatePrivateAccessApplicationRequest extends $tea.Model {
   addresses?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   description?: string;
+  l7ProxyDomainAutomaticPrefix?: string;
+  l7ProxyDomainCustom?: string;
+  l7ProxyDomainPrivate?: string;
+  /**
+   * @example
+   * Cover
+   */
   modifyType?: string;
   portRanges?: UpdatePrivateAccessApplicationRequestPortRanges[];
+  /**
+   * @example
+   * All
+   */
   protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
       description: 'Description',
+      l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
+      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
+      l7ProxyDomainPrivate: 'L7ProxyDomainPrivate',
       modifyType: 'ModifyType',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
@@ -5641,6 +7421,9 @@ export class UpdatePrivateAccessApplicationRequest extends $tea.Model {
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
       description: 'string',
+      l7ProxyDomainAutomaticPrefix: 'string',
+      l7ProxyDomainCustom: 'string',
+      l7ProxyDomainPrivate: 'string',
       modifyType: 'string',
       portRanges: { 'type': 'array', 'itemType': UpdatePrivateAccessApplicationRequestPortRanges },
       protocol: 'string',
@@ -5655,6 +7438,10 @@ export class UpdatePrivateAccessApplicationRequest extends $tea.Model {
 }
 
 export class UpdatePrivateAccessApplicationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5700,18 +7487,62 @@ export class UpdatePrivateAccessApplicationResponse extends $tea.Model {
 
 export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
   customUserAttributes?: UpdatePrivateAccessPolicyRequestCustomUserAttributes[];
+  /**
+   * **if can be null:**
+   * true
+   */
   description?: string;
   deviceAttributeAction?: string;
   deviceAttributeId?: string;
+  /**
+   * @example
+   * Cover
+   */
   modifyType?: string;
+  /**
+   * @example
+   * Allow
+   */
   policyAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-policy-63b2f1844b86****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * 内网访问标签ID集合。一条策略最多支持100个内网访问标签ID。
+   */
   tagIds?: string[];
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * 内网访问策略的用户组类型。取值：
+   * - **Normal**：普通用户组。
+   * - **Custom**：自定义用户组。
+   * 
+   * @example
+   * Normal
+   */
   userGroupMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5757,6 +7588,10 @@ export class UpdatePrivateAccessPolicyRequest extends $tea.Model {
 }
 
 export class UpdatePrivateAccessPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5802,14 +7637,45 @@ export class UpdatePrivateAccessPolicyResponse extends $tea.Model {
 
 export class UpdateRegistrationPolicyRequest extends $tea.Model {
   companyLimitCount?: UpdateRegistrationPolicyRequestCompanyLimitCount;
+  /**
+   * @example
+   * LimitAll
+   */
   companyLimitType?: string;
   description?: string;
+  /**
+   * @example
+   * UserGroupNormal
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
   personalLimitCount?: UpdateRegistrationPolicyRequestPersonalLimitCount;
+  /**
+   * @example
+   * LimitDiff
+   */
   personalLimitType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reg-policy-63b2f1844b86****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 0
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -5854,14 +7720,45 @@ export class UpdateRegistrationPolicyRequest extends $tea.Model {
 
 export class UpdateRegistrationPolicyShrinkRequest extends $tea.Model {
   companyLimitCountShrink?: string;
+  /**
+   * @example
+   * LimitAll
+   */
   companyLimitType?: string;
   description?: string;
+  /**
+   * @example
+   * UserGroupNormal
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
   personalLimitCountShrink?: string;
+  /**
+   * @example
+   * LimitDiff
+   */
   personalLimitType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reg-policy-63b2f1844b86****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 0
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -5906,6 +7803,10 @@ export class UpdateRegistrationPolicyShrinkRequest extends $tea.Model {
 
 export class UpdateRegistrationPolicyResponseBody extends $tea.Model {
   policy?: UpdateRegistrationPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * 27064ECA-0936-59F3-8A98-EC821E5BD08F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5952,7 +7853,18 @@ export class UpdateRegistrationPolicyResponse extends $tea.Model {
 }
 
 export class UpdateUserDevicesSharingStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   deviceTags?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5975,6 +7887,10 @@ export class UpdateUserDevicesSharingStatusRequest extends $tea.Model {
 
 export class UpdateUserDevicesSharingStatusResponseBody extends $tea.Model {
   devices?: UpdateUserDevicesSharingStatusResponseBodyDevices[];
+  /**
+   * @example
+   * 4D169859-A4F2-5EC8-853B-8447787C0D8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6021,7 +7937,18 @@ export class UpdateUserDevicesSharingStatusResponse extends $tea.Model {
 }
 
 export class UpdateUserDevicesStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Unbound
+   */
   deviceAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   deviceTags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6044,6 +7971,10 @@ export class UpdateUserDevicesStatusRequest extends $tea.Model {
 
 export class UpdateUserDevicesStatusResponseBody extends $tea.Model {
   devices?: UpdateUserDevicesStatusResponseBodyDevices[];
+  /**
+   * @example
+   * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6091,8 +8022,23 @@ export class UpdateUserDevicesStatusResponse extends $tea.Model {
 
 export class UpdateUserGroupRequest extends $tea.Model {
   attributes?: UpdateUserGroupRequestAttributes[];
+  /**
+   * **if can be null:**
+   * true
+   */
   description?: string;
+  /**
+   * @example
+   * Cover
+   */
   modifyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6118,6 +8064,10 @@ export class UpdateUserGroupRequest extends $tea.Model {
 }
 
 export class UpdateUserGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FD724DBC-CD76-5235-BF76-59C51B73296D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6162,7 +8112,18 @@ export class UpdateUserGroupResponse extends $tea.Model {
 }
 
 export class UpdateUsersStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   saseUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6184,6 +8145,10 @@ export class UpdateUsersStatusRequest extends $tea.Model {
 }
 
 export class UpdateUsersStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 47363C2B-1AAA-5954-8847-0E50FCC54117
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6228,7 +8193,21 @@ export class UpdateUsersStatusResponse extends $tea.Model {
 }
 
 export class CreatePrivateAccessApplicationRequestPortRanges extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6250,8 +8229,20 @@ export class CreatePrivateAccessApplicationRequestPortRanges extends $tea.Model 
 }
 
 export class CreatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -6278,8 +8269,20 @@ export class CreatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.M
 }
 
 export class CreateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   all?: number;
+  /**
+   * @example
+   * 0
+   */
   mobile?: number;
+  /**
+   * @example
+   * 0
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6303,8 +8306,20 @@ export class CreateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model
 }
 
 export class CreateRegistrationPolicyRequestPersonalLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   all?: number;
+  /**
+   * @example
+   * 3
+   */
   mobile?: number;
+  /**
+   * @example
+   * 2
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6328,8 +8343,20 @@ export class CreateRegistrationPolicyRequestPersonalLimitCount extends $tea.Mode
 }
 
 export class CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   all?: number;
+  /**
+   * @example
+   * 3
+   */
   mobile?: number;
+  /**
+   * @example
+   * 2
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6353,8 +8380,16 @@ export class CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount ext
 }
 
 export class CreateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.Model {
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
   limitCount?: CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount;
+  /**
+   * @example
+   * LimitDiff
+   */
   limitType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6378,13 +8413,37 @@ export class CreateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.
 }
 
 export class CreateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   description?: string;
   limitDetail?: CreateRegistrationPolicyResponseBodyPolicyLimitDetail[];
+  /**
+   * @example
+   * UserGroupNormal
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -6424,9 +8483,31 @@ export class CreateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class CreateUserGroupRequestAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * department
+   */
   userGroupType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6452,8 +8533,20 @@ export class CreateUserGroupRequestAttributes extends $tea.Model {
 }
 
 export class CreateWmBaseImageResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * fafb432cdede9b20640e12105845386e-496883833-8242409229217337*****
+   */
   imageId?: string;
+  /**
+   * @example
+   * https://example.com/test-*****.png
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * 17185*****
+   */
   imageUrlExp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6477,6 +8570,10 @@ export class CreateWmBaseImageResponseBodyData extends $tea.Model {
 }
 
 export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   opacity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6496,15 +8593,55 @@ export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisible
 }
 
 export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   angle?: number;
+  /**
+   * @example
+   * 0x000000
+   */
   fontColor?: string;
+  /**
+   * @example
+   * 30
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 3
+   */
   horizontalNumber?: number;
+  /**
+   * @example
+   * pos
+   */
   mode?: string;
+  /**
+   * @example
+   * 100
+   */
   opacity?: number;
+  /**
+   * @example
+   * 0.5
+   */
   posX?: string;
+  /**
+   * @example
+   * 0.5
+   */
   posY?: string;
+  /**
+   * @example
+   * 3
+   */
   verticalNumber?: number;
+  /**
+   * @example
+   * hello ****
+   */
   visibleText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6542,7 +8679,15 @@ export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleCo
 }
 
 export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   bgAddInvisible?: boolean;
+  /**
+   * @example
+   * true
+   */
   bgAddVisible?: boolean;
   bgInvisibleControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl;
   bgVisibleControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl;
@@ -6571,7 +8716,15 @@ export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $t
 
 export class CreateWmEmbedTaskRequestDocumentControl extends $tea.Model {
   backgroundControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControl;
+  /**
+   * @example
+   * true
+   */
   invisibleAntiAllCopy?: boolean;
+  /**
+   * @example
+   * true
+   */
   invisibleAntiTextCopy?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6595,6 +8748,10 @@ export class CreateWmEmbedTaskRequestDocumentControl extends $tea.Model {
 }
 
 export class CreateWmEmbedTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * job:5GfrJYsoaffmCE7Z5bZtjUefzxfd****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6614,6 +8771,10 @@ export class CreateWmEmbedTaskResponseBodyData extends $tea.Model {
 }
 
 export class CreateWmExtractTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * wmt-9648c22d2eb2cb57bb855dcae7898464********
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6633,6 +8794,10 @@ export class CreateWmExtractTaskResponseBodyData extends $tea.Model {
 }
 
 export class CreateWmInfoMappingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 123***
+   */
   wmInfoUint?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6653,8 +8818,16 @@ export class CreateWmInfoMappingResponseBodyData extends $tea.Model {
 
 export class GetActiveIdpConfigResponseBodyData extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * idp-cfg001
+   */
   id?: string;
   name?: string;
+  /**
+   * @example
+   * DingTalk
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6680,6 +8853,10 @@ export class GetActiveIdpConfigResponseBodyData extends $tea.Model {
 }
 
 export class GetClientUserResponseBodyDataDepartment extends $tea.Model {
+  /**
+   * @example
+   * 107
+   */
   id?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -6703,13 +8880,41 @@ export class GetClientUserResponseBodyDataDepartment extends $tea.Model {
 
 export class GetClientUserResponseBodyData extends $tea.Model {
   department?: GetClientUserResponseBodyDataDepartment;
+  /**
+   * @example
+   * 10713
+   */
   departmentId?: string;
   description?: string;
+  /**
+   * @example
+   * johndoe@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 83
+   */
   id?: string;
+  /**
+   * @example
+   * 598
+   */
   idpConfigId?: string;
+  /**
+   * @example
+   * 13641966835
+   */
   mobileNumber?: string;
+  /**
+   * @example
+   * Disabled
+   */
   status?: string;
+  /**
+   * @example
+   * su_abcd7215****
+   */
   userId?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -6749,15 +8954,47 @@ export class GetClientUserResponseBodyData extends $tea.Model {
 
 export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
+  /**
+   * @example
+   * 2023-02-09 10:31:47
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * dr-16ff07c8207d****
+   */
   dynamicRouteId?: string;
+  /**
+   * @example
+   * connector
+   */
   dynamicRouteType?: string;
+  /**
+   * @example
+   * dynamic_route_name
+   */
   name?: string;
+  /**
+   * @example
+   * connector-8ccb13b6f52c****
+   */
   nextHop?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
   regionIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
@@ -6800,23 +9037,93 @@ export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
 }
 
 export class GetIdpConfigResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * AccessKey ID
+   * 
+   * @example
+   * LTAI5tJVztnh6Nn***
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * AccessKey Secret
+   * 
+   * @example
+   * E75ktr5jENiR3ssjC***
+   */
   accessKeySecret?: string;
   description?: string;
+  /**
+   * @example
+   * https://172.10.10.2:4321/getGroup?name=%s&pass=%s
+   */
   getGroupUrl?: string;
+  /**
+   * @example
+   * 1465
+   */
   id?: string;
+  /**
+   * @example
+   * <?xml version="1.0" encoding="utf-8"?>***
+   */
   idpMetadata?: string;
+  /**
+   * @example
+   * totp
+   */
   mfaConfigType?: string;
+  /**
+   * @example
+   * password
+   */
   mobileLoginType?: string;
+  /**
+   * @example
+   * totp
+   */
   mobileMfaConfigType?: string;
+  /**
+   * @example
+   * 1482,1355
+   */
   multiIdpInfo?: string;
   name?: string;
+  /**
+   * @example
+   * password
+   */
   pcLoginType?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * CSAS
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-02-26T02:02:42Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * QVhaU0RDR0JIWVV***
+   */
   verifyAesKey?: string;
+  /**
+   * @example
+   * 7JAr3fYtnl***
+   */
   verifyToken?: string;
+  /**
+   * @example
+   * http://172.10.10.1:1234/otp_verify
+   */
   verifyUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6870,7 +9177,15 @@ export class GetIdpConfigResponseBodyData extends $tea.Model {
 }
 
 export class GetPrivateAccessApplicationResponseBodyApplicationPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6893,23 +9208,49 @@ export class GetPrivateAccessApplicationResponseBodyApplicationPortRanges extend
 
 export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Model {
   addresses?: string[];
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  browserAccessStatus?: string;
   connectorIds?: string[];
+  /**
+   * @example
+   * 2022-08-30 16:50:32
+   */
   createTime?: string;
   description?: string;
+  l7ProxyDomainAutomatic?: string;
+  l7ProxyDomainCustom?: string;
+  /**
+   * @example
+   * private_access_application_name
+   */
   name?: string;
   policyIds?: string[];
   portRanges?: GetPrivateAccessApplicationResponseBodyApplicationPortRanges[];
+  /**
+   * @example
+   * All
+   */
   protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
+      browserAccessStatus: 'BrowserAccessStatus',
       connectorIds: 'ConnectorIds',
       createTime: 'CreateTime',
       description: 'Description',
+      l7ProxyDomainAutomatic: 'L7ProxyDomainAutomatic',
+      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
       name: 'Name',
       policyIds: 'PolicyIds',
       portRanges: 'PortRanges',
@@ -6923,9 +9264,12 @@ export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Mod
     return {
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
+      browserAccessStatus: 'string',
       connectorIds: { 'type': 'array', 'itemType': 'string' },
       createTime: 'string',
       description: 'string',
+      l7ProxyDomainAutomatic: 'string',
+      l7ProxyDomainCustom: 'string',
       name: 'string',
       policyIds: { 'type': 'array', 'itemType': 'string' },
       portRanges: { 'type': 'array', 'itemType': GetPrivateAccessApplicationResponseBodyApplicationPortRanges },
@@ -6941,8 +9285,20 @@ export class GetPrivateAccessApplicationResponseBodyApplication extends $tea.Mod
 }
 
 export class GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -6970,19 +9326,51 @@ export class GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes extend
 
 export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
+  /**
+   * @example
+   * 2021-07-29 11:26:02
+   */
   createTime?: string;
   customUserAttributes?: GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes[];
   description?: string;
   deviceAttributeAction?: string;
   deviceAttributeId?: string;
+  /**
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * Allow
+   */
   policyAction?: string;
+  /**
+   * @example
+   * pa-policy-63b2f1844b86****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   userGroupIds?: string[];
+  /**
+   * @example
+   * Normal
+   */
   userGroupMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7030,8 +9418,20 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   all?: number;
+  /**
+   * @example
+   * 2
+   */
   mobile?: number;
+  /**
+   * @example
+   * 2
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7055,8 +9455,16 @@ export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $tea
 }
 
 export class GetRegistrationPolicyResponseBodyLimitDetail extends $tea.Model {
+  /**
+   * @example
+   * Personal
+   */
   deviceBelong?: string;
   limitCount?: GetRegistrationPolicyResponseBodyLimitDetailLimitCount;
+  /**
+   * @example
+   * LimitDiff
+   */
   limitType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7080,6 +9488,10 @@ export class GetRegistrationPolicyResponseBodyLimitDetail extends $tea.Model {
 }
 
 export class GetUserDeviceResponseBodyDeviceHistoryUsers extends $tea.Model {
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -7102,30 +9514,122 @@ export class GetUserDeviceResponseBodyDeviceHistoryUsers extends $tea.Model {
 }
 
 export class GetUserDeviceResponseBodyDevice extends $tea.Model {
+  /**
+   * @example
+   * Online
+   */
   appStatus?: string;
+  /**
+   * @example
+   * 2.2.0
+   */
   appVersion?: string;
+  /**
+   * @example
+   * Apple M1
+   */
   CPU?: string;
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   department?: string;
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
+  /**
+   * @example
+   * MacBookPro17,1
+   */
   deviceModel?: string;
+  /**
+   * @example
+   * Online
+   */
   deviceStatus?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * Windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 3.5.1
+   */
   deviceVersion?: string;
+  /**
+   * @example
+   * APPLE SSD AP0512Q Media
+   */
   disk?: string;
+  /**
+   * @example
+   * Unauthorized
+   */
   dlpStatus?: string;
   historyUsers?: GetUserDeviceResponseBodyDeviceHistoryUsers[];
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * Disabled
+   */
   iaStatus?: string;
+  /**
+   * @example
+   * 172.16.XX.XX
+   */
   innerIP?: string;
+  /**
+   * @example
+   * 48:9e:XX:XX:02:80
+   */
   mac?: string;
+  /**
+   * @example
+   * 16
+   */
   memory?: string;
+  /**
+   * @example
+   * Unprovisioned
+   */
   nacStatus?: string;
+  /**
+   * @example
+   * Enabled
+   */
   paStatus?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
+  /**
+   * @example
+   * 106.14.XX.XX
+   */
   srcIP?: string;
+  /**
+   * @example
+   * 2023-08-24 19:04:42
+   */
   updateTime?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -7196,8 +9700,20 @@ export class GetUserDeviceResponseBodyDevice extends $tea.Model {
 }
 
 export class GetUserGroupResponseBodyUserGroupAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -7225,8 +9741,16 @@ export class GetUserGroupResponseBodyUserGroupAttributes extends $tea.Model {
 
 export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
   attributes?: GetUserGroupResponseBodyUserGroupAttributes[];
+  /**
+   * @example
+   * 2022-10-10 11:39:22
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * user_group_name
+   */
   name?: string;
   userGroupId?: string;
   static names(): { [key: string]: string } {
@@ -7255,12 +9779,40 @@ export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
 }
 
 export class GetWmEmbedTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * https://example.com/embed-****.pdf
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * 171859****
+   */
   fileUrlExp?: string;
+  /**
+   * @example
+   * embed-****.pdf
+   */
   filename?: string;
+  /**
+   * @example
+   * d41d8cd98f00b204e9800998ecf8****
+   */
   outFileHashMd5?: string;
+  /**
+   * @example
+   * 123**
+   */
   outFileSize?: number;
+  /**
+   * @example
+   * job:5GfrJYsoaffmCE7Z5bZtjUxxxxxxxxxx
+   */
   taskId?: string;
+  /**
+   * @example
+   * Success
+   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7292,13 +9844,45 @@ export class GetWmEmbedTaskResponseBodyData extends $tea.Model {
 }
 
 export class GetWmExtractTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-01 11:22:33
+   */
   createTime?: string;
+  /**
+   * @example
+   * test-****.pdf
+   */
   filename?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * wmt-9648c22d2eb2cb57bb855dcae7898464********
+   */
   taskId?: string;
+  /**
+   * @example
+   * aGVsbG8gc2Fz****
+   */
   wmInfoBytesB64?: string;
+  /**
+   * @example
+   * 32
+   */
   wmInfoSize?: number;
+  /**
+   * @example
+   * 123**
+   */
   wmInfoUint?: number;
+  /**
+   * @example
+   * PureDocument
+   */
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7332,7 +9916,15 @@ export class GetWmExtractTaskResponseBodyData extends $tea.Model {
 }
 
 export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicationsPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7355,12 +9947,32 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicatio
 
 export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications extends $tea.Model {
   addresses?: string[];
+  /**
+   * @example
+   * pa-application-7a9243dd02f4****
+   */
   applicationId?: string;
+  /**
+   * @example
+   * 2022-09-27 18:10:25
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * application_name
+   */
   name?: string;
   portRanges?: ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicationsPortRanges[];
+  /**
+   * @example
+   * TCP
+   */
   protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7395,6 +10007,10 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicatio
 
 export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $tea.Model {
   applications?: ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications[];
+  /**
+   * @example
+   * pa-policy-1b0d0e8b4bcf****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7416,7 +10032,15 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $
 }
 
 export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplicationsPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7439,12 +10063,35 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplicationsPort
 
 export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplications extends $tea.Model {
   addresses?: string[];
+  /**
+   * @example
+   * pa-application-7a9243dd02f4****
+   */
   applicationId?: string;
+  /**
+   * @remarks
+   * 内网访问应用创建时间。
+   * 
+   * @example
+   * 2022-09-27 18:10:25
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * private_access_application_name
+   */
   name?: string;
   portRanges?: ListApplicationsForPrivateAccessTagResponseBodyTagsApplicationsPortRanges[];
+  /**
+   * @example
+   * All
+   */
   protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7479,6 +10126,10 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTagsApplications ext
 
 export class ListApplicationsForPrivateAccessTagResponseBodyTags extends $tea.Model {
   applications?: ListApplicationsForPrivateAccessTagResponseBodyTagsApplications[];
+  /**
+   * @example
+   * tag-7ffc82853476****
+   */
   tagId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7500,6 +10151,10 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTags extends $tea.Mo
 }
 
 export class ListClientUsersResponseBodyDataDataListDepartment extends $tea.Model {
+  /**
+   * @example
+   * 105
+   */
   id?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -7523,13 +10178,41 @@ export class ListClientUsersResponseBodyDataDataListDepartment extends $tea.Mode
 
 export class ListClientUsersResponseBodyDataDataList extends $tea.Model {
   department?: ListClientUsersResponseBodyDataDataListDepartment;
+  /**
+   * @example
+   * 10800
+   */
   departmentId?: string;
   description?: string;
+  /**
+   * @example
+   * johndoe@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 1970
+   */
   id?: string;
+  /**
+   * @example
+   * 1026
+   */
   idpConfigId?: string;
+  /**
+   * @example
+   * 15800820468
+   */
   mobileNumber?: string;
+  /**
+   * @example
+   * Disabled
+   */
   status?: string;
+  /**
+   * @example
+   * su_dead7216****
+   */
   userId?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -7569,6 +10252,10 @@ export class ListClientUsersResponseBodyDataDataList extends $tea.Model {
 
 export class ListClientUsersResponseBodyData extends $tea.Model {
   dataList?: ListClientUsersResponseBodyDataDataList[];
+  /**
+   * @example
+   * 2
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7590,7 +10277,15 @@ export class ListClientUsersResponseBodyData extends $tea.Model {
 }
 
 export class ListConnectorsResponseBodyConnectorsApplications extends $tea.Model {
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  /**
+   * @example
+   * application_name
+   */
   applicationName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7640,7 +10335,15 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $tea.M
 }
 
 export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $tea.Model {
+  /**
+   * @example
+   * 23:00
+   */
   end?: string;
+  /**
+   * @example
+   * 20:00
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7664,11 +10367,38 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $tea.Model 
 export class ListConnectorsResponseBodyConnectors extends $tea.Model {
   applications?: ListConnectorsResponseBodyConnectorsApplications[];
   connectorClients?: ListConnectorsResponseBodyConnectorsConnectorClients[];
+  /**
+   * @remarks
+   * ConnectorID。
+   * 
+   * @example
+   * connector-94db94e06b98****
+   */
   connectorId?: string;
+  /**
+   * @example
+   * 2022-09-27 18:10:25
+   */
   createTime?: string;
+  /**
+   * @example
+   * connector_name
+   */
   name?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * Online
+   */
   status?: string;
+  /**
+   * @example
+   * Enabled
+   */
   switchStatus?: string;
   upgradeTime?: ListConnectorsResponseBodyConnectorsUpgradeTime;
   static names(): { [key: string]: string } {
@@ -7706,15 +10436,47 @@ export class ListConnectorsResponseBodyConnectors extends $tea.Model {
 
 export class ListDynamicRoutesResponseBodyDynamicRoutes extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
+  /**
+   * @example
+   * 2023-03-21 11:50:03
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * dr-a0ca843f53cf****
+   */
   dynamicRouteId?: string;
+  /**
+   * @example
+   * connector
+   */
   dynamicRouteType?: string;
+  /**
+   * @example
+   * dynamic_route_name
+   */
   name?: string;
+  /**
+   * @example
+   * connector-8ccb13b6f52c****
+   */
   nextHop?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
   regionIds?: string[];
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
@@ -7757,16 +10519,52 @@ export class ListDynamicRoutesResponseBodyDynamicRoutes extends $tea.Model {
 }
 
 export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications extends $tea.Model {
+  /**
+   * @example
+   * reg-application-0f4a127b7e78****
+   */
   applicationId?: string;
+  /**
+   * @example
+   * 2023-07-17 18:46:55
+   */
   createTime?: string;
   department?: string;
   description?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * Windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * false
+   */
   isUsed?: boolean;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * Approved
+   */
   status?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -7810,15 +10608,51 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
 
 export class ListIdpConfigsResponseBodyDataDataList extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * 277
+   */
   id?: string;
+  /**
+   * @example
+   * totp
+   */
   mfa?: string;
+  /**
+   * @example
+   * password
+   */
   mobileLoginType?: string;
+  /**
+   * @example
+   * password
+   */
   mobileMfaConfigType?: string;
+  /**
+   * @example
+   * 1482,1355
+   */
   multiIdpInfo?: string;
   name?: string;
+  /**
+   * @example
+   * password
+   */
   pcLoginType?: string;
+  /**
+   * @example
+   * Disabled
+   */
   status?: string;
+  /**
+   * @example
+   * DingTalk
+   */
   type?: string;
+  /**
+   * @example
+   * 2023-05-09T02:22:41.430Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7859,6 +10693,10 @@ export class ListIdpConfigsResponseBodyDataDataList extends $tea.Model {
 
 export class ListIdpConfigsResponseBodyData extends $tea.Model {
   dataList?: ListIdpConfigsResponseBodyDataDataList[];
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7880,7 +10718,15 @@ export class ListIdpConfigsResponseBodyData extends $tea.Model {
 }
 
 export class ListIdpDepartmentsResponseBodyDataDataList extends $tea.Model {
+  /**
+   * @example
+   * 30520
+   */
   id?: string;
+  /**
+   * @example
+   * 1440
+   */
   idpConfigId?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -7906,6 +10752,10 @@ export class ListIdpDepartmentsResponseBodyDataDataList extends $tea.Model {
 
 export class ListIdpDepartmentsResponseBodyData extends $tea.Model {
   dataList?: ListIdpDepartmentsResponseBodyDataDataList[];
+  /**
+   * @example
+   * 2
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7927,15 +10777,51 @@ export class ListIdpDepartmentsResponseBodyData extends $tea.Model {
 }
 
 export class ListNacUserCertResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   aliuid?: string;
   department?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   devTag?: string;
+  /**
+   * @example
+   * windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 2029-06-30 09:31:54
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * MS-XU****
+   */
   hostname?: string;
+  /**
+   * @example
+   * 08:f8:**:**:**:5e
+   */
   mac?: string;
+  /**
+   * @example
+   * Disabled
+   */
   status?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   userId?: string;
+  /**
+   * @example
+   * zhang**
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7973,8 +10859,20 @@ export class ListNacUserCertResponseBodyDataList extends $tea.Model {
 }
 
 export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPoliciesCustomUserAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -8001,15 +10899,47 @@ export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolic
 }
 
 export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolicies extends $tea.Model {
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
+  /**
+   * @example
+   * 2022-09-27 18:10:25
+   */
   createTime?: string;
   customUserAttributes?: ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPoliciesCustomUserAttributes[];
   description?: string;
+  /**
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * Allow
+   */
   policyAction?: string;
+  /**
+   * @example
+   * pa-policy-867ef4007c8a****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * Normal
+   */
   userGroupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8047,6 +10977,10 @@ export class ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolic
 }
 
 export class ListPolicesForPrivateAccessApplicationResponseBodyApplications extends $tea.Model {
+  /**
+   * @example
+   * pa-application-b927baf3e592****
+   */
   applicationId?: string;
   policies?: ListPolicesForPrivateAccessApplicationResponseBodyApplicationsPolicies[];
   static names(): { [key: string]: string } {
@@ -8069,9 +11003,47 @@ export class ListPolicesForPrivateAccessApplicationResponseBodyApplications exte
 }
 
 export class ListPolicesForPrivateAccessTagResponseBodyTagsPolicesCustomUserAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * 用户组的身份源ID。当自定义用户组类型为**department**时，存在该值。
+   * 
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @remarks
+   * 用户组的关系。取值：
+   * - **Equal**：等于。
+   * - **Unequal**：不等于。
+   * 
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @remarks
+   * 用户组的类型。取值：
+   * - **username**：用户名。
+   * - **department**：部门。
+   * - **email**：邮箱。
+   * - **telephone**：手机。
+   * 
+   * @example
+   * department
+   */
   userGroupType?: string;
+  /**
+   * @remarks
+   * 用户组属性的值。
+   * - 当用户组类型为**username**时，表示用户名的值。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
+   * - 当用户组类型为**department**时，表示部门的值。如：OU=部门1,OU=SASE钉钉。
+   * - 当用户组类型为**email**时，表示邮箱的值。如：username@example.com。
+   * - 当用户组类型为**telephone**时，表示手机的值。如：13900001234。
+   * 
+   * @example
+   * OU=部门1,OU=SASE钉钉
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8097,15 +11069,54 @@ export class ListPolicesForPrivateAccessTagResponseBodyTagsPolicesCustomUserAttr
 }
 
 export class ListPolicesForPrivateAccessTagResponseBodyTagsPolices extends $tea.Model {
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
+  /**
+   * @remarks
+   * 内网访问策略创建时间。
+   * 
+   * @example
+   * 2023-02-21 14:10:16
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 自定义用户组属性集合。多个自定义用户组属性之间是或的关系，按照合集生效。
+   */
   customUserAttributes?: ListPolicesForPrivateAccessTagResponseBodyTagsPolicesCustomUserAttributes[];
   description?: string;
+  /**
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * Allow
+   */
   policyAction?: string;
+  /**
+   * @example
+   * pa-policy-867ef4007c8a****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
+  /**
+   * @example
+   * Normal
+   */
   userGroupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8144,6 +11155,10 @@ export class ListPolicesForPrivateAccessTagResponseBodyTagsPolices extends $tea.
 
 export class ListPolicesForPrivateAccessTagResponseBodyTags extends $tea.Model {
   polices?: ListPolicesForPrivateAccessTagResponseBodyTagsPolices[];
+  /**
+   * @example
+   * tag-b927baf3e592****
+   */
   tagId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8165,8 +11180,20 @@ export class ListPolicesForPrivateAccessTagResponseBodyTags extends $tea.Model {
 }
 
 export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $tea.Model {
+  /**
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * pa-policy-ce2bf7236fab****
+   */
   policyId?: string;
+  /**
+   * @example
+   * PrivateAccess
+   */
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8191,6 +11218,10 @@ export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $tea.M
 
 export class ListPolicesForUserGroupResponseBodyUserGroups extends $tea.Model {
   polices?: ListPolicesForUserGroupResponseBodyUserGroupsPolices[];
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8212,7 +11243,15 @@ export class ListPolicesForUserGroupResponseBodyUserGroups extends $tea.Model {
 }
 
 export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $tea.Model {
+  /**
+   * @example
+   * 15325
+   */
   average?: number;
+  /**
+   * @example
+   * 2023-12-06 15:29:00
+   */
   dateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8235,6 +11274,10 @@ export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $
 
 export class ListPopTrafficStatisticsResponseBodyTrafficData extends $tea.Model {
   datapoints?: ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints[];
+  /**
+   * @example
+   * InternetTx
+   */
   metricName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8256,7 +11299,15 @@ export class ListPopTrafficStatisticsResponseBodyTrafficData extends $tea.Model 
 }
 
 export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8279,23 +11330,49 @@ export class ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges ext
 
 export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.Model {
   addresses?: string[];
+  /**
+   * @example
+   * pa-application-e12860ef6c48****
+   */
   applicationId?: string;
+  browserAccessStatus?: string;
   connectorIds?: string[];
+  /**
+   * @example
+   * 2022-12-16 15:03:42
+   */
   createTime?: string;
   description?: string;
+  l7ProxyDomainAutomatic?: string;
+  l7ProxyDomainCustom?: string;
+  /**
+   * @example
+   * private_access_application_name
+   */
   name?: string;
   policyIds?: string[];
   portRanges?: ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges[];
+  /**
+   * @example
+   * All
+   */
   protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   static names(): { [key: string]: string } {
     return {
       addresses: 'Addresses',
       applicationId: 'ApplicationId',
+      browserAccessStatus: 'BrowserAccessStatus',
       connectorIds: 'ConnectorIds',
       createTime: 'CreateTime',
       description: 'Description',
+      l7ProxyDomainAutomatic: 'L7ProxyDomainAutomatic',
+      l7ProxyDomainCustom: 'L7ProxyDomainCustom',
       name: 'Name',
       policyIds: 'PolicyIds',
       portRanges: 'PortRanges',
@@ -8309,9 +11386,12 @@ export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.
     return {
       addresses: { 'type': 'array', 'itemType': 'string' },
       applicationId: 'string',
+      browserAccessStatus: 'string',
       connectorIds: { 'type': 'array', 'itemType': 'string' },
       createTime: 'string',
       description: 'string',
+      l7ProxyDomainAutomatic: 'string',
+      l7ProxyDomainCustom: 'string',
       name: 'string',
       policyIds: { 'type': 'array', 'itemType': 'string' },
       portRanges: { 'type': 'array', 'itemType': ListPrivateAccessApplicationsResponseBodyApplicationsPortRanges },
@@ -8327,7 +11407,15 @@ export class ListPrivateAccessApplicationsResponseBodyApplications extends $tea.
 }
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8350,12 +11438,32 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications extends $tea.Model {
   addresses?: string[];
+  /**
+   * @example
+   * pa-application-7a9243dd02f4****
+   */
   applicationId?: string;
+  /**
+   * @example
+   * 2022-04-13 13:33:24
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * application_name
+   */
   name?: string;
   portRanges?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges[];
+  /**
+   * @example
+   * All
+   */
   protocol?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8390,6 +11498,10 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes extends $tea.Model {
   applications?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications[];
+  /**
+   * @example
+   * dr-ca9fddfac7c6****
+   */
   dynamicRouteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8411,8 +11523,20 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
 }
 
 export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -8440,19 +11564,51 @@ export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes ext
 
 export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
   applicationIds?: string[];
+  /**
+   * @example
+   * Application
+   */
   applicationType?: string;
+  /**
+   * @example
+   * 2022-07-10 15:50:23
+   */
   createTime?: string;
   customUserAttributes?: ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes[];
   description?: string;
   deviceAttributeAction?: string;
   deviceAttributeId?: string;
+  /**
+   * @example
+   * private_access_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * Allow
+   */
   policyAction?: string;
+  /**
+   * @example
+   * pa-policy-63b2f1844b86****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   tagIds?: string[];
   userGroupIds?: string[];
+  /**
+   * @example
+   * Normal
+   */
   userGroupMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8500,12 +11656,55 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $tea.Model {
 }
 
 export class ListPrivateAccessTagsResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the internal access applications.
+   */
   applicationIds?: string[];
+  /**
+   * @remarks
+   * The time when the internal access tag was created.
+   * 
+   * @example
+   * 2022-10-10 11:39:34
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the internal access tag.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the internal access tag.
+   * 
+   * @example
+   * tag_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of the internal access policies.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the internal access tag.
+   * 
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
+  /**
+   * @remarks
+   * The type of the internal access tag. Valid values:
+   * 
+   * *   **Default**
+   * *   **Custom**
+   * 
+   * @example
+   * Default
+   */
   tagType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8537,10 +11736,26 @@ export class ListPrivateAccessTagsResponseBodyTags extends $tea.Model {
 }
 
 export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags extends $tea.Model {
+  /**
+   * @example
+   * 2022-10-23 14:02:56
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * tag_name
+   */
   name?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
+  /**
+   * @example
+   * Custom
+   */
   tagType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8568,6 +11783,10 @@ export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags e
 }
 
 export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes extends $tea.Model {
+  /**
+   * @example
+   * dr-ca9fddfac7c6****
+   */
   dynamicRouteId?: string;
   tags?: ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags[];
   static names(): { [key: string]: string } {
@@ -8590,8 +11809,20 @@ export class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes exten
 }
 
 export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   all?: number;
+  /**
+   * @example
+   * 0
+   */
   mobile?: number;
+  /**
+   * @example
+   * 0
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8615,8 +11846,16 @@ export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount e
 }
 
 export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $tea.Model {
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
   limitCount?: ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount;
+  /**
+   * @example
+   * LimitAll
+   */
   limitType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8640,13 +11879,37 @@ export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $te
 }
 
 export class ListRegistrationPoliciesResponseBodyPolicies extends $tea.Model {
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   description?: string;
   limitDetail?: ListRegistrationPoliciesResponseBodyPoliciesLimitDetail[];
+  /**
+   * @example
+   * UserGroupNormal
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -8686,8 +11949,20 @@ export class ListRegistrationPoliciesResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   all?: string;
+  /**
+   * @example
+   * 0
+   */
   mobile?: string;
+  /**
+   * @example
+   * 0
+   */
   PC?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8711,8 +11986,16 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesL
 }
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail extends $tea.Model {
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
   limitCount?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount;
+  /**
+   * @example
+   * LimitAll
+   */
   limitType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8736,13 +12019,37 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesL
 }
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies extends $tea.Model {
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   description?: string;
   limitDetail?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail[];
+  /**
+   * @example
+   * UserGroupNormal
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
+  /**
+   * @example
+   * reg-policy-dcbfd33cb004****
+   */
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   whitelist?: string[];
   static names(): { [key: string]: string } {
@@ -8780,6 +12087,10 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies 
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends $tea.Model {
   policies?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies[];
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8801,7 +12112,15 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends 
 }
 
 export class ListSoftwareForUserDeviceResponseBodySoftware extends $tea.Model {
+  /**
+   * @example
+   * Alibaba (China) Network Technology Co.,Ltd.
+   */
   inc?: string;
+  /**
+   * @example
+   * 2023-08-18 02:43:02
+   */
   installTime?: string;
   name?: string;
   versions?: string[];
@@ -8829,10 +12148,26 @@ export class ListSoftwareForUserDeviceResponseBodySoftware extends $tea.Model {
 }
 
 export class ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-01 16:05:26
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * tag_name
+   */
   name?: string;
+  /**
+   * @example
+   * tag-c0cb77857a99****
+   */
   tagId?: string;
+  /**
+   * @example
+   * Default
+   */
   tagType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8860,6 +12195,10 @@ export class ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags ext
 }
 
 export class ListTagsForPrivateAccessApplicationResponseBodyApplications extends $tea.Model {
+  /**
+   * @example
+   * pa-application-7a4445897856****
+   */
   applicationId?: string;
   tags?: ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags[];
   static names(): { [key: string]: string } {
@@ -8882,10 +12221,29 @@ export class ListTagsForPrivateAccessApplicationResponseBodyApplications extends
 }
 
 export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $tea.Model {
+  /**
+   * @remarks
+   * 内网访问标签创建时间。
+   * 
+   * @example
+   * 2023-02-21 14:10:16
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * tag_name
+   */
   name?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
   tagId?: string;
+  /**
+   * @example
+   * Default
+   */
   tagType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8913,6 +12271,10 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $tea.
 }
 
 export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $tea.Model {
+  /**
+   * @example
+   * pa-policy-1b0d0e8b4bcf****
+   */
   policyId?: string;
   tags?: ListTagsForPrivateAccessPolicyResponseBodyPolicesTags[];
   static names(): { [key: string]: string } {
@@ -8935,29 +12297,121 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $tea.Mode
 }
 
 export class ListUserDevicesResponseBodyDevices extends $tea.Model {
+  /**
+   * @example
+   * Online
+   */
   appStatus?: string;
+  /**
+   * @example
+   * 2.2.0
+   */
   appVersion?: string;
+  /**
+   * @example
+   * Apple M1
+   */
   CPU?: string;
+  /**
+   * @example
+   * 2023-07-17 18:46:55
+   */
   createTime?: string;
   department?: string;
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
+  /**
+   * @example
+   * MacBookPro17,1
+   */
   deviceModel?: string;
+  /**
+   * @example
+   * Online
+   */
   deviceStatus?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * Windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 3.5.1
+   */
   deviceVersion?: string;
+  /**
+   * @example
+   * APPLE SSD AP0512Q Media
+   */
   disk?: string;
+  /**
+   * @example
+   * Enabled
+   */
   dlpStatus?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * Enabled
+   */
   iaStatus?: string;
+  /**
+   * @example
+   * 192.168.XX.XX
+   */
   innerIP?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
+  /**
+   * @example
+   * 16
+   */
   memory?: string;
+  /**
+   * @example
+   * Enabled
+   */
   nacStatus?: string;
+  /**
+   * @example
+   * Enabled
+   */
   paStatus?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
+  /**
+   * @example
+   * 11.49.XX.XX
+   */
   srcIP?: string;
+  /**
+   * @example
+   * 2023-08-24 19:04:42
+   */
   updateTime?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -9026,8 +12480,20 @@ export class ListUserDevicesResponseBodyDevices extends $tea.Model {
 }
 
 export class ListUserGroupsResponseBodyUserGroupsAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -9055,9 +12521,21 @@ export class ListUserGroupsResponseBodyUserGroupsAttributes extends $tea.Model {
 
 export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
   attributes?: ListUserGroupsResponseBodyUserGroupsAttributes[];
+  /**
+   * @example
+   * 2022-10-10 11:39:22
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * user_group_name
+   */
   name?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9085,8 +12563,20 @@ export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
 }
 
 export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -9114,9 +12604,24 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAt
 
 export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroups extends $tea.Model {
   attributes?: ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAttributes[];
+  /**
+   * @remarks
+   * 用户组创建时间。
+   * 
+   * @example
+   * 2022-09-27 18:10:25
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * user_group_name
+   */
   name?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9144,6 +12649,10 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroups e
 }
 
 export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolices extends $tea.Model {
+  /**
+   * @example
+   * pa-policy-1b0d0e8b4bcf****
+   */
   policyId?: string;
   userGroups?: ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroups[];
   static names(): { [key: string]: string } {
@@ -9166,8 +12675,20 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolices extends $te
 }
 
 export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @example
+   * department
+   */
   userGroupType?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -9195,9 +12716,21 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAt
 
 export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups extends $tea.Model {
   attributes?: ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroupsAttributes[];
+  /**
+   * @example
+   * 2022-09-27 18:10:25
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * user_group_name
+   */
   name?: string;
+  /**
+   * @example
+   * usergroup-6f1ef2fc56b6****
+   */
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9225,6 +12758,10 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups e
 }
 
 export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $tea.Model {
+  /**
+   * @example
+   * reg-policy-f25c9e5872e5****
+   */
   policyId?: string;
   userGroups?: ListUserGroupsForRegistrationPolicyResponseBodyPoliciesUserGroups[];
   static names(): { [key: string]: string } {
@@ -9248,10 +12785,26 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $te
 
 export class ListUsersResponseBodyUsers extends $tea.Model {
   department?: string;
+  /**
+   * @example
+   * a***@example.net
+   */
   email?: string;
   idpName?: string;
+  /**
+   * @example
+   * 1381111****
+   */
   phone?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -9284,6 +12837,10 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
 }
 
 export class LookupWmInfoMappingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * aGVsbG8gc2F*****
+   */
   wmInfoBytesB64?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9303,16 +12860,52 @@ export class LookupWmInfoMappingResponseBodyData extends $tea.Model {
 }
 
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications extends $tea.Model {
+  /**
+   * @example
+   * reg-application-0f4a127b7e78****
+   */
   applicationId?: string;
+  /**
+   * @example
+   * 2023-07-17 18:46:55
+   */
   createTime?: string;
   department?: string;
   description?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * Windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * false
+   */
   isUsed?: boolean;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * Approved
+   */
   status?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -9355,7 +12948,15 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyAppl
 }
 
 export class UpdateNacUserCertStatusRequestIdList extends $tea.Model {
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   devTag?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9377,7 +12978,15 @@ export class UpdateNacUserCertStatusRequestIdList extends $tea.Model {
 }
 
 export class UpdatePrivateAccessApplicationRequestPortRanges extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   begin?: number;
+  /**
+   * @example
+   * 81
+   */
   end?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9399,9 +13008,31 @@ export class UpdatePrivateAccessApplicationRequestPortRanges extends $tea.Model 
 }
 
 export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * department
+   */
   userGroupType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9427,8 +13058,20 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $tea.M
 }
 
 export class UpdateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   all?: number;
+  /**
+   * @example
+   * 0
+   */
   mobile?: number;
+  /**
+   * @example
+   * 0
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9452,8 +13095,20 @@ export class UpdateRegistrationPolicyRequestCompanyLimitCount extends $tea.Model
 }
 
 export class UpdateRegistrationPolicyRequestPersonalLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   all?: number;
+  /**
+   * @example
+   * 1
+   */
   mobile?: number;
+  /**
+   * @example
+   * 2
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9477,8 +13132,20 @@ export class UpdateRegistrationPolicyRequestPersonalLimitCount extends $tea.Mode
 }
 
 export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   all?: number;
+  /**
+   * @example
+   * 0
+   */
   mobile?: number;
+  /**
+   * @example
+   * 0
+   */
   PC?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9502,8 +13169,16 @@ export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount ext
 }
 
 export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.Model {
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
   limitCount?: UpdateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount;
+  /**
+   * @example
+   * LimitAll
+   */
   limitType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9527,13 +13202,33 @@ export class UpdateRegistrationPolicyResponseBodyPolicyLimitDetail extends $tea.
 }
 
 export class UpdateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   description?: string;
   limitDetail?: UpdateRegistrationPolicyResponseBodyPolicyLimitDetail[];
+  /**
+   * @example
+   * UserGroupNormal
+   */
   matchMode?: string;
+  /**
+   * @example
+   * registration_policy_name
+   */
   name?: string;
   policyId?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: string;
+  /**
+   * @example
+   * Enabled
+   */
   status?: string;
   userGroupIds?: string[];
   whitelist?: string[];
@@ -9573,29 +13268,121 @@ export class UpdateRegistrationPolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Model {
+  /**
+   * @example
+   * Online
+   */
   appStatus?: string;
+  /**
+   * @example
+   * 2.2.0
+   */
   appVersion?: string;
+  /**
+   * @example
+   * Apple M1
+   */
   CPU?: string;
+  /**
+   * @example
+   * 2023-05-16 17:18:46
+   */
   createTime?: string;
   department?: string;
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
+  /**
+   * @example
+   * MacBookPro17,1
+   */
   deviceModel?: string;
+  /**
+   * @example
+   * Online
+   */
   deviceStatus?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * Windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 3.5.1
+   */
   deviceVersion?: string;
+  /**
+   * @example
+   * APPLE SSD AP0512Q Media
+   */
   disk?: string;
+  /**
+   * @example
+   * Enabled
+   */
   dlpStatus?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * Enabled
+   */
   iaStatus?: string;
+  /**
+   * @example
+   * 192.168.XX.XX
+   */
   innerIP?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
+  /**
+   * @example
+   * 16
+   */
   memory?: string;
+  /**
+   * @example
+   * Enabled
+   */
   nacStatus?: string;
+  /**
+   * @example
+   * Enabled
+   */
   paStatus?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
+  /**
+   * @example
+   * 11.49.XX.XX
+   */
   srcIP?: string;
+  /**
+   * @example
+   * 2023-08-24 19:04:42
+   */
   updateTime?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -9664,29 +13451,121 @@ export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $tea.Mode
 }
 
 export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
+  /**
+   * @example
+   * Online
+   */
   appStatus?: string;
+  /**
+   * @example
+   * 2.2.0
+   */
   appVersion?: string;
+  /**
+   * @example
+   * Apple M1
+   */
   CPU?: string;
+  /**
+   * @example
+   * 2023-07-17 18:46:55
+   */
   createTime?: string;
   department?: string;
+  /**
+   * @example
+   * Company
+   */
   deviceBelong?: string;
+  /**
+   * @example
+   * MacBookPro17,1
+   */
   deviceModel?: string;
+  /**
+   * @example
+   * Online
+   */
   deviceStatus?: string;
+  /**
+   * @example
+   * 36efa42d-2c32-c4dc-e3fc-8541e33a****
+   */
   deviceTag?: string;
+  /**
+   * @example
+   * Windows
+   */
   deviceType?: string;
+  /**
+   * @example
+   * 3.5.1
+   */
   deviceVersion?: string;
+  /**
+   * @example
+   * APPLE SSD AP0512Q Media
+   */
   disk?: string;
+  /**
+   * @example
+   * Enabled
+   */
   dlpStatus?: string;
+  /**
+   * @example
+   * win10-64bit
+   */
   hostname?: string;
+  /**
+   * @example
+   * Enabled
+   */
   iaStatus?: string;
+  /**
+   * @example
+   * 192.168.XX.XX
+   */
   innerIP?: string;
+  /**
+   * @example
+   * 00:16:XX:XX:7c:46
+   */
   mac?: string;
+  /**
+   * @example
+   * 16
+   */
   memory?: string;
+  /**
+   * @example
+   * Enabled
+   */
   nacStatus?: string;
+  /**
+   * @example
+   * Enabled
+   */
   paStatus?: string;
+  /**
+   * @example
+   * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
+   */
   saseUserId?: string;
+  /**
+   * @example
+   * true
+   */
   sharingStatus?: boolean;
+  /**
+   * @example
+   * 11.49.XX.XX
+   */
   srcIP?: string;
+  /**
+   * @example
+   * 2023-08-24 19:04:42
+   */
   updateTime?: string;
   username?: string;
   static names(): { [key: string]: string } {
@@ -9755,9 +13634,31 @@ export class UpdateUserDevicesStatusResponseBodyDevices extends $tea.Model {
 }
 
 export class UpdateUserGroupRequestAttributes extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   idpId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Equal
+   */
   relation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * department
+   */
   userGroupType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9806,11 +13707,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 挂载connector的应用
-   *
-   * @param tmpReq AttachApplication2ConnectorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachApplication2ConnectorResponse
+   * 挂载connector的应用
+   * 
+   * @param tmpReq - AttachApplication2ConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachApplication2ConnectorResponse
    */
   async attachApplication2ConnectorWithOptions(tmpReq: AttachApplication2ConnectorRequest, runtime: $Util.RuntimeOptions): Promise<AttachApplication2ConnectorResponse> {
     Util.validateModel(tmpReq);
@@ -9847,10 +13748,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 挂载connector的应用
-   *
-   * @param request AttachApplication2ConnectorRequest
-   * @return AttachApplication2ConnectorResponse
+   * 挂载connector的应用
+   * 
+   * @param request - AttachApplication2ConnectorRequest
+   * @returns AttachApplication2ConnectorResponse
    */
   async attachApplication2Connector(request: AttachApplication2ConnectorRequest): Promise<AttachApplication2ConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9858,11 +13759,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义身份源用户
-   *
-   * @param request CreateClientUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateClientUserResponse
+   * 创建自定义身份源用户
+   * 
+   * @param request - CreateClientUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClientUserResponse
    */
   async createClientUserWithOptions(request: CreateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientUserResponse> {
     Util.validateModel(request);
@@ -9913,10 +13814,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义身份源用户
-   *
-   * @param request CreateClientUserRequest
-   * @return CreateClientUserResponse
+   * 创建自定义身份源用户
+   * 
+   * @param request - CreateClientUserRequest
+   * @returns CreateClientUserResponse
    */
   async createClientUser(request: CreateClientUserRequest): Promise<CreateClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9924,11 +13825,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建动态路由
-   *
-   * @param request CreateDynamicRouteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDynamicRouteResponse
+   * 创建动态路由
+   * 
+   * @param request - CreateDynamicRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDynamicRouteResponse
    */
   async createDynamicRouteWithOptions(request: CreateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateDynamicRouteResponse> {
     Util.validateModel(request);
@@ -9996,10 +13897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建动态路由
-   *
-   * @param request CreateDynamicRouteRequest
-   * @return CreateDynamicRouteResponse
+   * 创建动态路由
+   * 
+   * @param request - CreateDynamicRouteRequest
+   * @returns CreateDynamicRouteResponse
    */
   async createDynamicRoute(request: CreateDynamicRouteRequest): Promise<CreateDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10007,11 +13908,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义身份源部门
-   *
-   * @param request CreateIdpDepartmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIdpDepartmentResponse
+   * 创建自定义身份源部门
+   * 
+   * @param request - CreateIdpDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIdpDepartmentResponse
    */
   async createIdpDepartmentWithOptions(request: CreateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateIdpDepartmentResponse> {
     Util.validateModel(request);
@@ -10042,10 +13943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义身份源部门
-   *
-   * @param request CreateIdpDepartmentRequest
-   * @return CreateIdpDepartmentResponse
+   * 创建自定义身份源部门
+   * 
+   * @param request - CreateIdpDepartmentRequest
+   * @returns CreateIdpDepartmentResponse
    */
   async createIdpDepartment(request: CreateIdpDepartmentRequest): Promise<CreateIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10053,11 +13954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建内网访问应用
-   *
-   * @param request CreatePrivateAccessApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePrivateAccessApplicationResponse
+   * 创建内网访问应用
+   * 
+   * @param request - CreatePrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePrivateAccessApplicationResponse
    */
   async createPrivateAccessApplicationWithOptions(request: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
     Util.validateModel(request);
@@ -10067,8 +13968,20 @@ export default class Client extends OpenApi {
       bodyFlat["Addresses"] = request.addresses;
     }
 
+    if (!Util.isUnset(request.browserAccessStatus)) {
+      body["BrowserAccessStatus"] = request.browserAccessStatus;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.l7ProxyDomainAutomaticPrefix)) {
+      body["L7ProxyDomainAutomaticPrefix"] = request.l7ProxyDomainAutomaticPrefix;
+    }
+
+    if (!Util.isUnset(request.l7ProxyDomainCustom)) {
+      body["L7ProxyDomainCustom"] = request.l7ProxyDomainCustom;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -10113,10 +14026,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建内网访问应用
-   *
-   * @param request CreatePrivateAccessApplicationRequest
-   * @return CreatePrivateAccessApplicationResponse
+   * 创建内网访问应用
+   * 
+   * @param request - CreatePrivateAccessApplicationRequest
+   * @returns CreatePrivateAccessApplicationResponse
    */
   async createPrivateAccessApplication(request: CreatePrivateAccessApplicationRequest): Promise<CreatePrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10124,11 +14037,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建内网访问策略
-   *
-   * @param request CreatePrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePrivateAccessPolicyResponse
+   * 创建内网访问策略
+   * 
+   * @param request - CreatePrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePrivateAccessPolicyResponse
    */
   async createPrivateAccessPolicyWithOptions(request: CreatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -10208,10 +14121,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建内网访问策略
-   *
-   * @param request CreatePrivateAccessPolicyRequest
-   * @return CreatePrivateAccessPolicyResponse
+   * 创建内网访问策略
+   * 
+   * @param request - CreatePrivateAccessPolicyRequest
+   * @returns CreatePrivateAccessPolicyResponse
    */
   async createPrivateAccessPolicy(request: CreatePrivateAccessPolicyRequest): Promise<CreatePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10219,11 +14132,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建内网访问标签
-   *
-   * @param request CreatePrivateAccessTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePrivateAccessTagResponse
+   * 创建内网访问标签
+   * 
+   * @param request - CreatePrivateAccessTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePrivateAccessTagResponse
    */
   async createPrivateAccessTagWithOptions(request: CreatePrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessTagResponse> {
     Util.validateModel(request);
@@ -10254,10 +14167,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建内网访问标签
-   *
-   * @param request CreatePrivateAccessTagRequest
-   * @return CreatePrivateAccessTagResponse
+   * 创建内网访问标签
+   * 
+   * @param request - CreatePrivateAccessTagRequest
+   * @returns CreatePrivateAccessTagResponse
    */
   async createPrivateAccessTag(request: CreatePrivateAccessTagRequest): Promise<CreatePrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10265,11 +14178,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建设备注册策略
-   *
-   * @param tmpReq CreateRegistrationPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRegistrationPolicyResponse
+   * 创建设备注册策略
+   * 
+   * @param tmpReq - CreateRegistrationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRegistrationPolicyResponse
    */
   async createRegistrationPolicyWithOptions(tmpReq: CreateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateRegistrationPolicyResponse> {
     Util.validateModel(tmpReq);
@@ -10351,10 +14264,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建设备注册策略
-   *
-   * @param request CreateRegistrationPolicyRequest
-   * @return CreateRegistrationPolicyResponse
+   * 创建设备注册策略
+   * 
+   * @param request - CreateRegistrationPolicyRequest
+   * @returns CreateRegistrationPolicyResponse
    */
   async createRegistrationPolicy(request: CreateRegistrationPolicyRequest): Promise<CreateRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10362,11 +14275,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建用户组
-   *
-   * @param request CreateUserGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserGroupResponse
+   * 创建用户组
+   * 
+   * @param request - CreateUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserGroupResponse
    */
   async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
     Util.validateModel(request);
@@ -10406,10 +14319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建用户组
-   *
-   * @param request CreateUserGroupRequest
-   * @return CreateUserGroupResponse
+   * 创建用户组
+   * 
+   * @param request - CreateUserGroupRequest
+   * @returns CreateUserGroupResponse
    */
   async createUserGroup(request: CreateUserGroupRequest): Promise<CreateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10417,11 +14330,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数字水印暗水印透明底图
-   *
-   * @param request CreateWmBaseImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWmBaseImageResponse
+   * 创建数字水印暗水印透明底图
+   * 
+   * @param request - CreateWmBaseImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWmBaseImageResponse
    */
   async createWmBaseImageWithOptions(request: CreateWmBaseImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmBaseImageResponse> {
     Util.validateModel(request);
@@ -10476,10 +14389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数字水印暗水印透明底图
-   *
-   * @param request CreateWmBaseImageRequest
-   * @return CreateWmBaseImageResponse
+   * 创建数字水印暗水印透明底图
+   * 
+   * @param request - CreateWmBaseImageRequest
+   * @returns CreateWmBaseImageResponse
    */
   async createWmBaseImage(request: CreateWmBaseImageRequest): Promise<CreateWmBaseImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10487,11 +14400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建嵌入水印任务
-   *
-   * @param tmpReq CreateWmEmbedTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWmEmbedTaskResponse
+   * 创建嵌入水印任务
+   * 
+   * @param tmpReq - CreateWmEmbedTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWmEmbedTaskResponse
    */
   async createWmEmbedTaskWithOptions(tmpReq: CreateWmEmbedTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmEmbedTaskResponse> {
     Util.validateModel(tmpReq);
@@ -10564,10 +14477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建嵌入水印任务
-   *
-   * @param request CreateWmEmbedTaskRequest
-   * @return CreateWmEmbedTaskResponse
+   * 创建嵌入水印任务
+   * 
+   * @param request - CreateWmEmbedTaskRequest
+   * @returns CreateWmEmbedTaskResponse
    */
   async createWmEmbedTask(request: CreateWmEmbedTaskRequest): Promise<CreateWmEmbedTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10575,11 +14488,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文件水印提取任务
-   *
-   * @param request CreateWmExtractTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWmExtractTaskResponse
+   * 创建文件水印提取任务
+   * 
+   * @param request - CreateWmExtractTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWmExtractTaskResponse
    */
   async createWmExtractTaskWithOptions(request: CreateWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmExtractTaskResponse> {
     Util.validateModel(request);
@@ -10630,10 +14543,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文件水印提取任务
-   *
-   * @param request CreateWmExtractTaskRequest
-   * @return CreateWmExtractTaskResponse
+   * 创建文件水印提取任务
+   * 
+   * @param request - CreateWmExtractTaskRequest
+   * @returns CreateWmExtractTaskResponse
    */
   async createWmExtractTask(request: CreateWmExtractTaskRequest): Promise<CreateWmExtractTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10641,11 +14554,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一条字符串水印信息到数字水印信息的映射记录
-   *
-   * @param request CreateWmInfoMappingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWmInfoMappingResponse
+   * 创建一条字符串水印信息到数字水印信息的映射记录
+   * 
+   * @param request - CreateWmInfoMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWmInfoMappingResponse
    */
   async createWmInfoMappingWithOptions(request: CreateWmInfoMappingRequest, runtime: $Util.RuntimeOptions): Promise<CreateWmInfoMappingResponse> {
     Util.validateModel(request);
@@ -10680,10 +14593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一条字符串水印信息到数字水印信息的映射记录
-   *
-   * @param request CreateWmInfoMappingRequest
-   * @return CreateWmInfoMappingResponse
+   * 创建一条字符串水印信息到数字水印信息的映射记录
+   * 
+   * @param request - CreateWmInfoMappingRequest
+   * @returns CreateWmInfoMappingResponse
    */
   async createWmInfoMapping(request: CreateWmInfoMappingRequest): Promise<CreateWmInfoMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10691,11 +14604,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除自定义身份源指定用户
-   *
-   * @param request DeleteClientUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteClientUserResponse
+   * 删除自定义身份源指定用户
+   * 
+   * @param request - DeleteClientUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClientUserResponse
    */
   async deleteClientUserWithOptions(request: DeleteClientUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientUserResponse> {
     Util.validateModel(request);
@@ -10722,10 +14635,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除自定义身份源指定用户
-   *
-   * @param request DeleteClientUserRequest
-   * @return DeleteClientUserResponse
+   * 删除自定义身份源指定用户
+   * 
+   * @param request - DeleteClientUserRequest
+   * @returns DeleteClientUserResponse
    */
   async deleteClientUser(request: DeleteClientUserRequest): Promise<DeleteClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10733,11 +14646,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除动态路由
-   *
-   * @param request DeleteDynamicRouteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDynamicRouteResponse
+   * 删除动态路由
+   * 
+   * @param request - DeleteDynamicRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDynamicRouteResponse
    */
   async deleteDynamicRouteWithOptions(request: DeleteDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDynamicRouteResponse> {
     Util.validateModel(request);
@@ -10764,10 +14677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除动态路由
-   *
-   * @param request DeleteDynamicRouteRequest
-   * @return DeleteDynamicRouteResponse
+   * 删除动态路由
+   * 
+   * @param request - DeleteDynamicRouteRequest
+   * @returns DeleteDynamicRouteResponse
    */
   async deleteDynamicRoute(request: DeleteDynamicRouteRequest): Promise<DeleteDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10775,11 +14688,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定自定义身份源部门
-   *
-   * @param request DeleteIdpDepartmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIdpDepartmentResponse
+   * 删除指定自定义身份源部门
+   * 
+   * @param request - DeleteIdpDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIdpDepartmentResponse
    */
   async deleteIdpDepartmentWithOptions(request: DeleteIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIdpDepartmentResponse> {
     Util.validateModel(request);
@@ -10810,10 +14723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定自定义身份源部门
-   *
-   * @param request DeleteIdpDepartmentRequest
-   * @return DeleteIdpDepartmentResponse
+   * 删除指定自定义身份源部门
+   * 
+   * @param request - DeleteIdpDepartmentRequest
+   * @returns DeleteIdpDepartmentResponse
    */
   async deleteIdpDepartment(request: DeleteIdpDepartmentRequest): Promise<DeleteIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10821,11 +14734,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除内网访问应用
-   *
-   * @param request DeletePrivateAccessApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePrivateAccessApplicationResponse
+   * 删除内网访问应用
+   * 
+   * @param request - DeletePrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateAccessApplicationResponse
    */
   async deletePrivateAccessApplicationWithOptions(request: DeletePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessApplicationResponse> {
     Util.validateModel(request);
@@ -10852,10 +14765,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除内网访问应用
-   *
-   * @param request DeletePrivateAccessApplicationRequest
-   * @return DeletePrivateAccessApplicationResponse
+   * 删除内网访问应用
+   * 
+   * @param request - DeletePrivateAccessApplicationRequest
+   * @returns DeletePrivateAccessApplicationResponse
    */
   async deletePrivateAccessApplication(request: DeletePrivateAccessApplicationRequest): Promise<DeletePrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10863,11 +14776,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除内网访问策略
-   *
-   * @param request DeletePrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePrivateAccessPolicyResponse
+   * 删除内网访问策略
+   * 
+   * @param request - DeletePrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateAccessPolicyResponse
    */
   async deletePrivateAccessPolicyWithOptions(request: DeletePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -10894,10 +14807,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除内网访问策略
-   *
-   * @param request DeletePrivateAccessPolicyRequest
-   * @return DeletePrivateAccessPolicyResponse
+   * 删除内网访问策略
+   * 
+   * @param request - DeletePrivateAccessPolicyRequest
+   * @returns DeletePrivateAccessPolicyResponse
    */
   async deletePrivateAccessPolicy(request: DeletePrivateAccessPolicyRequest): Promise<DeletePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10905,11 +14818,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除内网访问标签
-   *
-   * @param request DeletePrivateAccessTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePrivateAccessTagResponse
+   * 删除内网访问标签
+   * 
+   * @param request - DeletePrivateAccessTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateAccessTagResponse
    */
   async deletePrivateAccessTagWithOptions(request: DeletePrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessTagResponse> {
     Util.validateModel(request);
@@ -10936,10 +14849,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除内网访问标签
-   *
-   * @param request DeletePrivateAccessTagRequest
-   * @return DeletePrivateAccessTagResponse
+   * 删除内网访问标签
+   * 
+   * @param request - DeletePrivateAccessTagRequest
+   * @returns DeletePrivateAccessTagResponse
    */
   async deletePrivateAccessTag(request: DeletePrivateAccessTagRequest): Promise<DeletePrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10947,11 +14860,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除设备注册策略
-   *
-   * @param request DeleteRegistrationPoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRegistrationPoliciesResponse
+   * 删除设备注册策略
+   * 
+   * @param request - DeleteRegistrationPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRegistrationPoliciesResponse
    */
   async deleteRegistrationPoliciesWithOptions(request: DeleteRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrationPoliciesResponse> {
     Util.validateModel(request);
@@ -10983,10 +14896,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除设备注册策略
-   *
-   * @param request DeleteRegistrationPoliciesRequest
-   * @return DeleteRegistrationPoliciesResponse
+   * 删除设备注册策略
+   * 
+   * @param request - DeleteRegistrationPoliciesRequest
+   * @returns DeleteRegistrationPoliciesResponse
    */
   async deleteRegistrationPolicies(request: DeleteRegistrationPoliciesRequest): Promise<DeleteRegistrationPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10994,11 +14907,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除用户非在线设备
-   *
-   * @param request DeleteUserDevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserDevicesResponse
+   * 批量删除用户非在线设备
+   * 
+   * @param request - DeleteUserDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserDevicesResponse
    */
   async deleteUserDevicesWithOptions(request: DeleteUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserDevicesResponse> {
     Util.validateModel(request);
@@ -11030,10 +14943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除用户非在线设备
-   *
-   * @param request DeleteUserDevicesRequest
-   * @return DeleteUserDevicesResponse
+   * 批量删除用户非在线设备
+   * 
+   * @param request - DeleteUserDevicesRequest
+   * @returns DeleteUserDevicesResponse
    */
   async deleteUserDevices(request: DeleteUserDevicesRequest): Promise<DeleteUserDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11041,11 +14954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除用户组
-   *
-   * @param request DeleteUserGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserGroupResponse
+   * 删除用户组
+   * 
+   * @param request - DeleteUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserGroupResponse
    */
   async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupResponse> {
     Util.validateModel(request);
@@ -11072,10 +14985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除用户组
-   *
-   * @param request DeleteUserGroupRequest
-   * @return DeleteUserGroupResponse
+   * 删除用户组
+   * 
+   * @param request - DeleteUserGroupRequest
+   * @returns DeleteUserGroupResponse
    */
   async deleteUserGroup(request: DeleteUserGroupRequest): Promise<DeleteUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11083,11 +14996,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 卸载connector的应用
-   *
-   * @param tmpReq DetachApplication2ConnectorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachApplication2ConnectorResponse
+   * 卸载connector的应用
+   * 
+   * @param tmpReq - DetachApplication2ConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachApplication2ConnectorResponse
    */
   async detachApplication2ConnectorWithOptions(tmpReq: DetachApplication2ConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DetachApplication2ConnectorResponse> {
     Util.validateModel(tmpReq);
@@ -11124,10 +15037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 卸载connector的应用
-   *
-   * @param request DetachApplication2ConnectorRequest
-   * @return DetachApplication2ConnectorResponse
+   * 卸载connector的应用
+   * 
+   * @param request - DetachApplication2ConnectorRequest
+   * @returns DetachApplication2ConnectorResponse
    */
   async detachApplication2Connector(request: DetachApplication2ConnectorRequest): Promise<DetachApplication2ConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11135,11 +15048,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户设备列表
-   *
-   * @param request ExportUserDevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportUserDevicesResponse
+   * 批量查询用户设备列表
+   * 
+   * @param request - ExportUserDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportUserDevicesResponse
    */
   async exportUserDevicesWithOptions(request: ExportUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ExportUserDevicesResponse> {
     Util.validateModel(request);
@@ -11227,10 +15140,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户设备列表
-   *
-   * @param request ExportUserDevicesRequest
-   * @return ExportUserDevicesResponse
+   * 批量查询用户设备列表
+   * 
+   * @param request - ExportUserDevicesRequest
+   * @returns ExportUserDevicesResponse
    */
   async exportUserDevices(request: ExportUserDevicesRequest): Promise<ExportUserDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11238,11 +15151,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询已启用的身份源配置
-   *
-   * @param request GetActiveIdpConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetActiveIdpConfigResponse
+   * 查询已启用的身份源配置
+   * 
+   * @param request - GetActiveIdpConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetActiveIdpConfigResponse
    */
   async getActiveIdpConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetActiveIdpConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -11261,9 +15174,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询已启用的身份源配置
-   *
-   * @return GetActiveIdpConfigResponse
+   * 查询已启用的身份源配置
+   * @returns GetActiveIdpConfigResponse
    */
   async getActiveIdpConfig(): Promise<GetActiveIdpConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11271,11 +15183,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询自定义身份源指定用户
-   *
-   * @param request GetClientUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetClientUserResponse
+   * 查询自定义身份源指定用户
+   * 
+   * @param request - GetClientUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientUserResponse
    */
   async getClientUserWithOptions(request: GetClientUserRequest, runtime: $Util.RuntimeOptions): Promise<GetClientUserResponse> {
     Util.validateModel(request);
@@ -11298,10 +15210,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询自定义身份源指定用户
-   *
-   * @param request GetClientUserRequest
-   * @return GetClientUserResponse
+   * 查询自定义身份源指定用户
+   * 
+   * @param request - GetClientUserRequest
+   * @returns GetClientUserResponse
    */
   async getClientUser(request: GetClientUserRequest): Promise<GetClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11309,11 +15221,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询动态路由详情
-   *
-   * @param request GetDynamicRouteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDynamicRouteResponse
+   * 查询动态路由详情
+   * 
+   * @param request - GetDynamicRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDynamicRouteResponse
    */
   async getDynamicRouteWithOptions(request: GetDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicRouteResponse> {
     Util.validateModel(request);
@@ -11336,10 +15248,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询动态路由详情
-   *
-   * @param request GetDynamicRouteRequest
-   * @return GetDynamicRouteResponse
+   * 查询动态路由详情
+   * 
+   * @param request - GetDynamicRouteRequest
+   * @returns GetDynamicRouteResponse
    */
   async getDynamicRoute(request: GetDynamicRouteRequest): Promise<GetDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11347,11 +15259,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询身份源配置详情
-   *
-   * @param request GetIdpConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIdpConfigResponse
+   * 查询身份源配置详情
+   * 
+   * @param request - GetIdpConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdpConfigResponse
    */
   async getIdpConfigWithOptions(request: GetIdpConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetIdpConfigResponse> {
     Util.validateModel(request);
@@ -11374,10 +15286,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询身份源配置详情
-   *
-   * @param request GetIdpConfigRequest
-   * @return GetIdpConfigResponse
+   * 查询身份源配置详情
+   * 
+   * @param request - GetIdpConfigRequest
+   * @returns GetIdpConfigResponse
    */
   async getIdpConfig(request: GetIdpConfigRequest): Promise<GetIdpConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11385,11 +15297,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询内网访问应用详情
-   *
-   * @param request GetPrivateAccessApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPrivateAccessApplicationResponse
+   * 查询内网访问应用详情
+   * 
+   * @param request - GetPrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPrivateAccessApplicationResponse
    */
   async getPrivateAccessApplicationWithOptions(request: GetPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessApplicationResponse> {
     Util.validateModel(request);
@@ -11412,10 +15324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询内网访问应用详情
-   *
-   * @param request GetPrivateAccessApplicationRequest
-   * @return GetPrivateAccessApplicationResponse
+   * 查询内网访问应用详情
+   * 
+   * @param request - GetPrivateAccessApplicationRequest
+   * @returns GetPrivateAccessApplicationResponse
    */
   async getPrivateAccessApplication(request: GetPrivateAccessApplicationRequest): Promise<GetPrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11423,11 +15335,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询内网访问策略详情
-   *
-   * @param request GetPrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPrivateAccessPolicyResponse
+   * 查询内网访问策略详情
+   * 
+   * @param request - GetPrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPrivateAccessPolicyResponse
    */
   async getPrivateAccessPolicyWithOptions(request: GetPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -11450,10 +15362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询内网访问策略详情
-   *
-   * @param request GetPrivateAccessPolicyRequest
-   * @return GetPrivateAccessPolicyResponse
+   * 查询内网访问策略详情
+   * 
+   * @param request - GetPrivateAccessPolicyRequest
+   * @returns GetPrivateAccessPolicyResponse
    */
   async getPrivateAccessPolicy(request: GetPrivateAccessPolicyRequest): Promise<GetPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11461,11 +15373,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询设备注册策略详情
-   *
-   * @param request GetRegistrationPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRegistrationPolicyResponse
+   * 查询设备注册策略详情
+   * 
+   * @param request - GetRegistrationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRegistrationPolicyResponse
    */
   async getRegistrationPolicyWithOptions(request: GetRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetRegistrationPolicyResponse> {
     Util.validateModel(request);
@@ -11488,10 +15400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询设备注册策略详情
-   *
-   * @param request GetRegistrationPolicyRequest
-   * @return GetRegistrationPolicyResponse
+   * 查询设备注册策略详情
+   * 
+   * @param request - GetRegistrationPolicyRequest
+   * @returns GetRegistrationPolicyResponse
    */
   async getRegistrationPolicy(request: GetRegistrationPolicyRequest): Promise<GetRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11499,11 +15411,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户设备详情
-   *
-   * @param request GetUserDeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserDeviceResponse
+   * 查询用户设备详情
+   * 
+   * @param request - GetUserDeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserDeviceResponse
    */
   async getUserDeviceWithOptions(request: GetUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<GetUserDeviceResponse> {
     Util.validateModel(request);
@@ -11526,10 +15438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户设备详情
-   *
-   * @param request GetUserDeviceRequest
-   * @return GetUserDeviceResponse
+   * 查询用户设备详情
+   * 
+   * @param request - GetUserDeviceRequest
+   * @returns GetUserDeviceResponse
    */
   async getUserDevice(request: GetUserDeviceRequest): Promise<GetUserDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11537,11 +15449,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户组详情
-   *
-   * @param request GetUserGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserGroupResponse
+   * 查询用户组详情
+   * 
+   * @param request - GetUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserGroupResponse
    */
   async getUserGroupWithOptions(request: GetUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetUserGroupResponse> {
     Util.validateModel(request);
@@ -11564,10 +15476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户组详情
-   *
-   * @param request GetUserGroupRequest
-   * @return GetUserGroupResponse
+   * 查询用户组详情
+   * 
+   * @param request - GetUserGroupRequest
+   * @returns GetUserGroupResponse
    */
   async getUserGroup(request: GetUserGroupRequest): Promise<GetUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11575,11 +15487,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询嵌入水印任务
-   *
-   * @param request GetWmEmbedTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWmEmbedTaskResponse
+   * 查询嵌入水印任务
+   * 
+   * @param request - GetWmEmbedTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWmEmbedTaskResponse
    */
   async getWmEmbedTaskWithOptions(request: GetWmEmbedTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWmEmbedTaskResponse> {
     Util.validateModel(request);
@@ -11602,10 +15514,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询嵌入水印任务
-   *
-   * @param request GetWmEmbedTaskRequest
-   * @return GetWmEmbedTaskResponse
+   * 查询嵌入水印任务
+   * 
+   * @param request - GetWmEmbedTaskRequest
+   * @returns GetWmEmbedTaskResponse
    */
   async getWmEmbedTask(request: GetWmEmbedTaskRequest): Promise<GetWmEmbedTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11613,11 +15525,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文件水印提取任务详情
-   *
-   * @param request GetWmExtractTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWmExtractTaskResponse
+   * 查询文件水印提取任务详情
+   * 
+   * @param request - GetWmExtractTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWmExtractTaskResponse
    */
   async getWmExtractTaskWithOptions(request: GetWmExtractTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWmExtractTaskResponse> {
     Util.validateModel(request);
@@ -11640,10 +15552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询文件水印提取任务详情
-   *
-   * @param request GetWmExtractTaskRequest
-   * @return GetWmExtractTaskResponse
+   * 查询文件水印提取任务详情
+   * 
+   * @param request - GetWmExtractTaskRequest
+   * @returns GetWmExtractTaskResponse
    */
   async getWmExtractTask(request: GetWmExtractTaskRequest): Promise<GetWmExtractTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11651,11 +15563,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略的应用
-   *
-   * @param request ListApplicationsForPrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationsForPrivateAccessPolicyResponse
+   * 批量查询内网访问策略的应用
+   * 
+   * @param request - ListApplicationsForPrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForPrivateAccessPolicyResponse
    */
   async listApplicationsForPrivateAccessPolicyWithOptions(request: ListApplicationsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -11678,10 +15590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略的应用
-   *
-   * @param request ListApplicationsForPrivateAccessPolicyRequest
-   * @return ListApplicationsForPrivateAccessPolicyResponse
+   * 批量查询内网访问策略的应用
+   * 
+   * @param request - ListApplicationsForPrivateAccessPolicyRequest
+   * @returns ListApplicationsForPrivateAccessPolicyResponse
    */
   async listApplicationsForPrivateAccessPolicy(request: ListApplicationsForPrivateAccessPolicyRequest): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11689,11 +15601,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问标签的应用
-   *
-   * @param request ListApplicationsForPrivateAccessTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationsForPrivateAccessTagResponse
+   * 批量查询内网访问标签的应用
+   * 
+   * @param request - ListApplicationsForPrivateAccessTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForPrivateAccessTagResponse
    */
   async listApplicationsForPrivateAccessTagWithOptions(request: ListApplicationsForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessTagResponse> {
     Util.validateModel(request);
@@ -11716,10 +15628,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问标签的应用
-   *
-   * @param request ListApplicationsForPrivateAccessTagRequest
-   * @return ListApplicationsForPrivateAccessTagResponse
+   * 批量查询内网访问标签的应用
+   * 
+   * @param request - ListApplicationsForPrivateAccessTagRequest
+   * @returns ListApplicationsForPrivateAccessTagResponse
    */
   async listApplicationsForPrivateAccessTag(request: ListApplicationsForPrivateAccessTagRequest): Promise<ListApplicationsForPrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11727,11 +15639,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询自定义身份源用户
-   *
-   * @param request ListClientUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListClientUsersResponse
+   * 查询自定义身份源用户
+   * 
+   * @param request - ListClientUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClientUsersResponse
    */
   async listClientUsersWithOptions(request: ListClientUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListClientUsersResponse> {
     Util.validateModel(request);
@@ -11754,10 +15666,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询自定义身份源用户
-   *
-   * @param request ListClientUsersRequest
-   * @return ListClientUsersResponse
+   * 查询自定义身份源用户
+   * 
+   * @param request - ListClientUsersRequest
+   * @returns ListClientUsersResponse
    */
   async listClientUsers(request: ListClientUsersRequest): Promise<ListClientUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11765,11 +15677,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询connector
-   *
-   * @param request ListConnectorsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConnectorsResponse
+   * 批量查询connector
+   * 
+   * @param request - ListConnectorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConnectorsResponse
    */
   async listConnectorsWithOptions(request: ListConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectorsResponse> {
     Util.validateModel(request);
@@ -11792,10 +15704,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询connector
-   *
-   * @param request ListConnectorsRequest
-   * @return ListConnectorsResponse
+   * 批量查询connector
+   * 
+   * @param request - ListConnectorsRequest
+   * @returns ListConnectorsResponse
    */
   async listConnectors(request: ListConnectorsRequest): Promise<ListConnectorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11803,11 +15715,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由的地域
-   *
-   * @param request ListDynamicRouteRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDynamicRouteRegionsResponse
+   * 批量查询动态路由的地域
+   * 
+   * @param request - ListDynamicRouteRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDynamicRouteRegionsResponse
    */
   async listDynamicRouteRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListDynamicRouteRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -11826,9 +15738,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由的地域
-   *
-   * @return ListDynamicRouteRegionsResponse
+   * 批量查询动态路由的地域
+   * @returns ListDynamicRouteRegionsResponse
    */
   async listDynamicRouteRegions(): Promise<ListDynamicRouteRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11836,11 +15747,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由
-   *
-   * @param request ListDynamicRoutesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDynamicRoutesResponse
+   * 批量查询动态路由
+   * 
+   * @param request - ListDynamicRoutesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDynamicRoutesResponse
    */
   async listDynamicRoutesWithOptions(request: ListDynamicRoutesRequest, runtime: $Util.RuntimeOptions): Promise<ListDynamicRoutesResponse> {
     Util.validateModel(request);
@@ -11863,10 +15774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由
-   *
-   * @param request ListDynamicRoutesRequest
-   * @return ListDynamicRoutesResponse
+   * 批量查询动态路由
+   * 
+   * @param request - ListDynamicRoutesRequest
+   * @returns ListDynamicRoutesResponse
    */
   async listDynamicRoutes(request: ListDynamicRoutesRequest): Promise<ListDynamicRoutesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11874,11 +15785,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询超额注册申请列表
-   *
-   * @param request ListExcessiveDeviceRegistrationApplicationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExcessiveDeviceRegistrationApplicationsResponse
+   * 批量查询超额注册申请列表
+   * 
+   * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExcessiveDeviceRegistrationApplicationsResponse
    */
   async listExcessiveDeviceRegistrationApplicationsWithOptions(request: ListExcessiveDeviceRegistrationApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
     Util.validateModel(request);
@@ -11901,10 +15812,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询超额注册申请列表
-   *
-   * @param request ListExcessiveDeviceRegistrationApplicationsRequest
-   * @return ListExcessiveDeviceRegistrationApplicationsResponse
+   * 批量查询超额注册申请列表
+   * 
+   * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
+   * @returns ListExcessiveDeviceRegistrationApplicationsResponse
    */
   async listExcessiveDeviceRegistrationApplications(request: ListExcessiveDeviceRegistrationApplicationsRequest): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11912,11 +15823,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询IDP配置
-   *
-   * @param request ListIdpConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIdpConfigsResponse
+   * 查询IDP配置
+   * 
+   * @param request - ListIdpConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIdpConfigsResponse
    */
   async listIdpConfigsWithOptions(request: ListIdpConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpConfigsResponse> {
     Util.validateModel(request);
@@ -11939,10 +15850,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询IDP配置
-   *
-   * @param request ListIdpConfigsRequest
-   * @return ListIdpConfigsResponse
+   * 查询IDP配置
+   * 
+   * @param request - ListIdpConfigsRequest
+   * @returns ListIdpConfigsResponse
    */
   async listIdpConfigs(request: ListIdpConfigsRequest): Promise<ListIdpConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11950,11 +15861,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询自定义身份源部门
-   *
-   * @param request ListIdpDepartmentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIdpDepartmentsResponse
+   * 查询自定义身份源部门
+   * 
+   * @param request - ListIdpDepartmentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIdpDepartmentsResponse
    */
   async listIdpDepartmentsWithOptions(request: ListIdpDepartmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpDepartmentsResponse> {
     Util.validateModel(request);
@@ -11977,10 +15888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询自定义身份源部门
-   *
-   * @param request ListIdpDepartmentsRequest
-   * @return ListIdpDepartmentsResponse
+   * 查询自定义身份源部门
+   * 
+   * @param request - ListIdpDepartmentsRequest
+   * @returns ListIdpDepartmentsResponse
    */
   async listIdpDepartments(request: ListIdpDepartmentsRequest): Promise<ListIdpDepartmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11988,11 +15899,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 入网用户列表
-   *
-   * @param request ListNacUserCertRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNacUserCertResponse
+   * 入网用户列表
+   * 
+   * @param request - ListNacUserCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNacUserCertResponse
    */
   async listNacUserCertWithOptions(request: ListNacUserCertRequest, runtime: $Util.RuntimeOptions): Promise<ListNacUserCertResponse> {
     Util.validateModel(request);
@@ -12047,10 +15958,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 入网用户列表
-   *
-   * @param request ListNacUserCertRequest
-   * @return ListNacUserCertResponse
+   * 入网用户列表
+   * 
+   * @param request - ListNacUserCertRequest
+   * @returns ListNacUserCertResponse
    */
   async listNacUserCert(request: ListNacUserCertRequest): Promise<ListNacUserCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12058,11 +15969,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问应用的策略
-   *
-   * @param request ListPolicesForPrivateAccessApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPolicesForPrivateAccessApplicationResponse
+   * 批量查询内网访问应用的策略
+   * 
+   * @param request - ListPolicesForPrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolicesForPrivateAccessApplicationResponse
    */
   async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
     Util.validateModel(request);
@@ -12085,10 +15996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问应用的策略
-   *
-   * @param request ListPolicesForPrivateAccessApplicationRequest
-   * @return ListPolicesForPrivateAccessApplicationResponse
+   * 批量查询内网访问应用的策略
+   * 
+   * @param request - ListPolicesForPrivateAccessApplicationRequest
+   * @returns ListPolicesForPrivateAccessApplicationResponse
    */
   async listPolicesForPrivateAccessApplication(request: ListPolicesForPrivateAccessApplicationRequest): Promise<ListPolicesForPrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12096,11 +16007,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问标签的策略
-   *
-   * @param request ListPolicesForPrivateAccessTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPolicesForPrivateAccessTagResponse
+   * 批量查询内网访问标签的策略
+   * 
+   * @param request - ListPolicesForPrivateAccessTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolicesForPrivateAccessTagResponse
    */
   async listPolicesForPrivateAccessTagWithOptions(request: ListPolicesForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessTagResponse> {
     Util.validateModel(request);
@@ -12123,10 +16034,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问标签的策略
-   *
-   * @param request ListPolicesForPrivateAccessTagRequest
-   * @return ListPolicesForPrivateAccessTagResponse
+   * 批量查询内网访问标签的策略
+   * 
+   * @param request - ListPolicesForPrivateAccessTagRequest
+   * @returns ListPolicesForPrivateAccessTagResponse
    */
   async listPolicesForPrivateAccessTag(request: ListPolicesForPrivateAccessTagRequest): Promise<ListPolicesForPrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12134,11 +16045,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户组的策略
-   *
-   * @param request ListPolicesForUserGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPolicesForUserGroupResponse
+   * 批量查询用户组的策略
+   * 
+   * @param request - ListPolicesForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolicesForUserGroupResponse
    */
   async listPolicesForUserGroupWithOptions(request: ListPolicesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForUserGroupResponse> {
     Util.validateModel(request);
@@ -12161,10 +16072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户组的策略
-   *
-   * @param request ListPolicesForUserGroupRequest
-   * @return ListPolicesForUserGroupResponse
+   * 批量查询用户组的策略
+   * 
+   * @param request - ListPolicesForUserGroupRequest
+   * @returns ListPolicesForUserGroupResponse
    */
   async listPolicesForUserGroup(request: ListPolicesForUserGroupRequest): Promise<ListPolicesForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12172,11 +16083,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pop节点流量统计
-   *
-   * @param request ListPopTrafficStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPopTrafficStatisticsResponse
+   * pop节点流量统计
+   * 
+   * @param request - ListPopTrafficStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPopTrafficStatisticsResponse
    */
   async listPopTrafficStatisticsWithOptions(request: ListPopTrafficStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListPopTrafficStatisticsResponse> {
     Util.validateModel(request);
@@ -12199,10 +16110,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary pop节点流量统计
-   *
-   * @param request ListPopTrafficStatisticsRequest
-   * @return ListPopTrafficStatisticsResponse
+   * pop节点流量统计
+   * 
+   * @param request - ListPopTrafficStatisticsRequest
+   * @returns ListPopTrafficStatisticsResponse
    */
   async listPopTrafficStatistics(request: ListPopTrafficStatisticsRequest): Promise<ListPopTrafficStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12210,11 +16121,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问应用
-   *
-   * @param request ListPrivateAccessApplicationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPrivateAccessApplicationsResponse
+   * 批量查询内网访问应用
+   * 
+   * @param request - ListPrivateAccessApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateAccessApplicationsResponse
    */
   async listPrivateAccessApplicationsWithOptions(request: ListPrivateAccessApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
     Util.validateModel(request);
@@ -12237,10 +16148,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问应用
-   *
-   * @param request ListPrivateAccessApplicationsRequest
-   * @return ListPrivateAccessApplicationsResponse
+   * 批量查询内网访问应用
+   * 
+   * @param request - ListPrivateAccessApplicationsRequest
+   * @returns ListPrivateAccessApplicationsResponse
    */
   async listPrivateAccessApplications(request: ListPrivateAccessApplicationsRequest): Promise<ListPrivateAccessApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12248,11 +16159,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由的内网访问应用
-   *
-   * @param request ListPrivateAccessApplicationsForDynamicRouteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+   * 批量查询动态路由的内网访问应用
+   * 
+   * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
    */
   async listPrivateAccessApplicationsForDynamicRouteWithOptions(request: ListPrivateAccessApplicationsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
     Util.validateModel(request);
@@ -12275,10 +16186,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由的内网访问应用
-   *
-   * @param request ListPrivateAccessApplicationsForDynamicRouteRequest
-   * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+   * 批量查询动态路由的内网访问应用
+   * 
+   * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
+   * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
    */
   async listPrivateAccessApplicationsForDynamicRoute(request: ListPrivateAccessApplicationsForDynamicRouteRequest): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12286,11 +16197,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略
-   *
-   * @param request ListPrivateAccessPolicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPrivateAccessPolicesResponse
+   * 批量查询内网访问策略
+   * 
+   * @param request - ListPrivateAccessPolicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateAccessPolicesResponse
    */
   async listPrivateAccessPolicesWithOptions(request: ListPrivateAccessPolicesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
     Util.validateModel(request);
@@ -12313,10 +16224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略
-   *
-   * @param request ListPrivateAccessPolicesRequest
-   * @return ListPrivateAccessPolicesResponse
+   * 批量查询内网访问策略
+   * 
+   * @param request - ListPrivateAccessPolicesRequest
+   * @returns ListPrivateAccessPolicesResponse
    */
   async listPrivateAccessPolices(request: ListPrivateAccessPolicesRequest): Promise<ListPrivateAccessPolicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12324,11 +16235,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
-   *
-   * @param request ListPrivateAccessTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPrivateAccessTagsResponse
+   * Queries the information about all internal access tags within the current Alibaba Cloud account.
+   * 
+   * @param request - ListPrivateAccessTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateAccessTagsResponse
    */
   async listPrivateAccessTagsWithOptions(request: ListPrivateAccessTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsResponse> {
     Util.validateModel(request);
@@ -12351,10 +16262,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
-   *
-   * @param request ListPrivateAccessTagsRequest
-   * @return ListPrivateAccessTagsResponse
+   * Queries the information about all internal access tags within the current Alibaba Cloud account.
+   * 
+   * @param request - ListPrivateAccessTagsRequest
+   * @returns ListPrivateAccessTagsResponse
    */
   async listPrivateAccessTags(request: ListPrivateAccessTagsRequest): Promise<ListPrivateAccessTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12362,11 +16273,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由的内网访问标签
-   *
-   * @param request ListPrivateAccessTagsForDynamicRouteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPrivateAccessTagsForDynamicRouteResponse
+   * 批量查询动态路由的内网访问标签
+   * 
+   * @param request - ListPrivateAccessTagsForDynamicRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateAccessTagsForDynamicRouteResponse
    */
   async listPrivateAccessTagsForDynamicRouteWithOptions(request: ListPrivateAccessTagsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
     Util.validateModel(request);
@@ -12389,10 +16300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询动态路由的内网访问标签
-   *
-   * @param request ListPrivateAccessTagsForDynamicRouteRequest
-   * @return ListPrivateAccessTagsForDynamicRouteResponse
+   * 批量查询动态路由的内网访问标签
+   * 
+   * @param request - ListPrivateAccessTagsForDynamicRouteRequest
+   * @returns ListPrivateAccessTagsForDynamicRouteResponse
    */
   async listPrivateAccessTagsForDynamicRoute(request: ListPrivateAccessTagsForDynamicRouteRequest): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12400,11 +16311,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户设备注册策略列表
-   *
-   * @param request ListRegistrationPoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRegistrationPoliciesResponse
+   * 查询用户设备注册策略列表
+   * 
+   * @param request - ListRegistrationPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegistrationPoliciesResponse
    */
   async listRegistrationPoliciesWithOptions(request: ListRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesResponse> {
     Util.validateModel(request);
@@ -12427,10 +16338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户设备注册策略列表
-   *
-   * @param request ListRegistrationPoliciesRequest
-   * @return ListRegistrationPoliciesResponse
+   * 查询用户设备注册策略列表
+   * 
+   * @param request - ListRegistrationPoliciesRequest
+   * @returns ListRegistrationPoliciesResponse
    */
   async listRegistrationPolicies(request: ListRegistrationPoliciesRequest): Promise<ListRegistrationPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12438,11 +16349,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户组相关的设备注册策略
-   *
-   * @param request ListRegistrationPoliciesForUserGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRegistrationPoliciesForUserGroupResponse
+   * 查询用户组相关的设备注册策略
+   * 
+   * @param request - ListRegistrationPoliciesForUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegistrationPoliciesForUserGroupResponse
    */
   async listRegistrationPoliciesForUserGroupWithOptions(request: ListRegistrationPoliciesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesForUserGroupResponse> {
     Util.validateModel(request);
@@ -12465,10 +16376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询用户组相关的设备注册策略
-   *
-   * @param request ListRegistrationPoliciesForUserGroupRequest
-   * @return ListRegistrationPoliciesForUserGroupResponse
+   * 查询用户组相关的设备注册策略
+   * 
+   * @param request - ListRegistrationPoliciesForUserGroupRequest
+   * @returns ListRegistrationPoliciesForUserGroupResponse
    */
   async listRegistrationPoliciesForUserGroup(request: ListRegistrationPoliciesForUserGroupRequest): Promise<ListRegistrationPoliciesForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12476,11 +16387,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询终端安装软件列表
-   *
-   * @param request ListSoftwareForUserDeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSoftwareForUserDeviceResponse
+   * 批量查询终端安装软件列表
+   * 
+   * @param request - ListSoftwareForUserDeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSoftwareForUserDeviceResponse
    */
   async listSoftwareForUserDeviceWithOptions(request: ListSoftwareForUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListSoftwareForUserDeviceResponse> {
     Util.validateModel(request);
@@ -12503,10 +16414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询终端安装软件列表
-   *
-   * @param request ListSoftwareForUserDeviceRequest
-   * @return ListSoftwareForUserDeviceResponse
+   * 批量查询终端安装软件列表
+   * 
+   * @param request - ListSoftwareForUserDeviceRequest
+   * @returns ListSoftwareForUserDeviceResponse
    */
   async listSoftwareForUserDevice(request: ListSoftwareForUserDeviceRequest): Promise<ListSoftwareForUserDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12514,11 +16425,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问应用的标签
-   *
-   * @param request ListTagsForPrivateAccessApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagsForPrivateAccessApplicationResponse
+   * 批量查询内网访问应用的标签
+   * 
+   * @param request - ListTagsForPrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagsForPrivateAccessApplicationResponse
    */
   async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
     Util.validateModel(request);
@@ -12541,10 +16452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问应用的标签
-   *
-   * @param request ListTagsForPrivateAccessApplicationRequest
-   * @return ListTagsForPrivateAccessApplicationResponse
+   * 批量查询内网访问应用的标签
+   * 
+   * @param request - ListTagsForPrivateAccessApplicationRequest
+   * @returns ListTagsForPrivateAccessApplicationResponse
    */
   async listTagsForPrivateAccessApplication(request: ListTagsForPrivateAccessApplicationRequest): Promise<ListTagsForPrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12552,11 +16463,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略的标签
-   *
-   * @param request ListTagsForPrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagsForPrivateAccessPolicyResponse
+   * 批量查询内网访问策略的标签
+   * 
+   * @param request - ListTagsForPrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagsForPrivateAccessPolicyResponse
    */
   async listTagsForPrivateAccessPolicyWithOptions(request: ListTagsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -12579,10 +16490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略的标签
-   *
-   * @param request ListTagsForPrivateAccessPolicyRequest
-   * @return ListTagsForPrivateAccessPolicyResponse
+   * 批量查询内网访问策略的标签
+   * 
+   * @param request - ListTagsForPrivateAccessPolicyRequest
+   * @returns ListTagsForPrivateAccessPolicyResponse
    */
   async listTagsForPrivateAccessPolicy(request: ListTagsForPrivateAccessPolicyRequest): Promise<ListTagsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12590,11 +16501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户设备列表
-   *
-   * @param request ListUserDevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserDevicesResponse
+   * 批量查询用户设备列表
+   * 
+   * @param request - ListUserDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserDevicesResponse
    */
   async listUserDevicesWithOptions(request: ListUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserDevicesResponse> {
     Util.validateModel(request);
@@ -12617,10 +16528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户设备列表
-   *
-   * @param request ListUserDevicesRequest
-   * @return ListUserDevicesResponse
+   * 批量查询用户设备列表
+   * 
+   * @param request - ListUserDevicesRequest
+   * @returns ListUserDevicesResponse
    */
   async listUserDevices(request: ListUserDevicesRequest): Promise<ListUserDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12628,11 +16539,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户组
-   *
-   * @param request ListUserGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserGroupsResponse
+   * 批量查询用户组
+   * 
+   * @param request - ListUserGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserGroupsResponse
    */
   async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
     Util.validateModel(request);
@@ -12655,10 +16566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询用户组
-   *
-   * @param request ListUserGroupsRequest
-   * @return ListUserGroupsResponse
+   * 批量查询用户组
+   * 
+   * @param request - ListUserGroupsRequest
+   * @returns ListUserGroupsResponse
    */
   async listUserGroups(request: ListUserGroupsRequest): Promise<ListUserGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12666,11 +16577,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略的用户组
-   *
-   * @param request ListUserGroupsForPrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserGroupsForPrivateAccessPolicyResponse
+   * 批量查询内网访问策略的用户组
+   * 
+   * @param request - ListUserGroupsForPrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserGroupsForPrivateAccessPolicyResponse
    */
   async listUserGroupsForPrivateAccessPolicyWithOptions(request: ListUserGroupsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -12693,10 +16604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量查询内网访问策略的用户组
-   *
-   * @param request ListUserGroupsForPrivateAccessPolicyRequest
-   * @return ListUserGroupsForPrivateAccessPolicyResponse
+   * 批量查询内网访问策略的用户组
+   * 
+   * @param request - ListUserGroupsForPrivateAccessPolicyRequest
+   * @returns ListUserGroupsForPrivateAccessPolicyResponse
    */
   async listUserGroupsForPrivateAccessPolicy(request: ListUserGroupsForPrivateAccessPolicyRequest): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12704,11 +16615,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询设备注册策略相关用户组
-   *
-   * @param request ListUserGroupsForRegistrationPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserGroupsForRegistrationPolicyResponse
+   * 查询设备注册策略相关用户组
+   * 
+   * @param request - ListUserGroupsForRegistrationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserGroupsForRegistrationPolicyResponse
    */
   async listUserGroupsForRegistrationPolicyWithOptions(request: ListUserGroupsForRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForRegistrationPolicyResponse> {
     Util.validateModel(request);
@@ -12731,10 +16642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询设备注册策略相关用户组
-   *
-   * @param request ListUserGroupsForRegistrationPolicyRequest
-   * @return ListUserGroupsForRegistrationPolicyResponse
+   * 查询设备注册策略相关用户组
+   * 
+   * @param request - ListUserGroupsForRegistrationPolicyRequest
+   * @returns ListUserGroupsForRegistrationPolicyResponse
    */
   async listUserGroupsForRegistrationPolicy(request: ListUserGroupsForRegistrationPolicyRequest): Promise<ListUserGroupsForRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12742,11 +16653,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列表查询登陆用户
-   *
-   * @param request ListUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUsersResponse
+   * 列表查询登陆用户
+   * 
+   * @param request - ListUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersResponse
    */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
@@ -12769,10 +16680,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列表查询登陆用户
-   *
-   * @param request ListUsersRequest
-   * @return ListUsersResponse
+   * 列表查询登陆用户
+   * 
+   * @param request - ListUsersRequest
+   * @returns ListUsersResponse
    */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12780,11 +16691,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据数字水印信息查询字符串水印信息
-   *
-   * @param request LookupWmInfoMappingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LookupWmInfoMappingResponse
+   * 根据数字水印信息查询字符串水印信息
+   * 
+   * @param request - LookupWmInfoMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LookupWmInfoMappingResponse
    */
   async lookupWmInfoMappingWithOptions(request: LookupWmInfoMappingRequest, runtime: $Util.RuntimeOptions): Promise<LookupWmInfoMappingResponse> {
     Util.validateModel(request);
@@ -12807,10 +16718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据数字水印信息查询字符串水印信息
-   *
-   * @param request LookupWmInfoMappingRequest
-   * @return LookupWmInfoMappingResponse
+   * 根据数字水印信息查询字符串水印信息
+   * 
+   * @param request - LookupWmInfoMappingRequest
+   * @returns LookupWmInfoMappingResponse
    */
   async lookupWmInfoMapping(request: LookupWmInfoMappingRequest): Promise<LookupWmInfoMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12818,11 +16729,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 吊销用户登录会话
-   *
-   * @param request RevokeUserSessionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RevokeUserSessionResponse
+   * 吊销用户登录会话
+   * 
+   * @param request - RevokeUserSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeUserSessionResponse
    */
   async revokeUserSessionWithOptions(request: RevokeUserSessionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeUserSessionResponse> {
     Util.validateModel(request);
@@ -12853,10 +16764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 吊销用户登录会话
-   *
-   * @param request RevokeUserSessionRequest
-   * @return RevokeUserSessionResponse
+   * 吊销用户登录会话
+   * 
+   * @param request - RevokeUserSessionRequest
+   * @returns RevokeUserSessionResponse
    */
   async revokeUserSession(request: RevokeUserSessionRequest): Promise<RevokeUserSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12864,11 +16775,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义身份源指定用户
-   *
-   * @param request UpdateClientUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateClientUserResponse
+   * 修改自定义身份源指定用户
+   * 
+   * @param request - UpdateClientUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateClientUserResponse
    */
   async updateClientUserWithOptions(request: UpdateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserResponse> {
     Util.validateModel(request);
@@ -12911,10 +16822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义身份源指定用户
-   *
-   * @param request UpdateClientUserRequest
-   * @return UpdateClientUserResponse
+   * 修改自定义身份源指定用户
+   * 
+   * @param request - UpdateClientUserRequest
+   * @returns UpdateClientUserResponse
    */
   async updateClientUser(request: UpdateClientUserRequest): Promise<UpdateClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12922,11 +16833,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义身份源指定用户密码
-   *
-   * @param request UpdateClientUserPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateClientUserPasswordResponse
+   * 修改自定义身份源指定用户密码
+   * 
+   * @param request - UpdateClientUserPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateClientUserPasswordResponse
    */
   async updateClientUserPasswordWithOptions(request: UpdateClientUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserPasswordResponse> {
     Util.validateModel(request);
@@ -12961,10 +16872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义身份源指定用户密码
-   *
-   * @param request UpdateClientUserPasswordRequest
-   * @return UpdateClientUserPasswordResponse
+   * 修改自定义身份源指定用户密码
+   * 
+   * @param request - UpdateClientUserPasswordRequest
+   * @returns UpdateClientUserPasswordResponse
    */
   async updateClientUserPassword(request: UpdateClientUserPasswordRequest): Promise<UpdateClientUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12972,11 +16883,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义身份源指定用户启用状态
-   *
-   * @param request UpdateClientUserStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateClientUserStatusResponse
+   * 修改自定义身份源指定用户启用状态
+   * 
+   * @param request - UpdateClientUserStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateClientUserStatusResponse
    */
   async updateClientUserStatusWithOptions(request: UpdateClientUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserStatusResponse> {
     Util.validateModel(request);
@@ -13007,10 +16918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义身份源指定用户启用状态
-   *
-   * @param request UpdateClientUserStatusRequest
-   * @return UpdateClientUserStatusResponse
+   * 修改自定义身份源指定用户启用状态
+   * 
+   * @param request - UpdateClientUserStatusRequest
+   * @returns UpdateClientUserStatusResponse
    */
   async updateClientUserStatus(request: UpdateClientUserStatusRequest): Promise<UpdateClientUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13018,11 +16929,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改动态路由
-   *
-   * @param request UpdateDynamicRouteRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDynamicRouteResponse
+   * 修改动态路由
+   * 
+   * @param request - UpdateDynamicRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDynamicRouteResponse
    */
   async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
     Util.validateModel(request);
@@ -13098,10 +17009,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改动态路由
-   *
-   * @param request UpdateDynamicRouteRequest
-   * @return UpdateDynamicRouteResponse
+   * 修改动态路由
+   * 
+   * @param request - UpdateDynamicRouteRequest
+   * @returns UpdateDynamicRouteResponse
    */
   async updateDynamicRoute(request: UpdateDynamicRouteRequest): Promise<UpdateDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13109,11 +17020,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新超额注册申请状态
-   *
-   * @param request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+   * 批量更新超额注册申请状态
+   * 
+   * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
    */
   async updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
     Util.validateModel(request);
@@ -13149,10 +17060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新超额注册申请状态
-   *
-   * @param request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
-   * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+   * 批量更新超额注册申请状态
+   * 
+   * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+   * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
    */
   async updateExcessiveDeviceRegistrationApplicationsStatus(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13160,11 +17071,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改指定自定义身份源部门
-   *
-   * @param request UpdateIdpDepartmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIdpDepartmentResponse
+   * 修改指定自定义身份源部门
+   * 
+   * @param request - UpdateIdpDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIdpDepartmentResponse
    */
   async updateIdpDepartmentWithOptions(request: UpdateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIdpDepartmentResponse> {
     Util.validateModel(request);
@@ -13199,10 +17110,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改指定自定义身份源部门
-   *
-   * @param request UpdateIdpDepartmentRequest
-   * @return UpdateIdpDepartmentResponse
+   * 修改指定自定义身份源部门
+   * 
+   * @param request - UpdateIdpDepartmentRequest
+   * @returns UpdateIdpDepartmentResponse
    */
   async updateIdpDepartment(request: UpdateIdpDepartmentRequest): Promise<UpdateIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13210,11 +17121,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新NAC User 状态
-   *
-   * @param request UpdateNacUserCertStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateNacUserCertStatusResponse
+   * 更新NAC User 状态
+   * 
+   * @param request - UpdateNacUserCertStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNacUserCertStatusResponse
    */
   async updateNacUserCertStatusWithOptions(request: UpdateNacUserCertStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacUserCertStatusResponse> {
     Util.validateModel(request);
@@ -13250,10 +17161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新NAC User 状态
-   *
-   * @param request UpdateNacUserCertStatusRequest
-   * @return UpdateNacUserCertStatusResponse
+   * 更新NAC User 状态
+   * 
+   * @param request - UpdateNacUserCertStatusRequest
+   * @returns UpdateNacUserCertStatusResponse
    */
   async updateNacUserCertStatus(request: UpdateNacUserCertStatusRequest): Promise<UpdateNacUserCertStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13261,11 +17172,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改内网访问应用
-   *
-   * @param request UpdatePrivateAccessApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePrivateAccessApplicationResponse
+   * 修改内网访问应用
+   * 
+   * @param request - UpdatePrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePrivateAccessApplicationResponse
    */
   async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
     Util.validateModel(request);
@@ -13281,6 +17192,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.l7ProxyDomainAutomaticPrefix)) {
+      body["L7ProxyDomainAutomaticPrefix"] = request.l7ProxyDomainAutomaticPrefix;
+    }
+
+    if (!Util.isUnset(request.l7ProxyDomainCustom)) {
+      body["L7ProxyDomainCustom"] = request.l7ProxyDomainCustom;
+    }
+
+    if (!Util.isUnset(request.l7ProxyDomainPrivate)) {
+      body["L7ProxyDomainPrivate"] = request.l7ProxyDomainPrivate;
     }
 
     if (!Util.isUnset(request.modifyType)) {
@@ -13325,10 +17248,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改内网访问应用
-   *
-   * @param request UpdatePrivateAccessApplicationRequest
-   * @return UpdatePrivateAccessApplicationResponse
+   * 修改内网访问应用
+   * 
+   * @param request - UpdatePrivateAccessApplicationRequest
+   * @returns UpdatePrivateAccessApplicationResponse
    */
   async updatePrivateAccessApplication(request: UpdatePrivateAccessApplicationRequest): Promise<UpdatePrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13336,11 +17259,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改内网访问策略
-   *
-   * @param request UpdatePrivateAccessPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePrivateAccessPolicyResponse
+   * 修改内网访问策略
+   * 
+   * @param request - UpdatePrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePrivateAccessPolicyResponse
    */
   async updatePrivateAccessPolicyWithOptions(request: UpdatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessPolicyResponse> {
     Util.validateModel(request);
@@ -13424,10 +17347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改内网访问策略
-   *
-   * @param request UpdatePrivateAccessPolicyRequest
-   * @return UpdatePrivateAccessPolicyResponse
+   * 修改内网访问策略
+   * 
+   * @param request - UpdatePrivateAccessPolicyRequest
+   * @returns UpdatePrivateAccessPolicyResponse
    */
   async updatePrivateAccessPolicy(request: UpdatePrivateAccessPolicyRequest): Promise<UpdatePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13435,11 +17358,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改设备注册策略
-   *
-   * @param tmpReq UpdateRegistrationPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRegistrationPolicyResponse
+   * 修改设备注册策略
+   * 
+   * @param tmpReq - UpdateRegistrationPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRegistrationPolicyResponse
    */
   async updateRegistrationPolicyWithOptions(tmpReq: UpdateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRegistrationPolicyResponse> {
     Util.validateModel(tmpReq);
@@ -13525,10 +17448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改设备注册策略
-   *
-   * @param request UpdateRegistrationPolicyRequest
-   * @return UpdateRegistrationPolicyResponse
+   * 修改设备注册策略
+   * 
+   * @param request - UpdateRegistrationPolicyRequest
+   * @returns UpdateRegistrationPolicyResponse
    */
   async updateRegistrationPolicy(request: UpdateRegistrationPolicyRequest): Promise<UpdateRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13536,11 +17459,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新用户设备共享状态
-   *
-   * @param request UpdateUserDevicesSharingStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserDevicesSharingStatusResponse
+   * 批量更新用户设备共享状态
+   * 
+   * @param request - UpdateUserDevicesSharingStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserDevicesSharingStatusResponse
    */
   async updateUserDevicesSharingStatusWithOptions(request: UpdateUserDevicesSharingStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesSharingStatusResponse> {
     Util.validateModel(request);
@@ -13576,10 +17499,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新用户设备共享状态
-   *
-   * @param request UpdateUserDevicesSharingStatusRequest
-   * @return UpdateUserDevicesSharingStatusResponse
+   * 批量更新用户设备共享状态
+   * 
+   * @param request - UpdateUserDevicesSharingStatusRequest
+   * @returns UpdateUserDevicesSharingStatusResponse
    */
   async updateUserDevicesSharingStatus(request: UpdateUserDevicesSharingStatusRequest): Promise<UpdateUserDevicesSharingStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13587,11 +17510,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新用户设备状态
-   *
-   * @param request UpdateUserDevicesStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserDevicesStatusResponse
+   * 批量更新用户设备状态
+   * 
+   * @param request - UpdateUserDevicesStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserDevicesStatusResponse
    */
   async updateUserDevicesStatusWithOptions(request: UpdateUserDevicesStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesStatusResponse> {
     Util.validateModel(request);
@@ -13627,10 +17550,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新用户设备状态
-   *
-   * @param request UpdateUserDevicesStatusRequest
-   * @return UpdateUserDevicesStatusResponse
+   * 批量更新用户设备状态
+   * 
+   * @param request - UpdateUserDevicesStatusRequest
+   * @returns UpdateUserDevicesStatusResponse
    */
   async updateUserDevicesStatus(request: UpdateUserDevicesStatusRequest): Promise<UpdateUserDevicesStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13638,11 +17561,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改用户组
-   *
-   * @param request UpdateUserGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserGroupResponse
+   * 修改用户组
+   * 
+   * @param request - UpdateUserGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserGroupResponse
    */
   async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
     Util.validateModel(request);
@@ -13686,10 +17609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改用户组
-   *
-   * @param request UpdateUserGroupRequest
-   * @return UpdateUserGroupResponse
+   * 修改用户组
+   * 
+   * @param request - UpdateUserGroupRequest
+   * @returns UpdateUserGroupResponse
    */
   async updateUserGroup(request: UpdateUserGroupRequest): Promise<UpdateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13697,11 +17620,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量修改登陆用户状态
-   *
-   * @param request UpdateUsersStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUsersStatusResponse
+   * 批量修改登陆用户状态
+   * 
+   * @param request - UpdateUsersStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUsersStatusResponse
    */
   async updateUsersStatusWithOptions(request: UpdateUsersStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUsersStatusResponse> {
     Util.validateModel(request);
@@ -13732,10 +17655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量修改登陆用户状态
-   *
-   * @param request UpdateUsersStatusRequest
-   * @return UpdateUsersStatusResponse
+   * 批量修改登陆用户状态
+   * 
+   * @param request - UpdateUsersStatusRequest
+   * @returns UpdateUsersStatusResponse
    */
   async updateUsersStatus(request: UpdateUsersStatusRequest): Promise<UpdateUsersStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
