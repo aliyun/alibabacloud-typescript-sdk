@@ -5582,6 +5582,84 @@ export class UnbindDeviceSeatsResponse extends $tea.Model {
   }
 }
 
+export class UnbindPasswordFreeLoginUserRequest extends $tea.Model {
+  serialNumber?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serialNumber: 'SerialNumber',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serialNumber: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindPasswordFreeLoginUserResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindPasswordFreeLoginUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindPasswordFreeLoginUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindPasswordFreeLoginUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAliasRequest extends $tea.Model {
   alias?: string;
   serialNo?: string;
@@ -11822,6 +11900,52 @@ export default class Client extends OpenApi {
   async unbindDeviceSeats(request: UnbindDeviceSeatsRequest): Promise<UnbindDeviceSeatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindDeviceSeatsWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑免密登录用户
+   * 
+   * @param request - UnbindPasswordFreeLoginUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindPasswordFreeLoginUserResponse
+   */
+  async unbindPasswordFreeLoginUserWithOptions(request: UnbindPasswordFreeLoginUserRequest, runtime: $Util.RuntimeOptions): Promise<UnbindPasswordFreeLoginUserResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serialNumber)) {
+      body["SerialNumber"] = request.serialNumber;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindPasswordFreeLoginUser",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindPasswordFreeLoginUserResponse>(await this.callApi(params, req, runtime), new UnbindPasswordFreeLoginUserResponse({}));
+  }
+
+  /**
+   * 解绑免密登录用户
+   * 
+   * @param request - UnbindPasswordFreeLoginUserRequest
+   * @returns UnbindPasswordFreeLoginUserResponse
+   */
+  async unbindPasswordFreeLoginUser(request: UnbindPasswordFreeLoginUserRequest): Promise<UnbindPasswordFreeLoginUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindPasswordFreeLoginUserWithOptions(request, runtime);
   }
 
   /**
