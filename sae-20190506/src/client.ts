@@ -306,6 +306,7 @@ export class Application extends $tea.Model {
   namespaceName?: string;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  programmingLanguage?: string;
   runtime?: string;
   scaleConfig?: ScaleConfig;
   slsConfig?: SLSConfig;
@@ -360,6 +361,7 @@ export class Application extends $tea.Model {
       namespaceName: 'namespaceName',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
+      programmingLanguage: 'programmingLanguage',
       runtime: 'runtime',
       scaleConfig: 'scaleConfig',
       slsConfig: 'slsConfig',
@@ -417,6 +419,7 @@ export class Application extends $tea.Model {
       namespaceName: 'string',
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
+      programmingLanguage: 'string',
       runtime: 'string',
       scaleConfig: ScaleConfig,
       slsConfig: SLSConfig,
@@ -816,6 +819,7 @@ export class CreateApplicationInput extends $tea.Model {
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   diskSize?: number;
+  enableAppMetric?: boolean;
   environmentVariables?: { [key: string]: string };
   gpuMemorySize?: number;
   handler?: string;
@@ -835,6 +839,7 @@ export class CreateApplicationInput extends $tea.Model {
   namespaceID?: string;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  programmingLanguage?: string;
   runtime?: string;
   scaleConfig?: ScaleConfig;
   slsConfig?: SLSConfig;
@@ -856,6 +861,7 @@ export class CreateApplicationInput extends $tea.Model {
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       diskSize: 'diskSize',
+      enableAppMetric: 'enableAppMetric',
       environmentVariables: 'environmentVariables',
       gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
@@ -875,6 +881,7 @@ export class CreateApplicationInput extends $tea.Model {
       namespaceID: 'namespaceID',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
+      programmingLanguage: 'programmingLanguage',
       runtime: 'runtime',
       scaleConfig: 'scaleConfig',
       slsConfig: 'slsConfig',
@@ -899,6 +906,7 @@ export class CreateApplicationInput extends $tea.Model {
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       diskSize: 'number',
+      enableAppMetric: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gpuMemorySize: 'number',
       handler: 'string',
@@ -918,6 +926,7 @@ export class CreateApplicationInput extends $tea.Model {
       namespaceID: 'string',
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
+      programmingLanguage: 'string',
       runtime: 'string',
       scaleConfig: ScaleConfig,
       slsConfig: SLSConfig,
@@ -3762,8 +3771,10 @@ export class UpdateApplicationInput extends $tea.Model {
   livenessProbe?: Probe;
   logConfig?: LogConfig;
   memorySize?: number;
+  namespaceID?: string;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  programmingLanguage?: string;
   runtime?: string;
   scaleConfig?: ScaleConfig;
   slsConfig?: SLSConfig;
@@ -3802,8 +3813,10 @@ export class UpdateApplicationInput extends $tea.Model {
       livenessProbe: 'livenessProbe',
       logConfig: 'logConfig',
       memorySize: 'memorySize',
+      namespaceID: 'namespaceID',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
+      programmingLanguage: 'programmingLanguage',
       runtime: 'runtime',
       scaleConfig: 'scaleConfig',
       slsConfig: 'slsConfig',
@@ -3845,8 +3858,10 @@ export class UpdateApplicationInput extends $tea.Model {
       livenessProbe: Probe,
       logConfig: LogConfig,
       memorySize: 'number',
+      namespaceID: 'string',
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
+      programmingLanguage: 'string',
       runtime: 'string',
       scaleConfig: ScaleConfig,
       slsConfig: SLSConfig,
@@ -7251,6 +7266,7 @@ export class CreateIngressRequest extends $tea.Model {
    * ingress-for-sae-test
    */
   description?: string;
+  idleTimeout?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -7301,6 +7317,7 @@ export class CreateIngressRequest extends $tea.Model {
       certIds: 'CertIds',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      idleTimeout: 'IdleTimeout',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       loadBalanceType: 'LoadBalanceType',
@@ -7318,6 +7335,7 @@ export class CreateIngressRequest extends $tea.Model {
       certIds: 'string',
       defaultRule: 'string',
       description: 'string',
+      idleTimeout: 'number',
       listenerPort: 'number',
       listenerProtocol: 'string',
       loadBalanceType: 'string',
@@ -23255,6 +23273,7 @@ export class UpdateIngressRequest extends $tea.Model {
    * ingress-sae-test
    */
   description?: string;
+  idleTimeout?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -23291,6 +23310,7 @@ export class UpdateIngressRequest extends $tea.Model {
       certIds: 'CertIds',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      idleTimeout: 'IdleTimeout',
       ingressId: 'IngressId',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
@@ -23307,6 +23327,7 @@ export class UpdateIngressRequest extends $tea.Model {
       certIds: 'string',
       defaultRule: 'string',
       description: 'string',
+      idleTimeout: 'number',
       ingressId: 'number',
       listenerPort: 'string',
       listenerProtocol: 'string',
@@ -31903,6 +31924,7 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
    * 87
    */
   id?: number;
+  idleTimeout?: number;
   /**
    * @remarks
    * The default rule.
@@ -31976,6 +31998,7 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
       defaultRule: 'DefaultRule',
       description: 'Description',
       id: 'Id',
+      idleTimeout: 'IdleTimeout',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       loadBalanceType: 'LoadBalanceType',
@@ -31996,6 +32019,7 @@ export class DescribeIngressResponseBodyData extends $tea.Model {
       defaultRule: DescribeIngressResponseBodyDataDefaultRule,
       description: 'string',
       id: 'number',
+      idleTimeout: 'number',
       listenerPort: 'number',
       listenerProtocol: 'string',
       loadBalanceType: 'string',
@@ -39365,6 +39389,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
     if (!Util.isUnset(request.listenerPort)) {
       query["ListenerPort"] = request.listenerPort;
     }
@@ -45178,6 +45206,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
     }
 
     if (!Util.isUnset(request.ingressId)) {
