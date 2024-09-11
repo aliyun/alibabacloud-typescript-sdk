@@ -3550,6 +3550,540 @@ export class ModifyDeviceInfoResponse extends $tea.Model {
   }
 }
 
+export class Vehicle5ItemQueryRequest extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
+  paramType?: string;
+  vehicleNum?: string;
+  /**
+   * @example
+   * 02
+   */
+  vehicleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramType: 'ParamType',
+      vehicleNum: 'VehicleNum',
+      vehicleType: 'VehicleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramType: 'string',
+      vehicleNum: 'string',
+      vehicleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Vehicle5ItemQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0D******
+   */
+  requestId?: string;
+  resultObject?: Vehicle5ItemQueryResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: Vehicle5ItemQueryResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Vehicle5ItemQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Vehicle5ItemQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Vehicle5ItemQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleInsureQueryRequest extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
+  paramType?: string;
+  vehicleNum?: string;
+  /**
+   * @example
+   * 02
+   */
+  vehicleType?: string;
+  /**
+   * @example
+   * LB**************
+   */
+  vin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramType: 'ParamType',
+      vehicleNum: 'VehicleNum',
+      vehicleType: 'VehicleType',
+      vin: 'Vin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramType: 'string',
+      vehicleNum: 'string',
+      vehicleType: 'string',
+      vin: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleInsureQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 5A6229C0-E156-48E4-B6EC-0F52********
+   */
+  requestId?: string;
+  resultObject?: VehicleInsureQueryResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VehicleInsureQueryResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleInsureQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VehicleInsureQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VehicleInsureQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyRequest extends $tea.Model {
+  /**
+   * @example
+   * 4****************1
+   */
+  identifyNum?: string;
+  /**
+   * @example
+   * normal
+   */
+  paramType?: string;
+  userName?: string;
+  vehicleNum?: string;
+  /**
+   * @example
+   * 02
+   */
+  vehicleType?: string;
+  /**
+   * @example
+   * VEHICLE_2_META
+   */
+  verifyMetaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifyNum: 'IdentifyNum',
+      paramType: 'ParamType',
+      userName: 'UserName',
+      vehicleNum: 'VehicleNum',
+      vehicleType: 'VehicleType',
+      verifyMetaType: 'VerifyMetaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifyNum: 'string',
+      paramType: 'string',
+      userName: 'string',
+      vehicleNum: 'string',
+      vehicleType: 'string',
+      verifyMetaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8FC3D6AC-9FED-4311-8DA7-C4BF4*****
+   */
+  requestId?: string;
+  resultObject?: VehicleMetaVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VehicleMetaVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VehicleMetaVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VehicleMetaVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyV2Request extends $tea.Model {
+  /**
+   * @example
+   * 4****************1
+   */
+  identifyNum?: string;
+  /**
+   * @example
+   * normal
+   */
+  paramType?: string;
+  userName?: string;
+  vehicleNum?: string;
+  /**
+   * @example
+   * 02
+   */
+  vehicleType?: string;
+  /**
+   * @example
+   * VEHICLE_3_META
+   */
+  verifyMetaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifyNum: 'IdentifyNum',
+      paramType: 'ParamType',
+      userName: 'UserName',
+      vehicleNum: 'VehicleNum',
+      vehicleType: 'VehicleType',
+      verifyMetaType: 'VerifyMetaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifyNum: 'string',
+      paramType: 'string',
+      userName: 'string',
+      vehicleNum: 'string',
+      vehicleType: 'string',
+      verifyMetaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 5A6229C0-E156-48E4-B6EC-0F528B******
+   */
+  requestId?: string;
+  resultObject?: VehicleMetaVerifyV2ResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VehicleMetaVerifyV2ResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VehicleMetaVerifyV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VehicleMetaVerifyV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleQueryRequest extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
+  paramType?: string;
+  vehicleNum?: string;
+  /**
+   * @example
+   * 02
+   */
+  vehicleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramType: 'ParamType',
+      vehicleNum: 'VehicleNum',
+      vehicleType: 'VehicleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramType: 'string',
+      vehicleNum: 'string',
+      vehicleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * D6163397-15C5-419C-9ACC-B7C83*******
+   */
+  requestId?: string;
+  resultObject?: VehicleQueryResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VehicleQueryResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VehicleQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VehicleQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyMaterialRequest extends $tea.Model {
   /**
    * @remarks
@@ -5009,6 +5543,142 @@ export class MobileOnlineTimeResponseBodyResultObject extends $tea.Model {
       bizCode: 'string',
       ispName: 'string',
       timeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Vehicle5ItemQueryResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  vehicleInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      vehicleInfo: 'VehicleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      vehicleInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleInsureQueryResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  /**
+   * @example
+   * {
+   *     "firstInsuranceDate": "****-**-**",
+   *     "lastInsuranceDate": "****-**",
+   *     "latestInsuranceDate": "****-**",
+   *     "latestInsuranceDateStart": "****-**"
+   *   }
+   */
+  vehicleInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      vehicleInfo: 'VehicleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      vehicleInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleMetaVerifyV2ResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  vehicleInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      vehicleInfo: 'VehicleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      vehicleInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VehicleQueryResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  vehicleInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      vehicleInfo: 'VehicleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      vehicleInfo: 'string',
     };
   }
 
@@ -6969,6 +7639,284 @@ export default class Client extends OpenApi {
   async modifyDeviceInfo(request: ModifyDeviceInfoRequest): Promise<ModifyDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDeviceInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 车五项信息识别
+   * 
+   * @param request - Vehicle5ItemQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Vehicle5ItemQueryResponse
+   */
+  async vehicle5ItemQueryWithOptions(request: Vehicle5ItemQueryRequest, runtime: $Util.RuntimeOptions): Promise<Vehicle5ItemQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.vehicleNum)) {
+      query["VehicleNum"] = request.vehicleNum;
+    }
+
+    if (!Util.isUnset(request.vehicleType)) {
+      query["VehicleType"] = request.vehicleType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Vehicle5ItemQuery",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Vehicle5ItemQueryResponse>(await this.callApi(params, req, runtime), new Vehicle5ItemQueryResponse({}));
+  }
+
+  /**
+   * 车五项信息识别
+   * 
+   * @param request - Vehicle5ItemQueryRequest
+   * @returns Vehicle5ItemQueryResponse
+   */
+  async vehicle5ItemQuery(request: Vehicle5ItemQueryRequest): Promise<Vehicle5ItemQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.vehicle5ItemQueryWithOptions(request, runtime);
+  }
+
+  /**
+   * 车辆投保日期查询
+   * 
+   * @param request - VehicleInsureQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VehicleInsureQueryResponse
+   */
+  async vehicleInsureQueryWithOptions(request: VehicleInsureQueryRequest, runtime: $Util.RuntimeOptions): Promise<VehicleInsureQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.vehicleNum)) {
+      query["VehicleNum"] = request.vehicleNum;
+    }
+
+    if (!Util.isUnset(request.vehicleType)) {
+      query["VehicleType"] = request.vehicleType;
+    }
+
+    if (!Util.isUnset(request.vin)) {
+      query["Vin"] = request.vin;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VehicleInsureQuery",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VehicleInsureQueryResponse>(await this.callApi(params, req, runtime), new VehicleInsureQueryResponse({}));
+  }
+
+  /**
+   * 车辆投保日期查询
+   * 
+   * @param request - VehicleInsureQueryRequest
+   * @returns VehicleInsureQueryResponse
+   */
+  async vehicleInsureQuery(request: VehicleInsureQueryRequest): Promise<VehicleInsureQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.vehicleInsureQueryWithOptions(request, runtime);
+  }
+
+  /**
+   * 车辆要素核验
+   * 
+   * @param request - VehicleMetaVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VehicleMetaVerifyResponse
+   */
+  async vehicleMetaVerifyWithOptions(request: VehicleMetaVerifyRequest, runtime: $Util.RuntimeOptions): Promise<VehicleMetaVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.vehicleNum)) {
+      query["VehicleNum"] = request.vehicleNum;
+    }
+
+    if (!Util.isUnset(request.vehicleType)) {
+      query["VehicleType"] = request.vehicleType;
+    }
+
+    if (!Util.isUnset(request.verifyMetaType)) {
+      query["VerifyMetaType"] = request.verifyMetaType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VehicleMetaVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VehicleMetaVerifyResponse>(await this.callApi(params, req, runtime), new VehicleMetaVerifyResponse({}));
+  }
+
+  /**
+   * 车辆要素核验
+   * 
+   * @param request - VehicleMetaVerifyRequest
+   * @returns VehicleMetaVerifyResponse
+   */
+  async vehicleMetaVerify(request: VehicleMetaVerifyRequest): Promise<VehicleMetaVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.vehicleMetaVerifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 车辆要素核验增强版
+   * 
+   * @param request - VehicleMetaVerifyV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VehicleMetaVerifyV2Response
+   */
+  async vehicleMetaVerifyV2WithOptions(request: VehicleMetaVerifyV2Request, runtime: $Util.RuntimeOptions): Promise<VehicleMetaVerifyV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.vehicleNum)) {
+      query["VehicleNum"] = request.vehicleNum;
+    }
+
+    if (!Util.isUnset(request.vehicleType)) {
+      query["VehicleType"] = request.vehicleType;
+    }
+
+    if (!Util.isUnset(request.verifyMetaType)) {
+      query["VerifyMetaType"] = request.verifyMetaType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VehicleMetaVerifyV2",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VehicleMetaVerifyV2Response>(await this.callApi(params, req, runtime), new VehicleMetaVerifyV2Response({}));
+  }
+
+  /**
+   * 车辆要素核验增强版
+   * 
+   * @param request - VehicleMetaVerifyV2Request
+   * @returns VehicleMetaVerifyV2Response
+   */
+  async vehicleMetaVerifyV2(request: VehicleMetaVerifyV2Request): Promise<VehicleMetaVerifyV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.vehicleMetaVerifyV2WithOptions(request, runtime);
+  }
+
+  /**
+   * 车辆信息识别
+   * 
+   * @param request - VehicleQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VehicleQueryResponse
+   */
+  async vehicleQueryWithOptions(request: VehicleQueryRequest, runtime: $Util.RuntimeOptions): Promise<VehicleQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.vehicleNum)) {
+      query["VehicleNum"] = request.vehicleNum;
+    }
+
+    if (!Util.isUnset(request.vehicleType)) {
+      query["VehicleType"] = request.vehicleType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VehicleQuery",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VehicleQueryResponse>(await this.callApi(params, req, runtime), new VehicleQueryResponse({}));
+  }
+
+  /**
+   * 车辆信息识别
+   * 
+   * @param request - VehicleQueryRequest
+   * @returns VehicleQueryResponse
+   */
+  async vehicleQuery(request: VehicleQueryRequest): Promise<VehicleQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.vehicleQueryWithOptions(request, runtime);
   }
 
   /**
