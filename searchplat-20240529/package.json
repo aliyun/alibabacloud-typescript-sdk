@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/searchplat20240529",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.8",
+    "@alicloud/tea-util": "^1.4.9",
     "@alicloud/gateway-pop": "^0.0.6",
-    "@alicloud/openapi-client": "^0.4.10",
+    "@alicloud/openapi-client": "^0.4.11",
     "@alicloud/openapi-util": "^0.3.2"
   },
   "files": [

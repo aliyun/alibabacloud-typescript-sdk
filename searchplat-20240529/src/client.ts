@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import GatewayClient from '@alicloud/gateway-pop';
@@ -150,6 +149,10 @@ export class CreateImageAnalyzeTaskResponse extends $tea.Model {
 }
 
 export class GetDocumentAnalyzeTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -222,7 +225,15 @@ export class GetDocumentAnalyzeTaskStatusResponse extends $tea.Model {
 }
 
 export class GetDocumentRankRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   docs?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -297,6 +308,10 @@ export class GetDocumentRankResponse extends $tea.Model {
 }
 
 export class GetDocumentSplitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   document?: GetDocumentSplitRequestDocument;
   strategy?: GetDocumentSplitRequestStrategy;
   static names(): { [key: string]: string } {
@@ -372,6 +387,10 @@ export class GetDocumentSplitResponse extends $tea.Model {
 }
 
 export class GetImageAnalyzeTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -444,10 +463,16 @@ export class GetImageAnalyzeTaskStatusResponse extends $tea.Model {
 }
 
 export class GetQueryAnalysisRequest extends $tea.Model {
+  functions?: GetQueryAnalysisRequestFunctions[];
   history?: GetQueryAnalysisRequestHistory[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
+      functions: 'functions',
       history: 'history',
       query: 'query',
     };
@@ -455,6 +480,7 @@ export class GetQueryAnalysisRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      functions: { 'type': 'array', 'itemType': GetQueryAnalysisRequestFunctions },
       history: { 'type': 'array', 'itemType': GetQueryAnalysisRequestHistory },
       query: 'string',
     };
@@ -519,7 +545,15 @@ export class GetQueryAnalysisResponse extends $tea.Model {
 }
 
 export class GetTextEmbeddingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: string[];
+  /**
+   * @example
+   * document
+   */
   inputType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -595,6 +629,10 @@ export class GetTextEmbeddingResponse extends $tea.Model {
 
 export class GetTextGenerationRequest extends $tea.Model {
   csiLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   messages?: GetTextGenerationRequestMessages[];
   parameters?: { [key: string]: string };
   stream?: boolean;
@@ -675,7 +713,15 @@ export class GetTextGenerationResponse extends $tea.Model {
 }
 
 export class GetTextSparseEmbeddingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: string[];
+  /**
+   * @example
+   * document
+   */
   inputType?: string;
   returnToken?: boolean;
   static names(): { [key: string]: string } {
@@ -1241,6 +1287,28 @@ export class GetImageAnalyzeTaskStatusResponseBodyUsage extends $tea.Model {
   }
 }
 
+export class GetQueryAnalysisRequestFunctions extends $tea.Model {
+  name?: string;
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      parameters: 'parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQueryAnalysisRequestHistory extends $tea.Model {
   content?: string;
   role?: string;
@@ -1267,11 +1335,13 @@ export class GetQueryAnalysisResponseBodyResult extends $tea.Model {
   intent?: string;
   queries?: string[];
   query?: string;
+  sql?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       intent: 'intent',
       queries: 'queries',
       query: 'query',
+      sql: 'sql',
     };
   }
 
@@ -1280,6 +1350,7 @@ export class GetQueryAnalysisResponseBodyResult extends $tea.Model {
       intent: 'string',
       queries: { 'type': 'array', 'itemType': 'string' },
       query: 'string',
+      sql: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1536,12 +1607,12 @@ export default class Client extends OpenApi {
 
 
   /**
-   * @summary 创建文档解析异步提取任务
-   *
-   * @param request CreateDocumentAnalyzeTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDocumentAnalyzeTaskResponse
+   * 创建文档解析异步提取任务
+   * 
+   * @param request - CreateDocumentAnalyzeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDocumentAnalyzeTaskResponse
    */
   async createDocumentAnalyzeTaskWithOptions(workspaceName: string, serviceId: string, request: CreateDocumentAnalyzeTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDocumentAnalyzeTaskResponse> {
     Util.validateModel(request);
@@ -1573,10 +1644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文档解析异步提取任务
-   *
-   * @param request CreateDocumentAnalyzeTaskRequest
-   * @return CreateDocumentAnalyzeTaskResponse
+   * 创建文档解析异步提取任务
+   * 
+   * @param request - CreateDocumentAnalyzeTaskRequest
+   * @returns CreateDocumentAnalyzeTaskResponse
    */
   async createDocumentAnalyzeTask(workspaceName: string, serviceId: string, request: CreateDocumentAnalyzeTaskRequest): Promise<CreateDocumentAnalyzeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1585,12 +1656,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建图片解析异步提取任务
-   *
-   * @param request CreateImageAnalyzeTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateImageAnalyzeTaskResponse
+   * 创建图片解析异步提取任务
+   * 
+   * @param request - CreateImageAnalyzeTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageAnalyzeTaskResponse
    */
   async createImageAnalyzeTaskWithOptions(workspaceName: string, serviceId: string, request: CreateImageAnalyzeTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateImageAnalyzeTaskResponse> {
     Util.validateModel(request);
@@ -1618,10 +1689,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建图片解析异步提取任务
-   *
-   * @param request CreateImageAnalyzeTaskRequest
-   * @return CreateImageAnalyzeTaskResponse
+   * 创建图片解析异步提取任务
+   * 
+   * @param request - CreateImageAnalyzeTaskRequest
+   * @returns CreateImageAnalyzeTaskResponse
    */
   async createImageAnalyzeTask(workspaceName: string, serviceId: string, request: CreateImageAnalyzeTaskRequest): Promise<CreateImageAnalyzeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1630,12 +1701,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文档解析异步提取任务状态
-   *
-   * @param request GetDocumentAnalyzeTaskStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentAnalyzeTaskStatusResponse
+   * 获取文档解析异步提取任务状态
+   * 
+   * @param request - GetDocumentAnalyzeTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentAnalyzeTaskStatusResponse
    */
   async getDocumentAnalyzeTaskStatusWithOptions(workspaceName: string, serviceId: string, request: GetDocumentAnalyzeTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDocumentAnalyzeTaskStatusResponse> {
     Util.validateModel(request);
@@ -1663,10 +1734,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文档解析异步提取任务状态
-   *
-   * @param request GetDocumentAnalyzeTaskStatusRequest
-   * @return GetDocumentAnalyzeTaskStatusResponse
+   * 获取文档解析异步提取任务状态
+   * 
+   * @param request - GetDocumentAnalyzeTaskStatusRequest
+   * @returns GetDocumentAnalyzeTaskStatusResponse
    */
   async getDocumentAnalyzeTaskStatus(workspaceName: string, serviceId: string, request: GetDocumentAnalyzeTaskStatusRequest): Promise<GetDocumentAnalyzeTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1675,12 +1746,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档相关性打分
-   *
-   * @param request GetDocumentRankRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentRankResponse
+   * 文档相关性打分
+   * 
+   * @param request - GetDocumentRankRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentRankResponse
    */
   async getDocumentRankWithOptions(workspaceName: string, serviceId: string, request: GetDocumentRankRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDocumentRankResponse> {
     Util.validateModel(request);
@@ -1712,10 +1783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档相关性打分
-   *
-   * @param request GetDocumentRankRequest
-   * @return GetDocumentRankResponse
+   * 文档相关性打分
+   * 
+   * @param request - GetDocumentRankRequest
+   * @returns GetDocumentRankResponse
    */
   async getDocumentRank(workspaceName: string, serviceId: string, request: GetDocumentRankRequest): Promise<GetDocumentRankResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1724,12 +1795,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档切片
-   *
-   * @param request GetDocumentSplitRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentSplitResponse
+   * 文档切片
+   * 
+   * @param request - GetDocumentSplitRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentSplitResponse
    */
   async getDocumentSplitWithOptions(workspaceName: string, serviceId: string, request: GetDocumentSplitRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDocumentSplitResponse> {
     Util.validateModel(request);
@@ -1761,10 +1832,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文档切片
-   *
-   * @param request GetDocumentSplitRequest
-   * @return GetDocumentSplitResponse
+   * 文档切片
+   * 
+   * @param request - GetDocumentSplitRequest
+   * @returns GetDocumentSplitResponse
    */
   async getDocumentSplit(workspaceName: string, serviceId: string, request: GetDocumentSplitRequest): Promise<GetDocumentSplitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1773,12 +1844,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片解析异步提取任务状态
-   *
-   * @param request GetImageAnalyzeTaskStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetImageAnalyzeTaskStatusResponse
+   * 获取图片解析异步提取任务状态
+   * 
+   * @param request - GetImageAnalyzeTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageAnalyzeTaskStatusResponse
    */
   async getImageAnalyzeTaskStatusWithOptions(workspaceName: string, serviceId: string, request: GetImageAnalyzeTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetImageAnalyzeTaskStatusResponse> {
     Util.validateModel(request);
@@ -1806,10 +1877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片解析异步提取任务状态
-   *
-   * @param request GetImageAnalyzeTaskStatusRequest
-   * @return GetImageAnalyzeTaskStatusResponse
+   * 获取图片解析异步提取任务状态
+   * 
+   * @param request - GetImageAnalyzeTaskStatusRequest
+   * @returns GetImageAnalyzeTaskStatusResponse
    */
   async getImageAnalyzeTaskStatus(workspaceName: string, serviceId: string, request: GetImageAnalyzeTaskStatusRequest): Promise<GetImageAnalyzeTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1818,16 +1889,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取query分析结果
-   *
-   * @param request GetQueryAnalysisRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetQueryAnalysisResponse
+   * 获取query分析结果
+   * 
+   * @param request - GetQueryAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQueryAnalysisResponse
    */
   async getQueryAnalysisWithOptions(workspaceName: string, serviceId: string, request: GetQueryAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQueryAnalysisResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.functions)) {
+      body["functions"] = request.functions;
+    }
+
     if (!Util.isUnset(request.history)) {
       body["history"] = request.history;
     }
@@ -1855,10 +1930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取query分析结果
-   *
-   * @param request GetQueryAnalysisRequest
-   * @return GetQueryAnalysisResponse
+   * 获取query分析结果
+   * 
+   * @param request - GetQueryAnalysisRequest
+   * @returns GetQueryAnalysisResponse
    */
   async getQueryAnalysis(workspaceName: string, serviceId: string, request: GetQueryAnalysisRequest): Promise<GetQueryAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1867,12 +1942,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文本向量化
-   *
-   * @param request GetTextEmbeddingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTextEmbeddingResponse
+   * 文本向量化
+   * 
+   * @param request - GetTextEmbeddingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTextEmbeddingResponse
    */
   async getTextEmbeddingWithOptions(workspaceName: string, serviceId: string, request: GetTextEmbeddingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTextEmbeddingResponse> {
     Util.validateModel(request);
@@ -1904,10 +1979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文本向量化
-   *
-   * @param request GetTextEmbeddingRequest
-   * @return GetTextEmbeddingResponse
+   * 文本向量化
+   * 
+   * @param request - GetTextEmbeddingRequest
+   * @returns GetTextEmbeddingResponse
    */
   async getTextEmbedding(workspaceName: string, serviceId: string, request: GetTextEmbeddingRequest): Promise<GetTextEmbeddingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1916,12 +1991,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 大模型问答
-   *
-   * @param request GetTextGenerationRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTextGenerationResponse
+   * 大模型问答
+   * 
+   * @param request - GetTextGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTextGenerationResponse
    */
   async getTextGenerationWithOptions(workspaceName: string, serviceId: string, request: GetTextGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTextGenerationResponse> {
     Util.validateModel(request);
@@ -1961,10 +2036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 大模型问答
-   *
-   * @param request GetTextGenerationRequest
-   * @return GetTextGenerationResponse
+   * 大模型问答
+   * 
+   * @param request - GetTextGenerationRequest
+   * @returns GetTextGenerationResponse
    */
   async getTextGeneration(workspaceName: string, serviceId: string, request: GetTextGenerationRequest): Promise<GetTextGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1973,12 +2048,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文本稀疏向量化
-   *
-   * @param request GetTextSparseEmbeddingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTextSparseEmbeddingResponse
+   * 文本稀疏向量化
+   * 
+   * @param request - GetTextSparseEmbeddingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTextSparseEmbeddingResponse
    */
   async getTextSparseEmbeddingWithOptions(workspaceName: string, serviceId: string, request: GetTextSparseEmbeddingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTextSparseEmbeddingResponse> {
     Util.validateModel(request);
@@ -2014,10 +2089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 文本稀疏向量化
-   *
-   * @param request GetTextSparseEmbeddingRequest
-   * @return GetTextSparseEmbeddingResponse
+   * 文本稀疏向量化
+   * 
+   * @param request - GetTextSparseEmbeddingRequest
+   * @returns GetTextSparseEmbeddingResponse
    */
   async getTextSparseEmbedding(workspaceName: string, serviceId: string, request: GetTextSparseEmbeddingRequest): Promise<GetTextSparseEmbeddingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
