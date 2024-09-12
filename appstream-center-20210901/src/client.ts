@@ -6175,6 +6175,7 @@ export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $t
 }
 
 export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
+  maxIdleAppInstanceAmount?: number;
   /**
    * @example
    * 10
@@ -6229,6 +6230,7 @@ export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
   warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
+      maxIdleAppInstanceAmount: 'MaxIdleAppInstanceAmount',
       maxScalingAmount: 'MaxScalingAmount',
       nodeAmount: 'NodeAmount',
       nodeCapacity: 'NodeCapacity',
@@ -6246,6 +6248,7 @@ export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxIdleAppInstanceAmount: 'number',
       maxScalingAmount: 'number',
       nodeAmount: 'number',
       nodeCapacity: 'number',
@@ -6641,6 +6644,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
    * 2
    */
   amount?: number;
+  maxIdleAppInstanceAmount?: number;
   /**
    * @example
    * 8
@@ -6721,6 +6725,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      maxIdleAppInstanceAmount: 'MaxIdleAppInstanceAmount',
       maxScalingAmount: 'MaxScalingAmount',
       nodeAmount: 'NodeAmount',
       nodeCapacity: 'NodeCapacity',
@@ -6744,6 +6749,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      maxIdleAppInstanceAmount: 'number',
       maxScalingAmount: 'number',
       nodeAmount: 'number',
       nodeCapacity: 'number',
@@ -7763,6 +7769,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
    * 2
    */
   amount?: number;
+  maxIdleAppInstanceAmount?: number;
   /**
    * @example
    * 8
@@ -7843,6 +7850,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      maxIdleAppInstanceAmount: 'MaxIdleAppInstanceAmount',
       maxScalingAmount: 'MaxScalingAmount',
       nodeAmount: 'NodeAmount',
       nodeCapacity: 'NodeCapacity',
@@ -7866,6 +7874,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      maxIdleAppInstanceAmount: 'number',
       maxScalingAmount: 'number',
       nodeAmount: 'number',
       nodeCapacity: 'number',
@@ -8982,6 +8991,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
 }
 
 export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
+  maxIdleAppInstanceAmount?: number;
   /**
    * @example
    * 10
@@ -9046,6 +9056,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
   warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
+      maxIdleAppInstanceAmount: 'MaxIdleAppInstanceAmount',
       maxScalingAmount: 'MaxScalingAmount',
       nodeAmount: 'NodeAmount',
       recurrenceSchedules: 'RecurrenceSchedules',
@@ -9061,6 +9072,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxIdleAppInstanceAmount: 'number',
       maxScalingAmount: 'number',
       nodeAmount: 'number',
       recurrenceSchedules: { 'type': 'array', 'itemType': ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules },
