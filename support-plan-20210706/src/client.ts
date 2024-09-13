@@ -179,28 +179,14 @@ export class CloseTaskOrderResponse extends $tea.Model {
 
 export class CreateTaskOrderRequest extends $tea.Model {
   /**
-   * @example
-   * 建单人姓名：快手客户
-   */
-  customerRealName?: string;
-  /**
-   * @example
-   * 123
-   */
-  customerUserId?: string;
-  /**
-   * @example
-   * 重要性描述
-   */
-  importantDescription?: string;
-  /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 如:normal或者hurry
+   * 123
    */
-  isImportant?: string;
+  createUserId?: string;
+  isUrgent?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -211,52 +197,44 @@ export class CreateTaskOrderRequest extends $tea.Model {
   openGroupId?: string;
   /**
    * @remarks
-   * productType
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3270
-   */
-  productType?: string;
-  /**
-   * @example
-   * lc-云享咨询
-   */
-  productTypeName?: string;
-  /**
-   * @remarks
-   * taskTitle
-   * 
    * This parameter is required.
    * 
    * @example
    * 任务单标题：必填
    */
-  taskTitle?: string;
+  overview?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs
+   */
+  productCode?: string;
+  /**
+   * @example
+   * 重要性描述
+   */
+  urgentDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      customerRealName: 'CustomerRealName',
-      customerUserId: 'CustomerUserId',
-      importantDescription: 'ImportantDescription',
-      isImportant: 'IsImportant',
+      createUserId: 'CreateUserId',
+      isUrgent: 'IsUrgent',
       openGroupId: 'OpenGroupId',
-      productType: 'ProductType',
-      productTypeName: 'ProductTypeName',
-      taskTitle: 'TaskTitle',
+      overview: 'Overview',
+      productCode: 'ProductCode',
+      urgentDescription: 'UrgentDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      customerRealName: 'string',
-      customerUserId: 'string',
-      importantDescription: 'string',
-      isImportant: 'string',
+      createUserId: 'string',
+      isUrgent: 'boolean',
       openGroupId: 'string',
-      productType: 'string',
-      productTypeName: 'string',
-      taskTitle: 'string',
+      overview: 'string',
+      productCode: 'string',
+      urgentDescription: 'string',
     };
   }
 
@@ -965,30 +943,6 @@ export class GetEnterpriseDingtalkGroupCustomerMemberResponse extends $tea.Model
 export class ListDdTaskOrderRequest extends $tea.Model {
   /**
    * @remarks
-   * callerParentId
-   * 
-   * @example
-   * 123
-   */
-  callerParentId?: number;
-  /**
-   * @remarks
-   * callerType
-   * 
-   * @example
-   * 123
-   */
-  callerType?: string;
-  /**
-   * @remarks
-   * callerUid
-   * 
-   * @example
-   * 123
-   */
-  callerUid?: number;
-  /**
-   * @remarks
    * createRealName
    * 
    * @example
@@ -1003,9 +957,12 @@ export class ListDdTaskOrderRequest extends $tea.Model {
    * 2024-08-20 14:09:16
    */
   endTime?: string;
+  isUrgent?: boolean;
   /**
    * @remarks
    * openGroupId
+   * 
+   * This parameter is required.
    * 
    * @example
    * DAWNN14N
@@ -1013,20 +970,12 @@ export class ListDdTaskOrderRequest extends $tea.Model {
   openGroupId?: string;
   /**
    * @remarks
-   * orderId
-   * 
-   * @example
-   * E2112019N14PBY
-   */
-  orderId?: string;
-  /**
-   * @remarks
    * pageNo
    * 
    * @example
    * 1
    */
-  pageNo?: string;
+  pageNo?: number;
   /**
    * @remarks
    * pageSize
@@ -1034,15 +983,7 @@ export class ListDdTaskOrderRequest extends $tea.Model {
    * @example
    * 10
    */
-  pageSize?: string;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 2F8557E4-742B-1CF7-8E83-28CD0C1F7B48
-   */
-  requestId?: string;
+  pageSize?: number;
   /**
    * @remarks
    * startTime
@@ -1061,16 +1002,12 @@ export class ListDdTaskOrderRequest extends $tea.Model {
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      callerParentId: 'CallerParentId',
-      callerType: 'CallerType',
-      callerUid: 'CallerUid',
       createRealName: 'CreateRealName',
       endTime: 'EndTime',
+      isUrgent: 'IsUrgent',
       openGroupId: 'OpenGroupId',
-      orderId: 'OrderId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       startTime: 'StartTime',
       taskStatus: 'TaskStatus',
     };
@@ -1078,16 +1015,12 @@ export class ListDdTaskOrderRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      callerParentId: 'number',
-      callerType: 'string',
-      callerUid: 'number',
       createRealName: 'string',
       endTime: 'string',
+      isUrgent: 'boolean',
       openGroupId: 'string',
-      orderId: 'string',
-      pageNo: 'string',
-      pageSize: 'string',
-      requestId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
       startTime: 'string',
       taskStatus: 'string',
     };
@@ -1195,7 +1128,7 @@ export class ListEnterpriseDingtalkGroupCustomerMembersRequest extends $tea.Mode
    * This parameter is required.
    * 
    * @example
-   * 123
+   * DAWNN14N
    */
   openGroupId?: string;
   static names(): { [key: string]: string } {
@@ -1221,7 +1154,7 @@ export class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends $tea
    * 200
    */
   code?: string;
-  data?: EnterpriseDingtalkGroupMember[];
+  data?: ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData[];
   /**
    * @example
    * Invalid data
@@ -1250,7 +1183,7 @@ export class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends $tea
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: { 'type': 'array', 'itemType': EnterpriseDingtalkGroupMember },
+      data: { 'type': 'array', 'itemType': ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData },
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -2016,6 +1949,31 @@ export class GetEnterpriseDingtalkGroupResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData extends $tea.Model {
+  isAdmin?: boolean;
+  name?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isAdmin: 'IsAdmin',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isAdmin: 'boolean',
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEnterpriseDingtalkGroupsResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -2147,36 +2105,28 @@ export default class Client extends OpenApi {
   async createTaskOrderWithOptions(request: CreateTaskOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.customerRealName)) {
-      query["CustomerRealName"] = request.customerRealName;
+    if (!Util.isUnset(request.createUserId)) {
+      query["CreateUserId"] = request.createUserId;
     }
 
-    if (!Util.isUnset(request.customerUserId)) {
-      query["CustomerUserId"] = request.customerUserId;
-    }
-
-    if (!Util.isUnset(request.importantDescription)) {
-      query["ImportantDescription"] = request.importantDescription;
-    }
-
-    if (!Util.isUnset(request.isImportant)) {
-      query["IsImportant"] = request.isImportant;
+    if (!Util.isUnset(request.isUrgent)) {
+      query["IsUrgent"] = request.isUrgent;
     }
 
     if (!Util.isUnset(request.openGroupId)) {
       query["OpenGroupId"] = request.openGroupId;
     }
 
-    if (!Util.isUnset(request.productType)) {
-      query["ProductType"] = request.productType;
+    if (!Util.isUnset(request.overview)) {
+      query["Overview"] = request.overview;
     }
 
-    if (!Util.isUnset(request.productTypeName)) {
-      query["ProductTypeName"] = request.productTypeName;
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.taskTitle)) {
-      query["TaskTitle"] = request.taskTitle;
+    if (!Util.isUnset(request.urgentDescription)) {
+      query["UrgentDescription"] = request.urgentDescription;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2445,18 +2395,6 @@ export default class Client extends OpenApi {
   async listDdTaskOrderWithOptions(request: ListDdTaskOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListDdTaskOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.callerParentId)) {
-      query["CallerParentId"] = request.callerParentId;
-    }
-
-    if (!Util.isUnset(request.callerType)) {
-      query["CallerType"] = request.callerType;
-    }
-
-    if (!Util.isUnset(request.callerUid)) {
-      query["CallerUid"] = request.callerUid;
-    }
-
     if (!Util.isUnset(request.createRealName)) {
       query["CreateRealName"] = request.createRealName;
     }
@@ -2465,12 +2403,12 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.openGroupId)) {
-      query["OpenGroupId"] = request.openGroupId;
+    if (!Util.isUnset(request.isUrgent)) {
+      query["IsUrgent"] = request.isUrgent;
     }
 
-    if (!Util.isUnset(request.orderId)) {
-      query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.openGroupId)) {
+      query["OpenGroupId"] = request.openGroupId;
     }
 
     if (!Util.isUnset(request.pageNo)) {
@@ -2479,10 +2417,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -2530,13 +2464,13 @@ export default class Client extends OpenApi {
    */
   async listEnterpriseDingtalkGroupCustomerMembersWithOptions(request: ListEnterpriseDingtalkGroupCustomerMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListEnterpriseDingtalkGroupCustomerMembersResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!Util.isUnset(request.openGroupId)) {
-      body["OpenGroupId"] = request.openGroupId;
+      query["OpenGroupId"] = request.openGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ListEnterpriseDingtalkGroupCustomerMembers",
