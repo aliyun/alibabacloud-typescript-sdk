@@ -5493,6 +5493,118 @@ export class BindSentinelBlockFallbackDefinitionResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfm34x43l*****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mse-cn-xxxxxxxxxxx，
+   * gw-xxxxxxxxxxxxxxxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  resourceRegionId?: string;
+  /**
+   * @example
+   * Cluster,Gateway
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 54973C90-F379-4372-9AA5-053A3F7****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneNacosConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -9461,6 +9573,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
    * 0
    */
   status?: number;
+  swimVersion?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -9478,6 +9591,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       region: 'Region',
       routeIds: 'RouteIds',
       status: 'Status',
+      swimVersion: 'SwimVersion',
     };
   }
 
@@ -9498,6 +9612,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       region: 'string',
       routeIds: { 'type': 'array', 'itemType': 'number' },
       status: 'number',
+      swimVersion: 'number',
     };
   }
 
@@ -9611,6 +9726,7 @@ export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $tea.Model {
    * 0
    */
   status?: number;
+  swimVersion?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -9628,6 +9744,7 @@ export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $tea.Model {
       region: 'Region',
       routeIdsShrink: 'RouteIds',
       status: 'Status',
+      swimVersion: 'SwimVersion',
     };
   }
 
@@ -9648,6 +9765,7 @@ export class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends $tea.Model {
       region: 'string',
       routeIdsShrink: 'string',
       status: 'number',
+      swimVersion: 'number',
     };
   }
 
@@ -49787,6 +49905,7 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
    * 0
    */
   canaryModel?: number;
+  condition?: string;
   /**
    * @remarks
    * The matching conditions.
@@ -49823,6 +49942,7 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
   static names(): { [key: string]: string } {
     return {
       canaryModel: 'CanaryModel',
+      condition: 'Condition',
       conditions: 'Conditions',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -49836,6 +49956,7 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
   static types(): { [key: string]: any } {
     return {
       canaryModel: 'number',
+      condition: 'string',
       conditions: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions },
       gatewayId: 'number',
       gatewayUniqueId: 'string',
@@ -64340,6 +64461,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $tea.Model {
    * The domain names.
    */
   domainNameList?: string[];
+  dynamicRoute?: boolean;
   /**
    * @remarks
    * Indicates whether Web Application Firewall (WAF) is activated.
@@ -64475,6 +64597,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $tea.Model {
       domainIdList: 'DomainIdList',
       domainName: 'DomainName',
       domainNameList: 'DomainNameList',
+      dynamicRoute: 'DynamicRoute',
       enableWaf: 'EnableWaf',
       fallback: 'Fallback',
       fallbackServices: 'FallbackServices',
@@ -64506,6 +64629,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $tea.Model {
       domainIdList: { 'type': 'array', 'itemType': 'number' },
       domainName: 'string',
       domainNameList: { 'type': 'array', 'itemType': 'string' },
+      dynamicRoute: 'boolean',
       enableWaf: 'string',
       fallback: 'boolean',
       fallbackServices: { 'type': 'array', 'itemType': ListGatewayRouteResponseBodyDataResultFallbackServices },
@@ -67509,6 +67633,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
    * name
    */
   name?: string;
+  nameList?: string[];
   /**
    * @example
    * header
@@ -67523,6 +67648,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
     return {
       cond: 'Cond',
       name: 'Name',
+      nameList: 'NameList',
       type: 'Type',
       value: 'Value',
     };
@@ -67532,6 +67658,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
     return {
       cond: 'string',
       name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
       value: 'string',
     };
@@ -67748,6 +67875,7 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $tea.Model {
    * cn-hangzhou
    */
   region?: string;
+  swimVersion?: number;
   /**
    * @example
    * 12345
@@ -67766,6 +67894,7 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $tea.Model {
       paths: 'Paths',
       recordCanaryDetail: 'RecordCanaryDetail',
       region: 'Region',
+      swimVersion: 'SwimVersion',
       userId: 'UserId',
     };
   }
@@ -67783,6 +67912,7 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $tea.Model {
       paths: 'string',
       recordCanaryDetail: 'boolean',
       region: 'string',
+      swimVersion: 'number',
       userId: 'string',
     };
   }
@@ -74638,6 +74768,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Clones an existing Nacos configuration from a namespace to another namespace.
    * 
    * @remarks
@@ -76081,6 +76269,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.swimVersion)) {
+      query["SwimVersion"] = request.swimVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
