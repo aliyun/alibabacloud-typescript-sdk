@@ -1918,6 +1918,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
    * 25.0
    */
   confidence?: number;
+  description?: string;
   /**
    * @remarks
    * The details of the labels.
@@ -1929,6 +1930,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      description: 'Description',
       label: 'Label',
     };
   }
@@ -1936,6 +1938,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
   static types(): { [key: string]: any } {
     return {
       confidence: 'number',
+      description: 'string',
       label: 'string',
     };
   }
@@ -2020,6 +2023,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
    * Location information.
    */
   location?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation;
+  riskLevel?: string;
   /**
    * @remarks
    * The moderation service.
@@ -2033,6 +2037,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
       description: 'Description',
       labelResult: 'LabelResult',
       location: 'Location',
+      riskLevel: 'RiskLevel',
       service: 'Service',
     };
   }
@@ -2042,6 +2047,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
       description: 'string',
       labelResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult },
       location: DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation,
+      riskLevel: 'string',
       service: 'string',
     };
   }
@@ -2068,6 +2074,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * porn
    */
   labels?: string;
+  riskLevel?: string;
   /**
    * @remarks
    * The risk details that are hit.
@@ -2112,6 +2119,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
     return {
       description: 'Description',
       labels: 'Labels',
+      riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
       riskWords: 'RiskWords',
       service: 'Service',
@@ -2124,6 +2132,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
     return {
       description: 'string',
       labels: 'string',
+      riskLevel: 'string',
       riskTips: 'string',
       riskWords: 'string',
       service: 'string',
@@ -2197,6 +2206,122 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea
   }
 }
 
+export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels extends $tea.Model {
+  description?: string;
+  label?: string;
+  labelSum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      label: 'Label',
+      labelSum: 'LabelSum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      label: 'string',
+      labelSum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary extends $tea.Model {
+  imageLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels[];
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageLabels: 'ImageLabels',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageLabels: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels },
+      riskLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels extends $tea.Model {
+  label?: string;
+  labelSum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      labelSum: 'LabelSum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      labelSum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary extends $tea.Model {
+  riskLevel?: string;
+  textLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels[];
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'RiskLevel',
+      textLabels: 'TextLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'string',
+      textLabels: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummary extends $tea.Model {
+  imageSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary;
+  pageSum?: number;
+  textSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary;
+  static names(): { [key: string]: string } {
+    return {
+      imageSummary: 'ImageSummary',
+      pageSum: 'PageSum',
+      textSummary: 'TextSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageSummary: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary,
+      pageSum: 'number',
+      textSummary: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -2219,6 +2344,8 @@ export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
    * The pagination information.
    */
   pageResult?: DescribeFileModerationResultResponseBodyDataPageResult[];
+  pageSummary?: DescribeFileModerationResultResponseBodyDataPageSummary;
+  riskLevel?: string;
   /**
    * @remarks
    * The URL of the moderation object.
@@ -2232,6 +2359,8 @@ export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
       dataId: 'DataId',
       docType: 'DocType',
       pageResult: 'PageResult',
+      pageSummary: 'PageSummary',
+      riskLevel: 'RiskLevel',
       url: 'Url',
     };
   }
@@ -2241,6 +2370,8 @@ export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
       dataId: 'string',
       docType: 'string',
       pageResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResult },
+      pageSummary: DescribeFileModerationResultResponseBodyDataPageSummary,
+      riskLevel: 'string',
       url: 'string',
     };
   }
@@ -2897,6 +3028,246 @@ export class ImageModerationResponseBodyDataExtCustomImage extends $tea.Model {
   }
 }
 
+export class ImageModerationResponseBodyDataExtFaceDataBang extends $tea.Model {
+  confidence?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataGender extends $tea.Model {
+  confidence?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataHairstyle extends $tea.Model {
+  confidence?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataHat extends $tea.Model {
+  confidence?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataLocation extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataMask extends $tea.Model {
+  confidence?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataMustache extends $tea.Model {
+  confidence?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceDataQuality extends $tea.Model {
+  blur?: number;
+  integrity?: number;
+  pitch?: number;
+  roll?: number;
+  yaw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blur: 'Blur',
+      integrity: 'Integrity',
+      pitch: 'Pitch',
+      roll: 'Roll',
+      yaw: 'Yaw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blur: 'number',
+      integrity: 'number',
+      pitch: 'number',
+      roll: 'number',
+      yaw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtFaceData extends $tea.Model {
+  age?: number;
+  bang?: ImageModerationResponseBodyDataExtFaceDataBang;
+  gender?: ImageModerationResponseBodyDataExtFaceDataGender;
+  glasses?: string;
+  hairstyle?: ImageModerationResponseBodyDataExtFaceDataHairstyle;
+  hat?: ImageModerationResponseBodyDataExtFaceDataHat;
+  location?: ImageModerationResponseBodyDataExtFaceDataLocation;
+  mask?: ImageModerationResponseBodyDataExtFaceDataMask;
+  mustache?: ImageModerationResponseBodyDataExtFaceDataMustache;
+  quality?: ImageModerationResponseBodyDataExtFaceDataQuality;
+  smile?: number;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      bang: 'Bang',
+      gender: 'Gender',
+      glasses: 'Glasses',
+      hairstyle: 'Hairstyle',
+      hat: 'Hat',
+      location: 'Location',
+      mask: 'Mask',
+      mustache: 'Mustache',
+      quality: 'Quality',
+      smile: 'Smile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: 'number',
+      bang: ImageModerationResponseBodyDataExtFaceDataBang,
+      gender: ImageModerationResponseBodyDataExtFaceDataGender,
+      glasses: 'string',
+      hairstyle: ImageModerationResponseBodyDataExtFaceDataHairstyle,
+      hat: ImageModerationResponseBodyDataExtFaceDataHat,
+      location: ImageModerationResponseBodyDataExtFaceDataLocation,
+      mask: ImageModerationResponseBodyDataExtFaceDataMask,
+      mustache: ImageModerationResponseBodyDataExtFaceDataMustache,
+      quality: ImageModerationResponseBodyDataExtFaceDataQuality,
+      smile: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExtLogoDataLocation extends $tea.Model {
   /**
    * @remarks
@@ -3431,6 +3802,7 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
    * If a custom image library is hit, information about the hit custom image library is returned.
    */
   customImage?: ImageModerationResponseBodyDataExtCustomImage[];
+  faceData?: ImageModerationResponseBodyDataExtFaceData[];
   /**
    * @remarks
    * Logo information.
@@ -3459,6 +3831,7 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       customImage: 'CustomImage',
+      faceData: 'FaceData',
       logoData: 'LogoData',
       ocrResult: 'OcrResult',
       publicFigure: 'PublicFigure',
@@ -3470,6 +3843,7 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       customImage: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtCustomImage },
+      faceData: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtFaceData },
       logoData: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtLogoData },
       ocrResult: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtOcrResult },
       publicFigure: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtPublicFigure },
