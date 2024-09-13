@@ -678,6 +678,217 @@ export class AddMeetingRoomsResponse extends $tea.Model {
   }
 }
 
+export class AddRecordPermissionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: AddRecordPermissionHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: AddRecordPermissionHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * minutes
+   */
+  bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1dddwrqrq
+   */
+  conferenceId?: string;
+  tenantContext?: AddRecordPermissionRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      conferenceId: 'ConferenceId',
+      tenantContext: 'TenantContext',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      conferenceId: 'string',
+      tenantContext: AddRecordPermissionRequestTenantContext,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * minutes
+   */
+  bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1dddwrqrq
+   */
+  conferenceId?: string;
+  tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      conferenceId: 'ConferenceId',
+      tenantContextShrink: 'TenantContext',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      conferenceId: 'string',
+      tenantContextShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddRecordPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddRecordPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddScenegroupMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: AddScenegroupMemberHeadersAccountContext;
@@ -20802,6 +21013,171 @@ export class GetUserIdResponse extends $tea.Model {
   }
 }
 
+export class GetUserIdByOrgIdAndStaffIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetUserIdByOrgIdAndStaffIdHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetUserIdByOrgIdAndStaffIdHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByOrgIdAndStaffIdShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByOrgIdAndStaffIdRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
+  orgId?: number;
+  tenantContext?: GetUserIdByOrgIdAndStaffIdRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'number',
+      tenantContext: GetUserIdByOrgIdAndStaffIdRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByOrgIdAndStaffIdShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
+  orgId?: number;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'number',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByOrgIdAndStaffIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 01223245436
+   */
+  userId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      userId: 'userId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByOrgIdAndStaffIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserIdByOrgIdAndStaffIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserIdByOrgIdAndStaffIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserLatestPlanHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetUserLatestPlanHeadersAccountContext;
@@ -24884,6 +25260,239 @@ export class ListTeamsResponse extends $tea.Model {
   }
 }
 
+export class ListTemplateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ListTemplateHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ListTemplateHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * zzz
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * public_template
+   */
+  templateType?: string;
+  tenantContext?: ListTemplateRequestTenantContext;
+  /**
+   * @example
+   * workspaceId
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      templateType: 'TemplateType',
+      tenantContext: 'TenantContext',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      templateType: 'string',
+      tenantContext: ListTemplateRequestTenantContext,
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * zzz
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * public_template
+   */
+  templateType?: string;
+  tenantContextShrink?: string;
+  /**
+   * @example
+   * workspaceId
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      templateType: 'TemplateType',
+      tenantContextShrink: 'TenantContext',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      templateType: 'string',
+      tenantContextShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  hasMore?: boolean;
+  /**
+   * @example
+   * next_token
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * []
+   */
+  templateList?: ListTemplateResponseBodyTemplateList[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'hasMore',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      templateList: 'templateList',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      nextToken: 'string',
+      requestId: 'string',
+      templateList: { 'type': 'array', 'itemType': ListTemplateResponseBodyTemplateList },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: ListWorkspacesHeadersAccountContext;
@@ -28831,6 +29440,193 @@ export class QueryOrgTodoTasksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryOrgTodoTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryRecordMinutesUrlHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryRecordMinutesUrlHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * minutes
+   */
+  bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1dddwrqrq
+   */
+  conferenceId?: string;
+  tenantContext?: QueryRecordMinutesUrlRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      conferenceId: 'ConferenceId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      conferenceId: 'string',
+      tenantContext: QueryRecordMinutesUrlRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * minutes
+   */
+  bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1dddwrqrq
+   */
+  conferenceId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      conferenceId: 'ConferenceId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      conferenceId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlResponseBody extends $tea.Model {
+  recordMinutesUrls?: QueryRecordMinutesUrlResponseBodyRecordMinutesUrls[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recordMinutesUrls: 'recordMinutesUrls',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordMinutesUrls: { 'type': 'array', 'itemType': QueryRecordMinutesUrlResponseBodyRecordMinutesUrls },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecordMinutesUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRecordMinutesUrlResponseBody,
     };
   }
 
@@ -39587,6 +40383,55 @@ export class AddMeetingRoomsRequestMeetingRoomsToAdd extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       roomId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecordPermissionRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -50959,6 +51804,55 @@ export class GetUserIdRequestTenantContext extends $tea.Model {
   }
 }
 
+export class GetUserIdByOrgIdAndStaffIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByOrgIdAndStaffIdRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserLatestPlanHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -54316,6 +55210,127 @@ export class ListTeamsResponseBodyTeams extends $tea.Model {
       modifierId: 'string',
       name: 'string',
       teamId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateResponseBodyTemplateList extends $tea.Model {
+  /**
+   * @example
+   * URL
+   */
+  coverUrl?: string;
+  /**
+   * @example
+   * 1596506100000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * WORKBOOK
+   */
+  docType?: string;
+  /**
+   * @example
+   * 123
+   */
+  id?: string;
+  /**
+   * @example
+   * user_template
+   */
+  templateType?: string;
+  /**
+   * @example
+   * title
+   */
+  title?: string;
+  /**
+   * @example
+   * 1596506100000
+   */
+  updateTime?: number;
+  /**
+   * @example
+   * workspaceId
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coverUrl: 'CoverUrl',
+      createTime: 'CreateTime',
+      docType: 'DocType',
+      id: 'Id',
+      templateType: 'TemplateType',
+      title: 'Title',
+      updateTime: 'UpdateTime',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverUrl: 'string',
+      createTime: 'number',
+      docType: 'string',
+      id: 'string',
+      templateType: 'string',
+      title: 'string',
+      updateTime: 'number',
+      workspaceId: 'string',
     };
   }
 
@@ -58370,6 +59385,78 @@ export class QueryOrgTodoTasksResponseBodyTodoCards extends $tea.Model {
   }
 }
 
+export class QueryRecordMinutesUrlHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecordMinutesUrlResponseBodyRecordMinutesUrls extends $tea.Model {
+  /**
+   * @example
+   * url
+   */
+  recordMinutesUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recordMinutesUrl: 'RecordMinutesUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordMinutesUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryReportDetailHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -62143,6 +63230,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AddMeetingRoomsHeaders({ });
     return await this.addMeetingRoomsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 添加闪记权限
+   * 
+   * @param tmpReq - AddRecordPermissionRequest
+   * @param tmpHeader - AddRecordPermissionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRecordPermissionResponse
+   */
+  async addRecordPermissionWithOptions(tmpReq: AddRecordPermissionRequest, tmpHeader: AddRecordPermissionHeaders, runtime: $Util.RuntimeOptions): Promise<AddRecordPermissionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddRecordPermissionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new AddRecordPermissionShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddRecordPermission",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/addRecordPermission`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddRecordPermissionResponse>(await this.callApi(params, req, runtime), new AddRecordPermissionResponse({}));
+  }
+
+  /**
+   * 添加闪记权限
+   * 
+   * @param request - AddRecordPermissionRequest
+   * @returns AddRecordPermissionResponse
+   */
+  async addRecordPermission(request: AddRecordPermissionRequest): Promise<AddRecordPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddRecordPermissionHeaders({ });
+    return await this.addRecordPermissionWithOptions(request, headers, runtime);
   }
 
   /**
@@ -70484,6 +71649,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据orgId和staffId获取用户userId
+   * 
+   * @param tmpReq - GetUserIdByOrgIdAndStaffIdRequest
+   * @param tmpHeader - GetUserIdByOrgIdAndStaffIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserIdByOrgIdAndStaffIdResponse
+   */
+  async getUserIdByOrgIdAndStaffIdWithOptions(tmpReq: GetUserIdByOrgIdAndStaffIdRequest, tmpHeader: GetUserIdByOrgIdAndStaffIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByOrgIdAndStaffIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetUserIdByOrgIdAndStaffIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetUserIdByOrgIdAndStaffIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserIdByOrgIdAndStaffId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getUserIdByOrgIdAndStaffId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserIdByOrgIdAndStaffIdResponse>(await this.callApi(params, req, runtime), new GetUserIdByOrgIdAndStaffIdResponse({}));
+  }
+
+  /**
+   * 根据orgId和staffId获取用户userId
+   * 
+   * @param request - GetUserIdByOrgIdAndStaffIdRequest
+   * @returns GetUserIdByOrgIdAndStaffIdResponse
+   */
+  async getUserIdByOrgIdAndStaffId(request: GetUserIdByOrgIdAndStaffIdRequest): Promise<GetUserIdByOrgIdAndStaffIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserIdByOrgIdAndStaffIdHeaders({ });
+    return await this.getUserIdByOrgIdAndStaffIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取用户最新的有效的专属账号迁移方案
    * 
    * @param tmpReq - GetUserLatestPlanRequest
@@ -72122,6 +73357,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询文档模板
+   * 
+   * @param tmpReq - ListTemplateRequest
+   * @param tmpHeader - ListTemplateHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplateResponse
+   */
+  async listTemplateWithOptions(tmpReq: ListTemplateRequest, tmpHeader: ListTemplateHeaders, runtime: $Util.RuntimeOptions): Promise<ListTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new ListTemplateShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      body["TemplateType"] = request.templateType;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTemplate",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/listTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplateResponse>(await this.callApi(params, req, runtime), new ListTemplateResponse({}));
+  }
+
+  /**
+   * 查询文档模板
+   * 
+   * @param request - ListTemplateRequest
+   * @returns ListTemplateResponse
+   */
+  async listTemplate(request: ListTemplateRequest): Promise<ListTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListTemplateHeaders({ });
+    return await this.listTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取知识库列表
    * 
    * @param tmpReq - ListWorkspacesRequest
@@ -73685,6 +75002,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryOrgTodoTasksHeaders({ });
     return await this.queryOrgTodoTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询闪记的链接，可通过链接查看闪记内容
+   * 
+   * @param tmpReq - QueryRecordMinutesUrlRequest
+   * @param tmpHeader - QueryRecordMinutesUrlHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRecordMinutesUrlResponse
+   */
+  async queryRecordMinutesUrlWithOptions(tmpReq: QueryRecordMinutesUrlRequest, tmpHeader: QueryRecordMinutesUrlHeaders, runtime: $Util.RuntimeOptions): Promise<QueryRecordMinutesUrlResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryRecordMinutesUrlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryRecordMinutesUrlShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryRecordMinutesUrl",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/queryRecordMinutesUrl`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRecordMinutesUrlResponse>(await this.callApi(params, req, runtime), new QueryRecordMinutesUrlResponse({}));
+  }
+
+  /**
+   * 查询闪记的链接，可通过链接查看闪记内容
+   * 
+   * @param request - QueryRecordMinutesUrlRequest
+   * @returns QueryRecordMinutesUrlResponse
+   */
+  async queryRecordMinutesUrl(request: QueryRecordMinutesUrlRequest): Promise<QueryRecordMinutesUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryRecordMinutesUrlHeaders({ });
+    return await this.queryRecordMinutesUrlWithOptions(request, headers, runtime);
   }
 
   /**
