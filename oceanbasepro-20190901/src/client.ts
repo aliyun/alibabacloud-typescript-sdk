@@ -18131,6 +18131,100 @@ export class ReleaseWorkerInstanceResponse extends $tea.Model {
   }
 }
 
+export class RemoveStandbyInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  forced?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob608fgj1q****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ob4bv8o7sp****
+   */
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forced: 'Forced',
+      instanceId: 'InstanceId',
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forced: 'boolean',
+      instanceId: 'string',
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveStandbyInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EE205C00-30E4-****-****-87E3A8A2AA0C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveStandbyInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveStandbyInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveStandbyInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResumeProjectRequest extends $tea.Model {
   /**
    * @remarks
@@ -53145,6 +53239,56 @@ export default class Client extends OpenApi {
   async releaseWorkerInstance(request: ReleaseWorkerInstanceRequest): Promise<ReleaseWorkerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseWorkerInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 备实例解耦
+   * 
+   * @param request - RemoveStandbyInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveStandbyInstanceResponse
+   */
+  async removeStandbyInstanceWithOptions(request: RemoveStandbyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveStandbyInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.forced)) {
+      body["Forced"] = request.forced;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      body["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveStandbyInstance",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveStandbyInstanceResponse>(await this.callApi(params, req, runtime), new RemoveStandbyInstanceResponse({}));
+  }
+
+  /**
+   * 备实例解耦
+   * 
+   * @param request - RemoveStandbyInstanceRequest
+   * @returns RemoveStandbyInstanceResponse
+   */
+  async removeStandbyInstance(request: RemoveStandbyInstanceRequest): Promise<RemoveStandbyInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeStandbyInstanceWithOptions(request, runtime);
   }
 
   /**
