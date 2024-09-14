@@ -724,10 +724,12 @@ export class DeploymentTarget extends $tea.Model {
    * namespace
    */
   namespace?: string;
+  quota?: ResourceQuota;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
       namespace: 'namespace',
+      quota: 'quota',
     };
   }
 
@@ -735,6 +737,7 @@ export class DeploymentTarget extends $tea.Model {
     return {
       name: 'string',
       namespace: 'string',
+      quota: ResourceQuota,
     };
   }
 
@@ -980,6 +983,70 @@ export class ErrorDetails extends $tea.Model {
       invalidflinkConf: { 'type': 'array', 'itemType': 'string' },
       lineNumber: 'string',
       message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Event extends $tea.Model {
+  createdAt?: number;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000680003
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000000001
+   */
+  eventId?: string;
+  /**
+   * @example
+   * STATE_TRANSITION_IS_COMPLETED
+   */
+  eventName?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000005043
+   */
+  jobId?: string;
+  message?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      deploymentId: 'deploymentId',
+      eventId: 'eventId',
+      eventName: 'eventName',
+      jobId: 'jobId',
+      message: 'message',
+      namespace: 'namespace',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      deploymentId: 'string',
+      eventId: 'string',
+      eventName: 'string',
+      jobId: 'string',
+      message: 'string',
+      namespace: 'string',
+      workspace: 'string',
     };
   }
 
@@ -1482,6 +1549,7 @@ export class JobMetric extends $tea.Model {
 
 export class JobStartParameters extends $tea.Model {
   deploymentId?: string;
+  jobId?: string;
   localVariables?: LocalVariable[];
   /**
    * @example
@@ -1492,6 +1560,7 @@ export class JobStartParameters extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       deploymentId: 'deploymentId',
+      jobId: 'jobId',
       localVariables: 'localVariables',
       resourceQueueName: 'resourceQueueName',
       restoreStrategy: 'restoreStrategy',
@@ -1501,6 +1570,7 @@ export class JobStartParameters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deploymentId: 'string',
+      jobId: 'string',
       localVariables: { 'type': 'array', 'itemType': LocalVariable },
       resourceQueueName: 'string',
       restoreStrategy: DeploymentRestoreStrategy,
@@ -1977,6 +2047,59 @@ export class Node extends $tea.Model {
   }
 }
 
+export class PeriodicSchedulingPolicy extends $tea.Model {
+  isFinished?: boolean;
+  /**
+   * @example
+   * 1723195800000
+   */
+  onlyOnceTriggerTime?: number;
+  /**
+   * @example
+   * true
+   */
+  onlyOnceTriggerTimeIsExpired?: boolean;
+  /**
+   * @example
+   * DAY
+   */
+  periodicSchedulingLevel?: string;
+  periodicSchedulingValues?: number[];
+  /**
+   * @example
+   * 1723199340000
+   */
+  periodicTriggerTime?: number;
+  resourceSetting?: BriefResourceSetting;
+  static names(): { [key: string]: string } {
+    return {
+      isFinished: 'isFinished',
+      onlyOnceTriggerTime: 'onlyOnceTriggerTime',
+      onlyOnceTriggerTimeIsExpired: 'onlyOnceTriggerTimeIsExpired',
+      periodicSchedulingLevel: 'periodicSchedulingLevel',
+      periodicSchedulingValues: 'periodicSchedulingValues',
+      periodicTriggerTime: 'periodicTriggerTime',
+      resourceSetting: 'resourceSetting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isFinished: 'boolean',
+      onlyOnceTriggerTime: 'number',
+      onlyOnceTriggerTimeIsExpired: 'boolean',
+      periodicSchedulingLevel: 'string',
+      periodicSchedulingValues: { 'type': 'array', 'itemType': 'number' },
+      periodicTriggerTime: 'number',
+      resourceSetting: BriefResourceSetting,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PrimaryKey extends $tea.Model {
   columns?: string[];
   constraintName?: string;
@@ -2098,18 +2221,67 @@ export class Relation extends $tea.Model {
 
 export class RescaleJobParam extends $tea.Model {
   jobParallelism?: number;
-  vertexParallelism?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       jobParallelism: 'jobParallelism',
-      vertexParallelism: 'vertexParallelism',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobParallelism: 'number',
-      vertexParallelism: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResourceQuota extends $tea.Model {
+  limit?: ResourceSpec;
+  used?: ResourceSpec;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      used: 'used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: ResourceSpec,
+      used: ResourceSpec,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResourceSpec extends $tea.Model {
+  /**
+   * @example
+   * 1.0
+   */
+  cpu?: number;
+  /**
+   * @example
+   * 4Gi
+   */
+  memory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'cpu',
+      memory: 'memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memory: 'string',
     };
   }
 
@@ -2265,9 +2437,352 @@ export class SavepointStatus extends $tea.Model {
   }
 }
 
+export class ScheduledPlan extends $tea.Model {
+  /**
+   * @example
+   * 1723197248
+   */
+  createdAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  creator?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000000001
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * 1723197248
+   */
+  modifiedAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  modifierName?: string;
+  /**
+   * @example
+   * test-scheduled-plan
+   */
+  name?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * USER_DEFINED
+   */
+  origin?: string;
+  periodicSchedulingPolicies?: PeriodicSchedulingPolicy[];
+  /**
+   * @example
+   * f3b4ec1e-85dc-4b1d-9726-1d7f4c37****
+   */
+  scheduledPlanId?: string;
+  /**
+   * @example
+   * FINISHED
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  updatedByUser?: boolean;
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      creator: 'creator',
+      creatorName: 'creatorName',
+      deploymentId: 'deploymentId',
+      modifiedAt: 'modifiedAt',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
+      name: 'name',
+      namespace: 'namespace',
+      origin: 'origin',
+      periodicSchedulingPolicies: 'periodicSchedulingPolicies',
+      scheduledPlanId: 'scheduledPlanId',
+      status: 'status',
+      updatedByUser: 'updatedByUser',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      creator: 'string',
+      creatorName: 'string',
+      deploymentId: 'string',
+      modifiedAt: 'string',
+      modifier: 'string',
+      modifierName: 'string',
+      name: 'string',
+      namespace: 'string',
+      origin: 'string',
+      periodicSchedulingPolicies: { 'type': 'array', 'itemType': PeriodicSchedulingPolicy },
+      scheduledPlanId: 'string',
+      status: 'string',
+      updatedByUser: 'boolean',
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScheduledPlanAppliedInfo extends $tea.Model {
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000000001
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  expectedState?: string;
+  /**
+   * @example
+   * 1723197248
+   */
+  modifiedAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  modifierName?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * f3b4ec1e-85dc-4b1d-9726-1d7f4c37****
+   */
+  scheduledPlanId?: string;
+  /**
+   * @example
+   * test-scheduled-plan
+   */
+  scheduledPlanName?: string;
+  /**
+   * @example
+   * WAITING
+   */
+  statusState?: string;
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'deploymentId',
+      expectedState: 'expectedState',
+      modifiedAt: 'modifiedAt',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
+      namespace: 'namespace',
+      scheduledPlanId: 'scheduledPlanId',
+      scheduledPlanName: 'scheduledPlanName',
+      statusState: 'statusState',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      expectedState: 'string',
+      modifiedAt: 'string',
+      modifier: 'string',
+      modifierName: 'string',
+      namespace: 'string',
+      scheduledPlanId: 'string',
+      scheduledPlanName: 'string',
+      statusState: 'string',
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScheduledPlanExecutedInfo extends $tea.Model {
+  /**
+   * @example
+   * 1723197248
+   */
+  createdAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  creator?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000000001
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * 0e6d3bab-2277-4ed1-b573-9de6413d****
+   */
+  jobResourceUpgradingId?: string;
+  /**
+   * @example
+   * 1723197248
+   */
+  modifiedAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  modifierName?: string;
+  /**
+   * @example
+   * test-scheduled-plan
+   */
+  name?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * SCHEDULED_PLAN
+   */
+  origin?: string;
+  /**
+   * @example
+   * f8a2d5d9-9fc5-4273-bfcc-2a3cd354****
+   */
+  originJobId?: string;
+  status?: ScheduledPlanExecutedStatus;
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      creator: 'creator',
+      creatorName: 'creatorName',
+      deploymentId: 'deploymentId',
+      jobResourceUpgradingId: 'jobResourceUpgradingId',
+      modifiedAt: 'modifiedAt',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
+      name: 'name',
+      namespace: 'namespace',
+      origin: 'origin',
+      originJobId: 'originJobId',
+      status: 'status',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      creator: 'string',
+      creatorName: 'string',
+      deploymentId: 'string',
+      jobResourceUpgradingId: 'string',
+      modifiedAt: 'string',
+      modifier: 'string',
+      modifierName: 'string',
+      name: 'string',
+      namespace: 'string',
+      origin: 'string',
+      originJobId: 'string',
+      status: ScheduledPlanExecutedStatus,
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScheduledPlanExecutedStatus extends $tea.Model {
+  /**
+   * @example
+   * HOT_UPDATE
+   */
+  restartType?: string;
+  /**
+   * @example
+   * UPGRADED
+   */
+  statusState?: string;
+  static names(): { [key: string]: string } {
+    return {
+      restartType: 'restartType',
+      statusState: 'statusState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      restartType: 'string',
+      statusState: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Schema extends $tea.Model {
   columns?: TableColumn[];
-  primaryKey?: PrimaryKey[];
+  primaryKey?: PrimaryKey;
   watermarkSpecs?: WatermarkSpec[];
   static names(): { [key: string]: string } {
     return {
@@ -2280,8 +2795,194 @@ export class Schema extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       columns: { 'type': 'array', 'itemType': TableColumn },
-      primaryKey: { 'type': 'array', 'itemType': PrimaryKey },
+      primaryKey: PrimaryKey,
       watermarkSpecs: { 'type': 'array', 'itemType': WatermarkSpec },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SessionCluster extends $tea.Model {
+  basicResourceSetting?: BasicResourceSetting;
+  createdAt?: number;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  creator?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  creatorName?: string;
+  /**
+   * @example
+   * default-queue
+   */
+  deploymentTargetName?: string;
+  /**
+   * @example
+   * vvr-6.0.7-flink-1.15
+   */
+  engineVersion?: string;
+  /**
+   * @example
+   * {"taskmanager.numberOfTaskSlots":"1"}
+   */
+  flinkConf?: { [key: string]: any };
+  labels?: { [key: string]: any };
+  logging?: Logging;
+  modifiedAt?: number;
+  /**
+   * @example
+   * 27846363877456****
+   */
+  modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
+  modifierName?: string;
+  /**
+   * @example
+   * test-sessionCluster
+   */
+  name?: string;
+  /**
+   * @example
+   * default-namespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 1f68a52c-1760-43c6-97fb-afe0674b****
+   */
+  sessionClusterId?: string;
+  status?: SessionClusterStatus;
+  /**
+   * @example
+   * edcef******b4f
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basicResourceSetting: 'basicResourceSetting',
+      createdAt: 'createdAt',
+      creator: 'creator',
+      creatorName: 'creatorName',
+      deploymentTargetName: 'deploymentTargetName',
+      engineVersion: 'engineVersion',
+      flinkConf: 'flinkConf',
+      labels: 'labels',
+      logging: 'logging',
+      modifiedAt: 'modifiedAt',
+      modifier: 'modifier',
+      modifierName: 'modifierName',
+      name: 'name',
+      namespace: 'namespace',
+      sessionClusterId: 'sessionClusterId',
+      status: 'status',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicResourceSetting: BasicResourceSetting,
+      createdAt: 'number',
+      creator: 'string',
+      creatorName: 'string',
+      deploymentTargetName: 'string',
+      engineVersion: 'string',
+      flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      logging: Logging,
+      modifiedAt: 'number',
+      modifier: 'string',
+      modifierName: 'string',
+      name: 'string',
+      namespace: 'string',
+      sessionClusterId: 'string',
+      status: SessionClusterStatus,
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SessionClusterFailureInfo extends $tea.Model {
+  failedAt?: number;
+  message?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedAt: 'failedAt',
+      message: 'message',
+      reason: 'reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedAt: 'number',
+      message: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SessionClusterRunningInfo extends $tea.Model {
+  lastUpdateTime?: number;
+  referenceDeploymentIds?: string[];
+  startedAt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lastUpdateTime: 'lastUpdateTime',
+      referenceDeploymentIds: 'referenceDeploymentIds',
+      startedAt: 'startedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastUpdateTime: 'number',
+      referenceDeploymentIds: { 'type': 'array', 'itemType': 'string' },
+      startedAt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SessionClusterStatus extends $tea.Model {
+  currentSessionClusterStatus?: string;
+  failure?: SessionClusterFailureInfo;
+  running?: SessionClusterRunningInfo;
+  static names(): { [key: string]: string } {
+    return {
+      currentSessionClusterStatus: 'currentSessionClusterStatus',
+      failure: 'failure',
+      running: 'running',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentSessionClusterStatus: 'string',
+      failure: SessionClusterFailureInfo,
+      running: SessionClusterRunningInfo,
     };
   }
 
@@ -2890,6 +3591,114 @@ export class WatermarkSpec extends $tea.Model {
   }
 }
 
+export class ApplyScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlanAppliedInfo;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScheduledPlanAppliedInfo,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -3170,6 +3979,143 @@ export class CreateDeploymentDraftResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDeploymentDraftResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentTargetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentTargetRequest extends $tea.Model {
+  body?: ResourceSpec;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dt
+   */
+  deploymentTargetName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      deploymentTargetName: 'deploymentTargetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: ResourceSpec,
+      deploymentTargetName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentTargetResponseBody extends $tea.Model {
+  data?: DeploymentTarget;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeploymentTarget,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeploymentTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDeploymentTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDeploymentTargetResponseBody,
     };
   }
 
@@ -3632,6 +4578,260 @@ export class CreateSavepointResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSavepointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledPlanRequest extends $tea.Model {
+  body?: ScheduledPlan;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: ScheduledPlan,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlan;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScheduledPlan,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionClusterHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionClusterRequest extends $tea.Model {
+  body?: SessionCluster;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: SessionCluster,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionClusterResponseBody extends $tea.Model {
+  data?: SessionCluster;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SessionCluster,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSessionClusterResponseBody,
     };
   }
 
@@ -4313,6 +5513,114 @@ export class DeleteDeploymentDraftResponse extends $tea.Model {
   }
 }
 
+export class DeleteDeploymentTargetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentTargetResponseBody extends $tea.Model {
+  data?: DeploymentTarget;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeploymentTarget,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeploymentTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDeploymentTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDeploymentTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFolderHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -4782,6 +6090,222 @@ export class DeleteSavepointResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSavepointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlan;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScheduledPlan,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSessionClusterHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSessionClusterResponseBody extends $tea.Model {
+  data?: SessionCluster;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SessionCluster,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSessionClusterResponseBody,
     };
   }
 
@@ -5801,6 +7325,140 @@ export class GenerateResourcePlanWithFlinkConfAsyncResponse extends $tea.Model {
   }
 }
 
+export class GetAppliedScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedScheduledPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5737ef81-d2f1-49cf-8752-30910809****
+   */
+  deploymentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'deploymentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlanAppliedInfo;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScheduledPlanAppliedInfo,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppliedScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppliedScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCatalogsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -6545,6 +8203,172 @@ export class GetDeploymentDraftLockResponse extends $tea.Model {
   }
 }
 
+export class GetEventsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventsRequest extends $tea.Model {
+  /**
+   * @example
+   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'deploymentId',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventsResponseBody extends $tea.Model {
+  data?: Event[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 4
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+      requestId: 'requestId',
+      success: 'success',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Event },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFolderHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -6598,6 +8422,10 @@ export class GetFolderRequest extends $tea.Model {
 }
 
 export class GetFolderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data structure of the folder.
+   */
   data?: Folder;
   /**
    * @example
@@ -7598,6 +9426,114 @@ export class GetSavepointResponse extends $tea.Model {
   }
 }
 
+export class GetSessionClusterHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBody extends $tea.Model {
+  data?: SessionCluster;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SessionCluster,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSessionClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTablesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -7651,6 +9587,10 @@ export class GetTablesRequest extends $tea.Model {
 }
 
 export class GetTablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was true, the list and details of tables that meet the condition were returned. If the value of success was false, a null value was returned.
+   */
   data?: Table[];
   /**
    * @example
@@ -9654,6 +11594,438 @@ export class ListSavepointsResponse extends $tea.Model {
   }
 }
 
+export class ListScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanRequest extends $tea.Model {
+  /**
+   * @example
+   * 737d0921-c5ac-47fc-9ba9-07a1e0b4****
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'deploymentId',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlan[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 4
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+      requestId: 'requestId',
+      success: 'success',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ScheduledPlan },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanExecutedHistoryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanExecutedHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
+   */
+  deploymentId?: string;
+  /**
+   * @example
+   * SCHEDULED_PLAN
+   */
+  origin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'deploymentId',
+      origin: 'origin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      origin: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanExecutedHistoryResponseBody extends $tea.Model {
+  data?: ScheduledPlanExecutedInfo[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      pageIndex: 'pageIndex',
+      pageSize: 'pageSize',
+      requestId: 'requestId',
+      success: 'success',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ScheduledPlanExecutedInfo },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScheduledPlanExecutedHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListScheduledPlanExecutedHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListScheduledPlanExecutedHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponseBody extends $tea.Model {
+  data?: SessionCluster[];
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': SessionCluster },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSessionClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSessionClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariablesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -9886,7 +12258,7 @@ export class RegisterCustomConnectorHeaders extends $tea.Model {
 export class RegisterCustomConnectorRequest extends $tea.Model {
   /**
    * @remarks
-   * The URL in which the JAR package of the custom connector is stored. The URL must be connected to the platform.
+   * The URL in which the JAR package of the custom connector is stored. The platform must be able to access this address.
    * 
    * This parameter is required.
    * 
@@ -9914,7 +12286,7 @@ export class RegisterCustomConnectorRequest extends $tea.Model {
 export class RegisterCustomConnectorResponseBody extends $tea.Model {
   /**
    * @remarks
-   * If the value of success was true, a list of deployments in which custom connectors were registered was returned. If the value of success was false, a null value was returned.
+   * If the value of success was true, a list of deployments in which custom connectors were deleted was returned. If the value of success was false, a null value was returned.
    */
   data?: Connector[];
   /**
@@ -10503,6 +12875,219 @@ export class StartJobWithParamsResponse extends $tea.Model {
   }
 }
 
+export class StartSessionClusterHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSessionClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartSessionClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopApplyScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopApplyScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlanAppliedInfo;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScheduledPlanAppliedInfo,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopApplyScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopApplyScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopApplyScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -10652,6 +13237,111 @@ export class StopJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSessionClusterHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSessionClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopSessionClusterResponseBody,
     };
   }
 
@@ -10948,6 +13638,133 @@ export class UpdateDeploymentDraftResponse extends $tea.Model {
   }
 }
 
+export class UpdateDeploymentTargetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentTargetRequest extends $tea.Model {
+  body?: ResourceSpec;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: ResourceSpec,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentTargetResponseBody extends $tea.Model {
+  data?: DeploymentTarget;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeploymentTarget,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDeploymentTargetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDeploymentTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDeploymentTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFolderHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -11225,6 +14042,260 @@ export class UpdateMemberResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduledPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduledPlanRequest extends $tea.Model {
+  body?: ScheduledPlan;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: ScheduledPlan,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduledPlanResponseBody extends $tea.Model {
+  data?: ScheduledPlan;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ScheduledPlan,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduledPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateScheduledPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateScheduledPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionClusterHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 710d6a64d8c34d
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionClusterRequest extends $tea.Model {
+  body?: SessionCluster;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: SessionCluster,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionClusterResponseBody extends $tea.Model {
+  data?: SessionCluster;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 1EF03B0C-F44F-47AD-BB48-D002D0F7B8C9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SessionCluster,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSessionClusterResponseBody,
     };
   }
 
@@ -11644,6 +14715,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 执行定时计划
+   * 
+   * @param headers - ApplyScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyScheduledPlanResponse
+   */
+  async applyScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: ApplyScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyScheduledPlanResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans/${OpenApiUtil.getEncodeParam(scheduledPlanId)}%3Aapply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyScheduledPlanResponse>(await this.callApi(params, req, runtime), new ApplyScheduledPlanResponse({}));
+  }
+
+  /**
+   * 执行定时计划
+   * @returns ApplyScheduledPlanResponse
+   */
+  async applyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<ApplyScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ApplyScheduledPlanHeaders({ });
+    return await this.applyScheduledPlanWithOptions(namespace, scheduledPlanId, headers, runtime);
+  }
+
+  /**
    * Creates a deployment.
    * 
    * @param request - CreateDeploymentRequest
@@ -11739,6 +14854,61 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateDeploymentDraftHeaders({ });
     return await this.createDeploymentDraftWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 创建deploymentTarget
+   * 
+   * @param request - CreateDeploymentTargetRequest
+   * @param headers - CreateDeploymentTargetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeploymentTargetResponse
+   */
+  async createDeploymentTargetWithOptions(namespace: string, request: CreateDeploymentTargetRequest, headers: CreateDeploymentTargetHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDeploymentTargetResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentTargetName)) {
+      query["deploymentTargetName"] = request.deploymentTargetName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDeploymentTarget",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-targets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeploymentTargetResponse>(await this.callApi(params, req, runtime), new CreateDeploymentTargetResponse({}));
+  }
+
+  /**
+   * 创建deploymentTarget
+   * 
+   * @param request - CreateDeploymentTargetRequest
+   * @returns CreateDeploymentTargetResponse
+   */
+  async createDeploymentTarget(namespace: string, request: CreateDeploymentTargetRequest): Promise<CreateDeploymentTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateDeploymentTargetHeaders({ });
+    return await this.createDeploymentTargetWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -11899,6 +15069,104 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateSavepointHeaders({ });
     return await this.createSavepointWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 创建定时执行计划
+   * 
+   * @param request - CreateScheduledPlanRequest
+   * @param headers - CreateScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScheduledPlanResponse
+   */
+  async createScheduledPlanWithOptions(namespace: string, request: CreateScheduledPlanRequest, headers: CreateScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CreateScheduledPlanResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateScheduledPlanResponse>(await this.callApi(params, req, runtime), new CreateScheduledPlanResponse({}));
+  }
+
+  /**
+   * 创建定时执行计划
+   * 
+   * @param request - CreateScheduledPlanRequest
+   * @returns CreateScheduledPlanResponse
+   */
+  async createScheduledPlan(namespace: string, request: CreateScheduledPlanRequest): Promise<CreateScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateScheduledPlanHeaders({ });
+    return await this.createScheduledPlanWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 创建session集群
+   * 
+   * @param request - CreateSessionClusterRequest
+   * @param headers - CreateSessionClusterHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSessionClusterResponse
+   */
+  async createSessionClusterWithOptions(namespace: string, request: CreateSessionClusterRequest, headers: CreateSessionClusterHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSessionClusterResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSessionCluster",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSessionClusterResponse>(await this.callApi(params, req, runtime), new CreateSessionClusterResponse({}));
+  }
+
+  /**
+   * 创建session集群
+   * 
+   * @param request - CreateSessionClusterRequest
+   * @returns CreateSessionClusterResponse
+   */
+  async createSessionCluster(namespace: string, request: CreateSessionClusterRequest): Promise<CreateSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateSessionClusterHeaders({ });
+    return await this.createSessionClusterWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -12132,6 +15400,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除deploymentTarget
+   * 
+   * @param headers - DeleteDeploymentTargetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDeploymentTargetResponse
+   */
+  async deleteDeploymentTargetWithOptions(namespace: string, deploymentTargetName: string, headers: DeleteDeploymentTargetHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDeploymentTargetResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDeploymentTarget",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-targets/${OpenApiUtil.getEncodeParam(deploymentTargetName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeploymentTargetResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentTargetResponse({}));
+  }
+
+  /**
+   * 删除deploymentTarget
+   * @returns DeleteDeploymentTargetResponse
+   */
+  async deleteDeploymentTarget(namespace: string, deploymentTargetName: string): Promise<DeleteDeploymentTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteDeploymentTargetHeaders({ });
+    return await this.deleteDeploymentTargetWithOptions(namespace, deploymentTargetName, headers, runtime);
+  }
+
+  /**
    * delete a folder
    * 
    * @param headers - DeleteFolderHeaders
@@ -12305,6 +15617,94 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteSavepointHeaders({ });
     return await this.deleteSavepointWithOptions(namespace, savepointId, headers, runtime);
+  }
+
+  /**
+   * 删除定时执行计划
+   * 
+   * @param headers - DeleteScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScheduledPlanResponse
+   */
+  async deleteScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: DeleteScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteScheduledPlanResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans/${OpenApiUtil.getEncodeParam(scheduledPlanId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteScheduledPlanResponse>(await this.callApi(params, req, runtime), new DeleteScheduledPlanResponse({}));
+  }
+
+  /**
+   * 删除定时执行计划
+   * @returns DeleteScheduledPlanResponse
+   */
+  async deleteScheduledPlan(namespace: string, scheduledPlanId: string): Promise<DeleteScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteScheduledPlanHeaders({ });
+    return await this.deleteScheduledPlanWithOptions(namespace, scheduledPlanId, headers, runtime);
+  }
+
+  /**
+   * 删除session集群
+   * 
+   * @param headers - DeleteSessionClusterHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSessionClusterResponse
+   */
+  async deleteSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: DeleteSessionClusterHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSessionClusterResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSessionCluster",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters/${OpenApiUtil.getEncodeParam(sessionClusterName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSessionClusterResponse>(await this.callApi(params, req, runtime), new DeleteSessionClusterResponse({}));
+  }
+
+  /**
+   * 删除session集群
+   * @returns DeleteSessionClusterResponse
+   */
+  async deleteSessionCluster(namespace: string, sessionClusterName: string): Promise<DeleteSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteSessionClusterHeaders({ });
+    return await this.deleteSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
   }
 
   /**
@@ -12667,6 +16067,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用中的执行定时计划
+   * 
+   * @param request - GetAppliedScheduledPlanRequest
+   * @param headers - GetAppliedScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppliedScheduledPlanResponse
+   */
+  async getAppliedScheduledPlanWithOptions(namespace: string, request: GetAppliedScheduledPlanRequest, headers: GetAppliedScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<GetAppliedScheduledPlanResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentId)) {
+      query["deploymentId"] = request.deploymentId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAppliedScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans%3AgetExecutedScheduledPlan`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppliedScheduledPlanResponse>(await this.callApi(params, req, runtime), new GetAppliedScheduledPlanResponse({}));
+  }
+
+  /**
+   * 获取应用中的执行定时计划
+   * 
+   * @param request - GetAppliedScheduledPlanRequest
+   * @returns GetAppliedScheduledPlanResponse
+   */
+  async getAppliedScheduledPlan(namespace: string, request: GetAppliedScheduledPlanRequest): Promise<GetAppliedScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetAppliedScheduledPlanHeaders({ });
+    return await this.getAppliedScheduledPlanWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * 获取catalog
    * 
    * @param request - GetCatalogsRequest
@@ -12958,6 +16412,68 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetDeploymentDraftLockHeaders({ });
     return await this.getDeploymentDraftLockWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 获取运行事件
+   * 
+   * @param request - GetEventsRequest
+   * @param headers - GetEventsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEventsResponse
+   */
+  async getEventsWithOptions(namespace: string, request: GetEventsRequest, headers: GetEventsHeaders, runtime: $Util.RuntimeOptions): Promise<GetEventsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentId)) {
+      query["deploymentId"] = request.deploymentId;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEvents",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEventsResponse>(await this.callApi(params, req, runtime), new GetEventsResponse({}));
+  }
+
+  /**
+   * 获取运行事件
+   * 
+   * @param request - GetEventsRequest
+   * @returns GetEventsResponse
+   */
+  async getEvents(namespace: string, request: GetEventsRequest): Promise<GetEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetEventsHeaders({ });
+    return await this.getEventsWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -13325,6 +16841,50 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetSavepointHeaders({ });
     return await this.getSavepointWithOptions(namespace, savepointId, headers, runtime);
+  }
+
+  /**
+   * 获取session集群
+   * 
+   * @param headers - GetSessionClusterHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSessionClusterResponse
+   */
+  async getSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: GetSessionClusterHeaders, runtime: $Util.RuntimeOptions): Promise<GetSessionClusterResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSessionCluster",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters/${OpenApiUtil.getEncodeParam(sessionClusterName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSessionClusterResponse>(await this.callApi(params, req, runtime), new GetSessionClusterResponse({}));
+  }
+
+  /**
+   * 获取session集群
+   * @returns GetSessionClusterResponse
+   */
+  async getSessionCluster(namespace: string, sessionClusterName: string): Promise<GetSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetSessionClusterHeaders({ });
+    return await this.getSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
   }
 
   /**
@@ -14021,6 +17581,170 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表定时执行计划
+   * 
+   * @param request - ListScheduledPlanRequest
+   * @param headers - ListScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScheduledPlanResponse
+   */
+  async listScheduledPlanWithOptions(namespace: string, request: ListScheduledPlanRequest, headers: ListScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<ListScheduledPlanResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentId)) {
+      query["deploymentId"] = request.deploymentId;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListScheduledPlanResponse>(await this.callApi(params, req, runtime), new ListScheduledPlanResponse({}));
+  }
+
+  /**
+   * 列表定时执行计划
+   * 
+   * @param request - ListScheduledPlanRequest
+   * @returns ListScheduledPlanResponse
+   */
+  async listScheduledPlan(namespace: string, request: ListScheduledPlanRequest): Promise<ListScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListScheduledPlanHeaders({ });
+    return await this.listScheduledPlanWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 获取作业资源变更历史
+   * 
+   * @param request - ListScheduledPlanExecutedHistoryRequest
+   * @param headers - ListScheduledPlanExecutedHistoryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScheduledPlanExecutedHistoryResponse
+   */
+  async listScheduledPlanExecutedHistoryWithOptions(namespace: string, request: ListScheduledPlanExecutedHistoryRequest, headers: ListScheduledPlanExecutedHistoryHeaders, runtime: $Util.RuntimeOptions): Promise<ListScheduledPlanExecutedHistoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentId)) {
+      query["deploymentId"] = request.deploymentId;
+    }
+
+    if (!Util.isUnset(request.origin)) {
+      query["origin"] = request.origin;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListScheduledPlanExecutedHistory",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/job-resource-upgradings`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListScheduledPlanExecutedHistoryResponse>(await this.callApi(params, req, runtime), new ListScheduledPlanExecutedHistoryResponse({}));
+  }
+
+  /**
+   * 获取作业资源变更历史
+   * 
+   * @param request - ListScheduledPlanExecutedHistoryRequest
+   * @returns ListScheduledPlanExecutedHistoryResponse
+   */
+  async listScheduledPlanExecutedHistory(namespace: string, request: ListScheduledPlanExecutedHistoryRequest): Promise<ListScheduledPlanExecutedHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListScheduledPlanExecutedHistoryHeaders({ });
+    return await this.listScheduledPlanExecutedHistoryWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 列举session集群
+   * 
+   * @param headers - ListSessionClustersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSessionClustersResponse
+   */
+  async listSessionClustersWithOptions(namespace: string, headers: ListSessionClustersHeaders, runtime: $Util.RuntimeOptions): Promise<ListSessionClustersResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSessionClusters",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSessionClustersResponse>(await this.callApi(params, req, runtime), new ListSessionClustersResponse({}));
+  }
+
+  /**
+   * 列举session集群
+   * @returns ListSessionClustersResponse
+   */
+  async listSessionClusters(namespace: string): Promise<ListSessionClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListSessionClustersHeaders({ });
+    return await this.listSessionClustersWithOptions(namespace, headers, runtime);
+  }
+
+  /**
    * Obtains a list of variables.
    * 
    * @param request - ListVariablesRequest
@@ -14299,6 +18023,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动session集群
+   * 
+   * @param headers - StartSessionClusterHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartSessionClusterResponse
+   */
+  async startSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: StartSessionClusterHeaders, runtime: $Util.RuntimeOptions): Promise<StartSessionClusterResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartSessionCluster",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters/${OpenApiUtil.getEncodeParam(sessionClusterName)}%3Astart`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartSessionClusterResponse>(await this.callApi(params, req, runtime), new StartSessionClusterResponse({}));
+  }
+
+  /**
+   * 启动session集群
+   * @returns StartSessionClusterResponse
+   */
+  async startSessionCluster(namespace: string, sessionClusterName: string): Promise<StartSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new StartSessionClusterHeaders({ });
+    return await this.startSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
+  }
+
+  /**
+   * 停止应用执行定时计划
+   * 
+   * @param headers - StopApplyScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopApplyScheduledPlanResponse
+   */
+  async stopApplyScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: StopApplyScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<StopApplyScheduledPlanResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopApplyScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans/${OpenApiUtil.getEncodeParam(scheduledPlanId)}%3Astop`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopApplyScheduledPlanResponse>(await this.callApi(params, req, runtime), new StopApplyScheduledPlanResponse({}));
+  }
+
+  /**
+   * 停止应用执行定时计划
+   * @returns StopApplyScheduledPlanResponse
+   */
+  async stopApplyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<StopApplyScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new StopApplyScheduledPlanHeaders({ });
+    return await this.stopApplyScheduledPlanWithOptions(namespace, scheduledPlanId, headers, runtime);
+  }
+
+  /**
    * Stops a job.
    * 
    * @param request - StopJobRequest
@@ -14345,6 +18157,50 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new StopJobHeaders({ });
     return await this.stopJobWithOptions(namespace, jobId, request, headers, runtime);
+  }
+
+  /**
+   * 停止session集群
+   * 
+   * @param headers - StopSessionClusterHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopSessionClusterResponse
+   */
+  async stopSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: StopSessionClusterHeaders, runtime: $Util.RuntimeOptions): Promise<StopSessionClusterResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopSessionCluster",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters/${OpenApiUtil.getEncodeParam(sessionClusterName)}%3Astop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopSessionClusterResponse>(await this.callApi(params, req, runtime), new StopSessionClusterResponse({}));
+  }
+
+  /**
+   * 停止session集群
+   * @returns StopSessionClusterResponse
+   */
+  async stopSessionCluster(namespace: string, sessionClusterName: string): Promise<StopSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new StopSessionClusterHeaders({ });
+    return await this.stopSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
   }
 
   /**
@@ -14446,6 +18302,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改deploymentTarget
+   * 
+   * @param request - UpdateDeploymentTargetRequest
+   * @param headers - UpdateDeploymentTargetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeploymentTargetResponse
+   */
+  async updateDeploymentTargetWithOptions(namespace: string, deploymentTargetName: string, request: UpdateDeploymentTargetRequest, headers: UpdateDeploymentTargetHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateDeploymentTargetResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDeploymentTarget",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployment-targets/${OpenApiUtil.getEncodeParam(deploymentTargetName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDeploymentTargetResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentTargetResponse({}));
+  }
+
+  /**
+   * 修改deploymentTarget
+   * 
+   * @param request - UpdateDeploymentTargetRequest
+   * @returns UpdateDeploymentTargetResponse
+   */
+  async updateDeploymentTarget(namespace: string, deploymentTargetName: string, request: UpdateDeploymentTargetRequest): Promise<UpdateDeploymentTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateDeploymentTargetHeaders({ });
+    return await this.updateDeploymentTargetWithOptions(namespace, deploymentTargetName, request, headers, runtime);
+  }
+
+  /**
    * update a folder
    * 
    * @param request - UpdateFolderRequest
@@ -14541,6 +18446,104 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateMemberHeaders({ });
     return await this.updateMemberWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 更新定时执行计划
+   * 
+   * @param request - UpdateScheduledPlanRequest
+   * @param headers - UpdateScheduledPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScheduledPlanResponse
+   */
+  async updateScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, request: UpdateScheduledPlanRequest, headers: UpdateScheduledPlanHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateScheduledPlanResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateScheduledPlan",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/scheduled-plans/${OpenApiUtil.getEncodeParam(scheduledPlanId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateScheduledPlanResponse>(await this.callApi(params, req, runtime), new UpdateScheduledPlanResponse({}));
+  }
+
+  /**
+   * 更新定时执行计划
+   * 
+   * @param request - UpdateScheduledPlanRequest
+   * @returns UpdateScheduledPlanResponse
+   */
+  async updateScheduledPlan(namespace: string, scheduledPlanId: string, request: UpdateScheduledPlanRequest): Promise<UpdateScheduledPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateScheduledPlanHeaders({ });
+    return await this.updateScheduledPlanWithOptions(namespace, scheduledPlanId, request, headers, runtime);
+  }
+
+  /**
+   * 更新session集群
+   * 
+   * @param request - UpdateSessionClusterRequest
+   * @param headers - UpdateSessionClusterHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSessionClusterResponse
+   */
+  async updateSessionClusterWithOptions(namespace: string, sessionClusterName: string, request: UpdateSessionClusterRequest, headers: UpdateSessionClusterHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateSessionClusterResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSessionCluster",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sessionclusters/${OpenApiUtil.getEncodeParam(sessionClusterName)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSessionClusterResponse>(await this.callApi(params, req, runtime), new UpdateSessionClusterResponse({}));
+  }
+
+  /**
+   * 更新session集群
+   * 
+   * @param request - UpdateSessionClusterRequest
+   * @returns UpdateSessionClusterResponse
+   */
+  async updateSessionCluster(namespace: string, sessionClusterName: string, request: UpdateSessionClusterRequest): Promise<UpdateSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateSessionClusterHeaders({ });
+    return await this.updateSessionClusterWithOptions(namespace, sessionClusterName, request, headers, runtime);
   }
 
   /**
