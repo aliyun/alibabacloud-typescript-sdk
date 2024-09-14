@@ -7,6 +7,157 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ListHotTopicSummariesRequest extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  category?: string;
+  /**
+   * @example
+   * xx
+   */
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_12
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * JlroP3CjgQh5PQDlH3ArzADkBTPZgVqo+64jhZRglNq0mEYoV5SlGb/Juvo8CdfYE9rlwEr2pIJQwdaYotak9g==
+   */
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  code?: string;
+  data?: ListHotTopicSummariesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * JlroP3CjgQh5PQDlH3ArzADkBTPZgVqo+64jhZRglNq0mEYoV5SlGb/Juvo8CdfYE9rlwEr2pIJQwdaYotak9g==
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 200
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      maxResults: 'maxResults',
+      message: 'message',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      success: 'success',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotTopicSummariesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotTopicSummariesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunMarketingInformationExtractRequest extends $tea.Model {
   customPrompt?: string;
   extractType?: string;
@@ -732,6 +883,188 @@ export class RunVideoAnalysisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunVideoAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataNewsComments extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataNews extends $tea.Model {
+  comments?: ListHotTopicSummariesResponseBodyDataNewsComments[];
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-09-10 15:32:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @remarks
+   * url
+   * 
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'comments',
+      content: 'content',
+      pubTime: 'pubTime',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNewsComments },
+      content: 'string',
+      pubTime: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataSummarySummaries extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      summary: 'summary',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyDataSummary extends $tea.Model {
+  summaries?: ListHotTopicSummariesResponseBodyDataSummarySummaries[];
+  static names(): { [key: string]: string } {
+    return {
+      summaries: 'summaries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaries: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataSummarySummaries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotTopicSummariesResponseBodyData extends $tea.Model {
+  category?: string;
+  /**
+   * @example
+   * xx
+   */
+  hotTopic?: string;
+  /**
+   * @example
+   * 2024-09-13_12
+   */
+  hotTopicVersion?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  hotValue?: number;
+  /**
+   * @example
+   * db5dc5b3d8954a30b65ba700c9dda3bb
+   */
+  id?: string;
+  news?: ListHotTopicSummariesResponseBodyDataNews[];
+  summary?: ListHotTopicSummariesResponseBodyDataSummary;
+  /**
+   * @example
+   * xx
+   */
+  textSummary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      hotTopic: 'hotTopic',
+      hotTopicVersion: 'hotTopicVersion',
+      hotValue: 'hotValue',
+      id: 'id',
+      news: 'news',
+      summary: 'summary',
+      textSummary: 'textSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      hotTopic: 'string',
+      hotTopicVersion: 'string',
+      hotValue: 'number',
+      id: 'string',
+      news: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNews },
+      summary: ListHotTopicSummariesResponseBodyDataSummary,
+      textSummary: 'string',
     };
   }
 
@@ -2001,17 +2334,45 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $tea.Model {
   }
 }
 
+export class RunVideoAnalysisResponseBodyPayloadUsage extends $tea.Model {
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisResponseBodyPayload extends $tea.Model {
   output?: RunVideoAnalysisResponseBodyPayloadOutput;
+  usage?: RunVideoAnalysisResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
       output: 'output',
+      usage: 'usage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       output: RunVideoAnalysisResponseBodyPayloadOutput,
+      usage: RunVideoAnalysisResponseBodyPayloadUsage,
     };
   }
 
@@ -2041,6 +2402,67 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 轻应用-新闻播报-获取热点话题摘要列表
+   * 
+   * @param request - ListHotTopicSummariesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotTopicSummariesResponse
+   */
+  async listHotTopicSummariesWithOptions(workspaceId: string, request: ListHotTopicSummariesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHotTopicSummariesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.hotTopic)) {
+      body["hotTopic"] = request.hotTopic;
+    }
+
+    if (!Util.isUnset(request.hotTopicVersion)) {
+      body["hotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotTopicSummaries",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/listHotTopicSummaries`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotTopicSummariesResponse>(await this.callApi(params, req, runtime), new ListHotTopicSummariesResponse({}));
+  }
+
+  /**
+   * 轻应用-新闻播报-获取热点话题摘要列表
+   * 
+   * @param request - ListHotTopicSummariesRequest
+   * @returns ListHotTopicSummariesResponse
+   */
+  async listHotTopicSummaries(workspaceId: string, request: ListHotTopicSummariesRequest): Promise<ListHotTopicSummariesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
