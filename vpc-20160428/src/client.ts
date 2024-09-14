@@ -96588,6 +96588,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
    * Published
    */
   publishStatus?: string;
+  publishTargetInstanceId?: string;
   /**
    * @example
    * ECR
@@ -96596,6 +96597,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
   static names(): { [key: string]: string } {
     return {
       publishStatus: 'PublishStatus',
+      publishTargetInstanceId: 'PublishTargetInstanceId',
       publishTargetType: 'PublishTargetType',
     };
   }
@@ -96603,6 +96605,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
   static types(): { [key: string]: any } {
     return {
       publishStatus: 'string',
+      publishTargetInstanceId: 'string',
       publishTargetType: 'string',
     };
   }
