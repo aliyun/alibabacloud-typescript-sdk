@@ -499,6 +499,7 @@ export class CreateIndexRequest extends $tea.Model {
    */
   chunkSize?: number;
   columns?: CreateIndexRequestColumns[];
+  dataSource?: CreateIndexRequestDataSource;
   description?: string;
   documentIds?: string[];
   /**
@@ -573,6 +574,7 @@ export class CreateIndexRequest extends $tea.Model {
       categoryIds: 'CategoryIds',
       chunkSize: 'ChunkSize',
       columns: 'Columns',
+      dataSource: 'DataSource',
       description: 'Description',
       documentIds: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
@@ -594,6 +596,7 @@ export class CreateIndexRequest extends $tea.Model {
       categoryIds: { 'type': 'array', 'itemType': 'string' },
       chunkSize: 'number',
       columns: { 'type': 'array', 'itemType': CreateIndexRequestColumns },
+      dataSource: CreateIndexRequestDataSource,
       description: 'string',
       documentIds: { 'type': 'array', 'itemType': 'string' },
       embeddingModelName: 'string',
@@ -623,6 +626,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
    */
   chunkSize?: number;
   columnsShrink?: string;
+  dataSourceShrink?: string;
   description?: string;
   documentIdsShrink?: string;
   /**
@@ -697,6 +701,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
       categoryIdsShrink: 'CategoryIds',
       chunkSize: 'ChunkSize',
       columnsShrink: 'Columns',
+      dataSourceShrink: 'DataSource',
       description: 'Description',
       documentIdsShrink: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
@@ -718,6 +723,7 @@ export class CreateIndexShrinkRequest extends $tea.Model {
       categoryIdsShrink: 'string',
       chunkSize: 'number',
       columnsShrink: 'string',
+      dataSourceShrink: 'string',
       description: 'string',
       documentIdsShrink: 'string',
       embeddingModelName: 'string',
@@ -2887,6 +2893,7 @@ export class RetrieveRequest extends $tea.Model {
    * false
    */
   enableRewrite?: boolean;
+  images?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -2924,6 +2931,7 @@ export class RetrieveRequest extends $tea.Model {
       denseSimilarityTopK: 'DenseSimilarityTopK',
       enableReranking: 'EnableReranking',
       enableRewrite: 'EnableRewrite',
+      images: 'Images',
       indexId: 'IndexId',
       query: 'Query',
       rerank: 'Rerank',
@@ -2941,6 +2949,7 @@ export class RetrieveRequest extends $tea.Model {
       denseSimilarityTopK: 'number',
       enableReranking: 'boolean',
       enableRewrite: 'boolean',
+      images: { 'type': 'array', 'itemType': 'string' },
       indexId: 'string',
       query: 'string',
       rerank: { 'type': 'array', 'itemType': RetrieveRequestRerank },
@@ -2974,6 +2983,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
    * false
    */
   enableRewrite?: boolean;
+  imagesShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -3011,6 +3021,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
       denseSimilarityTopK: 'DenseSimilarityTopK',
       enableReranking: 'EnableReranking',
       enableRewrite: 'EnableRewrite',
+      imagesShrink: 'Images',
       indexId: 'IndexId',
       query: 'Query',
       rerankShrink: 'Rerank',
@@ -3028,6 +3039,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
       denseSimilarityTopK: 'number',
       enableReranking: 'boolean',
       enableRewrite: 'boolean',
+      imagesShrink: 'string',
       indexId: 'string',
       query: 'string',
       rerankShrink: 'string',
@@ -4000,6 +4012,52 @@ export class CreateIndexRequestColumns extends $tea.Model {
       isRecall: 'boolean',
       isSearch: 'boolean',
       name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexRequestDataSource extends $tea.Model {
+  credentialId?: string;
+  credentialKey?: string;
+  database?: string;
+  endpoint?: string;
+  isPrivateLink?: boolean;
+  region?: string;
+  subPath?: string;
+  subType?: string;
+  table?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialId: 'CredentialId',
+      credentialKey: 'CredentialKey',
+      database: 'Database',
+      endpoint: 'Endpoint',
+      isPrivateLink: 'IsPrivateLink',
+      region: 'Region',
+      subPath: 'SubPath',
+      subType: 'SubType',
+      table: 'Table',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialId: 'string',
+      credentialKey: 'string',
+      database: 'string',
+      endpoint: 'string',
+      isPrivateLink: 'boolean',
+      region: 'string',
+      subPath: 'string',
+      subType: 'string',
+      table: 'string',
       type: 'string',
     };
   }
@@ -5926,6 +5984,10 @@ export default class Client extends OpenApi {
       request.columnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.columns, "Columns", "json");
     }
 
+    if (!Util.isUnset(tmpReq.dataSource)) {
+      request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
+    }
+
     if (!Util.isUnset(tmpReq.documentIds)) {
       request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
     }
@@ -5941,6 +6003,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.columnsShrink)) {
       query["Columns"] = request.columnsShrink;
+    }
+
+    if (!Util.isUnset(request.dataSourceShrink)) {
+      query["DataSource"] = request.dataSourceShrink;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -7028,6 +7094,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new RetrieveShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.images)) {
+      request.imagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.images, "Images", "simple");
+    }
+
     if (!Util.isUnset(tmpReq.rerank)) {
       request.rerankShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rerank, "Rerank", "json");
     }
@@ -7051,6 +7121,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableRewrite)) {
       query["EnableRewrite"] = request.enableRewrite;
+    }
+
+    if (!Util.isUnset(request.imagesShrink)) {
+      query["Images"] = request.imagesShrink;
     }
 
     if (!Util.isUnset(request.indexId)) {
