@@ -550,6 +550,7 @@ export class BuildIndexRequest extends $tea.Model {
    * 20201010
    */
   partition?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       buildMode: 'buildMode',
@@ -559,6 +560,7 @@ export class BuildIndexRequest extends $tea.Model {
       domain: 'domain',
       generation: 'generation',
       partition: 'partition',
+      tag: 'tag',
     };
   }
 
@@ -571,6 +573,7 @@ export class BuildIndexRequest extends $tea.Model {
       domain: 'string',
       generation: 'number',
       partition: 'string',
+      tag: 'string',
     };
   }
 
@@ -1707,11 +1710,15 @@ export class CreateInstanceRequest extends $tea.Model {
    * The billing information.
    */
   order?: CreateInstanceRequestOrder;
+  resourceGroupId?: string;
+  tags?: CreateInstanceRequestTags[];
   static names(): { [key: string]: string } {
     return {
       chargeType: 'chargeType',
       components: 'components',
       order: 'order',
+      resourceGroupId: 'resourceGroupId',
+      tags: 'tags',
     };
   }
 
@@ -1720,6 +1727,8 @@ export class CreateInstanceRequest extends $tea.Model {
       chargeType: 'string',
       components: { 'type': 'array', 'itemType': CreateInstanceRequestComponents },
       order: CreateInstanceRequestOrder,
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateInstanceRequestTags },
     };
   }
 
@@ -5192,6 +5201,8 @@ export class ListIndexRecoverRecordsResponse extends $tea.Model {
 }
 
 export class ListIndexesRequest extends $tea.Model {
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
@@ -5200,15 +5211,22 @@ export class ListIndexesRequest extends $tea.Model {
    * true
    */
   newMode?: boolean;
+  table?: string;
   static names(): { [key: string]: string } {
     return {
+      catalog: 'catalog',
+      database: 'database',
       newMode: 'newMode',
+      table: 'table',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      catalog: 'string',
+      database: 'string',
       newMode: 'boolean',
+      table: 'string',
     };
   }
 
@@ -5367,6 +5385,9 @@ export class ListInstanceSpecsResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  catalog?: string;
+  dataSourceType?: string;
+  database?: string;
   /**
    * @remarks
    * The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
@@ -5415,6 +5436,7 @@ export class ListInstancesRequest extends $tea.Model {
    * rg-aekzgpiswzbksdi
    */
   resourceGroupId?: string;
+  table?: string;
   /**
    * @remarks
    * The tags of the instance.
@@ -5422,24 +5444,32 @@ export class ListInstancesRequest extends $tea.Model {
   tags?: ListInstancesRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      catalog: 'catalog',
+      dataSourceType: 'dataSourceType',
+      database: 'database',
       description: 'description',
       edition: 'edition',
       instanceId: 'instanceId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
+      table: 'table',
       tags: 'tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      catalog: 'string',
+      dataSourceType: 'string',
+      database: 'string',
       description: 'string',
       edition: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
+      table: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesRequestTags },
     };
   }
@@ -5450,6 +5480,9 @@ export class ListInstancesRequest extends $tea.Model {
 }
 
 export class ListInstancesShrinkRequest extends $tea.Model {
+  catalog?: string;
+  dataSourceType?: string;
+  database?: string;
   /**
    * @remarks
    * The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
@@ -5498,6 +5531,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
    * rg-aekzgpiswzbksdi
    */
   resourceGroupId?: string;
+  table?: string;
   /**
    * @remarks
    * The tags of the instance.
@@ -5505,24 +5539,32 @@ export class ListInstancesShrinkRequest extends $tea.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      catalog: 'catalog',
+      dataSourceType: 'dataSourceType',
+      database: 'database',
       description: 'description',
       edition: 'edition',
       instanceId: 'instanceId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
+      table: 'table',
       tagsShrink: 'tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      catalog: 'string',
+      dataSourceType: 'string',
+      database: 'string',
       description: 'string',
       edition: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
+      table: 'string',
       tagsShrink: 'string',
     };
   }
@@ -7827,6 +7869,7 @@ export class ModifyIndexRequest extends $tea.Model {
    * vpc_hz_domain_1
    */
   domain?: string;
+  extend?: { [key: string]: any };
   /**
    * @remarks
    * The maximum number of full indexes that can be concurrently merged.
@@ -7875,6 +7918,7 @@ export class ModifyIndexRequest extends $tea.Model {
       dataSourceInfo: 'dataSourceInfo',
       description: 'description',
       domain: 'domain',
+      extend: 'extend',
       mergeParallelNum: 'mergeParallelNum',
       partition: 'partition',
       pushMode: 'pushMode',
@@ -7893,6 +7937,7 @@ export class ModifyIndexRequest extends $tea.Model {
       dataSourceInfo: ModifyIndexRequestDataSourceInfo,
       description: 'string',
       domain: 'string',
+      extend: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       mergeParallelNum: 'number',
       partition: 'number',
       pushMode: 'string',
@@ -10646,6 +10691,8 @@ export class CreateDataSourceRequestConfig extends $tea.Model {
    * opensearch
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
@@ -10702,11 +10749,14 @@ export class CreateDataSourceRequestConfig extends $tea.Model {
    * item
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -10714,6 +10764,7 @@ export class CreateDataSourceRequestConfig extends $tea.Model {
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -10722,6 +10773,8 @@ export class CreateDataSourceRequestConfig extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -10729,6 +10782,7 @@ export class CreateDataSourceRequestConfig extends $tea.Model {
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -10880,6 +10934,8 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
    * test-bucket
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
@@ -10936,11 +10992,14 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
    * bbt_rec_swing_u2i2i_score_be_v1
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -10948,6 +11007,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -10956,6 +11016,8 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -10963,6 +11025,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -11186,6 +11249,28 @@ export class CreateInstanceRequestOrder extends $tea.Model {
       autoRenew: 'boolean',
       duration: 'number',
       pricingCycle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11469,6 +11554,8 @@ export class CreateTableRequestDataSourceConfig extends $tea.Model {
    * antsys-flytest-ci
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -11509,16 +11596,20 @@ export class CreateTableRequestDataSourceConfig extends $tea.Model {
    * test56
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       ossPath: 'ossPath',
       partition: 'partition',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -11527,11 +11618,14 @@ export class CreateTableRequestDataSourceConfig extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       ossPath: 'string',
       partition: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -13199,6 +13293,8 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
    * antsys-miniapp-chongwen-static
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -13243,11 +13339,14 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
    * behavior
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -13255,6 +13354,7 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -13263,6 +13363,8 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -13270,6 +13372,7 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -13871,6 +13974,8 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
    * ha3test-oss
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -13927,11 +14032,14 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
    * dump_odps_demo
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -13939,6 +14047,7 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -13947,6 +14056,8 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -13954,6 +14065,7 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -17114,6 +17226,8 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
    * ha3test-oss
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -17170,11 +17284,14 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
    * dump_odps_demo
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -17182,6 +17299,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -17190,6 +17308,8 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -17197,6 +17317,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -17690,6 +17811,83 @@ export class ListInstancesRequestTags extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyResultDataSourceDetailsConfig extends $tea.Model {
+  accessKey?: string;
+  bucket?: string;
+  catalog?: string;
+  database?: string;
+  endpoint?: string;
+  namespace?: string;
+  ossPath?: string;
+  partition?: string;
+  path?: string;
+  project?: string;
+  table?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
+      endpoint: 'endpoint',
+      namespace: 'namespace',
+      ossPath: 'ossPath',
+      partition: 'partition',
+      path: 'path',
+      project: 'project',
+      table: 'table',
+      tag: 'tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      bucket: 'string',
+      catalog: 'string',
+      database: 'string',
+      endpoint: 'string',
+      namespace: 'string',
+      ossPath: 'string',
+      partition: 'string',
+      path: 'string',
+      project: 'string',
+      table: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyResultDataSourceDetails extends $tea.Model {
+  config?: ListInstancesResponseBodyResultDataSourceDetailsConfig;
+  indexName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      indexName: 'indexName',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: ListInstancesResponseBodyResultDataSourceDetailsConfig,
+      indexName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyResultNetwork extends $tea.Model {
   allow?: string;
   /**
@@ -17887,6 +18085,7 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
    * 2022-06-04T02:03:21Z
    */
   createTime?: string;
+  dataSourceDetails?: ListInstancesResponseBodyResultDataSourceDetails[];
   /**
    * @remarks
    * The description of the instance.
@@ -17971,6 +18170,7 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
       chargeType: 'chargeType',
       commodityCode: 'commodityCode',
       createTime: 'createTime',
+      dataSourceDetails: 'dataSourceDetails',
       description: 'description',
       edition: 'edition',
       expiredTime: 'expiredTime',
@@ -17994,6 +18194,7 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
       chargeType: 'string',
       commodityCode: 'string',
       createTime: 'string',
+      dataSourceDetails: { 'type': 'array', 'itemType': ListInstancesResponseBodyResultDataSourceDetails },
       description: 'string',
       edition: 'string',
       expiredTime: 'string',
@@ -18504,6 +18705,8 @@ export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
    * test-bucket
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -18560,11 +18763,14 @@ export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
    * item
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -18572,6 +18778,7 @@ export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -18580,6 +18787,8 @@ export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -18587,6 +18796,7 @@ export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -18656,6 +18866,8 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
    * test-bucket
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -18712,11 +18924,14 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
    * item
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       namespace: 'namespace',
       ossPath: 'ossPath',
@@ -18724,6 +18939,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
       path: 'path',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -18732,6 +18948,8 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       namespace: 'string',
       ossPath: 'string',
@@ -18739,6 +18957,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
       path: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -19162,6 +19381,8 @@ export class ModifyTableRequestDataSourceConfig extends $tea.Model {
    * antsys-shujiang-osstest
    */
   bucket?: string;
+  catalog?: string;
+  database?: string;
   /**
    * @remarks
    * The endpoint of the MaxCompute data source.
@@ -19202,16 +19423,20 @@ export class ModifyTableRequestDataSourceConfig extends $tea.Model {
    * behavior
    */
   table?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       accessKey: 'accessKey',
       accessSecret: 'accessSecret',
       bucket: 'bucket',
+      catalog: 'catalog',
+      database: 'database',
       endpoint: 'endpoint',
       ossPath: 'ossPath',
       partition: 'partition',
       project: 'project',
       table: 'table',
+      tag: 'tag',
     };
   }
 
@@ -19220,11 +19445,14 @@ export class ModifyTableRequestDataSourceConfig extends $tea.Model {
       accessKey: 'string',
       accessSecret: 'string',
       bucket: 'string',
+      catalog: 'string',
+      database: 'string',
       endpoint: 'string',
       ossPath: 'string',
       partition: 'string',
       project: 'string',
       table: 'string',
+      tag: 'string',
     };
   }
 
@@ -20157,6 +20385,10 @@ export default class Client extends OpenApi {
       body["partition"] = request.partition;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      body["tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -20755,6 +20987,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.order)) {
       body["order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22986,8 +23226,20 @@ export default class Client extends OpenApi {
   async listIndexesWithOptions(instanceId: string, request: ListIndexesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.catalog)) {
+      query["catalog"] = request.catalog;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["database"] = request.database;
+    }
+
     if (!Util.isUnset(request.newMode)) {
       query["newMode"] = request.newMode;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      query["table"] = request.table;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23106,6 +23358,18 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.catalog)) {
+      query["catalog"] = request.catalog;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["dataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["database"] = request.database;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["description"] = request.description;
     }
@@ -23128,6 +23392,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      query["table"] = request.table;
     }
 
     if (!Util.isUnset(request.tagsShrink)) {
@@ -24381,6 +24649,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.domain)) {
       body["domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      body["extend"] = request.extend;
     }
 
     if (!Util.isUnset(request.mergeParallelNum)) {
