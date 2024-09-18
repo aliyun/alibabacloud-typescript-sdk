@@ -67243,6 +67243,28 @@ export class GetRemindResponseBodyDataProjects extends $tea.Model {
   }
 }
 
+export class GetRemindResponseBodyDataReceivers extends $tea.Model {
+  alertTargets?: string[];
+  alertUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertTargets: 'AlertTargets',
+      alertUnit: 'AlertUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertTargets: { 'type': 'array', 'itemType': 'string' },
+      alertUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRemindResponseBodyDataRobots extends $tea.Model {
   /**
    * @remarks
@@ -67298,6 +67320,7 @@ export class GetRemindResponseBodyData extends $tea.Model {
    * OWNER
    */
   alertUnit?: string;
+  allowNodes?: number[];
   /**
    * @remarks
    * The baselines to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is BASELINE.
@@ -67362,6 +67385,7 @@ export class GetRemindResponseBodyData extends $tea.Model {
    * The workspaces to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is PROJECT.
    */
   projects?: GetRemindResponseBodyDataProjects[];
+  receivers?: GetRemindResponseBodyDataReceivers[];
   /**
    * @remarks
    * The custom alert rule ID.
@@ -67411,6 +67435,7 @@ export class GetRemindResponseBodyData extends $tea.Model {
       alertMethods: 'AlertMethods',
       alertTargets: 'AlertTargets',
       alertUnit: 'AlertUnit',
+      allowNodes: 'AllowNodes',
       baselines: 'Baselines',
       bizProcesses: 'BizProcesses',
       detail: 'Detail',
@@ -67420,6 +67445,7 @@ export class GetRemindResponseBodyData extends $tea.Model {
       maxAlertTimes: 'MaxAlertTimes',
       nodes: 'Nodes',
       projects: 'Projects',
+      receivers: 'Receivers',
       remindId: 'RemindId',
       remindName: 'RemindName',
       remindType: 'RemindType',
@@ -67436,6 +67462,7 @@ export class GetRemindResponseBodyData extends $tea.Model {
       alertMethods: { 'type': 'array', 'itemType': 'string' },
       alertTargets: { 'type': 'array', 'itemType': 'string' },
       alertUnit: 'string',
+      allowNodes: { 'type': 'array', 'itemType': 'number' },
       baselines: { 'type': 'array', 'itemType': GetRemindResponseBodyDataBaselines },
       bizProcesses: { 'type': 'array', 'itemType': GetRemindResponseBodyDataBizProcesses },
       detail: 'string',
@@ -67445,6 +67472,7 @@ export class GetRemindResponseBodyData extends $tea.Model {
       maxAlertTimes: 'number',
       nodes: { 'type': 'array', 'itemType': GetRemindResponseBodyDataNodes },
       projects: { 'type': 'array', 'itemType': GetRemindResponseBodyDataProjects },
+      receivers: { 'type': 'array', 'itemType': GetRemindResponseBodyDataReceivers },
       remindId: 'number',
       remindName: 'string',
       remindType: 'string',
