@@ -13948,6 +13948,11 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $tea.Model 
    */
   factColumn?: string;
   /**
+   * @example
+   * hhhh
+   */
+  fieldDescription?: string;
+  /**
    * @remarks
    * The type of the dimension. Valid values:
    * 
@@ -13990,6 +13995,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $tea.Model 
       dimensionType: 'DimensionType',
       expression: 'Expression',
       factColumn: 'FactColumn',
+      fieldDescription: 'FieldDescription',
       granularity: 'Granularity',
       refUid: 'RefUid',
       tableUniqueId: 'TableUniqueId',
@@ -14004,6 +14010,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $tea.Model 
       dimensionType: 'string',
       expression: 'string',
       factColumn: 'string',
+      fieldDescription: 'string',
       granularity: 'string',
       refUid: 'string',
       tableUniqueId: 'string',
@@ -14113,6 +14120,11 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $tea.Model {
    */
   factColumn?: string;
   /**
+   * @example
+   * hhhh
+   */
+  fieldDescription?: string;
+  /**
    * @remarks
    * An expression that calculates a measure; valid only for calculated measures.
    * 
@@ -14142,6 +14154,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $tea.Model {
       dataType: 'DataType',
       expression: 'Expression',
       factColumn: 'FactColumn',
+      fieldDescription: 'FieldDescription',
       measureType: 'MeasureType',
       tableUniqueId: 'TableUniqueId',
       uid: 'Uid',
@@ -14154,6 +14167,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $tea.Model {
       dataType: 'string',
       expression: 'string',
       factColumn: 'string',
+      fieldDescription: 'string',
       measureType: 'string',
       tableUniqueId: 'string',
       uid: 'string',
@@ -17877,6 +17891,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加成员到指定工作空间。
+   * 
    * @param request - AddUserToWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddUserToWorkspaceResponse
@@ -17914,6 +17930,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加成员到指定工作空间。
+   * 
    * @param request - AddUserToWorkspaceRequest
    * @returns AddUserToWorkspaceResponse
    */
@@ -17923,6 +17941,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量添加成员到工作空间。
+   * 
    * @param request - AddWorkspaceUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddWorkspaceUsersResponse
@@ -17960,6 +17980,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量添加成员到工作空间。
+   * 
    * @param request - AddWorkspaceUsersRequest
    * @returns AddWorkspaceUsersResponse
    */
@@ -17969,7 +17991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发数据集抽取加速
+   * 触发数据集抽取加速。
    * 
    * @param request - AllotDatasetAccelerationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18000,7 +18022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发数据集抽取加速
+   * 触发数据集抽取加速。
    * 
    * @param request - AllotDatasetAccelerationTaskRequest
    * @returns AllotDatasetAccelerationTaskResponse
@@ -18069,7 +18091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加飞书用户
+   * 批量添加飞书用户。
    * 
    * @param request - BatchAddFeishuUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18116,7 +18138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加飞书用户
+   * 批量添加飞书用户。
    * 
    * @param request - BatchAddFeishuUsersRequest
    * @returns BatchAddFeishuUsersResponse
@@ -18127,6 +18149,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据门户菜单ID，取消指定用户、用户组的授权记录。
+   * 
    * @param request - CancelAuthorizationMenuRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelAuthorizationMenuResponse
@@ -18168,6 +18192,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据门户菜单ID，取消指定用户、用户组的授权记录。
+   * 
    * @param request - CancelAuthorizationMenuRequest
    * @returns CancelAuthorizationMenuResponse
    */
@@ -18369,7 +18395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成三方嵌入的ticket
+   * 生成三方嵌入的ticket。
    * 
    * @param request - CreateTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18432,7 +18458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成三方嵌入的ticket
+   * 生成三方嵌入的ticket。
    * 
    * @param request - CreateTicketRequest
    * @returns CreateTicketResponse
@@ -18443,7 +18469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成智能小Q嵌入ticket
+   * 生成智能小Q嵌入ticket。
    * 
    * @param request - CreateTicket4CopilotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18494,7 +18520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成智能小Q嵌入ticket
+   * 生成智能小Q嵌入ticket。
    * 
    * @param request - CreateTicket4CopilotRequest
    * @returns CreateTicket4CopilotResponse
@@ -18559,7 +18585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询引用指定数据集下的作品信息
+   * 查询引用指定数据集下的作品信息。
    * 
    * @param request - DataSetBloodRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18598,7 +18624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询引用指定数据集下的作品信息
+   * 查询引用指定数据集下的作品信息。
    * 
    * @param request - DataSetBloodRequest
    * @returns DataSetBloodResponse
@@ -18609,7 +18635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询引用指定数据源下的数据集信息
+   * 查询引用指定数据源下的数据集信息。
    * 
    * @param request - DataSourceBloodRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18640,7 +18666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询引用指定数据源下的数据集信息
+   * 查询引用指定数据源下的数据集信息。
    * 
    * @param request - DataSourceBloodRequest
    * @returns DataSourceBloodResponse
@@ -18885,6 +18911,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定工作空间的成员。
+   * 
    * @param request - DeleteUserFromWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUserFromWorkspaceResponse
@@ -18918,6 +18946,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定工作空间的成员。
+   * 
    * @param request - DeleteUserFromWorkspaceRequest
    * @returns DeleteUserFromWorkspaceResponse
    */
@@ -19149,7 +19179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * 查询API数据源列表。
    * 
    * @param request - ListApiDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19192,7 +19222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * 查询API数据源列表。
    * 
    * @param request - ListApiDatasourceRequest
    * @returns ListApiDatasourceResponse
@@ -19339,6 +19369,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据行列权限种类，获取数据集行列权限的白名单列表。
+   * 
    * @param request - ListDataLevelPermissionWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataLevelPermissionWhiteListResponse
@@ -19372,6 +19404,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据行列权限种类，获取数据集行列权限的白名单列表。
+   * 
    * @param request - ListDataLevelPermissionWhiteListRequest
    * @returns ListDataLevelPermissionWhiteListResponse
    */
@@ -19381,7 +19415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * 获取指定用户在首页看板中展示的收藏作品列表。
    * 
    * @param request - ListFavoriteReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19424,7 +19458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * 获取指定用户在首页看板中展示的收藏作品列表。
    * 
    * @param request - ListFavoriteReportsRequest
    * @returns ListFavoriteReportsResponse
@@ -19435,7 +19469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定组织角色下的用户列表
+   * 获取指定组织角色下的用户列表。
    * 
    * @param request - ListOrganizationRoleUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19478,7 +19512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定组织角色下的用户列表
+   * 获取指定组织角色下的用户列表。
    * 
    * @param request - ListOrganizationRoleUsersRequest
    * @returns ListOrganizationRoleUsersResponse
@@ -19489,7 +19523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取组织级别自定义角色列表
+   * 获取组织级别自定义角色列表。
    * 
    * @param request - ListOrganizationRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19512,7 +19546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取组织级别自定义角色列表
+   * 获取组织级别自定义角色列表。
    * @returns ListOrganizationRolesResponse
    */
   async listOrganizationRoles(): Promise<ListOrganizationRolesResponse> {
@@ -19609,7 +19643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取首页看板常看和足迹列表
+   * 获取首页看板常看和足迹列表。
    * 
    * @param request - ListRecentViewReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19660,7 +19694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取首页看板常看和足迹列表
+   * 获取首页看板常看和足迹列表。
    * 
    * @param request - ListRecentViewReportsRequest
    * @returns ListRecentViewReportsResponse
@@ -19671,7 +19705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * 获取指定用户在首页看板中展示的被授权的作品列表。
    * 
    * @param request - ListSharedReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19714,7 +19748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * 获取指定用户在首页看板中展示的被授权的作品列表。
    * 
    * @param request - ListSharedReportsRequest
    * @returns ListSharedReportsResponse
@@ -19767,7 +19801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定空间角色下的用户列表
+   * 获取指定空间角色下的用户列表。
    * 
    * @param request - ListWorkspaceRoleUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19814,7 +19848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定空间角色下的用户列表
+   * 获取指定空间角色下的用户列表。
    * 
    * @param request - ListWorkspaceRoleUsersRequest
    * @returns ListWorkspaceRoleUsersResponse
@@ -19825,7 +19859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间角色列表
+   * 获取空间角色列表。
    * 
    * @param request - ListWorkspaceRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19856,7 +19890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间角色列表
+   * 获取空间角色列表。
    * 
    * @param request - ListWorkspaceRolesRequest
    * @returns ListWorkspaceRolesResponse
@@ -19867,7 +19901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改指定API数据源参数值
+   * 修改指定API数据源参数值。
    * 
    * @param request - ModifyApiDatasourceParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19906,7 +19940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改指定API数据源参数值
+   * 修改指定API数据源参数值。
    * 
    * @param request - ModifyApiDatasourceParametersRequest
    * @returns ModifyApiDatasourceParametersResponse
@@ -19917,7 +19951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改智能问数嵌入配置
+   * 修改智能问数嵌入配置。
    * 
    * @param request - ModifyCopilotEmbedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19960,7 +19994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改智能问数嵌入配置
+   * 修改智能问数嵌入配置。
    * 
    * @param request - ModifyCopilotEmbedConfigRequest
    * @returns ModifyCopilotEmbedConfigResponse
@@ -19971,7 +20005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据审批人获取相应的审批流信息
+   * 根据审批人获取相应的审批流信息。
    * 
    * @param request - QueryApprovalInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20014,7 +20048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据审批人获取相应的审批流信息
+   * 根据审批人获取相应的审批流信息。
    * 
    * @param request - QueryApprovalInfoRequest
    * @returns QueryApprovalInfoResponse
@@ -20025,7 +20059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审计日志信息
+   * 查询审计日志信息。
    * 
    * @param request - QueryAuditLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20080,7 +20114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审计日志信息
+   * 查询审计日志信息。
    * 
    * @param request - QueryAuditLogRequest
    * @returns QueryAuditLogResponse
@@ -20091,7 +20125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询组件性能列表
+   * 查询组件性能列表。
    * 
    * @param request - QueryComponentPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20146,7 +20180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询组件性能列表
+   * 查询组件性能列表。
    * 
    * @param request - QueryComponentPerformanceRequest
    * @returns QueryComponentPerformanceResponse
@@ -20157,7 +20191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取开通小Q嵌入的配置列表
+   * 获取开通小Q嵌入的配置列表。
    * 
    * @param request - QueryCopilotEmbedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20188,7 +20222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取开通小Q嵌入的配置列表
+   * 获取开通小Q嵌入的配置列表。
    * 
    * @param request - QueryCopilotEmbedConfigRequest
    * @returns QueryCopilotEmbedConfigResponse
@@ -20199,7 +20233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据集优化建议
+   * 查询数据集优化建议。
    * 
    * @param request - QueryCubeOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20230,7 +20264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据集优化建议
+   * 查询数据集优化建议。
    * 
    * @param request - QueryCubeOptimizationRequest
    * @returns QueryCubeOptimizationResponse
@@ -20241,7 +20275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据集性能
+   * 查询数据集性能。
    * 
    * @param request - QueryCubePerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20292,7 +20326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据集性能
+   * 查询数据集性能。
    * 
    * @param request - QueryCubePerformanceRequest
    * @returns QueryCubePerformanceResponse
@@ -20303,7 +20337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用开放数据服务API
+   * 调用开放数据服务API。
    * 
    * @param request - QueryDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20346,7 +20380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用开放数据服务API
+   * 调用开放数据服务API。
    * 
    * @param request - QueryDataRequest
    * @returns QueryDataResponse
@@ -20357,7 +20391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据范围目录列表
+   * 获取数据范围目录列表。
    * 
    * @param request - QueryDataRangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20392,7 +20426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据范围目录列表
+   * 获取数据范围目录列表。
    * 
    * @param request - QueryDataRangeRequest
    * @returns QueryDataRangeResponse
@@ -20459,7 +20493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据服务API列表
+   * 查询数据服务API列表。
    * 
    * @param request - QueryDataServiceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20502,7 +20536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据服务API列表
+   * 查询数据服务API列表。
    * 
    * @param request - QueryDataServiceListRequest
    * @returns QueryDataServiceListResponse
@@ -20669,6 +20703,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定数据集的行级权限开关状态。
+   * 
    * @param request - QueryDatasetSwitchInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDatasetSwitchInfoResponse
@@ -20698,6 +20734,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定数据集的行级权限开关状态。
+   * 
    * @param request - QueryDatasetSwitchInfoRequest
    * @returns QueryDatasetSwitchInfoResponse
    */
@@ -21153,6 +21191,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户组下的成员列表信息。
+   * 
    * @param request - QueryUserGroupMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUserGroupMemberResponse
@@ -21186,6 +21226,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户组下的成员列表信息。
+   * 
    * @param request - QueryUserGroupMemberRequest
    * @returns QueryUserGroupMemberResponse
    */
@@ -21283,6 +21325,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询组织成员列表信息。
+   * 
    * @param request - QueryUserListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUserListResponse
@@ -21308,6 +21352,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询组织成员列表信息。
+   * 
    * @param request - QueryUserListRequest
    * @returns QueryUserListResponse
    */
@@ -21317,6 +21363,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定工作空间成员的预置空间角色信息。
+   * 
    * @param request - QueryUserRoleInfoInWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUserRoleInfoInWorkspaceResponse
@@ -21350,6 +21398,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定工作空间成员的预置空间角色信息。
+   * 
    * @param request - QueryUserRoleInfoInWorkspaceRequest
    * @returns QueryUserRoleInfoInWorkspaceResponse
    */
@@ -21675,6 +21725,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定工作空间下的成员列表信息。
+   * 
    * @param request - QueryWorkspaceUserListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryWorkspaceUserListResponse
@@ -21716,6 +21768,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定工作空间下的成员列表信息。
+   * 
    * @param request - QueryWorkspaceUserListRequest
    * @returns QueryWorkspaceUserListResponse
    */
@@ -21821,6 +21875,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置行列权限的额外配置
+   * 
    * @param request - SetDataLevelPermissionExtraConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDataLevelPermissionExtraConfigResponse
@@ -21858,6 +21914,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置行列权限的额外配置
+   * 
    * @param request - SetDataLevelPermissionExtraConfigRequest
    * @returns SetDataLevelPermissionExtraConfigResponse
    */
@@ -21867,6 +21925,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置单条数据集行列权限配置信息（新增和更新）
+   * 
    * @param request - SetDataLevelPermissionRuleConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDataLevelPermissionRuleConfigResponse
@@ -21896,6 +21956,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置单条数据集行列权限配置信息（新增和更新）
+   * 
    * @param request - SetDataLevelPermissionRuleConfigRequest
    * @returns SetDataLevelPermissionRuleConfigResponse
    */
@@ -22225,6 +22287,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于更新组织成员标签元信息
+   * 
    * @param request - UpdateUserTagMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserTagMetaResponse
@@ -22262,6 +22326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于更新组织成员标签元信息
+   * 
    * @param request - UpdateUserTagMetaRequest
    * @returns UpdateUserTagMetaResponse
    */
@@ -22271,6 +22337,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新组织成员标签值
+   * 
    * @param request - UpdateUserTagValueRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserTagValueResponse
@@ -22308,6 +22376,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新组织成员标签值
+   * 
    * @param request - UpdateUserTagValueRequest
    * @returns UpdateUserTagValueResponse
    */
@@ -22317,6 +22387,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改工作空间下指定成员的角色，已有的角色会被覆盖
+   * 
    * @param request - UpdateWorkspaceUserRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateWorkspaceUserRoleResponse
@@ -22354,6 +22426,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改工作空间下指定成员的角色，已有的角色会被覆盖
+   * 
    * @param request - UpdateWorkspaceUserRoleRequest
    * @returns UpdateWorkspaceUserRoleResponse
    */
@@ -22363,6 +22437,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量更新工作空间成员的角色信息，已有角色会被覆盖
+   * 
    * @param request - UpdateWorkspaceUsersRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateWorkspaceUsersRoleResponse
@@ -22400,6 +22476,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量更新工作空间成员的角色信息，已有角色会被覆盖
+   * 
    * @param request - UpdateWorkspaceUsersRoleRequest
    * @returns UpdateWorkspaceUsersRoleResponse
    */
