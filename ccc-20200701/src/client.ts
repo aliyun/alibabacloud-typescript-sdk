@@ -8199,6 +8199,100 @@ export class GetChatMediaUrlResponse extends $tea.Model {
   }
 }
 
+export class GetChatRoutingProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatRoutingProfileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetChatRoutingProfileResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @example
+   * 30C7D235-DDCF-4C7F-A462-5E2598252C2B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetChatRoutingProfileResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatRoutingProfileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatRoutingProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatRoutingProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetContactFlowRequest extends $tea.Model {
   /**
    * @remarks
@@ -28392,6 +28486,127 @@ export class UpdateCampaignResponse extends $tea.Model {
   }
 }
 
+export class UpdateChatRoutingProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "RoutingType": "Automatic",
+   *     "AgentConcurrencySettings": {
+   *         "AllowExceedingLimitWhenTransferring": false,
+   *         "ConcurrencyLimit": 4,
+   *         "AllowExceedingLimitWhenClaiming": true,
+   *         "Enabled": true
+   *     },
+   *     "ChatSettings": {
+   *         "IdleChatTimeoutSeconds": 300
+   *     },
+   *     "DistributionSettings": {
+   *         "Enabled": true,
+   *         "AgentRingTimeoutSeconds": 119,
+   *         "MaxNumberOfConversationsAgentCanMiss": 5,
+   *         "PostAgentMissingConversionsAction": "Nothing"
+   *     }
+   * }
+   */
+  routingProfiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      routingProfiles: 'RoutingProfiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      routingProfiles: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChatRoutingProfileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChatRoutingProfileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateChatRoutingProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateChatRoutingProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateConfigItemsRequest extends $tea.Model {
   /**
    * @remarks
@@ -32507,6 +32722,60 @@ export class GetCaseFileUploadUrlResponseBodyData extends $tea.Model {
     return {
       caseFileKey: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatRoutingProfileResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "AllowExceedingLimitWhenTransferring": false,
+   *     "ConcurrencyLimit": 4,
+   *     "AllowExceedingLimitWhenClaiming": true,
+   *     "Enabled": true
+   * }
+   */
+  agentConcurrencySettings?: string;
+  /**
+   * @example
+   * {"IdleChatTimeoutSeconds":300}
+   */
+  chatSettings?: string;
+  /**
+   * @example
+   * {
+   *     "AgentRingTimeoutSeconds": 30,
+   *     "Enabled": true,
+   *     "MaxNumberOfConversationsAgentCanMiss": 5,
+   *     "PostAgentMissingConversionsAction": "Nothing"
+   * }
+   */
+  distributionSettings?: string;
+  /**
+   * @example
+   * Automatic
+   */
+  routingType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentConcurrencySettings: 'AgentConcurrencySettings',
+      chatSettings: 'ChatSettings',
+      distributionSettings: 'DistributionSettings',
+      routingType: 'RoutingType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentConcurrencySettings: 'string',
+      chatSettings: 'string',
+      distributionSettings: 'string',
+      routingType: 'string',
     };
   }
 
@@ -58617,6 +58886,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetChatRoutingProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatRoutingProfileResponse
+   */
+  async getChatRoutingProfileWithOptions(request: GetChatRoutingProfileRequest, runtime: $Util.RuntimeOptions): Promise<GetChatRoutingProfileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatRoutingProfile",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatRoutingProfileResponse>(await this.callApi(params, req, runtime), new GetChatRoutingProfileResponse({}));
+  }
+
+  /**
+   * @param request - GetChatRoutingProfileRequest
+   * @returns GetChatRoutingProfileResponse
+   */
+  async getChatRoutingProfile(request: GetChatRoutingProfileRequest): Promise<GetChatRoutingProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChatRoutingProfileWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetContactFlowResponse
@@ -67266,6 +67573,48 @@ export default class Client extends OpenApi {
   async updateCampaign(request: UpdateCampaignRequest): Promise<UpdateCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateChatRoutingProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChatRoutingProfileResponse
+   */
+  async updateChatRoutingProfileWithOptions(request: UpdateChatRoutingProfileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChatRoutingProfileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.routingProfiles)) {
+      query["RoutingProfiles"] = request.routingProfiles;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateChatRoutingProfile",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateChatRoutingProfileResponse>(await this.callApi(params, req, runtime), new UpdateChatRoutingProfileResponse({}));
+  }
+
+  /**
+   * @param request - UpdateChatRoutingProfileRequest
+   * @returns UpdateChatRoutingProfileResponse
+   */
+  async updateChatRoutingProfile(request: UpdateChatRoutingProfileRequest): Promise<UpdateChatRoutingProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateChatRoutingProfileWithOptions(request, runtime);
   }
 
   /**
