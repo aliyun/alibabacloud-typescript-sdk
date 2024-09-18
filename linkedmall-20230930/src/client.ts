@@ -1455,6 +1455,11 @@ export class OrderResult extends $tea.Model {
   orderAmount?: number;
   /**
    * @example
+   * 系统关单
+   */
+  orderClosedReason?: string;
+  /**
+   * @example
    * 6692****5457
    */
   orderId?: string;
@@ -1475,6 +1480,7 @@ export class OrderResult extends $tea.Model {
       distributorId: 'distributorId',
       logisticsStatus: 'logisticsStatus',
       orderAmount: 'orderAmount',
+      orderClosedReason: 'orderClosedReason',
       orderId: 'orderId',
       orderLineList: 'orderLineList',
       orderStatus: 'orderStatus',
@@ -1488,6 +1494,7 @@ export class OrderResult extends $tea.Model {
       distributorId: 'string',
       logisticsStatus: 'string',
       orderAmount: 'number',
+      orderClosedReason: 'string',
       orderId: 'string',
       orderLineList: { 'type': 'array', 'itemType': OrderLineResult },
       orderStatus: 'string',
