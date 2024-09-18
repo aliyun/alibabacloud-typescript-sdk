@@ -20490,6 +20490,312 @@ export class GetTemplateListByUserIdResponse extends $tea.Model {
   }
 }
 
+export class GetTodoTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetTodoTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetTodoTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OPJpwtxxxx
+   */
+  taskId?: string;
+  tenantContext?: GetTodoTaskRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      tenantContext: GetTodoTaskRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OPJpwtxxxx
+   */
+  taskId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * isv_dingtalkTodo
+   */
+  bizTag?: string;
+  /**
+   * @example
+   * 此参数禁止发布
+   */
+  cardTypeId?: string;
+  /**
+   * @example
+   * 1617675000000
+   */
+  createdTime?: number;
+  /**
+   * @example
+   * 012345
+   */
+  creatorId?: string;
+  /**
+   * @example
+   * 应用可以调用该接口获取钉钉待办任务详情信息及状态。
+   */
+  description?: string;
+  detailUrl?: GetTodoTaskResponseBodyDetailUrl;
+  /**
+   * @example
+   * true
+   */
+  done?: boolean;
+  /**
+   * @example
+   * 1617675000000
+   */
+  dueTime?: number;
+  executorIds?: string[];
+  /**
+   * @example
+   * 1617675000000
+   */
+  finishTime?: number;
+  /**
+   * @example
+   * OPJpwtxxxx
+   */
+  id?: string;
+  /**
+   * @example
+   * true
+   */
+  isOnlyShowExecutor?: boolean;
+  /**
+   * @example
+   * 1617675000000
+   */
+  modifiedTime?: number;
+  /**
+   * @example
+   * 012345
+   */
+  modifierId?: string;
+  participantIds?: string[];
+  /**
+   * @example
+   * 20
+   */
+  priority?: number;
+  /**
+   * @example
+   * PUoiinWIxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * isv_dingtalkTodo
+   */
+  source?: string;
+  /**
+   * @example
+   * isv_dingxxx
+   */
+  sourceId?: string;
+  /**
+   * @example
+   * 1617675000000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 接入钉钉待办
+   */
+  subject?: string;
+  /**
+   * @example
+   * orgId1
+   */
+  tenantId?: string;
+  /**
+   * @example
+   * org
+   */
+  tenantType?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizTag: 'bizTag',
+      cardTypeId: 'cardTypeId',
+      createdTime: 'createdTime',
+      creatorId: 'creatorId',
+      description: 'description',
+      detailUrl: 'detailUrl',
+      done: 'done',
+      dueTime: 'dueTime',
+      executorIds: 'executorIds',
+      finishTime: 'finishTime',
+      id: 'id',
+      isOnlyShowExecutor: 'isOnlyShowExecutor',
+      modifiedTime: 'modifiedTime',
+      modifierId: 'modifierId',
+      participantIds: 'participantIds',
+      priority: 'priority',
+      requestId: 'requestId',
+      source: 'source',
+      sourceId: 'sourceId',
+      startTime: 'startTime',
+      subject: 'subject',
+      tenantId: 'tenantId',
+      tenantType: 'tenantType',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizTag: 'string',
+      cardTypeId: 'string',
+      createdTime: 'number',
+      creatorId: 'string',
+      description: 'string',
+      detailUrl: GetTodoTaskResponseBodyDetailUrl,
+      done: 'boolean',
+      dueTime: 'number',
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      finishTime: 'number',
+      id: 'string',
+      isOnlyShowExecutor: 'boolean',
+      modifiedTime: 'number',
+      modifierId: 'string',
+      participantIds: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      requestId: 'string',
+      source: 'string',
+      sourceId: 'string',
+      startTime: 'number',
+      subject: 'string',
+      tenantId: 'string',
+      tenantType: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTodoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTodoTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetUserHeadersAccountContext;
@@ -51569,6 +51875,85 @@ export class GetTemplateListByUserIdResponseBodyTemplateList extends $tea.Model 
   }
 }
 
+export class GetTodoTaskHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTodoTaskResponseBodyDetailUrl extends $tea.Model {
+  /**
+   * @example
+   * dingtalk://dingtalkclient/action/open_mini_app?miniAppId={0}&ddMode=push&page=pages%2ftask-detail%2ftask-detail%3ftaskId%3d{1}
+   */
+  appUrl?: string;
+  /**
+   * @example
+   * https://todo.dingtalk.com/ding-portal/detail/task/{0}
+   */
+  pcUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'AppUrl',
+      pcUrl: 'PcUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      pcUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserHeadersAccountContext extends $tea.Model {
   /**
    * @example
@@ -71506,6 +71891,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetTemplateListByUserIdHeaders({ });
     return await this.getTemplateListByUserIdWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取钉钉待办任务详情
+   * 
+   * @param tmpReq - GetTodoTaskRequest
+   * @param tmpHeader - GetTodoTaskHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTodoTaskResponse
+   */
+  async getTodoTaskWithOptions(tmpReq: GetTodoTaskRequest, tmpHeader: GetTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<GetTodoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetTodoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetTodoTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTodoTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/getTodoTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTodoTaskResponse>(await this.callApi(params, req, runtime), new GetTodoTaskResponse({}));
+  }
+
+  /**
+   * 获取钉钉待办任务详情
+   * 
+   * @param request - GetTodoTaskRequest
+   * @returns GetTodoTaskResponse
+   */
+  async getTodoTask(request: GetTodoTaskRequest): Promise<GetTodoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetTodoTaskHeaders({ });
+    return await this.getTodoTaskWithOptions(request, headers, runtime);
   }
 
   /**
