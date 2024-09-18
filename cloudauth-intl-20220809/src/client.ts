@@ -2232,6 +2232,7 @@ export class InitializeRequest extends $tea.Model {
   sceneCode?: string;
   securityLevel?: string;
   showAlbumIcon?: string;
+  showGuidePage?: string;
   showOcrResult?: string;
   styleConfig?: string;
   static names(): { [key: string]: string } {
@@ -2261,6 +2262,7 @@ export class InitializeRequest extends $tea.Model {
       sceneCode: 'SceneCode',
       securityLevel: 'SecurityLevel',
       showAlbumIcon: 'ShowAlbumIcon',
+      showGuidePage: 'ShowGuidePage',
       showOcrResult: 'ShowOcrResult',
       styleConfig: 'StyleConfig',
     };
@@ -2293,6 +2295,7 @@ export class InitializeRequest extends $tea.Model {
       sceneCode: 'string',
       securityLevel: 'string',
       showAlbumIcon: 'string',
+      showGuidePage: 'string',
       showOcrResult: 'string',
       styleConfig: 'string',
     };
@@ -5191,6 +5194,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.showAlbumIcon)) {
       query["ShowAlbumIcon"] = request.showAlbumIcon;
+    }
+
+    if (!Util.isUnset(request.showGuidePage)) {
+      query["ShowGuidePage"] = request.showGuidePage;
     }
 
     if (!Util.isUnset(request.showOcrResult)) {
