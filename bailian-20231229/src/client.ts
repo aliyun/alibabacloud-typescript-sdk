@@ -154,11 +154,13 @@ export class AddFileRequest extends $tea.Model {
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
+  tags?: string[];
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
       leaseId: 'LeaseId',
       parser: 'Parser',
+      tags: 'Tags',
     };
   }
 
@@ -167,6 +169,56 @@ export class AddFileRequest extends $tea.Model {
       categoryId: 'string',
       leaseId: 'string',
       parser: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFileShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
+   */
+  categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847
+   */
+  leaseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DASHSCOPE_DOCMIND
+   */
+  parser?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      leaseId: 'LeaseId',
+      parser: 'Parser',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      leaseId: 'string',
+      parser: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -4196,6 +4248,7 @@ export class DescribeFileResponseBodyData extends $tea.Model {
    * PARSE_SUCCESS
    */
   status?: string;
+  tags?: string[];
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
@@ -4206,6 +4259,7 @@ export class DescribeFileResponseBodyData extends $tea.Model {
       parser: 'Parser',
       sizeInBytes: 'SizeInBytes',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -4219,6 +4273,7 @@ export class DescribeFileResponseBodyData extends $tea.Model {
       parser: 'string',
       sizeInBytes: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4725,6 +4780,7 @@ export class ListFileResponseBodyDataFileList extends $tea.Model {
    * 200
    */
   status?: string;
+  tags?: string[];
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
@@ -4735,6 +4791,7 @@ export class ListFileResponseBodyDataFileList extends $tea.Model {
       parser: 'Parser',
       sizeInBytes: 'SizeInBytes',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -4748,6 +4805,7 @@ export class ListFileResponseBodyDataFileList extends $tea.Model {
       parser: 'string',
       sizeInBytes: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5798,13 +5856,19 @@ export default class Client extends OpenApi {
   /**
    * 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
    * 
-   * @param request - AddFileRequest
+   * @param tmpReq - AddFileRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddFileResponse
    */
-  async addFileWithOptions(WorkspaceId: string, request: AddFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddFileResponse> {
-    Util.validateModel(request);
+  async addFileWithOptions(WorkspaceId: string, tmpReq: AddFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddFileResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.categoryId)) {
       body["CategoryId"] = request.categoryId;
@@ -5816,6 +5880,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parser)) {
       body["Parser"] = request.parser;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
